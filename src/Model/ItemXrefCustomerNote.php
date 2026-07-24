@@ -17,27 +17,27 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 	const FORM_TRUE  = 'Y';
 	const FORM_FALSE = 'N';
 
-	const FORMS_LABELS = array(
+	const FORMS_LABELS = [
 		'quote'            => 'quote',
 		'pick'       => 'pick ticket',
 		'pack'       => 'pack ticket',
 		'invoice'          => 'invoice',
 		'acknowledgement'  => 'acknowledgement',
-	);
+	];
 
-	const FORMS_LABELS_SHORT = array(
+	const FORMS_LABELS_SHORT = [
 		'quote'            => 'qte',
 		'pick'       => 'pick',
 		'pack'       => 'pack',
 		'invoice'          => 'invc',
 		'acknowledgement'  => 'ack',
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'             => 'qntype',
 		'description'      => 'qntypedesc',
 		'itemid'           => 'inititemnbr',
@@ -53,7 +53,7 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 		'key2'          => 'qnkey2',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Sets Form

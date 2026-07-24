@@ -92,7 +92,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigSysQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigSysQuery object.
@@ -150,7 +150,7 @@ abstract class ConfigSysQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigSysTableMap::DATABASE_NAME);
         }
 
@@ -196,7 +196,6 @@ abstract class ConfigSysQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigSys $obj */
             $obj = new ChildConfigSys();
             $obj->hydrate($row);
             ConfigSysTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -237,7 +236,7 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -339,10 +338,8 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function filterByScfgcustid($scfgcustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($scfgcustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($scfgcustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysTableMap::COL_SCFGCUSTID, $scfgcustid, $comparison);
@@ -367,10 +364,8 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function filterByScfgedipostinv($scfgedipostinv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($scfgedipostinv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($scfgedipostinv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysTableMap::COL_SCFGEDIPOSTINV, $scfgedipostinv, $comparison);
@@ -395,10 +390,8 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function filterByScfgedishipasn($scfgedishipasn = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($scfgedishipasn)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($scfgedishipasn)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysTableMap::COL_SCFGEDISHIPASN, $scfgedishipasn, $comparison);
@@ -423,10 +416,8 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function filterByScfgbellbopicseq($scfgbellbopicseq = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($scfgbellbopicseq)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($scfgbellbopicseq)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysTableMap::COL_SCFGBELLBOPICSEQ, $scfgbellbopicseq, $comparison);
@@ -451,10 +442,8 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -479,10 +468,8 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -507,10 +494,8 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysTableMap::COL_DUMMY, $dummy, $comparison);
@@ -542,7 +527,7 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysTableMap::DATABASE_NAME);
         }
 
@@ -572,7 +557,7 @@ abstract class ConfigSysQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysTableMap::DATABASE_NAME);
         }
 

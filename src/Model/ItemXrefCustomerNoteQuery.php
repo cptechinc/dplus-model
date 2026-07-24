@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ItemXrefCustomerNoteQuery as BaseItemXrefCustomerNoteQuery;
 
 use Dplus\Model\QueryTraits;

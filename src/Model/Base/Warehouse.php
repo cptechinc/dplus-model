@@ -58,7 +58,7 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\WarehouseTableMap';
+    public const TABLE_MAP = \Map\WarehouseTableMap::class;
 
 
     /**
@@ -459,63 +459,63 @@ abstract class Warehouse implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvWhseItemBin[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseItemBin>
      */
-    protected $invWhseItemBinsScheduledForDeletion = null;
+    protected $invWhseItemBinsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildWarehouseBin[]
      * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseBin>
      */
-    protected $warehouseBinsScheduledForDeletion = null;
+    protected $warehouseBinsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvWhseLot[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseLot>
      */
-    protected $invWhseLotsScheduledForDeletion = null;
+    protected $invWhseLotsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvLotTag[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag>
      */
-    protected $invLotTagsScheduledForDeletion = null;
+    protected $invLotTagsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder>
      */
-    protected $invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion = null;
+    protected $invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder>
      */
-    protected $invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion = null;
+    protected $invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildWarehouseInventory[]
      * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseInventory>
      */
-    protected $warehouseInventoriesScheduledForDeletion = null;
+    protected $warehouseInventoriesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildWarehouseNote[]
      * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseNote>
      */
-    protected $warehouseNotesScheduledForDeletion = null;
+    protected $warehouseNotesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPoReceivingHead[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPoReceivingHead>
      */
-    protected $poReceivingHeadsScheduledForDeletion = null;
+    protected $poReceivingHeadsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -580,7 +580,7 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -638,7 +638,6 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -648,7 +647,6 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -686,8 +684,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -698,7 +694,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -740,9 +735,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -768,7 +761,7 @@ abstract class Warehouse implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -2055,13 +2048,8 @@ abstract class Warehouse implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -2086,115 +2074,115 @@ abstract class Warehouse implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : WarehouseTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : WarehouseTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsename', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsename', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsename = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsecity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsecity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsecity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsestat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsestat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsestat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsezipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsezipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsezipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsectry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsectry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsectry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseusehandheld', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseusehandheld', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseusehandheld = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsecashcust', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsecashcust', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsecashcust = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsepickdtl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsepickdtl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsepickdtl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseprodbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseprodbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseprodbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsepharea', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsepharea', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsepharea = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsephfrst3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsephfrst3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsephfrst3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsephlast4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsephlast4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsephlast4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsephext', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsephext', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsephext = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsefaxarea', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsefaxarea', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsefaxarea = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsefaxfrst3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsefaxfrst3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsefaxfrst3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsefaxlast4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsefaxlast4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsefaxlast4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseemailadr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseemailadr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseemailadr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseqcrgabin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseqcrgabin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseqcrgabin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhserfprinter1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhserfprinter2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhserfprinter3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhserfprinter4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : WarehouseTableMap::translateFieldName('Intbwhserfprinter5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhserfprinter5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseprofwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseprofwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseprofwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseasetwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseasetwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseasetwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseconsignwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseconsignwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseconsignwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsebinrangelist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsebinrangelist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsebinrangelist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsesupplywhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsesupplywhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsesupplywhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseareasplit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseareasplit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseareasplit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsercvbincode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsercvbincode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsercvbincode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsercvbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsercvbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsercvbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : WarehouseTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : WarehouseTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : WarehouseTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : WarehouseTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : WarehouseTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : WarehouseTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -2223,7 +2211,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -2236,7 +2223,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -2249,7 +2235,7 @@ abstract class Warehouse implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(WarehouseTableMap::DATABASE_NAME);
         }
 
@@ -2291,7 +2277,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see Warehouse::setDeleted()
      * @see Warehouse::isDeleted()
@@ -2302,7 +2287,7 @@ abstract class Warehouse implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseTableMap::DATABASE_NAME);
         }
 
@@ -2341,18 +2326,14 @@ abstract class Warehouse implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2376,7 +2357,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2398,13 +2378,11 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->invWhseItemBinsScheduledForDeletion !== null) {
-                if (!$this->invWhseItemBinsScheduledForDeletion->isEmpty()) {
-                    \InvWhseItemBinQuery::create()
-                        ->filterByPrimaryKeys($this->invWhseItemBinsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invWhseItemBinsScheduledForDeletion = null;
-                }
+            if ($this->invWhseItemBinsScheduledForDeletion !== null && !$this->invWhseItemBinsScheduledForDeletion->isEmpty()) {
+                \InvWhseItemBinQuery::create()
+                    ->filterByPrimaryKeys($this->invWhseItemBinsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invWhseItemBinsScheduledForDeletion = null;
             }
 
             if ($this->collInvWhseItemBins !== null) {
@@ -2415,13 +2393,11 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
-            if ($this->warehouseBinsScheduledForDeletion !== null) {
-                if (!$this->warehouseBinsScheduledForDeletion->isEmpty()) {
-                    \WarehouseBinQuery::create()
-                        ->filterByPrimaryKeys($this->warehouseBinsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->warehouseBinsScheduledForDeletion = null;
-                }
+            if ($this->warehouseBinsScheduledForDeletion !== null && !$this->warehouseBinsScheduledForDeletion->isEmpty()) {
+                \WarehouseBinQuery::create()
+                    ->filterByPrimaryKeys($this->warehouseBinsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->warehouseBinsScheduledForDeletion = null;
             }
 
             if ($this->collWarehouseBins !== null) {
@@ -2432,13 +2408,11 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invWhseLotsScheduledForDeletion !== null) {
-                if (!$this->invWhseLotsScheduledForDeletion->isEmpty()) {
-                    \InvWhseLotQuery::create()
-                        ->filterByPrimaryKeys($this->invWhseLotsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invWhseLotsScheduledForDeletion = null;
-                }
+            if ($this->invWhseLotsScheduledForDeletion !== null && !$this->invWhseLotsScheduledForDeletion->isEmpty()) {
+                \InvWhseLotQuery::create()
+                    ->filterByPrimaryKeys($this->invWhseLotsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invWhseLotsScheduledForDeletion = null;
             }
 
             if ($this->collInvWhseLots !== null) {
@@ -2449,13 +2423,11 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invLotTagsScheduledForDeletion !== null) {
-                if (!$this->invLotTagsScheduledForDeletion->isEmpty()) {
-                    \InvLotTagQuery::create()
-                        ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invLotTagsScheduledForDeletion = null;
-                }
+            if ($this->invLotTagsScheduledForDeletion !== null && !$this->invLotTagsScheduledForDeletion->isEmpty()) {
+                \InvLotTagQuery::create()
+                    ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invLotTagsScheduledForDeletion = null;
             }
 
             if ($this->collInvLotTags !== null) {
@@ -2466,13 +2438,11 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion !== null) {
-                if (!$this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->isEmpty()) {
-                    \InvTransferOrderQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion = null;
-                }
+            if ($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion !== null && !$this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->isEmpty()) {
+                \InvTransferOrderQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferOrdersRelatedByIntbwhsefrom !== null) {
@@ -2483,13 +2453,11 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion !== null) {
-                if (!$this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->isEmpty()) {
-                    \InvTransferOrderQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion = null;
-                }
+            if ($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion !== null && !$this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->isEmpty()) {
+                \InvTransferOrderQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferOrdersRelatedByIntbwhseto !== null) {
@@ -2500,13 +2468,11 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
-            if ($this->warehouseInventoriesScheduledForDeletion !== null) {
-                if (!$this->warehouseInventoriesScheduledForDeletion->isEmpty()) {
-                    \WarehouseInventoryQuery::create()
-                        ->filterByPrimaryKeys($this->warehouseInventoriesScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->warehouseInventoriesScheduledForDeletion = null;
-                }
+            if ($this->warehouseInventoriesScheduledForDeletion !== null && !$this->warehouseInventoriesScheduledForDeletion->isEmpty()) {
+                \WarehouseInventoryQuery::create()
+                    ->filterByPrimaryKeys($this->warehouseInventoriesScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->warehouseInventoriesScheduledForDeletion = null;
             }
 
             if ($this->collWarehouseInventories !== null) {
@@ -2517,14 +2483,12 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
-            if ($this->warehouseNotesScheduledForDeletion !== null) {
-                if (!$this->warehouseNotesScheduledForDeletion->isEmpty()) {
-                    foreach ($this->warehouseNotesScheduledForDeletion as $warehouseNote) {
-                        // need to save related object because we set the relation to null
-                        $warehouseNote->save($con);
-                    }
-                    $this->warehouseNotesScheduledForDeletion = null;
+            if ($this->warehouseNotesScheduledForDeletion !== null && !$this->warehouseNotesScheduledForDeletion->isEmpty()) {
+                foreach ($this->warehouseNotesScheduledForDeletion as $warehouseNote) {
+                    // need to save related object because we set the relation to null
+                    $warehouseNote->save($con);
                 }
+                $this->warehouseNotesScheduledForDeletion = null;
             }
 
             if ($this->collWarehouseNotes !== null) {
@@ -2535,13 +2499,11 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
-            if ($this->poReceivingHeadsScheduledForDeletion !== null) {
-                if (!$this->poReceivingHeadsScheduledForDeletion->isEmpty()) {
-                    \PoReceivingHeadQuery::create()
-                        ->filterByPrimaryKeys($this->poReceivingHeadsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->poReceivingHeadsScheduledForDeletion = null;
-                }
+            if ($this->poReceivingHeadsScheduledForDeletion !== null && !$this->poReceivingHeadsScheduledForDeletion->isEmpty()) {
+                \PoReceivingHeadQuery::create()
+                    ->filterByPrimaryKeys($this->poReceivingHeadsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->poReceivingHeadsScheduledForDeletion = null;
             }
 
             if ($this->collPoReceivingHeads !== null) {
@@ -2562,7 +2524,6 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2858,7 +2819,6 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2884,9 +2844,8 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = WarehouseTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -3225,7 +3184,6 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3692,7 +3650,7 @@ abstract class Warehouse implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -3712,7 +3670,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Generic method to set the primary key (intbwhse column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -3721,8 +3678,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3739,7 +3694,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3876,7 +3830,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -3936,8 +3889,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Reset is the collInvWhseItemBins collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvWhseItemBins($v = true): void
     {
@@ -3953,8 +3904,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvWhseItemBins(bool $overrideExisting = true): void
     {
@@ -3986,7 +3935,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getInvWhseItemBins(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
-        if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
+        if (null === $this->collInvWhseItemBins || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvWhseItemBins) {
@@ -4004,7 +3953,7 @@ abstract class Warehouse implements ActiveRecordInterface
                     ->filterByWarehouse($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvWhseItemBinsPartial && count($collInvWhseItemBins)) {
                         $this->initInvWhseItemBins(false);
 
@@ -4058,7 +4007,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->invWhseItemBinsScheduledForDeletion = clone $invWhseItemBinsToDelete;
 
         foreach ($invWhseItemBinsToDelete as $invWhseItemBinRemoved) {
-            $invWhseItemBinRemoved->setWarehouse(null);
+            $invWhseItemBinRemoved->setWarehouse();
         }
 
         $this->collInvWhseItemBins = null;
@@ -4076,7 +4025,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Returns the number of related InvWhseItemBin objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvWhseItemBin objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4084,7 +4032,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function countInvWhseItemBins(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
-        if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
+        if (null === $this->collInvWhseItemBins || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvWhseItemBins) {
                 return 0;
             }
@@ -4123,7 +4071,7 @@ abstract class Warehouse implements ActiveRecordInterface
         if (!$this->collInvWhseItemBins->contains($l)) {
             $this->doAddInvWhseItemBin($l);
 
-            if ($this->invWhseItemBinsScheduledForDeletion and $this->invWhseItemBinsScheduledForDeletion->contains($l)) {
+            if ($this->invWhseItemBinsScheduledForDeletion && $this->invWhseItemBinsScheduledForDeletion->contains($l)) {
                 $this->invWhseItemBinsScheduledForDeletion->remove($this->invWhseItemBinsScheduledForDeletion->search($l));
             }
         }
@@ -4154,7 +4102,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->invWhseItemBinsScheduledForDeletion->clear();
             }
             $this->invWhseItemBinsScheduledForDeletion[]= clone $invWhseItemBin;
-            $invWhseItemBin->setWarehouse(null);
+            $invWhseItemBin->setWarehouse();
         }
 
         return $this;
@@ -4230,8 +4178,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Reset is the collWarehouseBins collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialWarehouseBins($v = true): void
     {
@@ -4247,8 +4193,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initWarehouseBins(bool $overrideExisting = true): void
     {
@@ -4280,7 +4224,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getWarehouseBins(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collWarehouseBinsPartial && !$this->isNew();
-        if (null === $this->collWarehouseBins || null !== $criteria || $partial) {
+        if (null === $this->collWarehouseBins || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collWarehouseBins) {
@@ -4298,7 +4242,7 @@ abstract class Warehouse implements ActiveRecordInterface
                     ->filterByWarehouse($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collWarehouseBinsPartial && count($collWarehouseBins)) {
                         $this->initWarehouseBins(false);
 
@@ -4352,7 +4296,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->warehouseBinsScheduledForDeletion = clone $warehouseBinsToDelete;
 
         foreach ($warehouseBinsToDelete as $warehouseBinRemoved) {
-            $warehouseBinRemoved->setWarehouse(null);
+            $warehouseBinRemoved->setWarehouse();
         }
 
         $this->collWarehouseBins = null;
@@ -4370,7 +4314,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Returns the number of related WarehouseBin objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related WarehouseBin objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4378,7 +4321,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function countWarehouseBins(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collWarehouseBinsPartial && !$this->isNew();
-        if (null === $this->collWarehouseBins || null !== $criteria || $partial) {
+        if (null === $this->collWarehouseBins || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collWarehouseBins) {
                 return 0;
             }
@@ -4417,7 +4360,7 @@ abstract class Warehouse implements ActiveRecordInterface
         if (!$this->collWarehouseBins->contains($l)) {
             $this->doAddWarehouseBin($l);
 
-            if ($this->warehouseBinsScheduledForDeletion and $this->warehouseBinsScheduledForDeletion->contains($l)) {
+            if ($this->warehouseBinsScheduledForDeletion && $this->warehouseBinsScheduledForDeletion->contains($l)) {
                 $this->warehouseBinsScheduledForDeletion->remove($this->warehouseBinsScheduledForDeletion->search($l));
             }
         }
@@ -4448,7 +4391,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->warehouseBinsScheduledForDeletion->clear();
             }
             $this->warehouseBinsScheduledForDeletion[]= clone $warehouseBin;
-            $warehouseBin->setWarehouse(null);
+            $warehouseBin->setWarehouse();
         }
 
         return $this;
@@ -4498,8 +4441,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Reset is the collInvWhseLots collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvWhseLots($v = true): void
     {
@@ -4515,8 +4456,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvWhseLots(bool $overrideExisting = true): void
     {
@@ -4548,7 +4487,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getInvWhseLots(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvWhseLotsPartial && !$this->isNew();
-        if (null === $this->collInvWhseLots || null !== $criteria || $partial) {
+        if (null === $this->collInvWhseLots || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvWhseLots) {
@@ -4566,7 +4505,7 @@ abstract class Warehouse implements ActiveRecordInterface
                     ->filterByWarehouse($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvWhseLotsPartial && count($collInvWhseLots)) {
                         $this->initInvWhseLots(false);
 
@@ -4620,7 +4559,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->invWhseLotsScheduledForDeletion = clone $invWhseLotsToDelete;
 
         foreach ($invWhseLotsToDelete as $invWhseLotRemoved) {
-            $invWhseLotRemoved->setWarehouse(null);
+            $invWhseLotRemoved->setWarehouse();
         }
 
         $this->collInvWhseLots = null;
@@ -4638,7 +4577,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Returns the number of related InvWhseLot objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvWhseLot objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4646,7 +4584,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function countInvWhseLots(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvWhseLotsPartial && !$this->isNew();
-        if (null === $this->collInvWhseLots || null !== $criteria || $partial) {
+        if (null === $this->collInvWhseLots || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvWhseLots) {
                 return 0;
             }
@@ -4685,7 +4623,7 @@ abstract class Warehouse implements ActiveRecordInterface
         if (!$this->collInvWhseLots->contains($l)) {
             $this->doAddInvWhseLot($l);
 
-            if ($this->invWhseLotsScheduledForDeletion and $this->invWhseLotsScheduledForDeletion->contains($l)) {
+            if ($this->invWhseLotsScheduledForDeletion && $this->invWhseLotsScheduledForDeletion->contains($l)) {
                 $this->invWhseLotsScheduledForDeletion->remove($this->invWhseLotsScheduledForDeletion->search($l));
             }
         }
@@ -4716,7 +4654,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->invWhseLotsScheduledForDeletion->clear();
             }
             $this->invWhseLotsScheduledForDeletion[]= clone $invWhseLot;
-            $invWhseLot->setWarehouse(null);
+            $invWhseLot->setWarehouse();
         }
 
         return $this;
@@ -4792,8 +4730,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Reset is the collInvLotTags collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvLotTags($v = true): void
     {
@@ -4809,8 +4745,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvLotTags(bool $overrideExisting = true): void
     {
@@ -4842,7 +4776,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getInvLotTags(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+        if (null === $this->collInvLotTags || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvLotTags) {
@@ -4860,7 +4794,7 @@ abstract class Warehouse implements ActiveRecordInterface
                     ->filterByWarehouse($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvLotTagsPartial && count($collInvLotTags)) {
                         $this->initInvLotTags(false);
 
@@ -4914,7 +4848,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->invLotTagsScheduledForDeletion = clone $invLotTagsToDelete;
 
         foreach ($invLotTagsToDelete as $invLotTagRemoved) {
-            $invLotTagRemoved->setWarehouse(null);
+            $invLotTagRemoved->setWarehouse();
         }
 
         $this->collInvLotTags = null;
@@ -4932,7 +4866,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Returns the number of related InvLotTag objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvLotTag objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4940,7 +4873,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function countInvLotTags(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+        if (null === $this->collInvLotTags || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvLotTags) {
                 return 0;
             }
@@ -4979,7 +4912,7 @@ abstract class Warehouse implements ActiveRecordInterface
         if (!$this->collInvLotTags->contains($l)) {
             $this->doAddInvLotTag($l);
 
-            if ($this->invLotTagsScheduledForDeletion and $this->invLotTagsScheduledForDeletion->contains($l)) {
+            if ($this->invLotTagsScheduledForDeletion && $this->invLotTagsScheduledForDeletion->contains($l)) {
                 $this->invLotTagsScheduledForDeletion->remove($this->invLotTagsScheduledForDeletion->search($l));
             }
         }
@@ -5010,7 +4943,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->invLotTagsScheduledForDeletion->clear();
             }
             $this->invLotTagsScheduledForDeletion[]= clone $invLotTag;
-            $invLotTag->setWarehouse(null);
+            $invLotTag->setWarehouse();
         }
 
         return $this;
@@ -5138,8 +5071,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferOrdersRelatedByIntbwhsefrom collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferOrdersRelatedByIntbwhsefrom($v = true): void
     {
@@ -5155,8 +5086,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferOrdersRelatedByIntbwhsefrom(bool $overrideExisting = true): void
     {
@@ -5188,7 +5117,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getInvTransferOrdersRelatedByIntbwhsefrom(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferOrdersRelatedByIntbwhsefromPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom) {
@@ -5206,7 +5135,7 @@ abstract class Warehouse implements ActiveRecordInterface
                     ->filterByWarehouseRelatedByIntbwhsefrom($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferOrdersRelatedByIntbwhsefromPartial && count($collInvTransferOrdersRelatedByIntbwhsefrom)) {
                         $this->initInvTransferOrdersRelatedByIntbwhsefrom(false);
 
@@ -5257,7 +5186,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion = $invTransferOrdersRelatedByIntbwhsefromToDelete;
 
         foreach ($invTransferOrdersRelatedByIntbwhsefromToDelete as $invTransferOrderRelatedByIntbwhsefromRemoved) {
-            $invTransferOrderRelatedByIntbwhsefromRemoved->setWarehouseRelatedByIntbwhsefrom(null);
+            $invTransferOrderRelatedByIntbwhsefromRemoved->setWarehouseRelatedByIntbwhsefrom();
         }
 
         $this->collInvTransferOrdersRelatedByIntbwhsefrom = null;
@@ -5275,7 +5204,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Returns the number of related InvTransferOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -5283,7 +5211,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function countInvTransferOrdersRelatedByIntbwhsefrom(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferOrdersRelatedByIntbwhsefromPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferOrdersRelatedByIntbwhsefrom) {
                 return 0;
             }
@@ -5322,7 +5250,7 @@ abstract class Warehouse implements ActiveRecordInterface
         if (!$this->collInvTransferOrdersRelatedByIntbwhsefrom->contains($l)) {
             $this->doAddInvTransferOrderRelatedByIntbwhsefrom($l);
 
-            if ($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion and $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->contains($l)) {
+            if ($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion && $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->contains($l)) {
                 $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->remove($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->search($l));
             }
         }
@@ -5353,7 +5281,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->clear();
             }
             $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion[]= clone $invTransferOrderRelatedByIntbwhsefrom;
-            $invTransferOrderRelatedByIntbwhsefrom->setWarehouseRelatedByIntbwhsefrom(null);
+            $invTransferOrderRelatedByIntbwhsefrom->setWarehouseRelatedByIntbwhsefrom();
         }
 
         return $this;
@@ -5455,8 +5383,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferOrdersRelatedByIntbwhseto collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferOrdersRelatedByIntbwhseto($v = true): void
     {
@@ -5472,8 +5398,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferOrdersRelatedByIntbwhseto(bool $overrideExisting = true): void
     {
@@ -5505,7 +5429,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getInvTransferOrdersRelatedByIntbwhseto(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferOrdersRelatedByIntbwhsetoPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrdersRelatedByIntbwhseto || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhseto || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferOrdersRelatedByIntbwhseto) {
@@ -5523,7 +5447,7 @@ abstract class Warehouse implements ActiveRecordInterface
                     ->filterByWarehouseRelatedByIntbwhseto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferOrdersRelatedByIntbwhsetoPartial && count($collInvTransferOrdersRelatedByIntbwhseto)) {
                         $this->initInvTransferOrdersRelatedByIntbwhseto(false);
 
@@ -5574,7 +5498,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion = $invTransferOrdersRelatedByIntbwhsetoToDelete;
 
         foreach ($invTransferOrdersRelatedByIntbwhsetoToDelete as $invTransferOrderRelatedByIntbwhsetoRemoved) {
-            $invTransferOrderRelatedByIntbwhsetoRemoved->setWarehouseRelatedByIntbwhseto(null);
+            $invTransferOrderRelatedByIntbwhsetoRemoved->setWarehouseRelatedByIntbwhseto();
         }
 
         $this->collInvTransferOrdersRelatedByIntbwhseto = null;
@@ -5592,7 +5516,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Returns the number of related InvTransferOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -5600,7 +5523,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function countInvTransferOrdersRelatedByIntbwhseto(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferOrdersRelatedByIntbwhsetoPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrdersRelatedByIntbwhseto || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhseto || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferOrdersRelatedByIntbwhseto) {
                 return 0;
             }
@@ -5639,7 +5562,7 @@ abstract class Warehouse implements ActiveRecordInterface
         if (!$this->collInvTransferOrdersRelatedByIntbwhseto->contains($l)) {
             $this->doAddInvTransferOrderRelatedByIntbwhseto($l);
 
-            if ($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion and $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->contains($l)) {
+            if ($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion && $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->contains($l)) {
                 $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->remove($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->search($l));
             }
         }
@@ -5670,7 +5593,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->clear();
             }
             $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion[]= clone $invTransferOrderRelatedByIntbwhseto;
-            $invTransferOrderRelatedByIntbwhseto->setWarehouseRelatedByIntbwhseto(null);
+            $invTransferOrderRelatedByIntbwhseto->setWarehouseRelatedByIntbwhseto();
         }
 
         return $this;
@@ -5772,8 +5695,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Reset is the collWarehouseInventories collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialWarehouseInventories($v = true): void
     {
@@ -5789,8 +5710,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initWarehouseInventories(bool $overrideExisting = true): void
     {
@@ -5822,7 +5741,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getWarehouseInventories(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
-        if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
+        if (null === $this->collWarehouseInventories || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collWarehouseInventories) {
@@ -5840,7 +5759,7 @@ abstract class Warehouse implements ActiveRecordInterface
                     ->filterByWarehouse($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collWarehouseInventoriesPartial && count($collWarehouseInventories)) {
                         $this->initWarehouseInventories(false);
 
@@ -5894,7 +5813,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->warehouseInventoriesScheduledForDeletion = clone $warehouseInventoriesToDelete;
 
         foreach ($warehouseInventoriesToDelete as $warehouseInventoryRemoved) {
-            $warehouseInventoryRemoved->setWarehouse(null);
+            $warehouseInventoryRemoved->setWarehouse();
         }
 
         $this->collWarehouseInventories = null;
@@ -5912,7 +5831,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Returns the number of related WarehouseInventory objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related WarehouseInventory objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -5920,7 +5838,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function countWarehouseInventories(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
-        if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
+        if (null === $this->collWarehouseInventories || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collWarehouseInventories) {
                 return 0;
             }
@@ -5959,7 +5877,7 @@ abstract class Warehouse implements ActiveRecordInterface
         if (!$this->collWarehouseInventories->contains($l)) {
             $this->doAddWarehouseInventory($l);
 
-            if ($this->warehouseInventoriesScheduledForDeletion and $this->warehouseInventoriesScheduledForDeletion->contains($l)) {
+            if ($this->warehouseInventoriesScheduledForDeletion && $this->warehouseInventoriesScheduledForDeletion->contains($l)) {
                 $this->warehouseInventoriesScheduledForDeletion->remove($this->warehouseInventoriesScheduledForDeletion->search($l));
             }
         }
@@ -5990,7 +5908,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->warehouseInventoriesScheduledForDeletion->clear();
             }
             $this->warehouseInventoriesScheduledForDeletion[]= clone $warehouseInventory;
-            $warehouseInventory->setWarehouse(null);
+            $warehouseInventory->setWarehouse();
         }
 
         return $this;
@@ -6040,8 +5958,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Reset is the collWarehouseNotes collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialWarehouseNotes($v = true): void
     {
@@ -6057,8 +5973,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initWarehouseNotes(bool $overrideExisting = true): void
     {
@@ -6090,7 +6004,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getWarehouseNotes(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collWarehouseNotesPartial && !$this->isNew();
-        if (null === $this->collWarehouseNotes || null !== $criteria || $partial) {
+        if (null === $this->collWarehouseNotes || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collWarehouseNotes) {
@@ -6108,7 +6022,7 @@ abstract class Warehouse implements ActiveRecordInterface
                     ->filterByWarehouse($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collWarehouseNotesPartial && count($collWarehouseNotes)) {
                         $this->initWarehouseNotes(false);
 
@@ -6159,7 +6073,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->warehouseNotesScheduledForDeletion = $warehouseNotesToDelete;
 
         foreach ($warehouseNotesToDelete as $warehouseNoteRemoved) {
-            $warehouseNoteRemoved->setWarehouse(null);
+            $warehouseNoteRemoved->setWarehouse();
         }
 
         $this->collWarehouseNotes = null;
@@ -6177,7 +6091,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Returns the number of related WarehouseNote objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related WarehouseNote objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -6185,7 +6098,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function countWarehouseNotes(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collWarehouseNotesPartial && !$this->isNew();
-        if (null === $this->collWarehouseNotes || null !== $criteria || $partial) {
+        if (null === $this->collWarehouseNotes || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collWarehouseNotes) {
                 return 0;
             }
@@ -6224,7 +6137,7 @@ abstract class Warehouse implements ActiveRecordInterface
         if (!$this->collWarehouseNotes->contains($l)) {
             $this->doAddWarehouseNote($l);
 
-            if ($this->warehouseNotesScheduledForDeletion and $this->warehouseNotesScheduledForDeletion->contains($l)) {
+            if ($this->warehouseNotesScheduledForDeletion && $this->warehouseNotesScheduledForDeletion->contains($l)) {
                 $this->warehouseNotesScheduledForDeletion->remove($this->warehouseNotesScheduledForDeletion->search($l));
             }
         }
@@ -6255,7 +6168,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->warehouseNotesScheduledForDeletion->clear();
             }
             $this->warehouseNotesScheduledForDeletion[]= $warehouseNote;
-            $warehouseNote->setWarehouse(null);
+            $warehouseNote->setWarehouse();
         }
 
         return $this;
@@ -6279,8 +6192,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Reset is the collPoReceivingHeads collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPoReceivingHeads($v = true): void
     {
@@ -6296,8 +6207,6 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPoReceivingHeads(bool $overrideExisting = true): void
     {
@@ -6329,7 +6238,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getPoReceivingHeads(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPoReceivingHeadsPartial && !$this->isNew();
-        if (null === $this->collPoReceivingHeads || null !== $criteria || $partial) {
+        if (null === $this->collPoReceivingHeads || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPoReceivingHeads) {
@@ -6347,7 +6256,7 @@ abstract class Warehouse implements ActiveRecordInterface
                     ->filterByWarehouse($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPoReceivingHeadsPartial && count($collPoReceivingHeads)) {
                         $this->initPoReceivingHeads(false);
 
@@ -6398,7 +6307,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->poReceivingHeadsScheduledForDeletion = $poReceivingHeadsToDelete;
 
         foreach ($poReceivingHeadsToDelete as $poReceivingHeadRemoved) {
-            $poReceivingHeadRemoved->setWarehouse(null);
+            $poReceivingHeadRemoved->setWarehouse();
         }
 
         $this->collPoReceivingHeads = null;
@@ -6416,7 +6325,6 @@ abstract class Warehouse implements ActiveRecordInterface
      * Returns the number of related PoReceivingHead objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PoReceivingHead objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -6424,7 +6332,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function countPoReceivingHeads(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPoReceivingHeadsPartial && !$this->isNew();
-        if (null === $this->collPoReceivingHeads || null !== $criteria || $partial) {
+        if (null === $this->collPoReceivingHeads || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPoReceivingHeads) {
                 return 0;
             }
@@ -6463,7 +6371,7 @@ abstract class Warehouse implements ActiveRecordInterface
         if (!$this->collPoReceivingHeads->contains($l)) {
             $this->doAddPoReceivingHead($l);
 
-            if ($this->poReceivingHeadsScheduledForDeletion and $this->poReceivingHeadsScheduledForDeletion->contains($l)) {
+            if ($this->poReceivingHeadsScheduledForDeletion && $this->poReceivingHeadsScheduledForDeletion->contains($l)) {
                 $this->poReceivingHeadsScheduledForDeletion->remove($this->poReceivingHeadsScheduledForDeletion->search($l));
             }
         }
@@ -6494,7 +6402,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->poReceivingHeadsScheduledForDeletion->clear();
             }
             $this->poReceivingHeadsScheduledForDeletion[]= clone $poReceivingHead;
-            $poReceivingHead->setWarehouse(null);
+            $poReceivingHead->setWarehouse();
         }
 
         return $this;
@@ -6660,13 +6568,11 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(WarehouseTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(WarehouseTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -6675,8 +6581,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -6684,8 +6588,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -6694,8 +6596,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -6703,8 +6603,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -6713,8 +6611,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -6722,8 +6618,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -6732,8 +6626,6 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -6753,7 +6645,7 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -6765,7 +6657,7 @@ abstract class Warehouse implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -6773,7 +6665,7 @@ abstract class Warehouse implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

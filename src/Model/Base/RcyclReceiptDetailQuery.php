@@ -166,7 +166,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class RcyclReceiptDetailQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\RcyclReceiptDetailQuery object.
@@ -224,7 +224,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(RcyclReceiptDetailTableMap::DATABASE_NAME);
         }
 
@@ -273,7 +273,6 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildRcyclReceiptDetail $obj */
             $obj = new ChildRcyclReceiptDetail();
             $obj->hydrate($row);
             RcyclReceiptDetailTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -314,7 +313,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -388,10 +387,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByRcyhdrcptbulk($rcyhdrcptbulk = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($rcyhdrcptbulk)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($rcyhdrcptbulk)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_RCYHDRCPTBULK, $rcyhdrcptbulk, $comparison);
@@ -504,10 +501,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -532,10 +527,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByIntbuomsale($intbuomsale = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuomsale)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuomsale)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
@@ -603,10 +596,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByRcydtstatus($rcydtstatus = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($rcydtstatus)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($rcydtstatus)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_RCYDTSTATUS, $rcydtstatus, $comparison);
@@ -631,10 +622,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByRcydtclosedby($rcydtclosedby = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($rcydtclosedby)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($rcydtclosedby)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_RCYDTCLOSEDBY, $rcydtclosedby, $comparison);
@@ -659,10 +648,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByRcydtcloseddate($rcydtcloseddate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($rcydtcloseddate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($rcydtcloseddate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_RCYDTCLOSEDDATE, $rcydtcloseddate, $comparison);
@@ -687,10 +674,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByRcydtclosedtime($rcydtclosedtime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($rcydtclosedtime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($rcydtclosedtime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_RCYDTCLOSEDTIME, $rcydtclosedtime, $comparison);
@@ -715,10 +700,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -743,10 +726,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -771,10 +752,8 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclReceiptDetailTableMap::COL_DUMMY, $dummy, $comparison);
@@ -820,7 +799,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -850,7 +829,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
     {
         return $this
             ->joinRcyclReceipt($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'RcyclReceipt', '\RcyclReceiptQuery');
+            ->useQuery($relationAlias ?: 'RcyclReceipt', '\RcyclReceiptQuery');
     }
 
     /**
@@ -995,7 +974,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1025,7 +1004,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1170,7 +1149,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1200,7 +1179,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
     {
         return $this
             ->joinUnitofMeasureSale($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'UnitofMeasureSale', '\UnitofMeasureSaleQuery');
+            ->useQuery($relationAlias ?: 'UnitofMeasureSale', '\UnitofMeasureSaleQuery');
     }
 
     /**
@@ -1339,7 +1318,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1369,7 +1348,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
     {
         return $this
             ->joinRcyclReceiptLot($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'RcyclReceiptLot', '\RcyclReceiptLotQuery');
+            ->useQuery($relationAlias ?: 'RcyclReceiptLot', '\RcyclReceiptLotQuery');
     }
 
     /**
@@ -1482,7 +1461,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(RcyclReceiptDetailTableMap::COL_RCYHDCNTRLNBR), $rcyclReceiptDetail->getRcyhdcntrlnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(RcyclReceiptDetailTableMap::COL_RCYDTRCPTLINE), $rcyclReceiptDetail->getRcydtrcptline(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(RcyclReceiptDetailTableMap::COL_INITITEMNBR), $rcyclReceiptDetail->getInititemnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1496,7 +1475,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclReceiptDetailTableMap::DATABASE_NAME);
         }
 
@@ -1526,7 +1505,7 @@ abstract class RcyclReceiptDetailQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclReceiptDetailTableMap::DATABASE_NAME);
         }
 

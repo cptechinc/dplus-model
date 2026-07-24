@@ -448,7 +448,6 @@ class InvTransferPickedLotserialTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -494,61 +493,59 @@ class InvTransferPickedLotserialTableMap extends TableMap
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InhdNbr',
     1 => ':InhdNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvTransferDetail', '\\InvTransferDetail', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvTransferDetail', '\\InvTransferDetail', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InhdNbr',
     1 => ':InhdNbr',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':IndtLine',
     1 => ':IndtLine',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvLotMaster', '\\InvLotMaster', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvLotMaster', '\\InvLotMaster', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':InpdLotSer',
     1 => ':LotmLotNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvSerialMaster', '\\InvSerialMaster', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvSerialMaster', '\\InvSerialMaster', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':InpdLotSer',
     1 => ':SermSerNbr',
-  ),
-), null, null, null, false);
+  ],
+], null, null, null, false);
     }
 
     /**
@@ -561,8 +558,6 @@ class InvTransferPickedLotserialTableMap extends TableMap
      *
      * @param \InvTransferPickedLotserial $obj A \InvTransferPickedLotserial object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(InvTransferPickedLotserial $obj, ?string $key = null): void
     {
@@ -583,13 +578,11 @@ class InvTransferPickedLotserialTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvTransferPickedLotserial object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \InvTransferPickedLotserial) {
+            if ($value instanceof \InvTransferPickedLotserial) {
                 $key = serialize([(null === $value->getInhdnbr() || is_scalar($value->getInhdnbr()) || is_callable([$value->getInhdnbr(), '__toString']) ? (string) $value->getInhdnbr() : $value->getInhdnbr()), (null === $value->getIndtline() || is_scalar($value->getIndtline()) || is_callable([$value->getIndtline(), '__toString']) ? (string) $value->getIndtline() : $value->getIndtline()), (null === $value->getInititemnbr() || is_scalar($value->getInititemnbr()) || is_callable([$value->getInititemnbr(), '__toString']) ? (string) $value->getInititemnbr() : $value->getInititemnbr()), (null === $value->getInpdlotser() || is_scalar($value->getInpdlotser()) || is_callable([$value->getInpdlotser(), '__toString']) ? (string) $value->getInpdlotser() : $value->getInpdlotser()), (null === $value->getInpdbin() || is_scalar($value->getInpdbin()) || is_callable([$value->getInpdbin(), '__toString']) ? (string) $value->getInpdbin() : $value->getInpdbin()), (null === $value->getInpdplltnbr() || is_scalar($value->getInpdplltnbr()) || is_callable([$value->getInpdplltnbr(), '__toString']) ? (string) $value->getInpdplltnbr() : $value->getInpdplltnbr()), (null === $value->getInpdcrtnnbr() || is_scalar($value->getInpdcrtnnbr()) || is_callable([$value->getInpdcrtnnbr(), '__toString']) ? (string) $value->getInpdcrtnnbr() : $value->getInpdcrtnnbr())]);
 
             } elseif (is_array($value) && count($value) === 7) {
@@ -624,11 +617,11 @@ class InvTransferPickedLotserialTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 5 + $offset : static::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 6 + $offset : static::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -645,45 +638,35 @@ class InvTransferPickedLotserialTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(int) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (int) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 1 + $offset
                 : self::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 2 + $offset
                 : self::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 3 + $offset
                 : self::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 4 + $offset
                 : self::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (int) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 5 + $offset
                 : self::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (int) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 6 + $offset
                 : self::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -738,7 +721,6 @@ class InvTransferPickedLotserialTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -779,7 +761,6 @@ class InvTransferPickedLotserialTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -848,7 +829,6 @@ class InvTransferPickedLotserialTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -910,7 +890,6 @@ class InvTransferPickedLotserialTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -932,7 +911,7 @@ class InvTransferPickedLotserialTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferPickedLotserialTableMap::DATABASE_NAME);
         }
 
@@ -946,7 +925,7 @@ class InvTransferPickedLotserialTableMap extends TableMap
             $criteria = new Criteria(InvTransferPickedLotserialTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -997,7 +976,7 @@ class InvTransferPickedLotserialTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferPickedLotserialTableMap::DATABASE_NAME);
         }
 
@@ -1013,9 +992,7 @@ class InvTransferPickedLotserialTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

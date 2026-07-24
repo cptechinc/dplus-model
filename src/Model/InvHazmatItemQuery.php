@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvHazmatItemQuery as BaseInvHazmatItemQuery;
 
 use Dplus\Model\QueryTraits;

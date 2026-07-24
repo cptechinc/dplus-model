@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArShiptoUserCodeQuery as BaseArShiptoUserCodeQuery;
 
 use Dplus\Model\QueryTraits;

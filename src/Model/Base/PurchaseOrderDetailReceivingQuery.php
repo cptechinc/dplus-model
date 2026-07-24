@@ -320,7 +320,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\PurchaseOrderDetailReceivingQuery object.
@@ -378,7 +378,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(PurchaseOrderDetailReceivingTableMap::DATABASE_NAME);
         }
 
@@ -426,7 +426,6 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildPurchaseOrderDetailReceiving $obj */
             $obj = new ChildPurchaseOrderDetailReceiving();
             $obj->hydrate($row);
             PurchaseOrderDetailReceivingTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
@@ -467,7 +466,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -675,10 +674,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -703,10 +700,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotddesc1($potddesc1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potddesc1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potddesc1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDDESC1, $potddesc1, $comparison);
@@ -731,10 +726,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotddesc2($potddesc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potddesc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potddesc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDDESC2, $potddesc2, $comparison);
@@ -759,10 +752,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdvenditemnbr($potdvenditemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdvenditemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdvenditemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDVENDITEMNBR, $potdvenditemnbr, $comparison);
@@ -787,10 +778,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByIntbuompur($intbuompur = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuompur)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuompur)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
@@ -815,10 +804,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdref($potdref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDREF, $potdref, $comparison);
@@ -1015,10 +1002,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdglacct($potdglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDGLACCT, $potdglacct, $comparison);
@@ -1043,10 +1028,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdclos($potdclos = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdclos)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdclos)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDCLOS, $potdclos, $comparison);
@@ -1114,10 +1097,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdtype($potdtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDTYPE, $potdtype, $comparison);
@@ -1228,10 +1209,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdspecordr($potdspecordr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdspecordr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdspecordr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDSPECORDR, $potdspecordr, $comparison);
@@ -1342,10 +1321,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdbin($potdbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDBIN, $potdbin, $comparison);
@@ -1370,10 +1347,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdfabreturnscrap($potdfabreturnscrap = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdfabreturnscrap)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdfabreturnscrap)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDFABRETURNSCRAP, $potdfabreturnscrap, $comparison);
@@ -1398,10 +1373,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdrfbatch($potdrfbatch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdrfbatch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdrfbatch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDRFBATCH, $potdrfbatch, $comparison);
@@ -1426,10 +1399,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByPotdrevision($potdrevision = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potdrevision)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potdrevision)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDREVISION, $potdrevision, $comparison);
@@ -1798,10 +1769,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1826,10 +1795,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1854,10 +1821,8 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1911,7 +1876,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1941,7 +1906,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrder', '\PurchaseOrderQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrder', '\PurchaseOrderQuery');
     }
 
     /**
@@ -2086,7 +2051,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2116,7 +2081,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
     {
         return $this
             ->joinPoReceivingHead($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PoReceivingHead', '\PoReceivingHeadQuery');
+            ->useQuery($relationAlias ?: 'PoReceivingHead', '\PoReceivingHeadQuery');
     }
 
     /**
@@ -2253,7 +2218,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2283,7 +2248,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrderDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetail', '\PurchaseOrderDetailQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrderDetail', '\PurchaseOrderDetailQuery');
     }
 
     /**
@@ -2428,7 +2393,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2458,7 +2423,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -2603,7 +2568,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2633,7 +2598,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
     {
         return $this
             ->joinUnitofMeasureSale($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'UnitofMeasureSale', '\UnitofMeasureSaleQuery');
+            ->useQuery($relationAlias ?: 'UnitofMeasureSale', '\UnitofMeasureSaleQuery');
     }
 
     /**
@@ -2745,7 +2710,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
             $this->addCond('pruneCond0', $this->getAliasedColName(PurchaseOrderDetailReceivingTableMap::COL_POTHNBR), $purchaseOrderDetailReceiving->getPothnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(PurchaseOrderDetailReceivingTableMap::COL_POTDLINE), $purchaseOrderDetailReceiving->getPotdline(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(PurchaseOrderDetailReceivingTableMap::COL_POTDSEQ), $purchaseOrderDetailReceiving->getPotdseq(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2759,7 +2724,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailReceivingTableMap::DATABASE_NAME);
         }
 
@@ -2789,7 +2754,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailReceivingTableMap::DATABASE_NAME);
         }
 

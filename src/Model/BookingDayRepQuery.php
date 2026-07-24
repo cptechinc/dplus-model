@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\BookingDayRepQuery as BaseBookingDayRepQuery;
 
 use Dplus\Model\QueryTraits;

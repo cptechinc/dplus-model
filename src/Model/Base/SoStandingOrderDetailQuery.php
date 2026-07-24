@@ -192,7 +192,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class SoStandingOrderDetailQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\SoStandingOrderDetailQuery object.
@@ -250,7 +250,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SoStandingOrderDetailTableMap::DATABASE_NAME);
         }
 
@@ -299,7 +299,6 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildSoStandingOrderDetail $obj */
             $obj = new ChildSoStandingOrderDetail();
             $obj->hydrate($row);
             SoStandingOrderDetailTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -340,7 +339,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -414,10 +413,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -442,10 +439,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
@@ -470,10 +465,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -541,10 +534,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByOetddesc($oetddesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetddesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetddesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDDESC, $oetddesc, $comparison);
@@ -569,10 +560,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByOetddesc2($oetddesc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetddesc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetddesc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDDESC2, $oetddesc2, $comparison);
@@ -597,10 +586,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByOetdstat($oetdstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetdstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetdstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDSTAT, $oetdstat, $comparison);
@@ -754,10 +741,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByIntbuomsale($intbuomsale = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuomsale)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuomsale)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
@@ -782,10 +767,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByOetdcycl($oetdcycl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetdcycl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetdcycl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDCYCL, $oetdcycl, $comparison);
@@ -810,10 +793,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByOetdstrtdate($oetdstrtdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetdstrtdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetdstrtdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDSTRTDATE, $oetdstrtdate, $comparison);
@@ -838,10 +819,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByOetdenddate($oetdenddate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetdenddate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetdenddate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDENDDATE, $oetdenddate, $comparison);
@@ -866,10 +845,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByOetdlastdate($oetdlastdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetdlastdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetdlastdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDLASTDATE, $oetdlastdate, $comparison);
@@ -937,10 +914,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -965,10 +940,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -993,10 +966,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1050,7 +1021,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1080,7 +1051,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -1217,7 +1188,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1247,7 +1218,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     {
         return $this
             ->joinCustomerShipto($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CustomerShipto', '\CustomerShiptoQuery');
+            ->useQuery($relationAlias ?: 'CustomerShipto', '\CustomerShiptoQuery');
     }
 
     /**
@@ -1392,7 +1363,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1422,7 +1393,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1535,7 +1506,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(SoStandingOrderDetailTableMap::COL_ARSTSHIPID), $soStandingOrderDetail->getArstshipid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(SoStandingOrderDetailTableMap::COL_INITITEMNBR), $soStandingOrderDetail->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(SoStandingOrderDetailTableMap::COL_OETDSEQ), $soStandingOrderDetail->getOetdseq(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1549,7 +1520,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoStandingOrderDetailTableMap::DATABASE_NAME);
         }
 
@@ -1579,7 +1550,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoStandingOrderDetailTableMap::DATABASE_NAME);
         }
 

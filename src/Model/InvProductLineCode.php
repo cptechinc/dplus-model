@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvProductLineCode as BaseInvProductLineCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class InvProductLineCode extends BaseInvProductLineCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'intbplnecode',
 		'code'         => 'intbplnecode',
 		'description'  => 'intbplnedesc',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 
     /**
 	 * Return the Max Number of characters allowed for Code

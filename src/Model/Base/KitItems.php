@@ -50,14 +50,14 @@ abstract class KitItems implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the ktdtkey1 field.
@@ -167,7 +167,7 @@ abstract class KitItems implements ActiveRecordInterface
      */
     public function isModified()
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -244,7 +244,7 @@ abstract class KitItems implements ActiveRecordInterface
                 unset($this->modifiedColumns[$col]);
             }
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -356,7 +356,7 @@ abstract class KitItems implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, []));
     }
 
     /**
@@ -691,13 +691,8 @@ abstract class KitItems implements ActiveRecordInterface
             if ($this->ktdtkey1 !== '') {
                 return false;
             }
-
-            if ($this->inititemnbr !== '') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->inititemnbr === '';
     } // hasOnlyDefaultValues()
 
     /**
@@ -803,7 +798,7 @@ abstract class KitItems implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(KitItemsTableMap::DATABASE_NAME);
         }
 
@@ -826,7 +821,6 @@ abstract class KitItems implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
      * @see KitItems::setDeleted()
@@ -838,7 +832,7 @@ abstract class KitItems implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(KitItemsTableMap::DATABASE_NAME);
         }
 
@@ -862,7 +856,6 @@ abstract class KitItems implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
      * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws PropelException
      * @see doSave()
@@ -877,18 +870,14 @@ abstract class KitItems implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(KitItemsTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -912,7 +901,6 @@ abstract class KitItems implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
      * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws PropelException
      * @see save()
@@ -940,18 +928,16 @@ abstract class KitItems implements ActiveRecordInterface
 
         return $affectedRows;
     } // doSave()
-
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
      *
      * @throws PropelException
      * @see doSave()
      */
     protected function doInsert(ConnectionInterface $con)
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -1041,7 +1027,6 @@ abstract class KitItems implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
      *
      * @return Integer Number of updated rows
      * @see doSave()
@@ -1067,9 +1052,8 @@ abstract class KitItems implements ActiveRecordInterface
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
         $pos = KitItemsTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -1084,37 +1068,26 @@ abstract class KitItems implements ActiveRecordInterface
         switch ($pos) {
             case 0:
                 return $this->getKtdtkey1();
-                break;
             case 1:
                 return $this->getInititemnbr();
-                break;
             case 2:
                 return $this->getKtdtuom();
-                break;
             case 3:
                 return $this->getKtdtusagrate();
-                break;
             case 4:
                 return $this->getKtdtvendsupply();
-                break;
             case 5:
                 return $this->getKtdtfreegoods();
-                break;
             case 6:
                 return $this->getKtdtprntseq();
-                break;
             case 7:
                 return $this->getDateupdtd();
-                break;
             case 8:
                 return $this->getTimeupdtd();
-                break;
             case 9:
                 return $this->getDummy();
-                break;
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -1132,7 +1105,7 @@ abstract class KitItems implements ActiveRecordInterface
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = [])
     {
 
         if (isset($alreadyDumpedObjects['KitItems'][$this->hashCode()])) {
@@ -1140,7 +1113,7 @@ abstract class KitItems implements ActiveRecordInterface
         }
         $alreadyDumpedObjects['KitItems'][$this->hashCode()] = true;
         $keys = KitItemsTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getKtdtkey1(),
             $keys[1] => $this->getInititemnbr(),
             $keys[2] => $this->getKtdtuom(),
@@ -1151,7 +1124,7 @@ abstract class KitItems implements ActiveRecordInterface
             $keys[7] => $this->getDateupdtd(),
             $keys[8] => $this->getTimeupdtd(),
             $keys[9] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -1386,7 +1359,7 @@ abstract class KitItems implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -1400,11 +1373,7 @@ abstract class KitItems implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = array();
-        $pks[0] = $this->getKtdtkey1();
-        $pks[1] = $this->getInititemnbr();
-
-        return $pks;
+        return [$this->getKtdtkey1(), $this->getInititemnbr()];
     }
 
     /**
@@ -1513,8 +1482,7 @@ abstract class KitItems implements ActiveRecordInterface
      */
     public function clearAllReferences($deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
     }
 
@@ -1530,7 +1498,6 @@ abstract class KitItems implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
      * @return boolean
      */
     public function preSave(ConnectionInterface $con = null)
@@ -1543,7 +1510,6 @@ abstract class KitItems implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
      */
     public function postSave(ConnectionInterface $con = null)
     {
@@ -1554,7 +1520,6 @@ abstract class KitItems implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
      * @return boolean
      */
     public function preInsert(ConnectionInterface $con = null)
@@ -1567,7 +1532,6 @@ abstract class KitItems implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
      */
     public function postInsert(ConnectionInterface $con = null)
     {
@@ -1578,7 +1542,6 @@ abstract class KitItems implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
      * @return boolean
      */
     public function preUpdate(ConnectionInterface $con = null)
@@ -1591,7 +1554,6 @@ abstract class KitItems implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
@@ -1602,7 +1564,6 @@ abstract class KitItems implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
      * @return boolean
      */
     public function preDelete(ConnectionInterface $con = null)
@@ -1615,7 +1576,6 @@ abstract class KitItems implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
      */
     public function postDelete(ConnectionInterface $con = null)
     {
@@ -1638,7 +1598,7 @@ abstract class KitItems implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -1650,15 +1610,15 @@ abstract class KitItems implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
 
             return $this->importFrom($format, reset($params));
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
 
             return $this->exportTo($format, $includeLazyLoadColumns);
         }

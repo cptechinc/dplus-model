@@ -19,7 +19,7 @@ class ArCustTypeCode extends BaseArCustTypeCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'          => 'artbtypecode',
 		'code'        => 'artbtypecode',
 		'description' => 'artbctypdesc',
@@ -38,7 +38,7 @@ class ArCustTypeCode extends BaseArCustTypeCode {
 		'gldiscounts' => 'artbctypdiscacct',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return Max Length of Characters allowed for Code

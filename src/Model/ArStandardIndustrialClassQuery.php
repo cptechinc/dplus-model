@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArStandardIndustrialClassQuery as BaseArStandardIndustrialClassQuery;
 
 use Dplus\Model\QueryTraits;

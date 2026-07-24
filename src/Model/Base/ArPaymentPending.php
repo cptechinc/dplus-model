@@ -36,7 +36,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ArPaymentPendingTableMap';
+    public const TABLE_MAP = \Map\ArPaymentPendingTableMap::class;
 
 
     /**
@@ -423,7 +423,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -481,7 +481,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -491,7 +490,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -529,8 +527,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -541,7 +537,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -583,9 +578,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -611,7 +604,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1980,13 +1973,8 @@ abstract class ArPaymentPending implements ActiveRecordInterface
             if ($this->arcdinvnbr !== '') {
                 return false;
             }
-
-            if ($this->arcdinvseq !== 0) {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->arcdinvseq === 0;
     }
 
     /**
@@ -2011,136 +1999,136 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ArPaymentPendingTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdinvnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdinvnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdinvnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdinvseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdinvseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdinvseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdpaid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdpaid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdpaid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdinvdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdinvdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdinvdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdduedate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdduedate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdduedate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdchknbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdchknbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdchknbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdamtdue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdamtdue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdamtdue = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdamtpaid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdamtpaid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdamtpaid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcddiscpaid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcddiscpaid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcddiscpaid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdcashacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdcashacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdcashacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdcredacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdcredacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdcredacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtermcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtermcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtermcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdfrtallow', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdfrtallow', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdfrtallow = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdcustpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdcustpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdcustpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdordrnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxcode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxallow1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxcode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxallow2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxcode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxallow3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxcode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxallow4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxcode5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxallow5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxcode6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxallow6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxcode7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxallow7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxcode8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxallow8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxcode9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdtaxallow9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdtaxallow9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdwriteoff', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdwriteoff', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdwriteoff = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdwriteoffreas', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdwriteoffreas', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdwriteoffreas = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdcomrate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdcomrate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdcomrate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdsalesamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdsalesamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdsalesamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdpaydate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdpaydate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdpaydate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdglpd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdglpd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdglpd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : ArPaymentPendingTableMap::translateFieldName('Arcdref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcdref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ArPaymentPendingTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : ArPaymentPendingTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ArPaymentPendingTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : ArPaymentPendingTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ArPaymentPendingTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : ArPaymentPendingTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -2169,7 +2157,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -2188,7 +2175,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -2201,7 +2187,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArPaymentPendingTableMap::DATABASE_NAME);
         }
 
@@ -2227,7 +2213,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ArPaymentPending::setDeleted()
      * @see ArPaymentPending::isDeleted()
@@ -2238,7 +2223,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentPendingTableMap::DATABASE_NAME);
         }
 
@@ -2277,18 +2262,14 @@ abstract class ArPaymentPending implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentPendingTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2312,7 +2293,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2363,7 +2343,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2708,7 +2687,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2734,9 +2712,8 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ArPaymentPendingTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2998,7 +2975,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3523,9 +3499,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getArcucustid() &&
-            null !== $this->getArcdinvnbr() &&
-            null !== $this->getArcdinvseq();
+        $validPk = !in_array(null, [$this->getArcucustid(), $this->getArcdinvnbr(), $this->getArcdinvseq()], true);
 
         $validPrimaryKeyFKs = 2;
         $primaryKeyFKs = [];
@@ -3560,19 +3534,13 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getArcucustid();
-        $pks[1] = $this->getArcdinvnbr();
-        $pks[2] = $this->getArcdinvseq();
-
-        return $pks;
+        return [$this->getArcucustid(), $this->getArcdinvnbr(), $this->getArcdinvseq()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -3583,8 +3551,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3601,7 +3567,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3679,13 +3644,12 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param ChildCustomer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -3695,7 +3659,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->addArPaymentPending($this);
         }
 
@@ -3730,13 +3694,12 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildArCashHead object.
      *
-     * @param ChildArCashHead $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setArCashHead(ChildArCashHead $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ArCashHead) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -3746,7 +3709,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildArCashHead object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ArCashHead) {
             $v->addArPaymentPending($this);
         }
 
@@ -3858,8 +3821,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aCustomer = null;
         $this->aArCashHead = null;
@@ -3873,13 +3835,11 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ArPaymentPendingTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ArPaymentPendingTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3888,8 +3848,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3897,8 +3855,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3907,8 +3863,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3916,8 +3870,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3926,8 +3878,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3935,8 +3885,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3945,8 +3893,6 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3966,7 +3912,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3978,7 +3924,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3986,7 +3932,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

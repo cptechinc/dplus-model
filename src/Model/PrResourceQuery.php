@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\PrResourceQuery as BasePrResourceQuery;
 
 use Dplus\Model\QueryTraits;

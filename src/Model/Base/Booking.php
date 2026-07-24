@@ -38,7 +38,7 @@ abstract class Booking implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\BookingTableMap';
+    public const TABLE_MAP = \Map\BookingTableMap::class;
 
 
     /**
@@ -337,7 +337,7 @@ abstract class Booking implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -395,7 +395,6 @@ abstract class Booking implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -405,7 +404,6 @@ abstract class Booking implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -443,8 +441,6 @@ abstract class Booking implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -455,7 +451,6 @@ abstract class Booking implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -497,9 +492,7 @@ abstract class Booking implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -525,7 +518,7 @@ abstract class Booking implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1508,13 +1501,8 @@ abstract class Booking implements ActiveRecordInterface
             if ($this->bklhordrbase !== '') {
                 return false;
             }
-
-            if ($this->bklhseq !== 0) {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->bklhseq === 0;
     }
 
     /**
@@ -1539,97 +1527,97 @@ abstract class Booking implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : BookingTableMap::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : BookingTableMap::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhordrbase = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : BookingTableMap::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : BookingTableMap::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : BookingTableMap::translateFieldName('Bklhordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : BookingTableMap::translateFieldName('Bklhordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhordrnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : BookingTableMap::translateFieldName('Bklhtrandate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : BookingTableMap::translateFieldName('Bklhtrandate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhtrandate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : BookingTableMap::translateFieldName('Bklhtrantime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : BookingTableMap::translateFieldName('Bklhtrantime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhtrantime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : BookingTableMap::translateFieldName('Bklhlogin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : BookingTableMap::translateFieldName('Bklhlogin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhlogin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : BookingTableMap::translateFieldName('Bklhordrdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : BookingTableMap::translateFieldName('Bklhordrdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhordrdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : BookingTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : BookingTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : BookingTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : BookingTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstshipid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : BookingTableMap::translateFieldName('Bklhshiptostat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : BookingTableMap::translateFieldName('Bklhshiptostat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhshiptostat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : BookingTableMap::translateFieldName('Bklhorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : BookingTableMap::translateFieldName('Bklhorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhorigwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : BookingTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : BookingTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : BookingTableMap::translateFieldName('Bklhsp1pct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : BookingTableMap::translateFieldName('Bklhsp1pct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhsp1pct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : BookingTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : BookingTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : BookingTableMap::translateFieldName('Bklhsp2pct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : BookingTableMap::translateFieldName('Bklhsp2pct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhsp2pct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : BookingTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : BookingTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : BookingTableMap::translateFieldName('Bklhsp3pct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : BookingTableMap::translateFieldName('Bklhsp3pct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhsp3pct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : BookingTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : BookingTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : BookingTableMap::translateFieldName('Bklhusercode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : BookingTableMap::translateFieldName('Bklhusercode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhusercode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : BookingTableMap::translateFieldName('Bklhusercode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : BookingTableMap::translateFieldName('Bklhusercode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhusercode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : BookingTableMap::translateFieldName('Bklhusercode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : BookingTableMap::translateFieldName('Bklhusercode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhusercode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : BookingTableMap::translateFieldName('Bkldusercode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : BookingTableMap::translateFieldName('Bkldusercode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bkldusercode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : BookingTableMap::translateFieldName('Bklhpgmref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : BookingTableMap::translateFieldName('Bklhpgmref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhpgmref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : BookingTableMap::translateFieldName('Bklhreascd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : BookingTableMap::translateFieldName('Bklhreascd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhreascd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : BookingTableMap::translateFieldName('Bklhfrttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : BookingTableMap::translateFieldName('Bklhfrttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhfrttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : BookingTableMap::translateFieldName('Bklhmisctot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : BookingTableMap::translateFieldName('Bklhmisctot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhmisctot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : BookingTableMap::translateFieldName('Bklhsviacode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : BookingTableMap::translateFieldName('Bklhsviacode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhsviacode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : BookingTableMap::translateFieldName('Bklhcreditmemo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : BookingTableMap::translateFieldName('Bklhcreditmemo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bklhcreditmemo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : BookingTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : BookingTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : BookingTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : BookingTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : BookingTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : BookingTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1658,7 +1646,6 @@ abstract class Booking implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1683,7 +1670,6 @@ abstract class Booking implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1696,7 +1682,7 @@ abstract class Booking implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(BookingTableMap::DATABASE_NAME);
         }
 
@@ -1723,7 +1709,6 @@ abstract class Booking implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see Booking::setDeleted()
      * @see Booking::isDeleted()
@@ -1734,7 +1719,7 @@ abstract class Booking implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingTableMap::DATABASE_NAME);
         }
 
@@ -1773,18 +1758,14 @@ abstract class Booking implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1808,7 +1789,6 @@ abstract class Booking implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1866,7 +1846,6 @@ abstract class Booking implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2120,7 +2099,6 @@ abstract class Booking implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2146,9 +2124,8 @@ abstract class Booking implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = BookingTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2373,7 +2350,6 @@ abstract class Booking implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -2788,7 +2764,7 @@ abstract class Booking implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -2802,18 +2778,13 @@ abstract class Booking implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getBklhordrbase();
-        $pks[1] = $this->getBklhseq();
-
-        return $pks;
+        return [$this->getBklhordrbase(), $this->getBklhseq()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -2823,8 +2794,6 @@ abstract class Booking implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -2841,7 +2810,6 @@ abstract class Booking implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2912,7 +2880,7 @@ abstract class Booking implements ActiveRecordInterface
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setArcucustid(NULL);
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -2922,7 +2890,7 @@ abstract class Booking implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->addBooking($this);
         }
 
@@ -2963,13 +2931,13 @@ abstract class Booking implements ActiveRecordInterface
      */
     public function setCustomerShipto(ChildCustomerShipto $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \CustomerShipto) {
             $this->setArcucustid(NULL);
         } else {
             $this->setArcucustid($v->getArcucustid());
         }
 
-        if ($v === null) {
+        if (!$v instanceof \CustomerShipto) {
             $this->setArstshipid(NULL);
         } else {
             $this->setArstshipid($v->getArstshipid());
@@ -2979,7 +2947,7 @@ abstract class Booking implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomerShipto object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \CustomerShipto) {
             $v->addBooking($this);
         }
 
@@ -2998,7 +2966,7 @@ abstract class Booking implements ActiveRecordInterface
     public function getCustomerShipto(?ConnectionInterface $con = null)
     {
         if ($this->aCustomerShipto === null && (($this->arcucustid !== "" && $this->arcucustid !== null) && ($this->arstshipid !== "" && $this->arstshipid !== null))) {
-            $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk(array($this->arcucustid, $this->arstshipid), $con);
+            $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk([$this->arcucustid, $this->arstshipid], $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -3020,7 +2988,7 @@ abstract class Booking implements ActiveRecordInterface
      */
     public function setSalesPerson(ChildSalesPerson $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \SalesPerson) {
             $this->setArspsaleper1(NULL);
         } else {
             $this->setArspsaleper1($v->getArspsaleper1());
@@ -3030,7 +2998,7 @@ abstract class Booking implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildSalesPerson object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \SalesPerson) {
             $v->addBooking($this);
         }
 
@@ -3132,8 +3100,7 @@ abstract class Booking implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aCustomer = null;
         $this->aCustomerShipto = null;
@@ -3148,13 +3115,11 @@ abstract class Booking implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(BookingTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(BookingTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3163,8 +3128,6 @@ abstract class Booking implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3172,8 +3135,6 @@ abstract class Booking implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3182,8 +3143,6 @@ abstract class Booking implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3191,8 +3150,6 @@ abstract class Booking implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3201,8 +3158,6 @@ abstract class Booking implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3210,8 +3165,6 @@ abstract class Booking implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3220,8 +3173,6 @@ abstract class Booking implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3241,7 +3192,7 @@ abstract class Booking implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3253,7 +3204,7 @@ abstract class Booking implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3261,7 +3212,7 @@ abstract class Booking implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

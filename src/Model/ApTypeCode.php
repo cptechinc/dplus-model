@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ApTypeCode as BaseApTypeCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,7 +21,7 @@ class ApTypeCode extends BaseApTypeCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'aptbtypecode',
 		'code'         => 'aptbtypecode',
 		'description'  => 'aptbtypedesc',
@@ -28,7 +30,7 @@ class ApTypeCode extends BaseApTypeCode {
 		'competitor'   => 'aptbtypecomp',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

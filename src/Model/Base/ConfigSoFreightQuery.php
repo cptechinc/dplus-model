@@ -206,7 +206,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigSoFreightQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigSoFreightQuery object.
@@ -264,7 +264,7 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigSoFreightTableMap::DATABASE_NAME);
         }
 
@@ -310,7 +310,6 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigSoFreight $obj */
             $obj = new ChildConfigSoFreight();
             $obj->hydrate($row);
             ConfigSoFreightTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -351,7 +350,7 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -453,10 +452,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByOetbconfusefrtcost($oetbconfusefrtcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfusefrtcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfusefrtcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCONFUSEFRTCOST, $oetbconfusefrtcost, $comparison);
@@ -481,10 +478,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByOetbcon2frtratetabl($oetbcon2frtratetabl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2frtratetabl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2frtratetabl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON2FRTRATETABL, $oetbcon2frtratetabl, $comparison);
@@ -509,10 +504,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByOetbcon2frtzonesorz($oetbcon2frtzonesorz = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2frtzonesorz)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2frtzonesorz)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON2FRTZONESORZ, $oetbcon2frtzonesorz, $comparison);
@@ -537,10 +530,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByOetbcon2chrgactfrt($oetbcon2chrgactfrt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2chrgactfrt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2chrgactfrt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON2CHRGACTFRT, $oetbcon2chrgactfrt, $comparison);
@@ -565,10 +556,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByOetbcon3usefrtgrup($oetbcon3usefrtgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3usefrtgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3usefrtgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON3USEFRTGRUP, $oetbcon3usefrtgrup, $comparison);
@@ -808,10 +797,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByOetbcon2chrgfrghtbkord($oetbcon2chrgfrghtbkord = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2chrgfrghtbkord)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2chrgfrghtbkord)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD, $oetbcon2chrgfrghtbkord, $comparison);
@@ -922,10 +909,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByOetbcon2frghtaddmeth($oetbcon2frghtaddmeth = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2frghtaddmeth)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2frghtaddmeth)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH, $oetbcon2frghtaddmeth, $comparison);
@@ -1337,10 +1322,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1365,10 +1348,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1393,10 +1374,8 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSoFreightTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1428,7 +1407,7 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSoFreightTableMap::DATABASE_NAME);
         }
 
@@ -1458,7 +1437,7 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSoFreightTableMap::DATABASE_NAME);
         }
 

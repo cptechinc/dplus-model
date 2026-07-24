@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvLotTag as BaseInvLotTag;
 
 use Dplus\Model\ThrowErrorTrait;

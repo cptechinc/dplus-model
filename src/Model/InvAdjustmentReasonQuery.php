@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvAdjustmentReasonQuery as BaseInvAdjustmentReasonQuery;
 
 use Dplus\Model\QueryTraits;

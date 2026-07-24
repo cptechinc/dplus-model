@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\LostSalesCodeQuery as BaseLostSalesCodeQuery;
 
 use Dplus\Model\QueryTraits;

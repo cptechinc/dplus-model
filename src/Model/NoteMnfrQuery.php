@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\NoteMnfrQuery as BaseNoteMnfrQuery;
 
 use Dplus\Model\QueryTraits;

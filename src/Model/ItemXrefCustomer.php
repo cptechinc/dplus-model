@@ -16,11 +16,11 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 	use MagicMethodTraits;
 
 	const ROUNDING_DEFAULT = 'N';
-	const ROUNDING_OPTIONS = array(
+	const ROUNDING_OPTIONS = [
 		'D' => 'down',
 		'U' => 'up',
 		'N' => 'normal'
-	);
+	];
 
 	const LENGTH_CUSTITEMID   = 30;
 	const LENGTH_DESCRIPTION  = 35;
@@ -30,7 +30,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'custid'          => 'arcucustid',
 		'custID'          => 'arcucustid',
 		'custitemid'      => 'oexrcustitemnbr',
@@ -42,7 +42,6 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		'description2'    => 'oexrcustitemdesc2',
 		'revision'        => 'oexrrevision',
 		'price_customer'  => 'oexrcustprice',
-		'price_retail'    => 'oexrretprice',
 		'price_retail'    => 'oexrretprice',
 		'qty_percase'     => 'oexrqtypercase',
 		'qty_pack_inner'  => 'oexrinnerpackqty',
@@ -62,7 +61,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 
 		'date'		      => 'dateupdtd',
 		'time'		      => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return Pricing Per UoM
@@ -79,6 +78,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 				return $this->price_customer / $itmitem->qty_percase * $uom_pricing->conversion;
 			}
 		}
+        return null;
 	}
 
 	/**

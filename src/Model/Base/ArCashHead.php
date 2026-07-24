@@ -39,7 +39,7 @@ abstract class ArCashHead implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ArCashHeadTableMap';
+    public const TABLE_MAP = \Map\ArCashHeadTableMap::class;
 
 
     /**
@@ -185,7 +185,7 @@ abstract class ArCashHead implements ActiveRecordInterface
      * @var ObjectCollection|ChildArPaymentPending[]
      * @phpstan-var ObjectCollection&\Traversable<ChildArPaymentPending>
      */
-    protected $arPaymentPendingsScheduledForDeletion = null;
+    protected $arPaymentPendingsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -214,7 +214,7 @@ abstract class ArCashHead implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -272,7 +272,6 @@ abstract class ArCashHead implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -282,7 +281,6 @@ abstract class ArCashHead implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -320,8 +318,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -332,7 +328,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -374,9 +369,7 @@ abstract class ArCashHead implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -402,7 +395,7 @@ abstract class ArCashHead implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -830,12 +823,8 @@ abstract class ArCashHead implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->arcucustid !== '') {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->arcucustid === '';
     }
 
     /**
@@ -860,43 +849,43 @@ abstract class ArCashHead implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArCashHeadTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ArCashHeadTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArCashHeadTableMap::translateFieldName('Archamtrec', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ArCashHeadTableMap::translateFieldName('Archamtrec', TableMap::TYPE_PHPNAME, $indexType)];
             $this->archamtrec = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArCashHeadTableMap::translateFieldName('Archclerkid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ArCashHeadTableMap::translateFieldName('Archclerkid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->archclerkid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArCashHeadTableMap::translateFieldName('Archpostflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ArCashHeadTableMap::translateFieldName('Archpostflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->archpostflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArCashHeadTableMap::translateFieldName('Archorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ArCashHeadTableMap::translateFieldName('Archorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->archorigwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArCashHeadTableMap::translateFieldName('Archccnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ArCashHeadTableMap::translateFieldName('Archccnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->archccnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ArCashHeadTableMap::translateFieldName('Archccexpdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ArCashHeadTableMap::translateFieldName('Archccexpdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->archccexpdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ArCashHeadTableMap::translateFieldName('Archccvalidcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ArCashHeadTableMap::translateFieldName('Archccvalidcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->archccvalidcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ArCashHeadTableMap::translateFieldName('Archccaprv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ArCashHeadTableMap::translateFieldName('Archccaprv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->archccaprv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ArCashHeadTableMap::translateFieldName('Archccinfo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ArCashHeadTableMap::translateFieldName('Archccinfo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->archccinfo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ArCashHeadTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ArCashHeadTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ArCashHeadTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ArCashHeadTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ArCashHeadTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ArCashHeadTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -925,7 +914,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -941,7 +929,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -954,7 +941,7 @@ abstract class ArCashHead implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArCashHeadTableMap::DATABASE_NAME);
         }
 
@@ -981,7 +968,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ArCashHead::setDeleted()
      * @see ArCashHead::isDeleted()
@@ -992,7 +978,7 @@ abstract class ArCashHead implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCashHeadTableMap::DATABASE_NAME);
         }
 
@@ -1031,18 +1017,14 @@ abstract class ArCashHead implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCashHeadTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1066,7 +1048,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1100,13 +1081,11 @@ abstract class ArCashHead implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->arPaymentPendingsScheduledForDeletion !== null) {
-                if (!$this->arPaymentPendingsScheduledForDeletion->isEmpty()) {
-                    \ArPaymentPendingQuery::create()
-                        ->filterByPrimaryKeys($this->arPaymentPendingsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->arPaymentPendingsScheduledForDeletion = null;
-                }
+            if ($this->arPaymentPendingsScheduledForDeletion !== null && !$this->arPaymentPendingsScheduledForDeletion->isEmpty()) {
+                \ArPaymentPendingQuery::create()
+                    ->filterByPrimaryKeys($this->arPaymentPendingsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->arPaymentPendingsScheduledForDeletion = null;
             }
 
             if ($this->collArPaymentPendings !== null) {
@@ -1127,7 +1106,6 @@ abstract class ArCashHead implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -1255,7 +1233,6 @@ abstract class ArCashHead implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -1281,9 +1258,8 @@ abstract class ArCashHead implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ArCashHeadTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -1421,7 +1397,6 @@ abstract class ArCashHead implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -1699,7 +1674,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      * Generic method to set the primary key (arcucustid column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -1708,8 +1682,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -1726,7 +1698,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -1787,13 +1758,12 @@ abstract class ArCashHead implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param ChildCustomer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -1802,7 +1772,7 @@ abstract class ArCashHead implements ActiveRecordInterface
         $this->aCustomer = $v;
 
         // Add binding for other direction of this 1:1 relationship.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->setArCashHead($this);
         }
 
@@ -1836,7 +1806,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -1864,8 +1833,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Reset is the collArPaymentPendings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialArPaymentPendings($v = true): void
     {
@@ -1881,8 +1848,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initArPaymentPendings(bool $overrideExisting = true): void
     {
@@ -1914,7 +1879,7 @@ abstract class ArCashHead implements ActiveRecordInterface
     public function getArPaymentPendings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collArPaymentPendingsPartial && !$this->isNew();
-        if (null === $this->collArPaymentPendings || null !== $criteria || $partial) {
+        if (null === $this->collArPaymentPendings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collArPaymentPendings) {
@@ -1932,7 +1897,7 @@ abstract class ArCashHead implements ActiveRecordInterface
                     ->filterByArCashHead($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collArPaymentPendingsPartial && count($collArPaymentPendings)) {
                         $this->initArPaymentPendings(false);
 
@@ -1986,7 +1951,7 @@ abstract class ArCashHead implements ActiveRecordInterface
         $this->arPaymentPendingsScheduledForDeletion = clone $arPaymentPendingsToDelete;
 
         foreach ($arPaymentPendingsToDelete as $arPaymentPendingRemoved) {
-            $arPaymentPendingRemoved->setArCashHead(null);
+            $arPaymentPendingRemoved->setArCashHead();
         }
 
         $this->collArPaymentPendings = null;
@@ -2004,7 +1969,6 @@ abstract class ArCashHead implements ActiveRecordInterface
      * Returns the number of related ArPaymentPending objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ArPaymentPending objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2012,7 +1976,7 @@ abstract class ArCashHead implements ActiveRecordInterface
     public function countArPaymentPendings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collArPaymentPendingsPartial && !$this->isNew();
-        if (null === $this->collArPaymentPendings || null !== $criteria || $partial) {
+        if (null === $this->collArPaymentPendings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collArPaymentPendings) {
                 return 0;
             }
@@ -2051,7 +2015,7 @@ abstract class ArCashHead implements ActiveRecordInterface
         if (!$this->collArPaymentPendings->contains($l)) {
             $this->doAddArPaymentPending($l);
 
-            if ($this->arPaymentPendingsScheduledForDeletion and $this->arPaymentPendingsScheduledForDeletion->contains($l)) {
+            if ($this->arPaymentPendingsScheduledForDeletion && $this->arPaymentPendingsScheduledForDeletion->contains($l)) {
                 $this->arPaymentPendingsScheduledForDeletion->remove($this->arPaymentPendingsScheduledForDeletion->search($l));
             }
         }
@@ -2082,7 +2046,7 @@ abstract class ArCashHead implements ActiveRecordInterface
                 $this->arPaymentPendingsScheduledForDeletion->clear();
             }
             $this->arPaymentPendingsScheduledForDeletion[]= clone $arPaymentPending;
-            $arPaymentPending->setArCashHead(null);
+            $arPaymentPending->setArCashHead();
         }
 
         return $this;
@@ -2160,11 +2124,9 @@ abstract class ArCashHead implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-            if ($this->collArPaymentPendings) {
-                foreach ($this->collArPaymentPendings as $o) {
-                    $o->clearAllReferences($deep);
-                }
+        if ($deep && $this->collArPaymentPendings) {
+            foreach ($this->collArPaymentPendings as $o) {
+                $o->clearAllReferences($deep);
             }
         } // if ($deep)
 
@@ -2180,13 +2142,11 @@ abstract class ArCashHead implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ArCashHeadTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ArCashHeadTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -2195,8 +2155,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -2204,8 +2162,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -2214,8 +2170,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -2223,8 +2177,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -2233,8 +2185,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -2242,8 +2192,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -2252,8 +2200,6 @@ abstract class ArCashHead implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -2273,7 +2219,7 @@ abstract class ArCashHead implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -2285,7 +2231,7 @@ abstract class ArCashHead implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -2293,7 +2239,7 @@ abstract class ArCashHead implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

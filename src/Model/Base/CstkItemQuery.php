@@ -192,7 +192,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class CstkItemQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\CstkItemQuery object.
@@ -250,7 +250,7 @@ abstract class CstkItemQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CstkItemTableMap::DATABASE_NAME);
         }
 
@@ -299,7 +299,6 @@ abstract class CstkItemQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCstkItem $obj */
             $obj = new ChildCstkItem();
             $obj->hydrate($row);
             CstkItemTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -340,7 +339,7 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -414,10 +413,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -442,10 +439,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
@@ -470,10 +465,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByCskhcell($cskhcell = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhcell)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhcell)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_CSKHCELL, $cskhcell, $comparison);
@@ -541,10 +534,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -569,10 +560,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByCskdcustitem($cskdcustitem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskdcustitem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskdcustitem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_CSKDCUSTITEM, $cskdcustitem, $comparison);
@@ -597,10 +586,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByCskdbin($cskdbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskdbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskdbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_CSKDBIN, $cskdbin, $comparison);
@@ -625,10 +612,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByCskdenterdate($cskdenterdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskdenterdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskdenterdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_CSKDENTERDATE, $cskdenterdate, $comparison);
@@ -911,10 +896,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByCskdcountdate($cskdcountdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskdcountdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskdcountdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_CSKDCOUNTDATE, $cskdcountdate, $comparison);
@@ -982,10 +965,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1010,10 +991,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1038,10 +1017,8 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkItemTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1095,7 +1072,7 @@ abstract class CstkItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1125,7 +1102,7 @@ abstract class CstkItemQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -1262,7 +1239,7 @@ abstract class CstkItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1292,7 +1269,7 @@ abstract class CstkItemQuery extends ModelCriteria
     {
         return $this
             ->joinCustomerShipto($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CustomerShipto', '\CustomerShiptoQuery');
+            ->useQuery($relationAlias ?: 'CustomerShipto', '\CustomerShiptoQuery');
     }
 
     /**
@@ -1437,7 +1414,7 @@ abstract class CstkItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1467,7 +1444,7 @@ abstract class CstkItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1580,7 +1557,7 @@ abstract class CstkItemQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(CstkItemTableMap::COL_ARSTSHIPID), $cstkItem->getArstshipid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(CstkItemTableMap::COL_CSKHCELL), $cstkItem->getCskhcell(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(CstkItemTableMap::COL_CSKDLINE), $cstkItem->getCskdline(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1594,7 +1571,7 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CstkItemTableMap::DATABASE_NAME);
         }
 
@@ -1624,7 +1601,7 @@ abstract class CstkItemQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CstkItemTableMap::DATABASE_NAME);
         }
 

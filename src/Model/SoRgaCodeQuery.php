@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SoRgaCodeQuery as BaseSoRgaCodeQuery;
 
 use Dplus\Model\QueryTraits;

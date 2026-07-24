@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArWriteOffCode as BaseArWriteOffCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,13 +21,13 @@ class ArWriteOffCode extends BaseArWriteOffCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'		   => 'artbwoffcode',
 		'code'		   => 'artbwoffcode',
 		'description'  => 'artbwoffdesc',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

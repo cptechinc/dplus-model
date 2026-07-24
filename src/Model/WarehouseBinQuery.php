@@ -74,7 +74,7 @@ class WarehouseBinQuery extends BaseWarehouseBinQuery {
 		if ($areBinsRanged) {
 			$this->condition('from', 'WarehouseBin.BnctBinFrom <= ?', $binID);
 			$this->condition('thru', 'WarehouseBin.BnctBinThru >= ?', $binID);
-			$this->where(array('from', 'thru'), Criteria::LOGICAL_AND);
+			$this->where(['from', 'thru'], Criteria::LOGICAL_AND);
 		} else {
 			$this->filterbyBnctBinFrom($binID);
 		}
@@ -101,7 +101,7 @@ class WarehouseBinQuery extends BaseWarehouseBinQuery {
 		if ($areBinsRanged) {
 			$this->addAsColumn('start', 'WarehouseBin.BnctBinFrom');
 			$this->addAsColumn('through', 'WarehouseBin.BnctBinThru');
-			$this->select(array('start', 'through'));
+			$this->select(['start', 'through']);
 		} else {
 			$this->select('BnctBinFrom');
 		}

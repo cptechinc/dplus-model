@@ -23,7 +23,7 @@ class PurchaseOrderNote extends BasePurchaseOrderNote {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	 const COLUMN_ALIASES = array(
+	 const COLUMN_ALIASES = [
 		'ponbr'       => 'pohdnbr',
 		'linenbr'     => 'podtline',
 		'line'        => 'podtline',
@@ -36,7 +36,7 @@ class PurchaseOrderNote extends BasePurchaseOrderNote {
 		'key2'        => 'pontkey2',
 		'date'        => 'dateupdtd',
 		'time'        => 'timeupdtd'
-	);
+	];
 
 	public function editable() {
 		return $this->editable == self::EDITABLE;
@@ -49,9 +49,8 @@ class PurchaseOrderNote extends BasePurchaseOrderNote {
 	 * @return string
 	 */
 	public function generateKey2() {
-		$ponbr = PurchaseOrder::get_paddedponumber($this->ponbr);
-		$linenbr = str_pad($this->linenbr , 4 , "0", STR_PAD_LEFT);
-		$key2 = self::CONTROL_NBR . $this->line . $this->editable;
+		PurchaseOrder::get_paddedponumber($this->ponbr);
+        $key2 = self::CONTROL_NBR . $this->line . $this->editable;
 		$this->setKey2($key2);
 	}
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\DocumentFolder as BaseDocumentFolder;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,10 +18,10 @@ class DocumentFolder extends BaseDocumentFolder {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'folder'      => 'doccfolder',
 		'description' => 'doccfolderdesc',
 		'directory'   => 'doccdir',
 		'tag'         => 'docctag'
-	);
+	];
 }

@@ -98,7 +98,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemAddonItemQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemAddonItemQuery object.
@@ -156,7 +156,7 @@ abstract class ItemAddonItemQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemAddonItemTableMap::DATABASE_NAME);
         }
 
@@ -203,7 +203,6 @@ abstract class ItemAddonItemQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemAddonItem $obj */
             $obj = new ChildItemAddonItem();
             $obj->hydrate($row);
             ItemAddonItemTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -244,7 +243,7 @@ abstract class ItemAddonItemQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -312,10 +311,8 @@ abstract class ItemAddonItemQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemAddonItemTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -340,10 +337,8 @@ abstract class ItemAddonItemQuery extends ModelCriteria
      */
     public function filterByAdonadditemnbr($adonadditemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($adonadditemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($adonadditemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemAddonItemTableMap::COL_ADONADDITEMNBR, $adonadditemnbr, $comparison);
@@ -368,10 +363,8 @@ abstract class ItemAddonItemQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemAddonItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -396,10 +389,8 @@ abstract class ItemAddonItemQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemAddonItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -424,10 +415,8 @@ abstract class ItemAddonItemQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemAddonItemTableMap::COL_DUMMY, $dummy, $comparison);
@@ -481,7 +470,7 @@ abstract class ItemAddonItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -511,7 +500,7 @@ abstract class ItemAddonItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItemRelatedByInititemnbr($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItemRelatedByInititemnbr', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItemRelatedByInititemnbr', '\ItemMasterItemQuery');
     }
 
     /**
@@ -656,7 +645,7 @@ abstract class ItemAddonItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -686,7 +675,7 @@ abstract class ItemAddonItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItemRelatedByAdonadditemnbr($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItemRelatedByAdonadditemnbr', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItemRelatedByAdonadditemnbr', '\ItemMasterItemQuery');
     }
 
     /**
@@ -797,7 +786,7 @@ abstract class ItemAddonItemQuery extends ModelCriteria
         if ($itemAddonItem) {
             $this->addCond('pruneCond0', $this->getAliasedColName(ItemAddonItemTableMap::COL_INITITEMNBR), $itemAddonItem->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(ItemAddonItemTableMap::COL_ADONADDITEMNBR), $itemAddonItem->getAdonadditemnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -811,7 +800,7 @@ abstract class ItemAddonItemQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemAddonItemTableMap::DATABASE_NAME);
         }
 
@@ -841,7 +830,7 @@ abstract class ItemAddonItemQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemAddonItemTableMap::DATABASE_NAME);
         }
 

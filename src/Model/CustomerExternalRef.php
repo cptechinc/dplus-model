@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\CustomerExternalRef as BaseCustomerExternalRef;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,12 +21,12 @@ class CustomerExternalRef extends BaseCustomerExternalRef {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'custid'        => 'arcucustid',
 		'shiptoid'      => 'arstshipid',
 		'custid_ext'    => 'cslklinkcustid',
 		'shiptoid_ext'  => 'cslklinkshipid',
 		'date'		    => 'dateupdtd',
 		'time'		    => 'timeupdtd'
-	);
+	];
 }

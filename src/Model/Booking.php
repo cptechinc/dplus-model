@@ -18,7 +18,7 @@ class Booking extends BaseBooking {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ordernumber'   => 'bklhordrnbr',
 		'userid'	    => 'bklhlogin',
 		'orderdate'     => 'bklhordrdate',
@@ -32,7 +32,7 @@ class Booking extends BaseBooking {
 
 		// ALIASES for Foreign Keys
 		'salesperson'  => 'salesPerson',
-	);
+	];
 
 	/**
 	 * Returns SalesOrder|SalesHistory related to this booking

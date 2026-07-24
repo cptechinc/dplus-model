@@ -218,7 +218,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class GlDistCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\GlDistCodeQuery object.
@@ -276,7 +276,7 @@ abstract class GlDistCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(GlDistCodeTableMap::DATABASE_NAME);
         }
 
@@ -322,7 +322,6 @@ abstract class GlDistCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildGlDistCode $obj */
             $obj = new ChildGlDistCode();
             $obj->hydrate($row);
             GlDistCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -363,7 +362,7 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -422,10 +421,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistcode($gltbdistcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTCODE, $gltbdistcode, $comparison);
@@ -450,10 +447,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistdesc($gltbdistdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTDESC, $gltbdistdesc, $comparison);
@@ -478,10 +473,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr01($gltbdistacctnbr01 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr01)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr01)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR01, $gltbdistacctnbr01, $comparison);
@@ -549,10 +542,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr02($gltbdistacctnbr02 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr02)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr02)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR02, $gltbdistacctnbr02, $comparison);
@@ -620,10 +611,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr03($gltbdistacctnbr03 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr03)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr03)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR03, $gltbdistacctnbr03, $comparison);
@@ -691,10 +680,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr04($gltbdistacctnbr04 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr04)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr04)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR04, $gltbdistacctnbr04, $comparison);
@@ -762,10 +749,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr05($gltbdistacctnbr05 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr05)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr05)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR05, $gltbdistacctnbr05, $comparison);
@@ -833,10 +818,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr06($gltbdistacctnbr06 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr06)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr06)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR06, $gltbdistacctnbr06, $comparison);
@@ -904,10 +887,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr07($gltbdistacctnbr07 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr07)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr07)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR07, $gltbdistacctnbr07, $comparison);
@@ -975,10 +956,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr08($gltbdistacctnbr08 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr08)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr08)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR08, $gltbdistacctnbr08, $comparison);
@@ -1046,10 +1025,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr09($gltbdistacctnbr09 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr09)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr09)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR09, $gltbdistacctnbr09, $comparison);
@@ -1117,10 +1094,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr10($gltbdistacctnbr10 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr10)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr10)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR10, $gltbdistacctnbr10, $comparison);
@@ -1188,10 +1163,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr11($gltbdistacctnbr11 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr11)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr11)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR11, $gltbdistacctnbr11, $comparison);
@@ -1259,10 +1232,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByGltbdistacctnbr12($gltbdistacctnbr12 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gltbdistacctnbr12)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gltbdistacctnbr12)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR12, $gltbdistacctnbr12, $comparison);
@@ -1330,10 +1301,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1358,10 +1327,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1386,10 +1353,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDistCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1421,7 +1386,7 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlDistCodeTableMap::DATABASE_NAME);
         }
 
@@ -1451,7 +1416,7 @@ abstract class GlDistCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlDistCodeTableMap::DATABASE_NAME);
         }
 

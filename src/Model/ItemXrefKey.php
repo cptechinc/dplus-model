@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ItemXrefKey as BaseItemXrefKey;
 
 use Dplus\Model\ThrowErrorTrait;

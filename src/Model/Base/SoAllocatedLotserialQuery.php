@@ -202,7 +202,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class SoAllocatedLotserialQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\SoAllocatedLotserialQuery object.
@@ -260,7 +260,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SoAllocatedLotserialTableMap::DATABASE_NAME);
         }
 
@@ -312,7 +312,6 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildSoAllocatedLotserial $obj */
             $obj = new ChildSoAllocatedLotserial();
             $obj->hydrate($row);
             SoAllocatedLotserialTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4]), (null === $key[5] || is_scalar($key[5]) || is_callable([$key[5], '__toString']) ? (string) $key[5] : $key[5]), (null === $key[6] || is_scalar($key[6]) || is_callable([$key[6], '__toString']) ? (string) $key[6] : $key[6])]));
@@ -353,7 +352,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -528,10 +527,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -556,10 +553,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByOeidlotser($oeidlotser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oeidlotser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oeidlotser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLOTSER, $oeidlotser, $comparison);
@@ -584,10 +579,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByOeidbin($oeidbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oeidbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oeidbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDBIN, $oeidbin, $comparison);
@@ -741,10 +734,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByOeidlotref($oeidlotref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oeidlotref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oeidlotref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLOTREF, $oeidlotref, $comparison);
@@ -812,10 +803,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByOeidbatch($oeidbatch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oeidbatch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oeidbatch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDBATCH, $oeidbatch, $comparison);
@@ -840,10 +829,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByOeidcuredate($oeidcuredate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oeidcuredate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oeidcuredate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDCUREDATE, $oeidcuredate, $comparison);
@@ -868,10 +855,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByOeidpllttype($oeidpllttype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oeidpllttype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oeidpllttype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE, $oeidpllttype, $comparison);
@@ -896,10 +881,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByOeidlblprtd($oeidlblprtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oeidlblprtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oeidlblprtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD, $oeidlblprtd, $comparison);
@@ -924,10 +907,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByOeidorigbin($oeidorigbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oeidorigbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oeidorigbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDORIGBIN, $oeidorigbin, $comparison);
@@ -952,10 +933,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByOeidplltid($oeidplltid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oeidplltid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oeidplltid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDPLLTID, $oeidplltid, $comparison);
@@ -980,10 +959,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1008,10 +985,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1036,10 +1011,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1093,7 +1066,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1123,7 +1096,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinSalesOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesOrder', '\SalesOrderQuery');
+            ->useQuery($relationAlias ?: 'SalesOrder', '\SalesOrderQuery');
     }
 
     /**
@@ -1260,7 +1233,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1290,7 +1263,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinSalesOrderDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderDetail', '\SalesOrderDetailQuery');
+            ->useQuery($relationAlias ?: 'SalesOrderDetail', '\SalesOrderDetailQuery');
     }
 
     /**
@@ -1435,7 +1408,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1465,7 +1438,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1602,7 +1575,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1632,7 +1605,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinInvLotMaster($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLotMaster', '\InvLotMasterQuery');
+            ->useQuery($relationAlias ?: 'InvLotMaster', '\InvLotMasterQuery');
     }
 
     /**
@@ -1748,7 +1721,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             $this->addCond('pruneCond4', $this->getAliasedColName(SoAllocatedLotserialTableMap::COL_OEIDBIN), $soAllocatedLotserial->getOeidbin(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond5', $this->getAliasedColName(SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR), $soAllocatedLotserial->getOeidplltnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond6', $this->getAliasedColName(SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR), $soAllocatedLotserial->getOeidcrtnnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5', 'pruneCond6'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5', 'pruneCond6'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1762,7 +1735,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoAllocatedLotserialTableMap::DATABASE_NAME);
         }
 
@@ -1792,7 +1765,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoAllocatedLotserialTableMap::DATABASE_NAME);
         }
 

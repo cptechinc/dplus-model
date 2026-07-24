@@ -26,34 +26,34 @@ class PurchaseOrder extends BasePurchaseOrder {
 	 */
 	const FORMAT_DATE = 'Ymd';
 
-	const STATUS_DESCRIPTIONS = array(
+	const STATUS_DESCRIPTIONS = [
 		'N' => 'New',
 		'C' => 'Closed',
 		'O' => 'Printed',
-	);
+	];
 
 	const STATUS_NOTPRINTED   = 'N';
 	const STATUS_OPEN   = 'O';
 	const STATUS_CLOSED = 'C';
 
-	const FREIGHTPAIDBY_DESCRIPTIONS = array(
+	const FREIGHTPAIDBY_DESCRIPTIONS = [
 		'C' => 'collect',
 		'P' => 'prepaid',
 		'A' => 'prepaid + add',
 		'T' => 'third party'
-	);
+	];
 
-	const FOB_DESCRIPTIONS = array(
+	const FOB_DESCRIPTIONS = [
 		'D' => 'destination',
 		'O' => 'origin',
 		'P' => 'prepaid + add'
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ponbr'              => 'pohdnbr',
 		'status'             => 'pohdstat',
 		'poref'              => 'pohdref',
@@ -100,7 +100,7 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'landedcost'         => 'pohdlandcost',
 		'exchange_country'   => 'pohdexchctry',
 		'exchange_rate'      => 'pohdexchrate'
-	);
+	];
 
 	/**
 	 * Adds Leading Zeroes to Sales Order Number

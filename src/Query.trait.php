@@ -87,7 +87,7 @@ trait QueryTraits {
 			$tablecol = $this->tablemap_column($column);
 			$this->conditionLike($column, $tablecol, $keyword, $caseSensitive);
 		}
-		if (sizeof($columns) > 1) {
+		if (count($columns) > 1) {
 			$this->conditionLikeConcat($columns, $q);
 			$columns[] = 'concat';
 		}
@@ -127,7 +127,7 @@ trait QueryTraits {
 	 * @return array
 	 */
 	public function tablemap_columns($columns) {
-		$cols = array();
+		$cols = [];
 		foreach ($columns as $column) {
 			$cols[] = $this->tablecolumn($column);
 		}
@@ -195,7 +195,7 @@ trait QueryTraits {
 		static $methods = ['findBy', 'findOneBy', 'requireOneBy', 'filterBy', 'orderBy', 'groupBy'];
 
 		foreach ($methods as $method) {
-			if (0 === strpos($name, $method)) {
+			if (str_starts_with($name, $method)) {
 				$property = strtolower(str_replace($method, '', $name));
 				$class_name = $this->getModelName();
 				$class_model = new $class_name();

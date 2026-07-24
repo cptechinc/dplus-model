@@ -18,7 +18,7 @@ class SalesPerson extends BaseSalesPerson {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'code'         => 'arspsaleper1',
 		'id'           => 'arspsaleper1',
 		'name'         => 'arspname',
@@ -41,7 +41,7 @@ class SalesPerson extends BaseSalesPerson {
 		'restricted' => 'arsprestrictaccess',
 		'date'      => 'dateupdtd',
 		'time'      => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return if User is a Manager

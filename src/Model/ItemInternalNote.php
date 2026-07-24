@@ -20,7 +20,7 @@ class ItemInternalNote extends BaseItemInternalNote {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'          => 'QnType',
 		'description'   => 'QnTypeDesc',
 		'itemid'        => 'inititemnbr',
@@ -30,7 +30,7 @@ class ItemInternalNote extends BaseItemInternalNote {
 		'form'          => 'qnform',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Sets generated Key2

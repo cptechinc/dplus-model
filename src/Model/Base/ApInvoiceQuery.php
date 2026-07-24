@@ -306,7 +306,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ApInvoiceQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ApInvoiceQuery object.
@@ -364,7 +364,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ApInvoiceTableMap::DATABASE_NAME);
         }
 
@@ -415,7 +415,6 @@ abstract class ApInvoiceQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildApInvoice $obj */
             $obj = new ChildApInvoice();
             $obj->hydrate($row);
             ApInvoiceTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4]), (null === $key[5] || is_scalar($key[5]) || is_callable([$key[5], '__toString']) ? (string) $key[5] : $key[5])]));
@@ -456,7 +455,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -536,10 +535,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apvevendid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apvevendid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APVEVENDID, $apvevendid, $comparison);
@@ -564,10 +561,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihpaytokey($apihpaytokey = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihpaytokey)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihpaytokey)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPAYTOKEY, $apihpaytokey, $comparison);
@@ -592,10 +587,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihptname($apihptname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihptname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihptname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPTNAME, $apihptname, $comparison);
@@ -620,10 +613,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihptadr1($apihptadr1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihptadr1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihptadr1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPTADR1, $apihptadr1, $comparison);
@@ -648,10 +639,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihptadr2($apihptadr2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihptadr2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihptadr2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPTADR2, $apihptadr2, $comparison);
@@ -676,10 +665,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihptadr3($apihptadr3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihptadr3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihptadr3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPTADR3, $apihptadr3, $comparison);
@@ -704,10 +691,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihptctry($apihptctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihptctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihptctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPTCTRY, $apihptctry, $comparison);
@@ -732,10 +717,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihptcity($apihptcity = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihptcity)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihptcity)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPTCITY, $apihptcity, $comparison);
@@ -760,10 +743,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihptstat($apihptstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihptstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihptstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPTSTAT, $apihptstat, $comparison);
@@ -788,10 +769,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihptzipcode($apihptzipcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihptzipcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihptzipcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPTZIPCODE, $apihptzipcode, $comparison);
@@ -816,10 +795,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihponbr($apihponbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihponbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihponbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHPONBR, $apihponbr, $comparison);
@@ -844,10 +821,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihctrlnbr($apihctrlnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihctrlnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihctrlnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHCTRLNBR, $apihctrlnbr, $comparison);
@@ -872,10 +847,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihinvnbr($apihinvnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihinvnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihinvnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHINVNBR, $apihinvnbr, $comparison);
@@ -943,10 +916,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihstat($apihstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHSTAT, $apihstat, $comparison);
@@ -971,10 +942,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihinvdate($apihinvdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihinvdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihinvdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHINVDATE, $apihinvdate, $comparison);
@@ -999,10 +968,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihdiscdate($apihdiscdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihdiscdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihdiscdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHDISCDATE, $apihdiscdate, $comparison);
@@ -1027,10 +994,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihduedate($apihduedate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihduedate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihduedate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHDUEDATE, $apihduedate, $comparison);
@@ -1270,10 +1235,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihchkdate($apihchkdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihchkdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihchkdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHCHKDATE, $apihchkdate, $comparison);
@@ -1341,10 +1304,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihchkglacct($apihchkglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihchkglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihchkglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHCHKGLACCT, $apihchkglacct, $comparison);
@@ -1369,10 +1330,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -1397,10 +1356,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByAptmtermcode($aptmtermcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmtermcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmtermcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APTMTERMCODE, $aptmtermcode, $comparison);
@@ -1468,10 +1425,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihinvref($apihinvref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihinvref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihinvref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHINVREF, $apihinvref, $comparison);
@@ -1496,10 +1451,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihcenbeeformatid($apihcenbeeformatid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihcenbeeformatid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihcenbeeformatid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHCENBEEFORMATID, $apihcenbeeformatid, $comparison);
@@ -1524,10 +1477,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihcenbeeponbr($apihcenbeeponbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihcenbeeponbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihcenbeeponbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHCENBEEPONBR, $apihcenbeeponbr, $comparison);
@@ -1552,10 +1503,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihtakeexpired($apihtakeexpired = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihtakeexpired)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihtakeexpired)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHTAKEEXPIRED, $apihtakeexpired, $comparison);
@@ -1580,10 +1529,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByApihexchctry($apihexchctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apihexchctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apihexchctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_APIHEXCHCTRY, $apihexchctry, $comparison);
@@ -1651,10 +1598,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1679,10 +1624,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1707,10 +1650,8 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApInvoiceTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1764,7 +1705,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1794,7 +1735,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
     {
         return $this
             ->joinVendor($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+            ->useQuery($relationAlias ?: 'Vendor', '\VendorQuery');
     }
 
     /**
@@ -1939,7 +1880,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1969,7 +1910,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrder', '\PurchaseOrderQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrder', '\PurchaseOrderQuery');
     }
 
     /**
@@ -2110,7 +2051,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2140,7 +2081,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
     {
         return $this
             ->joinApInvoiceDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ApInvoiceDetail', '\ApInvoiceDetailQuery');
+            ->useQuery($relationAlias ?: 'ApInvoiceDetail', '\ApInvoiceDetailQuery');
     }
 
     /**
@@ -2255,7 +2196,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
             $this->addCond('pruneCond3', $this->getAliasedColName(ApInvoiceTableMap::COL_APIHCTRLNBR), $apInvoice->getApihctrlnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond4', $this->getAliasedColName(ApInvoiceTableMap::COL_APIHINVNBR), $apInvoice->getApihinvnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond5', $this->getAliasedColName(ApInvoiceTableMap::COL_APIHSEQ), $apInvoice->getApihseq(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2269,7 +2210,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApInvoiceTableMap::DATABASE_NAME);
         }
 
@@ -2299,7 +2240,7 @@ abstract class ApInvoiceQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApInvoiceTableMap::DATABASE_NAME);
         }
 

@@ -16,7 +16,7 @@ class ApContact extends BaseApContact {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'vendorid'   => 'apvevendid',
 		'contactid'  => 'apcpcontid',
 		'title'      => 'apcptitl',
@@ -24,7 +24,7 @@ class ApContact extends BaseApContact {
 		'pocontact'  => 'apcppocont',
 		'date'       => 'dateupdtd',
 		'time'       => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return Contact's PhoneBook Record

@@ -409,7 +409,6 @@ class BookingSummaryRepTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -424,42 +423,40 @@ class BookingSummaryRepTableMap extends TableMap
         // columns
         $this->addForeignPrimaryKey('ArspSalePer1', 'Arspsaleper1', 'VARCHAR' , 'ar_saleper1', 'ArspSalePer1', true, 6, '');
         $this->addPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
-        $this->addColumn('BkrpToday', 'Bkrptoday', 'DECIMAL', false, 20, null);
-        $this->addColumn('BkrpWeekToDate', 'Bkrpweektodate', 'DECIMAL', false, 20, null);
-        $this->addColumn('BkrpMonthToDate', 'Bkrpmonthtodate', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt1', 'Bkrp12moamt1', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt2', 'Bkrp12moamt2', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt3', 'Bkrp12moamt3', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt4', 'Bkrp12moamt4', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt5', 'Bkrp12moamt5', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt6', 'Bkrp12moamt6', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt7', 'Bkrp12moamt7', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt8', 'Bkrp12moamt8', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt9', 'Bkrp12moamt9', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt10', 'Bkrp12moamt10', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt11', 'Bkrp12moamt11', 'DECIMAL', false, 20, null);
-        $this->addColumn('Bkrp12moAmt12', 'Bkrp12moamt12', 'DECIMAL', false, 20, null);
-        $this->addColumn('BkrpLastDate', 'Bkrplastdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('BkrpLastTime', 'Bkrplasttime', 'VARCHAR', false, 8, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('BkrpToday', 'Bkrptoday', 'DECIMAL', false, 20);
+        $this->addColumn('BkrpWeekToDate', 'Bkrpweektodate', 'DECIMAL', false, 20);
+        $this->addColumn('BkrpMonthToDate', 'Bkrpmonthtodate', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt1', 'Bkrp12moamt1', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt2', 'Bkrp12moamt2', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt3', 'Bkrp12moamt3', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt4', 'Bkrp12moamt4', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt5', 'Bkrp12moamt5', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt6', 'Bkrp12moamt6', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt7', 'Bkrp12moamt7', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt8', 'Bkrp12moamt8', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt9', 'Bkrp12moamt9', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt10', 'Bkrp12moamt10', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt11', 'Bkrp12moamt11', 'DECIMAL', false, 20);
+        $this->addColumn('Bkrp12moAmt12', 'Bkrp12moamt12', 'DECIMAL', false, 20);
+        $this->addColumn('BkrpLastDate', 'Bkrplastdate', 'VARCHAR', false, 8);
+        $this->addColumn('BkrpLastTime', 'Bkrplasttime', 'VARCHAR', false, 8);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('SalesPerson', '\\SalesPerson', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('SalesPerson', '\\SalesPerson', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArspSalePer1',
     1 => ':ArspSalePer1',
-  ),
-), null, null, null, false);
+  ],
+], null, null, null, false);
     }
 
     /**
@@ -472,8 +469,6 @@ class BookingSummaryRepTableMap extends TableMap
      *
      * @param \BookingSummaryRep $obj A \BookingSummaryRep object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(BookingSummaryRep $obj, ?string $key = null): void
     {
@@ -494,13 +489,11 @@ class BookingSummaryRepTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \BookingSummaryRep object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \BookingSummaryRep) {
+            if ($value instanceof \BookingSummaryRep) {
                 $key = serialize([(null === $value->getArspsaleper1() || is_scalar($value->getArspsaleper1()) || is_callable([$value->getArspsaleper1(), '__toString']) ? (string) $value->getArspsaleper1() : $value->getArspsaleper1()), (null === $value->getIntbwhse() || is_scalar($value->getIntbwhse()) || is_callable([$value->getIntbwhse(), '__toString']) ? (string) $value->getIntbwhse() : $value->getIntbwhse())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -535,11 +528,11 @@ class BookingSummaryRepTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -556,20 +549,15 @@ class BookingSummaryRepTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(string) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 1 + $offset
                 : self::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -624,7 +612,6 @@ class BookingSummaryRepTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -665,7 +652,6 @@ class BookingSummaryRepTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -728,7 +714,6 @@ class BookingSummaryRepTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -784,7 +769,6 @@ class BookingSummaryRepTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -806,7 +790,7 @@ class BookingSummaryRepTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingSummaryRepTableMap::DATABASE_NAME);
         }
 
@@ -820,7 +804,7 @@ class BookingSummaryRepTableMap extends TableMap
             $criteria = new Criteria(BookingSummaryRepTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -866,7 +850,7 @@ class BookingSummaryRepTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingSummaryRepTableMap::DATABASE_NAME);
         }
 
@@ -882,9 +866,7 @@ class BookingSummaryRepTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

@@ -357,7 +357,6 @@ class ItemOrderNoteTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -371,29 +370,27 @@ class ItemOrderNoteTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('QnType', 'Qntype', 'VARCHAR', true, 4, '');
-        $this->addColumn('QnTypeDesc', 'Qntypedesc', 'VARCHAR', false, 40, null);
-        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30, null);
-        $this->addColumn('QnOrdrPickTicket', 'Qnordrpickticket', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnOrdrPackTicket', 'Qnordrpackticket', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnOrdrInvoice', 'Qnordrinvoice', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnOrdrAcknow', 'Qnordracknow', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnOrdrQuote', 'Qnordrquote', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnOrdrPurchOrdr', 'Qnordrpurchordr', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnOrdrTransfer', 'Qnordrtransfer', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnOrdrFabPo', 'Qnordrfabpo', 'VARCHAR', false, 1, null);
+        $this->addColumn('QnTypeDesc', 'Qntypedesc', 'VARCHAR', false, 40);
+        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30);
+        $this->addColumn('QnOrdrPickTicket', 'Qnordrpickticket', 'VARCHAR', false, 1);
+        $this->addColumn('QnOrdrPackTicket', 'Qnordrpackticket', 'VARCHAR', false, 1);
+        $this->addColumn('QnOrdrInvoice', 'Qnordrinvoice', 'VARCHAR', false, 1);
+        $this->addColumn('QnOrdrAcknow', 'Qnordracknow', 'VARCHAR', false, 1);
+        $this->addColumn('QnOrdrQuote', 'Qnordrquote', 'VARCHAR', false, 1);
+        $this->addColumn('QnOrdrPurchOrdr', 'Qnordrpurchordr', 'VARCHAR', false, 1);
+        $this->addColumn('QnOrdrTransfer', 'Qnordrtransfer', 'VARCHAR', false, 1);
+        $this->addColumn('QnOrdrFabPo', 'Qnordrfabpo', 'VARCHAR', false, 1);
         $this->addPrimaryKey('QnSeq', 'Qnseq', 'INTEGER', true, 8, 0);
-        $this->addColumn('QnNote', 'Qnnote', 'VARCHAR', false, 150, null);
+        $this->addColumn('QnNote', 'Qnnote', 'VARCHAR', false, 150);
         $this->addPrimaryKey('QnKey2', 'Qnkey2', 'VARCHAR', true, 50, '');
         $this->addPrimaryKey('QnForm', 'Qnform', 'VARCHAR', true, 8, '');
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
@@ -409,8 +406,6 @@ class ItemOrderNoteTableMap extends TableMap
      *
      * @param \ItemOrderNote $obj A \ItemOrderNote object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(ItemOrderNote $obj, ?string $key = null): void
     {
@@ -431,13 +426,11 @@ class ItemOrderNoteTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemOrderNote object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \ItemOrderNote) {
+            if ($value instanceof \ItemOrderNote) {
                 $key = serialize([(null === $value->getQntype() || is_scalar($value->getQntype()) || is_callable([$value->getQntype(), '__toString']) ? (string) $value->getQntype() : $value->getQntype()), (null === $value->getQnseq() || is_scalar($value->getQnseq()) || is_callable([$value->getQnseq(), '__toString']) ? (string) $value->getQnseq() : $value->getQnseq()), (null === $value->getQnkey2() || is_scalar($value->getQnkey2()) || is_callable([$value->getQnkey2(), '__toString']) ? (string) $value->getQnkey2() : $value->getQnkey2()), (null === $value->getQnform() || is_scalar($value->getQnform()) || is_callable([$value->getQnform(), '__toString']) ? (string) $value->getQnform() : $value->getQnform())]);
 
             } elseif (is_array($value) && count($value) === 4) {
@@ -472,11 +465,11 @@ class ItemOrderNoteTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -493,30 +486,23 @@ class ItemOrderNoteTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(string) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (int) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 11 + $offset
                 : self::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 13 + $offset
                 : self::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 14 + $offset
                 : self::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -571,7 +557,6 @@ class ItemOrderNoteTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -612,7 +597,6 @@ class ItemOrderNoteTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -667,7 +651,6 @@ class ItemOrderNoteTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -715,7 +698,6 @@ class ItemOrderNoteTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -737,7 +719,7 @@ class ItemOrderNoteTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemOrderNoteTableMap::DATABASE_NAME);
         }
 
@@ -751,7 +733,7 @@ class ItemOrderNoteTableMap extends TableMap
             $criteria = new Criteria(ItemOrderNoteTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -799,7 +781,7 @@ class ItemOrderNoteTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemOrderNoteTableMap::DATABASE_NAME);
         }
 
@@ -815,9 +797,7 @@ class ItemOrderNoteTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

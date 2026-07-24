@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SysLoginGroup as BaseSysLoginGroup;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class SysLoginGroup extends BaseSysLoginGroup {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'qtbllgrpcode',
 		'code'         => 'qtbllgrpcode',
 		'description'  => 'qtbllgrpdesc',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

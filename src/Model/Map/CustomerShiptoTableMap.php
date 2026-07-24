@@ -1436,7 +1436,6 @@ class CustomerShiptoTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -1451,277 +1450,275 @@ class CustomerShiptoTableMap extends TableMap
         // columns
         $this->addForeignPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR' , 'ar_cust_mast', 'ArcuCustId', true, 6, '');
         $this->addPrimaryKey('ArstShipId', 'Arstshipid', 'VARCHAR', true, 6, '');
-        $this->addColumn('ArstName', 'Arstname', 'VARCHAR', false, 30, null);
-        $this->addColumn('ArstAdr1', 'Arstadr1', 'VARCHAR', false, 30, null);
-        $this->addColumn('ArstAdr2', 'Arstadr2', 'VARCHAR', false, 30, null);
-        $this->addColumn('ArstAdr3', 'Arstadr3', 'VARCHAR', false, 30, null);
-        $this->addColumn('ArstCtry', 'Arstctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArstCity', 'Arstcity', 'VARCHAR', false, 16, null);
-        $this->addColumn('ArstStat', 'Arststat', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArstZipCode', 'Arstzipcode', 'VARCHAR', false, 10, null);
-        $this->addColumn('ArstDeliveryDays', 'Arstdeliverydays', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstCommCode', 'Arstcommcode', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArstAllowSplit', 'Arstallowsplit', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstLindstSp', 'Arstlindstsp', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArstLmEcommCustId', 'Arstlmecommcustid', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArstCatlgId', 'Arstcatlgid', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArspSalePer1', 'Arspsaleper1', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArspSalePer2', 'Arspsaleper2', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArspSalePer3', 'Arspsaleper3', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArtbCtaxCode', 'Artbctaxcode', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArstTaxExemNbr', 'Arsttaxexemnbr', 'VARCHAR', false, 20, null);
-        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtbShipVia', 'Artbshipvia', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArstBord', 'Arstbord', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstCredHold', 'Arstcredhold', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstUserCode', 'Arstusercode', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArstPricLvl', 'Arstpriclvl', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstShipComp', 'Arstshipcomp', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstTxbl', 'Arsttxbl', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstPostal', 'Arstpostal', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstSaleMtd', 'Arstsalemtd', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInvMtd', 'Arstinvmtd', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstDateOpen', 'Arstdateopen', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArstLastSaleDate', 'Arstlastsaledate', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArstSale24mo1', 'Arstsale24mo1', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo1', 'Arstinv24mo1', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo2', 'Arstsale24mo2', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo2', 'Arstinv24mo2', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo3', 'Arstsale24mo3', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo3', 'Arstinv24mo3', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo4', 'Arstsale24mo4', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo4', 'Arstinv24mo4', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo5', 'Arstsale24mo5', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo5', 'Arstinv24mo5', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo6', 'Arstsale24mo6', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo6', 'Arstinv24mo6', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo7', 'Arstsale24mo7', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo7', 'Arstinv24mo7', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo8', 'Arstsale24mo8', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo8', 'Arstinv24mo8', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo9', 'Arstsale24mo9', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo9', 'Arstinv24mo9', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo10', 'Arstsale24mo10', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo10', 'Arstinv24mo10', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo11', 'Arstsale24mo11', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo11', 'Arstinv24mo11', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo12', 'Arstsale24mo12', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo12', 'Arstinv24mo12', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo13', 'Arstsale24mo13', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo13', 'Arstinv24mo13', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo14', 'Arstsale24mo14', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo14', 'Arstinv24mo14', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo15', 'Arstsale24mo15', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo15', 'Arstinv24mo15', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo16', 'Arstsale24mo16', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo16', 'Arstinv24mo16', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo17', 'Arstsale24mo17', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo17', 'Arstinv24mo17', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo18', 'Arstsale24mo18', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo18', 'Arstinv24mo18', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo19', 'Arstsale24mo19', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo19', 'Arstinv24mo19', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo20', 'Arstsale24mo20', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo20', 'Arstinv24mo20', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo21', 'Arstsale24mo21', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo21', 'Arstinv24mo21', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo22', 'Arstsale24mo22', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo22', 'Arstinv24mo22', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo23', 'Arstsale24mo23', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo23', 'Arstinv24mo23', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstSale24mo24', 'Arstsale24mo24', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInv24mo24', 'Arstinv24mo24', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstPrimShipId', 'Arstprimshipid', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstMyVendId', 'Arstmyvendid', 'VARCHAR', false, 12, null);
-        $this->addColumn('ArstAddlPricDisc', 'Arstaddlpricdisc', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstEdiInvc', 'Arstediinvc', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstChrgFrt', 'Arstchrgfrt', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstDistCntr', 'Arstdistcntr', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArstDunsNbr', 'Arstdunsnbr', 'VARCHAR', false, 20, null);
-        $this->addColumn('ArstRfmlValu', 'Arstrfmlvalu', 'INTEGER', false, 3, null);
-        $this->addColumn('ArstCustPoParam', 'Arstcustpoparam', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbRoutCode', 'Artbroutcode', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArstUpsAcctNbr', 'Arstupsacctnbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('ArstFobInputYn', 'Arstfobinputyn', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArstFobPerLb', 'Arstfobperlb', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstSaleYtd', 'Arstsaleytd', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArstInvYtd', 'Arstinvytd', 'INTEGER', false, 4, null);
-        $this->addColumn('ArstEmailFaxAuthCode', 'Arstemailfaxauthcode', 'VARCHAR', false, 10, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('ArstName', 'Arstname', 'VARCHAR', false, 30);
+        $this->addColumn('ArstAdr1', 'Arstadr1', 'VARCHAR', false, 30);
+        $this->addColumn('ArstAdr2', 'Arstadr2', 'VARCHAR', false, 30);
+        $this->addColumn('ArstAdr3', 'Arstadr3', 'VARCHAR', false, 30);
+        $this->addColumn('ArstCtry', 'Arstctry', 'VARCHAR', false, 4);
+        $this->addColumn('ArstCity', 'Arstcity', 'VARCHAR', false, 16);
+        $this->addColumn('ArstStat', 'Arststat', 'VARCHAR', false, 2);
+        $this->addColumn('ArstZipCode', 'Arstzipcode', 'VARCHAR', false, 10);
+        $this->addColumn('ArstDeliveryDays', 'Arstdeliverydays', 'INTEGER', false, 4);
+        $this->addColumn('ArstCommCode', 'Arstcommcode', 'VARCHAR', false, 4);
+        $this->addColumn('ArstAllowSplit', 'Arstallowsplit', 'VARCHAR', false, 1);
+        $this->addColumn('ArstLindstSp', 'Arstlindstsp', 'VARCHAR', false, 6);
+        $this->addColumn('ArstLmEcommCustId', 'Arstlmecommcustid', 'VARCHAR', false, 6);
+        $this->addColumn('ArstCatlgId', 'Arstcatlgid', 'VARCHAR', false, 8);
+        $this->addColumn('ArspSalePer1', 'Arspsaleper1', 'VARCHAR', false, 6);
+        $this->addColumn('ArspSalePer2', 'Arspsaleper2', 'VARCHAR', false, 6);
+        $this->addColumn('ArspSalePer3', 'Arspsaleper3', 'VARCHAR', false, 6);
+        $this->addColumn('ArtbCtaxCode', 'Artbctaxcode', 'VARCHAR', false, 6);
+        $this->addColumn('ArstTaxExemNbr', 'Arsttaxexemnbr', 'VARCHAR', false, 20);
+        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2);
+        $this->addColumn('ArtbShipVia', 'Artbshipvia', 'VARCHAR', false, 4);
+        $this->addColumn('ArstBord', 'Arstbord', 'VARCHAR', false, 1);
+        $this->addColumn('ArstCredHold', 'Arstcredhold', 'VARCHAR', false, 1);
+        $this->addColumn('ArstUserCode', 'Arstusercode', 'VARCHAR', false, 4);
+        $this->addColumn('ArstPricLvl', 'Arstpriclvl', 'VARCHAR', false, 1);
+        $this->addColumn('ArstShipComp', 'Arstshipcomp', 'VARCHAR', false, 1);
+        $this->addColumn('ArstTxbl', 'Arsttxbl', 'VARCHAR', false, 1);
+        $this->addColumn('ArstPostal', 'Arstpostal', 'VARCHAR', false, 1);
+        $this->addColumn('ArstSaleMtd', 'Arstsalemtd', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInvMtd', 'Arstinvmtd', 'INTEGER', false, 4);
+        $this->addColumn('ArstDateOpen', 'Arstdateopen', 'VARCHAR', false, 8);
+        $this->addColumn('ArstLastSaleDate', 'Arstlastsaledate', 'VARCHAR', false, 8);
+        $this->addColumn('ArstSale24mo1', 'Arstsale24mo1', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo1', 'Arstinv24mo1', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo2', 'Arstsale24mo2', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo2', 'Arstinv24mo2', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo3', 'Arstsale24mo3', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo3', 'Arstinv24mo3', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo4', 'Arstsale24mo4', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo4', 'Arstinv24mo4', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo5', 'Arstsale24mo5', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo5', 'Arstinv24mo5', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo6', 'Arstsale24mo6', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo6', 'Arstinv24mo6', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo7', 'Arstsale24mo7', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo7', 'Arstinv24mo7', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo8', 'Arstsale24mo8', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo8', 'Arstinv24mo8', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo9', 'Arstsale24mo9', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo9', 'Arstinv24mo9', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo10', 'Arstsale24mo10', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo10', 'Arstinv24mo10', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo11', 'Arstsale24mo11', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo11', 'Arstinv24mo11', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo12', 'Arstsale24mo12', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo12', 'Arstinv24mo12', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo13', 'Arstsale24mo13', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo13', 'Arstinv24mo13', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo14', 'Arstsale24mo14', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo14', 'Arstinv24mo14', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo15', 'Arstsale24mo15', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo15', 'Arstinv24mo15', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo16', 'Arstsale24mo16', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo16', 'Arstinv24mo16', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo17', 'Arstsale24mo17', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo17', 'Arstinv24mo17', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo18', 'Arstsale24mo18', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo18', 'Arstinv24mo18', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo19', 'Arstsale24mo19', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo19', 'Arstinv24mo19', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo20', 'Arstsale24mo20', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo20', 'Arstinv24mo20', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo21', 'Arstsale24mo21', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo21', 'Arstinv24mo21', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo22', 'Arstsale24mo22', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo22', 'Arstinv24mo22', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo23', 'Arstsale24mo23', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo23', 'Arstinv24mo23', 'INTEGER', false, 4);
+        $this->addColumn('ArstSale24mo24', 'Arstsale24mo24', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInv24mo24', 'Arstinv24mo24', 'INTEGER', false, 4);
+        $this->addColumn('ArstPrimShipId', 'Arstprimshipid', 'VARCHAR', false, 1);
+        $this->addColumn('ArstMyVendId', 'Arstmyvendid', 'VARCHAR', false, 12);
+        $this->addColumn('ArstAddlPricDisc', 'Arstaddlpricdisc', 'DECIMAL', false, 20);
+        $this->addColumn('ArstEdiInvc', 'Arstediinvc', 'VARCHAR', false, 1);
+        $this->addColumn('ArstChrgFrt', 'Arstchrgfrt', 'VARCHAR', false, 1);
+        $this->addColumn('ArstDistCntr', 'Arstdistcntr', 'VARCHAR', false, 6);
+        $this->addColumn('ArstDunsNbr', 'Arstdunsnbr', 'VARCHAR', false, 20);
+        $this->addColumn('ArstRfmlValu', 'Arstrfmlvalu', 'INTEGER', false, 3);
+        $this->addColumn('ArstCustPoParam', 'Arstcustpoparam', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbRoutCode', 'Artbroutcode', 'VARCHAR', false, 4);
+        $this->addColumn('ArstUpsAcctNbr', 'Arstupsacctnbr', 'VARCHAR', false, 10);
+        $this->addColumn('ArstFobInputYn', 'Arstfobinputyn', 'VARCHAR', false, 1);
+        $this->addColumn('ArstFobPerLb', 'Arstfobperlb', 'DECIMAL', false, 20);
+        $this->addColumn('ArstSaleYtd', 'Arstsaleytd', 'DECIMAL', false, 20);
+        $this->addColumn('ArstInvYtd', 'Arstinvytd', 'INTEGER', false, 4);
+        $this->addColumn('ArstEmailFaxAuthCode', 'Arstemailfaxauthcode', 'VARCHAR', false, 10);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, null, false);
-        $this->addRelation('ArContact', '\\ArContact', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('ArContact', '\\ArContact', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'ArContacts', false);
-        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ArContacts', false);
+        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'CstkItems', false);
-        $this->addRelation('CstkHead', '\\CstkHead', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'CstkItems', false);
+        $this->addRelation('CstkHead', '\\CstkHead', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'CstkHeads', false);
-        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'CstkHeads', false);
+        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'InvTransferOrders', false);
-        $this->addRelation('NoteCustInternal', '\\NoteCustInternal', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvTransferOrders', false);
+        $this->addRelation('NoteCustInternal', '\\NoteCustInternal', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'NoteCustInternals', false);
-        $this->addRelation('NoteCustOrder', '\\NoteCustOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'NoteCustInternals', false);
+        $this->addRelation('NoteCustOrder', '\\NoteCustOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'NoteCustOrders', false);
-        $this->addRelation('BookingDayCustomer', '\\BookingDayCustomer', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'NoteCustOrders', false);
+        $this->addRelation('BookingDayCustomer', '\\BookingDayCustomer', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'BookingDayCustomers', false);
-        $this->addRelation('BookingDayDetail', '\\BookingDayDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'BookingDayCustomers', false);
+        $this->addRelation('BookingDayDetail', '\\BookingDayDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'BookingDayDetails', false);
-        $this->addRelation('Booking', '\\Booking', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'BookingDayDetails', false);
+        $this->addRelation('Booking', '\\Booking', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'Bookings', false);
-        $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'Bookings', false);
+        $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'SalesHistories', false);
-        $this->addRelation('SalesOrder', '\\SalesOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SalesHistories', false);
+        $this->addRelation('SalesOrder', '\\SalesOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'SalesOrders', false);
-        $this->addRelation('SoStandingOrderDetail', '\\SoStandingOrderDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SalesOrders', false);
+        $this->addRelation('SoStandingOrderDetail', '\\SoStandingOrderDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, 'SoStandingOrderDetails', false);
-        $this->addRelation('SoStandingOrder', '\\SoStandingOrder', RelationMap::ONE_TO_ONE, array (
+  ],
+], null, null, 'SoStandingOrderDetails', false);
+        $this->addRelation('SoStandingOrder', '\\SoStandingOrder', RelationMap::ONE_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, null, false);
+  ],
+], null, null, null, false);
     }
 
     /**
@@ -1734,8 +1731,6 @@ class CustomerShiptoTableMap extends TableMap
      *
      * @param \CustomerShipto $obj A \CustomerShipto object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(CustomerShipto $obj, ?string $key = null): void
     {
@@ -1756,13 +1751,11 @@ class CustomerShiptoTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \CustomerShipto object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \CustomerShipto) {
+            if ($value instanceof \CustomerShipto) {
                 $key = serialize([(null === $value->getArcucustid() || is_scalar($value->getArcucustid()) || is_callable([$value->getArcucustid(), '__toString']) ? (string) $value->getArcucustid() : $value->getArcucustid()), (null === $value->getArstshipid() || is_scalar($value->getArstshipid()) || is_callable([$value->getArstshipid(), '__toString']) ? (string) $value->getArstshipid() : $value->getArstshipid())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -1797,11 +1790,11 @@ class CustomerShiptoTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -1818,20 +1811,15 @@ class CustomerShiptoTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(string) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 1 + $offset
                 : self::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -1886,7 +1874,6 @@ class CustomerShiptoTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -1927,7 +1914,6 @@ class CustomerShiptoTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -2148,7 +2134,6 @@ class CustomerShiptoTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -2362,7 +2347,6 @@ class CustomerShiptoTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -2384,7 +2368,7 @@ class CustomerShiptoTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShiptoTableMap::DATABASE_NAME);
         }
 
@@ -2398,7 +2382,7 @@ class CustomerShiptoTableMap extends TableMap
             $criteria = new Criteria(CustomerShiptoTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -2444,7 +2428,7 @@ class CustomerShiptoTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShiptoTableMap::DATABASE_NAME);
         }
 
@@ -2460,9 +2444,7 @@ class CustomerShiptoTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

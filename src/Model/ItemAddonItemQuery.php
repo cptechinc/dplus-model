@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ItemAddonItemQuery as BaseItemAddonItemQuery;
 
 use Dplus\Model\QueryTraits;

@@ -49,7 +49,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 		$this->condition('sp1', 'SalesHistory.ArspSaleper1 = ?', $salesperson);
 		$this->condition('sp2', 'SalesHistory.ArspSaleper2 = ?', $salesperson);
 		$this->condition('sp3', 'SalesHistory.ArspSaleper3 = ?', $salesperson);
-		$this->where(array('sp1', 'sp2', 'sp3'), 'or'); 				 // combine 'cond1' and 'cond2' with a logical OR
+		$this->where(['sp1', 'sp2', 'sp3'], 'or'); 				 // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
 	 }
 

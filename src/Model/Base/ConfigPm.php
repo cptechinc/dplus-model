@@ -32,7 +32,7 @@ abstract class ConfigPm implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ConfigPmTableMap';
+    public const TABLE_MAP = \Map\ConfigPmTableMap::class;
 
 
     /**
@@ -363,7 +363,7 @@ abstract class ConfigPm implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -421,7 +421,6 @@ abstract class ConfigPm implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -431,7 +430,6 @@ abstract class ConfigPm implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -469,8 +467,6 @@ abstract class ConfigPm implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -481,7 +477,6 @@ abstract class ConfigPm implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -523,9 +518,7 @@ abstract class ConfigPm implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -551,7 +544,7 @@ abstract class ConfigPm implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, []));
     }
 
     /**
@@ -1725,12 +1718,8 @@ abstract class ConfigPm implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->pmtbconfkey !== 0) {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->pmtbconfkey === 0;
     }
 
     /**
@@ -1755,118 +1744,118 @@ abstract class ConfigPm implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfkey = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfbasesystem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfbasesystem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfbasesystem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfadvancedsystem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfadvancedsystem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfadvancedsystem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfallowneguse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfallowneguse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfallowneguse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfscrapunused', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfscrapunused', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfscrapunused = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfscrapgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfscrapgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfscrapgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfwarnqtytozero', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfwarnqtytozero', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfwarnqtytozero = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfvargl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfvargl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfvargl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfputbincode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfputbincode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfputbincode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfputbindflt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfputbindflt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfputbindflt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfserialbase', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfserialbase', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfserialbase = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconffgatstan', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconffgatstan', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconffgatstan = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfglfgtomat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfglfgtomat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfglfgtomat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfpostdetsum', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfpostdetsum', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfpostdetsum = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfsort', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfsort', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfsort = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconflastcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconflastcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconflastcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfaskbom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfaskbom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfaskbom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfdefbom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfdefbom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfdefbom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfautoselectlots', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfautoselectlots', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfautoselectlots = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfallocwhenic', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfallocwhenic', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfallocwhenic = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfusewpc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfusewpc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfusewpc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfpowgwipinproc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfpowgwipinproc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfpowgwipinproc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconflrscost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconflrscost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconflrscost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfvariacctg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfvariacctg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfvariacctg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconftakebincode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconftakebincode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconftakebincode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfusefguom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfusefguom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfusefguom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfusenc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfusenc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfusenc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfusenegwip', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbconfusenegwip', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbconfusenegwip = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2advwipactentry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2advwipactentry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbcon2advwipactentry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2machlaborgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2machlaborgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbcon2machlaborgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2machsetupgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2machsetupgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbcon2machsetupgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2burdenlaborgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2burdenlaborgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbcon2burdenlaborgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2burdenmachgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2burdenmachgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbcon2burdenmachgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2burdenadmingl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2burdenadmingl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbcon2burdenadmingl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2setupasoper', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ConfigPmTableMap::translateFieldName('Pmtbcon2setupasoper', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pmtbcon2setupasoper = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigPmTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ConfigPmTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigPmTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ConfigPmTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigPmTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ConfigPmTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1895,7 +1884,6 @@ abstract class ConfigPm implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1908,7 +1896,6 @@ abstract class ConfigPm implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1921,7 +1908,7 @@ abstract class ConfigPm implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigPmTableMap::DATABASE_NAME);
         }
 
@@ -1945,7 +1932,6 @@ abstract class ConfigPm implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigPm::setDeleted()
      * @see ConfigPm::isDeleted()
@@ -1956,7 +1942,7 @@ abstract class ConfigPm implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPmTableMap::DATABASE_NAME);
         }
 
@@ -1995,18 +1981,14 @@ abstract class ConfigPm implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPmTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2030,7 +2012,6 @@ abstract class ConfigPm implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2062,7 +2043,6 @@ abstract class ConfigPm implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2365,7 +2345,6 @@ abstract class ConfigPm implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2391,9 +2370,8 @@ abstract class ConfigPm implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigPmTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2598,7 +2576,6 @@ abstract class ConfigPm implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3074,7 +3051,7 @@ abstract class ConfigPm implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -3094,7 +3071,6 @@ abstract class ConfigPm implements ActiveRecordInterface
      * Generic method to set the primary key (pmtbconfkey column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -3103,8 +3079,6 @@ abstract class ConfigPm implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3121,7 +3095,6 @@ abstract class ConfigPm implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3258,8 +3231,7 @@ abstract class ConfigPm implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         return $this;
     }
@@ -3271,13 +3243,11 @@ abstract class ConfigPm implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ConfigPmTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ConfigPmTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3286,8 +3256,6 @@ abstract class ConfigPm implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3295,8 +3263,6 @@ abstract class ConfigPm implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3305,8 +3271,6 @@ abstract class ConfigPm implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3314,8 +3278,6 @@ abstract class ConfigPm implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3324,8 +3286,6 @@ abstract class ConfigPm implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3333,8 +3293,6 @@ abstract class ConfigPm implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3343,8 +3301,6 @@ abstract class ConfigPm implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3364,7 +3320,7 @@ abstract class ConfigPm implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3376,7 +3332,7 @@ abstract class ConfigPm implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3384,7 +3340,7 @@ abstract class ConfigPm implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

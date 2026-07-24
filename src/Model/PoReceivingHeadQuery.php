@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\PoReceivingHeadQuery as BasePoReceivingHeadQuery;
 
 use Dplus\Model\QueryTraits;

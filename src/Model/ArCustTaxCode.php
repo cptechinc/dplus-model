@@ -21,7 +21,7 @@ class ArCustTaxCode extends BaseArCustTaxCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'		   => 'artbctaxcode',
 		'code'		   => 'artbctaxcode',
 		'description'  => 'artbctaxdesc',
@@ -36,7 +36,7 @@ class ArCustTaxCode extends BaseArCustTaxCode {
 		'code9' 	   => 'artbctaxcode9',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return Tax Code at index

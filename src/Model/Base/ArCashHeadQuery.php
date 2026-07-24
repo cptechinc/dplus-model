@@ -146,7 +146,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArCashHeadQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArCashHeadQuery object.
@@ -204,7 +204,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArCashHeadTableMap::DATABASE_NAME);
         }
 
@@ -250,7 +250,6 @@ abstract class ArCashHeadQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArCashHead $obj */
             $obj = new ChildArCashHead();
             $obj->hydrate($row);
             ArCashHeadTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -291,7 +290,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -350,10 +349,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -421,10 +418,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByArchclerkid($archclerkid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($archclerkid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($archclerkid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCLERKID, $archclerkid, $comparison);
@@ -449,10 +444,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByArchpostflag($archpostflag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($archpostflag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($archpostflag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHPOSTFLAG, $archpostflag, $comparison);
@@ -477,10 +470,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByArchorigwhse($archorigwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($archorigwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($archorigwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHORIGWHSE, $archorigwhse, $comparison);
@@ -505,10 +496,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByArchccnbr($archccnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($archccnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($archccnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCNBR, $archccnbr, $comparison);
@@ -533,10 +522,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByArchccexpdate($archccexpdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($archccexpdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($archccexpdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCEXPDATE, $archccexpdate, $comparison);
@@ -561,10 +548,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByArchccvalidcode($archccvalidcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($archccvalidcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($archccvalidcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCVALIDCODE, $archccvalidcode, $comparison);
@@ -589,10 +574,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByArchccaprv($archccaprv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($archccaprv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($archccaprv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCAPRV, $archccaprv, $comparison);
@@ -617,10 +600,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByArchccinfo($archccinfo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($archccinfo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($archccinfo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCINFO, $archccinfo, $comparison);
@@ -645,10 +626,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -673,10 +652,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -701,10 +678,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCashHeadTableMap::COL_DUMMY, $dummy, $comparison);
@@ -758,7 +733,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -788,7 +763,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -931,7 +906,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -961,7 +936,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
     {
         return $this
             ->joinArPaymentPending($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ArPaymentPending', '\ArPaymentPendingQuery');
+            ->useQuery($relationAlias ?: 'ArPaymentPending', '\ArPaymentPendingQuery');
     }
 
     /**
@@ -1084,7 +1059,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCashHeadTableMap::DATABASE_NAME);
         }
 
@@ -1114,7 +1089,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCashHeadTableMap::DATABASE_NAME);
         }
 

@@ -38,7 +38,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\InvSerialWarrantyTableMap';
+    public const TABLE_MAP = \Map\InvSerialWarrantyTableMap::class;
 
 
     /**
@@ -368,7 +368,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -426,7 +426,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -436,7 +435,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -474,8 +472,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -486,7 +482,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -528,9 +523,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -556,7 +549,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1553,13 +1546,8 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -1584,88 +1572,88 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : InvSerialWarrantyTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Sermsernbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Sermsernbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sermsernbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmsaledate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmsaledate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmsaledate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownfname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownfname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmownfname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownmname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownmname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmownmname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownlname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownlname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmownlname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmownadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmownadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmownadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmowncity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmowncity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmowncity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmownstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownzip', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmownzip', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmownzip = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmsordnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmsordnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmsordnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warminvcdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warminvcdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warminvcdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmentrydate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmentrydate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmentrydate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmengsernbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmengsernbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmengsernbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmenghorse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmenghorse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmenghorse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmengmodelyear', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmengmodelyear', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmengmodelyear = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmengdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmengdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmengdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmphone1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmphone1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmphone1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmphone2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmphone2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmphone2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmemail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmemail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmemail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmacorigwarrdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Warmacorigwarrdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->warmacorigwarrdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : InvSerialWarrantyTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1694,7 +1682,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1719,7 +1706,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1732,7 +1718,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvSerialWarrantyTableMap::DATABASE_NAME);
         }
 
@@ -1759,7 +1745,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see InvSerialWarranty::setDeleted()
      * @see InvSerialWarranty::isDeleted()
@@ -1770,7 +1755,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialWarrantyTableMap::DATABASE_NAME);
         }
 
@@ -1809,18 +1794,14 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialWarrantyTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1844,7 +1825,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1902,7 +1882,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2135,7 +2114,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2161,9 +2139,8 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = InvSerialWarrantyTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2376,7 +2353,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -2792,18 +2768,13 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getInititemnbr();
-        $pks[1] = $this->getSermsernbr();
-
-        return $pks;
+        return [$this->getInititemnbr(), $this->getSermsernbr()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -2813,8 +2784,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -2831,7 +2800,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2893,13 +2861,12 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param ChildItemMasterItem $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ItemMasterItem) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
@@ -2909,7 +2876,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ItemMasterItem) {
             $v->addInvSerialWarranty($this);
         }
 
@@ -2944,19 +2911,18 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildInvSerialMaster object.
      *
-     * @param ChildInvSerialMaster $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvSerialMaster(ChildInvSerialMaster $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvSerialMaster) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
         }
 
-        if ($v === null) {
+        if (!$v instanceof \InvSerialMaster) {
             $this->setSermsernbr('');
         } else {
             $this->setSermsernbr($v->getSermsernbr());
@@ -2965,7 +2931,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
         $this->aInvSerialMaster = $v;
 
         // Add binding for other direction of this 1:1 relationship.
-        if ($v !== null) {
+        if ($v instanceof \InvSerialMaster) {
             $v->setInvSerialWarranty($this);
         }
 
@@ -2984,7 +2950,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     public function getInvSerialMaster(?ConnectionInterface $con = null)
     {
         if ($this->aInvSerialMaster === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->sermsernbr !== "" && $this->sermsernbr !== null))) {
-            $this->aInvSerialMaster = ChildInvSerialMasterQuery::create()->findPk(array($this->inititemnbr, $this->sermsernbr), $con);
+            $this->aInvSerialMaster = ChildInvSerialMasterQuery::create()->findPk([$this->inititemnbr, $this->sermsernbr], $con);
             // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
             $this->aInvSerialMaster->setInvSerialWarranty($this);
         }
@@ -2995,13 +2961,12 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param ChildCustomer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -3011,7 +2976,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->addInvSerialWarranty($this);
         }
 
@@ -3110,8 +3075,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aItemMasterItem = null;
         $this->aInvSerialMaster = null;
@@ -3126,13 +3090,11 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(InvSerialWarrantyTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(InvSerialWarrantyTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3141,8 +3103,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3150,8 +3110,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3160,8 +3118,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3169,8 +3125,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3179,8 +3133,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3188,8 +3140,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3198,8 +3148,6 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3219,7 +3167,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3231,7 +3179,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3239,7 +3187,7 @@ abstract class InvSerialWarranty implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

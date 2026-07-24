@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArRouteCodeQuery as BaseArRouteCodeQuery;
 
 use Dplus\Model\QueryTraits;

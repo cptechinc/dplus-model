@@ -254,7 +254,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigCcQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigCcQuery object.
@@ -312,7 +312,7 @@ abstract class ConfigCcQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigCcTableMap::DATABASE_NAME);
         }
 
@@ -358,7 +358,6 @@ abstract class ConfigCcQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigCc $obj */
             $obj = new ChildConfigCc();
             $obj->hydrate($row);
             ConfigCcTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -399,7 +398,7 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -673,10 +672,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfavgfinchrg($cctbconfavgfinchrg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfavgfinchrg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfavgfinchrg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFAVGFINCHRG, $cctbconfavgfinchrg, $comparison);
@@ -701,10 +698,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfallterms($cctbconfallterms = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfallterms)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfallterms)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFALLTERMS, $cctbconfallterms, $comparison);
@@ -729,10 +724,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms01($cctbconfterms01 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms01)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms01)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS01, $cctbconfterms01, $comparison);
@@ -757,10 +750,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms02($cctbconfterms02 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms02)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms02)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS02, $cctbconfterms02, $comparison);
@@ -785,10 +776,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms03($cctbconfterms03 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms03)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms03)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS03, $cctbconfterms03, $comparison);
@@ -813,10 +802,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms04($cctbconfterms04 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms04)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms04)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS04, $cctbconfterms04, $comparison);
@@ -841,10 +828,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms05($cctbconfterms05 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms05)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms05)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS05, $cctbconfterms05, $comparison);
@@ -869,10 +854,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms06($cctbconfterms06 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms06)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms06)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS06, $cctbconfterms06, $comparison);
@@ -897,10 +880,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms07($cctbconfterms07 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms07)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms07)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS07, $cctbconfterms07, $comparison);
@@ -925,10 +906,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms08($cctbconfterms08 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms08)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms08)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS08, $cctbconfterms08, $comparison);
@@ -953,10 +932,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms09($cctbconfterms09 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms09)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms09)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS09, $cctbconfterms09, $comparison);
@@ -981,10 +958,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms10($cctbconfterms10 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms10)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms10)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS10, $cctbconfterms10, $comparison);
@@ -1009,10 +984,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms11($cctbconfterms11 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms11)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms11)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS11, $cctbconfterms11, $comparison);
@@ -1037,10 +1010,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfterms12($cctbconfterms12 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfterms12)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfterms12)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFTERMS12, $cctbconfterms12, $comparison);
@@ -1065,10 +1036,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconffutordrs($cctbconffutordrs = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconffutordrs)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconffutordrs)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFFUTORDRS, $cctbconffutordrs, $comparison);
@@ -1093,10 +1062,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfpickticket($cctbconfpickticket = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfpickticket)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfpickticket)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFPICKTICKET, $cctbconfpickticket, $comparison);
@@ -1121,10 +1088,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfpickalt($cctbconfpickalt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfpickalt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfpickalt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFPICKALT, $cctbconfpickalt, $comparison);
@@ -1149,10 +1114,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfpickrel($cctbconfpickrel = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfpickrel)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfpickrel)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFPICKREL, $cctbconfpickrel, $comparison);
@@ -1177,10 +1140,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfuseodue($cctbconfuseodue = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfuseodue)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfuseodue)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFUSEODUE, $cctbconfuseodue, $comparison);
@@ -1291,10 +1252,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfusecredlmt($cctbconfusecredlmt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfusecredlmt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfusecredlmt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFUSECREDLMT, $cctbconfusecredlmt, $comparison);
@@ -1362,10 +1321,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfaddcurr($cctbconfaddcurr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfaddcurr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfaddcurr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFADDCURR, $cctbconfaddcurr, $comparison);
@@ -1390,10 +1347,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfminmarghold($cctbconfminmarghold = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfminmarghold)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfminmarghold)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFMINMARGHOLD, $cctbconfminmarghold, $comparison);
@@ -1418,10 +1373,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfminmargbase($cctbconfminmargbase = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfminmargbase)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfminmargbase)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFMINMARGBASE, $cctbconfminmargbase, $comparison);
@@ -1446,10 +1399,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByCctbconfhighlevlhold($cctbconfhighlevlhold = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cctbconfhighlevlhold)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cctbconfhighlevlhold)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_CCTBCONFHIGHLEVLHOLD, $cctbconfhighlevlhold, $comparison);
@@ -1474,10 +1425,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1502,10 +1451,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1530,10 +1477,8 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCcTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1565,7 +1510,7 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigCcTableMap::DATABASE_NAME);
         }
 
@@ -1595,7 +1540,7 @@ abstract class ConfigCcQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigCcTableMap::DATABASE_NAME);
         }
 

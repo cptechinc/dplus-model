@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 // Dplus Model
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -16,7 +18,7 @@ class ArPaymentPending extends BaseArPaymentPending {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'custid'         => 'arcucustid',
 		'paid'           => 'arcdpaid',
 		'invoicenumber'  => 'arcdinvnbr',
@@ -40,5 +42,5 @@ class ArPaymentPending extends BaseArPaymentPending {
 		'writeoffreason' => 'arcdwriteoffreason',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 }

@@ -1852,7 +1852,6 @@ class CustomerTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -1866,336 +1865,334 @@ class CustomerTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR', true, 6, '');
-        $this->addColumn('ArcuName', 'Arcuname', 'VARCHAR', false, 30, null);
-        $this->addColumn('ArcuAdr1', 'Arcuadr1', 'VARCHAR', false, 30, null);
-        $this->addColumn('ArcuAdr2', 'Arcuadr2', 'VARCHAR', false, 30, null);
-        $this->addColumn('ArcuAdr3', 'Arcuadr3', 'VARCHAR', false, 30, null);
-        $this->addColumn('ArcuCtry', 'Arcuctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArcuCity', 'Arcucity', 'VARCHAR', false, 16, null);
-        $this->addColumn('ArcuStat', 'Arcustat', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArcuZipCode', 'Arcuzipcode', 'VARCHAR', false, 10, null);
-        $this->addColumn('ArcuDeliveryDays', 'Arcudeliverydays', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuRemitWhse', 'Arcuremitwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArcuShipBin', 'Arcushipbin', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArcuAllowAddOns', 'Arcuallowaddons', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuLmEcommCustId', 'Arculmecommcustid', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArcuGsUse2ndBin', 'Arcugsuse2ndbin', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArspSalePer1', 'Arspsaleper1', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArspSalePer2', 'Arspsaleper2', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArspSalePer3', 'Arspsaleper3', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArtbCtaxCode', 'Artbctaxcode', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArcuTaxExemNbr', 'Arcutaxexemnbr', 'VARCHAR', false, 20, null);
-        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArcuPricLvl', 'Arcupriclvl', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuShipComp', 'Arcushipcomp', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuTxbl', 'Arcutxbl', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuPostal', 'Arcupostal', 'VARCHAR', false, 1, null);
-        $this->addForeignKey('ArtbShipVia', 'Artbshipvia', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4, null);
-        $this->addColumn('ArcuBord', 'Arcubord', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbTypeCode', 'Artbtypecode', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtbPricCode', 'Artbpriccode', 'VARCHAR', false, 4, null);
-        $this->addForeignKey('ArtbCommCode', 'Artbcommcode', 'VARCHAR', 'ar_cust_comm', 'ArtbCommCode', false, 4, null);
-        $this->addColumn('ArtmTermCd', 'Artmtermcd', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArcuCredLmt', 'Arcucredlmt', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuStmtCode', 'Arcustmtcode', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuCredHold', 'Arcucredhold', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuFinChrg', 'Arcufinchrg', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuUserCode', 'Arcuusercode', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArcuNewFc', 'Arcunewfc', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuUnpdFc', 'Arcuunpdfc', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuCurBal', 'Arcucurbal', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuBalOdue1', 'Arcubalodue1', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuBalOdue2', 'Arcubalodue2', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuBalOdue3', 'Arcubalodue3', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuSaleMtd', 'Arcusalemtd', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInvMtd', 'Arcuinvmtd', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSaleYtd', 'Arcusaleytd', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInvYtd', 'Arcuinvytd', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuDateOpen', 'Arcudateopen', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArcuLastSaleDate', 'Arculastsaledate', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArcuHighBal', 'Arcuhighbal', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuBigSaleMo', 'Arcubigsalemo', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuLastPayDate', 'Arculastpaydate', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArcuAvgPayDays', 'Arcuavgpaydays', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuUpsZone', 'Arcuupszone', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArcuHighBalDate', 'Arcuhighbaldate', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArcuSale24mo1', 'Arcusale24mo1', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo1', 'Arcuinv24mo1', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo2', 'Arcusale24mo2', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo2', 'Arcuinv24mo2', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo3', 'Arcusale24mo3', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo3', 'Arcuinv24mo3', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo4', 'Arcusale24mo4', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo4', 'Arcuinv24mo4', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo5', 'Arcusale24mo5', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo5', 'Arcuinv24mo5', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo6', 'Arcusale24mo6', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo6', 'Arcuinv24mo6', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo7', 'Arcusale24mo7', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo7', 'Arcuinv24mo7', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo8', 'Arcusale24mo8', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo8', 'Arcuinv24mo8', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo9', 'Arcusale24mo9', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo9', 'Arcuinv24mo9', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo10', 'Arcusale24mo10', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo10', 'Arcuinv24mo10', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo11', 'Arcusale24mo11', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo11', 'Arcuinv24mo11', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo12', 'Arcusale24mo12', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo12', 'Arcuinv24mo12', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo13', 'Arcusale24mo13', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo13', 'Arcuinv24mo13', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo14', 'Arcusale24mo14', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo14', 'Arcuinv24mo14', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo15', 'Arcusale24mo15', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo15', 'Arcuinv24mo15', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo16', 'Arcusale24mo16', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo16', 'Arcuinv24mo16', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo17', 'Arcusale24mo17', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo17', 'Arcuinv24mo17', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo18', 'Arcusale24mo18', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo18', 'Arcuinv24mo18', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo19', 'Arcusale24mo19', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo19', 'Arcuinv24mo19', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo20', 'Arcusale24mo20', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo20', 'Arcuinv24mo20', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo21', 'Arcusale24mo21', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo21', 'Arcuinv24mo21', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo22', 'Arcusale24mo22', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo22', 'Arcuinv24mo22', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo23', 'Arcusale24mo23', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo23', 'Arcuinv24mo23', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuSale24mo24', 'Arcusale24mo24', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuInv24mo24', 'Arcuinv24mo24', 'INTEGER', false, 4, null);
-        $this->addColumn('ArcuLastPayAmt', 'Arculastpayamt', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuOrdrTot', 'Arcuordrtot', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuUseFrtIn', 'Arcuusefrtin', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuMyVendId', 'Arcumyvendid', 'VARCHAR', false, 12, null);
-        $this->addColumn('ArcuAddlPricDisc', 'Arcuaddlpricdisc', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuActiveInactive', 'Arcuactiveinactive', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuInactiveDate', 'Arcuinactivedate', 'VARCHAR', false, 8, null);
-        $this->addForeignKey('ArcuChrgFrt', 'Arcuchrgfrt', 'VARCHAR', 'so_frtrate', 'SfrtRateCode', false, 1, null);
-        $this->addColumn('ArcuCoreXDays', 'Arcucorexdays', 'INTEGER', false, 6, null);
-        $this->addColumn('ArcuContractNbr', 'Arcucontractnbr', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArcuCoreLF', 'Arcucorelf', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuCoreBankId', 'Arcucorebankid', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArcuDunsNbr', 'Arcudunsnbr', 'VARCHAR', false, 20, null);
-        $this->addColumn('ArcuRfmlValu', 'Arcurfmlvalu', 'INTEGER', false, 3, null);
-        $this->addColumn('ArcuCustPoParam', 'Arcucustpoparam', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuAgeLevel', 'Arcuagelevel', 'INTEGER', false, 1, null);
-        $this->addColumn('ArtbRoute', 'Artbroute', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArcuWgTaxCode', 'Arcuwgtaxcode', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArcuAcptSupercede', 'Arcuacptsupercede', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuMstrCustId', 'Arcumstrcustid', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArcuSurchgPct', 'Arcusurchgpct', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuAllowSplit', 'Arcuallowsplit', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuLineMin', 'Arculinemin', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuOrdrMin', 'Arcuordrmin', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArcuUpsAcctNbr', 'Arcuupsacctnbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('ArcuPrtMatCert', 'Arcuprtmatcert', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuFobInputYn', 'Arcufobinputyn', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuFobPerLb', 'Arcufobperlb', 'DECIMAL', false, 20, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('ArcuName', 'Arcuname', 'VARCHAR', false, 30);
+        $this->addColumn('ArcuAdr1', 'Arcuadr1', 'VARCHAR', false, 30);
+        $this->addColumn('ArcuAdr2', 'Arcuadr2', 'VARCHAR', false, 30);
+        $this->addColumn('ArcuAdr3', 'Arcuadr3', 'VARCHAR', false, 30);
+        $this->addColumn('ArcuCtry', 'Arcuctry', 'VARCHAR', false, 4);
+        $this->addColumn('ArcuCity', 'Arcucity', 'VARCHAR', false, 16);
+        $this->addColumn('ArcuStat', 'Arcustat', 'VARCHAR', false, 2);
+        $this->addColumn('ArcuZipCode', 'Arcuzipcode', 'VARCHAR', false, 10);
+        $this->addColumn('ArcuDeliveryDays', 'Arcudeliverydays', 'INTEGER', false, 4);
+        $this->addColumn('ArcuRemitWhse', 'Arcuremitwhse', 'VARCHAR', false, 2);
+        $this->addColumn('ArcuShipBin', 'Arcushipbin', 'VARCHAR', false, 8);
+        $this->addColumn('ArcuAllowAddOns', 'Arcuallowaddons', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuLmEcommCustId', 'Arculmecommcustid', 'VARCHAR', false, 6);
+        $this->addColumn('ArcuGsUse2ndBin', 'Arcugsuse2ndbin', 'VARCHAR', false, 1);
+        $this->addColumn('ArspSalePer1', 'Arspsaleper1', 'VARCHAR', false, 6);
+        $this->addColumn('ArspSalePer2', 'Arspsaleper2', 'VARCHAR', false, 6);
+        $this->addColumn('ArspSalePer3', 'Arspsaleper3', 'VARCHAR', false, 6);
+        $this->addColumn('ArtbCtaxCode', 'Artbctaxcode', 'VARCHAR', false, 6);
+        $this->addColumn('ArcuTaxExemNbr', 'Arcutaxexemnbr', 'VARCHAR', false, 20);
+        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2);
+        $this->addColumn('ArcuPricLvl', 'Arcupriclvl', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuShipComp', 'Arcushipcomp', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuTxbl', 'Arcutxbl', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuPostal', 'Arcupostal', 'VARCHAR', false, 1);
+        $this->addForeignKey('ArtbShipVia', 'Artbshipvia', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4);
+        $this->addColumn('ArcuBord', 'Arcubord', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbTypeCode', 'Artbtypecode', 'VARCHAR', false, 4);
+        $this->addColumn('ArtbPricCode', 'Artbpriccode', 'VARCHAR', false, 4);
+        $this->addForeignKey('ArtbCommCode', 'Artbcommcode', 'VARCHAR', 'ar_cust_comm', 'ArtbCommCode', false, 4);
+        $this->addColumn('ArtmTermCd', 'Artmtermcd', 'VARCHAR', false, 4);
+        $this->addColumn('ArcuCredLmt', 'Arcucredlmt', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuStmtCode', 'Arcustmtcode', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuCredHold', 'Arcucredhold', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuFinChrg', 'Arcufinchrg', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuUserCode', 'Arcuusercode', 'VARCHAR', false, 4);
+        $this->addColumn('ArcuNewFc', 'Arcunewfc', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuUnpdFc', 'Arcuunpdfc', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuCurBal', 'Arcucurbal', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuBalOdue1', 'Arcubalodue1', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuBalOdue2', 'Arcubalodue2', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuBalOdue3', 'Arcubalodue3', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuSaleMtd', 'Arcusalemtd', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInvMtd', 'Arcuinvmtd', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSaleYtd', 'Arcusaleytd', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInvYtd', 'Arcuinvytd', 'INTEGER', false, 4);
+        $this->addColumn('ArcuDateOpen', 'Arcudateopen', 'VARCHAR', false, 8);
+        $this->addColumn('ArcuLastSaleDate', 'Arculastsaledate', 'VARCHAR', false, 8);
+        $this->addColumn('ArcuHighBal', 'Arcuhighbal', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuBigSaleMo', 'Arcubigsalemo', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuLastPayDate', 'Arculastpaydate', 'VARCHAR', false, 8);
+        $this->addColumn('ArcuAvgPayDays', 'Arcuavgpaydays', 'INTEGER', false, 4);
+        $this->addColumn('ArcuUpsZone', 'Arcuupszone', 'VARCHAR', false, 4);
+        $this->addColumn('ArcuHighBalDate', 'Arcuhighbaldate', 'VARCHAR', false, 8);
+        $this->addColumn('ArcuSale24mo1', 'Arcusale24mo1', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo1', 'Arcuinv24mo1', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo2', 'Arcusale24mo2', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo2', 'Arcuinv24mo2', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo3', 'Arcusale24mo3', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo3', 'Arcuinv24mo3', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo4', 'Arcusale24mo4', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo4', 'Arcuinv24mo4', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo5', 'Arcusale24mo5', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo5', 'Arcuinv24mo5', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo6', 'Arcusale24mo6', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo6', 'Arcuinv24mo6', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo7', 'Arcusale24mo7', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo7', 'Arcuinv24mo7', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo8', 'Arcusale24mo8', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo8', 'Arcuinv24mo8', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo9', 'Arcusale24mo9', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo9', 'Arcuinv24mo9', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo10', 'Arcusale24mo10', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo10', 'Arcuinv24mo10', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo11', 'Arcusale24mo11', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo11', 'Arcuinv24mo11', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo12', 'Arcusale24mo12', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo12', 'Arcuinv24mo12', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo13', 'Arcusale24mo13', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo13', 'Arcuinv24mo13', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo14', 'Arcusale24mo14', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo14', 'Arcuinv24mo14', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo15', 'Arcusale24mo15', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo15', 'Arcuinv24mo15', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo16', 'Arcusale24mo16', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo16', 'Arcuinv24mo16', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo17', 'Arcusale24mo17', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo17', 'Arcuinv24mo17', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo18', 'Arcusale24mo18', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo18', 'Arcuinv24mo18', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo19', 'Arcusale24mo19', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo19', 'Arcuinv24mo19', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo20', 'Arcusale24mo20', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo20', 'Arcuinv24mo20', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo21', 'Arcusale24mo21', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo21', 'Arcuinv24mo21', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo22', 'Arcusale24mo22', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo22', 'Arcuinv24mo22', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo23', 'Arcusale24mo23', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo23', 'Arcuinv24mo23', 'INTEGER', false, 4);
+        $this->addColumn('ArcuSale24mo24', 'Arcusale24mo24', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuInv24mo24', 'Arcuinv24mo24', 'INTEGER', false, 4);
+        $this->addColumn('ArcuLastPayAmt', 'Arculastpayamt', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuOrdrTot', 'Arcuordrtot', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuUseFrtIn', 'Arcuusefrtin', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuMyVendId', 'Arcumyvendid', 'VARCHAR', false, 12);
+        $this->addColumn('ArcuAddlPricDisc', 'Arcuaddlpricdisc', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuActiveInactive', 'Arcuactiveinactive', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuInactiveDate', 'Arcuinactivedate', 'VARCHAR', false, 8);
+        $this->addForeignKey('ArcuChrgFrt', 'Arcuchrgfrt', 'VARCHAR', 'so_frtrate', 'SfrtRateCode', false, 1);
+        $this->addColumn('ArcuCoreXDays', 'Arcucorexdays', 'INTEGER', false, 6);
+        $this->addColumn('ArcuContractNbr', 'Arcucontractnbr', 'VARCHAR', false, 6);
+        $this->addColumn('ArcuCoreLF', 'Arcucorelf', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuCoreBankId', 'Arcucorebankid', 'VARCHAR', false, 6);
+        $this->addColumn('ArcuDunsNbr', 'Arcudunsnbr', 'VARCHAR', false, 20);
+        $this->addColumn('ArcuRfmlValu', 'Arcurfmlvalu', 'INTEGER', false, 3);
+        $this->addColumn('ArcuCustPoParam', 'Arcucustpoparam', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuAgeLevel', 'Arcuagelevel', 'INTEGER', false, 1);
+        $this->addColumn('ArtbRoute', 'Artbroute', 'VARCHAR', false, 4);
+        $this->addColumn('ArcuWgTaxCode', 'Arcuwgtaxcode', 'VARCHAR', false, 6);
+        $this->addColumn('ArcuAcptSupercede', 'Arcuacptsupercede', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuMstrCustId', 'Arcumstrcustid', 'VARCHAR', false, 6);
+        $this->addColumn('ArcuSurchgPct', 'Arcusurchgpct', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuAllowSplit', 'Arcuallowsplit', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuLineMin', 'Arculinemin', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuOrdrMin', 'Arcuordrmin', 'DECIMAL', false, 20);
+        $this->addColumn('ArcuUpsAcctNbr', 'Arcuupsacctnbr', 'VARCHAR', false, 10);
+        $this->addColumn('ArcuPrtMatCert', 'Arcuprtmatcert', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuFobInputYn', 'Arcufobinputyn', 'VARCHAR', false, 1);
+        $this->addColumn('ArcuFobPerLb', 'Arcufobperlb', 'DECIMAL', false, 20);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('ArCommissionCode', '\\ArCommissionCode', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('ArCommissionCode', '\\ArCommissionCode', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArtbCommCode',
     1 => ':ArtbCommCode',
-  ),
-), null, null, null, false);
-        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArtbShipVia',
     1 => ':ArtbShipVia',
-  ),
-), null, null, null, false);
-        $this->addRelation('SoFreightRate', '\\SoFreightRate', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('SoFreightRate', '\\SoFreightRate', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArcuChrgFrt',
     1 => ':SfrtRateCode',
-  ),
-), null, null, null, false);
-        $this->addRelation('ArCust3partyFreight', '\\ArCust3partyFreight', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('ArCust3partyFreight', '\\ArCust3partyFreight', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'ArCust3partyFreights', false);
-        $this->addRelation('ArPaymentPending', '\\ArPaymentPending', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ArCust3partyFreights', false);
+        $this->addRelation('ArPaymentPending', '\\ArPaymentPending', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'ArPaymentPendings', false);
-        $this->addRelation('ArCashHead', '\\ArCashHead', RelationMap::ONE_TO_ONE, array (
+  ],
+], null, null, 'ArPaymentPendings', false);
+        $this->addRelation('ArCashHead', '\\ArCashHead', RelationMap::ONE_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, null, false);
-        $this->addRelation('ArContact', '\\ArContact', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('ArContact', '\\ArContact', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'ArContacts', false);
-        $this->addRelation('ArInvoice', '\\ArInvoice', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ArContacts', false);
+        $this->addRelation('ArInvoice', '\\ArInvoice', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'ArInvoices', false);
-        $this->addRelation('CustomerShipto', '\\CustomerShipto', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ArInvoices', false);
+        $this->addRelation('CustomerShipto', '\\CustomerShipto', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'CustomerShiptos', false);
-        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'CustomerShiptos', false);
+        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'CstkItems', false);
-        $this->addRelation('CstkHead', '\\CstkHead', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'CstkItems', false);
+        $this->addRelation('CstkHead', '\\CstkHead', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'CstkHeads', false);
-        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'CstkHeads', false);
+        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'InvTransferOrders', false);
-        $this->addRelation('InvSerialWarranty', '\\InvSerialWarranty', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvTransferOrders', false);
+        $this->addRelation('InvSerialWarranty', '\\InvSerialWarranty', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'InvSerialWarranties', false);
-        $this->addRelation('ItemXrefKey', '\\ItemXrefKey', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvSerialWarranties', false);
+        $this->addRelation('ItemXrefKey', '\\ItemXrefKey', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':RkeyCVId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'ItemXrefKeys', false);
-        $this->addRelation('CpnLoad', '\\CpnLoad', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefKeys', false);
+        $this->addRelation('CpnLoad', '\\CpnLoad', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'CpnLoads', false);
-        $this->addRelation('NoteCustInternal', '\\NoteCustInternal', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'CpnLoads', false);
+        $this->addRelation('NoteCustInternal', '\\NoteCustInternal', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'NoteCustInternals', false);
-        $this->addRelation('NoteCustOrder', '\\NoteCustOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'NoteCustInternals', false);
+        $this->addRelation('NoteCustOrder', '\\NoteCustOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'NoteCustOrders', false);
-        $this->addRelation('ItemXrefCustomerNote', '\\ItemXrefCustomerNote', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'NoteCustOrders', false);
+        $this->addRelation('ItemXrefCustomerNote', '\\ItemXrefCustomerNote', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'ItemXrefCustomerNotes', false);
-        $this->addRelation('RcyclReceipt', '\\RcyclReceipt', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefCustomerNotes', false);
+        $this->addRelation('RcyclReceipt', '\\RcyclReceipt', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'RcyclReceipts', false);
-        $this->addRelation('BookingDayCustomer', '\\BookingDayCustomer', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'RcyclReceipts', false);
+        $this->addRelation('BookingDayCustomer', '\\BookingDayCustomer', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'BookingDayCustomers', false);
-        $this->addRelation('BookingDayDetail', '\\BookingDayDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'BookingDayCustomers', false);
+        $this->addRelation('BookingDayDetail', '\\BookingDayDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'BookingDayDetails', false);
-        $this->addRelation('Booking', '\\Booking', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'BookingDayDetails', false);
+        $this->addRelation('Booking', '\\Booking', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'Bookings', false);
-        $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'Bookings', false);
+        $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'SalesHistories', false);
-        $this->addRelation('SalesOrder', '\\SalesOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SalesHistories', false);
+        $this->addRelation('SalesOrder', '\\SalesOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'SalesOrders', false);
-        $this->addRelation('ItemPricingDiscount', '\\ItemPricingDiscount', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SalesOrders', false);
+        $this->addRelation('ItemPricingDiscount', '\\ItemPricingDiscount', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':OepcCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'ItemPricingDiscounts', false);
-        $this->addRelation('SoStandingOrderDetail', '\\SoStandingOrderDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemPricingDiscounts', false);
+        $this->addRelation('SoStandingOrderDetail', '\\SoStandingOrderDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'SoStandingOrderDetails', false);
-        $this->addRelation('SoStandingOrder', '\\SoStandingOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SoStandingOrderDetails', false);
+        $this->addRelation('SoStandingOrder', '\\SoStandingOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, 'SoStandingOrders', false);
+  ],
+], null, null, 'SoStandingOrders', false);
     }
 
     /**
@@ -2214,11 +2211,11 @@ class CustomerTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -2236,8 +2233,8 @@ class CustomerTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -2294,7 +2291,6 @@ class CustomerTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -2335,7 +2331,6 @@ class CustomerTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -2620,7 +2615,6 @@ class CustomerTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -2898,7 +2892,6 @@ class CustomerTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -2920,7 +2913,7 @@ class CustomerTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerTableMap::DATABASE_NAME);
         }
 
@@ -2970,7 +2963,7 @@ class CustomerTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerTableMap::DATABASE_NAME);
         }
 
@@ -2986,9 +2979,7 @@ class CustomerTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

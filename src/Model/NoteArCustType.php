@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\NoteArCustType as BaseNoteArCustType;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -32,18 +34,18 @@ class NoteArCustType extends BaseNoteArCustType {
 	/**
 	 * Note Types
 	 */
-	const TYPES_DESCRIPTIONS = array(
+	const TYPES_DESCRIPTIONS = [
 		'SCTP' => 'statement',
 		'ICTP' => 'invoice',
 		'PCTP' => 'pick ticket',
 		'KCTP' => 'pack ticket'
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'          => 'qntype',
 		'description'   => 'qntypedesc',
 		'typecode'      => 'artbtypecode',
@@ -54,7 +56,7 @@ class NoteArCustType extends BaseNoteArCustType {
 		'form'          => 'qnform',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return Description for the Note Type
@@ -70,7 +72,6 @@ class NoteArCustType extends BaseNoteArCustType {
 	 * @return NoteArCustType
 	 */
 	public static function new() {
-		$note = new self();
-		return $note;
+		return new self();
 	}
 }

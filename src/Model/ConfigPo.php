@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigPo as BaseConfigPo;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,30 +21,30 @@ class ConfigPo extends BaseConfigPo {
 
 	const DATE_ACKNOWLEDGED_ACKNOWLEDGE = 'A';
 	const DATE_ACKNOWLEDGED_ETA = 'E';
-	const DATE_ACKNWOLEDGED_DESCRIPTIONS = array(
+	const DATE_ACKNWOLEDGED_DESCRIPTIONS = [
 		'A' => 'acknowledge',
 		'E' => 'ETA'
-	);
+	];
 
 	const DATE_CANCEL_CANCEL = 'C';
 	const DATE_CANCEL_REVISED = 'R';
-	const DATE_CANCEL_DESCRIPTIONS = array(
+	const DATE_CANCEL_DESCRIPTIONS = [
 		'C' => 'cancel',
 		'R' => 'revised'
-	);
+	];
 
 	const CONTROL_BUYER_VENDOR = 'V';
 	const CONTROL_BUYER_ITEM = 'I';
-	const CONTROL_BUYER_OPTIONS = array(
+	const CONTROL_BUYER_OPTIONS = [
 		'V' => 'vendor',
 		'I' => 'item'
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'decimal_places_cost'       => 'potbconfvxmroundpos',
 		'allow_change_cost'         => 'potbconfallowchgcost',
 		'allow_po_item_notes'       => 'potbconfeditpoitemnotes',
@@ -60,7 +62,7 @@ class ConfigPo extends BaseConfigPo {
 		'receiveComplete'             => 'potbconfrecall',
 		'askReceiveComplete'          => 'potbconfrecallask',
 		'allowAddItemsEr'             => 'potbconferadd2po'
-	);
+	];
 
 	/**
 	 * Return if Use Fabrication is true

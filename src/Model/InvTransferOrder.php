@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvTransferOrder as BaseInvTransferOrder;
 
 use Dplus\Model\ThrowErrorTrait;

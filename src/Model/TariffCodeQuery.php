@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\TariffCodeQuery as BaseTariffCodeQuery;
 
 use Dplus\Model\QueryTraits;

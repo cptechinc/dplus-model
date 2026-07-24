@@ -22,7 +22,7 @@ class NoteMnfr extends BaseNoteMnfr {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'        => 'ponttype',
 		'notetype'    => 'ponttype',
 		'description' => 'ponttypedesc',
@@ -34,7 +34,7 @@ class NoteMnfr extends BaseNoteMnfr {
 		'form'        => 'pontform',
 		'date'        => 'dateupdtd',
 		'time'        => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Sets generated Key2

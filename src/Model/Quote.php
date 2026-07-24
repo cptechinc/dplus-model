@@ -17,7 +17,7 @@ class Quote extends BaseQuote {
 	*/
 	protected $aCustomer;
 
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'quotenbr'        => 'qthdid',
 		'quoteid'         => 'qthdid',
 		'quoteID'         => 'qthdid',
@@ -77,20 +77,20 @@ class Quote extends BaseQuote {
 		'printformat'     => 'qthdprintformat',
 		'deliverto'       => 'qthddeliverydesc',
 		'items'           => 'quoteDetails'
-	);
+	];
 	
 	const LENGTH = 8;
-	const FOB_OPTIONS = array('O', 'D');
-	const FOB_OPTIONS_DESC = array(
+	const FOB_OPTIONS = ['O', 'D'];
+	const FOB_OPTIONS_DESC = [
 		'O' => 'origin',
 		'D' => 'destination'
-	);
+	];
 
-	const STATUSES = array('N', 'P');
-	const STATUS_DESCRIPTIONS = array(
+	const STATUSES = ['N', 'P'];
+	const STATUS_DESCRIPTIONS = [
 		'N' => 'new',
 		'P' => 'printed'
-	);
+	];
 
 /* =============================================================
 	Getters

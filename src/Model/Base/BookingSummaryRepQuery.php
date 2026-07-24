@@ -190,7 +190,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class BookingSummaryRepQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\BookingSummaryRepQuery object.
@@ -248,7 +248,7 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(BookingSummaryRepTableMap::DATABASE_NAME);
         }
 
@@ -295,7 +295,6 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildBookingSummaryRep $obj */
             $obj = new ChildBookingSummaryRep();
             $obj->hydrate($row);
             BookingSummaryRepTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -336,7 +335,7 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -404,10 +403,8 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingSummaryRepTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
@@ -432,10 +429,8 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingSummaryRepTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -1105,10 +1100,8 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function filterByBkrplastdate($bkrplastdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bkrplastdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bkrplastdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingSummaryRepTableMap::COL_BKRPLASTDATE, $bkrplastdate, $comparison);
@@ -1133,10 +1126,8 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function filterByBkrplasttime($bkrplasttime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bkrplasttime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bkrplasttime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingSummaryRepTableMap::COL_BKRPLASTTIME, $bkrplasttime, $comparison);
@@ -1161,10 +1152,8 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingSummaryRepTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1189,10 +1178,8 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingSummaryRepTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1217,10 +1204,8 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingSummaryRepTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1274,7 +1259,7 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1304,7 +1289,7 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
     {
         return $this
             ->joinSalesPerson($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesPerson', '\SalesPersonQuery');
+            ->useQuery($relationAlias ?: 'SalesPerson', '\SalesPersonQuery');
     }
 
     /**
@@ -1415,7 +1400,7 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
         if ($bookingSummaryRep) {
             $this->addCond('pruneCond0', $this->getAliasedColName(BookingSummaryRepTableMap::COL_ARSPSALEPER1), $bookingSummaryRep->getArspsaleper1(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(BookingSummaryRepTableMap::COL_INTBWHSE), $bookingSummaryRep->getIntbwhse(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1429,7 +1414,7 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingSummaryRepTableMap::DATABASE_NAME);
         }
 
@@ -1459,7 +1444,7 @@ abstract class BookingSummaryRepQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingSummaryRepTableMap::DATABASE_NAME);
         }
 

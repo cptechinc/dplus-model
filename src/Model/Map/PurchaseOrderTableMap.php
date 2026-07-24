@@ -851,7 +851,6 @@ class PurchaseOrderTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -865,139 +864,137 @@ class PurchaseOrderTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('PohdNbr', 'Pohdnbr', 'VARCHAR', true, 8, '');
-        $this->addColumn('PohdStat', 'Pohdstat', 'VARCHAR', false, 1, null);
-        $this->addColumn('PohdRef', 'Pohdref', 'VARCHAR', false, 15, null);
-        $this->addForeignKey('ApveVendId', 'Apvevendid', 'VARCHAR', 'ap_vend_mast', 'ApveVendId', false, 6, null);
-        $this->addForeignKey('ApveVendId', 'Apvevendid', 'VARCHAR', 'ap_ship_from', 'ApveVendId', false, 6, null);
-        $this->addForeignKey('ApfmShipId', 'Apfmshipid', 'VARCHAR', 'ap_ship_from', 'ApfmShipId', false, 6, null);
-        $this->addColumn('PohdToName', 'Pohdtoname', 'VARCHAR', false, 30, null);
-        $this->addColumn('PohdToAdr1', 'Pohdtoadr1', 'VARCHAR', false, 30, null);
-        $this->addColumn('PohdToAdr2', 'Pohdtoadr2', 'VARCHAR', false, 30, null);
-        $this->addColumn('PohdToAdr3', 'Pohdtoadr3', 'VARCHAR', false, 30, null);
-        $this->addColumn('PohdToCtry', 'Pohdtoctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('PohdToCity', 'Pohdtocity', 'VARCHAR', false, 16, null);
-        $this->addColumn('PohdToStat', 'Pohdtostat', 'VARCHAR', false, 2, null);
-        $this->addColumn('PohdToZipCode', 'Pohdtozipcode', 'VARCHAR', false, 10, null);
-        $this->addColumn('PohdPtName', 'Pohdptname', 'VARCHAR', false, 30, null);
-        $this->addColumn('PohdPtAdr1', 'Pohdptadr1', 'VARCHAR', false, 30, null);
-        $this->addColumn('PohdPtAdr2', 'Pohdptadr2', 'VARCHAR', false, 30, null);
-        $this->addColumn('PohdPtAdr3', 'Pohdptadr3', 'VARCHAR', false, 30, null);
-        $this->addColumn('PohdPtCtry', 'Pohdptctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('PohdPtCity', 'Pohdptcity', 'VARCHAR', false, 16, null);
-        $this->addColumn('PohdPtStat', 'Pohdptstat', 'VARCHAR', false, 2, null);
-        $this->addColumn('PohdPtZipCode', 'Pohdptzipcode', 'VARCHAR', false, 10, null);
-        $this->addColumn('PohdCont', 'Pohdcont', 'VARCHAR', false, 20, null);
-        $this->addColumn('PohdOrdrDate', 'Pohdordrdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('AptmTermCode', 'Aptmtermcode', 'VARCHAR', false, 4, null);
-        $this->addForeignKey('ArtbSviaCode', 'Artbsviacode', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4, null);
-        $this->addColumn('PohdOldFob', 'Pohdoldfob', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbBuyrCode', 'Aptbbuyrcode', 'VARCHAR', false, 6, null);
-        $this->addColumn('PohdColPpd', 'Pohdcolppd', 'VARCHAR', false, 1, null);
-        $this->addColumn('PohdTeleIntl', 'Pohdteleintl', 'VARCHAR', false, 1, null);
-        $this->addColumn('PohdTeleNbr', 'Pohdtelenbr', 'VARCHAR', false, 22, null);
-        $this->addColumn('PohdTeleExt', 'Pohdteleext', 'VARCHAR', false, 7, null);
-        $this->addColumn('PohdFaxIntl', 'Pohdfaxintl', 'VARCHAR', false, 1, null);
-        $this->addColumn('PohdFaxNbr', 'Pohdfaxnbr', 'VARCHAR', false, 22, null);
-        $this->addColumn('PohdRCnt', 'Pohdrcnt', 'VARCHAR', false, 1, null);
-        $this->addColumn('PohdTaxExem', 'Pohdtaxexem', 'VARCHAR', false, 1, null);
-        $this->addColumn('PohdExchCtry', 'Pohdexchctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('PohdExchRate', 'Pohdexchrate', 'DECIMAL', false, 20, null);
-        $this->addColumn('PohdExptDate', 'Pohdexptdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PohdCancDate', 'Pohdcancdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PohdICnt', 'Pohdicnt', 'VARCHAR', false, 1, null);
-        $this->addColumn('PohdFob', 'Pohdfob', 'VARCHAR', false, 20, null);
-        $this->addColumn('PohdPickQueue', 'Pohdpickqueue', 'VARCHAR', false, 1, null);
-        $this->addColumn('PohdPackedBy', 'Pohdpackedby', 'VARCHAR', false, 12, null);
-        $this->addColumn('PohdPackDate', 'Pohdpackdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PohdPackTime', 'Pohdpacktime', 'VARCHAR', false, 8, null);
-        $this->addColumn('PohdLandCost', 'Pohdlandcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PohdEdiPoDate', 'Pohdedipodate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PohdFutureBuy', 'Pohdfuturebuy', 'VARCHAR', false, 1, null);
-        $this->addColumn('PohdEmailAddr', 'Pohdemailaddr', 'VARCHAR', false, 50, null);
-        $this->addColumn('PohdShipDate', 'Pohdshipdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PohdAckDate', 'Pohdackdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PohdReleaseNbr', 'Pohdreleasenbr', 'INTEGER', false, 4, null);
-        $this->addColumn('PohdReturnsPo', 'Pohdreturnspo', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('PohdStat', 'Pohdstat', 'VARCHAR', false, 1);
+        $this->addColumn('PohdRef', 'Pohdref', 'VARCHAR', false, 15);
+        $this->addForeignKey('ApveVendId', 'Apvevendid', 'VARCHAR', 'ap_vend_mast', 'ApveVendId', false, 6);
+        $this->addForeignKey('ApveVendId', 'Apvevendid', 'VARCHAR', 'ap_ship_from', 'ApveVendId', false, 6);
+        $this->addForeignKey('ApfmShipId', 'Apfmshipid', 'VARCHAR', 'ap_ship_from', 'ApfmShipId', false, 6);
+        $this->addColumn('PohdToName', 'Pohdtoname', 'VARCHAR', false, 30);
+        $this->addColumn('PohdToAdr1', 'Pohdtoadr1', 'VARCHAR', false, 30);
+        $this->addColumn('PohdToAdr2', 'Pohdtoadr2', 'VARCHAR', false, 30);
+        $this->addColumn('PohdToAdr3', 'Pohdtoadr3', 'VARCHAR', false, 30);
+        $this->addColumn('PohdToCtry', 'Pohdtoctry', 'VARCHAR', false, 4);
+        $this->addColumn('PohdToCity', 'Pohdtocity', 'VARCHAR', false, 16);
+        $this->addColumn('PohdToStat', 'Pohdtostat', 'VARCHAR', false, 2);
+        $this->addColumn('PohdToZipCode', 'Pohdtozipcode', 'VARCHAR', false, 10);
+        $this->addColumn('PohdPtName', 'Pohdptname', 'VARCHAR', false, 30);
+        $this->addColumn('PohdPtAdr1', 'Pohdptadr1', 'VARCHAR', false, 30);
+        $this->addColumn('PohdPtAdr2', 'Pohdptadr2', 'VARCHAR', false, 30);
+        $this->addColumn('PohdPtAdr3', 'Pohdptadr3', 'VARCHAR', false, 30);
+        $this->addColumn('PohdPtCtry', 'Pohdptctry', 'VARCHAR', false, 4);
+        $this->addColumn('PohdPtCity', 'Pohdptcity', 'VARCHAR', false, 16);
+        $this->addColumn('PohdPtStat', 'Pohdptstat', 'VARCHAR', false, 2);
+        $this->addColumn('PohdPtZipCode', 'Pohdptzipcode', 'VARCHAR', false, 10);
+        $this->addColumn('PohdCont', 'Pohdcont', 'VARCHAR', false, 20);
+        $this->addColumn('PohdOrdrDate', 'Pohdordrdate', 'VARCHAR', false, 8);
+        $this->addColumn('AptmTermCode', 'Aptmtermcode', 'VARCHAR', false, 4);
+        $this->addForeignKey('ArtbSviaCode', 'Artbsviacode', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4);
+        $this->addColumn('PohdOldFob', 'Pohdoldfob', 'VARCHAR', false, 1);
+        $this->addColumn('AptbBuyrCode', 'Aptbbuyrcode', 'VARCHAR', false, 6);
+        $this->addColumn('PohdColPpd', 'Pohdcolppd', 'VARCHAR', false, 1);
+        $this->addColumn('PohdTeleIntl', 'Pohdteleintl', 'VARCHAR', false, 1);
+        $this->addColumn('PohdTeleNbr', 'Pohdtelenbr', 'VARCHAR', false, 22);
+        $this->addColumn('PohdTeleExt', 'Pohdteleext', 'VARCHAR', false, 7);
+        $this->addColumn('PohdFaxIntl', 'Pohdfaxintl', 'VARCHAR', false, 1);
+        $this->addColumn('PohdFaxNbr', 'Pohdfaxnbr', 'VARCHAR', false, 22);
+        $this->addColumn('PohdRCnt', 'Pohdrcnt', 'VARCHAR', false, 1);
+        $this->addColumn('PohdTaxExem', 'Pohdtaxexem', 'VARCHAR', false, 1);
+        $this->addColumn('PohdExchCtry', 'Pohdexchctry', 'VARCHAR', false, 4);
+        $this->addColumn('PohdExchRate', 'Pohdexchrate', 'DECIMAL', false, 20);
+        $this->addColumn('PohdExptDate', 'Pohdexptdate', 'VARCHAR', false, 8);
+        $this->addColumn('PohdCancDate', 'Pohdcancdate', 'VARCHAR', false, 8);
+        $this->addColumn('PohdICnt', 'Pohdicnt', 'VARCHAR', false, 1);
+        $this->addColumn('PohdFob', 'Pohdfob', 'VARCHAR', false, 20);
+        $this->addColumn('PohdPickQueue', 'Pohdpickqueue', 'VARCHAR', false, 1);
+        $this->addColumn('PohdPackedBy', 'Pohdpackedby', 'VARCHAR', false, 12);
+        $this->addColumn('PohdPackDate', 'Pohdpackdate', 'VARCHAR', false, 8);
+        $this->addColumn('PohdPackTime', 'Pohdpacktime', 'VARCHAR', false, 8);
+        $this->addColumn('PohdLandCost', 'Pohdlandcost', 'DECIMAL', false, 20);
+        $this->addColumn('PohdEdiPoDate', 'Pohdedipodate', 'VARCHAR', false, 8);
+        $this->addColumn('PohdFutureBuy', 'Pohdfuturebuy', 'VARCHAR', false, 1);
+        $this->addColumn('PohdEmailAddr', 'Pohdemailaddr', 'VARCHAR', false, 50);
+        $this->addColumn('PohdShipDate', 'Pohdshipdate', 'VARCHAR', false, 8);
+        $this->addColumn('PohdAckDate', 'Pohdackdate', 'VARCHAR', false, 8);
+        $this->addColumn('PohdReleaseNbr', 'Pohdreleasenbr', 'INTEGER', false, 4);
+        $this->addColumn('PohdReturnsPo', 'Pohdreturnspo', 'VARCHAR', false, 1);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, null, false);
-        $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ApfmShipId',
     1 => ':ApfmShipId',
-  ),
-), null, null, null, false);
-        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArtbSviaCode',
     1 => ':ArtbShipVia',
-  ),
-), null, null, null, false);
-        $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApihPoNbr',
     1 => ':PohdNbr',
-  ),
-), null, null, 'ApInvoices', false);
-        $this->addRelation('PurchaseOrderDetail', '\\PurchaseOrderDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ApInvoices', false);
+        $this->addRelation('PurchaseOrderDetail', '\\PurchaseOrderDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':PohdNbr',
     1 => ':PohdNbr',
-  ),
-), null, null, 'PurchaseOrderDetails', false);
-        $this->addRelation('PurchaseOrderDetailReceipt', '\\PurchaseOrderDetailReceipt', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'PurchaseOrderDetails', false);
+        $this->addRelation('PurchaseOrderDetailReceipt', '\\PurchaseOrderDetailReceipt', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':PohdNbr',
     1 => ':PohdNbr',
-  ),
-), null, null, 'PurchaseOrderDetailReceipts', false);
-        $this->addRelation('PurchaseOrderDetailReceiving', '\\PurchaseOrderDetailReceiving', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'PurchaseOrderDetailReceipts', false);
+        $this->addRelation('PurchaseOrderDetailReceiving', '\\PurchaseOrderDetailReceiving', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':PothNbr',
     1 => ':PohdNbr',
-  ),
-), null, null, 'PurchaseOrderDetailReceivings', false);
-        $this->addRelation('PoReceivingHead', '\\PoReceivingHead', RelationMap::ONE_TO_ONE, array (
+  ],
+], null, null, 'PurchaseOrderDetailReceivings', false);
+        $this->addRelation('PoReceivingHead', '\\PoReceivingHead', RelationMap::ONE_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':PothNbr',
     1 => ':PohdNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('PurchaseOrderDetailLotReceiving', '\\PurchaseOrderDetailLotReceiving', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('PurchaseOrderDetailLotReceiving', '\\PurchaseOrderDetailLotReceiving', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':PothNbr',
     1 => ':PohdNbr',
-  ),
-), null, null, 'PurchaseOrderDetailLotReceivings', false);
+  ],
+], null, null, 'PurchaseOrderDetailLotReceivings', false);
     }
 
     /**
@@ -1016,11 +1013,11 @@ class PurchaseOrderTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -1038,8 +1035,8 @@ class PurchaseOrderTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -1096,7 +1093,6 @@ class PurchaseOrderTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -1137,7 +1133,6 @@ class PurchaseOrderTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1268,7 +1263,6 @@ class PurchaseOrderTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1392,7 +1386,6 @@ class PurchaseOrderTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -1414,7 +1407,7 @@ class PurchaseOrderTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderTableMap::DATABASE_NAME);
         }
 
@@ -1464,7 +1457,7 @@ class PurchaseOrderTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderTableMap::DATABASE_NAME);
         }
 
@@ -1480,9 +1473,7 @@ class PurchaseOrderTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

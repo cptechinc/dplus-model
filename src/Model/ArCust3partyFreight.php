@@ -20,7 +20,7 @@ class ArCust3partyFreight extends BaseArCust3partyFreight {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'custid'          => 'arcucustid',
 		'accountnbr'      => 'ar3pacctnbr',
 		'name'            => 'ar3pname',
@@ -42,13 +42,13 @@ class ArCust3partyFreight extends BaseArCust3partyFreight {
 		'faxintl'         => 'ar3pifaxnbr',
 		'date'		      => 'dateupdtd',
 		'time'		      => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return if this account is International
 	 * @return bool
 	 */
 	public function isInternational() {
-		return strtoupper($this->international) == self::INTERNATIONAL_TRUE;
+		return strtoupper($this->international) === self::INTERNATIONAL_TRUE;
 	}
 }

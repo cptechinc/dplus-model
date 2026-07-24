@@ -134,7 +134,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemXrefManufacturerQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemXrefManufacturerQuery object.
@@ -192,7 +192,7 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemXrefManufacturerTableMap::DATABASE_NAME);
         }
 
@@ -240,7 +240,6 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemXrefManufacturer $obj */
             $obj = new ChildItemXrefManufacturer();
             $obj->hydrate($row);
             ItemXrefManufacturerTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
@@ -281,7 +280,7 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -352,10 +351,8 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apvevendid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apvevendid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefManufacturerTableMap::COL_APVEVENDID, $apvevendid, $comparison);
@@ -380,10 +377,8 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function filterByMcxrvenditemnbr($mcxrvenditemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($mcxrvenditemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($mcxrvenditemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefManufacturerTableMap::COL_MCXRVENDITEMNBR, $mcxrvenditemnbr, $comparison);
@@ -408,10 +403,8 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefManufacturerTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -436,10 +429,8 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function filterByMcxruom($mcxruom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($mcxruom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($mcxruom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefManufacturerTableMap::COL_MCXRUOM, $mcxruom, $comparison);
@@ -593,10 +584,8 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function filterByMcxrchgdate($mcxrchgdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($mcxrchgdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($mcxrchgdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefManufacturerTableMap::COL_MCXRCHGDATE, $mcxrchgdate, $comparison);
@@ -621,10 +610,8 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefManufacturerTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -649,10 +636,8 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefManufacturerTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -677,10 +662,8 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefManufacturerTableMap::COL_DUMMY, $dummy, $comparison);
@@ -734,7 +717,7 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -764,7 +747,7 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -909,7 +892,7 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -939,7 +922,7 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
     {
         return $this
             ->joinVendor($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+            ->useQuery($relationAlias ?: 'Vendor', '\VendorQuery');
     }
 
     /**
@@ -1051,7 +1034,7 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
             $this->addCond('pruneCond0', $this->getAliasedColName(ItemXrefManufacturerTableMap::COL_APVEVENDID), $itemXrefManufacturer->getApvevendid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(ItemXrefManufacturerTableMap::COL_MCXRVENDITEMNBR), $itemXrefManufacturer->getMcxrvenditemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(ItemXrefManufacturerTableMap::COL_INITITEMNBR), $itemXrefManufacturer->getInititemnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1065,7 +1048,7 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefManufacturerTableMap::DATABASE_NAME);
         }
 
@@ -1095,7 +1078,7 @@ abstract class ItemXrefManufacturerQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefManufacturerTableMap::DATABASE_NAME);
         }
 

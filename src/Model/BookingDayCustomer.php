@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\BookingDayCustomer as BaseBookingDayCustomer;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -17,7 +19,7 @@ class BookingDayCustomer extends BaseBookingDayCustomer {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'custid'        => 'arcucustid',
 		'shiptoid'      => 'arstshipid',
 		'bookingdate'   => 'bkgcdate',
@@ -27,5 +29,5 @@ class BookingDayCustomer extends BaseBookingDayCustomer {
 		'time'          => 'timeupdtd',
 		// ALIASES for Foreign Keys
 		'shipto'        => 'customerShipto'
-	);
+	];
 }

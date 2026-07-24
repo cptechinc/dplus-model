@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvSpecialCode as BaseInvSpecialCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class InvSpecialCode extends BaseInvSpecialCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'		   => 'intbspitcode',
 		'code'		   => 'intbspitcode',
 		'description'  => 'intbspitdesc',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

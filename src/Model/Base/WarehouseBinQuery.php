@@ -122,7 +122,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class WarehouseBinQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\WarehouseBinQuery object.
@@ -180,7 +180,7 @@ abstract class WarehouseBinQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(WarehouseBinTableMap::DATABASE_NAME);
         }
 
@@ -228,7 +228,6 @@ abstract class WarehouseBinQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildWarehouseBin $obj */
             $obj = new ChildWarehouseBin();
             $obj->hydrate($row);
             WarehouseBinTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
@@ -269,7 +268,7 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -340,10 +339,8 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseBinTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -368,10 +365,8 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function filterByBnctbinfrom($bnctbinfrom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bnctbinfrom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bnctbinfrom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseBinTableMap::COL_BNCTBINFROM, $bnctbinfrom, $comparison);
@@ -396,10 +391,8 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function filterByBnctbinthru($bnctbinthru = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bnctbinthru)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bnctbinthru)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseBinTableMap::COL_BNCTBINTHRU, $bnctbinthru, $comparison);
@@ -424,10 +417,8 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function filterByBncttypedesc($bncttypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bncttypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bncttypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseBinTableMap::COL_BNCTTYPEDESC, $bncttypedesc, $comparison);
@@ -452,10 +443,8 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function filterByBnctbinarea($bnctbinarea = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bnctbinarea)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bnctbinarea)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseBinTableMap::COL_BNCTBINAREA, $bnctbinarea, $comparison);
@@ -480,10 +469,8 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function filterByBnctbindesc($bnctbindesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bnctbindesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bnctbindesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseBinTableMap::COL_BNCTBINDESC, $bnctbindesc, $comparison);
@@ -508,10 +495,8 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseBinTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -536,10 +521,8 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseBinTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -564,10 +547,8 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseBinTableMap::COL_DUMMY, $dummy, $comparison);
@@ -621,7 +602,7 @@ abstract class WarehouseBinQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -651,7 +632,7 @@ abstract class WarehouseBinQuery extends ModelCriteria
     {
         return $this
             ->joinWarehouse($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Warehouse', '\WarehouseQuery');
+            ->useQuery($relationAlias ?: 'Warehouse', '\WarehouseQuery');
     }
 
     /**
@@ -796,7 +777,7 @@ abstract class WarehouseBinQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -826,7 +807,7 @@ abstract class WarehouseBinQuery extends ModelCriteria
     {
         return $this
             ->joinInvBinAreaCode($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvBinAreaCode', '\InvBinAreaCodeQuery');
+            ->useQuery($relationAlias ?: 'InvBinAreaCode', '\InvBinAreaCodeQuery');
     }
 
     /**
@@ -938,7 +919,7 @@ abstract class WarehouseBinQuery extends ModelCriteria
             $this->addCond('pruneCond0', $this->getAliasedColName(WarehouseBinTableMap::COL_INTBWHSE), $warehouseBin->getIntbwhse(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(WarehouseBinTableMap::COL_BNCTBINFROM), $warehouseBin->getBnctbinfrom(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(WarehouseBinTableMap::COL_BNCTBINTHRU), $warehouseBin->getBnctbinthru(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -952,7 +933,7 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseBinTableMap::DATABASE_NAME);
         }
 
@@ -982,7 +963,7 @@ abstract class WarehouseBinQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseBinTableMap::DATABASE_NAME);
         }
 

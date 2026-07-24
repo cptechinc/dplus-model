@@ -17,7 +17,7 @@ class BookingDayDetail extends BaseBookingDayDetail {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'bookingdate'   => 'bkgddate',
 		'custid'        => 'arcucustid',
 		'shiptoid'      => 'arstshipid',
@@ -41,7 +41,7 @@ class BookingDayDetail extends BaseBookingDayDetail {
 		// ALIASES for Foreign Keys
 		'salesperson'  => 'salesPerson',
 		'item'         => 'itemMasterItem'
-	);
+	];
 
 	/**
 	 * Returns SalesOrder|SalesHistory related to this booking

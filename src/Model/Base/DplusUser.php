@@ -46,7 +46,7 @@ abstract class DplusUser implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\DplusUserTableMap';
+    public const TABLE_MAP = \Map\DplusUserTableMap::class;
 
 
     /**
@@ -418,21 +418,14 @@ abstract class DplusUser implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvLotTag[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag>
      */
-    protected $invLotTagsScheduledForDeletion = null;
+    protected $invLotTagsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildUserLastPrintJob[]
      * @phpstan-var ObjectCollection&\Traversable<ChildUserLastPrintJob>
      */
-    protected $userLastPrintJobsScheduledForDeletion = null;
-
-    /**
-     * Initializes internal state of Base\DplusUser object.
-     */
-    public function __construct()
-    {
-    }
+    protected $userLastPrintJobsScheduledForDeletion;
 
     /**
      * Returns whether the object has been modified.
@@ -441,7 +434,7 @@ abstract class DplusUser implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -499,7 +492,6 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -509,7 +501,6 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -547,8 +538,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -559,7 +548,6 @@ abstract class DplusUser implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -601,9 +589,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -629,7 +615,7 @@ abstract class DplusUser implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1987,133 +1973,133 @@ abstract class DplusUser implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : DplusUserTableMap::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : DplusUserTableMap::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : DplusUserTableMap::translateFieldName('Usrcloginname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : DplusUserTableMap::translateFieldName('Usrcloginname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcloginname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : DplusUserTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : DplusUserTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : DplusUserTableMap::translateFieldName('Usrcdefcmpy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : DplusUserTableMap::translateFieldName('Usrcdefcmpy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcdefcmpy = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : DplusUserTableMap::translateFieldName('Usrcadmin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : DplusUserTableMap::translateFieldName('Usrcadmin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcadmin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : DplusUserTableMap::translateFieldName('Usrcfront', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : DplusUserTableMap::translateFieldName('Usrcfront', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcfront = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : DplusUserTableMap::translateFieldName('Usrccitydesk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : DplusUserTableMap::translateFieldName('Usrccitydesk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrccitydesk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : DplusUserTableMap::translateFieldName('Usrcreptadmin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : DplusUserTableMap::translateFieldName('Usrcreptadmin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcreptadmin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : DplusUserTableMap::translateFieldName('Usrcprinter', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : DplusUserTableMap::translateFieldName('Usrcprinter', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcprinter = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : DplusUserTableMap::translateFieldName('Usrcpitch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : DplusUserTableMap::translateFieldName('Usrcpitch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcpitch = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : DplusUserTableMap::translateFieldName('Usrcbrowseprinter', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : DplusUserTableMap::translateFieldName('Usrcbrowseprinter', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcbrowseprinter = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : DplusUserTableMap::translateFieldName('Usrcwhsedisplayseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : DplusUserTableMap::translateFieldName('Usrcwhsedisplayseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcwhsedisplayseq = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : DplusUserTableMap::translateFieldName('Usrcactiveitemsonly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : DplusUserTableMap::translateFieldName('Usrcactiveitemsonly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcactiveitemsonly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : DplusUserTableMap::translateFieldName('Usrcrestrictaccess', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : DplusUserTableMap::translateFieldName('Usrcrestrictaccess', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcrestrictaccess = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : DplusUserTableMap::translateFieldName('Usrclogingroup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : DplusUserTableMap::translateFieldName('Usrclogingroup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrclogingroup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : DplusUserTableMap::translateFieldName('Usrcloginrole', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : DplusUserTableMap::translateFieldName('Usrcloginrole', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcloginrole = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : DplusUserTableMap::translateFieldName('Usrcallowprocremoval', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : DplusUserTableMap::translateFieldName('Usrcallowprocremoval', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcallowprocremoval = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : DplusUserTableMap::translateFieldName('Usrcacallowwarredit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : DplusUserTableMap::translateFieldName('Usrcacallowwarredit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcacallowwarredit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : DplusUserTableMap::translateFieldName('Usrcisprodmgr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : DplusUserTableMap::translateFieldName('Usrcisprodmgr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcisprodmgr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : DplusUserTableMap::translateFieldName('Usrclmallowcrosswhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : DplusUserTableMap::translateFieldName('Usrclmallowcrosswhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrclmallowcrosswhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : DplusUserTableMap::translateFieldName('Usrcpswd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : DplusUserTableMap::translateFieldName('Usrcpswd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcpswd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcfaxname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxcompany', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxcompany', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcfaxcompany = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxarea', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxarea', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcfaxarea = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxfrst3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxfrst3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcfaxfrst3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxlast4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : DplusUserTableMap::translateFieldName('Usrcfaxlast4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcfaxlast4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : DplusUserTableMap::translateFieldName('Usrcphonearea', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : DplusUserTableMap::translateFieldName('Usrcphonearea', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcphonearea = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : DplusUserTableMap::translateFieldName('Usrcphonefrst3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : DplusUserTableMap::translateFieldName('Usrcphonefrst3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcphonefrst3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : DplusUserTableMap::translateFieldName('Usrcphonelast4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : DplusUserTableMap::translateFieldName('Usrcphonelast4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcphonelast4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : DplusUserTableMap::translateFieldName('Usrcphoneext', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : DplusUserTableMap::translateFieldName('Usrcphoneext', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcphoneext = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : DplusUserTableMap::translateFieldName('Usrcsendtime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : DplusUserTableMap::translateFieldName('Usrcsendtime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcsendtime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : DplusUserTableMap::translateFieldName('Usrccoversheet', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : DplusUserTableMap::translateFieldName('Usrccoversheet', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrccoversheet = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : DplusUserTableMap::translateFieldName('Usrcsubject', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : DplusUserTableMap::translateFieldName('Usrcsubject', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcsubject = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : DplusUserTableMap::translateFieldName('Usrcnotifys', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : DplusUserTableMap::translateFieldName('Usrcnotifys', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcnotifys = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : DplusUserTableMap::translateFieldName('Usrcnotifyf', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : DplusUserTableMap::translateFieldName('Usrcnotifyf', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcnotifyf = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : DplusUserTableMap::translateFieldName('Usrcemailaddr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : DplusUserTableMap::translateFieldName('Usrcemailaddr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcemailaddr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : DplusUserTableMap::translateFieldName('Usrcscalewhseid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : DplusUserTableMap::translateFieldName('Usrcscalewhseid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcscalewhseid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : DplusUserTableMap::translateFieldName('Usrcscaledevnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : DplusUserTableMap::translateFieldName('Usrcscaledevnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcscaledevnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : DplusUserTableMap::translateFieldName('Usrcccscanwhseid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : DplusUserTableMap::translateFieldName('Usrcccscanwhseid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcccscanwhseid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : DplusUserTableMap::translateFieldName('Usrcccscandevnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : DplusUserTableMap::translateFieldName('Usrcccscandevnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->usrcccscandevnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : DplusUserTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : DplusUserTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : DplusUserTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : DplusUserTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : DplusUserTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : DplusUserTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -2142,7 +2128,6 @@ abstract class DplusUser implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -2161,7 +2146,6 @@ abstract class DplusUser implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -2174,7 +2158,7 @@ abstract class DplusUser implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(DplusUserTableMap::DATABASE_NAME);
         }
 
@@ -2206,7 +2190,6 @@ abstract class DplusUser implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see DplusUser::setDeleted()
      * @see DplusUser::isDeleted()
@@ -2217,7 +2200,7 @@ abstract class DplusUser implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
         }
 
@@ -2256,18 +2239,14 @@ abstract class DplusUser implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2291,7 +2270,6 @@ abstract class DplusUser implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2332,13 +2310,11 @@ abstract class DplusUser implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->invLotTagsScheduledForDeletion !== null) {
-                if (!$this->invLotTagsScheduledForDeletion->isEmpty()) {
-                    \InvLotTagQuery::create()
-                        ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invLotTagsScheduledForDeletion = null;
-                }
+            if ($this->invLotTagsScheduledForDeletion !== null && !$this->invLotTagsScheduledForDeletion->isEmpty()) {
+                \InvLotTagQuery::create()
+                    ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invLotTagsScheduledForDeletion = null;
             }
 
             if ($this->collInvLotTags !== null) {
@@ -2349,19 +2325,15 @@ abstract class DplusUser implements ActiveRecordInterface
                 }
             }
 
-            if ($this->singleUserPermissionsItm !== null) {
-                if (!$this->singleUserPermissionsItm->isDeleted() && ($this->singleUserPermissionsItm->isNew() || $this->singleUserPermissionsItm->isModified())) {
-                    $affectedRows += $this->singleUserPermissionsItm->save($con);
-                }
+            if ($this->singleUserPermissionsItm !== null && (!$this->singleUserPermissionsItm->isDeleted() && ($this->singleUserPermissionsItm->isNew() || $this->singleUserPermissionsItm->isModified()))) {
+                $affectedRows += $this->singleUserPermissionsItm->save($con);
             }
 
-            if ($this->userLastPrintJobsScheduledForDeletion !== null) {
-                if (!$this->userLastPrintJobsScheduledForDeletion->isEmpty()) {
-                    \UserLastPrintJobQuery::create()
-                        ->filterByPrimaryKeys($this->userLastPrintJobsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->userLastPrintJobsScheduledForDeletion = null;
-                }
+            if ($this->userLastPrintJobsScheduledForDeletion !== null && !$this->userLastPrintJobsScheduledForDeletion->isEmpty()) {
+                \UserLastPrintJobQuery::create()
+                    ->filterByPrimaryKeys($this->userLastPrintJobsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->userLastPrintJobsScheduledForDeletion = null;
             }
 
             if ($this->collUserLastPrintJobs !== null) {
@@ -2382,7 +2354,6 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2720,7 +2691,6 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2746,9 +2716,8 @@ abstract class DplusUser implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = DplusUserTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -3051,7 +3020,6 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3572,7 +3540,7 @@ abstract class DplusUser implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -3592,7 +3560,6 @@ abstract class DplusUser implements ActiveRecordInterface
      * Generic method to set the primary key (usrcid column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -3601,8 +3568,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3619,7 +3584,6 @@ abstract class DplusUser implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3727,7 +3691,7 @@ abstract class DplusUser implements ActiveRecordInterface
      */
     public function setSysLoginGroup(ChildSysLoginGroup $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \SysLoginGroup) {
             $this->setUsrclogingroup(NULL);
         } else {
             $this->setUsrclogingroup($v->getQtbllgrpcode());
@@ -3737,7 +3701,7 @@ abstract class DplusUser implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildSysLoginGroup object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \SysLoginGroup) {
             $v->addDplusUser($this);
         }
 
@@ -3778,7 +3742,7 @@ abstract class DplusUser implements ActiveRecordInterface
      */
     public function setSysLoginRole(ChildSysLoginRole $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \SysLoginRole) {
             $this->setUsrcloginrole(NULL);
         } else {
             $this->setUsrcloginrole($v->getQtblrolecode());
@@ -3788,7 +3752,7 @@ abstract class DplusUser implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildSysLoginRole object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \SysLoginRole) {
             $v->addDplusUser($this);
         }
 
@@ -3827,7 +3791,6 @@ abstract class DplusUser implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -3859,8 +3822,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Reset is the collInvLotTags collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvLotTags($v = true): void
     {
@@ -3876,8 +3837,6 @@ abstract class DplusUser implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvLotTags(bool $overrideExisting = true): void
     {
@@ -3909,7 +3868,7 @@ abstract class DplusUser implements ActiveRecordInterface
     public function getInvLotTags(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+        if (null === $this->collInvLotTags || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvLotTags) {
@@ -3927,7 +3886,7 @@ abstract class DplusUser implements ActiveRecordInterface
                     ->filterByDplusUser($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvLotTagsPartial && count($collInvLotTags)) {
                         $this->initInvLotTags(false);
 
@@ -3978,7 +3937,7 @@ abstract class DplusUser implements ActiveRecordInterface
         $this->invLotTagsScheduledForDeletion = $invLotTagsToDelete;
 
         foreach ($invLotTagsToDelete as $invLotTagRemoved) {
-            $invLotTagRemoved->setDplusUser(null);
+            $invLotTagRemoved->setDplusUser();
         }
 
         $this->collInvLotTags = null;
@@ -3996,7 +3955,6 @@ abstract class DplusUser implements ActiveRecordInterface
      * Returns the number of related InvLotTag objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvLotTag objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4004,7 +3962,7 @@ abstract class DplusUser implements ActiveRecordInterface
     public function countInvLotTags(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+        if (null === $this->collInvLotTags || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvLotTags) {
                 return 0;
             }
@@ -4043,7 +4001,7 @@ abstract class DplusUser implements ActiveRecordInterface
         if (!$this->collInvLotTags->contains($l)) {
             $this->doAddInvLotTag($l);
 
-            if ($this->invLotTagsScheduledForDeletion and $this->invLotTagsScheduledForDeletion->contains($l)) {
+            if ($this->invLotTagsScheduledForDeletion && $this->invLotTagsScheduledForDeletion->contains($l)) {
                 $this->invLotTagsScheduledForDeletion->remove($this->invLotTagsScheduledForDeletion->search($l));
             }
         }
@@ -4074,7 +4032,7 @@ abstract class DplusUser implements ActiveRecordInterface
                 $this->invLotTagsScheduledForDeletion->clear();
             }
             $this->invLotTagsScheduledForDeletion[]= clone $invLotTag;
-            $invLotTag->setDplusUser(null);
+            $invLotTag->setDplusUser();
         }
 
         return $this;
@@ -4213,7 +4171,7 @@ abstract class DplusUser implements ActiveRecordInterface
         $this->singleUserPermissionsItm = $v;
 
         // Make sure that that the passed-in ChildUserPermissionsItm isn't already associated with this object
-        if ($v !== null && $v->getDplusUser(null, false) === null) {
+        if ($v instanceof \UserPermissionsItm && $v->getDplusUser() === null) {
             $v->setDplusUser($this);
         }
 
@@ -4238,8 +4196,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Reset is the collUserLastPrintJobs collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialUserLastPrintJobs($v = true): void
     {
@@ -4255,8 +4211,6 @@ abstract class DplusUser implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initUserLastPrintJobs(bool $overrideExisting = true): void
     {
@@ -4288,7 +4242,7 @@ abstract class DplusUser implements ActiveRecordInterface
     public function getUserLastPrintJobs(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collUserLastPrintJobsPartial && !$this->isNew();
-        if (null === $this->collUserLastPrintJobs || null !== $criteria || $partial) {
+        if (null === $this->collUserLastPrintJobs || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collUserLastPrintJobs) {
@@ -4306,7 +4260,7 @@ abstract class DplusUser implements ActiveRecordInterface
                     ->filterByDplusUser($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collUserLastPrintJobsPartial && count($collUserLastPrintJobs)) {
                         $this->initUserLastPrintJobs(false);
 
@@ -4360,7 +4314,7 @@ abstract class DplusUser implements ActiveRecordInterface
         $this->userLastPrintJobsScheduledForDeletion = clone $userLastPrintJobsToDelete;
 
         foreach ($userLastPrintJobsToDelete as $userLastPrintJobRemoved) {
-            $userLastPrintJobRemoved->setDplusUser(null);
+            $userLastPrintJobRemoved->setDplusUser();
         }
 
         $this->collUserLastPrintJobs = null;
@@ -4378,7 +4332,6 @@ abstract class DplusUser implements ActiveRecordInterface
      * Returns the number of related UserLastPrintJob objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related UserLastPrintJob objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4386,7 +4339,7 @@ abstract class DplusUser implements ActiveRecordInterface
     public function countUserLastPrintJobs(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collUserLastPrintJobsPartial && !$this->isNew();
-        if (null === $this->collUserLastPrintJobs || null !== $criteria || $partial) {
+        if (null === $this->collUserLastPrintJobs || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collUserLastPrintJobs) {
                 return 0;
             }
@@ -4425,7 +4378,7 @@ abstract class DplusUser implements ActiveRecordInterface
         if (!$this->collUserLastPrintJobs->contains($l)) {
             $this->doAddUserLastPrintJob($l);
 
-            if ($this->userLastPrintJobsScheduledForDeletion and $this->userLastPrintJobsScheduledForDeletion->contains($l)) {
+            if ($this->userLastPrintJobsScheduledForDeletion && $this->userLastPrintJobsScheduledForDeletion->contains($l)) {
                 $this->userLastPrintJobsScheduledForDeletion->remove($this->userLastPrintJobsScheduledForDeletion->search($l));
             }
         }
@@ -4456,7 +4409,7 @@ abstract class DplusUser implements ActiveRecordInterface
                 $this->userLastPrintJobsScheduledForDeletion->clear();
             }
             $this->userLastPrintJobsScheduledForDeletion[]= clone $userLastPrintJob;
-            $userLastPrintJob->setDplusUser(null);
+            $userLastPrintJob->setDplusUser();
         }
 
         return $this;
@@ -4571,13 +4524,11 @@ abstract class DplusUser implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(DplusUserTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(DplusUserTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -4586,8 +4537,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -4595,8 +4544,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -4605,8 +4552,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -4614,8 +4559,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -4624,8 +4567,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -4633,8 +4574,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -4643,8 +4582,6 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -4664,7 +4601,7 @@ abstract class DplusUser implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -4676,7 +4613,7 @@ abstract class DplusUser implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -4684,7 +4621,7 @@ abstract class DplusUser implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

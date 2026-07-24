@@ -186,7 +186,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvSerialMasterQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvSerialMasterQuery object.
@@ -244,7 +244,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvSerialMasterTableMap::DATABASE_NAME);
         }
 
@@ -291,7 +291,6 @@ abstract class InvSerialMasterQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvSerialMaster $obj */
             $obj = new ChildInvSerialMaster();
             $obj->hydrate($row);
             InvSerialMasterTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -332,7 +331,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -400,10 +399,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -428,10 +425,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterBySermsernbr($sermsernbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($sermsernbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($sermsernbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_SERMSERNBR, $sermsernbr, $comparison);
@@ -456,10 +451,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterBySermproddate($sermproddate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($sermproddate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($sermproddate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_SERMPRODDATE, $sermproddate, $comparison);
@@ -527,10 +520,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterBySermsordnbr($sermsordnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($sermsordnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($sermsordnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_SERMSORDNBR, $sermsordnbr, $comparison);
@@ -555,10 +546,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterBySerminvcdate($serminvcdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($serminvcdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($serminvcdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_SERMINVCDATE, $serminvcdate, $comparison);
@@ -583,10 +572,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterBySermrevision($sermrevision = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($sermrevision)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($sermrevision)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_SERMREVISION, $sermrevision, $comparison);
@@ -611,10 +598,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterBySermctry($sermctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($sermctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($sermctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_SERMCTRY, $sermctry, $comparison);
@@ -639,10 +624,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterBySermacallocordr($sermacallocordr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($sermacallocordr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($sermacallocordr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_SERMACALLOCORDR, $sermacallocordr, $comparison);
@@ -667,10 +650,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterBySermrefsernbr($sermrefsernbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($sermrefsernbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($sermrefsernbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_SERMREFSERNBR, $sermrefsernbr, $comparison);
@@ -695,10 +676,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -723,10 +702,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -751,10 +728,8 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialMasterTableMap::COL_DUMMY, $dummy, $comparison);
@@ -808,7 +783,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -838,7 +813,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -975,7 +950,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1005,7 +980,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvLotTag($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLotTag', '\InvLotTagQuery');
+            ->useQuery($relationAlias ?: 'InvLotTag', '\InvLotTagQuery');
     }
 
     /**
@@ -1142,7 +1117,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1172,7 +1147,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferLotserial', '\InvTransferLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferLotserial', '\InvTransferLotserialQuery');
     }
 
     /**
@@ -1309,7 +1284,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1339,7 +1314,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferPreAllocatedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPreAllocatedLotserial', '\InvTransferPreAllocatedLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferPreAllocatedLotserial', '\InvTransferPreAllocatedLotserialQuery');
     }
 
     /**
@@ -1476,7 +1451,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1506,7 +1481,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferPickedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPickedLotserial', '\InvTransferPickedLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferPickedLotserial', '\InvTransferPickedLotserialQuery');
     }
 
     /**
@@ -1643,7 +1618,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1673,7 +1648,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvSerialWarranty($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvSerialWarranty', '\InvSerialWarrantyQuery');
+            ->useQuery($relationAlias ?: 'InvSerialWarranty', '\InvSerialWarrantyQuery');
     }
 
     /**
@@ -1784,7 +1759,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
         if ($invSerialMaster) {
             $this->addCond('pruneCond0', $this->getAliasedColName(InvSerialMasterTableMap::COL_INITITEMNBR), $invSerialMaster->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvSerialMasterTableMap::COL_SERMSERNBR), $invSerialMaster->getSermsernbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1798,7 +1773,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialMasterTableMap::DATABASE_NAME);
         }
 
@@ -1828,7 +1803,7 @@ abstract class InvSerialMasterQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialMasterTableMap::DATABASE_NAME);
         }
 

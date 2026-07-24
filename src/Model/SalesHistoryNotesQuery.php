@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SalesHistoryNotesQuery as BaseSalesHistoryNotesQuery;
 
 use Dplus\Model\QueryTraits;

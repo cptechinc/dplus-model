@@ -98,7 +98,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class MotorFreightCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\MotorFreightCodeQuery object.
@@ -156,7 +156,7 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(MotorFreightCodeTableMap::DATABASE_NAME);
         }
 
@@ -202,7 +202,6 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildMotorFreightCode $obj */
             $obj = new ChildMotorFreightCode();
             $obj->hydrate($row);
             MotorFreightCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -243,7 +242,7 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -302,10 +301,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function filterByOe2tbmfrtcode($oe2tbmfrtcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oe2tbmfrtcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oe2tbmfrtcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCODE, $oe2tbmfrtcode, $comparison);
@@ -330,10 +327,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function filterByOe2tbmfrtclass($oe2tbmfrtclass = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oe2tbmfrtclass)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oe2tbmfrtclass)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCLASS, $oe2tbmfrtclass, $comparison);
@@ -358,10 +353,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function filterByOe2tbmfrtdesc1($oe2tbmfrtdesc1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oe2tbmfrtdesc1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oe2tbmfrtdesc1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC1, $oe2tbmfrtdesc1, $comparison);
@@ -386,10 +379,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function filterByOe2tbmfrtdesc2($oe2tbmfrtdesc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oe2tbmfrtdesc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oe2tbmfrtdesc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC2, $oe2tbmfrtdesc2, $comparison);
@@ -414,10 +405,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function filterByOe2tbmfrtdesc3($oe2tbmfrtdesc3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oe2tbmfrtdesc3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oe2tbmfrtdesc3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC3, $oe2tbmfrtdesc3, $comparison);
@@ -442,10 +431,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function filterByOe2tbmfrtdesc4($oe2tbmfrtdesc4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oe2tbmfrtdesc4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oe2tbmfrtdesc4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC4, $oe2tbmfrtdesc4, $comparison);
@@ -470,10 +457,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MotorFreightCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -498,10 +483,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MotorFreightCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -526,10 +509,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MotorFreightCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -561,7 +542,7 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(MotorFreightCodeTableMap::DATABASE_NAME);
         }
 
@@ -591,7 +572,7 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(MotorFreightCodeTableMap::DATABASE_NAME);
         }
 

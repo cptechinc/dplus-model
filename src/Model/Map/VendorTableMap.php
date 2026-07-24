@@ -2424,7 +2424,6 @@ class VendorTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -2437,7 +2436,7 @@ class VendorTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(true);
         // columns
-        $this->addPrimaryKey('VendRecNbr', 'Vendrecnbr', 'INTEGER', true, null, null);
+        $this->addPrimaryKey('VendRecNbr', 'Vendrecnbr', 'INTEGER', true);
         $this->addColumn('ApveVendId', 'Apvevendid', 'VARCHAR', true, 6, '');
         $this->addColumn('ApveName', 'Apvename', 'VARCHAR', true, 30, '');
         $this->addColumn('ApveAdr1', 'Apveadr1', 'VARCHAR', true, 30, '');
@@ -2618,123 +2617,121 @@ class VendorTableMap extends TableMap
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('ApTypeCode', '\\ApTypeCode', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('ApTypeCode', '\\ApTypeCode', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':AptbTypeCode',
     1 => ':AptbTypeCode',
-  ),
-), null, null, null, false);
-        $this->addRelation('ApTermsCode', '\\ApTermsCode', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('ApTermsCode', '\\ApTermsCode', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':AptmTermCode',
     1 => ':AptmTermCode',
-  ),
-), null, null, null, false);
-        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ApveSviaCode',
     1 => ':ArtbShipVia',
-  ),
-), null, null, null, false);
-        $this->addRelation('ApBuyer', '\\ApBuyer', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('ApBuyer', '\\ApBuyer', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ApveBuyrCode1',
     1 => ':AptbBuyrCode',
-  ),
-), null, null, null, false);
-        $this->addRelation('ApContact', '\\ApContact', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('ApContact', '\\ApContact', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'ApContacts', false);
-        $this->addRelation('ApInvoiceDetail', '\\ApInvoiceDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ApContacts', false);
+        $this->addRelation('ApInvoiceDetail', '\\ApInvoiceDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'ApInvoiceDetails', false);
-        $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ApInvoiceDetails', false);
+        $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'ApInvoices', false);
-        $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ApInvoices', false);
+        $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'VendorShipfroms', false);
-        $this->addRelation('InvNonstockItem', '\\InvNonstockItem', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'VendorShipfroms', false);
+        $this->addRelation('InvNonstockItem', '\\InvNonstockItem', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':NsitMnfrId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'InvNonstockItems', false);
-        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvNonstockItems', false);
+        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'InvTransferOrders', false);
-        $this->addRelation('ItemXrefKey', '\\ItemXrefKey', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvTransferOrders', false);
+        $this->addRelation('ItemXrefKey', '\\ItemXrefKey', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':RkeyCVId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'ItemXrefKeys', false);
-        $this->addRelation('ItemXrefManufacturer', '\\ItemXrefManufacturer', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefKeys', false);
+        $this->addRelation('ItemXrefManufacturer', '\\ItemXrefManufacturer', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'ItemXrefManufacturers', false);
-        $this->addRelation('ItemXrefVendorNoteDetail', '\\ItemXrefVendorNoteDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefManufacturers', false);
+        $this->addRelation('ItemXrefVendorNoteDetail', '\\ItemXrefVendorNoteDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'ItemXrefVendorNoteDetails', false);
-        $this->addRelation('ItemXrefVendorNoteInternal', '\\ItemXrefVendorNoteInternal', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefVendorNoteDetails', false);
+        $this->addRelation('ItemXrefVendorNoteInternal', '\\ItemXrefVendorNoteInternal', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'ItemXrefVendorNoteInternals', false);
-        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefVendorNoteInternals', false);
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'PurchaseOrders', false);
-        $this->addRelation('ItemXrefVendor', '\\ItemXrefVendor', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'PurchaseOrders', false);
+        $this->addRelation('ItemXrefVendor', '\\ItemXrefVendor', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, 'ItemXrefVendors', false);
+  ],
+], null, null, 'ItemXrefVendors', false);
     }
 
     /**
@@ -2753,11 +2750,11 @@ class VendorTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -2775,8 +2772,8 @@ class VendorTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -2833,7 +2830,6 @@ class VendorTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -2874,7 +2870,6 @@ class VendorTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -3247,7 +3242,6 @@ class VendorTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -3613,7 +3607,6 @@ class VendorTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -3635,7 +3628,7 @@ class VendorTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorTableMap::DATABASE_NAME);
         }
 
@@ -3685,7 +3678,7 @@ class VendorTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorTableMap::DATABASE_NAME);
         }
 
@@ -3705,9 +3698,7 @@ class VendorTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

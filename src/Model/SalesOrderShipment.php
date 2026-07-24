@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SalesOrderShipment as BaseSalesOrderShipment;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,10 +20,10 @@ class SalesOrderShipment extends BaseSalesOrderShipment {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ordernumber'  => 'oehshnbr',
 		'shipdate'     => 'oehshshipdate',
 		'deliveredby'  => 'oehshservtype',
 		'trackingnbr'  => 'oehshtracknbr'
-	);
+	];
 }

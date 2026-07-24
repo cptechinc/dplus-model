@@ -18,7 +18,7 @@ class UserPermissionsItm extends BaseUserPermissionsItm {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'userid'     => 'itmpuserid',
 		'loginid'    => 'itmpuserid',
 		'whse'       => 'itmpwhse',
@@ -30,7 +30,7 @@ class UserPermissionsItm extends BaseUserPermissionsItm {
 		'options'    => 'itmpoptions',
 		'date'       => 'dateupdtd',
 		'time'       => 'timeupdtd'
-	);
+	];
 
 	const PERMISSIONS = [
 		'whse', 'pricing', 'costing',
@@ -114,6 +114,6 @@ class UserPermissionsItm extends BaseUserPermissionsItm {
 	 * @return array
 	 */
 	public function permitted() {
-		return array_filter(self::PERMISSIONS, array($this, 'is_true'));
+		return array_filter(self::PERMISSIONS, [$this, 'is_true']);
 	}
 }

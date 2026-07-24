@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\BookingDayRep as BaseBookingDayRep;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -17,7 +19,7 @@ class BookingDayRep extends BaseBookingDayRep {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'salesperson1'  => 'arspsaleper1',
 		'bookingdate'   => 'bkgrdate',
 		'amount'     => 'bkgrnetamt',
@@ -26,5 +28,5 @@ class BookingDayRep extends BaseBookingDayRep {
 
 		// ALIASES for Foreign Keys
 		'salesperson'  => 'salesPerson',
-	);
+	];
 }

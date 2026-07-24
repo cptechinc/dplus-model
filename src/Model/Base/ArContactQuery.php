@@ -140,7 +140,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArContactQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArContactQuery object.
@@ -198,7 +198,7 @@ abstract class ArContactQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArContactTableMap::DATABASE_NAME);
         }
 
@@ -246,7 +246,6 @@ abstract class ArContactQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArContact $obj */
             $obj = new ChildArContact();
             $obj->hydrate($row);
             ArContactTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
@@ -287,7 +286,7 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -358,10 +357,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -386,10 +383,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
@@ -414,10 +409,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByArcpcontid($arcpcontid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcpcontid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcpcontid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_ARCPCONTID, $arcpcontid, $comparison);
@@ -442,10 +435,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByArcptitl($arcptitl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcptitl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcptitl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_ARCPTITL, $arcptitl, $comparison);
@@ -470,10 +461,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByArcparcont($arcparcont = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcparcont)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcparcont)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_ARCPARCONT, $arcparcont, $comparison);
@@ -498,10 +487,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByArcpduncont($arcpduncont = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcpduncont)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcpduncont)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_ARCPDUNCONT, $arcpduncont, $comparison);
@@ -526,10 +513,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByArcpbuycont($arcpbuycont = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcpbuycont)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcpbuycont)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_ARCPBUYCONT, $arcpbuycont, $comparison);
@@ -554,10 +539,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByArcpacknow($arcpacknow = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcpacknow)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcpacknow)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_ARCPACKNOW, $arcpacknow, $comparison);
@@ -582,10 +565,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByArcpcertcont($arcpcertcont = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcpcertcont)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcpcertcont)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_ARCPCERTCONT, $arcpcertcont, $comparison);
@@ -610,10 +591,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -638,10 +617,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -666,10 +643,8 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArContactTableMap::COL_DUMMY, $dummy, $comparison);
@@ -723,7 +698,7 @@ abstract class ArContactQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -753,7 +728,7 @@ abstract class ArContactQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -890,7 +865,7 @@ abstract class ArContactQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -920,7 +895,7 @@ abstract class ArContactQuery extends ModelCriteria
     {
         return $this
             ->joinCustomerShipto($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CustomerShipto', '\CustomerShiptoQuery');
+            ->useQuery($relationAlias ?: 'CustomerShipto', '\CustomerShiptoQuery');
     }
 
     /**
@@ -1032,7 +1007,7 @@ abstract class ArContactQuery extends ModelCriteria
             $this->addCond('pruneCond0', $this->getAliasedColName(ArContactTableMap::COL_ARCUCUSTID), $arContact->getArcucustid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(ArContactTableMap::COL_ARSTSHIPID), $arContact->getArstshipid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(ArContactTableMap::COL_ARCPCONTID), $arContact->getArcpcontid(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1046,7 +1021,7 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArContactTableMap::DATABASE_NAME);
         }
 
@@ -1076,7 +1051,7 @@ abstract class ArContactQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArContactTableMap::DATABASE_NAME);
         }
 

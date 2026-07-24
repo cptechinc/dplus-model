@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigQtQuery as BaseConfigQtQuery;
 
 use Dplus\Model\QueryTraits;

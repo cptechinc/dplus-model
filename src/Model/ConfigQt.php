@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigQt as BaseConfigQt;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,11 +20,11 @@ class ConfigQt extends BaseConfigQt {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'note_default_quote' => 'qttbconfdefquot',
 		'note_default_pick'  => 'qttbconfdefpick',
 		'note_default_pack'  => 'qttbconfdefpack',
 		'note_default_invoice' => 'qttbconfdefinvc',
 		'note_default_acknowledgement' => 'qttbconfdefack',
-	);
+	];
 }

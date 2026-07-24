@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvPriceCodeQuery as BaseInvPriceCodeQuery;
 
 use Dplus\Model\QueryTraits;

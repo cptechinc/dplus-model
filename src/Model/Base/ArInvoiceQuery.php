@@ -202,7 +202,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArInvoiceQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArInvoiceQuery object.
@@ -260,7 +260,7 @@ abstract class ArInvoiceQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArInvoiceTableMap::DATABASE_NAME);
         }
 
@@ -310,7 +310,6 @@ abstract class ArInvoiceQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArInvoice $obj */
             $obj = new ChildArInvoice();
             $obj->hydrate($row);
             ArInvoiceTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4])]));
@@ -351,7 +350,7 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -428,10 +427,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -456,10 +453,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArininvnbr($arininvnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arininvnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arininvnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARININVNBR, $arininvnbr, $comparison);
@@ -527,10 +522,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArintype($arintype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arintype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arintype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINTYPE, $arintype, $comparison);
@@ -598,10 +591,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArinhold($arinhold = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arinhold)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arinhold)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINHOLD, $arinhold, $comparison);
@@ -626,10 +617,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArininvdate($arininvdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arininvdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arininvdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARININVDATE, $arininvdate, $comparison);
@@ -654,10 +643,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArindiscdate($arindiscdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arindiscdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arindiscdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINDISCDATE, $arindiscdate, $comparison);
@@ -682,10 +669,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArinduedate($arinduedate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arinduedate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arinduedate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINDUEDATE, $arinduedate, $comparison);
@@ -796,10 +781,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArinchknbr($arinchknbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arinchknbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arinchknbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINCHKNBR, $arinchknbr, $comparison);
@@ -824,10 +807,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArincustpo($arincustpo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arincustpo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arincustpo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINCUSTPO, $arincustpo, $comparison);
@@ -852,10 +833,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArintermcode($arintermcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arintermcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arintermcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINTERMCODE, $arintermcode, $comparison);
@@ -923,10 +902,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArinordrnbr($arinordrnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arinordrnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arinordrnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINORDRNBR, $arinordrnbr, $comparison);
@@ -1037,10 +1014,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArinorigwhse($arinorigwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arinorigwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arinorigwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINORIGWHSE, $arinorigwhse, $comparison);
@@ -1065,10 +1040,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByArinwriteoffdate($arinwriteoffdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arinwriteoffdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arinwriteoffdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_ARINWRITEOFFDATE, $arinwriteoffdate, $comparison);
@@ -1136,10 +1109,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1164,10 +1135,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1192,10 +1161,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArInvoiceTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1249,7 +1216,7 @@ abstract class ArInvoiceQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1279,7 +1246,7 @@ abstract class ArInvoiceQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -1393,7 +1360,7 @@ abstract class ArInvoiceQuery extends ModelCriteria
             $this->addCond('pruneCond2', $this->getAliasedColName(ArInvoiceTableMap::COL_ARININVSEQ), $arInvoice->getArininvseq(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(ArInvoiceTableMap::COL_ARINTYPE), $arInvoice->getArintype(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond4', $this->getAliasedColName(ArInvoiceTableMap::COL_ARINSEQ), $arInvoice->getArinseq(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1407,7 +1374,7 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArInvoiceTableMap::DATABASE_NAME);
         }
 
@@ -1437,7 +1404,7 @@ abstract class ArInvoiceQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArInvoiceTableMap::DATABASE_NAME);
         }
 

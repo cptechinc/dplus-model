@@ -19,7 +19,7 @@ class VendorShipfrom extends BaseVendorShipfrom {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'vendorid'    => 'apvevendid',
 		'vendorID'    => 'apvevendid',
 		'shipfromid'  => 'apfmshipid',
@@ -40,7 +40,7 @@ class VendorShipfrom extends BaseVendorShipfrom {
 		'ytd_purchases_amt'    => 'apfmpurytd',
 		'ytd_purchases_count'  => 'apfmpoytd',
 		'lastpurchasedate'     => 'apfmlastpurdate'
-	);
+	];
 
 	/**
 	 * Returns the Amount Left the Current Purchase Orders
@@ -56,7 +56,7 @@ class VendorShipfrom extends BaseVendorShipfrom {
 				ON data3.po_receipt_det.PohdNbr = data3.po_detail.PohdNbr AND data3.po_receipt_det.PodtLine = data3.po_detail.PodtLine
 				WHERE data3.po_detail.PohdNbr IN (:ponbrs)
 				AND PodtStat != 'C' AND PodtRel != 'N'";
-		$params = array(':ponbrs' => implode(',', $ponbrs));
+		$params = [':ponbrs' => implode(',', $ponbrs)];
 		$results = $q->execute_query($sql, $params);
 		return $results->fetchColumn();
 	}

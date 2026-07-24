@@ -146,7 +146,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class SalesHistoryNotesQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\SalesHistoryNotesQuery object.
@@ -204,7 +204,7 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SalesHistoryNotesTableMap::DATABASE_NAME);
         }
 
@@ -253,7 +253,6 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildSalesHistoryNotes $obj */
             $obj = new ChildSalesHistoryNotes();
             $obj->hydrate($row);
             SalesHistoryNotesTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -294,7 +293,7 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -368,10 +367,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShnttype($shnttype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shnttype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shnttype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTTYPE, $shnttype, $comparison);
@@ -396,10 +393,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShnttypedesc($shnttypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shnttypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shnttypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTTYPEDESC, $shnttypedesc, $comparison);
@@ -424,10 +419,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByOehhnbr($oehhnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_OEHHNBR, $oehhnbr, $comparison);
@@ -452,10 +445,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShntyear($shntyear = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shntyear)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shntyear)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTYEAR, $shntyear, $comparison);
@@ -523,10 +514,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShntlotser($shntlotser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shntlotser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shntlotser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTLOTSER, $shntlotser, $comparison);
@@ -551,10 +540,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShntpickticket($shntpickticket = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shntpickticket)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shntpickticket)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTPICKTICKET, $shntpickticket, $comparison);
@@ -579,10 +566,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShntpackticket($shntpackticket = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shntpackticket)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shntpackticket)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTPACKTICKET, $shntpackticket, $comparison);
@@ -607,10 +592,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShntinvoice($shntinvoice = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shntinvoice)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shntinvoice)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTINVOICE, $shntinvoice, $comparison);
@@ -635,10 +618,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShntacknow($shntacknow = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shntacknow)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shntacknow)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTACKNOW, $shntacknow, $comparison);
@@ -706,10 +687,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShntnote($shntnote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shntnote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shntnote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTNOTE, $shntnote, $comparison);
@@ -734,10 +713,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShntkey2($shntkey2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shntkey2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shntkey2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTKEY2, $shntkey2, $comparison);
@@ -762,10 +739,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByShntform($shntform = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($shntform)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($shntform)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTFORM, $shntform, $comparison);
@@ -790,10 +765,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -818,10 +791,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -846,10 +817,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryNotesTableMap::COL_DUMMY, $dummy, $comparison);
@@ -871,7 +840,7 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(SalesHistoryNotesTableMap::COL_SHNTSEQ), $salesHistoryNotes->getShntseq(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(SalesHistoryNotesTableMap::COL_SHNTKEY2), $salesHistoryNotes->getShntkey2(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(SalesHistoryNotesTableMap::COL_SHNTFORM), $salesHistoryNotes->getShntform(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -885,7 +854,7 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryNotesTableMap::DATABASE_NAME);
         }
 
@@ -915,7 +884,7 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryNotesTableMap::DATABASE_NAME);
         }
 

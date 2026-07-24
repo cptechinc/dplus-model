@@ -43,7 +43,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\UnitofMeasureSaleTableMap';
+    public const TABLE_MAP = \Map\UnitofMeasureSaleTableMap::class;
 
 
     /**
@@ -162,28 +162,21 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemMasterItem[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemMasterItem>
      */
-    protected $itemMasterItemsScheduledForDeletion = null;
+    protected $itemMasterItemsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailReceiving[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving>
      */
-    protected $purchaseOrderDetailReceivingsScheduledForDeletion = null;
+    protected $purchaseOrderDetailReceivingsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildRcyclReceiptDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildRcyclReceiptDetail>
      */
-    protected $rcyclReceiptDetailsScheduledForDeletion = null;
-
-    /**
-     * Initializes internal state of Base\UnitofMeasureSale object.
-     */
-    public function __construct()
-    {
-    }
+    protected $rcyclReceiptDetailsScheduledForDeletion;
 
     /**
      * Returns whether the object has been modified.
@@ -192,7 +185,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -250,7 +243,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -260,7 +252,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -298,8 +289,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -310,7 +299,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -352,9 +340,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -380,7 +366,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -680,28 +666,28 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Intbuomsale', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : UnitofMeasureSaleTableMap::translateFieldName('Intbuomsale', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuomsale = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Intbuomdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Intbuomdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuomdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Intbuomconv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Intbuomconv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuomconv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Intbuompricbywght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Intbuompricbywght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuompricbywght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('IntbUomStockByCase', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('IntbUomStockByCase', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuomstockbycase = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -730,7 +716,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -743,7 +728,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -756,7 +740,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
         }
 
@@ -786,7 +770,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see UnitofMeasureSale::setDeleted()
      * @see UnitofMeasureSale::isDeleted()
@@ -797,7 +780,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
         }
 
@@ -836,18 +819,14 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -871,7 +850,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -893,14 +871,12 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->itemMasterItemsScheduledForDeletion !== null) {
-                if (!$this->itemMasterItemsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->itemMasterItemsScheduledForDeletion as $itemMasterItem) {
-                        // need to save related object because we set the relation to null
-                        $itemMasterItem->save($con);
-                    }
-                    $this->itemMasterItemsScheduledForDeletion = null;
+            if ($this->itemMasterItemsScheduledForDeletion !== null && !$this->itemMasterItemsScheduledForDeletion->isEmpty()) {
+                foreach ($this->itemMasterItemsScheduledForDeletion as $itemMasterItem) {
+                    // need to save related object because we set the relation to null
+                    $itemMasterItem->save($con);
                 }
+                $this->itemMasterItemsScheduledForDeletion = null;
             }
 
             if ($this->collItemMasterItems !== null) {
@@ -911,13 +887,11 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailReceivingQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null && !$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailReceivingQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetailReceivings !== null) {
@@ -928,13 +902,11 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 }
             }
 
-            if ($this->rcyclReceiptDetailsScheduledForDeletion !== null) {
-                if (!$this->rcyclReceiptDetailsScheduledForDeletion->isEmpty()) {
-                    \RcyclReceiptDetailQuery::create()
-                        ->filterByPrimaryKeys($this->rcyclReceiptDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->rcyclReceiptDetailsScheduledForDeletion = null;
-                }
+            if ($this->rcyclReceiptDetailsScheduledForDeletion !== null && !$this->rcyclReceiptDetailsScheduledForDeletion->isEmpty()) {
+                \RcyclReceiptDetailQuery::create()
+                    ->filterByPrimaryKeys($this->rcyclReceiptDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->rcyclReceiptDetailsScheduledForDeletion = null;
             }
 
             if ($this->collRcyclReceiptDetails !== null) {
@@ -955,7 +927,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -1048,7 +1019,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -1074,9 +1044,8 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = UnitofMeasureSaleTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -1209,7 +1178,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -1415,7 +1383,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -1435,7 +1403,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * Generic method to set the primary key (intbuomsale column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -1444,8 +1411,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -1462,7 +1427,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -1534,7 +1498,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -1570,8 +1533,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Reset is the collItemMasterItems collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemMasterItems($v = true): void
     {
@@ -1587,8 +1548,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemMasterItems(bool $overrideExisting = true): void
     {
@@ -1620,7 +1579,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     public function getItemMasterItems(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemMasterItemsPartial && !$this->isNew();
-        if (null === $this->collItemMasterItems || null !== $criteria || $partial) {
+        if (null === $this->collItemMasterItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemMasterItems) {
@@ -1638,7 +1597,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                     ->filterByUnitofMeasureSale($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemMasterItemsPartial && count($collItemMasterItems)) {
                         $this->initItemMasterItems(false);
 
@@ -1689,7 +1648,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         $this->itemMasterItemsScheduledForDeletion = $itemMasterItemsToDelete;
 
         foreach ($itemMasterItemsToDelete as $itemMasterItemRemoved) {
-            $itemMasterItemRemoved->setUnitofMeasureSale(null);
+            $itemMasterItemRemoved->setUnitofMeasureSale();
         }
 
         $this->collItemMasterItems = null;
@@ -1707,7 +1666,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * Returns the number of related ItemMasterItem objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemMasterItem objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -1715,7 +1673,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     public function countItemMasterItems(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemMasterItemsPartial && !$this->isNew();
-        if (null === $this->collItemMasterItems || null !== $criteria || $partial) {
+        if (null === $this->collItemMasterItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemMasterItems) {
                 return 0;
             }
@@ -1754,7 +1712,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         if (!$this->collItemMasterItems->contains($l)) {
             $this->doAddItemMasterItem($l);
 
-            if ($this->itemMasterItemsScheduledForDeletion and $this->itemMasterItemsScheduledForDeletion->contains($l)) {
+            if ($this->itemMasterItemsScheduledForDeletion && $this->itemMasterItemsScheduledForDeletion->contains($l)) {
                 $this->itemMasterItemsScheduledForDeletion->remove($this->itemMasterItemsScheduledForDeletion->search($l));
             }
         }
@@ -1785,7 +1743,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 $this->itemMasterItemsScheduledForDeletion->clear();
             }
             $this->itemMasterItemsScheduledForDeletion[]= $itemMasterItem;
-            $itemMasterItem->setUnitofMeasureSale(null);
+            $itemMasterItem->setUnitofMeasureSale();
         }
 
         return $this;
@@ -1965,8 +1923,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetailReceivings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetailReceivings($v = true): void
     {
@@ -1982,8 +1938,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetailReceivings(bool $overrideExisting = true): void
     {
@@ -2015,7 +1969,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     public function getPurchaseOrderDetailReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetailReceivings) {
@@ -2033,7 +1987,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                     ->filterByUnitofMeasureSale($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailReceivingsPartial && count($collPurchaseOrderDetailReceivings)) {
                         $this->initPurchaseOrderDetailReceivings(false);
 
@@ -2084,7 +2038,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         $this->purchaseOrderDetailReceivingsScheduledForDeletion = $purchaseOrderDetailReceivingsToDelete;
 
         foreach ($purchaseOrderDetailReceivingsToDelete as $purchaseOrderDetailReceivingRemoved) {
-            $purchaseOrderDetailReceivingRemoved->setUnitofMeasureSale(null);
+            $purchaseOrderDetailReceivingRemoved->setUnitofMeasureSale();
         }
 
         $this->collPurchaseOrderDetailReceivings = null;
@@ -2102,7 +2056,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetailReceiving objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetailReceiving objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2110,7 +2063,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     public function countPurchaseOrderDetailReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
                 return 0;
             }
@@ -2149,7 +2102,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetailReceivings->contains($l)) {
             $this->doAddPurchaseOrderDetailReceiving($l);
 
-            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion and $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion && $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailReceivingsScheduledForDeletion->search($l));
             }
         }
@@ -2180,7 +2133,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailReceiving;
-            $purchaseOrderDetailReceiving->setUnitofMeasureSale(null);
+            $purchaseOrderDetailReceiving->setUnitofMeasureSale();
         }
 
         return $this;
@@ -2308,8 +2261,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Reset is the collRcyclReceiptDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialRcyclReceiptDetails($v = true): void
     {
@@ -2325,8 +2276,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initRcyclReceiptDetails(bool $overrideExisting = true): void
     {
@@ -2358,7 +2307,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     public function getRcyclReceiptDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collRcyclReceiptDetailsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptDetails || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collRcyclReceiptDetails) {
@@ -2376,7 +2325,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                     ->filterByUnitofMeasureSale($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collRcyclReceiptDetailsPartial && count($collRcyclReceiptDetails)) {
                         $this->initRcyclReceiptDetails(false);
 
@@ -2427,7 +2376,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         $this->rcyclReceiptDetailsScheduledForDeletion = $rcyclReceiptDetailsToDelete;
 
         foreach ($rcyclReceiptDetailsToDelete as $rcyclReceiptDetailRemoved) {
-            $rcyclReceiptDetailRemoved->setUnitofMeasureSale(null);
+            $rcyclReceiptDetailRemoved->setUnitofMeasureSale();
         }
 
         $this->collRcyclReceiptDetails = null;
@@ -2445,7 +2394,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * Returns the number of related RcyclReceiptDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related RcyclReceiptDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2453,7 +2401,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     public function countRcyclReceiptDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collRcyclReceiptDetailsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptDetails || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collRcyclReceiptDetails) {
                 return 0;
             }
@@ -2492,7 +2440,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         if (!$this->collRcyclReceiptDetails->contains($l)) {
             $this->doAddRcyclReceiptDetail($l);
 
-            if ($this->rcyclReceiptDetailsScheduledForDeletion and $this->rcyclReceiptDetailsScheduledForDeletion->contains($l)) {
+            if ($this->rcyclReceiptDetailsScheduledForDeletion && $this->rcyclReceiptDetailsScheduledForDeletion->contains($l)) {
                 $this->rcyclReceiptDetailsScheduledForDeletion->remove($this->rcyclReceiptDetailsScheduledForDeletion->search($l));
             }
         }
@@ -2523,7 +2471,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 $this->rcyclReceiptDetailsScheduledForDeletion->clear();
             }
             $this->rcyclReceiptDetailsScheduledForDeletion[]= clone $rcyclReceiptDetail;
-            $rcyclReceiptDetail->setUnitofMeasureSale(null);
+            $rcyclReceiptDetail->setUnitofMeasureSale();
         }
 
         return $this;
@@ -2649,13 +2597,11 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(UnitofMeasureSaleTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(UnitofMeasureSaleTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -2664,8 +2610,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -2673,8 +2617,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -2683,8 +2625,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -2692,8 +2632,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -2702,8 +2640,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -2711,8 +2647,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -2721,8 +2655,6 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -2742,7 +2674,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -2754,7 +2686,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -2762,7 +2694,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

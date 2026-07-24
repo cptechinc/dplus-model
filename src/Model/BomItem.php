@@ -19,12 +19,12 @@ class BomItem extends BaseBomItem {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'  => 'bomhproditem',
 		'level'   => 'bomhlevel',
 		'date'    => 'dateupdtd',
 		'time'    => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return the number of Sub Components

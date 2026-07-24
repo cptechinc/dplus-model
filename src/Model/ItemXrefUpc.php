@@ -24,7 +24,7 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'upc'         => 'upcxcode',
 		'code'        => 'upcxcode',
 		'itemid'      => 'inititemnbr',
@@ -36,7 +36,7 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 		'needslabel'  => 'upcxlabel',
 		'date'        => 'dateupdtd',
 		'time'        => 'timeupdtd',
-	);
+	];
 
 	/** @var ItemMasterItem */
 	protected $aItem;
@@ -63,7 +63,7 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 	 * @return bool
 	 */
 	public function is_primary() {
-		return strtoupper($this->primary) == 'Y';
+		return strtoupper($this->primary) === 'Y';
 	}
 
 	/**
@@ -71,7 +71,7 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 	 * @return bool
 	 */
 	public function isPrimary() {
-		return strtoupper($this->primary) == 'Y';
+		return strtoupper($this->primary) === 'Y';
 	}
 
 	/**
@@ -80,7 +80,7 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 	 * @return bool
 	 */
 	public function is_mastercase() {
-		return strtoupper($this->mastercase) == 'Y';
+		return strtoupper($this->mastercase) === 'Y';
 	}
 
 	/**
@@ -89,7 +89,7 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 	 * @return bool
 	 */
 	public function needslabel() {
-		return strtoupper($this->needslabel) == 'Y';
+		return strtoupper($this->needslabel) === 'Y';
 	}
 
 	/**

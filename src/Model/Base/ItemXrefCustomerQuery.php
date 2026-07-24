@@ -208,7 +208,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemXrefCustomerQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemXrefCustomerQuery object.
@@ -266,7 +266,7 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemXrefCustomerTableMap::DATABASE_NAME);
         }
 
@@ -313,7 +313,6 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemXrefCustomer $obj */
             $obj = new ChildItemXrefCustomer();
             $obj->hydrate($row);
             ItemXrefCustomerTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -354,7 +353,7 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -422,10 +421,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -450,10 +447,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrcustitemnbr($oexrcustitemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrcustitemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrcustitemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR, $oexrcustitemnbr, $comparison);
@@ -478,10 +473,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -721,10 +714,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrrounding($oexrrounding = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrrounding)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrrounding)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRROUNDING, $oexrrounding, $comparison);
@@ -792,10 +783,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrcustitemdesc($oexrcustitemdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrcustitemdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrcustitemdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC, $oexrcustitemdesc, $comparison);
@@ -863,10 +852,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrcustitemdesc2($oexrcustitemdesc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrcustitemdesc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrcustitemdesc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2, $oexrcustitemdesc2, $comparison);
@@ -891,10 +878,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrrevision($oexrrevision = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrrevision)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrrevision)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRREVISION, $oexrrevision, $comparison);
@@ -962,10 +947,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrcustpricuom($oexrcustpricuom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrcustpricuom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrcustpricuom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM, $oexrcustpricuom, $comparison);
@@ -990,10 +973,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrlabel1prtfmt($oexrlabel1prtfmt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrlabel1prtfmt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrlabel1prtfmt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT, $oexrlabel1prtfmt, $comparison);
@@ -1018,10 +999,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrlabel2prtfmt($oexrlabel2prtfmt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrlabel2prtfmt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrlabel2prtfmt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT, $oexrlabel2prtfmt, $comparison);
@@ -1089,10 +1068,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrcustuom($oexrcustuom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrcustuom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrcustuom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRCUSTUOM, $oexrcustuom, $comparison);
@@ -1117,10 +1094,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexredi846($oexredi846 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexredi846)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexredi846)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXREDI846, $oexredi846, $comparison);
@@ -1145,10 +1120,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByOexrcat3reqd($oexrcat3reqd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oexrcat3reqd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oexrcat3reqd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRCAT3REQD, $oexrcat3reqd, $comparison);
@@ -1173,10 +1146,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1201,10 +1172,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1229,10 +1198,8 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1286,7 +1253,7 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1316,7 +1283,7 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1427,7 +1394,7 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
         if ($itemXrefCustomer) {
             $this->addCond('pruneCond0', $this->getAliasedColName(ItemXrefCustomerTableMap::COL_ARCUCUSTID), $itemXrefCustomer->getArcucustid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR), $itemXrefCustomer->getOexrcustitemnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1441,7 +1408,7 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefCustomerTableMap::DATABASE_NAME);
         }
 
@@ -1471,7 +1438,7 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefCustomerTableMap::DATABASE_NAME);
         }
 

@@ -36,7 +36,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ItemPricingDiscountTableMap';
+    public const TABLE_MAP = \Map\ItemPricingDiscountTableMap::class;
 
 
     /**
@@ -370,7 +370,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -428,7 +428,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -438,7 +437,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -476,8 +474,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -488,7 +484,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -530,9 +525,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -558,7 +551,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1677,13 +1670,8 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
             if ($this->oepcitemgrup !== '') {
                 return false;
             }
-
-            if ($this->oepcsp !== '') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->oepcsp === '';
     }
 
     /**
@@ -1708,109 +1696,109 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepctype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepctype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepctype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepctbltype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepctbltype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepctbltype = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcstrtdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcstrtdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcstrtdate = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepccustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepccustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepccustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepccustcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepccustcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepccustcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcitemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcitemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcitemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcitemgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcitemgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcitemgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcsp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcsp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcsp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcmeth', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcmeth', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcmeth = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpcnt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpcnt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpcnt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricbase', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricbase', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricbase = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricunit1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricpric1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricuom1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricunit2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricpric2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricuom2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricunit3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricpric3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricuom3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricunit4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricpric4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricuom4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricunit5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricunit5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricpric5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricpric5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcpricuom5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcpricuom5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcstancost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcstancost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcstancost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcenddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcenddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcenddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcqtybrk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepcqtybrk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepcqtybrk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepccontcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepccontcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepccontcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepclastchgdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Oepclastchgdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepclastchgdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ItemPricingDiscountTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1839,7 +1827,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1858,7 +1845,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1871,7 +1857,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
         }
 
@@ -1897,7 +1883,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ItemPricingDiscount::setDeleted()
      * @see ItemPricingDiscount::isDeleted()
@@ -1908,7 +1893,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
         }
 
@@ -1947,18 +1932,14 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1982,7 +1963,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2033,7 +2013,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2315,7 +2294,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2341,9 +2319,8 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ItemPricingDiscountTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2569,7 +2546,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3018,14 +2994,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getOepctype() &&
-            null !== $this->getOepctbltype() &&
-            null !== $this->getOepcstrtdate() &&
-            null !== $this->getOepccustid() &&
-            null !== $this->getOepccustcode() &&
-            null !== $this->getOepcitemnbr() &&
-            null !== $this->getOepcitemgrup() &&
-            null !== $this->getOepcsp();
+        $validPk = !in_array(null, [$this->getOepctype(), $this->getOepctbltype(), $this->getOepcstrtdate(), $this->getOepccustid(), $this->getOepccustcode(), $this->getOepcitemnbr(), $this->getOepcitemgrup(), $this->getOepcsp()], true);
 
         $validPrimaryKeyFKs = 2;
         $primaryKeyFKs = [];
@@ -3060,24 +3029,13 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getOepctype();
-        $pks[1] = $this->getOepctbltype();
-        $pks[2] = $this->getOepcstrtdate();
-        $pks[3] = $this->getOepccustid();
-        $pks[4] = $this->getOepccustcode();
-        $pks[5] = $this->getOepcitemnbr();
-        $pks[6] = $this->getOepcitemgrup();
-        $pks[7] = $this->getOepcsp();
-
-        return $pks;
+        return [$this->getOepctype(), $this->getOepctbltype(), $this->getOepcstrtdate(), $this->getOepccustid(), $this->getOepccustcode(), $this->getOepcitemnbr(), $this->getOepcitemgrup(), $this->getOepcsp()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -3093,8 +3051,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3111,7 +3067,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3180,13 +3135,12 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param ChildItemMasterItem $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ItemMasterItem) {
             $this->setOepcitemnbr('');
         } else {
             $this->setOepcitemnbr($v->getInititemnbr());
@@ -3196,7 +3150,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ItemMasterItem) {
             $v->addItemPricingDiscount($this);
         }
 
@@ -3231,13 +3185,12 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param ChildCustomer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setOepccustid('');
         } else {
             $this->setOepccustid($v->getArcucustid());
@@ -3247,7 +3200,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->addItemPricingDiscount($this);
         }
 
@@ -3350,8 +3303,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aItemMasterItem = null;
         $this->aCustomer = null;
@@ -3365,13 +3317,11 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ItemPricingDiscountTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ItemPricingDiscountTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3380,8 +3330,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3389,8 +3337,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3399,8 +3345,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3408,8 +3352,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3418,8 +3360,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3427,8 +3367,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3437,8 +3375,6 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3458,7 +3394,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3470,7 +3406,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3478,7 +3414,7 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

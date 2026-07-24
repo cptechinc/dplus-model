@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\PurchaseOrderDetailReceiptQuery as BasePurchaseOrderDetailReceiptQuery;
 
 use Dplus\Model\QueryTraits;

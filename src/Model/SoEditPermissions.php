@@ -19,7 +19,7 @@ class SoEditPermissions extends BaseSoEditPermissions {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'userid'       => 'oetbcpercode',
 		'name'         => 'oetbcpername',
 		'canceled'     => 'oetbcpercanc',
@@ -29,7 +29,7 @@ class SoEditPermissions extends BaseSoEditPermissions {
 		'invoiced'     => 'oetbcperinv',
 		'advancedata'  => 'oetbcperadvcdata',
 		'posadmin'     => 'oetbcperposadmin'
-	);
+	];
 
 	public function allow($status) {
 		$func = "allow_$status";

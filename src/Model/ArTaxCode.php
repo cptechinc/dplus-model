@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArTaxCode as BaseArTaxCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class ArTaxCode extends BaseArTaxCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'               => 'artbmtaxcode',
 		'code'             => 'artbmtaxcode',
 		'description'      => 'artbmtaxdesc',
@@ -36,7 +38,7 @@ class ArTaxCode extends BaseArTaxCode {
         'limit'            => 'artbmtaxlimit',
 		'date'		       => 'dateupdtd',
 		'time'		       => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

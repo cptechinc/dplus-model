@@ -17,15 +17,15 @@ class Customer extends BaseCustomer {
 	const YN_TRUE  = 'Y';
 	const YN_FALSE = 'N';
 
-	const REQUIRE_PO_DESCRIPTIONS = array(
+	const REQUIRE_PO_DESCRIPTIONS = [
 		'N' => 'PO not forced - duplicates ok',
 		'O' => 'PO not forced - no duplicates',
 		'F' => 'PO forced - duplicates ok',
 		'V' => 'PO forced - no duplicates',
-	);
+	];
 
-	const REQUIRE_PO_FORCED = array('F', 'V');
-	const REQUIRE_PO_DUPLICATES_ALLOWED = array('N', 'F');
+	const REQUIRE_PO_FORCED = ['F', 'V'];
+	const REQUIRE_PO_DUPLICATES_ALLOWED = ['N', 'F'];
 	const CREDITHOLD_OPTIONS = ['Y' => 'Yes', 'X' => 'Exclude', 'N' => 'No'];
 	const COLUMN_BASE_24MO_SALECNT = 'ArcuInv24mo';
 	const COLUMN_BASE_24MO_SALEAMT = 'ArcuSale24mo';
@@ -34,7 +34,7 @@ class Customer extends BaseCustomer {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'custID'       => 'arcucustid',
 		'id'           => 'arcucustid',
 		'custid'       => 'arcucustid',
@@ -89,7 +89,7 @@ class Customer extends BaseCustomer {
 		// Datetime
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 
 /* =============================================================
 	Boolean property Functions
@@ -115,7 +115,7 @@ class Customer extends BaseCustomer {
 	 * @return bool
 	 */
 	public function hasCredithold() {
-		return strtoupper($this->credithold) == self::YN_TRUE;
+		return strtoupper($this->credithold) === self::YN_TRUE;
 	}
 
 	/**
@@ -131,7 +131,7 @@ class Customer extends BaseCustomer {
 	 * @return bool
 	 */
 	public function shipcomplete() {
-		return strtoupper($this->credithold) == self::YN_TRUE;
+		return strtoupper($this->credithold) === self::YN_TRUE;
 	}
 
 	/**

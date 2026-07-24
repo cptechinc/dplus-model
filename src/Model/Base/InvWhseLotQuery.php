@@ -336,7 +336,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvWhseLotQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvWhseLotQuery object.
@@ -394,7 +394,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvWhseLotTableMap::DATABASE_NAME);
         }
 
@@ -443,7 +443,6 @@ abstract class InvWhseLotQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvWhseLot $obj */
             $obj = new ChildInvWhseLot();
             $obj->hydrate($row);
             InvWhseLotTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -484,7 +483,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -558,10 +557,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -586,10 +583,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -614,10 +609,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltlotser($inltlotser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltlotser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltlotser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTSER, $inltlotser, $comparison);
@@ -642,10 +635,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltbin($inltbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTBIN, $inltbin, $comparison);
@@ -670,10 +661,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltdate($inltdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDATE, $inltdate, $comparison);
@@ -698,10 +687,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltdatewrit($inltdatewrit = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltdatewrit)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltdatewrit)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDATEWRIT, $inltdatewrit, $comparison);
@@ -1070,10 +1057,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltlotref($inltlotref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltlotref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltlotref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTREF, $inltlotref, $comparison);
@@ -1098,10 +1083,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltbatch($inltbatch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltbatch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltbatch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTBATCH, $inltbatch, $comparison);
@@ -1470,10 +1453,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltheadmark($inltheadmark = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltheadmark)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltheadmark)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTHEADMARK, $inltheadmark, $comparison);
@@ -1498,10 +1479,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltctry($inltctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCTRY, $inltctry, $comparison);
@@ -1655,10 +1634,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltdestwhse($inltdestwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltdestwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltdestwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDESTWHSE, $inltdestwhse, $comparison);
@@ -1812,10 +1789,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltqcreasoncd($inltqcreasoncd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltqcreasoncd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltqcreasoncd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTQCREASONCD, $inltqcreasoncd, $comparison);
@@ -1840,10 +1815,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltcert($inltcert = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltcert)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltcert)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCERT, $inltcert, $comparison);
@@ -1868,10 +1841,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltcuredate($inltcuredate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltcuredate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltcuredate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCUREDATE, $inltcuredate, $comparison);
@@ -1896,10 +1867,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltexpiredatecd($inltexpiredatecd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltexpiredatecd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltexpiredatecd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTEXPIREDATECD, $inltexpiredatecd, $comparison);
@@ -1924,10 +1893,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltexpiredate($inltexpiredate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltexpiredate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltexpiredate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTEXPIREDATE, $inltexpiredate, $comparison);
@@ -1952,10 +1919,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltorigbin($inltorigbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltorigbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltorigbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTORIGBIN, $inltorigbin, $comparison);
@@ -1980,10 +1945,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByInltshopitem($inltshopitem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inltshopitem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inltshopitem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHOPITEM, $inltshopitem, $comparison);
@@ -2008,10 +1971,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -2036,10 +1997,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -2064,10 +2023,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseLotTableMap::COL_DUMMY, $dummy, $comparison);
@@ -2121,7 +2078,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2151,7 +2108,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -2296,7 +2253,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2326,7 +2283,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
     {
         return $this
             ->joinWarehouse($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Warehouse', '\WarehouseQuery');
+            ->useQuery($relationAlias ?: 'Warehouse', '\WarehouseQuery');
     }
 
     /**
@@ -2463,7 +2420,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2493,7 +2450,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
     {
         return $this
             ->joinInvLotMaster($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLotMaster', '\InvLotMasterQuery');
+            ->useQuery($relationAlias ?: 'InvLotMaster', '\InvLotMasterQuery');
     }
 
     /**
@@ -2606,7 +2563,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(InvWhseLotTableMap::COL_INTBWHSE), $invWhseLot->getIntbwhse(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(InvWhseLotTableMap::COL_INLTLOTSER), $invWhseLot->getInltlotser(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(InvWhseLotTableMap::COL_INLTBIN), $invWhseLot->getInltbin(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2620,7 +2577,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseLotTableMap::DATABASE_NAME);
         }
 
@@ -2650,7 +2607,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseLotTableMap::DATABASE_NAME);
         }
 

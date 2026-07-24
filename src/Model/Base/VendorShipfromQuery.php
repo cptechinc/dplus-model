@@ -510,7 +510,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class VendorShipfromQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\VendorShipfromQuery object.
@@ -568,7 +568,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(VendorShipfromTableMap::DATABASE_NAME);
         }
 
@@ -615,7 +615,6 @@ abstract class VendorShipfromQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildVendorShipfrom $obj */
             $obj = new ChildVendorShipfrom();
             $obj->hydrate($row);
             VendorShipfromTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -656,7 +655,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -724,10 +723,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apvevendid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apvevendid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APVEVENDID, $apvevendid, $comparison);
@@ -752,10 +749,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmshipid($apfmshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMSHIPID, $apfmshipid, $comparison);
@@ -780,10 +775,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmname($apfmname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMNAME, $apfmname, $comparison);
@@ -808,10 +801,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmadr1($apfmadr1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmadr1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmadr1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMADR1, $apfmadr1, $comparison);
@@ -836,10 +827,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmadr2($apfmadr2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmadr2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmadr2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMADR2, $apfmadr2, $comparison);
@@ -864,10 +853,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmadr3($apfmadr3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmadr3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmadr3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMADR3, $apfmadr3, $comparison);
@@ -892,10 +879,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmctry($apfmctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMCTRY, $apfmctry, $comparison);
@@ -920,10 +905,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmcity($apfmcity = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmcity)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmcity)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMCITY, $apfmcity, $comparison);
@@ -948,10 +931,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmstat($apfmstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMSTAT, $apfmstat, $comparison);
@@ -976,10 +957,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmzipcode($apfmzipcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmzipcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmzipcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMZIPCODE, $apfmzipcode, $comparison);
@@ -1004,10 +983,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmcont1($apfmcont1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmcont1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmcont1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMCONT1, $apfmcont1, $comparison);
@@ -1032,10 +1009,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmcont2($apfmcont2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmcont2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmcont2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMCONT2, $apfmcont2, $comparison);
@@ -1060,10 +1035,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByArtbsviacode($artbsviacode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviacode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviacode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_ARTBSVIACODE, $artbsviacode, $comparison);
@@ -1088,10 +1061,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmglacct($apfmglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMGLACCT, $apfmglacct, $comparison);
@@ -1202,10 +1173,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmdateopen($apfmdateopen = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmdateopen)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmdateopen)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMDATEOPEN, $apfmdateopen, $comparison);
@@ -1230,10 +1199,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmlastpurdate($apfmlastpurdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmlastpurdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmlastpurdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMLASTPURDATE, $apfmlastpurdate, $comparison);
@@ -3322,10 +3289,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByApfmouracctnbr($apfmouracctnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apfmouracctnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apfmouracctnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_APFMOURACCTNBR, $apfmouracctnbr, $comparison);
@@ -3436,10 +3401,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -3464,10 +3427,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -3492,10 +3453,8 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(VendorShipfromTableMap::COL_DUMMY, $dummy, $comparison);
@@ -3549,7 +3508,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -3579,7 +3538,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
     {
         return $this
             ->joinVendor($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+            ->useQuery($relationAlias ?: 'Vendor', '\VendorQuery');
     }
 
     /**
@@ -3724,7 +3683,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -3754,7 +3713,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
     {
         return $this
             ->joinShipvia($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Shipvia', '\ShipviaQuery');
+            ->useQuery($relationAlias ?: 'Shipvia', '\ShipviaQuery');
     }
 
     /**
@@ -3891,7 +3850,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -3921,7 +3880,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrder', '\PurchaseOrderQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrder', '\PurchaseOrderQuery');
     }
 
     /**
@@ -4032,7 +3991,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
         if ($vendorShipfrom) {
             $this->addCond('pruneCond0', $this->getAliasedColName(VendorShipfromTableMap::COL_APVEVENDID), $vendorShipfrom->getApvevendid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(VendorShipfromTableMap::COL_APFMSHIPID), $vendorShipfrom->getApfmshipid(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -4046,7 +4005,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorShipfromTableMap::DATABASE_NAME);
         }
 
@@ -4076,7 +4035,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorShipfromTableMap::DATABASE_NAME);
         }
 

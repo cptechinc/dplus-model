@@ -116,7 +116,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemInspectNoteQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemInspectNoteQuery object.
@@ -174,7 +174,7 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemInspectNoteTableMap::DATABASE_NAME);
         }
 
@@ -225,7 +225,6 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemInspectNote $obj */
             $obj = new ChildItemInspectNote();
             $obj->hydrate($row);
             ItemInspectNoteTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4]), (null === $key[5] || is_scalar($key[5]) || is_callable([$key[5], '__toString']) ? (string) $key[5] : $key[5])]));
@@ -266,7 +265,7 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -346,10 +345,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByQcnotype($qcnotype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qcnotype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qcnotype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOTYPE, $qcnotype, $comparison);
@@ -374,10 +371,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByQcnotypedesc($qcnotypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qcnotypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qcnotypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOTYPEDESC, $qcnotypedesc, $comparison);
@@ -402,10 +397,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -430,10 +423,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByQcnodate($qcnodate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qcnodate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qcnodate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNODATE, $qcnodate, $comparison);
@@ -458,10 +449,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByQcnotime($qcnotime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qcnotime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qcnotime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOTIME, $qcnotime, $comparison);
@@ -486,10 +475,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByQcnouser($qcnouser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qcnouser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qcnouser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOUSER, $qcnouser, $comparison);
@@ -557,10 +544,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByQcnonote($qcnonote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qcnonote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qcnonote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNONOTE, $qcnonote, $comparison);
@@ -585,10 +570,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByQcnokey2($qcnokey2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qcnokey2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qcnokey2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOKEY2, $qcnokey2, $comparison);
@@ -613,10 +596,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -641,10 +622,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -669,10 +648,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInspectNoteTableMap::COL_DUMMY, $dummy, $comparison);
@@ -696,7 +673,7 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             $this->addCond('pruneCond3', $this->getAliasedColName(ItemInspectNoteTableMap::COL_QCNOUSER), $itemInspectNote->getQcnouser(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond4', $this->getAliasedColName(ItemInspectNoteTableMap::COL_QCNOSEQ), $itemInspectNote->getQcnoseq(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond5', $this->getAliasedColName(ItemInspectNoteTableMap::COL_QCNOKEY2), $itemInspectNote->getQcnokey2(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -710,7 +687,7 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemInspectNoteTableMap::DATABASE_NAME);
         }
 
@@ -740,7 +717,7 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemInspectNoteTableMap::DATABASE_NAME);
         }
 

@@ -16,7 +16,7 @@ class InvOptCode extends BaseInvOptCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'       => 'inititemnbr',
 		'sysop'        => 'inoptcode',      // System Optional Code
 		'sysopdesc'    => 'inoptcodedesc',      // Optional Code Description
@@ -25,7 +25,7 @@ class InvOptCode extends BaseInvOptCode {
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd',
 		'itm'          => 'itmItem',
-	);
+	];
 
 	/**
 	 * Return Item that that this Optional Code is set for

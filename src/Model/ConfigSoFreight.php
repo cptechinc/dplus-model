@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigSoFreight as BaseConfigSoFreight;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -13,7 +15,7 @@ use Dplus\Model\MagicMethodTraits;
 class ConfigSoFreight extends BaseConfigSoFreight {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
-	
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array

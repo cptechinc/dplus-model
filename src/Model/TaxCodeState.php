@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\TaxCodeState as BaseTaxCodeState;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class TaxCodeState extends BaseTaxCodeState {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'artbtxsttaxcode',
 		'code'         => 'artbtxsttaxcode',
 		'state'        => 'artbstate',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

@@ -32,7 +32,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ConfigSalesOrderTableMap';
+    public const TABLE_MAP = \Map\ConfigSalesOrderTableMap::class;
 
 
     /**
@@ -2138,7 +2138,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -2196,7 +2196,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -2206,7 +2205,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -2244,8 +2242,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -2256,7 +2252,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -2298,9 +2293,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -2326,7 +2319,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, []));
     }
 
     /**
@@ -10073,13 +10066,8 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -10104,685 +10092,685 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfkey = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfglifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfglifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfglifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfinifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfrelivty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfrelivty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfrelivty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseordrnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdefrqstdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfusecancdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfusecancdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfusecancdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowsp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowsp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfshowsp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfjrnlsort', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfjrnlsort', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfjrnlsort = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseprepsoopt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseprepsoopt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseprepsoopt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdispbillto', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdispbillto', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdispbillto = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfslctflm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfslctflm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfslctflm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3usestockpull', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3usestockpull', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3usestockpull = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfqtytoship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfqtytoship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfqtytoship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfqtytoshipdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfqtytoshipdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfqtytoshipdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltordrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltordrqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdfltordrqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfallocqtytoship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfallocqtytoship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfallocqtytoship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoverallocqts', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoverallocqts', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfoverallocqts = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3completelotbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3completelotbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3completelotbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3rqtsopt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3rqtsopt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3rqtsopt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2shipcomphold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2shipcomphold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2shipcomphold = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3usesaleforecast', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3usesaleforecast', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3usesaleforecast = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfverfstopneg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfverfstopneg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfverfstopneg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfverfaudtrept', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfverfaudtrept', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfverfaudtrept = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfagelevldisp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfagelevldisp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfagelevldisp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfagealltime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfagealltime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfagealltime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfageathold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfageathold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfageathold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowatlevl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowatlevl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfshowatlevl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfshowitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfstoppnt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfstoppnt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfstoppnt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpricwind', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpricwind', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfpricwind = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfshowcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcosttouse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcosttouse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfcosttouse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowmarg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowmarg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfshowmarg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconffxoe', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconffxoe', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconffxoe = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconffxinv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconffxinv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconffxinv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdispvia', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdispvia', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdispvia = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdispcaseqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdispcaseqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdispcaseqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconffrtin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconffrtin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconffrtin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconffrtinglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconffrtinglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconffrtinglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfmincharge', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfmincharge', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfmincharge = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfminchrgglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfminchrgglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfminchrgglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdropshipchrg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdropshipchrg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdropshipchrg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdropshpglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdropshpglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdropshpglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfnontaxcustcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfnontaxcustcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfnontaxcustcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhstaxid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhstaxid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfhstaxid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhsfrtid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhsfrtid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfhsfrtid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhsmiscid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhsmiscid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfhsmiscid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2hscusdid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2hscusdid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2hscusdid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3hsfrtinid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3hsfrtinid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3hsfrtinid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3hsdropid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3hsdropid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3hsdropid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3hsminordid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3hsminordid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3hsminordid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfheadgetdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfheadgetdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfheadgetdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfitemgetdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfitemgetdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfitemgetdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfautogetcust', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfautogetcust', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfautogetcust = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3autogetitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3autogetitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3autogetitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfrqstheaddtl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfrqstheaddtl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfrqstheaddtl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcancheaddtl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcancheaddtl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfcancheaddtl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseinvcasship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseinvcasship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseinvcasship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3usearrvdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3usearrvdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3usearrvdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfseparatecred', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfseparatecred', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfseparatecred = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3applycredits', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3applycredits', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3applycredits = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfwarnnotnew', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfwarnnotnew', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfwarnnotnew = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfwarnbotozero', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfwarnbotozero', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfwarnbotozero = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2providerouting', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2providerouting', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2providerouting = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2srtrtbyrqstdte', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2srtrtbyrqstdte', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2srtrtbyrqstdte = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfusesoreview', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfusesoreview', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfusesoreview = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpicknotedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpicknotedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfpicknotedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpacknotedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpacknotedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfpacknotedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpicksort', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpicksort', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfpicksort = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpacksort', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpacksort', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfpacksort = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtpriconly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtpriconly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfprtpriconly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtneg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtneg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfprtneg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2prtpackageinfo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2prtpackageinfo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2prtpackageinfo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2innerpacklabel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2innerpacklabel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2innerpacklabel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2outerpacklabel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2outerpacklabel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2outerpacklabel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2shiptarelabel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2shiptarelabel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2shiptarelabel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtpick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtpick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfprtpick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpicprioseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpicprioseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfpicprioseq = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtpack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtpack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfprtpack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtinv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfprtinv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfprtinv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2prtcredmemo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2prtcredmemo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2prtcredmemo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcrntdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcrntdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfcrntdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfmarkpicked', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfmarkpicked', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfmarkpicked = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowunavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfshowunavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfshowunavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdecplaces', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdecplaces', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdecplaces = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfwarndup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfwarndup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfwarndup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefpick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefpick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdefpick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefpack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefpack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdefpack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefinvc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefinvc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdefinvc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdefack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdefack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfacksortopt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfacksortopt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfacksortopt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfreleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfreleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfreleasenbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpodetlinenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpodetlinenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfpodetlinenbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdetlinebinnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 94 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdetlinebinnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdetlinebinnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfsplitbywhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 95 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfsplitbywhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfsplitbywhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3allowmultwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 96 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3allowmultwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3allowmultwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 97 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseorigwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseesosingle', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 98 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseesosingle', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseesosingle = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcreatepo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 99 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcreatepo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfcreatepo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfbestprice', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 100 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfbestprice', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfbestprice = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfesobacktonew', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 101 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfesobacktonew', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfesobacktonew = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpickprintdrop', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 102 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfpickprintdrop', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfpickprintdrop = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfwarnmultpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 103 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfwarnmultpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfwarnmultpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfalertitemquote', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 104 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfalertitemquote', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfalertitemquote = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3askchgprcwqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 105 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3askchgprcwqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3askchgprcwqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3tenqtybrks', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 106 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3tenqtybrks', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3tenqtybrks = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdecordrpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 107 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdecordrpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdecordrpric = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2provlostsales', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 108 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2provlostsales', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2provlostsales = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2askreasoncode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 109 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2askreasoncode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2askreasoncode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreasoncode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 110 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreasoncode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defreasoncode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2bordcntl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 111 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2bordcntl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2bordcntl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreabocode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 112 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreabocode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defreabocode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2numdayssavls', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 113 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2numdayssavls', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2numdayssavls = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2callbacknotif', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 114 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2callbacknotif', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2callbacknotif = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defdayswhenin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 115 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defdayswhenin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defdayswhenin = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addsubsls', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 116 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addsubsls', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2addsubsls = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreasubscode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 117 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreasubscode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defreasubscode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtypnorm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 118 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtypnorm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ordtypnorm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtyprep', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 119 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtyprep', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ordtyprep = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtypserv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 120 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtypserv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ordtypserv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defordtyp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 121 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defordtyp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defordtyp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfchgpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 122 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfchgpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfchgpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2spordpricezero', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 123 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2spordpricezero', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2spordpricezero = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinactpricezero', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 124 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinactpricezero', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfinactpricezero = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2reseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 125 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2reseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2reseq = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2reseqby', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 126 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2reseqby', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2reseqby = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2minqtysales', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 127 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2minqtysales', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2minqtysales = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2chgorder', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 128 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2chgorder', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2chgorder = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2vercomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 129 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2vercomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2vercomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2prtinv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 130 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2prtinv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2prtinv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2dynamicpicktick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 131 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2dynamicpicktick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2dynamicpicktick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2dynamicinvoice', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 132 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2dynamicinvoice', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2dynamicinvoice = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2edidefinvoice', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 133 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2edidefinvoice', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2edidefinvoice = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowccpick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 134 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowccpick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowccpick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autoccwind', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 135 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autoccwind', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2autoccwind = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autoccupdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 136 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autoccupdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2autoccupdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowapvdccchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 137 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowapvdccchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowapvdccchg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3apvdbckordclear', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 138 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3apvdbckordclear', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3apvdbckordclear = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2polwhichcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 139 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2polwhichcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2polwhichcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2revhazard', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 140 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2revhazard', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2revhazard = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showdisclist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 141 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showdisclist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2showdisclist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2chglist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 142 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2chglist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2chglist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2maillist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 143 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2maillist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2maillist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2nameformat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 144 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2nameformat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2nameformat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2mailidtype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 145 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2mailidtype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2mailidtype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2cashdrawerpswd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 146 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2cashdrawerpswd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2cashdrawerpswd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2upsonline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 147 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2upsonline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2upsonline = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2picorver', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 148 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2picorver', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2picorver = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2combback', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 149 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2combback', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2combback = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2frtallowamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 150 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2frtallowamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frtallowamt = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3shipmoreordered', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 151 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3shipmoreordered', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3shipmoreordered = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3warnshipmore', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 152 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3warnshipmore', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3warnshipmore = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3proformafromeso', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 153 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3proformafromeso', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3proformafromeso = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3pickpackcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 154 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3pickpackcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3pickpackcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2usedept', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 155 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2usedept', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2usedept = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2usedivision', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 156 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2usedivision', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2usedivision = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defmfecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 157 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defmfecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defmfecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showavgcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 158 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showavgcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2showavgcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2fedex', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 159 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2fedex', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2fedex = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3deffrghtgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 160 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3deffrghtgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3deffrghtgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsmysqldbname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 161 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsmysqldbname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3upsmysqldbname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseoptcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 162 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseoptcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseoptcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfscn4opt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 163 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfscn4opt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfscn4opt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbyuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 164 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbyuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2takenbyuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbylogin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 165 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbylogin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2takenbylogin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbyforce', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 166 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbyforce', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2takenbyforce = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 167 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2pickedbyuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 168 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2pickedbyforce = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyproc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 169 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyproc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2pickedbyproc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2packedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 170 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2packedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2packedbyuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2packedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 171 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2packedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2packedbyforce = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 172 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2verifiedbyuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbylogin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 173 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbylogin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2verifiedbylogin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 174 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2verifiedbyforce = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 175 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfoptlabl1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 176 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode1force', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 176 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode1force', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ucode1force = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 177 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 177 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfoptlabl2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 178 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode2force', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 178 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode2force', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ucode2force = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 179 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 179 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfoptlabl3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 180 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode3force', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 180 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode3force', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ucode3force = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 181 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 181 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfoptlabl4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 182 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode4force', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 182 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode4force', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ucode4force = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfverifyafterpack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 183 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfverifyafterpack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfverifyafterpack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhistyrsback', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 184 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhistyrsback', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfhistyrsback = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfrqstcatlg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 185 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfrqstcatlg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfrqstcatlg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 186 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2conpick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 186 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2conpick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2conpick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 187 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowpick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 187 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowpick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowpick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 188 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2combinesame', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 188 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2combinesame', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2combinesame = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 189 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3autovernitems', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 189 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3autovernitems', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3autovernitems = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 190 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowzeroqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 190 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowzeroqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowzeroqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 191 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowinvalidwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 191 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowinvalidwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowinvalidwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 192 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showediinfo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 192 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showediinfo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2showediinfo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 193 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3esoshowquotlink', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 193 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3esoshowquotlink', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3esoshowquotlink = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 194 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3esoshowwiplink', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 194 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3esoshowwiplink', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3esoshowwiplink = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 195 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addonsales', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 195 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addonsales', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2addonsales = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 196 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2forcedbkord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 196 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2forcedbkord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2forcedbkord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 197 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2updtprcdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 197 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2updtprcdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2updtprcdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 198 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autopack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 198 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autopack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2autopack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 199 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickboprtzqts', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 199 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickboprtzqts', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2pickboprtzqts = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 200 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3pick00noship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 200 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3pick00noship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3pick00noship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 201 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordlead', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 201 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordlead', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2standordlead = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 202 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordamnt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 202 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordamnt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2standordamnt = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 203 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2inactitemcntrl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 203 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2inactitemcntrl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2inactitemcntrl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 204 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2useitemref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 204 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2useitemref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2useitemref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 205 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsnaftarecords', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 205 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsnaftarecords', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3upsnaftarecords = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 206 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3soplotlikenorm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 206 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3soplotlikenorm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3soplotlikenorm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 207 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltshipwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 207 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltshipwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdfltshipwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 208 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 208 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdfltorigwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 209 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinvcwithpack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 209 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinvcwithpack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfinvcwithpack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 210 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcarrycntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 210 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcarrycntrqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfcarrycntrqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 211 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3useordras', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 211 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3useordras', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3useordras = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 212 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseordrsource', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 212 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseordrsource', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseordrsource = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 213 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccprocessor', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 213 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccprocessor', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3ccprocessor = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 214 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3creditcardcap', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 214 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3creditcardcap', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3creditcardcap = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 215 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3keyorcccap', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 215 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3keyorcccap', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3keyorcccap = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 216 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccxoverlay', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 216 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccxoverlay', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3ccxoverlay = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 217 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cctimeout', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 217 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cctimeout', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3cctimeout = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 218 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3signaturecapture', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 218 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3signaturecapture', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3signaturecapture = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 219 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccpreapproval', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 219 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccpreapproval', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3ccpreapproval = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 220 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3forceccnbrentry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 220 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3forceccnbrentry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3forceccnbrentry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 221 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3intritemnotes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 221 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3intritemnotes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3intritemnotes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 222 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3mtrcert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 222 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3mtrcert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3mtrcert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 223 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cofccert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 223 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cofccert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3cofccert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 224 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 224 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 225 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 225 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 226 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 226 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -10811,7 +10799,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -10824,7 +10811,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -10837,7 +10823,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigSalesOrderTableMap::DATABASE_NAME);
         }
 
@@ -10861,7 +10847,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigSalesOrder::setDeleted()
      * @see ConfigSalesOrder::isDeleted()
@@ -10872,7 +10857,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSalesOrderTableMap::DATABASE_NAME);
         }
 
@@ -10911,18 +10896,14 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSalesOrderTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -10946,7 +10927,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -10978,7 +10958,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -12604,7 +12583,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -12630,9 +12608,8 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigSalesOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -13593,7 +13570,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -15770,7 +15746,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -15790,7 +15766,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Generic method to set the primary key (oetbconfkey column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -15799,8 +15774,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -15817,7 +15790,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -16332,8 +16304,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         return $this;
     }
@@ -16345,13 +16316,11 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ConfigSalesOrderTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ConfigSalesOrderTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -16360,8 +16329,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -16369,8 +16336,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -16379,8 +16344,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -16388,8 +16351,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -16398,8 +16359,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -16407,8 +16366,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -16417,8 +16374,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -16438,7 +16393,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -16450,7 +16405,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -16458,7 +16413,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

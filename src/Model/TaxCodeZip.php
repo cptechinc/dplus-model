@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\TaxCodeZip as BaseTaxCodeZip;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class TaxCodeZip extends BaseTaxCodeZip {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'artbtxzptaxcode',
 		'code'         => 'artbtxzptaxcode',
 		'zipcode'      => 'artbzipcode',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

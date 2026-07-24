@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SoReasonCode as BaseSoReasonCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class SoReasonCode extends BaseSoReasonCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'oetbreascode',
 		'code'         => 'oetbreascode',
 		'description'  => 'oetbreasdesc',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
     /**
      * Return the Max Number of characters allowed for Code

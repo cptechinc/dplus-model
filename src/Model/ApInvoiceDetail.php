@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ApInvoiceDetail as BaseApInvoiceDetail;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -13,16 +15,16 @@ class ApInvoiceDetail extends BaseApInvoiceDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	const NON_ITEM_ITEMIDS = array(
+	const NON_ITEM_ITEMIDS = [
 		'freight',
 		'tax'
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'invoicenumber' => 'apidinvnbr',
 		'vendorid'      => 'apvevendid',
 		'linenbr'       => 'apidline',
@@ -35,5 +37,5 @@ class ApInvoiceDetail extends BaseApInvoiceDetail {
 		'ponbr'         => 'apidponbr',
 		'description'   => 'apiddesc',
 		'glacctcode'    => 'apidglacct',
-	);
+	];
 }

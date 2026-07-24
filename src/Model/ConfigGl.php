@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigGl as BaseConfigGl;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,9 +18,9 @@ class ConfigGl extends BaseConfigGl {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'companyid'    => 'gltbcoid',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 }

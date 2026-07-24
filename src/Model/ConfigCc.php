@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigCc as BaseConfigCc;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -26,11 +28,11 @@ class ConfigCc extends BaseConfigCc {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'                => 'CctbConfKey',
 		'belowmarginhold'   => 'CctbConfMinMargHold',
 		'marginbasedoff'    => 'CctbConfMinMargBase',
-	);
+	];
 
 	/**
 	 * Return if Order should be held if below Margin

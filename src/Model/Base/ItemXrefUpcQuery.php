@@ -118,7 +118,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemXrefUpcQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemXrefUpcQuery object.
@@ -176,7 +176,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemXrefUpcTableMap::DATABASE_NAME);
         }
 
@@ -223,7 +223,6 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemXrefUpc $obj */
             $obj = new ChildItemXrefUpc();
             $obj->hydrate($row);
             ItemXrefUpcTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -264,7 +263,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -332,10 +331,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function filterByUpcxcode($upcxcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($upcxcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($upcxcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXCODE, $upcxcode, $comparison);
@@ -360,10 +357,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefUpcTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -388,10 +383,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function filterByUpcxprim($upcxprim = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($upcxprim)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($upcxprim)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXPRIM, $upcxprim, $comparison);
@@ -459,10 +452,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function filterByUpcxuom($upcxuom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($upcxuom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($upcxuom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXUOM, $upcxuom, $comparison);
@@ -487,10 +478,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function filterByUpcxmstrcase($upcxmstrcase = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($upcxmstrcase)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($upcxmstrcase)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXMSTRCASE, $upcxmstrcase, $comparison);
@@ -515,10 +504,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function filterByUpcxlabel($upcxlabel = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($upcxlabel)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($upcxlabel)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXLABEL, $upcxlabel, $comparison);
@@ -543,10 +530,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefUpcTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -571,10 +556,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefUpcTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -599,10 +582,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefUpcTableMap::COL_DUMMY, $dummy, $comparison);
@@ -656,7 +637,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -686,7 +667,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -797,7 +778,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
         if ($itemXrefUpc) {
             $this->addCond('pruneCond0', $this->getAliasedColName(ItemXrefUpcTableMap::COL_UPCXCODE), $itemXrefUpc->getUpcxcode(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(ItemXrefUpcTableMap::COL_INITITEMNBR), $itemXrefUpc->getInititemnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -811,7 +792,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefUpcTableMap::DATABASE_NAME);
         }
 
@@ -841,7 +822,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefUpcTableMap::DATABASE_NAME);
         }
 

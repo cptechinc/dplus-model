@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\CustomerExternalRefQuery as BaseCustomerExternalRefQuery;
 
 use Dplus\Model\QueryTraits;

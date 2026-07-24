@@ -208,7 +208,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ShipviaQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ShipviaQuery object.
@@ -266,7 +266,7 @@ abstract class ShipviaQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
@@ -312,7 +312,6 @@ abstract class ShipviaQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildShipvia $obj */
             $obj = new ChildShipvia();
             $obj->hydrate($row);
             ShipviaTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -353,7 +352,7 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -412,10 +411,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbshipvia($artbshipvia = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbshipvia)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbshipvia)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $artbshipvia, $comparison);
@@ -440,10 +437,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviadesc($artbsviadesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviadesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviadesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIADESC, $artbsviadesc, $comparison);
@@ -468,10 +463,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviaprio($artbsviaprio = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviaprio)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviaprio)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAPRIO, $artbsviaprio, $comparison);
@@ -496,10 +489,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviaweb($artbsviaweb = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviaweb)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviaweb)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAWEB, $artbsviaweb, $comparison);
@@ -524,10 +515,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviaair($artbsviaair = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviaair)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviaair)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAAIR, $artbsviaair, $comparison);
@@ -552,10 +541,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviaupsserv($artbsviaupsserv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviaupsserv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviaupsserv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUPSSERV, $artbsviaupsserv, $comparison);
@@ -580,10 +567,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviaupsbilling($artbsviaupsbilling = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviaupsbilling)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviaupsbilling)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUPSBILLING, $artbsviaupsbilling, $comparison);
@@ -608,10 +593,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviascaccd($artbsviascaccd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviascaccd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviascaccd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIASCACCD, $artbsviascaccd, $comparison);
@@ -636,10 +619,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviaedimethcd($artbsviaedimethcd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviaedimethcd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviaedimethcd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAEDIMETHCD, $artbsviaedimethcd, $comparison);
@@ -664,10 +645,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviaupsresidential($artbsviaupsresidential = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviaupsresidential)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviaupsresidential)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUPSRESIDENTIAL, $artbsviaupsresidential, $comparison);
@@ -692,10 +671,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviachrgfrt($artbsviachrgfrt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviachrgfrt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviachrgfrt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIACHRGFRT, $artbsviachrgfrt, $comparison);
@@ -720,10 +697,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviauseroute($artbsviauseroute = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviauseroute)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviauseroute)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUSEROUTE, $artbsviauseroute, $comparison);
@@ -748,10 +723,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviacommfrght($artbsviacommfrght = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviacommfrght)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviacommfrght)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIACOMMFRGHT, $artbsviacommfrght, $comparison);
@@ -776,10 +749,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviashiparea($artbsviashiparea = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviashiparea)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviashiparea)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIASHIPAREA, $artbsviashiparea, $comparison);
@@ -804,10 +775,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviausesurchg($artbsviausesurchg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviausesurchg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviausesurchg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUSESURCHG, $artbsviausesurchg, $comparison);
@@ -875,10 +844,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByArtbsviataxcode($artbsviataxcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbsviataxcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbsviataxcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIATAXCODE, $artbsviataxcode, $comparison);
@@ -903,10 +870,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -931,10 +896,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -959,10 +922,8 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ShipviaTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1014,7 +975,7 @@ abstract class ShipviaQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1044,7 +1005,7 @@ abstract class ShipviaQuery extends ModelCriteria
     {
         return $this
             ->joinVendorShipfrom($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'VendorShipfrom', '\VendorShipfromQuery');
+            ->useQuery($relationAlias ?: 'VendorShipfrom', '\VendorShipfromQuery');
     }
 
     /**
@@ -1187,7 +1148,7 @@ abstract class ShipviaQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1217,7 +1178,7 @@ abstract class ShipviaQuery extends ModelCriteria
     {
         return $this
             ->joinVendor($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+            ->useQuery($relationAlias ?: 'Vendor', '\VendorQuery');
     }
 
     /**
@@ -1360,7 +1321,7 @@ abstract class ShipviaQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1390,7 +1351,7 @@ abstract class ShipviaQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -1533,7 +1494,7 @@ abstract class ShipviaQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1563,7 +1524,7 @@ abstract class ShipviaQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrder', '\PurchaseOrderQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrder', '\PurchaseOrderQuery');
     }
 
     /**
@@ -1686,7 +1647,7 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
@@ -1716,7 +1677,7 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
         }
 

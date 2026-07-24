@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArCust3partyFreightQuery as BaseArCust3partyFreightQuery;
 
 use Dplus\Model\QueryTraits;

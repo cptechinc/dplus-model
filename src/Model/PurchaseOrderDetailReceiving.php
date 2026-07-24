@@ -22,7 +22,7 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ponbr'           => 'pothnbr',
 		'linenbr'         => 'potdline',
 		'itemid'          => 'inititemnbr',
@@ -42,7 +42,7 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 		'podetail'        => 'purchaseOrderDetail',
 		'isclosed'        => 'potdclos',
 		'poref'           => 'potdref',
-	);
+	];
 
 	/**
 	 * Return Quantity left to receive

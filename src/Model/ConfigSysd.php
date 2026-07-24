@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigSysd as BaseConfigSysd;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -17,7 +19,7 @@ class ConfigSysd extends BaseConfigSysd {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'companynbr'  => 'cscpcompnbr',
 		'companyid'   => 'cscpcompid',
 		'companyname' => 'cscpcompname',
@@ -25,5 +27,5 @@ class ConfigSysd extends BaseConfigSysd {
 		'dircerts'     => 'cscpcertsdir',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 }

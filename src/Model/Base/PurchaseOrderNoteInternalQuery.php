@@ -128,7 +128,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\PurchaseOrderNoteInternalQuery object.
@@ -186,7 +186,7 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(PurchaseOrderNoteInternalTableMap::DATABASE_NAME);
         }
 
@@ -235,7 +235,6 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildPurchaseOrderNoteInternal $obj */
             $obj = new ChildPurchaseOrderNoteInternal();
             $obj->hydrate($row);
             PurchaseOrderNoteInternalTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -276,7 +275,7 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -350,10 +349,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByPonttype($ponttype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ponttype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ponttype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_PONTTYPE, $ponttype, $comparison);
@@ -378,10 +375,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByPonttypedesc($ponttypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ponttypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ponttypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_PONTTYPEDESC, $ponttypedesc, $comparison);
@@ -406,10 +401,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByPohdnbr($pohdnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pohdnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pohdnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_POHDNBR, $pohdnbr, $comparison);
@@ -477,10 +470,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByPontintldate($pontintldate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pontintldate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pontintldate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_PONTINTLDATE, $pontintldate, $comparison);
@@ -505,10 +496,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByPontintltime($pontintltime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pontintltime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pontintltime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_PONTINTLTIME, $pontintltime, $comparison);
@@ -533,10 +522,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByPontintluser($pontintluser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pontintluser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pontintluser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_PONTINTLUSER, $pontintluser, $comparison);
@@ -561,10 +548,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByPontform($pontform = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pontform)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pontform)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_PONTFORM, $pontform, $comparison);
@@ -632,10 +617,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByPontnote($pontnote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pontnote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pontnote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_PONTNOTE, $pontnote, $comparison);
@@ -660,10 +643,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByPontkey2($pontkey2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pontkey2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pontkey2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_PONTKEY2, $pontkey2, $comparison);
@@ -688,10 +669,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -716,10 +695,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -744,10 +721,8 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PurchaseOrderNoteInternalTableMap::COL_DUMMY, $dummy, $comparison);
@@ -769,7 +744,7 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(PurchaseOrderNoteInternalTableMap::COL_PONTFORM), $purchaseOrderNoteInternal->getPontform(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(PurchaseOrderNoteInternalTableMap::COL_PONTSEQ), $purchaseOrderNoteInternal->getPontseq(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(PurchaseOrderNoteInternalTableMap::COL_PONTKEY2), $purchaseOrderNoteInternal->getPontkey2(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -783,7 +758,7 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderNoteInternalTableMap::DATABASE_NAME);
         }
 
@@ -813,7 +788,7 @@ abstract class PurchaseOrderNoteInternalQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderNoteInternalTableMap::DATABASE_NAME);
         }
 

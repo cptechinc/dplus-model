@@ -20,7 +20,7 @@ class ItemXrefManufacturer extends BaseItemXrefManufacturer {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'vendorid'     => 'apvevendid',
 		'vendoritemid' => 'mcxrvenditemnbr',
 		'theiritemid'  => 'mcxrvenditemnbr',
@@ -38,7 +38,7 @@ class ItemXrefManufacturer extends BaseItemXrefManufacturer {
 		'item'         => 'itemMasterItem',
 		'imitem'       => 'itemMasterItem',
 		'mnfr'         => 'vendor'
-	);
+	];
 
 	/**
 	 * Return UnitofMeasurePurchase

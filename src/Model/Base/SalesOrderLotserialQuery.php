@@ -234,7 +234,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class SalesOrderLotserialQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\SalesOrderLotserialQuery object.
@@ -292,7 +292,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SalesOrderLotserialTableMap::DATABASE_NAME);
         }
 
@@ -345,7 +345,6 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildSalesOrderLotserial $obj */
             $obj = new ChildSalesOrderLotserial();
             $obj->hydrate($row);
             SalesOrderLotserialTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4]), (null === $key[5] || is_scalar($key[5]) || is_callable([$key[5], '__toString']) ? (string) $key[5] : $key[5]), (null === $key[6] || is_scalar($key[6]) || is_callable([$key[6], '__toString']) ? (string) $key[6] : $key[6]), (null === $key[7] || is_scalar($key[7]) || is_callable([$key[7], '__toString']) ? (string) $key[7] : $key[7])]));
@@ -386,7 +385,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -564,10 +563,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -592,10 +589,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdtag($oesdtag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdtag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdtag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDTAG, $oesdtag, $comparison);
@@ -620,10 +615,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdlotser($oesdlotser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdlotser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdlotser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDLOTSER, $oesdlotser, $comparison);
@@ -648,10 +641,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdbin($oesdbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDBIN, $oesdbin, $comparison);
@@ -848,10 +839,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdspecordr($oesdspecordr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdspecordr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdspecordr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDSPECORDR, $oesdspecordr, $comparison);
@@ -876,10 +865,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdlotref($oesdlotref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdlotref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdlotref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDLOTREF, $oesdlotref, $comparison);
@@ -904,10 +891,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdbatch($oesdbatch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdbatch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdbatch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDBATCH, $oesdbatch, $comparison);
@@ -932,10 +917,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdcuredate($oesdcuredate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdcuredate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdcuredate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDCUREDATE, $oesdcuredate, $comparison);
@@ -960,10 +943,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdacstatus($oesdacstatus = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdacstatus)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdacstatus)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDACSTATUS, $oesdacstatus, $comparison);
@@ -988,10 +969,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdtestlot($oesdtestlot = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdtestlot)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdtestlot)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDTESTLOT, $oesdtestlot, $comparison);
@@ -1016,10 +995,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdpllttype($oesdpllttype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdpllttype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdpllttype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDPLLTTYPE, $oesdpllttype, $comparison);
@@ -1087,10 +1064,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesduseup($oesduseup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesduseup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesduseup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDUSEUP, $oesduseup, $comparison);
@@ -1115,10 +1090,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdlblprtd($oesdlblprtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdlblprtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdlblprtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDLBLPRTD, $oesdlblprtd, $comparison);
@@ -1143,10 +1116,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdorigbin($oesdorigbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdorigbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdorigbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDORIGBIN, $oesdorigbin, $comparison);
@@ -1171,10 +1142,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdactvdate($oesdactvdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdactvdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdactvdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDACTVDATE, $oesdactvdate, $comparison);
@@ -1199,10 +1168,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByOesdplltid($oesdplltid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oesdplltid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oesdplltid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_OESDPLLTID, $oesdplltid, $comparison);
@@ -1227,10 +1194,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1255,10 +1220,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1283,10 +1246,8 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderLotserialTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1340,7 +1301,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1370,7 +1331,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinSalesOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesOrder', '\SalesOrderQuery');
+            ->useQuery($relationAlias ?: 'SalesOrder', '\SalesOrderQuery');
     }
 
     /**
@@ -1507,7 +1468,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1537,7 +1498,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinSalesOrderDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderDetail', '\SalesOrderDetailQuery');
+            ->useQuery($relationAlias ?: 'SalesOrderDetail', '\SalesOrderDetailQuery');
     }
 
     /**
@@ -1682,7 +1643,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1712,7 +1673,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1829,7 +1790,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
             $this->addCond('pruneCond5', $this->getAliasedColName(SalesOrderLotserialTableMap::COL_OESDBIN), $salesOrderLotserial->getOesdbin(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond6', $this->getAliasedColName(SalesOrderLotserialTableMap::COL_OESDPLLTNBR), $salesOrderLotserial->getOesdplltnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond7', $this->getAliasedColName(SalesOrderLotserialTableMap::COL_OESDCRTNNBR), $salesOrderLotserial->getOesdcrtnnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5', 'pruneCond6', 'pruneCond7'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5', 'pruneCond6', 'pruneCond7'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1843,7 +1804,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderLotserialTableMap::DATABASE_NAME);
         }
 
@@ -1873,7 +1834,7 @@ abstract class SalesOrderLotserialQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderLotserialTableMap::DATABASE_NAME);
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\UnitofMeasurePurchase as BaseUnitofMeasurePurchase;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,7 +21,7 @@ class UnitofMeasurePurchase extends BaseUnitofMeasurePurchase {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'            => 'intbuompur',
 		'code'          => 'intbuompur',
 		'description'   => 'intbuomdesc',
@@ -28,7 +30,7 @@ class UnitofMeasurePurchase extends BaseUnitofMeasurePurchase {
 		'stockbycase'   => 'intbuomstockbycase',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return if this code is stocked as weight for each case

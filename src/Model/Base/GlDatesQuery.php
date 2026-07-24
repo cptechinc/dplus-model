@@ -296,7 +296,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class GlDatesQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\GlDatesQuery object.
@@ -354,7 +354,7 @@ abstract class GlDatesQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(GlDatesTableMap::DATABASE_NAME);
         }
 
@@ -400,7 +400,6 @@ abstract class GlDatesQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildGlDates $obj */
             $obj = new ChildGlDates();
             $obj->hydrate($row);
             GlDatesTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -441,7 +440,7 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -500,10 +499,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldkey($gldkey = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldkey)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldkey)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDKEY, $gldkey, $comparison);
@@ -528,10 +525,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom1($gldfrom1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM1, $gldfrom1, $comparison);
@@ -556,10 +551,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru1($gldthru1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU1, $gldthru1, $comparison);
@@ -584,10 +577,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom2($gldfrom2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM2, $gldfrom2, $comparison);
@@ -612,10 +603,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru2($gldthru2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU2, $gldthru2, $comparison);
@@ -640,10 +629,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom3($gldfrom3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM3, $gldfrom3, $comparison);
@@ -668,10 +655,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru3($gldthru3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU3, $gldthru3, $comparison);
@@ -696,10 +681,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom4($gldfrom4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM4, $gldfrom4, $comparison);
@@ -724,10 +707,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru4($gldthru4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU4, $gldthru4, $comparison);
@@ -752,10 +733,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom5($gldfrom5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM5, $gldfrom5, $comparison);
@@ -780,10 +759,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru5($gldthru5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU5, $gldthru5, $comparison);
@@ -808,10 +785,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom6($gldfrom6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM6, $gldfrom6, $comparison);
@@ -836,10 +811,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru6($gldthru6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU6, $gldthru6, $comparison);
@@ -864,10 +837,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom7($gldfrom7 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom7)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom7)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM7, $gldfrom7, $comparison);
@@ -892,10 +863,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru7($gldthru7 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru7)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru7)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU7, $gldthru7, $comparison);
@@ -920,10 +889,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom8($gldfrom8 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom8)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom8)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM8, $gldfrom8, $comparison);
@@ -948,10 +915,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru8($gldthru8 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru8)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru8)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU8, $gldthru8, $comparison);
@@ -976,10 +941,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom9($gldfrom9 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom9)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom9)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM9, $gldfrom9, $comparison);
@@ -1004,10 +967,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru9($gldthru9 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru9)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru9)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU9, $gldthru9, $comparison);
@@ -1032,10 +993,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom10($gldfrom10 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom10)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom10)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM10, $gldfrom10, $comparison);
@@ -1060,10 +1019,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru10($gldthru10 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru10)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru10)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU10, $gldthru10, $comparison);
@@ -1088,10 +1045,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom11($gldfrom11 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom11)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom11)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM11, $gldfrom11, $comparison);
@@ -1116,10 +1071,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru11($gldthru11 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru11)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru11)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU11, $gldthru11, $comparison);
@@ -1144,10 +1097,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom12($gldfrom12 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom12)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom12)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM12, $gldfrom12, $comparison);
@@ -1172,10 +1123,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru12($gldthru12 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru12)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru12)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU12, $gldthru12, $comparison);
@@ -1200,10 +1149,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom13($gldfrom13 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom13)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom13)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM13, $gldfrom13, $comparison);
@@ -1228,10 +1175,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru13($gldthru13 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru13)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru13)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU13, $gldthru13, $comparison);
@@ -1256,10 +1201,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom14($gldfrom14 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom14)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom14)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM14, $gldfrom14, $comparison);
@@ -1284,10 +1227,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru14($gldthru14 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru14)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru14)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU14, $gldthru14, $comparison);
@@ -1312,10 +1253,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom15($gldfrom15 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom15)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom15)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM15, $gldfrom15, $comparison);
@@ -1340,10 +1279,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru15($gldthru15 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru15)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru15)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU15, $gldthru15, $comparison);
@@ -1368,10 +1305,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom16($gldfrom16 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom16)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom16)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM16, $gldfrom16, $comparison);
@@ -1396,10 +1331,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru16($gldthru16 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru16)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru16)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU16, $gldthru16, $comparison);
@@ -1424,10 +1357,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom17($gldfrom17 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom17)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom17)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM17, $gldfrom17, $comparison);
@@ -1452,10 +1383,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru17($gldthru17 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru17)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru17)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU17, $gldthru17, $comparison);
@@ -1480,10 +1409,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom18($gldfrom18 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom18)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom18)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM18, $gldfrom18, $comparison);
@@ -1508,10 +1435,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru18($gldthru18 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru18)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru18)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU18, $gldthru18, $comparison);
@@ -1536,10 +1461,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldfrom19($gldfrom19 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldfrom19)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldfrom19)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDFROM19, $gldfrom19, $comparison);
@@ -1564,10 +1487,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByGldthru19($gldthru19 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($gldthru19)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($gldthru19)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_GLDTHRU19, $gldthru19, $comparison);
@@ -1592,10 +1513,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1620,10 +1539,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1648,10 +1565,8 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlDatesTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1683,7 +1598,7 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlDatesTableMap::DATABASE_NAME);
         }
 
@@ -1713,7 +1628,7 @@ abstract class GlDatesQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlDatesTableMap::DATABASE_NAME);
         }
 

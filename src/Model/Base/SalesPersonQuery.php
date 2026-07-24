@@ -230,7 +230,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class SalesPersonQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\SalesPersonQuery object.
@@ -288,7 +288,7 @@ abstract class SalesPersonQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SalesPersonTableMap::DATABASE_NAME);
         }
 
@@ -334,7 +334,6 @@ abstract class SalesPersonQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildSalesPerson $obj */
             $obj = new ChildSalesPerson();
             $obj->hydrate($row);
             SalesPersonTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -375,7 +374,7 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -434,10 +433,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
@@ -462,10 +459,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArspname($arspname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPNAME, $arspname, $comparison);
@@ -619,10 +614,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArsplastsaledate($arsplastsaledate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arsplastsaledate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arsplastsaledate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLASTSALEDATE, $arsplastsaledate, $comparison);
@@ -905,10 +898,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArspcommcycle($arspcommcycle = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspcommcycle)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspcommcycle)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPCOMMCYCLE, $arspcommcycle, $comparison);
@@ -933,10 +924,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArspgrup($arspgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPGRUP, $arspgrup, $comparison);
@@ -961,10 +950,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArsplogin($arsplogin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arsplogin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arsplogin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLOGIN, $arsplogin, $comparison);
@@ -989,10 +976,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArspmgr($arspmgr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspmgr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspmgr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPMGR, $arspmgr, $comparison);
@@ -1017,10 +1002,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArspvendid($arspvendid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspvendid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspvendid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPVENDID, $arspvendid, $comparison);
@@ -1045,10 +1028,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArsprestrictaccess($arsprestrictaccess = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arsprestrictaccess)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arsprestrictaccess)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPRESTRICTACCESS, $arsprestrictaccess, $comparison);
@@ -1073,10 +1054,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByArspemailaddr($arspemailaddr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspemailaddr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspemailaddr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_ARSPEMAILADDR, $arspemailaddr, $comparison);
@@ -1101,10 +1080,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1129,10 +1106,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1157,10 +1132,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesPersonTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1212,7 +1185,7 @@ abstract class SalesPersonQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1242,7 +1215,7 @@ abstract class SalesPersonQuery extends ModelCriteria
     {
         return $this
             ->joinBookingDayCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BookingDayCustomer', '\BookingDayCustomerQuery');
+            ->useQuery($relationAlias ?: 'BookingDayCustomer', '\BookingDayCustomerQuery');
     }
 
     /**
@@ -1385,7 +1358,7 @@ abstract class SalesPersonQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1415,7 +1388,7 @@ abstract class SalesPersonQuery extends ModelCriteria
     {
         return $this
             ->joinBookingDayDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BookingDayDetail', '\BookingDayDetailQuery');
+            ->useQuery($relationAlias ?: 'BookingDayDetail', '\BookingDayDetailQuery');
     }
 
     /**
@@ -1558,7 +1531,7 @@ abstract class SalesPersonQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1588,7 +1561,7 @@ abstract class SalesPersonQuery extends ModelCriteria
     {
         return $this
             ->joinBookingDayRep($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BookingDayRep', '\BookingDayRepQuery');
+            ->useQuery($relationAlias ?: 'BookingDayRep', '\BookingDayRepQuery');
     }
 
     /**
@@ -1731,7 +1704,7 @@ abstract class SalesPersonQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1761,7 +1734,7 @@ abstract class SalesPersonQuery extends ModelCriteria
     {
         return $this
             ->joinBookingSummaryRep($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BookingSummaryRep', '\BookingSummaryRepQuery');
+            ->useQuery($relationAlias ?: 'BookingSummaryRep', '\BookingSummaryRepQuery');
     }
 
     /**
@@ -1904,7 +1877,7 @@ abstract class SalesPersonQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1934,7 +1907,7 @@ abstract class SalesPersonQuery extends ModelCriteria
     {
         return $this
             ->joinBooking($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Booking', '\BookingQuery');
+            ->useQuery($relationAlias ?: 'Booking', '\BookingQuery');
     }
 
     /**
@@ -2057,7 +2030,7 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesPersonTableMap::DATABASE_NAME);
         }
 
@@ -2087,7 +2060,7 @@ abstract class SalesPersonQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesPersonTableMap::DATABASE_NAME);
         }
 

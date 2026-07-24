@@ -644,7 +644,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArTermsCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArTermsCodeQuery object.
@@ -702,7 +702,7 @@ abstract class ArTermsCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -748,7 +748,6 @@ abstract class ArTermsCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArTermsCode $obj */
             $obj = new ChildArTermsCode();
             $obj->hydrate($row);
             ArTermsCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -789,7 +788,7 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -848,10 +847,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmtermcd($artmtermcd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmtermcd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmtermcd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMTERMCD, $artmtermcd, $comparison);
@@ -876,10 +873,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmtermdesc($artmtermdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmtermdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmtermdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMTERMDESC, $artmtermdesc, $comparison);
@@ -904,10 +899,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmmethod($artmmethod = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmmethod)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmmethod)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMMETHOD, $artmmethod, $comparison);
@@ -932,10 +925,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmtype($artmtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMTYPE, $artmtype, $comparison);
@@ -960,10 +951,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmhold($artmhold = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmhold)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmhold)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMHOLD, $artmhold, $comparison);
@@ -988,10 +977,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmexpiredate($artmexpiredate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmexpiredate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmexpiredate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMEXPIREDATE, $artmexpiredate, $comparison);
@@ -1016,10 +1003,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmfrtallow($artmfrtallow = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmfrtallow)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmfrtallow)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMFRTALLOW, $artmfrtallow, $comparison);
@@ -1044,10 +1029,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmccprefix($artmccprefix = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmccprefix)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmccprefix)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMCCPREFIX, $artmccprefix, $comparison);
@@ -1072,10 +1055,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmsplit1($artmsplit1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmsplit1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmsplit1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMSPLIT1, $artmsplit1, $comparison);
@@ -1229,10 +1210,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscday1($artmdiscday1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscday1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscday1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDAY1, $artmdiscday1, $comparison);
@@ -1257,10 +1236,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscdate1($artmdiscdate1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscdate1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscdate1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDATE1, $artmdiscdate1, $comparison);
@@ -1328,10 +1305,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdueday1($artmdueday1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdueday1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdueday1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDAY1, $artmdueday1, $comparison);
@@ -1399,10 +1374,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmduedate1($artmduedate1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmduedate1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmduedate1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDATE1, $artmduedate1, $comparison);
@@ -1427,10 +1400,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmplusyear1($artmplusyear1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmplusyear1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmplusyear1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMPLUSYEAR1, $artmplusyear1, $comparison);
@@ -1455,10 +1426,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmsplit2($artmsplit2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmsplit2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmsplit2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMSPLIT2, $artmsplit2, $comparison);
@@ -1612,10 +1581,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscday2($artmdiscday2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscday2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscday2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDAY2, $artmdiscday2, $comparison);
@@ -1640,10 +1607,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscdate2($artmdiscdate2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscdate2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscdate2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDATE2, $artmdiscdate2, $comparison);
@@ -1711,10 +1676,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdueday2($artmdueday2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdueday2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdueday2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDAY2, $artmdueday2, $comparison);
@@ -1782,10 +1745,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmduedate2($artmduedate2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmduedate2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmduedate2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDATE2, $artmduedate2, $comparison);
@@ -1810,10 +1771,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmplusyear2($artmplusyear2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmplusyear2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmplusyear2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMPLUSYEAR2, $artmplusyear2, $comparison);
@@ -1838,10 +1797,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmsplit3($artmsplit3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmsplit3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmsplit3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMSPLIT3, $artmsplit3, $comparison);
@@ -1995,10 +1952,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscday3($artmdiscday3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscday3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscday3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDAY3, $artmdiscday3, $comparison);
@@ -2023,10 +1978,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscdate3($artmdiscdate3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscdate3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscdate3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDATE3, $artmdiscdate3, $comparison);
@@ -2094,10 +2047,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdueday3($artmdueday3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdueday3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdueday3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDAY3, $artmdueday3, $comparison);
@@ -2165,10 +2116,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmduedate3($artmduedate3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmduedate3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmduedate3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDATE3, $artmduedate3, $comparison);
@@ -2193,10 +2142,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmplusyear3($artmplusyear3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmplusyear3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmplusyear3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMPLUSYEAR3, $artmplusyear3, $comparison);
@@ -2221,10 +2168,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmsplit4($artmsplit4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmsplit4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmsplit4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMSPLIT4, $artmsplit4, $comparison);
@@ -2378,10 +2323,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscday4($artmdiscday4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscday4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscday4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDAY4, $artmdiscday4, $comparison);
@@ -2406,10 +2349,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscdate4($artmdiscdate4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscdate4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscdate4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDATE4, $artmdiscdate4, $comparison);
@@ -2477,10 +2418,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdueday4($artmdueday4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdueday4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdueday4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDAY4, $artmdueday4, $comparison);
@@ -2548,10 +2487,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmduedate4($artmduedate4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmduedate4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmduedate4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDATE4, $artmduedate4, $comparison);
@@ -2576,10 +2513,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmplusyear4($artmplusyear4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmplusyear4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmplusyear4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMPLUSYEAR4, $artmplusyear4, $comparison);
@@ -2604,10 +2539,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmsplit5($artmsplit5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmsplit5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmsplit5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMSPLIT5, $artmsplit5, $comparison);
@@ -2761,10 +2694,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscday5($artmdiscday5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscday5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscday5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDAY5, $artmdiscday5, $comparison);
@@ -2789,10 +2720,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscdate5($artmdiscdate5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscdate5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscdate5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDATE5, $artmdiscdate5, $comparison);
@@ -2860,10 +2789,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdueday5($artmdueday5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdueday5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdueday5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDAY5, $artmdueday5, $comparison);
@@ -2931,10 +2858,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmduedate5($artmduedate5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmduedate5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmduedate5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDATE5, $artmduedate5, $comparison);
@@ -2959,10 +2884,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmplusyear5($artmplusyear5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmplusyear5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmplusyear5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMPLUSYEAR5, $artmplusyear5, $comparison);
@@ -2987,10 +2910,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmsplit6($artmsplit6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmsplit6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmsplit6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMSPLIT6, $artmsplit6, $comparison);
@@ -3144,10 +3065,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscday6($artmdiscday6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscday6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscday6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDAY6, $artmdiscday6, $comparison);
@@ -3172,10 +3091,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdiscdate6($artmdiscdate6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdiscdate6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdiscdate6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDISCDATE6, $artmdiscdate6, $comparison);
@@ -3243,10 +3160,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmdueday6($artmdueday6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmdueday6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmdueday6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDAY6, $artmdueday6, $comparison);
@@ -3314,10 +3229,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmduedate6($artmduedate6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmduedate6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmduedate6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMDUEDATE6, $artmduedate6, $comparison);
@@ -3342,10 +3255,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmplusyear6($artmplusyear6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmplusyear6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmplusyear6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMPLUSYEAR6, $artmplusyear6, $comparison);
@@ -4273,10 +4184,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmctry($artmctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMCTRY, $artmctry, $comparison);
@@ -4301,10 +4210,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByArtmtermgrup($artmtermgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmtermgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmtermgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_ARTMTERMGRUP, $artmtermgrup, $comparison);
@@ -4329,10 +4236,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -4357,10 +4262,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -4385,10 +4288,8 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTermsCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -4420,7 +4321,7 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -4450,7 +4351,7 @@ abstract class ArTermsCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTermsCodeTableMap::DATABASE_NAME);
         }
 

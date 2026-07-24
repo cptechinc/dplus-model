@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigIn as BaseConfigIn;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -27,11 +29,10 @@ class ConfigIn extends BaseConfigIn {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'use_controlbin' => 'intbconfusecntrlbin',
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd',
-		'default_itemtype'       => 'IntbConfTypeDef',
 		'default_itemgroup'  => 'IntbConfGrupDef',
 		'default_pricegroup' => 'IntbConfPricGrupDef',
 		'default_commgroup'  => 'IntbConfCommGrupDef',
@@ -71,7 +72,7 @@ class ConfigIn extends BaseConfigIn {
 		'default_whseid'                => 'intbCon2DfltWhse01',
 		'default_orderpoint'            => 'intbConfOrdrPntDef',
 		'allowMultiLotRefUse'           => 'intbConfMultiLotRef'
-	);
+	];
 
 	/**
 	 * Return if Duplicate Upc Codes are allowed

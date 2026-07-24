@@ -254,7 +254,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvLotMasterQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvLotMasterQuery object.
@@ -312,7 +312,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
@@ -359,7 +359,6 @@ abstract class InvLotMasterQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvLotMaster $obj */
             $obj = new ChildInvLotMaster();
             $obj->hydrate($row);
             InvLotMasterTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -400,7 +399,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -468,10 +467,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -496,10 +493,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmlotnbr($lotmlotnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmlotnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmlotnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $lotmlotnbr, $comparison);
@@ -524,10 +519,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmlotref($lotmlotref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmlotref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmlotref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTREF, $lotmlotref, $comparison);
@@ -552,10 +545,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmfrstactdate($lotmfrstactdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmfrstactdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmfrstactdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMFRSTACTDATE, $lotmfrstactdate, $comparison);
@@ -580,10 +571,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmimagyn($lotmimagyn = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmimagyn)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmimagyn)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMIMAGYN, $lotmimagyn, $comparison);
@@ -651,10 +640,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmrevision($lotmrevision = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmrevision)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmrevision)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMREVISION, $lotmrevision, $comparison);
@@ -679,10 +666,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmctry($lotmctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCTRY, $lotmctry, $comparison);
@@ -707,10 +692,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmcofc($lotmcofc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmcofc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmcofc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCOFC, $lotmcofc, $comparison);
@@ -735,10 +718,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmcreatedate($lotmcreatedate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmcreatedate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmcreatedate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCREATEDATE, $lotmcreatedate, $comparison);
@@ -763,10 +744,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmcreatetime($lotmcreatetime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmcreatetime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmcreatetime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCREATETIME, $lotmcreatetime, $comparison);
@@ -791,10 +770,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmvendid($lotmvendid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmvendid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmvendid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMVENDID, $lotmvendid, $comparison);
@@ -819,10 +796,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmexpiredate($lotmexpiredate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmexpiredate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmexpiredate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMEXPIREDATE, $lotmexpiredate, $comparison);
@@ -933,10 +908,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmsrccd($lotmsrccd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmsrccd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmsrccd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMSRCCD, $lotmsrccd, $comparison);
@@ -961,10 +934,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmlmqccode($lotmlmqccode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmlmqccode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmlmqccode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLMQCCODE, $lotmlmqccode, $comparison);
@@ -989,10 +960,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByLotmcat3($lotmcat3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lotmcat3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lotmcat3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCAT3, $lotmcat3, $comparison);
@@ -1017,10 +986,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1045,10 +1012,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1073,10 +1038,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvLotMasterTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1130,7 +1093,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1160,7 +1123,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1297,7 +1260,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1327,7 +1290,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvWhseLot($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvWhseLot', '\InvWhseLotQuery');
+            ->useQuery($relationAlias ?: 'InvWhseLot', '\InvWhseLotQuery');
     }
 
     /**
@@ -1464,7 +1427,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1494,7 +1457,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvLotTag($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLotTag', '\InvLotTagQuery');
+            ->useQuery($relationAlias ?: 'InvLotTag', '\InvLotTagQuery');
     }
 
     /**
@@ -1631,7 +1594,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1661,7 +1624,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferLotserial', '\InvTransferLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferLotserial', '\InvTransferLotserialQuery');
     }
 
     /**
@@ -1798,7 +1761,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1828,7 +1791,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferPreAllocatedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPreAllocatedLotserial', '\InvTransferPreAllocatedLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferPreAllocatedLotserial', '\InvTransferPreAllocatedLotserialQuery');
     }
 
     /**
@@ -1965,7 +1928,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1995,7 +1958,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferPickedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPickedLotserial', '\InvTransferPickedLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferPickedLotserial', '\InvTransferPickedLotserialQuery');
     }
 
     /**
@@ -2132,7 +2095,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2162,7 +2125,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
     {
         return $this
             ->joinSoAllocatedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SoAllocatedLotserial', '\SoAllocatedLotserialQuery');
+            ->useQuery($relationAlias ?: 'SoAllocatedLotserial', '\SoAllocatedLotserialQuery');
     }
 
     /**
@@ -2299,7 +2262,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2329,7 +2292,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
     {
         return $this
             ->joinSoPickedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SoPickedLotserial', '\SoPickedLotserialQuery');
+            ->useQuery($relationAlias ?: 'SoPickedLotserial', '\SoPickedLotserialQuery');
     }
 
     /**
@@ -2440,7 +2403,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
         if ($invLotMaster) {
             $this->addCond('pruneCond0', $this->getAliasedColName(InvLotMasterTableMap::COL_INITITEMNBR), $invLotMaster->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvLotMasterTableMap::COL_LOTMLOTNBR), $invLotMaster->getLotmlotnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2454,7 +2417,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
@@ -2484,7 +2447,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 

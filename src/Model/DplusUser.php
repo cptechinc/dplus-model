@@ -40,7 +40,7 @@ class DplusUser extends BaseDplusUser {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'usrcid',
 		'userid'       => 'usrcid',
 		'name'         => 'usrcloginname',
@@ -81,7 +81,7 @@ class DplusUser extends BaseDplusUser {
 		// Foreign Key Relationships
 		'role'         => 'sysLoginRole',
 		'group'        => 'sysLoginGroup',
-	);
+	];
 
 	/**
 	 * Return if User should only see Active Items Only

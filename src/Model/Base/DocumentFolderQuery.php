@@ -130,7 +130,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class DocumentFolderQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\DocumentFolderQuery object.
@@ -188,7 +188,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(DocumentFolderTableMap::DATABASE_NAME);
         }
 
@@ -234,7 +234,6 @@ abstract class DocumentFolderQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildDocumentFolder $obj */
             $obj = new ChildDocumentFolder();
             $obj->hydrate($row);
             DocumentFolderTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -275,7 +274,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -334,10 +333,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDoccfolder($doccfolder = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($doccfolder)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($doccfolder)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDER, $doccfolder, $comparison);
@@ -362,10 +359,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDoccfolderdesc($doccfolderdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($doccfolderdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($doccfolderdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDERDESC, $doccfolderdesc, $comparison);
@@ -390,10 +385,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDoccdir($doccdir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($doccdir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($doccdir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCDIR, $doccdir, $comparison);
@@ -418,10 +411,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDocctag($docctag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($docctag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($docctag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCTAG, $docctag, $comparison);
@@ -446,10 +437,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDoccmultcopy($doccmultcopy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($doccmultcopy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($doccmultcopy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCMULTCOPY, $doccmultcopy, $comparison);
@@ -474,10 +463,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDoccoverwrt($doccoverwrt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($doccoverwrt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($doccoverwrt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCOVERWRT, $doccoverwrt, $comparison);
@@ -545,10 +532,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDoccautoscanid($doccautoscanid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($doccautoscanid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($doccautoscanid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCAUTOSCANID, $doccautoscanid, $comparison);
@@ -573,10 +558,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDoccUseAutoFile($doccUseAutoFile = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($doccUseAutoFile)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($doccUseAutoFile)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCUSEAUTOFILE, $doccUseAutoFile, $comparison);
@@ -601,10 +584,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -629,10 +610,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -657,10 +636,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DocumentFolderTableMap::COL_DUMMY, $dummy, $comparison);
@@ -712,7 +689,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -742,7 +719,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
     {
         return $this
             ->joinDocument($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Document', '\DocumentQuery');
+            ->useQuery($relationAlias ?: 'Document', '\DocumentQuery');
     }
 
     /**
@@ -865,7 +842,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(DocumentFolderTableMap::DATABASE_NAME);
         }
 
@@ -895,7 +872,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(DocumentFolderTableMap::DATABASE_NAME);
         }
 

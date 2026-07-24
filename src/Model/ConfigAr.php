@@ -16,16 +16,16 @@ class ConfigAr extends BaseConfigAr {
 
 	const YN_TRUE = 'Y';
 
-	const GL_REPORT_TYPES_DESCRIPTIONS = array(
+	const GL_REPORT_TYPES_DESCRIPTIONS = [
 		'I' => 'inventory',
 		'C' => 'customer'
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'             => 'artbconfkey',
 		'gl_report_type' => 'artbconfinvcustgl',
 		'web_group'      => 'artbconfuseweb',
@@ -59,7 +59,7 @@ class ConfigAr extends BaseConfigAr {
 		'nbrofsalespersons'       => 'artbconfnbrsp',
 		'provideDiscountSoHeader' => 'artbconfapdonoehd',
 		'reportGlByWhse'          => 'artbconfrptbywhse',
-	);
+	];
 
 	/**
 	 * Web Program Code
@@ -101,7 +101,7 @@ class ConfigAr extends BaseConfigAr {
 	 * @return bool
 	 */
 	public function isWebGroup() {
-		return strtoupper($this->web_group) == 'Y';
+		return strtoupper($this->web_group) === 'Y';
 	}
 
 /* =============================================================

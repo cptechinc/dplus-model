@@ -20,7 +20,7 @@ class InvOptCodeNote extends BaseInvOptCodeNote {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'system'       => 'qnoptsys',
 		'type'         => 'qntype',
 		'description'  => 'qntypedesc',
@@ -32,7 +32,7 @@ class InvOptCodeNote extends BaseInvOptCodeNote {
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
 		'item'         => 'itemMasterItem'
-	);
+	];
 
 	/**
 	 * Set Key 2

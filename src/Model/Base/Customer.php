@@ -111,7 +111,7 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\CustomerTableMap';
+    public const TABLE_MAP = \Map\CustomerTableMap::class;
 
 
     /**
@@ -1266,161 +1266,161 @@ abstract class Customer implements ActiveRecordInterface
      * @var ObjectCollection|ChildArCust3partyFreight[]
      * @phpstan-var ObjectCollection&\Traversable<ChildArCust3partyFreight>
      */
-    protected $arCust3partyFreightsScheduledForDeletion = null;
+    protected $arCust3partyFreightsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildArPaymentPending[]
      * @phpstan-var ObjectCollection&\Traversable<ChildArPaymentPending>
      */
-    protected $arPaymentPendingsScheduledForDeletion = null;
+    protected $arPaymentPendingsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildArContact[]
      * @phpstan-var ObjectCollection&\Traversable<ChildArContact>
      */
-    protected $arContactsScheduledForDeletion = null;
+    protected $arContactsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildArInvoice[]
      * @phpstan-var ObjectCollection&\Traversable<ChildArInvoice>
      */
-    protected $arInvoicesScheduledForDeletion = null;
+    protected $arInvoicesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildCustomerShipto[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCustomerShipto>
      */
-    protected $customerShiptosScheduledForDeletion = null;
+    protected $customerShiptosScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildCstkItem[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCstkItem>
      */
-    protected $cstkItemsScheduledForDeletion = null;
+    protected $cstkItemsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildCstkHead[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCstkHead>
      */
-    protected $cstkHeadsScheduledForDeletion = null;
+    protected $cstkHeadsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder>
      */
-    protected $invTransferOrdersScheduledForDeletion = null;
+    protected $invTransferOrdersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvSerialWarranty[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvSerialWarranty>
      */
-    protected $invSerialWarrantiesScheduledForDeletion = null;
+    protected $invSerialWarrantiesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefKey[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefKey>
      */
-    protected $itemXrefKeysScheduledForDeletion = null;
+    protected $itemXrefKeysScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildCpnLoad[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCpnLoad>
      */
-    protected $cpnLoadsScheduledForDeletion = null;
+    protected $cpnLoadsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildNoteCustInternal[]
      * @phpstan-var ObjectCollection&\Traversable<ChildNoteCustInternal>
      */
-    protected $noteCustInternalsScheduledForDeletion = null;
+    protected $noteCustInternalsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildNoteCustOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildNoteCustOrder>
      */
-    protected $noteCustOrdersScheduledForDeletion = null;
+    protected $noteCustOrdersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefCustomerNote[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefCustomerNote>
      */
-    protected $itemXrefCustomerNotesScheduledForDeletion = null;
+    protected $itemXrefCustomerNotesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildRcyclReceipt[]
      * @phpstan-var ObjectCollection&\Traversable<ChildRcyclReceipt>
      */
-    protected $rcyclReceiptsScheduledForDeletion = null;
+    protected $rcyclReceiptsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayCustomer[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayCustomer>
      */
-    protected $bookingDayCustomersScheduledForDeletion = null;
+    protected $bookingDayCustomersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayDetail>
      */
-    protected $bookingDayDetailsScheduledForDeletion = null;
+    protected $bookingDayDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBooking[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBooking>
      */
-    protected $bookingsScheduledForDeletion = null;
+    protected $bookingsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesHistory[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistory>
      */
-    protected $salesHistoriesScheduledForDeletion = null;
+    protected $salesHistoriesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrder>
      */
-    protected $salesOrdersScheduledForDeletion = null;
+    protected $salesOrdersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemPricingDiscount[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemPricingDiscount>
      */
-    protected $itemPricingDiscountsScheduledForDeletion = null;
+    protected $itemPricingDiscountsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoStandingOrderDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSoStandingOrderDetail>
      */
-    protected $soStandingOrderDetailsScheduledForDeletion = null;
+    protected $soStandingOrderDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoStandingOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSoStandingOrder>
      */
-    protected $soStandingOrdersScheduledForDeletion = null;
+    protected $soStandingOrdersScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -1449,7 +1449,7 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -1507,7 +1507,6 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -1517,7 +1516,6 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -1555,8 +1553,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -1567,7 +1563,6 @@ abstract class Customer implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -1609,9 +1604,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -1637,7 +1630,7 @@ abstract class Customer implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -5673,12 +5666,8 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->arcucustid !== '') {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->arcucustid === '';
     }
 
     /**
@@ -5703,403 +5692,403 @@ abstract class Customer implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : CustomerTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerTableMap::translateFieldName('Arcuname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : CustomerTableMap::translateFieldName('Arcuname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerTableMap::translateFieldName('Arcuadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : CustomerTableMap::translateFieldName('Arcuadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerTableMap::translateFieldName('Arcuadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : CustomerTableMap::translateFieldName('Arcuadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerTableMap::translateFieldName('Arcuadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : CustomerTableMap::translateFieldName('Arcuadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CustomerTableMap::translateFieldName('Arcuctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : CustomerTableMap::translateFieldName('Arcuctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CustomerTableMap::translateFieldName('Arcucity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : CustomerTableMap::translateFieldName('Arcucity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CustomerTableMap::translateFieldName('Arcustat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : CustomerTableMap::translateFieldName('Arcustat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcustat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CustomerTableMap::translateFieldName('Arcuzipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : CustomerTableMap::translateFieldName('Arcuzipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuzipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CustomerTableMap::translateFieldName('Arcudeliverydays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : CustomerTableMap::translateFieldName('Arcudeliverydays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcudeliverydays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CustomerTableMap::translateFieldName('Arcuremitwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : CustomerTableMap::translateFieldName('Arcuremitwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuremitwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CustomerTableMap::translateFieldName('Arcushipbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : CustomerTableMap::translateFieldName('Arcushipbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcushipbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CustomerTableMap::translateFieldName('Arcuallowaddons', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : CustomerTableMap::translateFieldName('Arcuallowaddons', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuallowaddons = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CustomerTableMap::translateFieldName('Arculmecommcustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : CustomerTableMap::translateFieldName('Arculmecommcustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculmecommcustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CustomerTableMap::translateFieldName('Arcugsuse2ndbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : CustomerTableMap::translateFieldName('Arcugsuse2ndbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcugsuse2ndbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CustomerTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : CustomerTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CustomerTableMap::translateFieldName('Arcutaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : CustomerTableMap::translateFieldName('Arcutaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcutaxexemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : CustomerTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : CustomerTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : CustomerTableMap::translateFieldName('Arcupriclvl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : CustomerTableMap::translateFieldName('Arcupriclvl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcupriclvl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : CustomerTableMap::translateFieldName('Arcushipcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : CustomerTableMap::translateFieldName('Arcushipcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcushipcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : CustomerTableMap::translateFieldName('Arcutxbl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : CustomerTableMap::translateFieldName('Arcutxbl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcutxbl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : CustomerTableMap::translateFieldName('Arcupostal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : CustomerTableMap::translateFieldName('Arcupostal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcupostal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : CustomerTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : CustomerTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbshipvia = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : CustomerTableMap::translateFieldName('Arcubord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : CustomerTableMap::translateFieldName('Arcubord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : CustomerTableMap::translateFieldName('Artbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : CustomerTableMap::translateFieldName('Artbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbtypecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : CustomerTableMap::translateFieldName('Artbpriccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : CustomerTableMap::translateFieldName('Artbpriccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbpriccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : CustomerTableMap::translateFieldName('Artbcommcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : CustomerTableMap::translateFieldName('Artbcommcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcommcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : CustomerTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : CustomerTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : CustomerTableMap::translateFieldName('Arcucredlmt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : CustomerTableMap::translateFieldName('Arcucredlmt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucredlmt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : CustomerTableMap::translateFieldName('Arcustmtcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : CustomerTableMap::translateFieldName('Arcustmtcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcustmtcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : CustomerTableMap::translateFieldName('Arcucredhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : CustomerTableMap::translateFieldName('Arcucredhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucredhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : CustomerTableMap::translateFieldName('Arcufinchrg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : CustomerTableMap::translateFieldName('Arcufinchrg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcufinchrg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : CustomerTableMap::translateFieldName('Arcuusercode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : CustomerTableMap::translateFieldName('Arcuusercode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuusercode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : CustomerTableMap::translateFieldName('Arcunewfc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : CustomerTableMap::translateFieldName('Arcunewfc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcunewfc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : CustomerTableMap::translateFieldName('Arcuunpdfc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : CustomerTableMap::translateFieldName('Arcuunpdfc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuunpdfc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : CustomerTableMap::translateFieldName('Arcucurbal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : CustomerTableMap::translateFieldName('Arcucurbal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucurbal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubalodue1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubalodue2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubalodue3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : CustomerTableMap::translateFieldName('Arcusalemtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : CustomerTableMap::translateFieldName('Arcusalemtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusalemtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : CustomerTableMap::translateFieldName('Arcuinvmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : CustomerTableMap::translateFieldName('Arcuinvmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinvmtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : CustomerTableMap::translateFieldName('Arcusaleytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : CustomerTableMap::translateFieldName('Arcusaleytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusaleytd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : CustomerTableMap::translateFieldName('Arcuinvytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : CustomerTableMap::translateFieldName('Arcuinvytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinvytd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : CustomerTableMap::translateFieldName('Arcudateopen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : CustomerTableMap::translateFieldName('Arcudateopen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcudateopen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : CustomerTableMap::translateFieldName('Arculastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : CustomerTableMap::translateFieldName('Arculastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculastsaledate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : CustomerTableMap::translateFieldName('Arcuhighbal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : CustomerTableMap::translateFieldName('Arcuhighbal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuhighbal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : CustomerTableMap::translateFieldName('Arcubigsalemo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : CustomerTableMap::translateFieldName('Arcubigsalemo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubigsalemo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : CustomerTableMap::translateFieldName('Arculastpaydate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : CustomerTableMap::translateFieldName('Arculastpaydate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculastpaydate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : CustomerTableMap::translateFieldName('Arcuavgpaydays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : CustomerTableMap::translateFieldName('Arcuavgpaydays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuavgpaydays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : CustomerTableMap::translateFieldName('Arcuupszone', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : CustomerTableMap::translateFieldName('Arcuupszone', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuupszone = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : CustomerTableMap::translateFieldName('Arcuhighbaldate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : CustomerTableMap::translateFieldName('Arcuhighbaldate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuhighbaldate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo7 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo8 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo9 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo10 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo11 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo11 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo12 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo12 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo13 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo13 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo14 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo14 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo15 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo15 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo16 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo16 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo17 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo17 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo18 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo18 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo19 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo19 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo20 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo20 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 94 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo21 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 95 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo21 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 96 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo22 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 97 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo22 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 98 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo23 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 99 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo23 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 100 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo24 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 101 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo24 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : CustomerTableMap::translateFieldName('Arculastpayamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 102 + $startcol : CustomerTableMap::translateFieldName('Arculastpayamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculastpayamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : CustomerTableMap::translateFieldName('Arcuordrtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 103 + $startcol : CustomerTableMap::translateFieldName('Arcuordrtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuordrtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : CustomerTableMap::translateFieldName('Arcuusefrtin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 104 + $startcol : CustomerTableMap::translateFieldName('Arcuusefrtin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuusefrtin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : CustomerTableMap::translateFieldName('Arcumyvendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 105 + $startcol : CustomerTableMap::translateFieldName('Arcumyvendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcumyvendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : CustomerTableMap::translateFieldName('Arcuaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 106 + $startcol : CustomerTableMap::translateFieldName('Arcuaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuaddlpricdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : CustomerTableMap::translateFieldName('Arcuactiveinactive', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 107 + $startcol : CustomerTableMap::translateFieldName('Arcuactiveinactive', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuactiveinactive = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : CustomerTableMap::translateFieldName('Arcuinactivedate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 108 + $startcol : CustomerTableMap::translateFieldName('Arcuinactivedate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinactivedate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : CustomerTableMap::translateFieldName('Arcuchrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 109 + $startcol : CustomerTableMap::translateFieldName('Arcuchrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuchrgfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : CustomerTableMap::translateFieldName('Arcucorexdays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 110 + $startcol : CustomerTableMap::translateFieldName('Arcucorexdays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucorexdays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : CustomerTableMap::translateFieldName('Arcucontractnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 111 + $startcol : CustomerTableMap::translateFieldName('Arcucontractnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucontractnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : CustomerTableMap::translateFieldName('Arcucorelf', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 112 + $startcol : CustomerTableMap::translateFieldName('Arcucorelf', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucorelf = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : CustomerTableMap::translateFieldName('Arcucorebankid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 113 + $startcol : CustomerTableMap::translateFieldName('Arcucorebankid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucorebankid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : CustomerTableMap::translateFieldName('Arcudunsnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 114 + $startcol : CustomerTableMap::translateFieldName('Arcudunsnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcudunsnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : CustomerTableMap::translateFieldName('Arcurfmlvalu', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 115 + $startcol : CustomerTableMap::translateFieldName('Arcurfmlvalu', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcurfmlvalu = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : CustomerTableMap::translateFieldName('Arcucustpoparam', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 116 + $startcol : CustomerTableMap::translateFieldName('Arcucustpoparam', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustpoparam = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : CustomerTableMap::translateFieldName('Arcuagelevel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 117 + $startcol : CustomerTableMap::translateFieldName('Arcuagelevel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuagelevel = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : CustomerTableMap::translateFieldName('Artbroute', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 118 + $startcol : CustomerTableMap::translateFieldName('Artbroute', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbroute = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : CustomerTableMap::translateFieldName('Arcuwgtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 119 + $startcol : CustomerTableMap::translateFieldName('Arcuwgtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuwgtaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : CustomerTableMap::translateFieldName('Arcuacptsupercede', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 120 + $startcol : CustomerTableMap::translateFieldName('Arcuacptsupercede', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuacptsupercede = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : CustomerTableMap::translateFieldName('Arcumstrcustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 121 + $startcol : CustomerTableMap::translateFieldName('Arcumstrcustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcumstrcustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : CustomerTableMap::translateFieldName('Arcusurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 122 + $startcol : CustomerTableMap::translateFieldName('Arcusurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusurchgpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : CustomerTableMap::translateFieldName('Arcuallowsplit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 123 + $startcol : CustomerTableMap::translateFieldName('Arcuallowsplit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuallowsplit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : CustomerTableMap::translateFieldName('Arculinemin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 124 + $startcol : CustomerTableMap::translateFieldName('Arculinemin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculinemin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : CustomerTableMap::translateFieldName('Arcuordrmin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 125 + $startcol : CustomerTableMap::translateFieldName('Arcuordrmin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuordrmin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : CustomerTableMap::translateFieldName('Arcuupsacctnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 126 + $startcol : CustomerTableMap::translateFieldName('Arcuupsacctnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuupsacctnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : CustomerTableMap::translateFieldName('Arcuprtmatcert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 127 + $startcol : CustomerTableMap::translateFieldName('Arcuprtmatcert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuprtmatcert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : CustomerTableMap::translateFieldName('Arcufobinputyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 128 + $startcol : CustomerTableMap::translateFieldName('Arcufobinputyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcufobinputyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : CustomerTableMap::translateFieldName('Arcufobperlb', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 129 + $startcol : CustomerTableMap::translateFieldName('Arcufobperlb', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcufobperlb = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : CustomerTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 130 + $startcol : CustomerTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : CustomerTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 131 + $startcol : CustomerTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : CustomerTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 132 + $startcol : CustomerTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -6128,7 +6117,6 @@ abstract class Customer implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -6150,7 +6138,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -6163,7 +6150,7 @@ abstract class Customer implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CustomerTableMap::DATABASE_NAME);
         }
 
@@ -6238,7 +6225,6 @@ abstract class Customer implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see Customer::setDeleted()
      * @see Customer::isDeleted()
@@ -6249,7 +6235,7 @@ abstract class Customer implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerTableMap::DATABASE_NAME);
         }
 
@@ -6288,18 +6274,14 @@ abstract class Customer implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -6323,7 +6305,6 @@ abstract class Customer implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -6371,13 +6352,11 @@ abstract class Customer implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->arCust3partyFreightsScheduledForDeletion !== null) {
-                if (!$this->arCust3partyFreightsScheduledForDeletion->isEmpty()) {
-                    \ArCust3partyFreightQuery::create()
-                        ->filterByPrimaryKeys($this->arCust3partyFreightsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->arCust3partyFreightsScheduledForDeletion = null;
-                }
+            if ($this->arCust3partyFreightsScheduledForDeletion !== null && !$this->arCust3partyFreightsScheduledForDeletion->isEmpty()) {
+                \ArCust3partyFreightQuery::create()
+                    ->filterByPrimaryKeys($this->arCust3partyFreightsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->arCust3partyFreightsScheduledForDeletion = null;
             }
 
             if ($this->collArCust3partyFreights !== null) {
@@ -6388,13 +6367,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->arPaymentPendingsScheduledForDeletion !== null) {
-                if (!$this->arPaymentPendingsScheduledForDeletion->isEmpty()) {
-                    \ArPaymentPendingQuery::create()
-                        ->filterByPrimaryKeys($this->arPaymentPendingsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->arPaymentPendingsScheduledForDeletion = null;
-                }
+            if ($this->arPaymentPendingsScheduledForDeletion !== null && !$this->arPaymentPendingsScheduledForDeletion->isEmpty()) {
+                \ArPaymentPendingQuery::create()
+                    ->filterByPrimaryKeys($this->arPaymentPendingsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->arPaymentPendingsScheduledForDeletion = null;
             }
 
             if ($this->collArPaymentPendings !== null) {
@@ -6405,19 +6382,15 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->singleArCashHead !== null) {
-                if (!$this->singleArCashHead->isDeleted() && ($this->singleArCashHead->isNew() || $this->singleArCashHead->isModified())) {
-                    $affectedRows += $this->singleArCashHead->save($con);
-                }
+            if ($this->singleArCashHead !== null && (!$this->singleArCashHead->isDeleted() && ($this->singleArCashHead->isNew() || $this->singleArCashHead->isModified()))) {
+                $affectedRows += $this->singleArCashHead->save($con);
             }
 
-            if ($this->arContactsScheduledForDeletion !== null) {
-                if (!$this->arContactsScheduledForDeletion->isEmpty()) {
-                    \ArContactQuery::create()
-                        ->filterByPrimaryKeys($this->arContactsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->arContactsScheduledForDeletion = null;
-                }
+            if ($this->arContactsScheduledForDeletion !== null && !$this->arContactsScheduledForDeletion->isEmpty()) {
+                \ArContactQuery::create()
+                    ->filterByPrimaryKeys($this->arContactsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->arContactsScheduledForDeletion = null;
             }
 
             if ($this->collArContacts !== null) {
@@ -6428,13 +6401,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->arInvoicesScheduledForDeletion !== null) {
-                if (!$this->arInvoicesScheduledForDeletion->isEmpty()) {
-                    \ArInvoiceQuery::create()
-                        ->filterByPrimaryKeys($this->arInvoicesScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->arInvoicesScheduledForDeletion = null;
-                }
+            if ($this->arInvoicesScheduledForDeletion !== null && !$this->arInvoicesScheduledForDeletion->isEmpty()) {
+                \ArInvoiceQuery::create()
+                    ->filterByPrimaryKeys($this->arInvoicesScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->arInvoicesScheduledForDeletion = null;
             }
 
             if ($this->collArInvoices !== null) {
@@ -6445,13 +6416,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->customerShiptosScheduledForDeletion !== null) {
-                if (!$this->customerShiptosScheduledForDeletion->isEmpty()) {
-                    \CustomerShiptoQuery::create()
-                        ->filterByPrimaryKeys($this->customerShiptosScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->customerShiptosScheduledForDeletion = null;
-                }
+            if ($this->customerShiptosScheduledForDeletion !== null && !$this->customerShiptosScheduledForDeletion->isEmpty()) {
+                \CustomerShiptoQuery::create()
+                    ->filterByPrimaryKeys($this->customerShiptosScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->customerShiptosScheduledForDeletion = null;
             }
 
             if ($this->collCustomerShiptos !== null) {
@@ -6462,13 +6431,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->cstkItemsScheduledForDeletion !== null) {
-                if (!$this->cstkItemsScheduledForDeletion->isEmpty()) {
-                    \CstkItemQuery::create()
-                        ->filterByPrimaryKeys($this->cstkItemsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->cstkItemsScheduledForDeletion = null;
-                }
+            if ($this->cstkItemsScheduledForDeletion !== null && !$this->cstkItemsScheduledForDeletion->isEmpty()) {
+                \CstkItemQuery::create()
+                    ->filterByPrimaryKeys($this->cstkItemsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->cstkItemsScheduledForDeletion = null;
             }
 
             if ($this->collCstkItems !== null) {
@@ -6479,13 +6446,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->cstkHeadsScheduledForDeletion !== null) {
-                if (!$this->cstkHeadsScheduledForDeletion->isEmpty()) {
-                    \CstkHeadQuery::create()
-                        ->filterByPrimaryKeys($this->cstkHeadsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->cstkHeadsScheduledForDeletion = null;
-                }
+            if ($this->cstkHeadsScheduledForDeletion !== null && !$this->cstkHeadsScheduledForDeletion->isEmpty()) {
+                \CstkHeadQuery::create()
+                    ->filterByPrimaryKeys($this->cstkHeadsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->cstkHeadsScheduledForDeletion = null;
             }
 
             if ($this->collCstkHeads !== null) {
@@ -6496,13 +6461,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferOrdersScheduledForDeletion !== null) {
-                if (!$this->invTransferOrdersScheduledForDeletion->isEmpty()) {
-                    \InvTransferOrderQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferOrdersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferOrdersScheduledForDeletion = null;
-                }
+            if ($this->invTransferOrdersScheduledForDeletion !== null && !$this->invTransferOrdersScheduledForDeletion->isEmpty()) {
+                \InvTransferOrderQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferOrdersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferOrdersScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferOrders !== null) {
@@ -6513,13 +6476,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invSerialWarrantiesScheduledForDeletion !== null) {
-                if (!$this->invSerialWarrantiesScheduledForDeletion->isEmpty()) {
-                    \InvSerialWarrantyQuery::create()
-                        ->filterByPrimaryKeys($this->invSerialWarrantiesScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invSerialWarrantiesScheduledForDeletion = null;
-                }
+            if ($this->invSerialWarrantiesScheduledForDeletion !== null && !$this->invSerialWarrantiesScheduledForDeletion->isEmpty()) {
+                \InvSerialWarrantyQuery::create()
+                    ->filterByPrimaryKeys($this->invSerialWarrantiesScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invSerialWarrantiesScheduledForDeletion = null;
             }
 
             if ($this->collInvSerialWarranties !== null) {
@@ -6530,13 +6491,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefKeysScheduledForDeletion !== null) {
-                if (!$this->itemXrefKeysScheduledForDeletion->isEmpty()) {
-                    \ItemXrefKeyQuery::create()
-                        ->filterByPrimaryKeys($this->itemXrefKeysScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemXrefKeysScheduledForDeletion = null;
-                }
+            if ($this->itemXrefKeysScheduledForDeletion !== null && !$this->itemXrefKeysScheduledForDeletion->isEmpty()) {
+                \ItemXrefKeyQuery::create()
+                    ->filterByPrimaryKeys($this->itemXrefKeysScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemXrefKeysScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefKeys !== null) {
@@ -6547,13 +6506,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->cpnLoadsScheduledForDeletion !== null) {
-                if (!$this->cpnLoadsScheduledForDeletion->isEmpty()) {
-                    \CpnLoadQuery::create()
-                        ->filterByPrimaryKeys($this->cpnLoadsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->cpnLoadsScheduledForDeletion = null;
-                }
+            if ($this->cpnLoadsScheduledForDeletion !== null && !$this->cpnLoadsScheduledForDeletion->isEmpty()) {
+                \CpnLoadQuery::create()
+                    ->filterByPrimaryKeys($this->cpnLoadsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->cpnLoadsScheduledForDeletion = null;
             }
 
             if ($this->collCpnLoads !== null) {
@@ -6564,14 +6521,12 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->noteCustInternalsScheduledForDeletion !== null) {
-                if (!$this->noteCustInternalsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->noteCustInternalsScheduledForDeletion as $noteCustInternal) {
-                        // need to save related object because we set the relation to null
-                        $noteCustInternal->save($con);
-                    }
-                    $this->noteCustInternalsScheduledForDeletion = null;
+            if ($this->noteCustInternalsScheduledForDeletion !== null && !$this->noteCustInternalsScheduledForDeletion->isEmpty()) {
+                foreach ($this->noteCustInternalsScheduledForDeletion as $noteCustInternal) {
+                    // need to save related object because we set the relation to null
+                    $noteCustInternal->save($con);
                 }
+                $this->noteCustInternalsScheduledForDeletion = null;
             }
 
             if ($this->collNoteCustInternals !== null) {
@@ -6582,14 +6537,12 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->noteCustOrdersScheduledForDeletion !== null) {
-                if (!$this->noteCustOrdersScheduledForDeletion->isEmpty()) {
-                    foreach ($this->noteCustOrdersScheduledForDeletion as $noteCustOrder) {
-                        // need to save related object because we set the relation to null
-                        $noteCustOrder->save($con);
-                    }
-                    $this->noteCustOrdersScheduledForDeletion = null;
+            if ($this->noteCustOrdersScheduledForDeletion !== null && !$this->noteCustOrdersScheduledForDeletion->isEmpty()) {
+                foreach ($this->noteCustOrdersScheduledForDeletion as $noteCustOrder) {
+                    // need to save related object because we set the relation to null
+                    $noteCustOrder->save($con);
                 }
+                $this->noteCustOrdersScheduledForDeletion = null;
             }
 
             if ($this->collNoteCustOrders !== null) {
@@ -6600,14 +6553,12 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefCustomerNotesScheduledForDeletion !== null) {
-                if (!$this->itemXrefCustomerNotesScheduledForDeletion->isEmpty()) {
-                    foreach ($this->itemXrefCustomerNotesScheduledForDeletion as $itemXrefCustomerNote) {
-                        // need to save related object because we set the relation to null
-                        $itemXrefCustomerNote->save($con);
-                    }
-                    $this->itemXrefCustomerNotesScheduledForDeletion = null;
+            if ($this->itemXrefCustomerNotesScheduledForDeletion !== null && !$this->itemXrefCustomerNotesScheduledForDeletion->isEmpty()) {
+                foreach ($this->itemXrefCustomerNotesScheduledForDeletion as $itemXrefCustomerNote) {
+                    // need to save related object because we set the relation to null
+                    $itemXrefCustomerNote->save($con);
                 }
+                $this->itemXrefCustomerNotesScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefCustomerNotes !== null) {
@@ -6618,13 +6569,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->rcyclReceiptsScheduledForDeletion !== null) {
-                if (!$this->rcyclReceiptsScheduledForDeletion->isEmpty()) {
-                    \RcyclReceiptQuery::create()
-                        ->filterByPrimaryKeys($this->rcyclReceiptsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->rcyclReceiptsScheduledForDeletion = null;
-                }
+            if ($this->rcyclReceiptsScheduledForDeletion !== null && !$this->rcyclReceiptsScheduledForDeletion->isEmpty()) {
+                \RcyclReceiptQuery::create()
+                    ->filterByPrimaryKeys($this->rcyclReceiptsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->rcyclReceiptsScheduledForDeletion = null;
             }
 
             if ($this->collRcyclReceipts !== null) {
@@ -6635,13 +6584,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingDayCustomersScheduledForDeletion !== null) {
-                if (!$this->bookingDayCustomersScheduledForDeletion->isEmpty()) {
-                    \BookingDayCustomerQuery::create()
-                        ->filterByPrimaryKeys($this->bookingDayCustomersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->bookingDayCustomersScheduledForDeletion = null;
-                }
+            if ($this->bookingDayCustomersScheduledForDeletion !== null && !$this->bookingDayCustomersScheduledForDeletion->isEmpty()) {
+                \BookingDayCustomerQuery::create()
+                    ->filterByPrimaryKeys($this->bookingDayCustomersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->bookingDayCustomersScheduledForDeletion = null;
             }
 
             if ($this->collBookingDayCustomers !== null) {
@@ -6652,13 +6599,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingDayDetailsScheduledForDeletion !== null) {
-                if (!$this->bookingDayDetailsScheduledForDeletion->isEmpty()) {
-                    \BookingDayDetailQuery::create()
-                        ->filterByPrimaryKeys($this->bookingDayDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->bookingDayDetailsScheduledForDeletion = null;
-                }
+            if ($this->bookingDayDetailsScheduledForDeletion !== null && !$this->bookingDayDetailsScheduledForDeletion->isEmpty()) {
+                \BookingDayDetailQuery::create()
+                    ->filterByPrimaryKeys($this->bookingDayDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->bookingDayDetailsScheduledForDeletion = null;
             }
 
             if ($this->collBookingDayDetails !== null) {
@@ -6669,14 +6614,12 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingsScheduledForDeletion !== null) {
-                if (!$this->bookingsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->bookingsScheduledForDeletion as $booking) {
-                        // need to save related object because we set the relation to null
-                        $booking->save($con);
-                    }
-                    $this->bookingsScheduledForDeletion = null;
+            if ($this->bookingsScheduledForDeletion !== null && !$this->bookingsScheduledForDeletion->isEmpty()) {
+                foreach ($this->bookingsScheduledForDeletion as $booking) {
+                    // need to save related object because we set the relation to null
+                    $booking->save($con);
                 }
+                $this->bookingsScheduledForDeletion = null;
             }
 
             if ($this->collBookings !== null) {
@@ -6687,13 +6630,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesHistoriesScheduledForDeletion !== null) {
-                if (!$this->salesHistoriesScheduledForDeletion->isEmpty()) {
-                    \SalesHistoryQuery::create()
-                        ->filterByPrimaryKeys($this->salesHistoriesScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesHistoriesScheduledForDeletion = null;
-                }
+            if ($this->salesHistoriesScheduledForDeletion !== null && !$this->salesHistoriesScheduledForDeletion->isEmpty()) {
+                \SalesHistoryQuery::create()
+                    ->filterByPrimaryKeys($this->salesHistoriesScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesHistoriesScheduledForDeletion = null;
             }
 
             if ($this->collSalesHistories !== null) {
@@ -6704,13 +6645,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesOrdersScheduledForDeletion !== null) {
-                if (!$this->salesOrdersScheduledForDeletion->isEmpty()) {
-                    \SalesOrderQuery::create()
-                        ->filterByPrimaryKeys($this->salesOrdersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesOrdersScheduledForDeletion = null;
-                }
+            if ($this->salesOrdersScheduledForDeletion !== null && !$this->salesOrdersScheduledForDeletion->isEmpty()) {
+                \SalesOrderQuery::create()
+                    ->filterByPrimaryKeys($this->salesOrdersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesOrdersScheduledForDeletion = null;
             }
 
             if ($this->collSalesOrders !== null) {
@@ -6721,13 +6660,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemPricingDiscountsScheduledForDeletion !== null) {
-                if (!$this->itemPricingDiscountsScheduledForDeletion->isEmpty()) {
-                    \ItemPricingDiscountQuery::create()
-                        ->filterByPrimaryKeys($this->itemPricingDiscountsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemPricingDiscountsScheduledForDeletion = null;
-                }
+            if ($this->itemPricingDiscountsScheduledForDeletion !== null && !$this->itemPricingDiscountsScheduledForDeletion->isEmpty()) {
+                \ItemPricingDiscountQuery::create()
+                    ->filterByPrimaryKeys($this->itemPricingDiscountsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemPricingDiscountsScheduledForDeletion = null;
             }
 
             if ($this->collItemPricingDiscounts !== null) {
@@ -6738,13 +6675,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->soStandingOrderDetailsScheduledForDeletion !== null) {
-                if (!$this->soStandingOrderDetailsScheduledForDeletion->isEmpty()) {
-                    \SoStandingOrderDetailQuery::create()
-                        ->filterByPrimaryKeys($this->soStandingOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->soStandingOrderDetailsScheduledForDeletion = null;
-                }
+            if ($this->soStandingOrderDetailsScheduledForDeletion !== null && !$this->soStandingOrderDetailsScheduledForDeletion->isEmpty()) {
+                \SoStandingOrderDetailQuery::create()
+                    ->filterByPrimaryKeys($this->soStandingOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->soStandingOrderDetailsScheduledForDeletion = null;
             }
 
             if ($this->collSoStandingOrderDetails !== null) {
@@ -6755,13 +6690,11 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
-            if ($this->soStandingOrdersScheduledForDeletion !== null) {
-                if (!$this->soStandingOrdersScheduledForDeletion->isEmpty()) {
-                    \SoStandingOrderQuery::create()
-                        ->filterByPrimaryKeys($this->soStandingOrdersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->soStandingOrdersScheduledForDeletion = null;
-                }
+            if ($this->soStandingOrdersScheduledForDeletion !== null && !$this->soStandingOrdersScheduledForDeletion->isEmpty()) {
+                \SoStandingOrderQuery::create()
+                    ->filterByPrimaryKeys($this->soStandingOrdersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->soStandingOrdersScheduledForDeletion = null;
             }
 
             if ($this->collSoStandingOrders !== null) {
@@ -6782,7 +6715,6 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -7750,7 +7682,6 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -7776,9 +7707,8 @@ abstract class Customer implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = CustomerTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -8771,7 +8701,6 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -10102,7 +10031,7 @@ abstract class Customer implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -10122,7 +10051,6 @@ abstract class Customer implements ActiveRecordInterface
      * Generic method to set the primary key (arcucustid column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -10131,8 +10059,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -10149,7 +10075,6 @@ abstract class Customer implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -10473,7 +10398,7 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function setArCommissionCode(ChildArCommissionCode $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ArCommissionCode) {
             $this->setArtbcommcode(NULL);
         } else {
             $this->setArtbcommcode($v->getArtbcommcode());
@@ -10483,7 +10408,7 @@ abstract class Customer implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildArCommissionCode object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ArCommissionCode) {
             $v->addCustomer($this);
         }
 
@@ -10524,7 +10449,7 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function setShipvia(ChildShipvia $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Shipvia) {
             $this->setArtbshipvia(NULL);
         } else {
             $this->setArtbshipvia($v->getArtbshipvia());
@@ -10534,7 +10459,7 @@ abstract class Customer implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildShipvia object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Shipvia) {
             $v->addCustomer($this);
         }
 
@@ -10575,7 +10500,7 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function setSoFreightRate(ChildSoFreightRate $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \SoFreightRate) {
             $this->setArcuchrgfrt(NULL);
         } else {
             $this->setArcuchrgfrt($v->getSfrtratecode());
@@ -10585,7 +10510,7 @@ abstract class Customer implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildSoFreightRate object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \SoFreightRate) {
             $v->addCustomer($this);
         }
 
@@ -10624,7 +10549,6 @@ abstract class Customer implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -10740,8 +10664,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collArCust3partyFreights collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialArCust3partyFreights($v = true): void
     {
@@ -10757,8 +10679,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initArCust3partyFreights(bool $overrideExisting = true): void
     {
@@ -10790,7 +10710,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getArCust3partyFreights(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collArCust3partyFreightsPartial && !$this->isNew();
-        if (null === $this->collArCust3partyFreights || null !== $criteria || $partial) {
+        if (null === $this->collArCust3partyFreights || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collArCust3partyFreights) {
@@ -10808,7 +10728,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collArCust3partyFreightsPartial && count($collArCust3partyFreights)) {
                         $this->initArCust3partyFreights(false);
 
@@ -10862,7 +10782,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->arCust3partyFreightsScheduledForDeletion = clone $arCust3partyFreightsToDelete;
 
         foreach ($arCust3partyFreightsToDelete as $arCust3partyFreightRemoved) {
-            $arCust3partyFreightRemoved->setCustomer(null);
+            $arCust3partyFreightRemoved->setCustomer();
         }
 
         $this->collArCust3partyFreights = null;
@@ -10880,7 +10800,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related ArCust3partyFreight objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ArCust3partyFreight objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -10888,7 +10807,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countArCust3partyFreights(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collArCust3partyFreightsPartial && !$this->isNew();
-        if (null === $this->collArCust3partyFreights || null !== $criteria || $partial) {
+        if (null === $this->collArCust3partyFreights || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collArCust3partyFreights) {
                 return 0;
             }
@@ -10927,7 +10846,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collArCust3partyFreights->contains($l)) {
             $this->doAddArCust3partyFreight($l);
 
-            if ($this->arCust3partyFreightsScheduledForDeletion and $this->arCust3partyFreightsScheduledForDeletion->contains($l)) {
+            if ($this->arCust3partyFreightsScheduledForDeletion && $this->arCust3partyFreightsScheduledForDeletion->contains($l)) {
                 $this->arCust3partyFreightsScheduledForDeletion->remove($this->arCust3partyFreightsScheduledForDeletion->search($l));
             }
         }
@@ -10958,7 +10877,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->arCust3partyFreightsScheduledForDeletion->clear();
             }
             $this->arCust3partyFreightsScheduledForDeletion[]= clone $arCust3partyFreight;
-            $arCust3partyFreight->setCustomer(null);
+            $arCust3partyFreight->setCustomer();
         }
 
         return $this;
@@ -10982,8 +10901,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collArPaymentPendings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialArPaymentPendings($v = true): void
     {
@@ -10999,8 +10916,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initArPaymentPendings(bool $overrideExisting = true): void
     {
@@ -11032,7 +10947,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getArPaymentPendings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collArPaymentPendingsPartial && !$this->isNew();
-        if (null === $this->collArPaymentPendings || null !== $criteria || $partial) {
+        if (null === $this->collArPaymentPendings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collArPaymentPendings) {
@@ -11050,7 +10965,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collArPaymentPendingsPartial && count($collArPaymentPendings)) {
                         $this->initArPaymentPendings(false);
 
@@ -11104,7 +11019,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->arPaymentPendingsScheduledForDeletion = clone $arPaymentPendingsToDelete;
 
         foreach ($arPaymentPendingsToDelete as $arPaymentPendingRemoved) {
-            $arPaymentPendingRemoved->setCustomer(null);
+            $arPaymentPendingRemoved->setCustomer();
         }
 
         $this->collArPaymentPendings = null;
@@ -11122,7 +11037,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related ArPaymentPending objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ArPaymentPending objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -11130,7 +11044,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countArPaymentPendings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collArPaymentPendingsPartial && !$this->isNew();
-        if (null === $this->collArPaymentPendings || null !== $criteria || $partial) {
+        if (null === $this->collArPaymentPendings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collArPaymentPendings) {
                 return 0;
             }
@@ -11169,7 +11083,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collArPaymentPendings->contains($l)) {
             $this->doAddArPaymentPending($l);
 
-            if ($this->arPaymentPendingsScheduledForDeletion and $this->arPaymentPendingsScheduledForDeletion->contains($l)) {
+            if ($this->arPaymentPendingsScheduledForDeletion && $this->arPaymentPendingsScheduledForDeletion->contains($l)) {
                 $this->arPaymentPendingsScheduledForDeletion->remove($this->arPaymentPendingsScheduledForDeletion->search($l));
             }
         }
@@ -11200,7 +11114,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->arPaymentPendingsScheduledForDeletion->clear();
             }
             $this->arPaymentPendingsScheduledForDeletion[]= clone $arPaymentPending;
-            $arPaymentPending->setCustomer(null);
+            $arPaymentPending->setCustomer();
         }
 
         return $this;
@@ -11261,7 +11175,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->singleArCashHead = $v;
 
         // Make sure that that the passed-in ChildArCashHead isn't already associated with this object
-        if ($v !== null && $v->getCustomer(null, false) === null) {
+        if ($v instanceof \ArCashHead && $v->getCustomer() === null) {
             $v->setCustomer($this);
         }
 
@@ -11286,8 +11200,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collArContacts collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialArContacts($v = true): void
     {
@@ -11303,8 +11215,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initArContacts(bool $overrideExisting = true): void
     {
@@ -11336,7 +11246,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getArContacts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collArContactsPartial && !$this->isNew();
-        if (null === $this->collArContacts || null !== $criteria || $partial) {
+        if (null === $this->collArContacts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collArContacts) {
@@ -11354,7 +11264,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collArContactsPartial && count($collArContacts)) {
                         $this->initArContacts(false);
 
@@ -11408,7 +11318,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->arContactsScheduledForDeletion = clone $arContactsToDelete;
 
         foreach ($arContactsToDelete as $arContactRemoved) {
-            $arContactRemoved->setCustomer(null);
+            $arContactRemoved->setCustomer();
         }
 
         $this->collArContacts = null;
@@ -11426,7 +11336,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related ArContact objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ArContact objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -11434,7 +11343,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countArContacts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collArContactsPartial && !$this->isNew();
-        if (null === $this->collArContacts || null !== $criteria || $partial) {
+        if (null === $this->collArContacts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collArContacts) {
                 return 0;
             }
@@ -11473,7 +11382,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collArContacts->contains($l)) {
             $this->doAddArContact($l);
 
-            if ($this->arContactsScheduledForDeletion and $this->arContactsScheduledForDeletion->contains($l)) {
+            if ($this->arContactsScheduledForDeletion && $this->arContactsScheduledForDeletion->contains($l)) {
                 $this->arContactsScheduledForDeletion->remove($this->arContactsScheduledForDeletion->search($l));
             }
         }
@@ -11504,7 +11413,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->arContactsScheduledForDeletion->clear();
             }
             $this->arContactsScheduledForDeletion[]= clone $arContact;
-            $arContact->setCustomer(null);
+            $arContact->setCustomer();
         }
 
         return $this;
@@ -11554,8 +11463,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collArInvoices collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialArInvoices($v = true): void
     {
@@ -11571,8 +11478,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initArInvoices(bool $overrideExisting = true): void
     {
@@ -11604,7 +11509,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getArInvoices(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collArInvoicesPartial && !$this->isNew();
-        if (null === $this->collArInvoices || null !== $criteria || $partial) {
+        if (null === $this->collArInvoices || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collArInvoices) {
@@ -11622,7 +11527,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collArInvoicesPartial && count($collArInvoices)) {
                         $this->initArInvoices(false);
 
@@ -11676,7 +11581,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->arInvoicesScheduledForDeletion = clone $arInvoicesToDelete;
 
         foreach ($arInvoicesToDelete as $arInvoiceRemoved) {
-            $arInvoiceRemoved->setCustomer(null);
+            $arInvoiceRemoved->setCustomer();
         }
 
         $this->collArInvoices = null;
@@ -11694,7 +11599,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related ArInvoice objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ArInvoice objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -11702,7 +11606,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countArInvoices(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collArInvoicesPartial && !$this->isNew();
-        if (null === $this->collArInvoices || null !== $criteria || $partial) {
+        if (null === $this->collArInvoices || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collArInvoices) {
                 return 0;
             }
@@ -11741,7 +11645,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collArInvoices->contains($l)) {
             $this->doAddArInvoice($l);
 
-            if ($this->arInvoicesScheduledForDeletion and $this->arInvoicesScheduledForDeletion->contains($l)) {
+            if ($this->arInvoicesScheduledForDeletion && $this->arInvoicesScheduledForDeletion->contains($l)) {
                 $this->arInvoicesScheduledForDeletion->remove($this->arInvoicesScheduledForDeletion->search($l));
             }
         }
@@ -11772,7 +11676,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->arInvoicesScheduledForDeletion->clear();
             }
             $this->arInvoicesScheduledForDeletion[]= clone $arInvoice;
-            $arInvoice->setCustomer(null);
+            $arInvoice->setCustomer();
         }
 
         return $this;
@@ -11796,8 +11700,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collCustomerShiptos collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCustomerShiptos($v = true): void
     {
@@ -11813,8 +11715,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCustomerShiptos(bool $overrideExisting = true): void
     {
@@ -11846,7 +11746,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getCustomerShiptos(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCustomerShiptosPartial && !$this->isNew();
-        if (null === $this->collCustomerShiptos || null !== $criteria || $partial) {
+        if (null === $this->collCustomerShiptos || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCustomerShiptos) {
@@ -11864,7 +11764,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCustomerShiptosPartial && count($collCustomerShiptos)) {
                         $this->initCustomerShiptos(false);
 
@@ -11918,7 +11818,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->customerShiptosScheduledForDeletion = clone $customerShiptosToDelete;
 
         foreach ($customerShiptosToDelete as $customerShiptoRemoved) {
-            $customerShiptoRemoved->setCustomer(null);
+            $customerShiptoRemoved->setCustomer();
         }
 
         $this->collCustomerShiptos = null;
@@ -11936,7 +11836,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related CustomerShipto objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related CustomerShipto objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -11944,7 +11843,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countCustomerShiptos(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCustomerShiptosPartial && !$this->isNew();
-        if (null === $this->collCustomerShiptos || null !== $criteria || $partial) {
+        if (null === $this->collCustomerShiptos || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCustomerShiptos) {
                 return 0;
             }
@@ -11983,7 +11882,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collCustomerShiptos->contains($l)) {
             $this->doAddCustomerShipto($l);
 
-            if ($this->customerShiptosScheduledForDeletion and $this->customerShiptosScheduledForDeletion->contains($l)) {
+            if ($this->customerShiptosScheduledForDeletion && $this->customerShiptosScheduledForDeletion->contains($l)) {
                 $this->customerShiptosScheduledForDeletion->remove($this->customerShiptosScheduledForDeletion->search($l));
             }
         }
@@ -12014,7 +11913,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->customerShiptosScheduledForDeletion->clear();
             }
             $this->customerShiptosScheduledForDeletion[]= clone $customerShipto;
-            $customerShipto->setCustomer(null);
+            $customerShipto->setCustomer();
         }
 
         return $this;
@@ -12038,8 +11937,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collCstkItems collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCstkItems($v = true): void
     {
@@ -12055,8 +11952,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCstkItems(bool $overrideExisting = true): void
     {
@@ -12088,7 +11983,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getCstkItems(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCstkItemsPartial && !$this->isNew();
-        if (null === $this->collCstkItems || null !== $criteria || $partial) {
+        if (null === $this->collCstkItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCstkItems) {
@@ -12106,7 +12001,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCstkItemsPartial && count($collCstkItems)) {
                         $this->initCstkItems(false);
 
@@ -12160,7 +12055,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->cstkItemsScheduledForDeletion = clone $cstkItemsToDelete;
 
         foreach ($cstkItemsToDelete as $cstkItemRemoved) {
-            $cstkItemRemoved->setCustomer(null);
+            $cstkItemRemoved->setCustomer();
         }
 
         $this->collCstkItems = null;
@@ -12178,7 +12073,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related CstkItem objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related CstkItem objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -12186,7 +12080,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countCstkItems(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCstkItemsPartial && !$this->isNew();
-        if (null === $this->collCstkItems || null !== $criteria || $partial) {
+        if (null === $this->collCstkItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCstkItems) {
                 return 0;
             }
@@ -12225,7 +12119,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collCstkItems->contains($l)) {
             $this->doAddCstkItem($l);
 
-            if ($this->cstkItemsScheduledForDeletion and $this->cstkItemsScheduledForDeletion->contains($l)) {
+            if ($this->cstkItemsScheduledForDeletion && $this->cstkItemsScheduledForDeletion->contains($l)) {
                 $this->cstkItemsScheduledForDeletion->remove($this->cstkItemsScheduledForDeletion->search($l));
             }
         }
@@ -12256,7 +12150,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->cstkItemsScheduledForDeletion->clear();
             }
             $this->cstkItemsScheduledForDeletion[]= clone $cstkItem;
-            $cstkItem->setCustomer(null);
+            $cstkItem->setCustomer();
         }
 
         return $this;
@@ -12332,8 +12226,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collCstkHeads collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCstkHeads($v = true): void
     {
@@ -12349,8 +12241,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCstkHeads(bool $overrideExisting = true): void
     {
@@ -12382,7 +12272,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getCstkHeads(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCstkHeadsPartial && !$this->isNew();
-        if (null === $this->collCstkHeads || null !== $criteria || $partial) {
+        if (null === $this->collCstkHeads || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCstkHeads) {
@@ -12400,7 +12290,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCstkHeadsPartial && count($collCstkHeads)) {
                         $this->initCstkHeads(false);
 
@@ -12454,7 +12344,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->cstkHeadsScheduledForDeletion = clone $cstkHeadsToDelete;
 
         foreach ($cstkHeadsToDelete as $cstkHeadRemoved) {
-            $cstkHeadRemoved->setCustomer(null);
+            $cstkHeadRemoved->setCustomer();
         }
 
         $this->collCstkHeads = null;
@@ -12472,7 +12362,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related CstkHead objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related CstkHead objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -12480,7 +12369,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countCstkHeads(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCstkHeadsPartial && !$this->isNew();
-        if (null === $this->collCstkHeads || null !== $criteria || $partial) {
+        if (null === $this->collCstkHeads || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCstkHeads) {
                 return 0;
             }
@@ -12519,7 +12408,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collCstkHeads->contains($l)) {
             $this->doAddCstkHead($l);
 
-            if ($this->cstkHeadsScheduledForDeletion and $this->cstkHeadsScheduledForDeletion->contains($l)) {
+            if ($this->cstkHeadsScheduledForDeletion && $this->cstkHeadsScheduledForDeletion->contains($l)) {
                 $this->cstkHeadsScheduledForDeletion->remove($this->cstkHeadsScheduledForDeletion->search($l));
             }
         }
@@ -12550,7 +12439,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->cstkHeadsScheduledForDeletion->clear();
             }
             $this->cstkHeadsScheduledForDeletion[]= clone $cstkHead;
-            $cstkHead->setCustomer(null);
+            $cstkHead->setCustomer();
         }
 
         return $this;
@@ -12600,8 +12489,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferOrders($v = true): void
     {
@@ -12617,8 +12504,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferOrders(bool $overrideExisting = true): void
     {
@@ -12650,7 +12535,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getInvTransferOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferOrders) {
@@ -12668,7 +12553,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferOrdersPartial && count($collInvTransferOrders)) {
                         $this->initInvTransferOrders(false);
 
@@ -12719,7 +12604,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->invTransferOrdersScheduledForDeletion = $invTransferOrdersToDelete;
 
         foreach ($invTransferOrdersToDelete as $invTransferOrderRemoved) {
-            $invTransferOrderRemoved->setCustomer(null);
+            $invTransferOrderRemoved->setCustomer();
         }
 
         $this->collInvTransferOrders = null;
@@ -12737,7 +12622,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related InvTransferOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -12745,7 +12629,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countInvTransferOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferOrders) {
                 return 0;
             }
@@ -12784,7 +12668,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collInvTransferOrders->contains($l)) {
             $this->doAddInvTransferOrder($l);
 
-            if ($this->invTransferOrdersScheduledForDeletion and $this->invTransferOrdersScheduledForDeletion->contains($l)) {
+            if ($this->invTransferOrdersScheduledForDeletion && $this->invTransferOrdersScheduledForDeletion->contains($l)) {
                 $this->invTransferOrdersScheduledForDeletion->remove($this->invTransferOrdersScheduledForDeletion->search($l));
             }
         }
@@ -12815,7 +12699,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->invTransferOrdersScheduledForDeletion->clear();
             }
             $this->invTransferOrdersScheduledForDeletion[]= clone $invTransferOrder;
-            $invTransferOrder->setCustomer(null);
+            $invTransferOrder->setCustomer();
         }
 
         return $this;
@@ -12943,8 +12827,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collInvSerialWarranties collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvSerialWarranties($v = true): void
     {
@@ -12960,8 +12842,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvSerialWarranties(bool $overrideExisting = true): void
     {
@@ -12993,7 +12873,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getInvSerialWarranties(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvSerialWarrantiesPartial && !$this->isNew();
-        if (null === $this->collInvSerialWarranties || null !== $criteria || $partial) {
+        if (null === $this->collInvSerialWarranties || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvSerialWarranties) {
@@ -13011,7 +12891,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvSerialWarrantiesPartial && count($collInvSerialWarranties)) {
                         $this->initInvSerialWarranties(false);
 
@@ -13062,7 +12942,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->invSerialWarrantiesScheduledForDeletion = $invSerialWarrantiesToDelete;
 
         foreach ($invSerialWarrantiesToDelete as $invSerialWarrantyRemoved) {
-            $invSerialWarrantyRemoved->setCustomer(null);
+            $invSerialWarrantyRemoved->setCustomer();
         }
 
         $this->collInvSerialWarranties = null;
@@ -13080,7 +12960,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related InvSerialWarranty objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvSerialWarranty objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -13088,7 +12967,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countInvSerialWarranties(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvSerialWarrantiesPartial && !$this->isNew();
-        if (null === $this->collInvSerialWarranties || null !== $criteria || $partial) {
+        if (null === $this->collInvSerialWarranties || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvSerialWarranties) {
                 return 0;
             }
@@ -13127,7 +13006,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collInvSerialWarranties->contains($l)) {
             $this->doAddInvSerialWarranty($l);
 
-            if ($this->invSerialWarrantiesScheduledForDeletion and $this->invSerialWarrantiesScheduledForDeletion->contains($l)) {
+            if ($this->invSerialWarrantiesScheduledForDeletion && $this->invSerialWarrantiesScheduledForDeletion->contains($l)) {
                 $this->invSerialWarrantiesScheduledForDeletion->remove($this->invSerialWarrantiesScheduledForDeletion->search($l));
             }
         }
@@ -13158,7 +13037,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->invSerialWarrantiesScheduledForDeletion->clear();
             }
             $this->invSerialWarrantiesScheduledForDeletion[]= clone $invSerialWarranty;
-            $invSerialWarranty->setCustomer(null);
+            $invSerialWarranty->setCustomer();
         }
 
         return $this;
@@ -13234,8 +13113,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefKeys collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefKeys($v = true): void
     {
@@ -13251,8 +13128,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefKeys(bool $overrideExisting = true): void
     {
@@ -13284,7 +13159,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getItemXrefKeys(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
-        if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefKeys || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefKeys) {
@@ -13302,7 +13177,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefKeysPartial && count($collItemXrefKeys)) {
                         $this->initItemXrefKeys(false);
 
@@ -13356,7 +13231,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->itemXrefKeysScheduledForDeletion = clone $itemXrefKeysToDelete;
 
         foreach ($itemXrefKeysToDelete as $itemXrefKeyRemoved) {
-            $itemXrefKeyRemoved->setCustomer(null);
+            $itemXrefKeyRemoved->setCustomer();
         }
 
         $this->collItemXrefKeys = null;
@@ -13374,7 +13249,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related ItemXrefKey objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefKey objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -13382,7 +13256,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countItemXrefKeys(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
-        if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefKeys || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefKeys) {
                 return 0;
             }
@@ -13421,7 +13295,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collItemXrefKeys->contains($l)) {
             $this->doAddItemXrefKey($l);
 
-            if ($this->itemXrefKeysScheduledForDeletion and $this->itemXrefKeysScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefKeysScheduledForDeletion && $this->itemXrefKeysScheduledForDeletion->contains($l)) {
                 $this->itemXrefKeysScheduledForDeletion->remove($this->itemXrefKeysScheduledForDeletion->search($l));
             }
         }
@@ -13452,7 +13326,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->itemXrefKeysScheduledForDeletion->clear();
             }
             $this->itemXrefKeysScheduledForDeletion[]= clone $itemXrefKey;
-            $itemXrefKey->setCustomer(null);
+            $itemXrefKey->setCustomer();
         }
 
         return $this;
@@ -13528,8 +13402,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collCpnLoads collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCpnLoads($v = true): void
     {
@@ -13545,8 +13417,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCpnLoads(bool $overrideExisting = true): void
     {
@@ -13578,7 +13448,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getCpnLoads(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCpnLoadsPartial && !$this->isNew();
-        if (null === $this->collCpnLoads || null !== $criteria || $partial) {
+        if (null === $this->collCpnLoads || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCpnLoads) {
@@ -13596,7 +13466,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCpnLoadsPartial && count($collCpnLoads)) {
                         $this->initCpnLoads(false);
 
@@ -13647,7 +13517,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->cpnLoadsScheduledForDeletion = $cpnLoadsToDelete;
 
         foreach ($cpnLoadsToDelete as $cpnLoadRemoved) {
-            $cpnLoadRemoved->setCustomer(null);
+            $cpnLoadRemoved->setCustomer();
         }
 
         $this->collCpnLoads = null;
@@ -13665,7 +13535,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related CpnLoad objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related CpnLoad objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -13673,7 +13542,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countCpnLoads(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCpnLoadsPartial && !$this->isNew();
-        if (null === $this->collCpnLoads || null !== $criteria || $partial) {
+        if (null === $this->collCpnLoads || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCpnLoads) {
                 return 0;
             }
@@ -13712,7 +13581,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collCpnLoads->contains($l)) {
             $this->doAddCpnLoad($l);
 
-            if ($this->cpnLoadsScheduledForDeletion and $this->cpnLoadsScheduledForDeletion->contains($l)) {
+            if ($this->cpnLoadsScheduledForDeletion && $this->cpnLoadsScheduledForDeletion->contains($l)) {
                 $this->cpnLoadsScheduledForDeletion->remove($this->cpnLoadsScheduledForDeletion->search($l));
             }
         }
@@ -13743,7 +13612,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->cpnLoadsScheduledForDeletion->clear();
             }
             $this->cpnLoadsScheduledForDeletion[]= clone $cpnLoad;
-            $cpnLoad->setCustomer(null);
+            $cpnLoad->setCustomer();
         }
 
         return $this;
@@ -13767,8 +13636,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collNoteCustInternals collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialNoteCustInternals($v = true): void
     {
@@ -13784,8 +13651,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initNoteCustInternals(bool $overrideExisting = true): void
     {
@@ -13817,7 +13682,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getNoteCustInternals(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collNoteCustInternalsPartial && !$this->isNew();
-        if (null === $this->collNoteCustInternals || null !== $criteria || $partial) {
+        if (null === $this->collNoteCustInternals || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collNoteCustInternals) {
@@ -13835,7 +13700,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collNoteCustInternalsPartial && count($collNoteCustInternals)) {
                         $this->initNoteCustInternals(false);
 
@@ -13886,7 +13751,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->noteCustInternalsScheduledForDeletion = $noteCustInternalsToDelete;
 
         foreach ($noteCustInternalsToDelete as $noteCustInternalRemoved) {
-            $noteCustInternalRemoved->setCustomer(null);
+            $noteCustInternalRemoved->setCustomer();
         }
 
         $this->collNoteCustInternals = null;
@@ -13904,7 +13769,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related NoteCustInternal objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related NoteCustInternal objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -13912,7 +13776,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countNoteCustInternals(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collNoteCustInternalsPartial && !$this->isNew();
-        if (null === $this->collNoteCustInternals || null !== $criteria || $partial) {
+        if (null === $this->collNoteCustInternals || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collNoteCustInternals) {
                 return 0;
             }
@@ -13951,7 +13815,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collNoteCustInternals->contains($l)) {
             $this->doAddNoteCustInternal($l);
 
-            if ($this->noteCustInternalsScheduledForDeletion and $this->noteCustInternalsScheduledForDeletion->contains($l)) {
+            if ($this->noteCustInternalsScheduledForDeletion && $this->noteCustInternalsScheduledForDeletion->contains($l)) {
                 $this->noteCustInternalsScheduledForDeletion->remove($this->noteCustInternalsScheduledForDeletion->search($l));
             }
         }
@@ -13982,7 +13846,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->noteCustInternalsScheduledForDeletion->clear();
             }
             $this->noteCustInternalsScheduledForDeletion[]= $noteCustInternal;
-            $noteCustInternal->setCustomer(null);
+            $noteCustInternal->setCustomer();
         }
 
         return $this;
@@ -14032,8 +13896,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collNoteCustOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialNoteCustOrders($v = true): void
     {
@@ -14049,8 +13911,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initNoteCustOrders(bool $overrideExisting = true): void
     {
@@ -14082,7 +13942,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getNoteCustOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collNoteCustOrdersPartial && !$this->isNew();
-        if (null === $this->collNoteCustOrders || null !== $criteria || $partial) {
+        if (null === $this->collNoteCustOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collNoteCustOrders) {
@@ -14100,7 +13960,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collNoteCustOrdersPartial && count($collNoteCustOrders)) {
                         $this->initNoteCustOrders(false);
 
@@ -14151,7 +14011,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->noteCustOrdersScheduledForDeletion = $noteCustOrdersToDelete;
 
         foreach ($noteCustOrdersToDelete as $noteCustOrderRemoved) {
-            $noteCustOrderRemoved->setCustomer(null);
+            $noteCustOrderRemoved->setCustomer();
         }
 
         $this->collNoteCustOrders = null;
@@ -14169,7 +14029,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related NoteCustOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related NoteCustOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14177,7 +14036,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countNoteCustOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collNoteCustOrdersPartial && !$this->isNew();
-        if (null === $this->collNoteCustOrders || null !== $criteria || $partial) {
+        if (null === $this->collNoteCustOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collNoteCustOrders) {
                 return 0;
             }
@@ -14216,7 +14075,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collNoteCustOrders->contains($l)) {
             $this->doAddNoteCustOrder($l);
 
-            if ($this->noteCustOrdersScheduledForDeletion and $this->noteCustOrdersScheduledForDeletion->contains($l)) {
+            if ($this->noteCustOrdersScheduledForDeletion && $this->noteCustOrdersScheduledForDeletion->contains($l)) {
                 $this->noteCustOrdersScheduledForDeletion->remove($this->noteCustOrdersScheduledForDeletion->search($l));
             }
         }
@@ -14247,7 +14106,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->noteCustOrdersScheduledForDeletion->clear();
             }
             $this->noteCustOrdersScheduledForDeletion[]= $noteCustOrder;
-            $noteCustOrder->setCustomer(null);
+            $noteCustOrder->setCustomer();
         }
 
         return $this;
@@ -14297,8 +14156,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefCustomerNotes collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefCustomerNotes($v = true): void
     {
@@ -14314,8 +14171,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefCustomerNotes(bool $overrideExisting = true): void
     {
@@ -14347,7 +14202,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getItemXrefCustomerNotes(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefCustomerNotesPartial && !$this->isNew();
-        if (null === $this->collItemXrefCustomerNotes || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefCustomerNotes || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefCustomerNotes) {
@@ -14365,7 +14220,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefCustomerNotesPartial && count($collItemXrefCustomerNotes)) {
                         $this->initItemXrefCustomerNotes(false);
 
@@ -14416,7 +14271,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->itemXrefCustomerNotesScheduledForDeletion = $itemXrefCustomerNotesToDelete;
 
         foreach ($itemXrefCustomerNotesToDelete as $itemXrefCustomerNoteRemoved) {
-            $itemXrefCustomerNoteRemoved->setCustomer(null);
+            $itemXrefCustomerNoteRemoved->setCustomer();
         }
 
         $this->collItemXrefCustomerNotes = null;
@@ -14434,7 +14289,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related ItemXrefCustomerNote objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefCustomerNote objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14442,7 +14296,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countItemXrefCustomerNotes(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefCustomerNotesPartial && !$this->isNew();
-        if (null === $this->collItemXrefCustomerNotes || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefCustomerNotes || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefCustomerNotes) {
                 return 0;
             }
@@ -14481,7 +14335,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collItemXrefCustomerNotes->contains($l)) {
             $this->doAddItemXrefCustomerNote($l);
 
-            if ($this->itemXrefCustomerNotesScheduledForDeletion and $this->itemXrefCustomerNotesScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefCustomerNotesScheduledForDeletion && $this->itemXrefCustomerNotesScheduledForDeletion->contains($l)) {
                 $this->itemXrefCustomerNotesScheduledForDeletion->remove($this->itemXrefCustomerNotesScheduledForDeletion->search($l));
             }
         }
@@ -14512,7 +14366,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->itemXrefCustomerNotesScheduledForDeletion->clear();
             }
             $this->itemXrefCustomerNotesScheduledForDeletion[]= $itemXrefCustomerNote;
-            $itemXrefCustomerNote->setCustomer(null);
+            $itemXrefCustomerNote->setCustomer();
         }
 
         return $this;
@@ -14562,8 +14416,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collRcyclReceipts collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialRcyclReceipts($v = true): void
     {
@@ -14579,8 +14431,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initRcyclReceipts(bool $overrideExisting = true): void
     {
@@ -14612,7 +14462,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getRcyclReceipts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collRcyclReceiptsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceipts || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceipts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collRcyclReceipts) {
@@ -14630,7 +14480,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collRcyclReceiptsPartial && count($collRcyclReceipts)) {
                         $this->initRcyclReceipts(false);
 
@@ -14681,7 +14531,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->rcyclReceiptsScheduledForDeletion = $rcyclReceiptsToDelete;
 
         foreach ($rcyclReceiptsToDelete as $rcyclReceiptRemoved) {
-            $rcyclReceiptRemoved->setCustomer(null);
+            $rcyclReceiptRemoved->setCustomer();
         }
 
         $this->collRcyclReceipts = null;
@@ -14699,7 +14549,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related RcyclReceipt objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related RcyclReceipt objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14707,7 +14556,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countRcyclReceipts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collRcyclReceiptsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceipts || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceipts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collRcyclReceipts) {
                 return 0;
             }
@@ -14746,7 +14595,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collRcyclReceipts->contains($l)) {
             $this->doAddRcyclReceipt($l);
 
-            if ($this->rcyclReceiptsScheduledForDeletion and $this->rcyclReceiptsScheduledForDeletion->contains($l)) {
+            if ($this->rcyclReceiptsScheduledForDeletion && $this->rcyclReceiptsScheduledForDeletion->contains($l)) {
                 $this->rcyclReceiptsScheduledForDeletion->remove($this->rcyclReceiptsScheduledForDeletion->search($l));
             }
         }
@@ -14777,7 +14626,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->rcyclReceiptsScheduledForDeletion->clear();
             }
             $this->rcyclReceiptsScheduledForDeletion[]= clone $rcyclReceipt;
-            $rcyclReceipt->setCustomer(null);
+            $rcyclReceipt->setCustomer();
         }
 
         return $this;
@@ -14827,8 +14676,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collBookingDayCustomers collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookingDayCustomers($v = true): void
     {
@@ -14844,8 +14691,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookingDayCustomers(bool $overrideExisting = true): void
     {
@@ -14877,7 +14722,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getBookingDayCustomers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookingDayCustomers) {
@@ -14895,7 +14740,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingDayCustomersPartial && count($collBookingDayCustomers)) {
                         $this->initBookingDayCustomers(false);
 
@@ -14949,7 +14794,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->bookingDayCustomersScheduledForDeletion = clone $bookingDayCustomersToDelete;
 
         foreach ($bookingDayCustomersToDelete as $bookingDayCustomerRemoved) {
-            $bookingDayCustomerRemoved->setCustomer(null);
+            $bookingDayCustomerRemoved->setCustomer();
         }
 
         $this->collBookingDayCustomers = null;
@@ -14967,7 +14812,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related BookingDayCustomer objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BookingDayCustomer objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14975,7 +14819,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countBookingDayCustomers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookingDayCustomers) {
                 return 0;
             }
@@ -15014,7 +14858,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collBookingDayCustomers->contains($l)) {
             $this->doAddBookingDayCustomer($l);
 
-            if ($this->bookingDayCustomersScheduledForDeletion and $this->bookingDayCustomersScheduledForDeletion->contains($l)) {
+            if ($this->bookingDayCustomersScheduledForDeletion && $this->bookingDayCustomersScheduledForDeletion->contains($l)) {
                 $this->bookingDayCustomersScheduledForDeletion->remove($this->bookingDayCustomersScheduledForDeletion->search($l));
             }
         }
@@ -15045,7 +14889,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->bookingDayCustomersScheduledForDeletion->clear();
             }
             $this->bookingDayCustomersScheduledForDeletion[]= clone $bookingDayCustomer;
-            $bookingDayCustomer->setCustomer(null);
+            $bookingDayCustomer->setCustomer();
         }
 
         return $this;
@@ -15121,8 +14965,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collBookingDayDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookingDayDetails($v = true): void
     {
@@ -15138,8 +14980,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookingDayDetails(bool $overrideExisting = true): void
     {
@@ -15171,7 +15011,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getBookingDayDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookingDayDetails) {
@@ -15189,7 +15029,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingDayDetailsPartial && count($collBookingDayDetails)) {
                         $this->initBookingDayDetails(false);
 
@@ -15243,7 +15083,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->bookingDayDetailsScheduledForDeletion = clone $bookingDayDetailsToDelete;
 
         foreach ($bookingDayDetailsToDelete as $bookingDayDetailRemoved) {
-            $bookingDayDetailRemoved->setCustomer(null);
+            $bookingDayDetailRemoved->setCustomer();
         }
 
         $this->collBookingDayDetails = null;
@@ -15261,7 +15101,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related BookingDayDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BookingDayDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15269,7 +15108,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countBookingDayDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookingDayDetails) {
                 return 0;
             }
@@ -15308,7 +15147,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collBookingDayDetails->contains($l)) {
             $this->doAddBookingDayDetail($l);
 
-            if ($this->bookingDayDetailsScheduledForDeletion and $this->bookingDayDetailsScheduledForDeletion->contains($l)) {
+            if ($this->bookingDayDetailsScheduledForDeletion && $this->bookingDayDetailsScheduledForDeletion->contains($l)) {
                 $this->bookingDayDetailsScheduledForDeletion->remove($this->bookingDayDetailsScheduledForDeletion->search($l));
             }
         }
@@ -15339,7 +15178,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->bookingDayDetailsScheduledForDeletion->clear();
             }
             $this->bookingDayDetailsScheduledForDeletion[]= clone $bookingDayDetail;
-            $bookingDayDetail->setCustomer(null);
+            $bookingDayDetail->setCustomer();
         }
 
         return $this;
@@ -15415,8 +15254,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collBookings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookings($v = true): void
     {
@@ -15432,8 +15269,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookings(bool $overrideExisting = true): void
     {
@@ -15465,7 +15300,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getBookings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria || $partial) {
+        if (null === $this->collBookings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookings) {
@@ -15483,7 +15318,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingsPartial && count($collBookings)) {
                         $this->initBookings(false);
 
@@ -15534,7 +15369,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->bookingsScheduledForDeletion = $bookingsToDelete;
 
         foreach ($bookingsToDelete as $bookingRemoved) {
-            $bookingRemoved->setCustomer(null);
+            $bookingRemoved->setCustomer();
         }
 
         $this->collBookings = null;
@@ -15552,7 +15387,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related Booking objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related Booking objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15560,7 +15394,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countBookings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria || $partial) {
+        if (null === $this->collBookings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookings) {
                 return 0;
             }
@@ -15599,7 +15433,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collBookings->contains($l)) {
             $this->doAddBooking($l);
 
-            if ($this->bookingsScheduledForDeletion and $this->bookingsScheduledForDeletion->contains($l)) {
+            if ($this->bookingsScheduledForDeletion && $this->bookingsScheduledForDeletion->contains($l)) {
                 $this->bookingsScheduledForDeletion->remove($this->bookingsScheduledForDeletion->search($l));
             }
         }
@@ -15630,7 +15464,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->bookingsScheduledForDeletion->clear();
             }
             $this->bookingsScheduledForDeletion[]= $booking;
-            $booking->setCustomer(null);
+            $booking->setCustomer();
         }
 
         return $this;
@@ -15706,8 +15540,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesHistories collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesHistories($v = true): void
     {
@@ -15723,8 +15555,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesHistories(bool $overrideExisting = true): void
     {
@@ -15756,7 +15586,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getSalesHistories(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesHistoriesPartial && !$this->isNew();
-        if (null === $this->collSalesHistories || null !== $criteria || $partial) {
+        if (null === $this->collSalesHistories || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesHistories) {
@@ -15774,7 +15604,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesHistoriesPartial && count($collSalesHistories)) {
                         $this->initSalesHistories(false);
 
@@ -15825,7 +15655,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->salesHistoriesScheduledForDeletion = $salesHistoriesToDelete;
 
         foreach ($salesHistoriesToDelete as $salesHistoryRemoved) {
-            $salesHistoryRemoved->setCustomer(null);
+            $salesHistoryRemoved->setCustomer();
         }
 
         $this->collSalesHistories = null;
@@ -15843,7 +15673,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related SalesHistory objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesHistory objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15851,7 +15680,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countSalesHistories(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesHistoriesPartial && !$this->isNew();
-        if (null === $this->collSalesHistories || null !== $criteria || $partial) {
+        if (null === $this->collSalesHistories || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesHistories) {
                 return 0;
             }
@@ -15890,7 +15719,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collSalesHistories->contains($l)) {
             $this->doAddSalesHistory($l);
 
-            if ($this->salesHistoriesScheduledForDeletion and $this->salesHistoriesScheduledForDeletion->contains($l)) {
+            if ($this->salesHistoriesScheduledForDeletion && $this->salesHistoriesScheduledForDeletion->contains($l)) {
                 $this->salesHistoriesScheduledForDeletion->remove($this->salesHistoriesScheduledForDeletion->search($l));
             }
         }
@@ -15921,7 +15750,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->salesHistoriesScheduledForDeletion->clear();
             }
             $this->salesHistoriesScheduledForDeletion[]= clone $salesHistory;
-            $salesHistory->setCustomer(null);
+            $salesHistory->setCustomer();
         }
 
         return $this;
@@ -15971,8 +15800,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesOrders($v = true): void
     {
@@ -15988,8 +15815,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesOrders(bool $overrideExisting = true): void
     {
@@ -16021,7 +15846,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getSalesOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrdersPartial && !$this->isNew();
-        if (null === $this->collSalesOrders || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesOrders) {
@@ -16039,7 +15864,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesOrdersPartial && count($collSalesOrders)) {
                         $this->initSalesOrders(false);
 
@@ -16090,7 +15915,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->salesOrdersScheduledForDeletion = $salesOrdersToDelete;
 
         foreach ($salesOrdersToDelete as $salesOrderRemoved) {
-            $salesOrderRemoved->setCustomer(null);
+            $salesOrderRemoved->setCustomer();
         }
 
         $this->collSalesOrders = null;
@@ -16108,7 +15933,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related SalesOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16116,7 +15940,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countSalesOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrdersPartial && !$this->isNew();
-        if (null === $this->collSalesOrders || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesOrders) {
                 return 0;
             }
@@ -16155,7 +15979,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collSalesOrders->contains($l)) {
             $this->doAddSalesOrder($l);
 
-            if ($this->salesOrdersScheduledForDeletion and $this->salesOrdersScheduledForDeletion->contains($l)) {
+            if ($this->salesOrdersScheduledForDeletion && $this->salesOrdersScheduledForDeletion->contains($l)) {
                 $this->salesOrdersScheduledForDeletion->remove($this->salesOrdersScheduledForDeletion->search($l));
             }
         }
@@ -16186,7 +16010,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->salesOrdersScheduledForDeletion->clear();
             }
             $this->salesOrdersScheduledForDeletion[]= clone $salesOrder;
-            $salesOrder->setCustomer(null);
+            $salesOrder->setCustomer();
         }
 
         return $this;
@@ -16236,8 +16060,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collItemPricingDiscounts collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemPricingDiscounts($v = true): void
     {
@@ -16253,8 +16075,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemPricingDiscounts(bool $overrideExisting = true): void
     {
@@ -16286,7 +16106,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getItemPricingDiscounts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemPricingDiscountsPartial && !$this->isNew();
-        if (null === $this->collItemPricingDiscounts || null !== $criteria || $partial) {
+        if (null === $this->collItemPricingDiscounts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemPricingDiscounts) {
@@ -16304,7 +16124,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemPricingDiscountsPartial && count($collItemPricingDiscounts)) {
                         $this->initItemPricingDiscounts(false);
 
@@ -16358,7 +16178,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->itemPricingDiscountsScheduledForDeletion = clone $itemPricingDiscountsToDelete;
 
         foreach ($itemPricingDiscountsToDelete as $itemPricingDiscountRemoved) {
-            $itemPricingDiscountRemoved->setCustomer(null);
+            $itemPricingDiscountRemoved->setCustomer();
         }
 
         $this->collItemPricingDiscounts = null;
@@ -16376,7 +16196,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related ItemPricingDiscount objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemPricingDiscount objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16384,7 +16203,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countItemPricingDiscounts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemPricingDiscountsPartial && !$this->isNew();
-        if (null === $this->collItemPricingDiscounts || null !== $criteria || $partial) {
+        if (null === $this->collItemPricingDiscounts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemPricingDiscounts) {
                 return 0;
             }
@@ -16423,7 +16242,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collItemPricingDiscounts->contains($l)) {
             $this->doAddItemPricingDiscount($l);
 
-            if ($this->itemPricingDiscountsScheduledForDeletion and $this->itemPricingDiscountsScheduledForDeletion->contains($l)) {
+            if ($this->itemPricingDiscountsScheduledForDeletion && $this->itemPricingDiscountsScheduledForDeletion->contains($l)) {
                 $this->itemPricingDiscountsScheduledForDeletion->remove($this->itemPricingDiscountsScheduledForDeletion->search($l));
             }
         }
@@ -16454,7 +16273,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->itemPricingDiscountsScheduledForDeletion->clear();
             }
             $this->itemPricingDiscountsScheduledForDeletion[]= clone $itemPricingDiscount;
-            $itemPricingDiscount->setCustomer(null);
+            $itemPricingDiscount->setCustomer();
         }
 
         return $this;
@@ -16504,8 +16323,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collSoStandingOrderDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSoStandingOrderDetails($v = true): void
     {
@@ -16521,8 +16338,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSoStandingOrderDetails(bool $overrideExisting = true): void
     {
@@ -16554,7 +16369,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getSoStandingOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSoStandingOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSoStandingOrderDetails) {
@@ -16572,7 +16387,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSoStandingOrderDetailsPartial && count($collSoStandingOrderDetails)) {
                         $this->initSoStandingOrderDetails(false);
 
@@ -16626,7 +16441,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->soStandingOrderDetailsScheduledForDeletion = clone $soStandingOrderDetailsToDelete;
 
         foreach ($soStandingOrderDetailsToDelete as $soStandingOrderDetailRemoved) {
-            $soStandingOrderDetailRemoved->setCustomer(null);
+            $soStandingOrderDetailRemoved->setCustomer();
         }
 
         $this->collSoStandingOrderDetails = null;
@@ -16644,7 +16459,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related SoStandingOrderDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SoStandingOrderDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16652,7 +16466,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countSoStandingOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSoStandingOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSoStandingOrderDetails) {
                 return 0;
             }
@@ -16691,7 +16505,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collSoStandingOrderDetails->contains($l)) {
             $this->doAddSoStandingOrderDetail($l);
 
-            if ($this->soStandingOrderDetailsScheduledForDeletion and $this->soStandingOrderDetailsScheduledForDeletion->contains($l)) {
+            if ($this->soStandingOrderDetailsScheduledForDeletion && $this->soStandingOrderDetailsScheduledForDeletion->contains($l)) {
                 $this->soStandingOrderDetailsScheduledForDeletion->remove($this->soStandingOrderDetailsScheduledForDeletion->search($l));
             }
         }
@@ -16722,7 +16536,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->soStandingOrderDetailsScheduledForDeletion->clear();
             }
             $this->soStandingOrderDetailsScheduledForDeletion[]= clone $soStandingOrderDetail;
-            $soStandingOrderDetail->setCustomer(null);
+            $soStandingOrderDetail->setCustomer();
         }
 
         return $this;
@@ -16798,8 +16612,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Reset is the collSoStandingOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSoStandingOrders($v = true): void
     {
@@ -16815,8 +16627,6 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSoStandingOrders(bool $overrideExisting = true): void
     {
@@ -16848,7 +16658,7 @@ abstract class Customer implements ActiveRecordInterface
     public function getSoStandingOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoStandingOrdersPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrders || null !== $criteria || $partial) {
+        if (null === $this->collSoStandingOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSoStandingOrders) {
@@ -16866,7 +16676,7 @@ abstract class Customer implements ActiveRecordInterface
                     ->filterByCustomer($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSoStandingOrdersPartial && count($collSoStandingOrders)) {
                         $this->initSoStandingOrders(false);
 
@@ -16920,7 +16730,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->soStandingOrdersScheduledForDeletion = clone $soStandingOrdersToDelete;
 
         foreach ($soStandingOrdersToDelete as $soStandingOrderRemoved) {
-            $soStandingOrderRemoved->setCustomer(null);
+            $soStandingOrderRemoved->setCustomer();
         }
 
         $this->collSoStandingOrders = null;
@@ -16938,7 +16748,6 @@ abstract class Customer implements ActiveRecordInterface
      * Returns the number of related SoStandingOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SoStandingOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16946,7 +16755,7 @@ abstract class Customer implements ActiveRecordInterface
     public function countSoStandingOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoStandingOrdersPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrders || null !== $criteria || $partial) {
+        if (null === $this->collSoStandingOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSoStandingOrders) {
                 return 0;
             }
@@ -16985,7 +16794,7 @@ abstract class Customer implements ActiveRecordInterface
         if (!$this->collSoStandingOrders->contains($l)) {
             $this->doAddSoStandingOrder($l);
 
-            if ($this->soStandingOrdersScheduledForDeletion and $this->soStandingOrdersScheduledForDeletion->contains($l)) {
+            if ($this->soStandingOrdersScheduledForDeletion && $this->soStandingOrdersScheduledForDeletion->contains($l)) {
                 $this->soStandingOrdersScheduledForDeletion->remove($this->soStandingOrdersScheduledForDeletion->search($l));
             }
         }
@@ -17016,7 +16825,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->soStandingOrdersScheduledForDeletion->clear();
             }
             $this->soStandingOrdersScheduledForDeletion[]= clone $soStandingOrder;
-            $soStandingOrder->setCustomer(null);
+            $soStandingOrder->setCustomer();
         }
 
         return $this;
@@ -17378,13 +17187,11 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CustomerTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(CustomerTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -17393,8 +17200,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -17402,8 +17207,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -17412,8 +17215,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -17421,8 +17222,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -17431,8 +17230,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -17440,8 +17237,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -17450,8 +17245,6 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -17471,7 +17264,7 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -17483,7 +17276,7 @@ abstract class Customer implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -17491,7 +17284,7 @@ abstract class Customer implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

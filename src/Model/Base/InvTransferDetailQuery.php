@@ -254,7 +254,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvTransferDetailQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvTransferDetailQuery object.
@@ -312,7 +312,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvTransferDetailTableMap::DATABASE_NAME);
         }
 
@@ -359,7 +359,6 @@ abstract class InvTransferDetailQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvTransferDetail $obj */
             $obj = new ChildInvTransferDetail();
             $obj->hydrate($row);
             InvTransferDetailTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -400,7 +399,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -556,10 +555,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -670,10 +667,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtrqstdate($indtrqstdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtrqstdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtrqstdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTRQSTDATE, $indtrqstdate, $comparison);
@@ -698,10 +693,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtshipdate($indtshipdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtshipdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtshipdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTSHIPDATE, $indtshipdate, $comparison);
@@ -726,10 +719,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtpickflag($indtpickflag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtpickflag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtpickflag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTPICKFLAG, $indtpickflag, $comparison);
@@ -754,10 +745,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtbordflag($indtbordflag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtbordflag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtbordflag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTBORDFLAG, $indtbordflag, $comparison);
@@ -911,10 +900,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtrcptdate($indtrcptdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtrcptdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtrcptdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTRCPTDATE, $indtrcptdate, $comparison);
@@ -982,10 +969,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtkitflag($indtkitflag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtkitflag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtkitflag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTKITFLAG, $indtkitflag, $comparison);
@@ -1010,10 +995,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtuseitemnbr($indtuseitemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtuseitemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtuseitemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTUSEITEMNBR, $indtuseitemnbr, $comparison);
@@ -1038,10 +1021,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtcustitemnbr($indtcustitemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtcustitemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtcustitemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTCUSTITEMNBR, $indtcustitemnbr, $comparison);
@@ -1152,10 +1133,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtorigrqstdate($indtorigrqstdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtorigrqstdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtorigrqstdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTORIGRQSTDATE, $indtorigrqstdate, $comparison);
@@ -1180,10 +1159,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtordras($indtordras = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtordras)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtordras)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTORDRAS, $indtordras, $comparison);
@@ -1208,10 +1185,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtfreshfrozen($indtfreshfrozen = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtfreshfrozen)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtfreshfrozen)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTFRESHFROZEN, $indtfreshfrozen, $comparison);
@@ -1236,10 +1211,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByIndtprimbin($indtprimbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($indtprimbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($indtprimbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTPRIMBIN, $indtprimbin, $comparison);
@@ -1264,10 +1237,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1292,10 +1263,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1320,10 +1289,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferDetailTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1377,7 +1344,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1407,7 +1374,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferOrder', '\InvTransferOrderQuery');
+            ->useQuery($relationAlias ?: 'InvTransferOrder', '\InvTransferOrderQuery');
     }
 
     /**
@@ -1552,7 +1519,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1582,7 +1549,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1719,7 +1686,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1749,7 +1716,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferLotserial', '\InvTransferLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferLotserial', '\InvTransferLotserialQuery');
     }
 
     /**
@@ -1886,7 +1853,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1916,7 +1883,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferPreAllocatedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPreAllocatedLotserial', '\InvTransferPreAllocatedLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferPreAllocatedLotserial', '\InvTransferPreAllocatedLotserialQuery');
     }
 
     /**
@@ -2053,7 +2020,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2083,7 +2050,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferPickedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPickedLotserial', '\InvTransferPickedLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferPickedLotserial', '\InvTransferPickedLotserialQuery');
     }
 
     /**
@@ -2194,7 +2161,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
         if ($invTransferDetail) {
             $this->addCond('pruneCond0', $this->getAliasedColName(InvTransferDetailTableMap::COL_INHDNBR), $invTransferDetail->getInhdnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvTransferDetailTableMap::COL_INDTLINE), $invTransferDetail->getIndtline(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2208,7 +2175,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferDetailTableMap::DATABASE_NAME);
         }
 
@@ -2238,7 +2205,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferDetailTableMap::DATABASE_NAME);
         }
 

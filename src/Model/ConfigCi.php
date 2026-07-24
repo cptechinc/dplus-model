@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigCi as BaseConfigCi;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -21,10 +23,10 @@ class ConfigCi extends BaseConfigCi {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'show_inactive' => 'citbconfshowinactive',
 		'ytdstartmonth' => 'citbconfytdstrtmo',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 }

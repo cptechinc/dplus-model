@@ -134,7 +134,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class NoteCustInternalQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\NoteCustInternalQuery object.
@@ -192,7 +192,7 @@ abstract class NoteCustInternalQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(NoteCustInternalTableMap::DATABASE_NAME);
         }
 
@@ -241,7 +241,6 @@ abstract class NoteCustInternalQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildNoteCustInternal $obj */
             $obj = new ChildNoteCustInternal();
             $obj->hydrate($row);
             NoteCustInternalTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -282,7 +281,7 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -356,10 +355,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByQntype($qntype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qntype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qntype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_QNTYPE, $qntype, $comparison);
@@ -384,10 +381,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qntypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qntypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
@@ -412,10 +407,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -440,10 +433,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
@@ -511,10 +502,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnnote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnnote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_QNNOTE, $qnnote, $comparison);
@@ -539,10 +528,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnkey2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnkey2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_QNKEY2, $qnkey2, $comparison);
@@ -567,10 +554,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByQnform($qnform = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnform)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnform)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_QNFORM, $qnform, $comparison);
@@ -595,10 +580,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -623,10 +606,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -651,10 +632,8 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(NoteCustInternalTableMap::COL_DUMMY, $dummy, $comparison);
@@ -708,7 +687,7 @@ abstract class NoteCustInternalQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -738,7 +717,7 @@ abstract class NoteCustInternalQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -875,7 +854,7 @@ abstract class NoteCustInternalQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -905,7 +884,7 @@ abstract class NoteCustInternalQuery extends ModelCriteria
     {
         return $this
             ->joinCustomerShipto($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CustomerShipto', '\CustomerShiptoQuery');
+            ->useQuery($relationAlias ?: 'CustomerShipto', '\CustomerShiptoQuery');
     }
 
     /**
@@ -1018,7 +997,7 @@ abstract class NoteCustInternalQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(NoteCustInternalTableMap::COL_QNSEQ), $noteCustInternal->getQnseq(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(NoteCustInternalTableMap::COL_QNKEY2), $noteCustInternal->getQnkey2(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(NoteCustInternalTableMap::COL_QNFORM), $noteCustInternal->getQnform(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1032,7 +1011,7 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(NoteCustInternalTableMap::DATABASE_NAME);
         }
 
@@ -1062,7 +1041,7 @@ abstract class NoteCustInternalQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(NoteCustInternalTableMap::DATABASE_NAME);
         }
 

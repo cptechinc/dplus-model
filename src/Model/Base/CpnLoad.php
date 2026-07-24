@@ -42,7 +42,7 @@ abstract class CpnLoad implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\CpnLoadTableMap';
+    public const TABLE_MAP = \Map\CpnLoadTableMap::class;
 
 
     /**
@@ -311,14 +311,14 @@ abstract class CpnLoad implements ActiveRecordInterface
      * @var ObjectCollection|ChildCpnLoadItem[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCpnLoadItem>
      */
-    protected $cpnLoadItemsScheduledForDeletion = null;
+    protected $cpnLoadItemsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildCpnLoadOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCpnLoadOrder>
      */
-    protected $cpnLoadOrdersScheduledForDeletion = null;
+    protected $cpnLoadOrdersScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -372,7 +372,7 @@ abstract class CpnLoad implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -430,7 +430,6 @@ abstract class CpnLoad implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -440,7 +439,6 @@ abstract class CpnLoad implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -478,8 +476,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -490,7 +486,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -532,9 +527,7 @@ abstract class CpnLoad implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -560,7 +553,7 @@ abstract class CpnLoad implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1477,13 +1470,8 @@ abstract class CpnLoad implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -1508,82 +1496,82 @@ abstract class CpnLoad implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CpnLoadTableMap::translateFieldName('Lchdloadnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : CpnLoadTableMap::translateFieldName('Lchdloadnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdloadnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CpnLoadTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : CpnLoadTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CpnLoadTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : CpnLoadTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CpnLoadTableMap::translateFieldName('Lchdshipidfrom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : CpnLoadTableMap::translateFieldName('Lchdshipidfrom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdshipidfrom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CpnLoadTableMap::translateFieldName('Lchdshipidthru', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : CpnLoadTableMap::translateFieldName('Lchdshipidthru', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdshipidthru = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CpnLoadTableMap::translateFieldName('Lchdshipidthrusel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : CpnLoadTableMap::translateFieldName('Lchdshipidthrusel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdshipidthrusel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CpnLoadTableMap::translateFieldName('Lchdcustpofrom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : CpnLoadTableMap::translateFieldName('Lchdcustpofrom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdcustpofrom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CpnLoadTableMap::translateFieldName('Lchdcustpothru', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : CpnLoadTableMap::translateFieldName('Lchdcustpothru', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdcustpothru = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CpnLoadTableMap::translateFieldName('Lchdcustpothrusel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : CpnLoadTableMap::translateFieldName('Lchdcustpothrusel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdcustpothrusel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CpnLoadTableMap::translateFieldName('Lchdrqstdatefrom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : CpnLoadTableMap::translateFieldName('Lchdrqstdatefrom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdrqstdatefrom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CpnLoadTableMap::translateFieldName('Lchdrqstdatethru', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : CpnLoadTableMap::translateFieldName('Lchdrqstdatethru', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdrqstdatethru = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CpnLoadTableMap::translateFieldName('Lchdbol', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : CpnLoadTableMap::translateFieldName('Lchdbol', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdbol = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CpnLoadTableMap::translateFieldName('Lchdpronbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : CpnLoadTableMap::translateFieldName('Lchdpronbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdpronbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CpnLoadTableMap::translateFieldName('Lchdshipdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : CpnLoadTableMap::translateFieldName('Lchdshipdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdshipdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CpnLoadTableMap::translateFieldName('Lchdnbrofskids', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : CpnLoadTableMap::translateFieldName('Lchdnbrofskids', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdnbrofskids = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : CpnLoadTableMap::translateFieldName('Lchdnbrofboxes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : CpnLoadTableMap::translateFieldName('Lchdnbrofboxes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdnbrofboxes = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : CpnLoadTableMap::translateFieldName('Lchdtotwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : CpnLoadTableMap::translateFieldName('Lchdtotwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdtotwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : CpnLoadTableMap::translateFieldName('Lchdslctnbrofboxes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : CpnLoadTableMap::translateFieldName('Lchdslctnbrofboxes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdslctnbrofboxes = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CpnLoadTableMap::translateFieldName('Lchdslcttotwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : CpnLoadTableMap::translateFieldName('Lchdslcttotwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdslcttotwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CpnLoadTableMap::translateFieldName('Lchdschdpickupdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : CpnLoadTableMap::translateFieldName('Lchdschdpickupdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdschdpickupdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : CpnLoadTableMap::translateFieldName('Lchdschdpickuptime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : CpnLoadTableMap::translateFieldName('Lchdschdpickuptime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdschdpickuptime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : CpnLoadTableMap::translateFieldName('Lchdexportdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : CpnLoadTableMap::translateFieldName('Lchdexportdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdexportdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : CpnLoadTableMap::translateFieldName('Lchdexporttime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : CpnLoadTableMap::translateFieldName('Lchdexporttime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lchdexporttime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : CpnLoadTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : CpnLoadTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : CpnLoadTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : CpnLoadTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : CpnLoadTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : CpnLoadTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1612,7 +1600,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1628,7 +1615,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1641,7 +1627,7 @@ abstract class CpnLoad implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CpnLoadTableMap::DATABASE_NAME);
         }
 
@@ -1670,7 +1656,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see CpnLoad::setDeleted()
      * @see CpnLoad::isDeleted()
@@ -1681,7 +1666,7 @@ abstract class CpnLoad implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadTableMap::DATABASE_NAME);
         }
 
@@ -1720,18 +1705,14 @@ abstract class CpnLoad implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1755,7 +1736,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1789,13 +1769,11 @@ abstract class CpnLoad implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->cpnLoadItemsScheduledForDeletion !== null) {
-                if (!$this->cpnLoadItemsScheduledForDeletion->isEmpty()) {
-                    \CpnLoadItemQuery::create()
-                        ->filterByPrimaryKeys($this->cpnLoadItemsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->cpnLoadItemsScheduledForDeletion = null;
-                }
+            if ($this->cpnLoadItemsScheduledForDeletion !== null && !$this->cpnLoadItemsScheduledForDeletion->isEmpty()) {
+                \CpnLoadItemQuery::create()
+                    ->filterByPrimaryKeys($this->cpnLoadItemsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->cpnLoadItemsScheduledForDeletion = null;
             }
 
             if ($this->collCpnLoadItems !== null) {
@@ -1806,13 +1784,11 @@ abstract class CpnLoad implements ActiveRecordInterface
                 }
             }
 
-            if ($this->cpnLoadOrdersScheduledForDeletion !== null) {
-                if (!$this->cpnLoadOrdersScheduledForDeletion->isEmpty()) {
-                    \CpnLoadOrderQuery::create()
-                        ->filterByPrimaryKeys($this->cpnLoadOrdersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->cpnLoadOrdersScheduledForDeletion = null;
-                }
+            if ($this->cpnLoadOrdersScheduledForDeletion !== null && !$this->cpnLoadOrdersScheduledForDeletion->isEmpty()) {
+                \CpnLoadOrderQuery::create()
+                    ->filterByPrimaryKeys($this->cpnLoadOrdersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->cpnLoadOrdersScheduledForDeletion = null;
             }
 
             if ($this->collCpnLoadOrders !== null) {
@@ -1833,7 +1809,6 @@ abstract class CpnLoad implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2052,7 +2027,6 @@ abstract class CpnLoad implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2078,9 +2052,8 @@ abstract class CpnLoad implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = CpnLoadTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2285,7 +2258,6 @@ abstract class CpnLoad implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -2653,7 +2625,7 @@ abstract class CpnLoad implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -2673,7 +2645,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      * Generic method to set the primary key (lchdloadnbr column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -2682,8 +2653,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -2700,7 +2669,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2780,13 +2748,12 @@ abstract class CpnLoad implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param ChildCustomer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -2796,7 +2763,7 @@ abstract class CpnLoad implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->addCpnLoad($this);
         }
 
@@ -2835,7 +2802,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -2867,8 +2833,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Reset is the collCpnLoadItems collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCpnLoadItems($v = true): void
     {
@@ -2884,8 +2848,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCpnLoadItems(bool $overrideExisting = true): void
     {
@@ -2917,7 +2879,7 @@ abstract class CpnLoad implements ActiveRecordInterface
     public function getCpnLoadItems(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCpnLoadItemsPartial && !$this->isNew();
-        if (null === $this->collCpnLoadItems || null !== $criteria || $partial) {
+        if (null === $this->collCpnLoadItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCpnLoadItems) {
@@ -2935,7 +2897,7 @@ abstract class CpnLoad implements ActiveRecordInterface
                     ->filterByCpnLoad($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCpnLoadItemsPartial && count($collCpnLoadItems)) {
                         $this->initCpnLoadItems(false);
 
@@ -2989,7 +2951,7 @@ abstract class CpnLoad implements ActiveRecordInterface
         $this->cpnLoadItemsScheduledForDeletion = clone $cpnLoadItemsToDelete;
 
         foreach ($cpnLoadItemsToDelete as $cpnLoadItemRemoved) {
-            $cpnLoadItemRemoved->setCpnLoad(null);
+            $cpnLoadItemRemoved->setCpnLoad();
         }
 
         $this->collCpnLoadItems = null;
@@ -3007,7 +2969,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      * Returns the number of related CpnLoadItem objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related CpnLoadItem objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3015,7 +2976,7 @@ abstract class CpnLoad implements ActiveRecordInterface
     public function countCpnLoadItems(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCpnLoadItemsPartial && !$this->isNew();
-        if (null === $this->collCpnLoadItems || null !== $criteria || $partial) {
+        if (null === $this->collCpnLoadItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCpnLoadItems) {
                 return 0;
             }
@@ -3054,7 +3015,7 @@ abstract class CpnLoad implements ActiveRecordInterface
         if (!$this->collCpnLoadItems->contains($l)) {
             $this->doAddCpnLoadItem($l);
 
-            if ($this->cpnLoadItemsScheduledForDeletion and $this->cpnLoadItemsScheduledForDeletion->contains($l)) {
+            if ($this->cpnLoadItemsScheduledForDeletion && $this->cpnLoadItemsScheduledForDeletion->contains($l)) {
                 $this->cpnLoadItemsScheduledForDeletion->remove($this->cpnLoadItemsScheduledForDeletion->search($l));
             }
         }
@@ -3085,7 +3046,7 @@ abstract class CpnLoad implements ActiveRecordInterface
                 $this->cpnLoadItemsScheduledForDeletion->clear();
             }
             $this->cpnLoadItemsScheduledForDeletion[]= clone $cpnLoadItem;
-            $cpnLoadItem->setCpnLoad(null);
+            $cpnLoadItem->setCpnLoad();
         }
 
         return $this;
@@ -3109,8 +3070,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Reset is the collCpnLoadOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCpnLoadOrders($v = true): void
     {
@@ -3126,8 +3085,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCpnLoadOrders(bool $overrideExisting = true): void
     {
@@ -3159,7 +3116,7 @@ abstract class CpnLoad implements ActiveRecordInterface
     public function getCpnLoadOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCpnLoadOrdersPartial && !$this->isNew();
-        if (null === $this->collCpnLoadOrders || null !== $criteria || $partial) {
+        if (null === $this->collCpnLoadOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCpnLoadOrders) {
@@ -3177,7 +3134,7 @@ abstract class CpnLoad implements ActiveRecordInterface
                     ->filterByCpnLoad($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCpnLoadOrdersPartial && count($collCpnLoadOrders)) {
                         $this->initCpnLoadOrders(false);
 
@@ -3231,7 +3188,7 @@ abstract class CpnLoad implements ActiveRecordInterface
         $this->cpnLoadOrdersScheduledForDeletion = clone $cpnLoadOrdersToDelete;
 
         foreach ($cpnLoadOrdersToDelete as $cpnLoadOrderRemoved) {
-            $cpnLoadOrderRemoved->setCpnLoad(null);
+            $cpnLoadOrderRemoved->setCpnLoad();
         }
 
         $this->collCpnLoadOrders = null;
@@ -3249,7 +3206,6 @@ abstract class CpnLoad implements ActiveRecordInterface
      * Returns the number of related CpnLoadOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related CpnLoadOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3257,7 +3213,7 @@ abstract class CpnLoad implements ActiveRecordInterface
     public function countCpnLoadOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCpnLoadOrdersPartial && !$this->isNew();
-        if (null === $this->collCpnLoadOrders || null !== $criteria || $partial) {
+        if (null === $this->collCpnLoadOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCpnLoadOrders) {
                 return 0;
             }
@@ -3296,7 +3252,7 @@ abstract class CpnLoad implements ActiveRecordInterface
         if (!$this->collCpnLoadOrders->contains($l)) {
             $this->doAddCpnLoadOrder($l);
 
-            if ($this->cpnLoadOrdersScheduledForDeletion and $this->cpnLoadOrdersScheduledForDeletion->contains($l)) {
+            if ($this->cpnLoadOrdersScheduledForDeletion && $this->cpnLoadOrdersScheduledForDeletion->contains($l)) {
                 $this->cpnLoadOrdersScheduledForDeletion->remove($this->cpnLoadOrdersScheduledForDeletion->search($l));
             }
         }
@@ -3327,7 +3283,7 @@ abstract class CpnLoad implements ActiveRecordInterface
                 $this->cpnLoadOrdersScheduledForDeletion->clear();
             }
             $this->cpnLoadOrdersScheduledForDeletion[]= clone $cpnLoadOrder;
-            $cpnLoadOrder->setCpnLoad(null);
+            $cpnLoadOrder->setCpnLoad();
         }
 
         return $this;
@@ -3418,13 +3374,11 @@ abstract class CpnLoad implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CpnLoadTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(CpnLoadTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3433,8 +3387,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3442,8 +3394,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3452,8 +3402,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3461,8 +3409,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3471,8 +3417,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3480,8 +3424,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3490,8 +3432,6 @@ abstract class CpnLoad implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3511,7 +3451,7 @@ abstract class CpnLoad implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3523,7 +3463,7 @@ abstract class CpnLoad implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3531,7 +3471,7 @@ abstract class CpnLoad implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

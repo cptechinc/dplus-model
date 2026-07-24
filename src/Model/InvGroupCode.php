@@ -19,7 +19,7 @@ class InvGroupCode extends BaseInvGroupCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'                       => 'intbgrup',
 		'itemgroup'                => 'intbgrup',
 		'code'                     => 'intbgrup',
@@ -58,7 +58,7 @@ class InvGroupCode extends BaseInvGroupCode {
 		'maxqtysmall'              => 'intbgruplmmaxqtysml',
 		'date'		               => 'dateupdtd',
 		'time'		               => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return if Code has Surcharge

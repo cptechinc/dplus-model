@@ -146,7 +146,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArTaxCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArTaxCodeQuery object.
@@ -204,7 +204,7 @@ abstract class ArTaxCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArTaxCodeTableMap::DATABASE_NAME);
         }
 
@@ -250,7 +250,6 @@ abstract class ArTaxCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArTaxCode $obj */
             $obj = new ChildArTaxCode();
             $obj->hydrate($row);
             ArTaxCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -291,7 +290,7 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -350,10 +349,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxcode($artbmtaxcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXCODE, $artbmtaxcode, $comparison);
@@ -378,10 +375,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxdesc($artbmtaxdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXDESC, $artbmtaxdesc, $comparison);
@@ -449,10 +444,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxglacct($artbmtaxglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXGLACCT, $artbmtaxglacct, $comparison);
@@ -477,10 +470,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxnote1($artbmtaxnote1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxnote1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxnote1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXNOTE1, $artbmtaxnote1, $comparison);
@@ -505,10 +496,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxnote2($artbmtaxnote2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxnote2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxnote2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXNOTE2, $artbmtaxnote2, $comparison);
@@ -533,10 +522,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxnote3($artbmtaxnote3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxnote3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxnote3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXNOTE3, $artbmtaxnote3, $comparison);
@@ -561,10 +548,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxnote4($artbmtaxnote4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxnote4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxnote4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXNOTE4, $artbmtaxnote4, $comparison);
@@ -675,10 +660,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxtaxtype($artbmtaxtaxtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxtaxtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxtaxtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXTAXTYPE, $artbmtaxtaxtype, $comparison);
@@ -703,10 +686,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxtaxfrt($artbmtaxtaxfrt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxtaxfrt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxtaxfrt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXTAXFRT, $artbmtaxtaxfrt, $comparison);
@@ -731,10 +712,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByArtbmtaxfrttax($artbmtaxfrttax = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbmtaxfrttax)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbmtaxfrttax)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_ARTBMTAXFRTTAX, $artbmtaxfrttax, $comparison);
@@ -802,10 +781,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -830,10 +807,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -858,10 +833,8 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArTaxCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -893,7 +866,7 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTaxCodeTableMap::DATABASE_NAME);
         }
 
@@ -923,7 +896,7 @@ abstract class ArTaxCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTaxCodeTableMap::DATABASE_NAME);
         }
 

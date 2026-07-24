@@ -22,12 +22,12 @@ class ItemAddonItem extends BaseItemAddonItem {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'       => 'inititemnbr',
 		'addonitemid'  => 'adonadditemnbr',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return ITM Item

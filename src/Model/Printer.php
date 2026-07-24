@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\Printer as BasePrinter;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,7 +21,7 @@ class Printer extends BasePrinter {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'               => 'prctprinterid',
 		'description'      => 'prctdesc',
 		'type'             => 'prctprtrtype',
@@ -29,7 +31,7 @@ class Printer extends BasePrinter {
 		'pitch17'          => 'prctpitch17',
 		'date'             => 'dateupdtd',
 		'time'             => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return Pitches that this printer covers

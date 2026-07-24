@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SoStandingOrderDetail as BaseSoStandingOrderDetail;
 
 use Dplus\Model\ThrowErrorTrait;

@@ -128,7 +128,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemRevisionNoteQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemRevisionNoteQuery object.
@@ -186,7 +186,7 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemRevisionNoteTableMap::DATABASE_NAME);
         }
 
@@ -236,7 +236,6 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemRevisionNote $obj */
             $obj = new ChildItemRevisionNote();
             $obj->hydrate($row);
             ItemRevisionNoteTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4])]));
@@ -277,7 +276,7 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -354,10 +353,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByItemnotetype($itemnotetype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itemnotetype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itemnotetype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTETYPE, $itemnotetype, $comparison);
@@ -382,10 +379,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByItemnotetypedesc($itemnotetypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itemnotetypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itemnotetypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTETYPEDESC, $itemnotetypedesc, $comparison);
@@ -410,10 +405,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -438,10 +431,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByItemnotedate($itemnotedate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itemnotedate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itemnotedate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEDATE, $itemnotedate, $comparison);
@@ -466,10 +457,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByItemnotetime($itemnotetime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itemnotetime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itemnotetime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTETIME, $itemnotetime, $comparison);
@@ -494,10 +483,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByItemnoterevision($itemnoterevision = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itemnoterevision)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itemnoterevision)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEREVISION, $itemnoterevision, $comparison);
@@ -565,10 +552,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByItemnotenote($itemnotenote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itemnotenote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itemnotenote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTENOTE, $itemnotenote, $comparison);
@@ -593,10 +578,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByItemnoteuser($itemnoteuser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itemnoteuser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itemnoteuser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEUSER, $itemnoteuser, $comparison);
@@ -621,10 +604,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByItemnotekey2($itemnotekey2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itemnotekey2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itemnotekey2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2, $itemnotekey2, $comparison);
@@ -649,10 +630,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByItemnoteform($itemnoteform = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itemnoteform)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itemnoteform)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEFORM, $itemnoteform, $comparison);
@@ -677,10 +656,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -705,10 +682,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -733,10 +708,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemRevisionNoteTableMap::COL_DUMMY, $dummy, $comparison);
@@ -759,7 +732,7 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             $this->addCond('pruneCond2', $this->getAliasedColName(ItemRevisionNoteTableMap::COL_ITEMNOTEUSER), $itemRevisionNote->getItemnoteuser(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2), $itemRevisionNote->getItemnotekey2(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond4', $this->getAliasedColName(ItemRevisionNoteTableMap::COL_ITEMNOTEFORM), $itemRevisionNote->getItemnoteform(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -773,7 +746,7 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemRevisionNoteTableMap::DATABASE_NAME);
         }
 
@@ -803,7 +776,7 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemRevisionNoteTableMap::DATABASE_NAME);
         }
 

@@ -222,7 +222,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class WarehouseInventoryQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\WarehouseInventoryQuery object.
@@ -280,7 +280,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(WarehouseInventoryTableMap::DATABASE_NAME);
         }
 
@@ -327,7 +327,6 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildWarehouseInventory $obj */
             $obj = new ChildWarehouseInventory();
             $obj->hydrate($row);
             WarehouseInventoryTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -368,7 +367,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -436,10 +435,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -464,10 +461,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -492,10 +487,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhbin($inwhbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHBIN, $inwhbin, $comparison);
@@ -520,10 +513,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhcycl($inwhcycl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhcycl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhcycl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHCYCL, $inwhcycl, $comparison);
@@ -548,10 +539,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhcntdate($inwhcntdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhcntdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhcntdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHCNTDATE, $inwhcntdate, $comparison);
@@ -576,10 +565,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhstat($inwhstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHSTAT, $inwhstat, $comparison);
@@ -604,10 +591,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhabc($inwhabc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhabc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhabc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHABC, $inwhabc, $comparison);
@@ -761,10 +746,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhspecordr($inwhspecordr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhspecordr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhspecordr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHSPECORDR, $inwhspecordr, $comparison);
@@ -961,10 +944,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhcrtedate($inwhcrtedate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhcrtedate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhcrtedate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHCRTEDATE, $inwhcrtedate, $comparison);
@@ -989,10 +970,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhshipbin($inwhshipbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhshipbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhshipbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHSHIPBIN, $inwhshipbin, $comparison);
@@ -1017,10 +996,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhlastpurchponbr($inwhlastpurchponbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhlastpurchponbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhlastpurchponbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR, $inwhlastpurchponbr, $comparison);
@@ -1045,10 +1022,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhlastpurchinvnbr($inwhlastpurchinvnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhlastpurchinvnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhlastpurchinvnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHLASTPURCHINVNBR, $inwhlastpurchinvnbr, $comparison);
@@ -1073,10 +1048,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhsupplywhse($inwhsupplywhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhsupplywhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhsupplywhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE, $inwhsupplywhse, $comparison);
@@ -1101,10 +1074,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByInwhiisrchslct($inwhiisrchslct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwhiisrchslct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inwhiisrchslct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHIISRCHSLCT, $inwhiisrchslct, $comparison);
@@ -1129,10 +1100,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1157,10 +1126,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1185,10 +1152,8 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(WarehouseInventoryTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1242,7 +1207,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1272,7 +1237,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1417,7 +1382,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1447,7 +1412,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
     {
         return $this
             ->joinWarehouse($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Warehouse', '\WarehouseQuery');
+            ->useQuery($relationAlias ?: 'Warehouse', '\WarehouseQuery');
     }
 
     /**
@@ -1584,7 +1549,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1614,7 +1579,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
     {
         return $this
             ->joinInvWhseItemBin($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvWhseItemBin', '\InvWhseItemBinQuery');
+            ->useQuery($relationAlias ?: 'InvWhseItemBin', '\InvWhseItemBinQuery');
     }
 
     /**
@@ -1725,7 +1690,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
         if ($warehouseInventory) {
             $this->addCond('pruneCond0', $this->getAliasedColName(WarehouseInventoryTableMap::COL_INITITEMNBR), $warehouseInventory->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(WarehouseInventoryTableMap::COL_INTBWHSE), $warehouseInventory->getIntbwhse(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1739,7 +1704,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseInventoryTableMap::DATABASE_NAME);
         }
 
@@ -1769,7 +1734,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseInventoryTableMap::DATABASE_NAME);
         }
 

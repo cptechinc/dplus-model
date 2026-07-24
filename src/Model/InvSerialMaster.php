@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvSerialMaster as BaseInvSerialMaster;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,7 +18,7 @@ class InvSerialMaster extends BaseInvSerialMaster {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'       => 'inititemnbr',
 		'serialnbr'    => 'sermsernbr',
 		'lotserial'    => 'sermsernbr',
@@ -26,5 +28,5 @@ class InvSerialMaster extends BaseInvSerialMaster {
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
 		'item'         => 'itemMasterItem',
-	);
+	];
 }

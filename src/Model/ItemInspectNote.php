@@ -21,7 +21,7 @@ class ItemInspectNote extends BaseItemInspectNote {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
  		'type'          => 'qcnotype',
 		'description'   => 'qcnotypedesc',
 		'itemid'        => 'inititemnbr',
@@ -33,7 +33,7 @@ class ItemInspectNote extends BaseItemInspectNote {
 		'key2'          => 'qcnokey2',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Sets generated Key2
@@ -62,14 +62,13 @@ class ItemInspectNote extends BaseItemInspectNote {
 	}
 
 	public function set_time($time, $notedate = '') {
-		$notedate = $notedate ? $notedate : $this->notedate;
+		$notedate = $notedate ?: $this->notedate;
 		$time_formatted = self::generate_notetime($time, $notedate);
 		$this->setNotetime($time_formatted);
 	}
 
 	public static function generate_notetime($time, $notedate) {
 		$time_formatted = date(self::FORMAT_NOTETIME, strtotime($notedate.$time));
-		$time_formatted .= '00';
-		return $time_formatted;
+		return $time_formatted . '00';
 	}
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvPriceCode as BaseInvPriceCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class InvPriceCode extends BaseInvPriceCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'             => 'intbpricgrup',
 		'code'           => 'intbpricgrup',
 		'description'    => 'intbpricdesc',
@@ -26,7 +28,7 @@ class InvPriceCode extends BaseInvPriceCode {
 		'cost_percent'   => 'intbpriccostpct',
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

@@ -296,7 +296,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class OptionsIiQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\OptionsIiQuery object.
@@ -354,7 +354,7 @@ abstract class OptionsIiQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(OptionsIiTableMap::DATABASE_NAME);
         }
 
@@ -400,7 +400,6 @@ abstract class OptionsIiQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildOptionsIi $obj */
             $obj = new ChildOptionsIi();
             $obj->hydrate($row);
             OptionsIiTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -441,7 +440,7 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -500,10 +499,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptncode($iitboptncode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptncode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptncode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCODE, $iitboptncode, $comparison);
@@ -528,10 +525,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnactavail($iitboptnactavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnactavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnactavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTAVAIL, $iitboptnactavail, $comparison);
@@ -556,10 +551,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnactwhse($iitboptnactwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnactwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnactwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTWHSE, $iitboptnactwhse, $comparison);
@@ -584,10 +577,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnactdet($iitboptnactdet = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnactdet)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnactdet)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTDET, $iitboptnactdet, $comparison);
@@ -655,10 +646,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnactstrtdate($iitboptnactstrtdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnactstrtdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnactstrtdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTSTRTDATE, $iitboptnactstrtdate, $comparison);
@@ -683,10 +672,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptncostavail($iitboptncostavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptncostavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptncostavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCOSTAVAIL, $iitboptncostavail, $comparison);
@@ -711,10 +698,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptncostwhse($iitboptncostwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptncostwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptncostwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCOSTWHSE, $iitboptncostwhse, $comparison);
@@ -739,10 +724,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptncostdet($iitboptncostdet = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptncostdet)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptncostdet)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCOSTDET, $iitboptncostdet, $comparison);
@@ -767,10 +750,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptngenavail($iitboptngenavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptngenavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptngenavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNGENAVAIL, $iitboptngenavail, $comparison);
@@ -795,10 +776,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnktavail($iitboptnktavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnktavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnktavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNKTAVAIL, $iitboptnktavail, $comparison);
@@ -823,10 +802,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnpricavail($iitboptnpricavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnpricavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnpricavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPRICAVAIL, $iitboptnpricavail, $comparison);
@@ -851,10 +828,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnphavail($iitboptnphavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnphavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnphavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHAVAIL, $iitboptnphavail, $comparison);
@@ -879,10 +854,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnphwhse($iitboptnphwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnphwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnphwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHWHSE, $iitboptnphwhse, $comparison);
@@ -907,10 +880,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnphdet($iitboptnphdet = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnphdet)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnphdet)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHDET, $iitboptnphdet, $comparison);
@@ -978,10 +949,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnphstrtdate($iitboptnphstrtdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnphstrtdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnphstrtdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHSTRTDATE, $iitboptnphstrtdate, $comparison);
@@ -1006,10 +975,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnpoavail($iitboptnpoavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnpoavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnpoavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPOAVAIL, $iitboptnpoavail, $comparison);
@@ -1034,10 +1001,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnpowhse($iitboptnpowhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnpowhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnpowhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPOWHSE, $iitboptnpowhse, $comparison);
@@ -1062,10 +1027,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnreqravail($iitboptnreqravail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnreqravail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnreqravail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNREQRAVAIL, $iitboptnreqravail, $comparison);
@@ -1090,10 +1053,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnreqrwhse($iitboptnreqrwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnreqrwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnreqrwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNREQRWHSE, $iitboptnreqrwhse, $comparison);
@@ -1118,10 +1079,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnreqrview($iitboptnreqrview = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnreqrview)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnreqrview)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNREQRVIEW, $iitboptnreqrview, $comparison);
@@ -1146,10 +1105,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnshavail($iitboptnshavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnshavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnshavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHAVAIL, $iitboptnshavail, $comparison);
@@ -1174,10 +1131,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnshwhse($iitboptnshwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnshwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnshwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHWHSE, $iitboptnshwhse, $comparison);
@@ -1202,10 +1157,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnshdet($iitboptnshdet = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnshdet)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnshdet)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHDET, $iitboptnshdet, $comparison);
@@ -1273,10 +1226,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnshstrtdate($iitboptnshstrtdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnshstrtdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnshstrtdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHSTRTDATE, $iitboptnshstrtdate, $comparison);
@@ -1301,10 +1252,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnsoavail($iitboptnsoavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnsoavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnsoavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSOAVAIL, $iitboptnsoavail, $comparison);
@@ -1329,10 +1278,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnsowhse($iitboptnsowhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnsowhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnsowhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSOWHSE, $iitboptnsowhse, $comparison);
@@ -1357,10 +1304,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnserlotavail($iitboptnserlotavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnserlotavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnserlotavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSERLOTAVAIL, $iitboptnserlotavail, $comparison);
@@ -1385,10 +1330,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnstckavail($iitboptnstckavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnstckavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnstckavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSTCKAVAIL, $iitboptnstckavail, $comparison);
@@ -1413,10 +1356,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnstckwhse($iitboptnstckwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnstckwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnstckwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSTCKWHSE, $iitboptnstckwhse, $comparison);
@@ -1441,10 +1382,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnstckdet($iitboptnstckdet = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnstckdet)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnstckdet)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSTCKDET, $iitboptnstckdet, $comparison);
@@ -1469,10 +1408,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnsubsupavail($iitboptnsubsupavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnsubsupavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnsubsupavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSUBSUPAVAIL, $iitboptnsubsupavail, $comparison);
@@ -1497,10 +1434,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnsubsupwhse($iitboptnsubsupwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnsubsupwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnsubsupwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSUBSUPWHSE, $iitboptnsubsupwhse, $comparison);
@@ -1525,10 +1460,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnlsavail($iitboptnlsavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnlsavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnlsavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNLSAVAIL, $iitboptnlsavail, $comparison);
@@ -1553,10 +1486,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptnlswhse($iitboptnlswhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptnlswhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptnlswhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNLSWHSE, $iitboptnlswhse, $comparison);
@@ -1581,10 +1512,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptndesc1or2($iitboptndesc1or2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptndesc1or2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptndesc1or2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNDESC1OR2, $iitboptndesc1or2, $comparison);
@@ -1609,10 +1538,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByIitboptndelcerts($iitboptndelcerts = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($iitboptndelcerts)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($iitboptndelcerts)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNDELCERTS, $iitboptndelcerts, $comparison);
@@ -1637,10 +1564,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1665,10 +1590,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1693,10 +1616,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsIiTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1728,7 +1649,7 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsIiTableMap::DATABASE_NAME);
         }
 
@@ -1758,7 +1679,7 @@ abstract class OptionsIiQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsIiTableMap::DATABASE_NAME);
         }
 

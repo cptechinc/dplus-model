@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\UnitofMeasureSaleQuery as BaseUnitofMeasureSaleQuery;
 
 use Dplus\Model\QueryTraits;

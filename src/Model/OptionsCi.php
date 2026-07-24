@@ -19,7 +19,7 @@ class OptionsCi extends BaseOptionsCi {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'userid'   => 'citboptncode',
 		'days_po'  => 'citboptnpodaysback',
 		'days_sh'  => 'citboptnshdaysback',
@@ -46,7 +46,7 @@ class OptionsCi extends BaseOptionsCi {
 
 		'date'            => 'dateupdtd',
 		'time'            => 'timeupdtd'
-	);
+	];
 
 	const PERMISSIONS = [
 		'notes',
@@ -90,7 +90,7 @@ class OptionsCi extends BaseOptionsCi {
 	 * @return array
 	 */
 	public function permitted() {
-		return array_filter(self::PERMISSIONS, array($this, 'is_true'));
+		return array_filter(self::PERMISSIONS, [$this, 'is_true']);
 	}
 
 	/**

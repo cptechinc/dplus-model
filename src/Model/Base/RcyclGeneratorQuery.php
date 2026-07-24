@@ -88,7 +88,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class RcyclGeneratorQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\RcyclGeneratorQuery object.
@@ -146,7 +146,7 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(RcyclGeneratorTableMap::DATABASE_NAME);
         }
 
@@ -192,7 +192,6 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildRcyclGenerator $obj */
             $obj = new ChildRcyclGenerator();
             $obj->hydrate($row);
             RcyclGeneratorTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -233,7 +232,7 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -292,10 +291,8 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
      */
     public function filterByArtbgenrid($artbgenrid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbgenrid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbgenrid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclGeneratorTableMap::COL_ARTBGENRID, $artbgenrid, $comparison);
@@ -320,10 +317,8 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
      */
     public function filterByArtbgenrname($artbgenrname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbgenrname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbgenrname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclGeneratorTableMap::COL_ARTBGENRNAME, $artbgenrname, $comparison);
@@ -348,10 +343,8 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclGeneratorTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -376,10 +369,8 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclGeneratorTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -404,10 +395,8 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(RcyclGeneratorTableMap::COL_DUMMY, $dummy, $comparison);
@@ -459,7 +448,7 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -489,7 +478,7 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
     {
         return $this
             ->joinRcyclReceipt($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'RcyclReceipt', '\RcyclReceiptQuery');
+            ->useQuery($relationAlias ?: 'RcyclReceipt', '\RcyclReceiptQuery');
     }
 
     /**
@@ -612,7 +601,7 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclGeneratorTableMap::DATABASE_NAME);
         }
 
@@ -642,7 +631,7 @@ abstract class RcyclGeneratorQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclGeneratorTableMap::DATABASE_NAME);
         }
 

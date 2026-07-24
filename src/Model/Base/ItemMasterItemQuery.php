@@ -998,7 +998,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemMasterItemQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemMasterItemQuery object.
@@ -1056,7 +1056,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemMasterItemTableMap::DATABASE_NAME);
         }
 
@@ -1102,7 +1102,6 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemMasterItem $obj */
             $obj = new ChildItemMasterItem();
             $obj->hydrate($row);
             ItemMasterItemTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -1143,7 +1142,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -1202,10 +1201,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -1230,10 +1227,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitdesc1($initdesc1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initdesc1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initdesc1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITDESC1, $initdesc1, $comparison);
@@ -1258,10 +1253,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitdesc2($initdesc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initdesc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initdesc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITDESC2, $initdesc2, $comparison);
@@ -1286,10 +1279,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByIntbgrup($intbgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBGRUP, $intbgrup, $comparison);
@@ -1314,10 +1305,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitformatcode($initformatcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initformatcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initformatcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITFORMATCODE, $initformatcode, $comparison);
@@ -1342,10 +1331,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitsplit($initsplit = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initsplit)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initsplit)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSPLIT, $initsplit, $comparison);
@@ -1370,10 +1357,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitsherdatecd($initsherdatecd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initsherdatecd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initsherdatecd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSHERDATECD, $initsherdatecd, $comparison);
@@ -1398,10 +1383,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitcoreyn($initcoreyn = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initcoreyn)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initcoreyn)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCOREYN, $initcoreyn, $comparison);
@@ -1426,10 +1409,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByIntbusercode1($intbusercode1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbusercode1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbusercode1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUSERCODE1, $intbusercode1, $comparison);
@@ -1454,10 +1435,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByIntbusercode2($intbusercode2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbusercode2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbusercode2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUSERCODE2, $intbusercode2, $comparison);
@@ -1482,10 +1461,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInittype($inittype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inittype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inittype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITTYPE, $inittype, $comparison);
@@ -1510,10 +1487,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInittax($inittax = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inittax)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inittax)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITTAX, $inittax, $comparison);
@@ -1581,10 +1556,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitstatchgd($initstatchgd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initstatchgd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initstatchgd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTATCHGD, $initstatchgd, $comparison);
@@ -1609,10 +1582,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitspecitemcd($initspecitemcd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initspecitemcd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initspecitemcd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSPECITEMCD, $initspecitemcd, $comparison);
@@ -1680,10 +1651,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByIntbuomsale($intbuomsale = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuomsale)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuomsale)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
@@ -1751,10 +1720,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitbord($initbord = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initbord)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initbord)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITBORD, $initbord, $comparison);
@@ -1779,10 +1746,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitbaseitemid($initbaseitemid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initbaseitemid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initbaseitemid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITBASEITEMID, $initbaseitemid, $comparison);
@@ -1807,10 +1772,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitspecificcust($initspecificcust = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initspecificcust)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initspecificcust)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSPECIFICCUST, $initspecificcust, $comparison);
@@ -1835,10 +1798,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitgivedisc($initgivedisc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initgivedisc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initgivedisc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITGIVEDISC, $initgivedisc, $comparison);
@@ -1863,10 +1824,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitasstcode($initasstcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initasstcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initasstcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITASSTCODE, $initasstcode, $comparison);
@@ -1891,10 +1850,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitpriclastdate($initpriclastdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initpriclastdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initpriclastdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPRICLASTDATE, $initpriclastdate, $comparison);
@@ -1919,10 +1876,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByIntbuompur($intbuompur = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuompur)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuompur)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
@@ -1990,10 +1945,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitstancostbase($initstancostbase = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initstancostbase)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initstancostbase)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTANCOSTBASE, $initstancostbase, $comparison);
@@ -2018,10 +1971,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitstancostlastdate($initstancostlastdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initstancostlastdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initstancostlastdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTANCOSTLASTDATE, $initstancostlastdate, $comparison);
@@ -2089,10 +2040,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitvendid($initvendid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initvendid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initvendid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITVENDID, $initvendid, $comparison);
@@ -2117,10 +2066,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitinspect($initinspect = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initinspect)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initinspect)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITINSPECT, $initinspect, $comparison);
@@ -2145,10 +2092,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitstockcode($initstockcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initstockcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initstockcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTOCKCODE, $initstockcode, $comparison);
@@ -2173,10 +2118,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitsupritemnbr($initsupritemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initsupritemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initsupritemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSUPRITEMNBR, $initsupritemnbr, $comparison);
@@ -2201,10 +2144,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitvendshipfrom($initvendshipfrom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initvendshipfrom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initvendshipfrom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITVENDSHIPFROM, $initvendshipfrom, $comparison);
@@ -2229,10 +2170,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitcntryoforigin($initcntryoforigin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initcntryoforigin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initcntryoforigin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCNTRYOFORIGIN, $initcntryoforigin, $comparison);
@@ -2300,10 +2239,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByIntbtariffcode($intbtariffcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbtariffcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbtariffcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBTARIFFCODE, $intbtariffcode, $comparison);
@@ -2328,10 +2265,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitpreference($initpreference = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initpreference)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initpreference)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPREFERENCE, $initpreference, $comparison);
@@ -2356,10 +2291,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitproducer($initproducer = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initproducer)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initproducer)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPRODUCER, $initproducer, $comparison);
@@ -2384,10 +2317,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitdocumentation($initdocumentation = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initdocumentation)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initdocumentation)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITDOCUMENTATION, $initdocumentation, $comparison);
@@ -2455,10 +2386,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByAptbbuyrcode($aptbbuyrcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbbuyrcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbbuyrcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_APTBBUYRCODE, $aptbbuyrcode, $comparison);
@@ -2569,10 +2498,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByIntbmsdscode($intbmsdscode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbmsdscode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbmsdscode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBMSDSCODE, $intbmsdscode, $comparison);
@@ -2597,10 +2524,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitrequirefrt($initrequirefrt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initrequirefrt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initrequirefrt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITREQUIREFRT, $initrequirefrt, $comparison);
@@ -2625,10 +2550,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitmfrtcode($initmfrtcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initmfrtcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initmfrtcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMFRTCODE, $initmfrtcode, $comparison);
@@ -2825,10 +2748,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitwgitem($initwgitem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initwgitem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initwgitem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITWGITEM, $initwgitem, $comparison);
@@ -2853,10 +2774,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByIntbpricgrup($intbpricgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbpricgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbpricgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBPRICGRUP, $intbpricgrup, $comparison);
@@ -2881,10 +2800,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByIntbcommgrup($intbcommgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbcommgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbcommgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBCOMMGRUP, $intbcommgrup, $comparison);
@@ -2909,10 +2826,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitlastcostdate($initlastcostdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initlastcostdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initlastcostdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLASTCOSTDATE, $initlastcostdate, $comparison);
@@ -2980,10 +2895,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitrevision($initrevision = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initrevision)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initrevision)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITREVISION, $initrevision, $comparison);
@@ -3180,10 +3093,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByInitMinMargBase($initMinMargBase = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($initMinMargBase)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($initMinMargBase)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMINMARGBASE, $initMinMargBase, $comparison);
@@ -3208,10 +3119,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -3236,10 +3145,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -3264,10 +3171,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemMasterItemTableMap::COL_DUMMY, $dummy, $comparison);
@@ -3321,7 +3226,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -3351,7 +3256,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinUnitofMeasureSale($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'UnitofMeasureSale', '\UnitofMeasureSaleQuery');
+            ->useQuery($relationAlias ?: 'UnitofMeasureSale', '\UnitofMeasureSaleQuery');
     }
 
     /**
@@ -3496,7 +3401,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -3526,7 +3431,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinUnitofMeasurePurchase($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'UnitofMeasurePurchase', '\UnitofMeasurePurchaseQuery');
+            ->useQuery($relationAlias ?: 'UnitofMeasurePurchase', '\UnitofMeasurePurchaseQuery');
     }
 
     /**
@@ -3671,7 +3576,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -3701,7 +3606,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvGroupCode($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvGroupCode', '\InvGroupCodeQuery');
+            ->useQuery($relationAlias ?: 'InvGroupCode', '\InvGroupCodeQuery');
     }
 
     /**
@@ -3846,7 +3751,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -3876,7 +3781,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvStockCode($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvStockCode', '\InvStockCodeQuery');
+            ->useQuery($relationAlias ?: 'InvStockCode', '\InvStockCodeQuery');
     }
 
     /**
@@ -4021,7 +3926,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -4051,7 +3956,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvPriceCode($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvPriceCode', '\InvPriceCodeQuery');
+            ->useQuery($relationAlias ?: 'InvPriceCode', '\InvPriceCodeQuery');
     }
 
     /**
@@ -4196,7 +4101,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -4226,7 +4131,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvCommissionCode($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvCommissionCode', '\InvCommissionCodeQuery');
+            ->useQuery($relationAlias ?: 'InvCommissionCode', '\InvCommissionCodeQuery');
     }
 
     /**
@@ -4371,7 +4276,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -4401,7 +4306,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemPricing($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemPricing', '\ItemPricingQuery');
+            ->useQuery($relationAlias ?: 'ItemPricing', '\ItemPricingQuery');
     }
 
     /**
@@ -4544,7 +4449,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -4574,7 +4479,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemXrefCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefCustomer', '\ItemXrefCustomerQuery');
+            ->useQuery($relationAlias ?: 'ItemXrefCustomer', '\ItemXrefCustomerQuery');
     }
 
     /**
@@ -4717,7 +4622,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -4747,7 +4652,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinCstkItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CstkItem', '\CstkItemQuery');
+            ->useQuery($relationAlias ?: 'CstkItem', '\CstkItemQuery');
     }
 
     /**
@@ -4890,7 +4795,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -4920,7 +4825,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvWhseItemBin($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvWhseItemBin', '\InvWhseItemBinQuery');
+            ->useQuery($relationAlias ?: 'InvWhseItemBin', '\InvWhseItemBinQuery');
     }
 
     /**
@@ -5063,7 +4968,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5093,7 +4998,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemAddonItemRelatedByInititemnbr($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemAddonItemRelatedByInititemnbr', '\ItemAddonItemQuery');
+            ->useQuery($relationAlias ?: 'ItemAddonItemRelatedByInititemnbr', '\ItemAddonItemQuery');
     }
 
     /**
@@ -5236,7 +5141,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5266,7 +5171,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemAddonItemRelatedByAdonadditemnbr($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemAddonItemRelatedByAdonadditemnbr', '\ItemAddonItemQuery');
+            ->useQuery($relationAlias ?: 'ItemAddonItemRelatedByAdonadditemnbr', '\ItemAddonItemQuery');
     }
 
     /**
@@ -5409,7 +5314,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5439,7 +5344,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItmDimension($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItmDimension', '\ItmDimensionQuery');
+            ->useQuery($relationAlias ?: 'ItmDimension', '\ItmDimensionQuery');
     }
 
     /**
@@ -5582,7 +5487,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5612,7 +5517,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvHazmatItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvHazmatItem', '\InvHazmatItemQuery');
+            ->useQuery($relationAlias ?: 'InvHazmatItem', '\InvHazmatItemQuery');
     }
 
     /**
@@ -5755,7 +5660,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5785,7 +5690,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvWhseLot($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvWhseLot', '\InvWhseLotQuery');
+            ->useQuery($relationAlias ?: 'InvWhseLot', '\InvWhseLotQuery');
     }
 
     /**
@@ -5928,7 +5833,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5958,7 +5863,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemSubstituteRelatedByInititemnbr($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemSubstituteRelatedByInititemnbr', '\ItemSubstituteQuery');
+            ->useQuery($relationAlias ?: 'ItemSubstituteRelatedByInititemnbr', '\ItemSubstituteQuery');
     }
 
     /**
@@ -6101,7 +6006,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6131,7 +6036,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemSubstituteRelatedByInsisubitemnbr($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemSubstituteRelatedByInsisubitemnbr', '\ItemSubstituteQuery');
+            ->useQuery($relationAlias ?: 'ItemSubstituteRelatedByInsisubitemnbr', '\ItemSubstituteQuery');
     }
 
     /**
@@ -6274,7 +6179,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6304,7 +6209,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvLotTag($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLotTag', '\InvLotTagQuery');
+            ->useQuery($relationAlias ?: 'InvLotTag', '\InvLotTagQuery');
     }
 
     /**
@@ -6447,7 +6352,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6477,7 +6382,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvItem2ItemRelatedByI2imstritemid($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvItem2ItemRelatedByI2imstritemid', '\InvItem2ItemQuery');
+            ->useQuery($relationAlias ?: 'InvItem2ItemRelatedByI2imstritemid', '\InvItem2ItemQuery');
     }
 
     /**
@@ -6620,7 +6525,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6650,7 +6555,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvItem2ItemRelatedByI2ichilditemid($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvItem2ItemRelatedByI2ichilditemid', '\InvItem2ItemQuery');
+            ->useQuery($relationAlias ?: 'InvItem2ItemRelatedByI2ichilditemid', '\InvItem2ItemQuery');
     }
 
     /**
@@ -6793,7 +6698,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6823,7 +6728,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvKitComponent($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvKitComponent', '\InvKitComponentQuery');
+            ->useQuery($relationAlias ?: 'InvKitComponent', '\InvKitComponentQuery');
     }
 
     /**
@@ -6966,7 +6871,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6996,7 +6901,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvKit($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvKit', '\InvKitQuery');
+            ->useQuery($relationAlias ?: 'InvKit', '\InvKitQuery');
     }
 
     /**
@@ -7139,7 +7044,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -7169,7 +7074,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvLotMaster($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLotMaster', '\InvLotMasterQuery');
+            ->useQuery($relationAlias ?: 'InvLotMaster', '\InvLotMasterQuery');
     }
 
     /**
@@ -7312,7 +7217,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -7342,7 +7247,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvSerialMaster($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvSerialMaster', '\InvSerialMasterQuery');
+            ->useQuery($relationAlias ?: 'InvSerialMaster', '\InvSerialMasterQuery');
     }
 
     /**
@@ -7485,7 +7390,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -7515,7 +7420,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferDetail', '\InvTransferDetailQuery');
+            ->useQuery($relationAlias ?: 'InvTransferDetail', '\InvTransferDetailQuery');
     }
 
     /**
@@ -7658,7 +7563,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -7688,7 +7593,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferLotserial', '\InvTransferLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferLotserial', '\InvTransferLotserialQuery');
     }
 
     /**
@@ -7831,7 +7736,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -7861,7 +7766,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferPreAllocatedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPreAllocatedLotserial', '\InvTransferPreAllocatedLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferPreAllocatedLotserial', '\InvTransferPreAllocatedLotserialQuery');
     }
 
     /**
@@ -8004,7 +7909,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -8034,7 +7939,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferPickedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPickedLotserial', '\InvTransferPickedLotserialQuery');
+            ->useQuery($relationAlias ?: 'InvTransferPickedLotserial', '\InvTransferPickedLotserialQuery');
     }
 
     /**
@@ -8177,7 +8082,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -8207,7 +8112,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvSerialWarranty($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvSerialWarranty', '\InvSerialWarrantyQuery');
+            ->useQuery($relationAlias ?: 'InvSerialWarranty', '\InvSerialWarrantyQuery');
     }
 
     /**
@@ -8350,7 +8255,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -8380,7 +8285,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinWarehouseInventory($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'WarehouseInventory', '\WarehouseInventoryQuery');
+            ->useQuery($relationAlias ?: 'WarehouseInventory', '\WarehouseInventoryQuery');
     }
 
     /**
@@ -8523,7 +8428,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -8553,7 +8458,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemXrefKey($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefKey', '\ItemXrefKeyQuery');
+            ->useQuery($relationAlias ?: 'ItemXrefKey', '\ItemXrefKeyQuery');
     }
 
     /**
@@ -8696,7 +8601,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -8726,7 +8631,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemXrefManufacturer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefManufacturer', '\ItemXrefManufacturerQuery');
+            ->useQuery($relationAlias ?: 'ItemXrefManufacturer', '\ItemXrefManufacturerQuery');
     }
 
     /**
@@ -8869,7 +8774,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -8899,7 +8804,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemXrefCustomerNote($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefCustomerNote', '\ItemXrefCustomerNoteQuery');
+            ->useQuery($relationAlias ?: 'ItemXrefCustomerNote', '\ItemXrefCustomerNoteQuery');
     }
 
     /**
@@ -9042,7 +8947,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -9072,7 +8977,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvOptCodeNote($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvOptCodeNote', '\InvOptCodeNoteQuery');
+            ->useQuery($relationAlias ?: 'InvOptCodeNote', '\InvOptCodeNoteQuery');
     }
 
     /**
@@ -9215,7 +9120,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -9245,7 +9150,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemXrefVendorNoteDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefVendorNoteDetail', '\ItemXrefVendorNoteDetailQuery');
+            ->useQuery($relationAlias ?: 'ItemXrefVendorNoteDetail', '\ItemXrefVendorNoteDetailQuery');
     }
 
     /**
@@ -9388,7 +9293,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -9418,7 +9323,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemXrefVendorNoteInternal($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefVendorNoteInternal', '\ItemXrefVendorNoteInternalQuery');
+            ->useQuery($relationAlias ?: 'ItemXrefVendorNoteInternal', '\ItemXrefVendorNoteInternalQuery');
     }
 
     /**
@@ -9561,7 +9466,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -9591,7 +9496,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinInvPallet($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvPallet', '\InvPalletQuery');
+            ->useQuery($relationAlias ?: 'InvPallet', '\InvPalletQuery');
     }
 
     /**
@@ -9734,7 +9639,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -9764,7 +9669,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrderDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetail', '\PurchaseOrderDetailQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrderDetail', '\PurchaseOrderDetailQuery');
     }
 
     /**
@@ -9907,7 +9812,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -9937,7 +9842,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrderDetailReceipt($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetailReceipt', '\PurchaseOrderDetailReceiptQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrderDetailReceipt', '\PurchaseOrderDetailReceiptQuery');
     }
 
     /**
@@ -10080,7 +9985,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -10110,7 +10015,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrderDetailReceiving($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetailReceiving', '\PurchaseOrderDetailReceivingQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrderDetailReceiving', '\PurchaseOrderDetailReceivingQuery');
     }
 
     /**
@@ -10253,7 +10158,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -10283,7 +10188,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrderDetailLotReceiving($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetailLotReceiving', '\PurchaseOrderDetailLotReceivingQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrderDetailLotReceiving', '\PurchaseOrderDetailLotReceivingQuery');
     }
 
     /**
@@ -10426,7 +10331,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -10456,7 +10361,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinBomComponent($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BomComponent', '\BomComponentQuery');
+            ->useQuery($relationAlias ?: 'BomComponent', '\BomComponentQuery');
     }
 
     /**
@@ -10599,7 +10504,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -10629,7 +10534,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinBomItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BomItem', '\BomItemQuery');
+            ->useQuery($relationAlias ?: 'BomItem', '\BomItemQuery');
     }
 
     /**
@@ -10772,7 +10677,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -10802,7 +10707,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinRcyclReceiptDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'RcyclReceiptDetail', '\RcyclReceiptDetailQuery');
+            ->useQuery($relationAlias ?: 'RcyclReceiptDetail', '\RcyclReceiptDetailQuery');
     }
 
     /**
@@ -10945,7 +10850,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -10975,7 +10880,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinRcyclReceiptLot($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'RcyclReceiptLot', '\RcyclReceiptLotQuery');
+            ->useQuery($relationAlias ?: 'RcyclReceiptLot', '\RcyclReceiptLotQuery');
     }
 
     /**
@@ -11118,7 +11023,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -11148,7 +11053,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinBookingDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BookingDetail', '\BookingDetailQuery');
+            ->useQuery($relationAlias ?: 'BookingDetail', '\BookingDetailQuery');
     }
 
     /**
@@ -11291,7 +11196,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -11321,7 +11226,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinSalesHistoryDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesHistoryDetail', '\SalesHistoryDetailQuery');
+            ->useQuery($relationAlias ?: 'SalesHistoryDetail', '\SalesHistoryDetailQuery');
     }
 
     /**
@@ -11464,7 +11369,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -11494,7 +11399,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinSalesOrderDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderDetail', '\SalesOrderDetailQuery');
+            ->useQuery($relationAlias ?: 'SalesOrderDetail', '\SalesOrderDetailQuery');
     }
 
     /**
@@ -11637,7 +11542,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -11667,7 +11572,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinSalesOrderLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderLotserial', '\SalesOrderLotserialQuery');
+            ->useQuery($relationAlias ?: 'SalesOrderLotserial', '\SalesOrderLotserialQuery');
     }
 
     /**
@@ -11810,7 +11715,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -11840,7 +11745,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinSalesHistoryLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesHistoryLotserial', '\SalesHistoryLotserialQuery');
+            ->useQuery($relationAlias ?: 'SalesHistoryLotserial', '\SalesHistoryLotserialQuery');
     }
 
     /**
@@ -11983,7 +11888,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -12013,7 +11918,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinSoAllocatedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SoAllocatedLotserial', '\SoAllocatedLotserialQuery');
+            ->useQuery($relationAlias ?: 'SoAllocatedLotserial', '\SoAllocatedLotserialQuery');
     }
 
     /**
@@ -12156,7 +12061,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -12186,7 +12091,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemPricingDiscount($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemPricingDiscount', '\ItemPricingDiscountQuery');
+            ->useQuery($relationAlias ?: 'ItemPricingDiscount', '\ItemPricingDiscountQuery');
     }
 
     /**
@@ -12329,7 +12234,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -12359,7 +12264,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinSoPickedLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SoPickedLotserial', '\SoPickedLotserialQuery');
+            ->useQuery($relationAlias ?: 'SoPickedLotserial', '\SoPickedLotserialQuery');
     }
 
     /**
@@ -12502,7 +12407,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -12532,7 +12437,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinSoStandingOrderDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SoStandingOrderDetail', '\SoStandingOrderDetailQuery');
+            ->useQuery($relationAlias ?: 'SoStandingOrderDetail', '\SoStandingOrderDetailQuery');
     }
 
     /**
@@ -12675,7 +12580,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -12705,7 +12610,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemXrefUpc($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefUpc', '\ItemXrefUpcQuery');
+            ->useQuery($relationAlias ?: 'ItemXrefUpc', '\ItemXrefUpcQuery');
     }
 
     /**
@@ -12848,7 +12753,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -12878,7 +12783,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemXrefVendor($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefVendor', '\ItemXrefVendorQuery');
+            ->useQuery($relationAlias ?: 'ItemXrefVendor', '\ItemXrefVendorQuery');
     }
 
     /**
@@ -13001,7 +12906,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
         }
 
@@ -13031,7 +12936,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
         }
 

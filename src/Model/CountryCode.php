@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\CountryCode as BaseCountryCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,7 +18,7 @@ class CountryCode extends BaseCountryCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'            => 'ctryisoalpha3',
 		'code'          => 'ctryisoalpha3',
 		'iso3'          => 'ctryisoalpha3',
@@ -30,5 +32,5 @@ class CountryCode extends BaseCountryCode {
 		'country_date'  => 'ctrydate',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 }

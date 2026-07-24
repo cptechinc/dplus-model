@@ -146,7 +146,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class OptionsViQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\OptionsViQuery object.
@@ -204,7 +204,7 @@ abstract class OptionsViQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(OptionsViTableMap::DATABASE_NAME);
         }
 
@@ -250,7 +250,6 @@ abstract class OptionsViQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildOptionsVi $obj */
             $obj = new ChildOptionsVi();
             $obj->hydrate($row);
             OptionsViTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -291,7 +290,7 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -350,10 +349,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptncode($vitboptncode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptncode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptncode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCODE, $vitboptncode, $comparison);
@@ -378,10 +375,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptngenavail($vitboptngenavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptngenavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptngenavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNGENAVAIL, $vitboptngenavail, $comparison);
@@ -406,10 +401,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnpayavail($vitboptnpayavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnpayavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnpayavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNPAYAVAIL, $vitboptnpayavail, $comparison);
@@ -434,10 +427,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptncostavail($vitboptncostavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptncostavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptncostavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCOSTAVAIL, $vitboptncostavail, $comparison);
@@ -462,10 +453,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnpoavail($vitboptnpoavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnpoavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnpoavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNPOAVAIL, $vitboptnpoavail, $comparison);
@@ -490,10 +479,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnopenavail($vitboptnopenavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnopenavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnopenavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNOPENAVAIL, $vitboptnopenavail, $comparison);
@@ -518,10 +505,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnphavail($vitboptnphavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnphavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnphavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNPHAVAIL, $vitboptnphavail, $comparison);
@@ -546,10 +531,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnunrlavail($vitboptnunrlavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnunrlavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnunrlavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNUNRLAVAIL, $vitboptnunrlavail, $comparison);
@@ -574,10 +557,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnunivavail($vitboptnunivavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnunivavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnunivavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNUNIVAVAIL, $vitboptnunivavail, $comparison);
@@ -602,10 +583,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnnoteavail($vitboptnnoteavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnnoteavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnnoteavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNNOTEAVAIL, $vitboptnnoteavail, $comparison);
@@ -630,10 +609,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptn24moavail($vitboptn24moavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptn24moavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptn24moavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTN24MOAVAIL, $vitboptn24moavail, $comparison);
@@ -658,10 +635,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnmisc1($vitboptnmisc1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnmisc1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnmisc1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNMISC1, $vitboptnmisc1, $comparison);
@@ -686,10 +661,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnmisc2($vitboptnmisc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnmisc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnmisc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNMISC2, $vitboptnmisc2, $comparison);
@@ -714,10 +687,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByVitboptnmisc3($vitboptnmisc3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vitboptnmisc3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vitboptnmisc3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNMISC3, $vitboptnmisc3, $comparison);
@@ -742,10 +713,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -770,10 +739,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -798,10 +765,8 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsViTableMap::COL_DUMMY, $dummy, $comparison);
@@ -833,7 +798,7 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsViTableMap::DATABASE_NAME);
         }
 
@@ -863,7 +828,7 @@ abstract class OptionsViQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsViTableMap::DATABASE_NAME);
         }
 

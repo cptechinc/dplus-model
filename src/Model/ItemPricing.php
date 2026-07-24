@@ -18,14 +18,14 @@ class ItemPricing extends BaseItemPricing {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'      => 'inititemnbr',
 		'baseprice'   => 'inprpricbase',
 		'qty'         => 'inprpricunit',
 		'price'       => 'inprpricpric',
 		'updated'     => 'inprpriclastdate',
 		'item'        => 'itemMasterItem'
-	);
+	];
 
 	const QTY_BREAKS = 10;
 
@@ -34,7 +34,7 @@ class ItemPricing extends BaseItemPricing {
 	 * @return string
 	 */
 	public function get_qtybreaks() {
-		$pricebreaks = array();
+		$pricebreaks = [];
 
 		$colbase_qty = 'inprpricunit';
 		$colbase_price = 'inprpricpric';
@@ -67,7 +67,7 @@ class ItemPricing extends BaseItemPricing {
 		if ($break > self::QTY_BREAKS) {
 			return 0;
 		} else{
-			if ($break == 0) {
+			if ($break === 0) {
 				return '';
 			}
 			$col = self::get_pricebreak_qty_column($break);
@@ -76,11 +76,10 @@ class ItemPricing extends BaseItemPricing {
 	}
 
 	/**
-	 * Return Unit Column at Qty Break
-	 * @param  int $break
-	 * @return string
-	 */
-	public static function get_pricebreak_qty_column(int $break) {
+     * Return Unit Column at Qty Break
+     * @return string
+     */
+    public static function get_pricebreak_qty_column(int $break) {
 		$col_base = 'inprpricunit';
 
 		if ($break <= self::QTY_BREAKS) {
@@ -99,7 +98,7 @@ class ItemPricing extends BaseItemPricing {
 		if ($break > self::QTY_BREAKS) {
 			return 0;
 		} else {
-			if ($break == 0) {
+			if ($break === 0) {
 				return $this->baseprice;
 			}
 			$col = self::get_pricebreak_price_column($break);
@@ -108,11 +107,10 @@ class ItemPricing extends BaseItemPricing {
 	}
 
 	/**
-	 * Return Price Column at Qty Break
-	 * @param  int $break
-	 * @return string
-	 */
-	public static function get_pricebreak_price_column(int $break) {
+     * Return Price Column at Qty Break
+     * @return string
+     */
+    public static function get_pricebreak_price_column(int $break) {
 		$col_base = 'inprpricpric';
 
 		if ($break <= self::QTY_BREAKS) {

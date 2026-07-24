@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvItem2Item as BaseInvItem2Item;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -17,13 +19,13 @@ class InvItem2Item extends BaseInvItem2Item {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'parentitemid' => 'i2imstritemid',
 		'childitemid'  => 'i2ichilditemid',
 		'whseid'       => 'i2isupplywhse',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return parent ITM Item 

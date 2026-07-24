@@ -526,7 +526,6 @@ class BookingTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -541,71 +540,69 @@ class BookingTableMap extends TableMap
         // columns
         $this->addPrimaryKey('BklhOrdrBase', 'Bklhordrbase', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('BklhSeq', 'Bklhseq', 'INTEGER', true, 4, 0);
-        $this->addColumn('BklhOrdrNbr', 'Bklhordrnbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('BklhTranDate', 'Bklhtrandate', 'VARCHAR', false, 8, null);
-        $this->addColumn('BklhTranTime', 'Bklhtrantime', 'VARCHAR', false, 8, null);
-        $this->addColumn('BklhLogIn', 'Bklhlogin', 'VARCHAR', false, 8, null);
-        $this->addColumn('BklhOrdrDate', 'Bklhordrdate', 'VARCHAR', false, 8, null);
-        $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_cust_mast', 'ArcuCustId', false, 6, null);
-        $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_ship_to', 'ArcuCustId', false, 6, null);
-        $this->addForeignKey('ArstShipId', 'Arstshipid', 'VARCHAR', 'ar_ship_to', 'ArstShipId', false, 6, null);
-        $this->addColumn('BklhShipToStat', 'Bklhshiptostat', 'VARCHAR', false, 2, null);
-        $this->addColumn('BklhOrigWhse', 'Bklhorigwhse', 'VARCHAR', false, 2, null);
-        $this->addForeignKey('ArspSalePer1', 'Arspsaleper1', 'VARCHAR', 'ar_saleper1', 'ArspSalePer1', false, 6, null);
-        $this->addColumn('BklhSp1Pct', 'Bklhsp1pct', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArspSalePer2', 'Arspsaleper2', 'VARCHAR', false, 6, null);
-        $this->addColumn('BklhSp2Pct', 'Bklhsp2pct', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArspSalePer3', 'Arspsaleper3', 'VARCHAR', false, 6, null);
-        $this->addColumn('BklhSp3Pct', 'Bklhsp3pct', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmTermCd', 'Artmtermcd', 'VARCHAR', false, 4, null);
-        $this->addColumn('BklhUserCode1', 'Bklhusercode1', 'VARCHAR', false, 8, null);
-        $this->addColumn('BklhUserCode2', 'Bklhusercode2', 'VARCHAR', false, 8, null);
-        $this->addColumn('BklhUserCode3', 'Bklhusercode3', 'VARCHAR', false, 8, null);
-        $this->addColumn('BkldUserCode4', 'Bkldusercode4', 'VARCHAR', false, 8, null);
-        $this->addColumn('BklhPgmRef', 'Bklhpgmref', 'VARCHAR', false, 8, null);
-        $this->addColumn('BklhReasCd', 'Bklhreascd', 'VARCHAR', false, 2, null);
-        $this->addColumn('BklhFrtTot', 'Bklhfrttot', 'DECIMAL', false, 20, null);
-        $this->addColumn('BklhMiscTot', 'Bklhmisctot', 'DECIMAL', false, 20, null);
-        $this->addColumn('BklhSviaCode', 'Bklhsviacode', 'VARCHAR', false, 4, null);
-        $this->addColumn('BklhCreditMemo', 'Bklhcreditmemo', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('BklhOrdrNbr', 'Bklhordrnbr', 'VARCHAR', false, 10);
+        $this->addColumn('BklhTranDate', 'Bklhtrandate', 'VARCHAR', false, 8);
+        $this->addColumn('BklhTranTime', 'Bklhtrantime', 'VARCHAR', false, 8);
+        $this->addColumn('BklhLogIn', 'Bklhlogin', 'VARCHAR', false, 8);
+        $this->addColumn('BklhOrdrDate', 'Bklhordrdate', 'VARCHAR', false, 8);
+        $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_cust_mast', 'ArcuCustId', false, 6);
+        $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_ship_to', 'ArcuCustId', false, 6);
+        $this->addForeignKey('ArstShipId', 'Arstshipid', 'VARCHAR', 'ar_ship_to', 'ArstShipId', false, 6);
+        $this->addColumn('BklhShipToStat', 'Bklhshiptostat', 'VARCHAR', false, 2);
+        $this->addColumn('BklhOrigWhse', 'Bklhorigwhse', 'VARCHAR', false, 2);
+        $this->addForeignKey('ArspSalePer1', 'Arspsaleper1', 'VARCHAR', 'ar_saleper1', 'ArspSalePer1', false, 6);
+        $this->addColumn('BklhSp1Pct', 'Bklhsp1pct', 'DECIMAL', false, 20);
+        $this->addColumn('ArspSalePer2', 'Arspsaleper2', 'VARCHAR', false, 6);
+        $this->addColumn('BklhSp2Pct', 'Bklhsp2pct', 'DECIMAL', false, 20);
+        $this->addColumn('ArspSalePer3', 'Arspsaleper3', 'VARCHAR', false, 6);
+        $this->addColumn('BklhSp3Pct', 'Bklhsp3pct', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmTermCd', 'Artmtermcd', 'VARCHAR', false, 4);
+        $this->addColumn('BklhUserCode1', 'Bklhusercode1', 'VARCHAR', false, 8);
+        $this->addColumn('BklhUserCode2', 'Bklhusercode2', 'VARCHAR', false, 8);
+        $this->addColumn('BklhUserCode3', 'Bklhusercode3', 'VARCHAR', false, 8);
+        $this->addColumn('BkldUserCode4', 'Bkldusercode4', 'VARCHAR', false, 8);
+        $this->addColumn('BklhPgmRef', 'Bklhpgmref', 'VARCHAR', false, 8);
+        $this->addColumn('BklhReasCd', 'Bklhreascd', 'VARCHAR', false, 2);
+        $this->addColumn('BklhFrtTot', 'Bklhfrttot', 'DECIMAL', false, 20);
+        $this->addColumn('BklhMiscTot', 'Bklhmisctot', 'DECIMAL', false, 20);
+        $this->addColumn('BklhSviaCode', 'Bklhsviacode', 'VARCHAR', false, 4);
+        $this->addColumn('BklhCreditMemo', 'Bklhcreditmemo', 'VARCHAR', false, 1);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
-), null, null, null, false);
-        $this->addRelation('CustomerShipto', '\\CustomerShipto', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('CustomerShipto', '\\CustomerShipto', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ArstShipId',
     1 => ':ArstShipId',
-  ),
-), null, null, null, false);
-        $this->addRelation('SalesPerson', '\\SalesPerson', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('SalesPerson', '\\SalesPerson', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArspSalePer1',
     1 => ':ArspSalePer1',
-  ),
-), null, null, null, false);
+  ],
+], null, null, null, false);
     }
 
     /**
@@ -618,8 +615,6 @@ class BookingTableMap extends TableMap
      *
      * @param \Booking $obj A \Booking object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(Booking $obj, ?string $key = null): void
     {
@@ -640,13 +635,11 @@ class BookingTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Booking object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \Booking) {
+            if ($value instanceof \Booking) {
                 $key = serialize([(null === $value->getBklhordrbase() || is_scalar($value->getBklhordrbase()) || is_callable([$value->getBklhordrbase(), '__toString']) ? (string) $value->getBklhordrbase() : $value->getBklhordrbase()), (null === $value->getBklhseq() || is_scalar($value->getBklhseq()) || is_callable([$value->getBklhseq(), '__toString']) ? (string) $value->getBklhseq() : $value->getBklhseq())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -681,11 +674,11 @@ class BookingTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -702,20 +695,15 @@ class BookingTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(string) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (int) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 1 + $offset
                 : self::translateFieldName('Bklhseq', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -770,7 +758,6 @@ class BookingTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -811,7 +798,6 @@ class BookingTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -892,7 +878,6 @@ class BookingTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -966,7 +951,6 @@ class BookingTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -988,7 +972,7 @@ class BookingTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingTableMap::DATABASE_NAME);
         }
 
@@ -1002,7 +986,7 @@ class BookingTableMap extends TableMap
             $criteria = new Criteria(BookingTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -1048,7 +1032,7 @@ class BookingTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingTableMap::DATABASE_NAME);
         }
 
@@ -1064,9 +1048,7 @@ class BookingTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\GlCode as BaseGlCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,12 +18,12 @@ class GlCode extends BaseGlCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'glmaacct',
 		'code'         => 'glmaacct',
 		'description'  => 'glmadesc',
 		'name'         => 'glmadesc',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 }

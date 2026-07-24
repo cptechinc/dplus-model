@@ -18,7 +18,7 @@ class InvAdjustmentReason extends BaseInvAdjustmentReason {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'intbiarncode',
 		'code'         => 'intbiarncode',
 		'description'  => 'intbiarndesc',
@@ -26,13 +26,13 @@ class InvAdjustmentReason extends BaseInvAdjustmentReason {
 		'sysdefined'   => 'intbiarnsysdefined',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return if Reason is System Defined
 	 * @return bool
 	 */
 	public function isSysDefined() {
-		return strtoupper($this->sysdefined) == 'Y';
+		return strtoupper($this->sysdefined) === 'Y';
 	}
 }

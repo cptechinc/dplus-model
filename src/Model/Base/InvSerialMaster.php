@@ -50,7 +50,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\InvSerialMasterTableMap';
+    public const TABLE_MAP = \Map\InvSerialMasterTableMap::class;
 
 
     /**
@@ -223,28 +223,28 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvLotTag[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag>
      */
-    protected $invLotTagsScheduledForDeletion = null;
+    protected $invLotTagsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferLotserial>
      */
-    protected $invTransferLotserialsScheduledForDeletion = null;
+    protected $invTransferLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferPreAllocatedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial>
      */
-    protected $invTransferPreAllocatedLotserialsScheduledForDeletion = null;
+    protected $invTransferPreAllocatedLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferPickedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPickedLotserial>
      */
-    protected $invTransferPickedLotserialsScheduledForDeletion = null;
+    protected $invTransferPickedLotserialsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -274,7 +274,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -332,7 +332,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -342,7 +341,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -380,8 +378,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -392,7 +388,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -434,9 +429,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -462,7 +455,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -893,13 +886,8 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             if ($this->inititemnbr !== '') {
                 return false;
             }
-
-            if ($this->sermsernbr !== '') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->sermsernbr === '';
     }
 
     /**
@@ -924,43 +912,43 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvSerialMasterTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : InvSerialMasterTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermsernbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermsernbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sermsernbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermproddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermproddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sermproddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermprntcnt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermprntcnt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sermprntcnt = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermsordnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermsordnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sermsordnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvSerialMasterTableMap::translateFieldName('Serminvcdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : InvSerialMasterTableMap::translateFieldName('Serminvcdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->serminvcdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermrevision', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermrevision', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sermrevision = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sermctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermacallocordr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermacallocordr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sermacallocordr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermrefsernbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermrefsernbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sermrefsernbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvSerialMasterTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : InvSerialMasterTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvSerialMasterTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : InvSerialMasterTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvSerialMasterTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : InvSerialMasterTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -989,7 +977,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1005,7 +992,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1018,7 +1004,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvSerialMasterTableMap::DATABASE_NAME);
         }
 
@@ -1053,7 +1039,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see InvSerialMaster::setDeleted()
      * @see InvSerialMaster::isDeleted()
@@ -1064,7 +1049,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialMasterTableMap::DATABASE_NAME);
         }
 
@@ -1103,18 +1088,14 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialMasterTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1138,7 +1119,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1172,13 +1152,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->invLotTagsScheduledForDeletion !== null) {
-                if (!$this->invLotTagsScheduledForDeletion->isEmpty()) {
-                    \InvLotTagQuery::create()
-                        ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invLotTagsScheduledForDeletion = null;
-                }
+            if ($this->invLotTagsScheduledForDeletion !== null && !$this->invLotTagsScheduledForDeletion->isEmpty()) {
+                \InvLotTagQuery::create()
+                    ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invLotTagsScheduledForDeletion = null;
             }
 
             if ($this->collInvLotTags !== null) {
@@ -1189,13 +1167,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferLotserialsScheduledForDeletion !== null) {
-                if (!$this->invTransferLotserialsScheduledForDeletion->isEmpty()) {
-                    \InvTransferLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferLotserialsScheduledForDeletion = null;
-                }
+            if ($this->invTransferLotserialsScheduledForDeletion !== null && !$this->invTransferLotserialsScheduledForDeletion->isEmpty()) {
+                \InvTransferLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferLotserials !== null) {
@@ -1206,13 +1182,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion !== null) {
-                if (!$this->invTransferPreAllocatedLotserialsScheduledForDeletion->isEmpty()) {
-                    \InvTransferPreAllocatedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferPreAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferPreAllocatedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion !== null && !$this->invTransferPreAllocatedLotserialsScheduledForDeletion->isEmpty()) {
+                \InvTransferPreAllocatedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferPreAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferPreAllocatedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferPreAllocatedLotserials !== null) {
@@ -1223,13 +1197,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferPickedLotserialsScheduledForDeletion !== null) {
-                if (!$this->invTransferPickedLotserialsScheduledForDeletion->isEmpty()) {
-                    \InvTransferPickedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferPickedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->invTransferPickedLotserialsScheduledForDeletion !== null && !$this->invTransferPickedLotserialsScheduledForDeletion->isEmpty()) {
+                \InvTransferPickedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferPickedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferPickedLotserials !== null) {
@@ -1240,10 +1212,8 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 }
             }
 
-            if ($this->singleInvSerialWarranty !== null) {
-                if (!$this->singleInvSerialWarranty->isDeleted() && ($this->singleInvSerialWarranty->isNew() || $this->singleInvSerialWarranty->isModified())) {
-                    $affectedRows += $this->singleInvSerialWarranty->save($con);
-                }
+            if ($this->singleInvSerialWarranty !== null && (!$this->singleInvSerialWarranty->isDeleted() && ($this->singleInvSerialWarranty->isNew() || $this->singleInvSerialWarranty->isModified()))) {
+                $affectedRows += $this->singleInvSerialWarranty->save($con);
             }
 
             $this->alreadyInSave = false;
@@ -1256,7 +1226,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -1384,7 +1353,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -1410,9 +1378,8 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = InvSerialMasterTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -1610,7 +1577,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -1884,18 +1850,13 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getInititemnbr();
-        $pks[1] = $this->getSermsernbr();
-
-        return $pks;
+        return [$this->getInititemnbr(), $this->getSermsernbr()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -1905,8 +1866,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -1923,7 +1882,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2007,13 +1965,12 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param ChildItemMasterItem $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ItemMasterItem) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
@@ -2023,7 +1980,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ItemMasterItem) {
             $v->addInvSerialMaster($this);
         }
 
@@ -2062,7 +2019,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -2102,8 +2058,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Reset is the collInvLotTags collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvLotTags($v = true): void
     {
@@ -2119,8 +2073,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvLotTags(bool $overrideExisting = true): void
     {
@@ -2152,7 +2104,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function getInvLotTags(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+        if (null === $this->collInvLotTags || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvLotTags) {
@@ -2170,7 +2122,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                     ->filterByInvSerialMaster($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvLotTagsPartial && count($collInvLotTags)) {
                         $this->initInvLotTags(false);
 
@@ -2221,7 +2173,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         $this->invLotTagsScheduledForDeletion = $invLotTagsToDelete;
 
         foreach ($invLotTagsToDelete as $invLotTagRemoved) {
-            $invLotTagRemoved->setInvSerialMaster(null);
+            $invLotTagRemoved->setInvSerialMaster();
         }
 
         $this->collInvLotTags = null;
@@ -2239,7 +2191,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * Returns the number of related InvLotTag objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvLotTag objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2247,7 +2198,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function countInvLotTags(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+        if (null === $this->collInvLotTags || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvLotTags) {
                 return 0;
             }
@@ -2286,7 +2237,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         if (!$this->collInvLotTags->contains($l)) {
             $this->doAddInvLotTag($l);
 
-            if ($this->invLotTagsScheduledForDeletion and $this->invLotTagsScheduledForDeletion->contains($l)) {
+            if ($this->invLotTagsScheduledForDeletion && $this->invLotTagsScheduledForDeletion->contains($l)) {
                 $this->invLotTagsScheduledForDeletion->remove($this->invLotTagsScheduledForDeletion->search($l));
             }
         }
@@ -2317,7 +2268,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->invLotTagsScheduledForDeletion->clear();
             }
             $this->invLotTagsScheduledForDeletion[]= clone $invLotTag;
-            $invLotTag->setInvSerialMaster(null);
+            $invLotTag->setInvSerialMaster();
         }
 
         return $this;
@@ -2445,8 +2396,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferLotserials($v = true): void
     {
@@ -2462,8 +2411,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferLotserials(bool $overrideExisting = true): void
     {
@@ -2495,7 +2442,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function getInvTransferLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferLotserials) {
@@ -2513,7 +2460,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                     ->filterByInvSerialMaster($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferLotserialsPartial && count($collInvTransferLotserials)) {
                         $this->initInvTransferLotserials(false);
 
@@ -2567,7 +2514,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         $this->invTransferLotserialsScheduledForDeletion = clone $invTransferLotserialsToDelete;
 
         foreach ($invTransferLotserialsToDelete as $invTransferLotserialRemoved) {
-            $invTransferLotserialRemoved->setInvSerialMaster(null);
+            $invTransferLotserialRemoved->setInvSerialMaster();
         }
 
         $this->collInvTransferLotserials = null;
@@ -2585,7 +2532,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * Returns the number of related InvTransferLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2593,7 +2539,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function countInvTransferLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferLotserials) {
                 return 0;
             }
@@ -2632,7 +2578,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         if (!$this->collInvTransferLotserials->contains($l)) {
             $this->doAddInvTransferLotserial($l);
 
-            if ($this->invTransferLotserialsScheduledForDeletion and $this->invTransferLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferLotserialsScheduledForDeletion && $this->invTransferLotserialsScheduledForDeletion->contains($l)) {
                 $this->invTransferLotserialsScheduledForDeletion->remove($this->invTransferLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -2663,7 +2609,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->invTransferLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferLotserialsScheduledForDeletion[]= clone $invTransferLotserial;
-            $invTransferLotserial->setInvSerialMaster(null);
+            $invTransferLotserial->setInvSerialMaster();
         }
 
         return $this;
@@ -2791,8 +2737,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferPreAllocatedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferPreAllocatedLotserials($v = true): void
     {
@@ -2808,8 +2752,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferPreAllocatedLotserials(bool $overrideExisting = true): void
     {
@@ -2841,7 +2783,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function getInvTransferPreAllocatedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferPreAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPreAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPreAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferPreAllocatedLotserials) {
@@ -2859,7 +2801,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                     ->filterByInvSerialMaster($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferPreAllocatedLotserialsPartial && count($collInvTransferPreAllocatedLotserials)) {
                         $this->initInvTransferPreAllocatedLotserials(false);
 
@@ -2913,7 +2855,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         $this->invTransferPreAllocatedLotserialsScheduledForDeletion = clone $invTransferPreAllocatedLotserialsToDelete;
 
         foreach ($invTransferPreAllocatedLotserialsToDelete as $invTransferPreAllocatedLotserialRemoved) {
-            $invTransferPreAllocatedLotserialRemoved->setInvSerialMaster(null);
+            $invTransferPreAllocatedLotserialRemoved->setInvSerialMaster();
         }
 
         $this->collInvTransferPreAllocatedLotserials = null;
@@ -2931,7 +2873,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * Returns the number of related InvTransferPreAllocatedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferPreAllocatedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2939,7 +2880,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function countInvTransferPreAllocatedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferPreAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPreAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPreAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferPreAllocatedLotserials) {
                 return 0;
             }
@@ -2978,7 +2919,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         if (!$this->collInvTransferPreAllocatedLotserials->contains($l)) {
             $this->doAddInvTransferPreAllocatedLotserial($l);
 
-            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion and $this->invTransferPreAllocatedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion && $this->invTransferPreAllocatedLotserialsScheduledForDeletion->contains($l)) {
                 $this->invTransferPreAllocatedLotserialsScheduledForDeletion->remove($this->invTransferPreAllocatedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -3009,7 +2950,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->invTransferPreAllocatedLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferPreAllocatedLotserialsScheduledForDeletion[]= clone $invTransferPreAllocatedLotserial;
-            $invTransferPreAllocatedLotserial->setInvSerialMaster(null);
+            $invTransferPreAllocatedLotserial->setInvSerialMaster();
         }
 
         return $this;
@@ -3137,8 +3078,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferPickedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferPickedLotserials($v = true): void
     {
@@ -3154,8 +3093,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferPickedLotserials(bool $overrideExisting = true): void
     {
@@ -3187,7 +3124,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function getInvTransferPickedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferPickedLotserials) {
@@ -3205,7 +3142,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                     ->filterByInvSerialMaster($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferPickedLotserialsPartial && count($collInvTransferPickedLotserials)) {
                         $this->initInvTransferPickedLotserials(false);
 
@@ -3259,7 +3196,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         $this->invTransferPickedLotserialsScheduledForDeletion = clone $invTransferPickedLotserialsToDelete;
 
         foreach ($invTransferPickedLotserialsToDelete as $invTransferPickedLotserialRemoved) {
-            $invTransferPickedLotserialRemoved->setInvSerialMaster(null);
+            $invTransferPickedLotserialRemoved->setInvSerialMaster();
         }
 
         $this->collInvTransferPickedLotserials = null;
@@ -3277,7 +3214,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * Returns the number of related InvTransferPickedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferPickedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3285,7 +3221,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function countInvTransferPickedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferPickedLotserials) {
                 return 0;
             }
@@ -3324,7 +3260,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         if (!$this->collInvTransferPickedLotserials->contains($l)) {
             $this->doAddInvTransferPickedLotserial($l);
 
-            if ($this->invTransferPickedLotserialsScheduledForDeletion and $this->invTransferPickedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferPickedLotserialsScheduledForDeletion && $this->invTransferPickedLotserialsScheduledForDeletion->contains($l)) {
                 $this->invTransferPickedLotserialsScheduledForDeletion->remove($this->invTransferPickedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -3355,7 +3291,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->invTransferPickedLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferPickedLotserialsScheduledForDeletion[]= clone $invTransferPickedLotserial;
-            $invTransferPickedLotserial->setInvSerialMaster(null);
+            $invTransferPickedLotserial->setInvSerialMaster();
         }
 
         return $this;
@@ -3494,7 +3430,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         $this->singleInvSerialWarranty = $v;
 
         // Make sure that that the passed-in ChildInvSerialWarranty isn't already associated with this object
-        if ($v !== null && $v->getInvSerialMaster(null, false) === null) {
+        if ($v instanceof \InvSerialWarranty && $v->getInvSerialMaster() === null) {
             $v->setInvSerialMaster($this);
         }
 
@@ -3589,13 +3525,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(InvSerialMasterTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(InvSerialMasterTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3604,8 +3538,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3613,8 +3545,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3623,8 +3553,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3632,8 +3560,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3642,8 +3568,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3651,8 +3575,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3661,8 +3583,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3682,7 +3602,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3694,7 +3614,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3702,7 +3622,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

@@ -170,7 +170,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class GlCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\GlCodeQuery object.
@@ -228,7 +228,7 @@ abstract class GlCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(GlCodeTableMap::DATABASE_NAME);
         }
 
@@ -274,7 +274,6 @@ abstract class GlCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildGlCode $obj */
             $obj = new ChildGlCode();
             $obj->hydrate($row);
             GlCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -315,7 +314,7 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -374,10 +373,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaacct($glmaacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMAACCT, $glmaacct, $comparison);
@@ -402,10 +399,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmadesc($glmadesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmadesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmadesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMADESC, $glmadesc, $comparison);
@@ -430,10 +425,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmadrcr($glmadrcr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmadrcr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmadrcr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMADRCR, $glmadrcr, $comparison);
@@ -458,10 +451,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaclosacct($glmaclosacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaclosacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaclosacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACLOSACCT, $glmaclosacct, $comparison);
@@ -486,10 +477,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmapackpost($glmapackpost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmapackpost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmapackpost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMAPACKPOST, $glmapackpost, $comparison);
@@ -514,10 +503,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmavald($glmavald = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmavald)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmavald)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMAVALD, $glmavald, $comparison);
@@ -542,10 +529,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco01($glmaco01 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco01)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco01)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO01, $glmaco01, $comparison);
@@ -570,10 +555,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco02($glmaco02 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco02)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco02)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO02, $glmaco02, $comparison);
@@ -598,10 +581,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco03($glmaco03 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco03)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco03)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO03, $glmaco03, $comparison);
@@ -626,10 +607,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco04($glmaco04 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco04)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco04)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO04, $glmaco04, $comparison);
@@ -654,10 +633,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco05($glmaco05 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco05)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco05)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO05, $glmaco05, $comparison);
@@ -682,10 +659,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco06($glmaco06 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco06)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco06)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO06, $glmaco06, $comparison);
@@ -710,10 +685,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco07($glmaco07 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco07)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco07)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO07, $glmaco07, $comparison);
@@ -738,10 +711,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco08($glmaco08 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco08)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco08)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO08, $glmaco08, $comparison);
@@ -766,10 +737,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco09($glmaco09 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco09)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco09)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO09, $glmaco09, $comparison);
@@ -794,10 +763,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaco10($glmaco10 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaco10)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaco10)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMACO10, $glmaco10, $comparison);
@@ -822,10 +789,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -893,10 +858,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByGlmaAchAcct($glmaAchAcct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($glmaAchAcct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($glmaAchAcct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_GLMAACHACCT, $glmaAchAcct, $comparison);
@@ -921,10 +884,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -949,10 +910,8 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(GlCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -984,7 +943,7 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlCodeTableMap::DATABASE_NAME);
         }
 
@@ -1014,7 +973,7 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlCodeTableMap::DATABASE_NAME);
         }
 

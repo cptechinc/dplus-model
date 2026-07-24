@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SoPickedLotserial as BaseSoPickedLotserial;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class SoPickedLotserial extends BaseSoPickedLotserial {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ordernumber'  => 'oehdnbr',
 		'linenbr'      => 'oedtline',
 		'itemid'       => 'inititemnbr',
@@ -34,5 +36,5 @@ class SoPickedLotserial extends BaseSoPickedLotserial {
 		'order'        => 'salesOrder',
 		'orderline'    => 'salesOrderDetail',
 		'lotmlot'      => 'invLotMaster'
-	);
+	];
 }

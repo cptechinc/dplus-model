@@ -22,7 +22,7 @@ class OptionsVi extends BaseOptionsVi {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'userid'           => 'vitboptncode',
 		'contacts'         => 'vitboptngenavail',
 		'payments'         => 'vitboptnpayavail',
@@ -37,7 +37,7 @@ class OptionsVi extends BaseOptionsVi {
 
 		'date'            => 'dateupdtd',
 		'time'            => 'timeupdtd'
-	);
+	];
 
 	const PERMISSIONS = [
 		'contacts',
@@ -77,7 +77,7 @@ class OptionsVi extends BaseOptionsVi {
 	 * @return array
 	 */
 	public function permitted() {
-		return array_filter(self::PERMISSIONS, array($this, 'is_true'));
+		return array_filter(self::PERMISSIONS, [$this, 'is_true']);
 	}
 
 	/**

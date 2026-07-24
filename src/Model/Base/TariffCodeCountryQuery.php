@@ -74,7 +74,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class TariffCodeCountryQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\TariffCodeCountryQuery object.
@@ -132,7 +132,7 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(TariffCodeCountryTableMap::DATABASE_NAME);
         }
 
@@ -179,7 +179,6 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildTariffCodeCountry $obj */
             $obj = new ChildTariffCodeCountry();
             $obj->hydrate($row);
             TariffCodeCountryTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -220,7 +219,7 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -288,10 +287,8 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
      */
     public function filterByIntbtaricode($intbtaricode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbtaricode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbtaricode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TariffCodeCountryTableMap::COL_INTBTARICODE, $intbtaricode, $comparison);
@@ -316,10 +313,8 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
      */
     public function filterByIntbtrcoctry($intbtrcoctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbtrcoctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbtrcoctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TariffCodeCountryTableMap::COL_INTBTRCOCTRY, $intbtrcoctry, $comparison);
@@ -344,10 +339,8 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TariffCodeCountryTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -372,10 +365,8 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TariffCodeCountryTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -400,10 +391,8 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TariffCodeCountryTableMap::COL_DUMMY, $dummy, $comparison);
@@ -423,7 +412,7 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
         if ($tariffCodeCountry) {
             $this->addCond('pruneCond0', $this->getAliasedColName(TariffCodeCountryTableMap::COL_INTBTARICODE), $tariffCodeCountry->getIntbtaricode(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(TariffCodeCountryTableMap::COL_INTBTRCOCTRY), $tariffCodeCountry->getIntbtrcoctry(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -437,7 +426,7 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(TariffCodeCountryTableMap::DATABASE_NAME);
         }
 
@@ -467,7 +456,7 @@ abstract class TariffCodeCountryQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(TariffCodeCountryTableMap::DATABASE_NAME);
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ProspectSourceQuery as BaseProspectSourceQuery;
 
 use Dplus\Model\QueryTraits;

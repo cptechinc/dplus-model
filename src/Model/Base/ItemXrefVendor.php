@@ -38,7 +38,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ItemXrefVendorTableMap';
+    public const TABLE_MAP = \Map\ItemXrefVendorTableMap::class;
 
 
     /**
@@ -449,7 +449,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -507,7 +507,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -517,7 +516,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -555,8 +553,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -567,7 +563,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -609,9 +604,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -637,7 +630,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1936,13 +1929,8 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -1967,115 +1955,115 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ItemXrefVendorTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ItemXrefVendorTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrvenditemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrvenditemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrvenditemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemXrefVendorTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ItemXrefVendorTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrpoordercode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrpoordercode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrpoordercode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexroption1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexroption1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexroption1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemXrefVendorTableMap::translateFieldName('Intbuompur', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ItemXrefVendorTableMap::translateFieldName('Intbuompur', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuompur = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrcaseqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrcaseqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrcaseqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrprtkitdet', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrprtkitdet', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrprtkitdet = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrlistprice', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrlistprice', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrlistprice = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrforeigncost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrforeigncost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrforeigncost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrcostlastdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrcostlastdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrcostlastdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit7 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit8 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit9 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitunit10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitunit10 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrunitcost10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrunitcost10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexraprvcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexraprvcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexraprvcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrminbuyqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrminbuyqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrminbuyqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ItemXrefVendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ItemXrefVendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ItemXrefVendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ItemXrefVendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ItemXrefVendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ItemXrefVendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -2104,7 +2092,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -2126,7 +2113,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -2139,7 +2125,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemXrefVendorTableMap::DATABASE_NAME);
         }
 
@@ -2166,7 +2152,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ItemXrefVendor::setDeleted()
      * @see ItemXrefVendor::isDeleted()
@@ -2177,7 +2162,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorTableMap::DATABASE_NAME);
         }
 
@@ -2216,18 +2201,14 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2251,7 +2232,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2309,7 +2289,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2605,7 +2584,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2631,9 +2609,8 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ItemXrefVendorTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2882,7 +2859,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3344,9 +3320,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getApvevendid() &&
-            null !== $this->getVexrvenditemnbr() &&
-            null !== $this->getInititemnbr();
+        $validPk = !in_array(null, [$this->getApvevendid(), $this->getVexrvenditemnbr(), $this->getInititemnbr()], true);
 
         $validPrimaryKeyFKs = 2;
         $primaryKeyFKs = [];
@@ -3381,19 +3355,13 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getApvevendid();
-        $pks[1] = $this->getVexrvenditemnbr();
-        $pks[2] = $this->getInititemnbr();
-
-        return $pks;
+        return [$this->getApvevendid(), $this->getVexrvenditemnbr(), $this->getInititemnbr()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -3404,8 +3372,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3422,7 +3388,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3493,13 +3458,12 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildVendor object.
      *
-     * @param ChildVendor $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setVendor(ChildVendor $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Vendor) {
             $this->setApvevendid('');
         } else {
             $this->setApvevendid($v->getApvevendid());
@@ -3509,7 +3473,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildVendor object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Vendor) {
             $v->addItemXrefVendor($this);
         }
 
@@ -3546,13 +3510,12 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param ChildItemMasterItem $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ItemMasterItem) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
@@ -3562,7 +3525,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ItemMasterItem) {
             $v->addItemXrefVendor($this);
         }
 
@@ -3597,13 +3560,12 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildUnitofMeasurePurchase object.
      *
-     * @param ChildUnitofMeasurePurchase $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setUnitofMeasurePurchase(ChildUnitofMeasurePurchase $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \UnitofMeasurePurchase) {
             $this->setIntbuompur('');
         } else {
             $this->setIntbuompur($v->getIntbuompur());
@@ -3613,7 +3575,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildUnitofMeasurePurchase object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \UnitofMeasurePurchase) {
             $v->addItemXrefVendor($this);
         }
 
@@ -3721,8 +3683,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aVendor = null;
         $this->aItemMasterItem = null;
@@ -3737,13 +3698,11 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ItemXrefVendorTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ItemXrefVendorTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3752,8 +3711,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3761,8 +3718,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3771,8 +3726,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3780,8 +3733,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3790,8 +3741,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3799,8 +3748,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3809,8 +3756,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3830,7 +3775,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3842,7 +3787,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3850,7 +3795,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

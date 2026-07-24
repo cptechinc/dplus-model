@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArShiptoUserCode as BaseArShiptoUserCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class ArShiptoUserCode extends BaseArShiptoUserCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'artbsusrcode',
 		'code'         => 'artbsusrcode',
 		'description'  => 'artbsusrdesc',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

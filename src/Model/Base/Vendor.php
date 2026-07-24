@@ -78,7 +78,7 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\VendorTableMap';
+    public const TABLE_MAP = \Map\VendorTableMap::class;
 
 
     /**
@@ -1639,84 +1639,84 @@ abstract class Vendor implements ActiveRecordInterface
      * @var ObjectCollection|ChildApContact[]
      * @phpstan-var ObjectCollection&\Traversable<ChildApContact>
      */
-    protected $apContactsScheduledForDeletion = null;
+    protected $apContactsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildApInvoiceDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildApInvoiceDetail>
      */
-    protected $apInvoiceDetailsScheduledForDeletion = null;
+    protected $apInvoiceDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildApInvoice[]
      * @phpstan-var ObjectCollection&\Traversable<ChildApInvoice>
      */
-    protected $apInvoicesScheduledForDeletion = null;
+    protected $apInvoicesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildVendorShipfrom[]
      * @phpstan-var ObjectCollection&\Traversable<ChildVendorShipfrom>
      */
-    protected $vendorShipfromsScheduledForDeletion = null;
+    protected $vendorShipfromsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvNonstockItem[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvNonstockItem>
      */
-    protected $invNonstockItemsScheduledForDeletion = null;
+    protected $invNonstockItemsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder>
      */
-    protected $invTransferOrdersScheduledForDeletion = null;
+    protected $invTransferOrdersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefKey[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefKey>
      */
-    protected $itemXrefKeysScheduledForDeletion = null;
+    protected $itemXrefKeysScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefManufacturer[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefManufacturer>
      */
-    protected $itemXrefManufacturersScheduledForDeletion = null;
+    protected $itemXrefManufacturersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendorNoteDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail>
      */
-    protected $itemXrefVendorNoteDetailsScheduledForDeletion = null;
+    protected $itemXrefVendorNoteDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendorNoteInternal[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal>
      */
-    protected $itemXrefVendorNoteInternalsScheduledForDeletion = null;
+    protected $itemXrefVendorNoteInternalsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrder>
      */
-    protected $purchaseOrdersScheduledForDeletion = null;
+    protected $purchaseOrdersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendor[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendor>
      */
-    protected $itemXrefVendorsScheduledForDeletion = null;
+    protected $itemXrefVendorsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -1920,7 +1920,7 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -1978,7 +1978,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -1988,7 +1987,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -2026,8 +2024,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -2038,7 +2034,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -2080,9 +2075,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -2108,7 +2101,7 @@ abstract class Vendor implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -8167,13 +8160,8 @@ abstract class Vendor implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -8198,535 +8186,535 @@ abstract class Vendor implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : VendorTableMap::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : VendorTableMap::translateFieldName('Vendrecnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vendrecnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : VendorTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : VendorTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : VendorTableMap::translateFieldName('Apvename', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : VendorTableMap::translateFieldName('Apvename', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvename = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : VendorTableMap::translateFieldName('Apveadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : VendorTableMap::translateFieldName('Apveadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : VendorTableMap::translateFieldName('Apveadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : VendorTableMap::translateFieldName('Apveadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : VendorTableMap::translateFieldName('Apveadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : VendorTableMap::translateFieldName('Apveadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : VendorTableMap::translateFieldName('Apvectry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : VendorTableMap::translateFieldName('Apvectry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvectry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : VendorTableMap::translateFieldName('Apvecity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : VendorTableMap::translateFieldName('Apvecity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvecity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VendorTableMap::translateFieldName('Apvestat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : VendorTableMap::translateFieldName('Apvestat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvestat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VendorTableMap::translateFieldName('Apvezipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : VendorTableMap::translateFieldName('Apvezipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvezipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VendorTableMap::translateFieldName('Apvepayname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : VendorTableMap::translateFieldName('Apvepayname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : VendorTableMap::translateFieldName('Apvepayadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : VendorTableMap::translateFieldName('Apvepayadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : VendorTableMap::translateFieldName('Apvepayadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : VendorTableMap::translateFieldName('Apvepayadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : VendorTableMap::translateFieldName('Apvepayadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : VendorTableMap::translateFieldName('Apvepayadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : VendorTableMap::translateFieldName('Apvepayctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : VendorTableMap::translateFieldName('Apvepayctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : VendorTableMap::translateFieldName('Apvepaycity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : VendorTableMap::translateFieldName('Apvepaycity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepaycity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : VendorTableMap::translateFieldName('Apvepaystat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : VendorTableMap::translateFieldName('Apvepaystat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepaystat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : VendorTableMap::translateFieldName('Apvepayzipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : VendorTableMap::translateFieldName('Apvepayzipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayzipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : VendorTableMap::translateFieldName('Apvestatus', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : VendorTableMap::translateFieldName('Apvestatus', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvestatus = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : VendorTableMap::translateFieldName('Apvetakeexpireddisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : VendorTableMap::translateFieldName('Apvetakeexpireddisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvetakeexpireddisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : VendorTableMap::translateFieldName('Apveprinthts', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : VendorTableMap::translateFieldName('Apveprinthts', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveprinthts = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : VendorTableMap::translateFieldName('Apvefabbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : VendorTableMap::translateFieldName('Apvefabbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvefabbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : VendorTableMap::translateFieldName('Apvelmprntbulk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : VendorTableMap::translateFieldName('Apvelmprntbulk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvelmprntbulk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : VendorTableMap::translateFieldName('Apveallowdropship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : VendorTableMap::translateFieldName('Apveallowdropship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveallowdropship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : VendorTableMap::translateFieldName('Aptbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : VendorTableMap::translateFieldName('Aptbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbtypecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : VendorTableMap::translateFieldName('Aptmtermcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : VendorTableMap::translateFieldName('Aptmtermcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmtermcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : VendorTableMap::translateFieldName('Apvesviacode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : VendorTableMap::translateFieldName('Apvesviacode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvesviacode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : VendorTableMap::translateFieldName('Apveoldfob', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : VendorTableMap::translateFieldName('Apveoldfob', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveoldfob = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : VendorTableMap::translateFieldName('Apveleaddays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : VendorTableMap::translateFieldName('Apveleaddays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveleaddays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : VendorTableMap::translateFieldName('Apveglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : VendorTableMap::translateFieldName('Apveglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : VendorTableMap::translateFieldName('Apve1099ssnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : VendorTableMap::translateFieldName('Apve1099ssnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apve1099ssnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : VendorTableMap::translateFieldName('Apveminordrcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : VendorTableMap::translateFieldName('Apveminordrcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveminordrcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : VendorTableMap::translateFieldName('Apveminordrvalue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : VendorTableMap::translateFieldName('Apveminordrvalue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveminordrvalue = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : VendorTableMap::translateFieldName('Apvepurmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : VendorTableMap::translateFieldName('Apvepurmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepurmtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : VendorTableMap::translateFieldName('Apvepomtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : VendorTableMap::translateFieldName('Apvepomtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepomtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : VendorTableMap::translateFieldName('Apveinvcmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : VendorTableMap::translateFieldName('Apveinvcmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvcmtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : VendorTableMap::translateFieldName('Apveicntmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : VendorTableMap::translateFieldName('Apveicntmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicntmtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : VendorTableMap::translateFieldName('Apvedateopen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : VendorTableMap::translateFieldName('Apvedateopen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvedateopen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : VendorTableMap::translateFieldName('Apvelastpurdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : VendorTableMap::translateFieldName('Apvelastpurdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvelastpurdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo01 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo01 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo01 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo01 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo02 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo02 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo02 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo02 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo03 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo03 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo03 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo03 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo04 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo04 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo04 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo04 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo05 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo05 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo05 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo05 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo06 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo06 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo06 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo06 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo07 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo07 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo07 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo07 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo08 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo08 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo08 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo08 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo09 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo09 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo09 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo09 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo10 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo10 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo11 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo11 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo11 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo11 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo12 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo12 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo12 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo12 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo13 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo13 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo13 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo13 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo14 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo14 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo14 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 94 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo14 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 95 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo15 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 96 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo15 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 97 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo15 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 98 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo15 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 99 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo16 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 100 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo16 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 101 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo16 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 102 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo16 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 103 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo17 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 104 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo17 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 105 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo17 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 106 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo17 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 107 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo18 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 108 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo18 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 109 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo18 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 110 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo18 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 111 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo19 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 112 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo19 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 113 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo19 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 114 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo19 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 115 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo20 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 116 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo20 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 117 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo20 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 118 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo20 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 119 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo21 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 120 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo21 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 121 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo21 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 122 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo21 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 123 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo22 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 124 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo22 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 125 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo22 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 126 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo22 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 127 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo23 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 128 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo23 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 129 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo23 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 130 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo23 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 131 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo24 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 132 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo24 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 133 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo24 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 134 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo24 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : VendorTableMap::translateFieldName('Apvecrncy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 135 + $startcol : VendorTableMap::translateFieldName('Apvecrncy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvecrncy = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : VendorTableMap::translateFieldName('Apvefrtinamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 136 + $startcol : VendorTableMap::translateFieldName('Apvefrtinamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvefrtinamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : VendorTableMap::translateFieldName('Apveouracctnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 137 + $startcol : VendorTableMap::translateFieldName('Apveouracctnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveouracctnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : VendorTableMap::translateFieldName('Apvevenddisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 138 + $startcol : VendorTableMap::translateFieldName('Apvevenddisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevenddisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : VendorTableMap::translateFieldName('Apvefob', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 139 + $startcol : VendorTableMap::translateFieldName('Apvefob', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvefob = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : VendorTableMap::translateFieldName('Apveroylpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 140 + $startcol : VendorTableMap::translateFieldName('Apveroylpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveroylpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : VendorTableMap::translateFieldName('Apveprtpoeoru', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 141 + $startcol : VendorTableMap::translateFieldName('Apveprtpoeoru', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveprtpoeoru = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : VendorTableMap::translateFieldName('Apvecomrate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 142 + $startcol : VendorTableMap::translateFieldName('Apvecomrate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvecomrate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : VendorTableMap::translateFieldName('Apveuselandonrcpt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 143 + $startcol : VendorTableMap::translateFieldName('Apveuselandonrcpt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveuselandonrcpt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 144 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 145 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 146 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 147 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 148 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 149 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 150 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 151 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 152 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 153 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 154 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 155 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 156 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 157 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 158 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 159 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 160 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 161 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 162 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 163 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : VendorTableMap::translateFieldName('Apvelandcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 164 + $startcol : VendorTableMap::translateFieldName('Apvelandcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvelandcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : VendorTableMap::translateFieldName('Apvereleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 165 + $startcol : VendorTableMap::translateFieldName('Apvereleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvereleasenbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : VendorTableMap::translateFieldName('Apvescanstartpos', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 166 + $startcol : VendorTableMap::translateFieldName('Apvescanstartpos', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvescanstartpos = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : VendorTableMap::translateFieldName('Apvescanlength', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 167 + $startcol : VendorTableMap::translateFieldName('Apvescanlength', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvescanlength = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : VendorTableMap::translateFieldName('Apvepurytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 168 + $startcol : VendorTableMap::translateFieldName('Apvepurytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepurytd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : VendorTableMap::translateFieldName('Apvepoytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 169 + $startcol : VendorTableMap::translateFieldName('Apvepoytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepoytd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : VendorTableMap::translateFieldName('Apveinvcytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 170 + $startcol : VendorTableMap::translateFieldName('Apveinvcytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvcytd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : VendorTableMap::translateFieldName('Apveicntytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 171 + $startcol : VendorTableMap::translateFieldName('Apveicntytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicntytd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : VendorTableMap::translateFieldName('Apveuseach', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 172 + $startcol : VendorTableMap::translateFieldName('Apveuseach', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveuseach = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : VendorTableMap::translateFieldName('Apvecat3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 173 + $startcol : VendorTableMap::translateFieldName('Apvecat3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvecat3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : VendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 174 + $startcol : VendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : VendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 175 + $startcol : VendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 176 + $startcol : VendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 176 + $startcol : VendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -8755,7 +8743,6 @@ abstract class Vendor implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -8780,7 +8767,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -8793,7 +8779,7 @@ abstract class Vendor implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(VendorTableMap::DATABASE_NAME);
         }
 
@@ -8845,7 +8831,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see Vendor::setDeleted()
      * @see Vendor::isDeleted()
@@ -8856,7 +8841,7 @@ abstract class Vendor implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorTableMap::DATABASE_NAME);
         }
 
@@ -8895,18 +8880,14 @@ abstract class Vendor implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -8930,7 +8911,6 @@ abstract class Vendor implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -8985,13 +8965,11 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->apContactsScheduledForDeletion !== null) {
-                if (!$this->apContactsScheduledForDeletion->isEmpty()) {
-                    \ApContactQuery::create()
-                        ->filterByPrimaryKeys($this->apContactsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->apContactsScheduledForDeletion = null;
-                }
+            if ($this->apContactsScheduledForDeletion !== null && !$this->apContactsScheduledForDeletion->isEmpty()) {
+                \ApContactQuery::create()
+                    ->filterByPrimaryKeys($this->apContactsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->apContactsScheduledForDeletion = null;
             }
 
             if ($this->collApContacts !== null) {
@@ -9002,13 +8980,11 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->apInvoiceDetailsScheduledForDeletion !== null) {
-                if (!$this->apInvoiceDetailsScheduledForDeletion->isEmpty()) {
-                    \ApInvoiceDetailQuery::create()
-                        ->filterByPrimaryKeys($this->apInvoiceDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->apInvoiceDetailsScheduledForDeletion = null;
-                }
+            if ($this->apInvoiceDetailsScheduledForDeletion !== null && !$this->apInvoiceDetailsScheduledForDeletion->isEmpty()) {
+                \ApInvoiceDetailQuery::create()
+                    ->filterByPrimaryKeys($this->apInvoiceDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->apInvoiceDetailsScheduledForDeletion = null;
             }
 
             if ($this->collApInvoiceDetails !== null) {
@@ -9019,13 +8995,11 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->apInvoicesScheduledForDeletion !== null) {
-                if (!$this->apInvoicesScheduledForDeletion->isEmpty()) {
-                    \ApInvoiceQuery::create()
-                        ->filterByPrimaryKeys($this->apInvoicesScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->apInvoicesScheduledForDeletion = null;
-                }
+            if ($this->apInvoicesScheduledForDeletion !== null && !$this->apInvoicesScheduledForDeletion->isEmpty()) {
+                \ApInvoiceQuery::create()
+                    ->filterByPrimaryKeys($this->apInvoicesScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->apInvoicesScheduledForDeletion = null;
             }
 
             if ($this->collApInvoices !== null) {
@@ -9036,13 +9010,11 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->vendorShipfromsScheduledForDeletion !== null) {
-                if (!$this->vendorShipfromsScheduledForDeletion->isEmpty()) {
-                    \VendorShipfromQuery::create()
-                        ->filterByPrimaryKeys($this->vendorShipfromsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->vendorShipfromsScheduledForDeletion = null;
-                }
+            if ($this->vendorShipfromsScheduledForDeletion !== null && !$this->vendorShipfromsScheduledForDeletion->isEmpty()) {
+                \VendorShipfromQuery::create()
+                    ->filterByPrimaryKeys($this->vendorShipfromsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->vendorShipfromsScheduledForDeletion = null;
             }
 
             if ($this->collVendorShipfroms !== null) {
@@ -9053,13 +9025,11 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invNonstockItemsScheduledForDeletion !== null) {
-                if (!$this->invNonstockItemsScheduledForDeletion->isEmpty()) {
-                    \InvNonstockItemQuery::create()
-                        ->filterByPrimaryKeys($this->invNonstockItemsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invNonstockItemsScheduledForDeletion = null;
-                }
+            if ($this->invNonstockItemsScheduledForDeletion !== null && !$this->invNonstockItemsScheduledForDeletion->isEmpty()) {
+                \InvNonstockItemQuery::create()
+                    ->filterByPrimaryKeys($this->invNonstockItemsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invNonstockItemsScheduledForDeletion = null;
             }
 
             if ($this->collInvNonstockItems !== null) {
@@ -9070,13 +9040,11 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferOrdersScheduledForDeletion !== null) {
-                if (!$this->invTransferOrdersScheduledForDeletion->isEmpty()) {
-                    \InvTransferOrderQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferOrdersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferOrdersScheduledForDeletion = null;
-                }
+            if ($this->invTransferOrdersScheduledForDeletion !== null && !$this->invTransferOrdersScheduledForDeletion->isEmpty()) {
+                \InvTransferOrderQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferOrdersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferOrdersScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferOrders !== null) {
@@ -9087,13 +9055,11 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefKeysScheduledForDeletion !== null) {
-                if (!$this->itemXrefKeysScheduledForDeletion->isEmpty()) {
-                    \ItemXrefKeyQuery::create()
-                        ->filterByPrimaryKeys($this->itemXrefKeysScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemXrefKeysScheduledForDeletion = null;
-                }
+            if ($this->itemXrefKeysScheduledForDeletion !== null && !$this->itemXrefKeysScheduledForDeletion->isEmpty()) {
+                \ItemXrefKeyQuery::create()
+                    ->filterByPrimaryKeys($this->itemXrefKeysScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemXrefKeysScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefKeys !== null) {
@@ -9104,13 +9070,11 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefManufacturersScheduledForDeletion !== null) {
-                if (!$this->itemXrefManufacturersScheduledForDeletion->isEmpty()) {
-                    \ItemXrefManufacturerQuery::create()
-                        ->filterByPrimaryKeys($this->itemXrefManufacturersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemXrefManufacturersScheduledForDeletion = null;
-                }
+            if ($this->itemXrefManufacturersScheduledForDeletion !== null && !$this->itemXrefManufacturersScheduledForDeletion->isEmpty()) {
+                \ItemXrefManufacturerQuery::create()
+                    ->filterByPrimaryKeys($this->itemXrefManufacturersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemXrefManufacturersScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefManufacturers !== null) {
@@ -9121,14 +9085,12 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion !== null) {
-                if (!$this->itemXrefVendorNoteDetailsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->itemXrefVendorNoteDetailsScheduledForDeletion as $itemXrefVendorNoteDetail) {
-                        // need to save related object because we set the relation to null
-                        $itemXrefVendorNoteDetail->save($con);
-                    }
-                    $this->itemXrefVendorNoteDetailsScheduledForDeletion = null;
+            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion !== null && !$this->itemXrefVendorNoteDetailsScheduledForDeletion->isEmpty()) {
+                foreach ($this->itemXrefVendorNoteDetailsScheduledForDeletion as $itemXrefVendorNoteDetail) {
+                    // need to save related object because we set the relation to null
+                    $itemXrefVendorNoteDetail->save($con);
                 }
+                $this->itemXrefVendorNoteDetailsScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefVendorNoteDetails !== null) {
@@ -9139,14 +9101,12 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion !== null) {
-                if (!$this->itemXrefVendorNoteInternalsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->itemXrefVendorNoteInternalsScheduledForDeletion as $itemXrefVendorNoteInternal) {
-                        // need to save related object because we set the relation to null
-                        $itemXrefVendorNoteInternal->save($con);
-                    }
-                    $this->itemXrefVendorNoteInternalsScheduledForDeletion = null;
+            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion !== null && !$this->itemXrefVendorNoteInternalsScheduledForDeletion->isEmpty()) {
+                foreach ($this->itemXrefVendorNoteInternalsScheduledForDeletion as $itemXrefVendorNoteInternal) {
+                    // need to save related object because we set the relation to null
+                    $itemXrefVendorNoteInternal->save($con);
                 }
+                $this->itemXrefVendorNoteInternalsScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefVendorNoteInternals !== null) {
@@ -9157,14 +9117,12 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrdersScheduledForDeletion !== null) {
-                if (!$this->purchaseOrdersScheduledForDeletion->isEmpty()) {
-                    foreach ($this->purchaseOrdersScheduledForDeletion as $purchaseOrder) {
-                        // need to save related object because we set the relation to null
-                        $purchaseOrder->save($con);
-                    }
-                    $this->purchaseOrdersScheduledForDeletion = null;
+            if ($this->purchaseOrdersScheduledForDeletion !== null && !$this->purchaseOrdersScheduledForDeletion->isEmpty()) {
+                foreach ($this->purchaseOrdersScheduledForDeletion as $purchaseOrder) {
+                    // need to save related object because we set the relation to null
+                    $purchaseOrder->save($con);
                 }
+                $this->purchaseOrdersScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrders !== null) {
@@ -9175,13 +9133,11 @@ abstract class Vendor implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefVendorsScheduledForDeletion !== null) {
-                if (!$this->itemXrefVendorsScheduledForDeletion->isEmpty()) {
-                    \ItemXrefVendorQuery::create()
-                        ->filterByPrimaryKeys($this->itemXrefVendorsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemXrefVendorsScheduledForDeletion = null;
-                }
+            if ($this->itemXrefVendorsScheduledForDeletion !== null && !$this->itemXrefVendorsScheduledForDeletion->isEmpty()) {
+                \ItemXrefVendorQuery::create()
+                    ->filterByPrimaryKeys($this->itemXrefVendorsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemXrefVendorsScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefVendors !== null) {
@@ -9202,7 +9158,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -10489,7 +10444,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -10515,9 +10469,8 @@ abstract class Vendor implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = VendorTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -11521,7 +11474,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -13248,7 +13200,7 @@ abstract class Vendor implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -13268,7 +13220,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Generic method to set the primary key (vendrecnbr column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -13277,8 +13228,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -13295,7 +13244,6 @@ abstract class Vendor implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -13586,13 +13534,12 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildApTypeCode object.
      *
-     * @param ChildApTypeCode $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setApTypeCode(ChildApTypeCode $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ApTypeCode) {
             $this->setAptbtypecode('');
         } else {
             $this->setAptbtypecode($v->getAptbtypecode());
@@ -13602,7 +13549,7 @@ abstract class Vendor implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildApTypeCode object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ApTypeCode) {
             $v->addVendor($this);
         }
 
@@ -13637,13 +13584,12 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildApTermsCode object.
      *
-     * @param ChildApTermsCode $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setApTermsCode(ChildApTermsCode $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ApTermsCode) {
             $this->setAptmtermcode('');
         } else {
             $this->setAptmtermcode($v->getAptmtermcode());
@@ -13653,7 +13599,7 @@ abstract class Vendor implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildApTermsCode object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ApTermsCode) {
             $v->addVendor($this);
         }
 
@@ -13688,13 +13634,12 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildShipvia object.
      *
-     * @param ChildShipvia $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setShipvia(ChildShipvia $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Shipvia) {
             $this->setApvesviacode('');
         } else {
             $this->setApvesviacode($v->getArtbshipvia());
@@ -13704,7 +13649,7 @@ abstract class Vendor implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildShipvia object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Shipvia) {
             $v->addVendor($this);
         }
 
@@ -13739,13 +13684,12 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildApBuyer object.
      *
-     * @param ChildApBuyer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setApBuyer(ChildApBuyer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ApBuyer) {
             $this->setApvebuyrcode1('');
         } else {
             $this->setApvebuyrcode1($v->getAptbbuyrcode());
@@ -13755,7 +13699,7 @@ abstract class Vendor implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildApBuyer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ApBuyer) {
             $v->addVendor($this);
         }
 
@@ -13794,7 +13738,6 @@ abstract class Vendor implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -13866,8 +13809,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collApContacts collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialApContacts($v = true): void
     {
@@ -13883,8 +13824,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initApContacts(bool $overrideExisting = true): void
     {
@@ -13916,7 +13855,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getApContacts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collApContactsPartial && !$this->isNew();
-        if (null === $this->collApContacts || null !== $criteria || $partial) {
+        if (null === $this->collApContacts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collApContacts) {
@@ -13934,7 +13873,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collApContactsPartial && count($collApContacts)) {
                         $this->initApContacts(false);
 
@@ -13988,7 +13927,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->apContactsScheduledForDeletion = clone $apContactsToDelete;
 
         foreach ($apContactsToDelete as $apContactRemoved) {
-            $apContactRemoved->setVendor(null);
+            $apContactRemoved->setVendor();
         }
 
         $this->collApContacts = null;
@@ -14006,7 +13945,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related ApContact objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ApContact objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14014,7 +13952,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countApContacts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collApContactsPartial && !$this->isNew();
-        if (null === $this->collApContacts || null !== $criteria || $partial) {
+        if (null === $this->collApContacts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collApContacts) {
                 return 0;
             }
@@ -14053,7 +13991,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collApContacts->contains($l)) {
             $this->doAddApContact($l);
 
-            if ($this->apContactsScheduledForDeletion and $this->apContactsScheduledForDeletion->contains($l)) {
+            if ($this->apContactsScheduledForDeletion && $this->apContactsScheduledForDeletion->contains($l)) {
                 $this->apContactsScheduledForDeletion->remove($this->apContactsScheduledForDeletion->search($l));
             }
         }
@@ -14084,7 +14022,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->apContactsScheduledForDeletion->clear();
             }
             $this->apContactsScheduledForDeletion[]= clone $apContact;
-            $apContact->setVendor(null);
+            $apContact->setVendor();
         }
 
         return $this;
@@ -14108,8 +14046,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collApInvoiceDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialApInvoiceDetails($v = true): void
     {
@@ -14125,8 +14061,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initApInvoiceDetails(bool $overrideExisting = true): void
     {
@@ -14158,7 +14092,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getApInvoiceDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collApInvoiceDetailsPartial && !$this->isNew();
-        if (null === $this->collApInvoiceDetails || null !== $criteria || $partial) {
+        if (null === $this->collApInvoiceDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collApInvoiceDetails) {
@@ -14176,7 +14110,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collApInvoiceDetailsPartial && count($collApInvoiceDetails)) {
                         $this->initApInvoiceDetails(false);
 
@@ -14230,7 +14164,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->apInvoiceDetailsScheduledForDeletion = clone $apInvoiceDetailsToDelete;
 
         foreach ($apInvoiceDetailsToDelete as $apInvoiceDetailRemoved) {
-            $apInvoiceDetailRemoved->setVendor(null);
+            $apInvoiceDetailRemoved->setVendor();
         }
 
         $this->collApInvoiceDetails = null;
@@ -14248,7 +14182,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related ApInvoiceDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ApInvoiceDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14256,7 +14189,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countApInvoiceDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collApInvoiceDetailsPartial && !$this->isNew();
-        if (null === $this->collApInvoiceDetails || null !== $criteria || $partial) {
+        if (null === $this->collApInvoiceDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collApInvoiceDetails) {
                 return 0;
             }
@@ -14295,7 +14228,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collApInvoiceDetails->contains($l)) {
             $this->doAddApInvoiceDetail($l);
 
-            if ($this->apInvoiceDetailsScheduledForDeletion and $this->apInvoiceDetailsScheduledForDeletion->contains($l)) {
+            if ($this->apInvoiceDetailsScheduledForDeletion && $this->apInvoiceDetailsScheduledForDeletion->contains($l)) {
                 $this->apInvoiceDetailsScheduledForDeletion->remove($this->apInvoiceDetailsScheduledForDeletion->search($l));
             }
         }
@@ -14326,7 +14259,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->apInvoiceDetailsScheduledForDeletion->clear();
             }
             $this->apInvoiceDetailsScheduledForDeletion[]= clone $apInvoiceDetail;
-            $apInvoiceDetail->setVendor(null);
+            $apInvoiceDetail->setVendor();
         }
 
         return $this;
@@ -14376,8 +14309,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collApInvoices collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialApInvoices($v = true): void
     {
@@ -14393,8 +14324,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initApInvoices(bool $overrideExisting = true): void
     {
@@ -14426,7 +14355,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getApInvoices(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collApInvoicesPartial && !$this->isNew();
-        if (null === $this->collApInvoices || null !== $criteria || $partial) {
+        if (null === $this->collApInvoices || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collApInvoices) {
@@ -14444,7 +14373,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collApInvoicesPartial && count($collApInvoices)) {
                         $this->initApInvoices(false);
 
@@ -14498,7 +14427,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->apInvoicesScheduledForDeletion = clone $apInvoicesToDelete;
 
         foreach ($apInvoicesToDelete as $apInvoiceRemoved) {
-            $apInvoiceRemoved->setVendor(null);
+            $apInvoiceRemoved->setVendor();
         }
 
         $this->collApInvoices = null;
@@ -14516,7 +14445,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related ApInvoice objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ApInvoice objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14524,7 +14452,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countApInvoices(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collApInvoicesPartial && !$this->isNew();
-        if (null === $this->collApInvoices || null !== $criteria || $partial) {
+        if (null === $this->collApInvoices || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collApInvoices) {
                 return 0;
             }
@@ -14563,7 +14491,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collApInvoices->contains($l)) {
             $this->doAddApInvoice($l);
 
-            if ($this->apInvoicesScheduledForDeletion and $this->apInvoicesScheduledForDeletion->contains($l)) {
+            if ($this->apInvoicesScheduledForDeletion && $this->apInvoicesScheduledForDeletion->contains($l)) {
                 $this->apInvoicesScheduledForDeletion->remove($this->apInvoicesScheduledForDeletion->search($l));
             }
         }
@@ -14594,7 +14522,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->apInvoicesScheduledForDeletion->clear();
             }
             $this->apInvoicesScheduledForDeletion[]= clone $apInvoice;
-            $apInvoice->setVendor(null);
+            $apInvoice->setVendor();
         }
 
         return $this;
@@ -14644,8 +14572,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collVendorShipfroms collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialVendorShipfroms($v = true): void
     {
@@ -14661,8 +14587,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initVendorShipfroms(bool $overrideExisting = true): void
     {
@@ -14694,7 +14618,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getVendorShipfroms(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collVendorShipfromsPartial && !$this->isNew();
-        if (null === $this->collVendorShipfroms || null !== $criteria || $partial) {
+        if (null === $this->collVendorShipfroms || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collVendorShipfroms) {
@@ -14712,7 +14636,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collVendorShipfromsPartial && count($collVendorShipfroms)) {
                         $this->initVendorShipfroms(false);
 
@@ -14766,7 +14690,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->vendorShipfromsScheduledForDeletion = clone $vendorShipfromsToDelete;
 
         foreach ($vendorShipfromsToDelete as $vendorShipfromRemoved) {
-            $vendorShipfromRemoved->setVendor(null);
+            $vendorShipfromRemoved->setVendor();
         }
 
         $this->collVendorShipfroms = null;
@@ -14784,7 +14708,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related VendorShipfrom objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related VendorShipfrom objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14792,7 +14715,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countVendorShipfroms(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collVendorShipfromsPartial && !$this->isNew();
-        if (null === $this->collVendorShipfroms || null !== $criteria || $partial) {
+        if (null === $this->collVendorShipfroms || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collVendorShipfroms) {
                 return 0;
             }
@@ -14831,7 +14754,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collVendorShipfroms->contains($l)) {
             $this->doAddVendorShipfrom($l);
 
-            if ($this->vendorShipfromsScheduledForDeletion and $this->vendorShipfromsScheduledForDeletion->contains($l)) {
+            if ($this->vendorShipfromsScheduledForDeletion && $this->vendorShipfromsScheduledForDeletion->contains($l)) {
                 $this->vendorShipfromsScheduledForDeletion->remove($this->vendorShipfromsScheduledForDeletion->search($l));
             }
         }
@@ -14862,7 +14785,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->vendorShipfromsScheduledForDeletion->clear();
             }
             $this->vendorShipfromsScheduledForDeletion[]= clone $vendorShipfrom;
-            $vendorShipfrom->setVendor(null);
+            $vendorShipfrom->setVendor();
         }
 
         return $this;
@@ -14912,8 +14835,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collInvNonstockItems collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvNonstockItems($v = true): void
     {
@@ -14929,8 +14850,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvNonstockItems(bool $overrideExisting = true): void
     {
@@ -14962,7 +14881,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getInvNonstockItems(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvNonstockItemsPartial && !$this->isNew();
-        if (null === $this->collInvNonstockItems || null !== $criteria || $partial) {
+        if (null === $this->collInvNonstockItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvNonstockItems) {
@@ -14980,7 +14899,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvNonstockItemsPartial && count($collInvNonstockItems)) {
                         $this->initInvNonstockItems(false);
 
@@ -15034,7 +14953,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->invNonstockItemsScheduledForDeletion = clone $invNonstockItemsToDelete;
 
         foreach ($invNonstockItemsToDelete as $invNonstockItemRemoved) {
-            $invNonstockItemRemoved->setVendor(null);
+            $invNonstockItemRemoved->setVendor();
         }
 
         $this->collInvNonstockItems = null;
@@ -15052,7 +14971,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related InvNonstockItem objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvNonstockItem objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15060,7 +14978,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countInvNonstockItems(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvNonstockItemsPartial && !$this->isNew();
-        if (null === $this->collInvNonstockItems || null !== $criteria || $partial) {
+        if (null === $this->collInvNonstockItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvNonstockItems) {
                 return 0;
             }
@@ -15099,7 +15017,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collInvNonstockItems->contains($l)) {
             $this->doAddInvNonstockItem($l);
 
-            if ($this->invNonstockItemsScheduledForDeletion and $this->invNonstockItemsScheduledForDeletion->contains($l)) {
+            if ($this->invNonstockItemsScheduledForDeletion && $this->invNonstockItemsScheduledForDeletion->contains($l)) {
                 $this->invNonstockItemsScheduledForDeletion->remove($this->invNonstockItemsScheduledForDeletion->search($l));
             }
         }
@@ -15130,7 +15048,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->invNonstockItemsScheduledForDeletion->clear();
             }
             $this->invNonstockItemsScheduledForDeletion[]= clone $invNonstockItem;
-            $invNonstockItem->setVendor(null);
+            $invNonstockItem->setVendor();
         }
 
         return $this;
@@ -15154,8 +15072,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferOrders($v = true): void
     {
@@ -15171,8 +15087,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferOrders(bool $overrideExisting = true): void
     {
@@ -15204,7 +15118,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getInvTransferOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferOrders) {
@@ -15222,7 +15136,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferOrdersPartial && count($collInvTransferOrders)) {
                         $this->initInvTransferOrders(false);
 
@@ -15273,7 +15187,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->invTransferOrdersScheduledForDeletion = $invTransferOrdersToDelete;
 
         foreach ($invTransferOrdersToDelete as $invTransferOrderRemoved) {
-            $invTransferOrderRemoved->setVendor(null);
+            $invTransferOrderRemoved->setVendor();
         }
 
         $this->collInvTransferOrders = null;
@@ -15291,7 +15205,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related InvTransferOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15299,7 +15212,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countInvTransferOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferOrders) {
                 return 0;
             }
@@ -15338,7 +15251,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collInvTransferOrders->contains($l)) {
             $this->doAddInvTransferOrder($l);
 
-            if ($this->invTransferOrdersScheduledForDeletion and $this->invTransferOrdersScheduledForDeletion->contains($l)) {
+            if ($this->invTransferOrdersScheduledForDeletion && $this->invTransferOrdersScheduledForDeletion->contains($l)) {
                 $this->invTransferOrdersScheduledForDeletion->remove($this->invTransferOrdersScheduledForDeletion->search($l));
             }
         }
@@ -15369,7 +15282,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->invTransferOrdersScheduledForDeletion->clear();
             }
             $this->invTransferOrdersScheduledForDeletion[]= clone $invTransferOrder;
-            $invTransferOrder->setVendor(null);
+            $invTransferOrder->setVendor();
         }
 
         return $this;
@@ -15497,8 +15410,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefKeys collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefKeys($v = true): void
     {
@@ -15514,8 +15425,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefKeys(bool $overrideExisting = true): void
     {
@@ -15547,7 +15456,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getItemXrefKeys(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
-        if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefKeys || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefKeys) {
@@ -15565,7 +15474,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefKeysPartial && count($collItemXrefKeys)) {
                         $this->initItemXrefKeys(false);
 
@@ -15619,7 +15528,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->itemXrefKeysScheduledForDeletion = clone $itemXrefKeysToDelete;
 
         foreach ($itemXrefKeysToDelete as $itemXrefKeyRemoved) {
-            $itemXrefKeyRemoved->setVendor(null);
+            $itemXrefKeyRemoved->setVendor();
         }
 
         $this->collItemXrefKeys = null;
@@ -15637,7 +15546,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related ItemXrefKey objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefKey objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15645,7 +15553,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countItemXrefKeys(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
-        if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefKeys || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefKeys) {
                 return 0;
             }
@@ -15684,7 +15592,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collItemXrefKeys->contains($l)) {
             $this->doAddItemXrefKey($l);
 
-            if ($this->itemXrefKeysScheduledForDeletion and $this->itemXrefKeysScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefKeysScheduledForDeletion && $this->itemXrefKeysScheduledForDeletion->contains($l)) {
                 $this->itemXrefKeysScheduledForDeletion->remove($this->itemXrefKeysScheduledForDeletion->search($l));
             }
         }
@@ -15715,7 +15623,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->itemXrefKeysScheduledForDeletion->clear();
             }
             $this->itemXrefKeysScheduledForDeletion[]= clone $itemXrefKey;
-            $itemXrefKey->setVendor(null);
+            $itemXrefKey->setVendor();
         }
 
         return $this;
@@ -15791,8 +15699,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefManufacturers collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefManufacturers($v = true): void
     {
@@ -15808,8 +15714,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefManufacturers(bool $overrideExisting = true): void
     {
@@ -15841,7 +15745,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getItemXrefManufacturers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
-        if (null === $this->collItemXrefManufacturers || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefManufacturers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefManufacturers) {
@@ -15859,7 +15763,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefManufacturersPartial && count($collItemXrefManufacturers)) {
                         $this->initItemXrefManufacturers(false);
 
@@ -15913,7 +15817,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->itemXrefManufacturersScheduledForDeletion = clone $itemXrefManufacturersToDelete;
 
         foreach ($itemXrefManufacturersToDelete as $itemXrefManufacturerRemoved) {
-            $itemXrefManufacturerRemoved->setVendor(null);
+            $itemXrefManufacturerRemoved->setVendor();
         }
 
         $this->collItemXrefManufacturers = null;
@@ -15931,7 +15835,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related ItemXrefManufacturer objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefManufacturer objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15939,7 +15842,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countItemXrefManufacturers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
-        if (null === $this->collItemXrefManufacturers || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefManufacturers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefManufacturers) {
                 return 0;
             }
@@ -15978,7 +15881,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collItemXrefManufacturers->contains($l)) {
             $this->doAddItemXrefManufacturer($l);
 
-            if ($this->itemXrefManufacturersScheduledForDeletion and $this->itemXrefManufacturersScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefManufacturersScheduledForDeletion && $this->itemXrefManufacturersScheduledForDeletion->contains($l)) {
                 $this->itemXrefManufacturersScheduledForDeletion->remove($this->itemXrefManufacturersScheduledForDeletion->search($l));
             }
         }
@@ -16009,7 +15912,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->itemXrefManufacturersScheduledForDeletion->clear();
             }
             $this->itemXrefManufacturersScheduledForDeletion[]= clone $itemXrefManufacturer;
-            $itemXrefManufacturer->setVendor(null);
+            $itemXrefManufacturer->setVendor();
         }
 
         return $this;
@@ -16059,8 +15962,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefVendorNoteDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefVendorNoteDetails($v = true): void
     {
@@ -16076,8 +15977,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefVendorNoteDetails(bool $overrideExisting = true): void
     {
@@ -16109,7 +16008,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getItemXrefVendorNoteDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendorNoteDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefVendorNoteDetails) {
@@ -16127,7 +16026,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefVendorNoteDetailsPartial && count($collItemXrefVendorNoteDetails)) {
                         $this->initItemXrefVendorNoteDetails(false);
 
@@ -16178,7 +16077,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->itemXrefVendorNoteDetailsScheduledForDeletion = $itemXrefVendorNoteDetailsToDelete;
 
         foreach ($itemXrefVendorNoteDetailsToDelete as $itemXrefVendorNoteDetailRemoved) {
-            $itemXrefVendorNoteDetailRemoved->setVendor(null);
+            $itemXrefVendorNoteDetailRemoved->setVendor();
         }
 
         $this->collItemXrefVendorNoteDetails = null;
@@ -16196,7 +16095,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related ItemXrefVendorNoteDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefVendorNoteDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16204,7 +16102,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countItemXrefVendorNoteDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendorNoteDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefVendorNoteDetails) {
                 return 0;
             }
@@ -16243,7 +16141,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collItemXrefVendorNoteDetails->contains($l)) {
             $this->doAddItemXrefVendorNoteDetail($l);
 
-            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion and $this->itemXrefVendorNoteDetailsScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion && $this->itemXrefVendorNoteDetailsScheduledForDeletion->contains($l)) {
                 $this->itemXrefVendorNoteDetailsScheduledForDeletion->remove($this->itemXrefVendorNoteDetailsScheduledForDeletion->search($l));
             }
         }
@@ -16274,7 +16172,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->itemXrefVendorNoteDetailsScheduledForDeletion->clear();
             }
             $this->itemXrefVendorNoteDetailsScheduledForDeletion[]= $itemXrefVendorNoteDetail;
-            $itemXrefVendorNoteDetail->setVendor(null);
+            $itemXrefVendorNoteDetail->setVendor();
         }
 
         return $this;
@@ -16324,8 +16222,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefVendorNoteInternals collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefVendorNoteInternals($v = true): void
     {
@@ -16341,8 +16237,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefVendorNoteInternals(bool $overrideExisting = true): void
     {
@@ -16374,7 +16268,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getItemXrefVendorNoteInternals(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendorNoteInternals || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefVendorNoteInternals) {
@@ -16392,7 +16286,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefVendorNoteInternalsPartial && count($collItemXrefVendorNoteInternals)) {
                         $this->initItemXrefVendorNoteInternals(false);
 
@@ -16443,7 +16337,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->itemXrefVendorNoteInternalsScheduledForDeletion = $itemXrefVendorNoteInternalsToDelete;
 
         foreach ($itemXrefVendorNoteInternalsToDelete as $itemXrefVendorNoteInternalRemoved) {
-            $itemXrefVendorNoteInternalRemoved->setVendor(null);
+            $itemXrefVendorNoteInternalRemoved->setVendor();
         }
 
         $this->collItemXrefVendorNoteInternals = null;
@@ -16461,7 +16355,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related ItemXrefVendorNoteInternal objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefVendorNoteInternal objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16469,7 +16362,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countItemXrefVendorNoteInternals(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendorNoteInternals || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefVendorNoteInternals) {
                 return 0;
             }
@@ -16508,7 +16401,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collItemXrefVendorNoteInternals->contains($l)) {
             $this->doAddItemXrefVendorNoteInternal($l);
 
-            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion and $this->itemXrefVendorNoteInternalsScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion && $this->itemXrefVendorNoteInternalsScheduledForDeletion->contains($l)) {
                 $this->itemXrefVendorNoteInternalsScheduledForDeletion->remove($this->itemXrefVendorNoteInternalsScheduledForDeletion->search($l));
             }
         }
@@ -16539,7 +16432,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->itemXrefVendorNoteInternalsScheduledForDeletion->clear();
             }
             $this->itemXrefVendorNoteInternalsScheduledForDeletion[]= $itemXrefVendorNoteInternal;
-            $itemXrefVendorNoteInternal->setVendor(null);
+            $itemXrefVendorNoteInternal->setVendor();
         }
 
         return $this;
@@ -16589,8 +16482,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrders($v = true): void
     {
@@ -16606,8 +16497,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrders(bool $overrideExisting = true): void
     {
@@ -16639,7 +16528,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getPurchaseOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrdersPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrders || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrders) {
@@ -16657,7 +16546,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrdersPartial && count($collPurchaseOrders)) {
                         $this->initPurchaseOrders(false);
 
@@ -16708,7 +16597,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->purchaseOrdersScheduledForDeletion = $purchaseOrdersToDelete;
 
         foreach ($purchaseOrdersToDelete as $purchaseOrderRemoved) {
-            $purchaseOrderRemoved->setVendor(null);
+            $purchaseOrderRemoved->setVendor();
         }
 
         $this->collPurchaseOrders = null;
@@ -16726,7 +16615,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related PurchaseOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16734,7 +16622,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countPurchaseOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrdersPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrders || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrders) {
                 return 0;
             }
@@ -16773,7 +16661,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collPurchaseOrders->contains($l)) {
             $this->doAddPurchaseOrder($l);
 
-            if ($this->purchaseOrdersScheduledForDeletion and $this->purchaseOrdersScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrdersScheduledForDeletion && $this->purchaseOrdersScheduledForDeletion->contains($l)) {
                 $this->purchaseOrdersScheduledForDeletion->remove($this->purchaseOrdersScheduledForDeletion->search($l));
             }
         }
@@ -16804,7 +16692,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->purchaseOrdersScheduledForDeletion->clear();
             }
             $this->purchaseOrdersScheduledForDeletion[]= $purchaseOrder;
-            $purchaseOrder->setVendor(null);
+            $purchaseOrder->setVendor();
         }
 
         return $this;
@@ -16880,8 +16768,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefVendors collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefVendors($v = true): void
     {
@@ -16897,8 +16783,6 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefVendors(bool $overrideExisting = true): void
     {
@@ -16930,7 +16814,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function getItemXrefVendors(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendors || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendors || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefVendors) {
@@ -16948,7 +16832,7 @@ abstract class Vendor implements ActiveRecordInterface
                     ->filterByVendor($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefVendorsPartial && count($collItemXrefVendors)) {
                         $this->initItemXrefVendors(false);
 
@@ -17002,7 +16886,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->itemXrefVendorsScheduledForDeletion = clone $itemXrefVendorsToDelete;
 
         foreach ($itemXrefVendorsToDelete as $itemXrefVendorRemoved) {
-            $itemXrefVendorRemoved->setVendor(null);
+            $itemXrefVendorRemoved->setVendor();
         }
 
         $this->collItemXrefVendors = null;
@@ -17020,7 +16904,6 @@ abstract class Vendor implements ActiveRecordInterface
      * Returns the number of related ItemXrefVendor objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefVendor objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -17028,7 +16911,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function countItemXrefVendors(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendors || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendors || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefVendors) {
                 return 0;
             }
@@ -17067,7 +16950,7 @@ abstract class Vendor implements ActiveRecordInterface
         if (!$this->collItemXrefVendors->contains($l)) {
             $this->doAddItemXrefVendor($l);
 
-            if ($this->itemXrefVendorsScheduledForDeletion and $this->itemXrefVendorsScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefVendorsScheduledForDeletion && $this->itemXrefVendorsScheduledForDeletion->contains($l)) {
                 $this->itemXrefVendorsScheduledForDeletion->remove($this->itemXrefVendorsScheduledForDeletion->search($l));
             }
         }
@@ -17098,7 +16981,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->itemXrefVendorsScheduledForDeletion->clear();
             }
             $this->itemXrefVendorsScheduledForDeletion[]= clone $itemXrefVendor;
-            $itemXrefVendor->setVendor(null);
+            $itemXrefVendor->setVendor();
         }
 
         return $this;
@@ -17464,13 +17347,11 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(VendorTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(VendorTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -17479,8 +17360,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -17488,8 +17367,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -17498,8 +17375,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -17507,8 +17382,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -17517,8 +17390,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -17526,8 +17397,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -17536,8 +17405,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -17557,7 +17424,7 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -17569,7 +17436,7 @@ abstract class Vendor implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -17577,7 +17444,7 @@ abstract class Vendor implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

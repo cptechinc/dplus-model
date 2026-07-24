@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\MsdsCode as BaseMsdsCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class MsdsCode extends BaseMsdsCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'              => 'intbmsdscode',
 		'code'            => 'intbmsdscode',
 		'description'     => 'intbmsdsdesc',
@@ -26,7 +28,7 @@ class MsdsCode extends BaseMsdsCode {
 		'effectivedate'   => 'intbmsdsefftdate',
 		'date'            => 'dateupdtd',
 		'time'            => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

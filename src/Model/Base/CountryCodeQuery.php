@@ -104,7 +104,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class CountryCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\CountryCodeQuery object.
@@ -162,7 +162,7 @@ abstract class CountryCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
@@ -208,7 +208,6 @@ abstract class CountryCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCountryCode $obj */
             $obj = new ChildCountryCode();
             $obj->hydrate($row);
             CountryCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -249,7 +248,7 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -308,10 +307,8 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function filterByCtryisoalpha3($ctryisoalpha3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ctryisoalpha3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ctryisoalpha3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISOALPHA3, $ctryisoalpha3, $comparison);
@@ -336,10 +333,8 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function filterByCtrydesc($ctrydesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ctrydesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ctrydesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CountryCodeTableMap::COL_CTRYDESC, $ctrydesc, $comparison);
@@ -364,10 +359,8 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function filterByCtryisoalpha2($ctryisoalpha2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ctryisoalpha2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ctryisoalpha2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISOALPHA2, $ctryisoalpha2, $comparison);
@@ -435,10 +428,8 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function filterByCtrycustomcode($ctrycustomcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ctrycustomcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ctrycustomcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CountryCodeTableMap::COL_CTRYCUSTOMCODE, $ctrycustomcode, $comparison);
@@ -506,10 +497,8 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function filterByCtrydate($ctrydate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ctrydate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ctrydate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CountryCodeTableMap::COL_CTRYDATE, $ctrydate, $comparison);
@@ -534,10 +523,8 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CountryCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -562,10 +549,8 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CountryCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -590,10 +575,8 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CountryCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -625,7 +608,7 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
@@ -655,7 +638,7 @@ abstract class CountryCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 

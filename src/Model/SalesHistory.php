@@ -14,7 +14,7 @@ class SalesHistory extends BaseSalesHistory {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ordernumber'     => 'oehhnbr',
 		'custid'          => 'arcucustid',
 		'shiptoid'        => 'arstshipid',
@@ -63,14 +63,14 @@ class SalesHistory extends BaseSalesHistory {
 		'exchangerate'    => 'oehhexchrate',
 		'year'            => 'oehhyear',
 		'items'           => 'SalesHistoryDetails', // NOTE: Used for getting Detaisl via __call()
-	);
+	];
 
-	const STATUS_DESCRIPTIONS = array(
+	const STATUS_DESCRIPTIONS = [
 		'N' => 'new',
 		'P' => 'picked',
 		'V' => 'verified',
 		'I' => 'invoiced'
-	);
+	];
 
 	/**
 	 * Return Status Description for Sales History Order

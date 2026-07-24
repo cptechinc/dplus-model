@@ -36,7 +36,7 @@ class WarehouseBin extends BaseWarehouseBin {
 	 * Aliases for Class Properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'whseid'       => 'intbwhse',
 		'whseID'       => 'intbwhse',
 		'warehouse'    => 'intbwhse',
@@ -46,7 +46,7 @@ class WarehouseBin extends BaseWarehouseBin {
 		'area'         => 'bnctbinarea',
 		'description'  => 'bnctbindesc',
 		'binarea'      => 'invBinAreaCode'
-	);
+	];
 
 	/**
 	 * Return Description for Bin Type

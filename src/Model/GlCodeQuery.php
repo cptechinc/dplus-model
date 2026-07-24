@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\GlCodeQuery as BaseGlCodeQuery;
 
 use Dplus\Model\QueryTraits;

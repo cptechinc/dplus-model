@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\BookingDayCustomerQuery as BaseBookingDayCustomerQuery;
 
 use Dplus\Model\QueryTraits;

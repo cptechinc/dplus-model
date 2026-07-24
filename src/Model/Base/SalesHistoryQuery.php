@@ -1238,7 +1238,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class SalesHistoryQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\SalesHistoryQuery object.
@@ -1296,7 +1296,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SalesHistoryTableMap::DATABASE_NAME);
         }
 
@@ -1342,7 +1342,6 @@ abstract class SalesHistoryQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildSalesHistory $obj */
             $obj = new ChildSalesHistory();
             $obj->hydrate($row);
             SalesHistoryTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -1383,7 +1382,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -1485,10 +1484,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhyear($oehhyear = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhyear)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhyear)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHYEAR, $oehhyear, $comparison);
@@ -1513,10 +1510,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstat($oehhstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTAT, $oehhstat, $comparison);
@@ -1541,10 +1536,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhhold($oehhhold = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhhold)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhhold)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHHOLD, $oehhhold, $comparison);
@@ -1569,10 +1562,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -1597,10 +1588,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
@@ -1625,10 +1614,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstname($oehhstname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTNAME, $oehhstname, $comparison);
@@ -1653,10 +1640,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstlastname($oehhstlastname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstlastname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstlastname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTLASTNAME, $oehhstlastname, $comparison);
@@ -1681,10 +1666,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstfirstname($oehhstfirstname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstfirstname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstfirstname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTFIRSTNAME, $oehhstfirstname, $comparison);
@@ -1709,10 +1692,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstadr1($oehhstadr1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstadr1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstadr1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTADR1, $oehhstadr1, $comparison);
@@ -1737,10 +1718,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstadr2($oehhstadr2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstadr2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstadr2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTADR2, $oehhstadr2, $comparison);
@@ -1765,10 +1744,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstadr3($oehhstadr3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstadr3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstadr3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTADR3, $oehhstadr3, $comparison);
@@ -1793,10 +1770,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstctry($oehhstctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTCTRY, $oehhstctry, $comparison);
@@ -1821,10 +1796,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstcity($oehhstcity = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstcity)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstcity)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTCITY, $oehhstcity, $comparison);
@@ -1849,10 +1822,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhststat($oehhststat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhststat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhststat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTSTAT, $oehhststat, $comparison);
@@ -1877,10 +1848,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstzipcode($oehhstzipcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstzipcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstzipcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTZIPCODE, $oehhstzipcode, $comparison);
@@ -1905,10 +1874,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcustpo($oehhcustpo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcustpo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcustpo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCUSTPO, $oehhcustpo, $comparison);
@@ -1933,10 +1900,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhordrdate($oehhordrdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhordrdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhordrdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHORDRDATE, $oehhordrdate, $comparison);
@@ -1961,10 +1926,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByArtmtermcd($artmtermcd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artmtermcd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artmtermcd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_ARTMTERMCD, $artmtermcd, $comparison);
@@ -1989,10 +1952,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByArtbshipvia($artbshipvia = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbshipvia)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbshipvia)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_ARTBSHIPVIA, $artbshipvia, $comparison);
@@ -2017,10 +1978,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByArininvnbr($arininvnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arininvnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arininvnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_ARININVNBR, $arininvnbr, $comparison);
@@ -2045,10 +2004,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhinvdate($oehhinvdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhinvdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhinvdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHINVDATE, $oehhinvdate, $comparison);
@@ -2116,10 +2073,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
@@ -2187,10 +2142,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByArspsaleper2($arspsaleper2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_ARSPSALEPER2, $arspsaleper2, $comparison);
@@ -2258,10 +2211,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByArspsaleper3($arspsaleper3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_ARSPSALEPER3, $arspsaleper3, $comparison);
@@ -2415,10 +2366,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdroprelhold($oehhdroprelhold = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdroprelhold)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdroprelhold)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDROPRELHOLD, $oehhdroprelhold, $comparison);
@@ -2744,10 +2693,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhspcommlock($oehhspcommlock = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhspcommlock)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhspcommlock)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSPCOMMLOCK, $oehhspcommlock, $comparison);
@@ -2772,10 +2719,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhtakendate($oehhtakendate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhtakendate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhtakendate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHTAKENDATE, $oehhtakendate, $comparison);
@@ -2800,10 +2745,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhtakentime($oehhtakentime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhtakentime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhtakentime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHTAKENTIME, $oehhtakentime, $comparison);
@@ -2828,10 +2771,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpickdate($oehhpickdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpickdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpickdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPICKDATE, $oehhpickdate, $comparison);
@@ -2856,10 +2797,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpicktime($oehhpicktime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpicktime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpicktime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPICKTIME, $oehhpicktime, $comparison);
@@ -2884,10 +2823,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpackdate($oehhpackdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpackdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpackdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPACKDATE, $oehhpackdate, $comparison);
@@ -2912,10 +2849,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpacktime($oehhpacktime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpacktime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpacktime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPACKTIME, $oehhpacktime, $comparison);
@@ -2940,10 +2875,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhverifydate($oehhverifydate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhverifydate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhverifydate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHVERIFYDATE, $oehhverifydate, $comparison);
@@ -2968,10 +2901,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhverifytime($oehhverifytime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhverifytime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhverifytime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHVERIFYTIME, $oehhverifytime, $comparison);
@@ -2996,10 +2927,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcreditmemo($oehhcreditmemo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcreditmemo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcreditmemo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCREDITMEMO, $oehhcreditmemo, $comparison);
@@ -3024,10 +2953,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhbookedyn($oehhbookedyn = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhbookedyn)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhbookedyn)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHBOOKEDYN, $oehhbookedyn, $comparison);
@@ -3052,10 +2979,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByIntbwhseorig($intbwhseorig = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhseorig)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhseorig)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_INTBWHSEORIG, $intbwhseorig, $comparison);
@@ -3080,10 +3005,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhbtstat($oehhbtstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhbtstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhbtstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHBTSTAT, $oehhbtstat, $comparison);
@@ -3108,10 +3031,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhshipcomp($oehhshipcomp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhshipcomp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhshipcomp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSHIPCOMP, $oehhshipcomp, $comparison);
@@ -3136,10 +3057,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcwoflag($oehhcwoflag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcwoflag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcwoflag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCWOFLAG, $oehhcwoflag, $comparison);
@@ -3164,10 +3083,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdivision($oehhdivision = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdivision)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdivision)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDIVISION, $oehhdivision, $comparison);
@@ -3192,10 +3109,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhtakencode($oehhtakencode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhtakencode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhtakencode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHTAKENCODE, $oehhtakencode, $comparison);
@@ -3220,10 +3135,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpickcode($oehhpickcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpickcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpickcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPICKCODE, $oehhpickcode, $comparison);
@@ -3248,10 +3161,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpackcode($oehhpackcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpackcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpackcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPACKCODE, $oehhpackcode, $comparison);
@@ -3276,10 +3187,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhverifycode($oehhverifycode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhverifycode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhverifycode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHVERIFYCODE, $oehhverifycode, $comparison);
@@ -3347,10 +3256,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhedirefnbrqual($oehhedirefnbrqual = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhedirefnbrqual)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhedirefnbrqual)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHEDIREFNBRQUAL, $oehhedirefnbrqual, $comparison);
@@ -3375,10 +3282,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhusercode1($oehhusercode1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhusercode1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhusercode1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHUSERCODE1, $oehhusercode1, $comparison);
@@ -3403,10 +3308,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhusercode2($oehhusercode2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhusercode2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhusercode2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHUSERCODE2, $oehhusercode2, $comparison);
@@ -3431,10 +3334,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhusercode3($oehhusercode3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhusercode3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhusercode3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHUSERCODE3, $oehhusercode3, $comparison);
@@ -3459,10 +3360,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhusercode4($oehhusercode4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhusercode4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhusercode4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHUSERCODE4, $oehhusercode4, $comparison);
@@ -3487,10 +3386,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhexchctry($oehhexchctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhexchctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhexchctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHEXCHCTRY, $oehhexchctry, $comparison);
@@ -3601,10 +3498,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhwghtoride($oehhwghtoride = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhwghtoride)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhwghtoride)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHWGHTORIDE, $oehhwghtoride, $comparison);
@@ -3629,10 +3524,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhccinfo($oehhccinfo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhccinfo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhccinfo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCCINFO, $oehhccinfo, $comparison);
@@ -3700,10 +3593,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhrqstdate($oehhrqstdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhrqstdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhrqstdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHRQSTDATE, $oehhrqstdate, $comparison);
@@ -3728,10 +3619,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcancdate($oehhcancdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcancdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcancdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCANCDATE, $oehhcancdate, $comparison);
@@ -3756,10 +3645,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcrntuser($oehhcrntuser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcrntuser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcrntuser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCRNTUSER, $oehhcrntuser, $comparison);
@@ -3784,10 +3671,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhreleasenbr($oehhreleasenbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhreleasenbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhreleasenbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHRELEASENBR, $oehhreleasenbr, $comparison);
@@ -3812,10 +3697,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -3840,10 +3723,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhbordbuilddate($oehhbordbuilddate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhbordbuilddate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhbordbuilddate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHBORDBUILDDATE, $oehhbordbuilddate, $comparison);
@@ -3868,10 +3749,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdeptcode($oehhdeptcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdeptcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdeptcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDEPTCODE, $oehhdeptcode, $comparison);
@@ -3896,10 +3775,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhfrtinentered($oehhfrtinentered = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhfrtinentered)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhfrtinentered)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTINENTERED, $oehhfrtinentered, $comparison);
@@ -3924,10 +3801,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdropshipentered($oehhdropshipentered = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdropshipentered)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdropshipentered)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDROPSHIPENTERED, $oehhdropshipentered, $comparison);
@@ -3952,10 +3827,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehherflag($oehherflag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehherflag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehherflag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHERFLAG, $oehherflag, $comparison);
@@ -4109,10 +3982,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcontractterms($oehhcontractterms = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcontractterms)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcontractterms)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCONTRACTTERMS, $oehhcontractterms, $comparison);
@@ -4137,10 +4008,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdropshipbilled($oehhdropshipbilled = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdropshipbilled)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdropshipbilled)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDROPSHIPBILLED, $oehhdropshipbilled, $comparison);
@@ -4165,10 +4034,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhordtyp($oehhordtyp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhordtyp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhordtyp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHORDTYP, $oehhordtyp, $comparison);
@@ -4193,10 +4060,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhtracknbr($oehhtracknbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhtracknbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhtracknbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHTRACKNBR, $oehhtracknbr, $comparison);
@@ -4221,10 +4086,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhsource($oehhsource = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhsource)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhsource)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSOURCE, $oehhsource, $comparison);
@@ -4249,10 +4112,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhccaprv($oehhccaprv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhccaprv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhccaprv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCCAPRV, $oehhccaprv, $comparison);
@@ -4277,10 +4138,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpickfmattype($oehhpickfmattype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpickfmattype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpickfmattype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPICKFMATTYPE, $oehhpickfmattype, $comparison);
@@ -4305,10 +4164,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhinvcfmattype($oehhinvcfmattype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhinvcfmattype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhinvcfmattype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHINVCFMATTYPE, $oehhinvcfmattype, $comparison);
@@ -4419,10 +4276,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhchecknbr($oehhchecknbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhchecknbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhchecknbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCHECKNBR, $oehhchecknbr, $comparison);
@@ -4490,10 +4345,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdepositnbr($oehhdepositnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdepositnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdepositnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDEPOSITNBR, $oehhdepositnbr, $comparison);
@@ -4733,10 +4586,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpickprintdate($oehhpickprintdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpickprintdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpickprintdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPICKPRINTDATE, $oehhpickprintdate, $comparison);
@@ -4761,10 +4612,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpickprinttime($oehhpickprinttime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpickprinttime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpickprinttime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPICKPRINTTIME, $oehhpickprinttime, $comparison);
@@ -4789,10 +4638,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcont($oehhcont = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcont)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcont)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCONT, $oehhcont, $comparison);
@@ -4817,10 +4664,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcontteleintl($oehhcontteleintl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcontteleintl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcontteleintl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCONTTELEINTL, $oehhcontteleintl, $comparison);
@@ -4845,10 +4690,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhconttelenbr($oehhconttelenbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhconttelenbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhconttelenbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCONTTELENBR, $oehhconttelenbr, $comparison);
@@ -4873,10 +4716,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcontteleext($oehhcontteleext = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcontteleext)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcontteleext)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCONTTELEEXT, $oehhcontteleext, $comparison);
@@ -4901,10 +4742,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcontfaxintl($oehhcontfaxintl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcontfaxintl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcontfaxintl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCONTFAXINTL, $oehhcontfaxintl, $comparison);
@@ -4929,10 +4768,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcontfaxnbr($oehhcontfaxnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcontfaxnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcontfaxnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCONTFAXNBR, $oehhcontfaxnbr, $comparison);
@@ -4957,10 +4794,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhshipacct($oehhshipacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhshipacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhshipacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSHIPACCT, $oehhshipacct, $comparison);
@@ -5071,10 +4906,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhallship($oehhallship = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhallship)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhallship)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHALLSHIP, $oehhallship, $comparison);
@@ -5185,10 +5018,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhinvcprintdate($oehhinvcprintdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhinvcprintdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhinvcprintdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHINVCPRINTDATE, $oehhinvcprintdate, $comparison);
@@ -5213,10 +5044,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhinvcprinttime($oehhinvcprinttime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhinvcprinttime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhinvcprinttime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHINVCPRINTTIME, $oehhinvcprinttime, $comparison);
@@ -5284,10 +5113,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhorideshipcomp($oehhorideshipcomp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhorideshipcomp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhorideshipcomp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHORIDESHIPCOMP, $oehhorideshipcomp, $comparison);
@@ -5312,10 +5139,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcontemail($oehhcontemail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcontemail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcontemail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCONTEMAIL, $oehhcontemail, $comparison);
@@ -5340,10 +5165,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhmanualfrt($oehhmanualfrt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhmanualfrt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhmanualfrt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHMANUALFRT, $oehhmanualfrt, $comparison);
@@ -5368,10 +5191,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhinternalfrt($oehhinternalfrt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhinternalfrt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhinternalfrt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHINTERNALFRT, $oehhinternalfrt, $comparison);
@@ -5439,10 +5260,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhroute($oehhroute = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhroute)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhroute)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHROUTE, $oehhroute, $comparison);
@@ -5510,10 +5329,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhfrttaxcode1($oehhfrttaxcode1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhfrttaxcode1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE1, $oehhfrttaxcode1, $comparison);
@@ -5581,10 +5398,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhfrttaxcode2($oehhfrttaxcode2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhfrttaxcode2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE2, $oehhfrttaxcode2, $comparison);
@@ -5652,10 +5467,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhfrttaxcode3($oehhfrttaxcode3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhfrttaxcode3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE3, $oehhfrttaxcode3, $comparison);
@@ -5723,10 +5536,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhfrttaxcode4($oehhfrttaxcode4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhfrttaxcode4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE4, $oehhfrttaxcode4, $comparison);
@@ -5794,10 +5605,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhfrttaxcode5($oehhfrttaxcode5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhfrttaxcode5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE5, $oehhfrttaxcode5, $comparison);
@@ -5865,10 +5674,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhedi855sent($oehhedi855sent = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhedi855sent)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhedi855sent)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHEDI855SENT, $oehhedi855sent, $comparison);
@@ -5936,10 +5743,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhfob($oehhfob = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhfob)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhfob)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFOB, $oehhfob, $comparison);
@@ -5964,10 +5769,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhconfirmimagyn($oehhconfirmimagyn = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhconfirmimagyn)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhconfirmimagyn)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCONFIRMIMAGYN, $oehhconfirmimagyn, $comparison);
@@ -5992,10 +5795,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhindustconform($oehhindustconform = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhindustconform)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhindustconform)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHINDUSTCONFORM, $oehhindustconform, $comparison);
@@ -6020,10 +5821,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcstkconsign($oehhcstkconsign = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcstkconsign)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcstkconsign)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCSTKCONSIGN, $oehhcstkconsign, $comparison);
@@ -6048,10 +5847,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhlmdelaycapsent($oehhlmdelaycapsent = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhlmdelaycapsent)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhlmdelaycapsent)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHLMDELAYCAPSENT, $oehhlmdelaycapsent, $comparison);
@@ -6076,10 +5873,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhmfgid($oehhmfgid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhmfgid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhmfgid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHMFGID, $oehhmfgid, $comparison);
@@ -6104,10 +5899,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhstoreid($oehhstoreid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhstoreid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhstoreid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSTOREID, $oehhstoreid, $comparison);
@@ -6132,10 +5925,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpickqueue($oehhpickqueue = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpickqueue)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpickqueue)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPICKQUEUE, $oehhpickqueue, $comparison);
@@ -6160,10 +5951,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehharrvdate($oehharrvdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehharrvdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehharrvdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHARRVDATE, $oehharrvdate, $comparison);
@@ -6188,10 +5977,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhsurchgstat($oehhsurchgstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhsurchgstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhsurchgstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHSURCHGSTAT, $oehhsurchgstat, $comparison);
@@ -6216,10 +6003,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhfrtgrup($oehhfrtgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhfrtgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhfrtgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTGRUP, $oehhfrtgrup, $comparison);
@@ -6244,10 +6029,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhcommoride($oehhcommoride = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhcommoride)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhcommoride)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCOMMORIDE, $oehhcommoride, $comparison);
@@ -6272,10 +6055,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhchrgsplt($oehhchrgsplt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhchrgsplt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhchrgsplt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHCHRGSPLT, $oehhchrgsplt, $comparison);
@@ -6300,10 +6081,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhacccaprv($oehhacccaprv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhacccaprv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhacccaprv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHACCCAPRV, $oehhacccaprv, $comparison);
@@ -6328,10 +6107,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhorigordrnbr($oehhorigordrnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhorigordrnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhorigordrnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHORIGORDRNBR, $oehhorigordrnbr, $comparison);
@@ -6356,10 +6133,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhpostdate($oehhpostdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhpostdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhpostdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHPOSTDATE, $oehhpostdate, $comparison);
@@ -6384,10 +6159,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdiscdate1($oehhdiscdate1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdiscdate1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdiscdate1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDISCDATE1, $oehhdiscdate1, $comparison);
@@ -6455,10 +6228,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhduedate1($oehhduedate1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhduedate1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhduedate1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDUEDATE1, $oehhduedate1, $comparison);
@@ -6569,10 +6340,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdiscdate2($oehhdiscdate2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdiscdate2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdiscdate2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDISCDATE2, $oehhdiscdate2, $comparison);
@@ -6640,10 +6409,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhduedate2($oehhduedate2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhduedate2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhduedate2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDUEDATE2, $oehhduedate2, $comparison);
@@ -6754,10 +6521,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdiscdate3($oehhdiscdate3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdiscdate3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdiscdate3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDISCDATE3, $oehhdiscdate3, $comparison);
@@ -6825,10 +6590,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhduedate3($oehhduedate3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhduedate3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhduedate3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDUEDATE3, $oehhduedate3, $comparison);
@@ -6939,10 +6702,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdiscdate4($oehhdiscdate4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdiscdate4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdiscdate4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDISCDATE4, $oehhdiscdate4, $comparison);
@@ -7010,10 +6771,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhduedate4($oehhduedate4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhduedate4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhduedate4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDUEDATE4, $oehhduedate4, $comparison);
@@ -7124,10 +6883,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdiscdate5($oehhdiscdate5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdiscdate5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdiscdate5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDISCDATE5, $oehhdiscdate5, $comparison);
@@ -7195,10 +6952,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhduedate5($oehhduedate5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhduedate5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhduedate5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDUEDATE5, $oehhduedate5, $comparison);
@@ -7309,10 +7064,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhdiscdate6($oehhdiscdate6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhdiscdate6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhdiscdate6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDISCDATE6, $oehhdiscdate6, $comparison);
@@ -7380,10 +7133,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhduedate6($oehhduedate6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhduedate6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhduedate6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHDUEDATE6, $oehhduedate6, $comparison);
@@ -7494,10 +7245,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhrefnbr($oehhrefnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhrefnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhrefnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHREFNBR, $oehhrefnbr, $comparison);
@@ -7522,10 +7271,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhacprognbr($oehhacprognbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhacprognbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhacprognbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHACPROGNBR, $oehhacprognbr, $comparison);
@@ -7550,10 +7297,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByOehhacprogexpdate($oehhacprogexpdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhacprogexpdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehhacprogexpdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHACPROGEXPDATE, $oehhacprogexpdate, $comparison);
@@ -7578,10 +7323,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -7606,10 +7349,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -7634,10 +7375,8 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesHistoryTableMap::COL_DUMMY, $dummy, $comparison);
@@ -7691,7 +7430,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -7721,7 +7460,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -7858,7 +7597,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -7888,7 +7627,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
     {
         return $this
             ->joinCustomerShipto($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CustomerShipto', '\CustomerShiptoQuery');
+            ->useQuery($relationAlias ?: 'CustomerShipto', '\CustomerShiptoQuery');
     }
 
     /**
@@ -8031,7 +7770,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -8061,7 +7800,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
     {
         return $this
             ->joinSalesHistoryDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesHistoryDetail', '\SalesHistoryDetailQuery');
+            ->useQuery($relationAlias ?: 'SalesHistoryDetail', '\SalesHistoryDetailQuery');
     }
 
     /**
@@ -8204,7 +7943,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -8234,7 +7973,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
     {
         return $this
             ->joinSalesOrderShipment($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderShipment', '\SalesOrderShipmentQuery');
+            ->useQuery($relationAlias ?: 'SalesOrderShipment', '\SalesOrderShipmentQuery');
     }
 
     /**
@@ -8377,7 +8116,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -8407,7 +8146,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
     {
         return $this
             ->joinSalesHistoryLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesHistoryLotserial', '\SalesHistoryLotserialQuery');
+            ->useQuery($relationAlias ?: 'SalesHistoryLotserial', '\SalesHistoryLotserialQuery');
     }
 
     /**
@@ -8530,7 +8269,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryTableMap::DATABASE_NAME);
         }
 
@@ -8560,7 +8299,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryTableMap::DATABASE_NAME);
         }
 

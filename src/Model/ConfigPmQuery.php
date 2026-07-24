@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigPmQuery as BaseConfigPmQuery;
 
 use Dplus\Model\QueryTraits;

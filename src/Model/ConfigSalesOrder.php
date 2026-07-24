@@ -49,7 +49,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'request_catalog'   => 'oetbconfrqstcatlg',
 		'freightin'         => 'oetbconffrtin',
 		'freight_amt'       => 'oetbcon2frtallowamt',
@@ -86,7 +86,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'useDivision'             => 'oetbcon2usedivision',
 		'useArrivedate'           => 'oetbcon3usearrvdate',
 		'useCanceldateHeadDetail' => 'oetbconfcancheaddtl',
-	);
+	];
 
 	/**
 	 * Return If Order Number is same as Invoice Number
@@ -117,7 +117,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * @return bool
 	 */
 	public function isRequestProgram() {
-		return strtoupper($this->request_catalog) == 'P';
+		return strtoupper($this->request_catalog) === 'P';
 	}
 
 	/**
@@ -125,7 +125,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * @return bool
 	 */
 	public function isFreightin() {
-		return strtoupper($this->freightin) == 'Y';
+		return strtoupper($this->freightin) === 'Y';
 	}
 
 	/**
@@ -141,7 +141,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * @return bool
 	 */
 	public function useCoreItems() {
-		return strtoupper($this->use_core_items) == 'Y';
+		return strtoupper($this->use_core_items) === 'Y';
 	}
 
 	/**
@@ -149,7 +149,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * @return bool
 	 */
 	public function updatePdmFromCxm() {
-		return strtoupper($this->update_pdm_from_cxm) == 'Y';
+		return strtoupper($this->update_pdm_from_cxm) === 'Y';
 	}
 
 	/**
@@ -157,7 +157,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * @return bool
 	 */
 	public function requestDateHeader() {
-		return strtoupper($this->requestdate) == self::REQUEST_DATE_HEADER;
+		return strtoupper($this->requestdate) === self::REQUEST_DATE_HEADER;
 	}
 	
 	/**
@@ -165,7 +165,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * @return bool
 	 */
 	public function requestDateDetail() {
-		return strtoupper($this->requestdate) == self::REQUEST_DATE_DETAIL;
+		return strtoupper($this->requestdate) === self::REQUEST_DATE_DETAIL;
 	}
 	
 /* =============================================================

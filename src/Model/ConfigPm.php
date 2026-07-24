@@ -18,21 +18,21 @@ class ConfigPm extends BaseConfigPm {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'key'            => 'pmtbconfkey',
 		'scrapUnused'    => 'pmtbconfscrapunused',
 		'useSerialBase'  => 'pmtbconfserialbase',
 
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return if ScrapUnused is True
 	 * @return bool
 	 */
 	public function scrapUnused() {
-		return strtoupper($this->scrapUnused) == self::YN_TRUE;
+		return strtoupper($this->scrapUnused) === self::YN_TRUE;
 	}
 
 	/**
@@ -40,6 +40,6 @@ class ConfigPm extends BaseConfigPm {
 	 * @return bool
 	 */
 	public function useSerialBase() {
-		return strtoupper($this->useSerialBase) == self::YN_TRUE;
+		return strtoupper($this->useSerialBase) === self::YN_TRUE;
 	}
 }

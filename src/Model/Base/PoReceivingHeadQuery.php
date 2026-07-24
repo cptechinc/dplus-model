@@ -208,7 +208,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class PoReceivingHeadQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\PoReceivingHeadQuery object.
@@ -266,7 +266,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(PoReceivingHeadTableMap::DATABASE_NAME);
         }
 
@@ -312,7 +312,6 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildPoReceivingHead $obj */
             $obj = new ChildPoReceivingHead();
             $obj->hydrate($row);
             PoReceivingHeadTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -353,7 +352,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -412,10 +411,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByPothnbr($pothnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pothnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pothnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_POTHNBR, $pothnbr, $comparison);
@@ -440,10 +437,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByPothstat($pothstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pothstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pothstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_POTHSTAT, $pothstat, $comparison);
@@ -468,10 +463,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByPothrcptdate($pothrcptdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pothrcptdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pothrcptdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_POTHRCPTDATE, $pothrcptdate, $comparison);
@@ -496,10 +489,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -567,10 +558,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByPothairship($pothairship = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pothairship)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pothairship)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_POTHAIRSHIP, $pothairship, $comparison);
@@ -595,10 +584,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByPotherinreview($potherinreview = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potherinreview)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potherinreview)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_POTHERINREVIEW, $potherinreview, $comparison);
@@ -623,10 +610,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByPothexchctry($pothexchctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pothexchctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pothexchctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_POTHEXCHCTRY, $pothexchctry, $comparison);
@@ -694,10 +679,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByIntbwhseorig($intbwhseorig = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhseorig)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhseorig)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_INTBWHSEORIG, $intbwhseorig, $comparison);
@@ -808,10 +791,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByPothlandbasedon($pothlandbasedon = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pothlandbasedon)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pothlandbasedon)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_POTHLANDBASEDON, $pothlandbasedon, $comparison);
@@ -836,10 +817,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByPothinvcnbr($pothinvcnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pothinvcnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pothinvcnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_POTHINVCNBR, $pothinvcnbr, $comparison);
@@ -864,10 +843,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByPothinvcdate($pothinvcdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pothinvcdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pothinvcdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_POTHINVCDATE, $pothinvcdate, $comparison);
@@ -978,10 +955,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1006,10 +981,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1034,10 +1007,8 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PoReceivingHeadTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1091,7 +1062,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1121,7 +1092,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrder', '\PurchaseOrderQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrder', '\PurchaseOrderQuery');
     }
 
     /**
@@ -1266,7 +1237,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1296,7 +1267,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
     {
         return $this
             ->joinWarehouse($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Warehouse', '\WarehouseQuery');
+            ->useQuery($relationAlias ?: 'Warehouse', '\WarehouseQuery');
     }
 
     /**
@@ -1439,7 +1410,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1469,7 +1440,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrderDetailReceiving($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetailReceiving', '\PurchaseOrderDetailReceivingQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrderDetailReceiving', '\PurchaseOrderDetailReceivingQuery');
     }
 
     /**
@@ -1612,7 +1583,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1642,7 +1613,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrderDetailLotReceiving($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetailLotReceiving', '\PurchaseOrderDetailLotReceivingQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrderDetailLotReceiving', '\PurchaseOrderDetailLotReceivingQuery');
     }
 
     /**
@@ -1765,7 +1736,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PoReceivingHeadTableMap::DATABASE_NAME);
         }
 
@@ -1795,7 +1766,7 @@ abstract class PoReceivingHeadQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PoReceivingHeadTableMap::DATABASE_NAME);
         }
 

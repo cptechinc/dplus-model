@@ -746,7 +746,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigArQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigArQuery object.
@@ -804,7 +804,7 @@ abstract class ConfigArQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigArTableMap::DATABASE_NAME);
         }
 
@@ -850,7 +850,6 @@ abstract class ConfigArQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigAr $obj */
             $obj = new ChildConfigAr();
             $obj->hydrate($row);
             ConfigArTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -891,7 +890,7 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -993,10 +992,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfglifac($artbconfglifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfglifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfglifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFGLIFAC, $artbconfglifac, $comparison);
@@ -1021,10 +1018,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfinifac($artbconfinifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfinifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfinifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFINIFAC, $artbconfinifac, $comparison);
@@ -1049,10 +1044,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfpcifac($artbconfpcifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfpcifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfpcifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFPCIFAC, $artbconfpcifac, $comparison);
@@ -1077,10 +1070,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfccifac($artbconfccifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfccifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfccifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFCCIFAC, $artbconfccifac, $comparison);
@@ -1105,10 +1096,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfinvcustgl($artbconfinvcustgl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfinvcustgl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfinvcustgl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFINVCUSTGL, $artbconfinvcustgl, $comparison);
@@ -1133,10 +1122,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconffrtacct($artbconffrtacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconffrtacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconffrtacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFFRTACCT, $artbconffrtacct, $comparison);
@@ -1161,10 +1148,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfmiscacct($artbconfmiscacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfmiscacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfmiscacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFMISCACCT, $artbconfmiscacct, $comparison);
@@ -1189,10 +1174,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfaracct($artbconfaracct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfaracct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfaracct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFARACCT, $artbconfaracct, $comparison);
@@ -1217,10 +1200,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfcashacct($artbconfcashacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfcashacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfcashacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFCASHACCT, $artbconfcashacct, $comparison);
@@ -1245,10 +1226,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2cccashacct($artbcon2cccashacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2cccashacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2cccashacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2CCCASHACCT, $artbcon2cccashacct, $comparison);
@@ -1273,10 +1252,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconffincacct($artbconffincacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconffincacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconffincacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFFINCACCT, $artbconffincacct, $comparison);
@@ -1301,10 +1278,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfdiscacct($artbconfdiscacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfdiscacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfdiscacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFDISCACCT, $artbconfdiscacct, $comparison);
@@ -1329,10 +1304,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfrgacogsacct($artbconfrgacogsacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfrgacogsacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfrgacogsacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFRGACOGSACCT, $artbconfrgacogsacct, $comparison);
@@ -1357,10 +1330,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfcusdacct($artbconfcusdacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfcusdacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfcusdacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFCUSDACCT, $artbconfcusdacct, $comparison);
@@ -1385,10 +1356,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfdpstacct($artbconfdpstacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfdpstacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfdpstacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFDPSTACCT, $artbconfdpstacct, $comparison);
@@ -1413,10 +1382,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfwriteoffacct($artbconfwriteoffacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfwriteoffacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfwriteoffacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFWRITEOFFACCT, $artbconfwriteoffacct, $comparison);
@@ -1441,10 +1408,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2presalivtyacct($artbcon2presalivtyacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2presalivtyacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2presalivtyacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2PRESALIVTYACCT, $artbcon2presalivtyacct, $comparison);
@@ -1598,10 +1563,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconffincterm($artbconffincterm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconffincterm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconffincterm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFFINCTERM, $artbconffincterm, $comparison);
@@ -1798,10 +1761,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfstmtnotedef($artbconfstmtnotedef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfstmtnotedef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfstmtnotedef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSTMTNOTEDEF, $artbconfstmtnotedef, $comparison);
@@ -1826,10 +1787,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfstmtnote1($artbconfstmtnote1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfstmtnote1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfstmtnote1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSTMTNOTE1, $artbconfstmtnote1, $comparison);
@@ -1854,10 +1813,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfstmtnote2($artbconfstmtnote2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfstmtnote2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfstmtnote2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSTMTNOTE2, $artbconfstmtnote2, $comparison);
@@ -1882,10 +1839,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfstmtnote3($artbconfstmtnote3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfstmtnote3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfstmtnote3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSTMTNOTE3, $artbconfstmtnote3, $comparison);
@@ -1996,10 +1951,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfinvnotedef($artbconfinvnotedef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfinvnotedef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfinvnotedef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFINVNOTEDEF, $artbconfinvnotedef, $comparison);
@@ -2110,10 +2063,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfinvsort($artbconfinvsort = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfinvsort)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfinvsort)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFINVSORT, $artbconfinvsort, $comparison);
@@ -2138,10 +2089,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfinvnc($artbconfinvnc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfinvnc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfinvnc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFINVNC, $artbconfinvnc, $comparison);
@@ -2166,10 +2115,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfstmtsort($artbconfstmtsort = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfstmtsort)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfstmtsort)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSTMTSORT, $artbconfstmtsort, $comparison);
@@ -2194,10 +2141,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfstmt0orless($artbconfstmt0orless = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfstmt0orless)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfstmt0orless)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSTMT0ORLESS, $artbconfstmt0orless, $comparison);
@@ -2222,10 +2167,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfspdef($artbconfspdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfspdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfspdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSPDEF, $artbconfspdef, $comparison);
@@ -2250,10 +2193,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfwhse($artbconfwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFWHSE, $artbconfwhse, $comparison);
@@ -2278,10 +2219,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconftypedef($artbconftypedef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconftypedef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconftypedef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFTYPEDEF, $artbconftypedef, $comparison);
@@ -2306,10 +2245,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfsviadef($artbconfsviadef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfsviadef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfsviadef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSVIADEF, $artbconfsviadef, $comparison);
@@ -2334,10 +2271,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconftermdef($artbconftermdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconftermdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconftermdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFTERMDEF, $artbconftermdef, $comparison);
@@ -2362,10 +2297,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconftaxdef($artbconftaxdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconftaxdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconftaxdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFTAXDEF, $artbconftaxdef, $comparison);
@@ -2390,10 +2323,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfstmtdef($artbconfstmtdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfstmtdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfstmtdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSTMTDEF, $artbconfstmtdef, $comparison);
@@ -2418,10 +2349,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfallowbo($artbconfallowbo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfallowbo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfallowbo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFALLOWBO, $artbconfallowbo, $comparison);
@@ -2446,10 +2375,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfallowfc($artbconfallowfc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfallowfc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfallowfc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFALLOWFC, $artbconfallowfc, $comparison);
@@ -2474,10 +2401,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfusepriccode($artbconfusepriccode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfusepriccode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfusepriccode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFUSEPRICCODE, $artbconfusepriccode, $comparison);
@@ -2502,10 +2427,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfpricdef($artbconfpricdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfpricdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfpricdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFPRICDEF, $artbconfpricdef, $comparison);
@@ -2530,10 +2453,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfusecommcode($artbconfusecommcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfusecommcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfusecommcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFUSECOMMCODE, $artbconfusecommcode, $comparison);
@@ -2558,10 +2479,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfcommdef($artbconfcommdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfcommdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfcommdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFCOMMDEF, $artbconfcommdef, $comparison);
@@ -2586,10 +2505,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfcustlabl($artbconfcustlabl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfcustlabl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfcustlabl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFCUSTLABL, $artbconfcustlabl, $comparison);
@@ -2614,10 +2531,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfcustreq($artbconfcustreq = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfcustreq)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfcustreq)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFCUSTREQ, $artbconfcustreq, $comparison);
@@ -2642,10 +2557,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfcustdef($artbconfcustdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfcustdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfcustdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFCUSTDEF, $artbconfcustdef, $comparison);
@@ -2670,10 +2583,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfshiplabl($artbconfshiplabl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfshiplabl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfshiplabl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSHIPLABL, $artbconfshiplabl, $comparison);
@@ -2698,10 +2609,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfshipreq($artbconfshipreq = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfshipreq)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfshipreq)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSHIPREQ, $artbconfshipreq, $comparison);
@@ -2726,10 +2635,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfshipdef($artbconfshipdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfshipdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfshipdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSHIPDEF, $artbconfshipdef, $comparison);
@@ -2754,10 +2661,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfuseidlink($artbconfuseidlink = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfuseidlink)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfuseidlink)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFUSEIDLINK, $artbconfuseidlink, $comparison);
@@ -2911,10 +2816,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfuseweb($artbconfuseweb = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfuseweb)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfuseweb)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFUSEWEB, $artbconfuseweb, $comparison);
@@ -2982,10 +2885,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfbyclerk($artbconfbyclerk = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfbyclerk)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfbyclerk)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFBYCLERK, $artbconfbyclerk, $comparison);
@@ -3010,10 +2911,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2ecrwhse($artbcon2ecrwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2ecrwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2ecrwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2ECRWHSE, $artbcon2ecrwhse, $comparison);
@@ -3038,10 +2937,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfzerotermdisc($artbconfzerotermdisc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfzerotermdisc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfzerotermdisc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFZEROTERMDISC, $artbconfzerotermdisc, $comparison);
@@ -3066,10 +2963,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfuseautocidgen($artbconfuseautocidgen = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfuseautocidgen)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfuseautocidgen)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFUSEAUTOCIDGEN, $artbconfuseautocidgen, $comparison);
@@ -3137,10 +3032,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfparagecredlast($artbconfparagecredlast = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfparagecredlast)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfparagecredlast)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFPARAGECREDLAST, $artbconfparagecredlast, $comparison);
@@ -3165,10 +3058,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfincludecod($artbconfincludecod = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfincludecod)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfincludecod)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFINCLUDECOD, $artbconfincludecod, $comparison);
@@ -3193,10 +3084,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfaddlpricdisc($artbconfaddlpricdisc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfaddlpricdisc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfaddlpricdisc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFADDLPRICDISC, $artbconfaddlpricdisc, $comparison);
@@ -3221,10 +3110,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfapdonoehd($artbconfapdonoehd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfapdonoehd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfapdonoehd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFAPDONOEHD, $artbconfapdonoehd, $comparison);
@@ -3378,10 +3265,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfaddicmnt($artbconfaddicmnt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfaddicmnt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfaddicmnt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFADDICMNT, $artbconfaddicmnt, $comparison);
@@ -3406,10 +3291,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2appaddiscitmpdm($artbcon2appaddiscitmpdm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2appaddiscitmpdm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2appaddiscitmpdm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2APPADDISCITMPDM, $artbcon2appaddiscitmpdm, $comparison);
@@ -3477,10 +3360,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2rfndglacct($artbcon2rfndglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2rfndglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2rfndglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2RFNDGLACCT, $artbcon2rfndglacct, $comparison);
@@ -3505,10 +3386,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2rfndapterm($artbcon2rfndapterm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2rfndapterm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2rfndapterm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2RFNDAPTERM, $artbcon2rfndapterm, $comparison);
@@ -3533,10 +3412,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2rfndarterm($artbcon2rfndarterm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2rfndarterm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2rfndarterm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2RFNDARTERM, $artbcon2rfndarterm, $comparison);
@@ -3561,10 +3438,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2cwoterm($artbcon2cwoterm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2cwoterm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2cwoterm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2CWOTERM, $artbcon2cwoterm, $comparison);
@@ -3589,10 +3464,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2ccterm($artbcon2ccterm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2ccterm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2ccterm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2CCTERM, $artbcon2ccterm, $comparison);
@@ -3617,10 +3490,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2ccsave($artbcon2ccsave = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2ccsave)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2ccsave)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2CCSAVE, $artbcon2ccsave, $comparison);
@@ -3645,10 +3516,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2ccbatch($artbcon2ccbatch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2ccbatch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2ccbatch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2CCBATCH, $artbcon2ccbatch, $comparison);
@@ -3716,10 +3585,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2aprvdccasdeposit($artbcon2aprvdccasdeposit = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2aprvdccasdeposit)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2aprvdccasdeposit)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2APRVDCCASDEPOSIT, $artbcon2aprvdccasdeposit, $comparison);
@@ -3744,10 +3611,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2cmqtysign($artbcon2cmqtysign = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2cmqtysign)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2cmqtysign)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2CMQTYSIGN, $artbcon2cmqtysign, $comparison);
@@ -3858,10 +3723,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2usesounitwght($artbcon2usesounitwght = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2usesounitwght)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2usesounitwght)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2USESOUNITWGHT, $artbcon2usesounitwght, $comparison);
@@ -3886,10 +3749,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2delzbal($artbcon2delzbal = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2delzbal)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2delzbal)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2DELZBAL, $artbcon2delzbal, $comparison);
@@ -3957,10 +3818,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2prospecteditcmm($artbcon2prospecteditcmm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2prospecteditcmm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2prospecteditcmm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2PROSPECTEDITCMM, $artbcon2prospecteditcmm, $comparison);
@@ -3985,10 +3844,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2prospectnotestocmm($artbcon2prospectnotestocmm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2prospectnotestocmm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2prospectnotestocmm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2PROSPECTNOTESTOCMM, $artbcon2prospectnotestocmm, $comparison);
@@ -4013,10 +3870,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2ctrygetdflt($artbcon2ctrygetdflt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2ctrygetdflt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2ctrygetdflt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2CTRYGETDFLT, $artbcon2ctrygetdflt, $comparison);
@@ -4041,10 +3896,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfrptbywhse($artbconfrptbywhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfrptbywhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfrptbywhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFRPTBYWHSE, $artbconfrptbywhse, $comparison);
@@ -4112,10 +3965,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfincoasstacct($artbconfincoasstacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfincoasstacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfincoasstacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFINCOASSTACCT, $artbconfincoasstacct, $comparison);
@@ -4140,10 +3991,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfincoliabacct($artbconfincoliabacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfincoliabacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfincoliabacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFINCOLIABACCT, $artbconfincoliabacct, $comparison);
@@ -4168,10 +4017,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2incoasstacct2($artbcon2incoasstacct2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2incoasstacct2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2incoasstacct2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2INCOASSTACCT2, $artbcon2incoasstacct2, $comparison);
@@ -4196,10 +4043,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2incoliabacct2($artbcon2incoliabacct2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2incoliabacct2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2incoliabacct2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2INCOLIABACCT2, $artbcon2incoliabacct2, $comparison);
@@ -4224,10 +4069,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2usesurchg($artbcon2usesurchg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2usesurchg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2usesurchg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2USESURCHG, $artbcon2usesurchg, $comparison);
@@ -4252,10 +4095,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2surchgitemid($artbcon2surchgitemid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2surchgitemid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2surchgitemid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2SURCHGITEMID, $artbcon2surchgitemid, $comparison);
@@ -4452,10 +4293,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfzeroinvcline($artbconfzeroinvcline = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfzeroinvcline)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfzeroinvcline)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFZEROINVCLINE, $artbconfzeroinvcline, $comparison);
@@ -4480,10 +4319,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2zeroordrship($artbcon2zeroordrship = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2zeroordrship)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2zeroordrship)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2ZEROORDRSHIP, $artbcon2zeroordrship, $comparison);
@@ -4508,10 +4345,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2zeroordrmess($artbcon2zeroordrmess = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2zeroordrmess)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2zeroordrmess)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2ZEROORDRMESS, $artbcon2zeroordrmess, $comparison);
@@ -4536,10 +4371,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbconfcashacctwhse($artbconfcashacctwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbconfcashacctwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbconfcashacctwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFCASHACCTWHSE, $artbconfcashacctwhse, $comparison);
@@ -4564,10 +4397,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByArtbcon2mtaxfrtflagorcode($artbcon2mtaxfrtflagorcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcon2mtaxfrtflagorcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcon2mtaxfrtflagorcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2MTAXFRTFLAGORCODE, $artbcon2mtaxfrtflagorcode, $comparison);
@@ -4592,10 +4423,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -4620,10 +4449,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -4648,10 +4475,8 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigArTableMap::COL_DUMMY, $dummy, $comparison);
@@ -4683,7 +4508,7 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigArTableMap::DATABASE_NAME);
         }
 
@@ -4713,7 +4538,7 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigArTableMap::DATABASE_NAME);
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ItemWhseOrderNoteQuery as BaseItemWhseOrderNoteQuery;
 
 use Dplus\Model\QueryTraits;

@@ -794,7 +794,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class CustomerShiptoQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\CustomerShiptoQuery object.
@@ -852,7 +852,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CustomerShiptoTableMap::DATABASE_NAME);
         }
 
@@ -899,7 +899,6 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCustomerShipto $obj */
             $obj = new ChildCustomerShipto();
             $obj->hydrate($row);
             CustomerShiptoTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -940,7 +939,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -1008,10 +1007,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -1036,10 +1033,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
@@ -1064,10 +1059,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstname($arstname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTNAME, $arstname, $comparison);
@@ -1092,10 +1085,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstadr1($arstadr1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstadr1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstadr1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADR1, $arstadr1, $comparison);
@@ -1120,10 +1111,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstadr2($arstadr2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstadr2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstadr2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADR2, $arstadr2, $comparison);
@@ -1148,10 +1137,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstadr3($arstadr3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstadr3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstadr3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADR3, $arstadr3, $comparison);
@@ -1176,10 +1163,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstctry($arstctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCTRY, $arstctry, $comparison);
@@ -1204,10 +1189,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstcity($arstcity = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstcity)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstcity)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCITY, $arstcity, $comparison);
@@ -1232,10 +1215,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArststat($arststat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arststat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arststat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSTAT, $arststat, $comparison);
@@ -1260,10 +1241,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstzipcode($arstzipcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstzipcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstzipcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTZIPCODE, $arstzipcode, $comparison);
@@ -1331,10 +1310,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstcommcode($arstcommcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstcommcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstcommcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCOMMCODE, $arstcommcode, $comparison);
@@ -1359,10 +1336,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstallowsplit($arstallowsplit = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstallowsplit)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstallowsplit)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTALLOWSPLIT, $arstallowsplit, $comparison);
@@ -1387,10 +1362,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstlindstsp($arstlindstsp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstlindstsp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstlindstsp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTLINDSTSP, $arstlindstsp, $comparison);
@@ -1415,10 +1388,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstlmecommcustid($arstlmecommcustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstlmecommcustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstlmecommcustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTLMECOMMCUSTID, $arstlmecommcustid, $comparison);
@@ -1443,10 +1414,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstcatlgid($arstcatlgid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstcatlgid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstcatlgid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCATLGID, $arstcatlgid, $comparison);
@@ -1471,10 +1440,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
@@ -1499,10 +1466,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArspsaleper2($arspsaleper2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSPSALEPER2, $arspsaleper2, $comparison);
@@ -1527,10 +1492,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArspsaleper3($arspsaleper3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSPSALEPER3, $arspsaleper3, $comparison);
@@ -1555,10 +1518,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArtbctaxcode($artbctaxcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctaxcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctaxcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
@@ -1583,10 +1544,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArsttaxexemnbr($arsttaxexemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arsttaxexemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arsttaxexemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTTAXEXEMNBR, $arsttaxexemnbr, $comparison);
@@ -1611,10 +1570,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -1639,10 +1596,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArtbshipvia($artbshipvia = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbshipvia)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbshipvia)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBSHIPVIA, $artbshipvia, $comparison);
@@ -1667,10 +1622,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstbord($arstbord = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstbord)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstbord)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTBORD, $arstbord, $comparison);
@@ -1695,10 +1648,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstcredhold($arstcredhold = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstcredhold)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstcredhold)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCREDHOLD, $arstcredhold, $comparison);
@@ -1723,10 +1674,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstusercode($arstusercode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstusercode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstusercode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTUSERCODE, $arstusercode, $comparison);
@@ -1751,10 +1700,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstpriclvl($arstpriclvl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstpriclvl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstpriclvl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTPRICLVL, $arstpriclvl, $comparison);
@@ -1779,10 +1726,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstshipcomp($arstshipcomp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstshipcomp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstshipcomp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPCOMP, $arstshipcomp, $comparison);
@@ -1807,10 +1752,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArsttxbl($arsttxbl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arsttxbl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arsttxbl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTTXBL, $arsttxbl, $comparison);
@@ -1835,10 +1778,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstpostal($arstpostal = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstpostal)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstpostal)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTPOSTAL, $arstpostal, $comparison);
@@ -1949,10 +1890,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstdateopen($arstdateopen = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstdateopen)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstdateopen)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDATEOPEN, $arstdateopen, $comparison);
@@ -1977,10 +1916,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstlastsaledate($arstlastsaledate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstlastsaledate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstlastsaledate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTLASTSALEDATE, $arstlastsaledate, $comparison);
@@ -4069,10 +4006,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstprimshipid($arstprimshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstprimshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstprimshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTPRIMSHIPID, $arstprimshipid, $comparison);
@@ -4097,10 +4032,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstmyvendid($arstmyvendid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstmyvendid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstmyvendid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTMYVENDID, $arstmyvendid, $comparison);
@@ -4168,10 +4101,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstediinvc($arstediinvc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstediinvc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstediinvc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTEDIINVC, $arstediinvc, $comparison);
@@ -4196,10 +4127,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstchrgfrt($arstchrgfrt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstchrgfrt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstchrgfrt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCHRGFRT, $arstchrgfrt, $comparison);
@@ -4224,10 +4153,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstdistcntr($arstdistcntr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstdistcntr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstdistcntr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDISTCNTR, $arstdistcntr, $comparison);
@@ -4252,10 +4179,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstdunsnbr($arstdunsnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstdunsnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstdunsnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDUNSNBR, $arstdunsnbr, $comparison);
@@ -4323,10 +4248,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstcustpoparam($arstcustpoparam = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstcustpoparam)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstcustpoparam)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCUSTPOPARAM, $arstcustpoparam, $comparison);
@@ -4351,10 +4274,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArtbroutcode($artbroutcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbroutcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbroutcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBROUTCODE, $artbroutcode, $comparison);
@@ -4379,10 +4300,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstupsacctnbr($arstupsacctnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstupsacctnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstupsacctnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTUPSACCTNBR, $arstupsacctnbr, $comparison);
@@ -4407,10 +4326,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstfobinputyn($arstfobinputyn = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstfobinputyn)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstfobinputyn)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTFOBINPUTYN, $arstfobinputyn, $comparison);
@@ -4564,10 +4481,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByArstemailfaxauthcode($arstemailfaxauthcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstemailfaxauthcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstemailfaxauthcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTEMAILFAXAUTHCODE, $arstemailfaxauthcode, $comparison);
@@ -4592,10 +4507,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -4620,10 +4533,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -4648,10 +4559,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShiptoTableMap::COL_DUMMY, $dummy, $comparison);
@@ -4705,7 +4614,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -4735,7 +4644,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -4872,7 +4781,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -4902,7 +4811,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinArContact($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ArContact', '\ArContactQuery');
+            ->useQuery($relationAlias ?: 'ArContact', '\ArContactQuery');
     }
 
     /**
@@ -5039,7 +4948,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5069,7 +4978,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinCstkItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CstkItem', '\CstkItemQuery');
+            ->useQuery($relationAlias ?: 'CstkItem', '\CstkItemQuery');
     }
 
     /**
@@ -5206,7 +5115,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5236,7 +5145,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinCstkHead($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CstkHead', '\CstkHeadQuery');
+            ->useQuery($relationAlias ?: 'CstkHead', '\CstkHeadQuery');
     }
 
     /**
@@ -5373,7 +5282,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5403,7 +5312,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferOrder', '\InvTransferOrderQuery');
+            ->useQuery($relationAlias ?: 'InvTransferOrder', '\InvTransferOrderQuery');
     }
 
     /**
@@ -5540,7 +5449,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5570,7 +5479,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinNoteCustInternal($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'NoteCustInternal', '\NoteCustInternalQuery');
+            ->useQuery($relationAlias ?: 'NoteCustInternal', '\NoteCustInternalQuery');
     }
 
     /**
@@ -5707,7 +5616,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5737,7 +5646,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinNoteCustOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'NoteCustOrder', '\NoteCustOrderQuery');
+            ->useQuery($relationAlias ?: 'NoteCustOrder', '\NoteCustOrderQuery');
     }
 
     /**
@@ -5874,7 +5783,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -5904,7 +5813,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinBookingDayCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BookingDayCustomer', '\BookingDayCustomerQuery');
+            ->useQuery($relationAlias ?: 'BookingDayCustomer', '\BookingDayCustomerQuery');
     }
 
     /**
@@ -6041,7 +5950,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6071,7 +5980,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinBookingDayDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BookingDayDetail', '\BookingDayDetailQuery');
+            ->useQuery($relationAlias ?: 'BookingDayDetail', '\BookingDayDetailQuery');
     }
 
     /**
@@ -6208,7 +6117,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6238,7 +6147,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinBooking($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Booking', '\BookingQuery');
+            ->useQuery($relationAlias ?: 'Booking', '\BookingQuery');
     }
 
     /**
@@ -6375,7 +6284,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6405,7 +6314,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinSalesHistory($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesHistory', '\SalesHistoryQuery');
+            ->useQuery($relationAlias ?: 'SalesHistory', '\SalesHistoryQuery');
     }
 
     /**
@@ -6542,7 +6451,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6572,7 +6481,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinSalesOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesOrder', '\SalesOrderQuery');
+            ->useQuery($relationAlias ?: 'SalesOrder', '\SalesOrderQuery');
     }
 
     /**
@@ -6709,7 +6618,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6739,7 +6648,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinSoStandingOrderDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SoStandingOrderDetail', '\SoStandingOrderDetailQuery');
+            ->useQuery($relationAlias ?: 'SoStandingOrderDetail', '\SoStandingOrderDetailQuery');
     }
 
     /**
@@ -6876,7 +6785,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -6906,7 +6815,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     {
         return $this
             ->joinSoStandingOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SoStandingOrder', '\SoStandingOrderQuery');
+            ->useQuery($relationAlias ?: 'SoStandingOrder', '\SoStandingOrderQuery');
     }
 
     /**
@@ -7017,7 +6926,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         if ($customerShipto) {
             $this->addCond('pruneCond0', $this->getAliasedColName(CustomerShiptoTableMap::COL_ARCUCUSTID), $customerShipto->getArcucustid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(CustomerShiptoTableMap::COL_ARSTSHIPID), $customerShipto->getArstshipid(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -7031,7 +6940,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShiptoTableMap::DATABASE_NAME);
         }
 
@@ -7061,7 +6970,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShiptoTableMap::DATABASE_NAME);
         }
 

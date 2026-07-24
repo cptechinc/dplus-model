@@ -74,7 +74,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvProductLineCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvProductLineCodeQuery object.
@@ -132,7 +132,7 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvProductLineCodeTableMap::DATABASE_NAME);
         }
 
@@ -178,7 +178,6 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvProductLineCode $obj */
             $obj = new ChildInvProductLineCode();
             $obj->hydrate($row);
             InvProductLineCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -219,7 +218,7 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -278,10 +277,8 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
      */
     public function filterByIntbplnecode($intbplnecode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbplnecode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbplnecode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvProductLineCodeTableMap::COL_INTBPLNECODE, $intbplnecode, $comparison);
@@ -306,10 +303,8 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
      */
     public function filterByIntbplnedesc($intbplnedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbplnedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbplnedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvProductLineCodeTableMap::COL_INTBPLNEDESC, $intbplnedesc, $comparison);
@@ -334,10 +329,8 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvProductLineCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -362,10 +355,8 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvProductLineCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -390,10 +381,8 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvProductLineCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -425,7 +414,7 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvProductLineCodeTableMap::DATABASE_NAME);
         }
 
@@ -455,7 +444,7 @@ abstract class InvProductLineCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvProductLineCodeTableMap::DATABASE_NAME);
         }
 

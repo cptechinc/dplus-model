@@ -332,7 +332,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArPaymentPendingQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArPaymentPendingQuery object.
@@ -390,7 +390,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArPaymentPendingTableMap::DATABASE_NAME);
         }
 
@@ -438,7 +438,6 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArPaymentPending $obj */
             $obj = new ChildArPaymentPending();
             $obj->hydrate($row);
             ArPaymentPendingTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
@@ -479,7 +478,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -550,10 +549,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -578,10 +575,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdinvnbr($arcdinvnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdinvnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdinvnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDINVNBR, $arcdinvnbr, $comparison);
@@ -649,10 +644,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdpaid($arcdpaid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdpaid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdpaid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDPAID, $arcdpaid, $comparison);
@@ -677,10 +670,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdinvdate($arcdinvdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdinvdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdinvdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDINVDATE, $arcdinvdate, $comparison);
@@ -705,10 +696,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdduedate($arcdduedate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdduedate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdduedate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDDUEDATE, $arcdduedate, $comparison);
@@ -733,10 +722,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdchknbr($arcdchknbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdchknbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdchknbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCHKNBR, $arcdchknbr, $comparison);
@@ -890,10 +877,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdcashacct($arcdcashacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdcashacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdcashacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCASHACCT, $arcdcashacct, $comparison);
@@ -918,10 +903,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdcredacct($arcdcredacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdcredacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdcredacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCREDACCT, $arcdcredacct, $comparison);
@@ -946,10 +929,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtermcode($arcdtermcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtermcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtermcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTERMCODE, $arcdtermcode, $comparison);
@@ -1017,10 +998,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdcustpo($arcdcustpo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdcustpo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdcustpo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCUSTPO, $arcdcustpo, $comparison);
@@ -1045,10 +1024,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdordrnbr($arcdordrnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdordrnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdordrnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDORDRNBR, $arcdordrnbr, $comparison);
@@ -1073,10 +1050,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtaxcode1($arcdtaxcode1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtaxcode1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtaxcode1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE1, $arcdtaxcode1, $comparison);
@@ -1144,10 +1119,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtaxcode2($arcdtaxcode2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtaxcode2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtaxcode2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE2, $arcdtaxcode2, $comparison);
@@ -1215,10 +1188,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtaxcode3($arcdtaxcode3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtaxcode3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtaxcode3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE3, $arcdtaxcode3, $comparison);
@@ -1286,10 +1257,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtaxcode4($arcdtaxcode4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtaxcode4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtaxcode4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE4, $arcdtaxcode4, $comparison);
@@ -1357,10 +1326,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtaxcode5($arcdtaxcode5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtaxcode5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtaxcode5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE5, $arcdtaxcode5, $comparison);
@@ -1428,10 +1395,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtaxcode6($arcdtaxcode6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtaxcode6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtaxcode6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE6, $arcdtaxcode6, $comparison);
@@ -1499,10 +1464,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtaxcode7($arcdtaxcode7 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtaxcode7)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtaxcode7)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE7, $arcdtaxcode7, $comparison);
@@ -1570,10 +1533,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtaxcode8($arcdtaxcode8 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtaxcode8)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtaxcode8)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE8, $arcdtaxcode8, $comparison);
@@ -1641,10 +1602,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdtaxcode9($arcdtaxcode9 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdtaxcode9)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdtaxcode9)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE9, $arcdtaxcode9, $comparison);
@@ -1755,10 +1714,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdwriteoffreas($arcdwriteoffreas = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdwriteoffreas)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdwriteoffreas)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDWRITEOFFREAS, $arcdwriteoffreas, $comparison);
@@ -1869,10 +1826,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdpaydate($arcdpaydate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdpaydate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdpaydate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDPAYDATE, $arcdpaydate, $comparison);
@@ -1940,10 +1895,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByArcdref($arcdref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcdref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcdref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDREF, $arcdref, $comparison);
@@ -1968,10 +1921,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1996,10 +1947,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -2024,10 +1973,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPaymentPendingTableMap::COL_DUMMY, $dummy, $comparison);
@@ -2081,7 +2028,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2111,7 +2058,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -2256,7 +2203,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2286,7 +2233,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     {
         return $this
             ->joinArCashHead($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ArCashHead', '\ArCashHeadQuery');
+            ->useQuery($relationAlias ?: 'ArCashHead', '\ArCashHeadQuery');
     }
 
     /**
@@ -2398,7 +2345,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             $this->addCond('pruneCond0', $this->getAliasedColName(ArPaymentPendingTableMap::COL_ARCUCUSTID), $arPaymentPending->getArcucustid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(ArPaymentPendingTableMap::COL_ARCDINVNBR), $arPaymentPending->getArcdinvnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(ArPaymentPendingTableMap::COL_ARCDINVSEQ), $arPaymentPending->getArcdinvseq(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2412,7 +2359,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentPendingTableMap::DATABASE_NAME);
         }
 
@@ -2442,7 +2389,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentPendingTableMap::DATABASE_NAME);
         }
 

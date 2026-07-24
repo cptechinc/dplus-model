@@ -461,7 +461,6 @@ class ItemPricingTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -475,47 +474,45 @@ class ItemPricingTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
-        $this->addColumn('InprPricBase', 'Inprpricbase', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit1', 'Inprpricunit1', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric1', 'Inprpricpric1', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit2', 'Inprpricunit2', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric2', 'Inprpricpric2', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit3', 'Inprpricunit3', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric3', 'Inprpricpric3', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit4', 'Inprpricunit4', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric4', 'Inprpricpric4', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit5', 'Inprpricunit5', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric5', 'Inprpricpric5', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit6', 'Inprpricunit6', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric6', 'Inprpricpric6', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit7', 'Inprpricunit7', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric7', 'Inprpricpric7', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit8', 'Inprpricunit8', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric8', 'Inprpricpric8', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit9', 'Inprpricunit9', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric9', 'Inprpricpric9', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricUnit10', 'Inprpricunit10', 'INTEGER', false, 8, null);
-        $this->addColumn('InprPricPric10', 'Inprpricpric10', 'DECIMAL', false, 20, null);
-        $this->addColumn('InprPricLastDate', 'Inprpriclastdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('InprPricBase', 'Inprpricbase', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit1', 'Inprpricunit1', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric1', 'Inprpricpric1', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit2', 'Inprpricunit2', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric2', 'Inprpricpric2', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit3', 'Inprpricunit3', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric3', 'Inprpricpric3', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit4', 'Inprpricunit4', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric4', 'Inprpricpric4', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit5', 'Inprpricunit5', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric5', 'Inprpricpric5', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit6', 'Inprpricunit6', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric6', 'Inprpricpric6', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit7', 'Inprpricunit7', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric7', 'Inprpricpric7', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit8', 'Inprpricunit8', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric8', 'Inprpricpric8', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit9', 'Inprpricunit9', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric9', 'Inprpricpric9', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricUnit10', 'Inprpricunit10', 'INTEGER', false, 8);
+        $this->addColumn('InprPricPric10', 'Inprpricpric10', 'DECIMAL', false, 20);
+        $this->addColumn('InprPricLastDate', 'Inprpriclastdate', 'VARCHAR', false, 8);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::ONE_TO_ONE, array (
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::ONE_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
+  ],
+], null, null, null, false);
     }
 
     /**
@@ -534,11 +531,11 @@ class ItemPricingTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -556,8 +553,8 @@ class ItemPricingTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -614,7 +611,6 @@ class ItemPricingTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -655,7 +651,6 @@ class ItemPricingTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -726,7 +721,6 @@ class ItemPricingTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -790,7 +784,6 @@ class ItemPricingTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -812,7 +805,7 @@ class ItemPricingTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingTableMap::DATABASE_NAME);
         }
 
@@ -862,7 +855,7 @@ class ItemPricingTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingTableMap::DATABASE_NAME);
         }
 
@@ -878,9 +871,7 @@ class ItemPricingTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

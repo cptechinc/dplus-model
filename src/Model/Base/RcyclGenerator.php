@@ -37,7 +37,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\RcyclGeneratorTableMap';
+    public const TABLE_MAP = \Map\RcyclGeneratorTableMap::class;
 
 
     /**
@@ -126,7 +126,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      * @var ObjectCollection|ChildRcyclReceipt[]
      * @phpstan-var ObjectCollection&\Traversable<ChildRcyclReceipt>
      */
-    protected $rcyclReceiptsScheduledForDeletion = null;
+    protected $rcyclReceiptsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -159,7 +159,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -217,7 +217,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -227,7 +226,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -265,8 +263,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -277,7 +273,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -319,9 +314,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -347,7 +340,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -546,13 +539,8 @@ abstract class RcyclGenerator implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -577,19 +565,19 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : RcyclGeneratorTableMap::translateFieldName('Artbgenrid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : RcyclGeneratorTableMap::translateFieldName('Artbgenrid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbgenrid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : RcyclGeneratorTableMap::translateFieldName('Artbgenrname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : RcyclGeneratorTableMap::translateFieldName('Artbgenrname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbgenrname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : RcyclGeneratorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : RcyclGeneratorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : RcyclGeneratorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : RcyclGeneratorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : RcyclGeneratorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : RcyclGeneratorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -618,7 +606,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -631,7 +618,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -644,7 +630,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(RcyclGeneratorTableMap::DATABASE_NAME);
         }
 
@@ -670,7 +656,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see RcyclGenerator::setDeleted()
      * @see RcyclGenerator::isDeleted()
@@ -681,7 +666,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclGeneratorTableMap::DATABASE_NAME);
         }
 
@@ -720,18 +705,14 @@ abstract class RcyclGenerator implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclGeneratorTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -755,7 +736,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -777,13 +757,11 @@ abstract class RcyclGenerator implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->rcyclReceiptsScheduledForDeletion !== null) {
-                if (!$this->rcyclReceiptsScheduledForDeletion->isEmpty()) {
-                    \RcyclReceiptQuery::create()
-                        ->filterByPrimaryKeys($this->rcyclReceiptsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->rcyclReceiptsScheduledForDeletion = null;
-                }
+            if ($this->rcyclReceiptsScheduledForDeletion !== null && !$this->rcyclReceiptsScheduledForDeletion->isEmpty()) {
+                \RcyclReceiptQuery::create()
+                    ->filterByPrimaryKeys($this->rcyclReceiptsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->rcyclReceiptsScheduledForDeletion = null;
             }
 
             if ($this->collRcyclReceipts !== null) {
@@ -804,7 +782,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -876,7 +853,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -902,9 +878,8 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = RcyclGeneratorTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -971,22 +946,18 @@ abstract class RcyclGenerator implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
-        if ($includeForeignObjects) {
-            if (null !== $this->collRcyclReceipts) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'rcyclReceipts';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'rcycl_heads';
-                        break;
-                    default:
-                        $key = 'RcyclReceipts';
-                }
-
-                $result[$key] = $this->collRcyclReceipts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+        if ($includeForeignObjects && null !== $this->collRcyclReceipts) {
+            switch ($keyType) {
+                case TableMap::TYPE_CAMELNAME:
+                    $key = 'rcyclReceipts';
+                    break;
+                case TableMap::TYPE_FIELDNAME:
+                    $key = 'rcycl_heads';
+                    break;
+                default:
+                    $key = 'RcyclReceipts';
             }
+            $result[$key] = $this->collRcyclReceipts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
         }
 
         return $result;
@@ -995,7 +966,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -1174,7 +1144,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -1194,7 +1164,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      * Generic method to set the primary key (artbgenrid column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -1203,8 +1172,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -1221,7 +1188,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -1278,7 +1244,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -1306,8 +1271,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Reset is the collRcyclReceipts collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialRcyclReceipts($v = true): void
     {
@@ -1323,8 +1286,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initRcyclReceipts(bool $overrideExisting = true): void
     {
@@ -1356,7 +1317,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     public function getRcyclReceipts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collRcyclReceiptsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceipts || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceipts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collRcyclReceipts) {
@@ -1374,7 +1335,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
                     ->filterByRcyclGenerator($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collRcyclReceiptsPartial && count($collRcyclReceipts)) {
                         $this->initRcyclReceipts(false);
 
@@ -1425,7 +1386,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
         $this->rcyclReceiptsScheduledForDeletion = $rcyclReceiptsToDelete;
 
         foreach ($rcyclReceiptsToDelete as $rcyclReceiptRemoved) {
-            $rcyclReceiptRemoved->setRcyclGenerator(null);
+            $rcyclReceiptRemoved->setRcyclGenerator();
         }
 
         $this->collRcyclReceipts = null;
@@ -1443,7 +1404,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      * Returns the number of related RcyclReceipt objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related RcyclReceipt objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -1451,7 +1411,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
     public function countRcyclReceipts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collRcyclReceiptsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceipts || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceipts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collRcyclReceipts) {
                 return 0;
             }
@@ -1490,7 +1450,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
         if (!$this->collRcyclReceipts->contains($l)) {
             $this->doAddRcyclReceipt($l);
 
-            if ($this->rcyclReceiptsScheduledForDeletion and $this->rcyclReceiptsScheduledForDeletion->contains($l)) {
+            if ($this->rcyclReceiptsScheduledForDeletion && $this->rcyclReceiptsScheduledForDeletion->contains($l)) {
                 $this->rcyclReceiptsScheduledForDeletion->remove($this->rcyclReceiptsScheduledForDeletion->search($l));
             }
         }
@@ -1521,7 +1481,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
                 $this->rcyclReceiptsScheduledForDeletion->clear();
             }
             $this->rcyclReceiptsScheduledForDeletion[]= clone $rcyclReceipt;
-            $rcyclReceipt->setRcyclGenerator(null);
+            $rcyclReceipt->setRcyclGenerator();
         }
 
         return $this;
@@ -1588,11 +1548,9 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-            if ($this->collRcyclReceipts) {
-                foreach ($this->collRcyclReceipts as $o) {
-                    $o->clearAllReferences($deep);
-                }
+        if ($deep && $this->collRcyclReceipts) {
+            foreach ($this->collRcyclReceipts as $o) {
+                $o->clearAllReferences($deep);
             }
         } // if ($deep)
 
@@ -1607,13 +1565,11 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(RcyclGeneratorTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(RcyclGeneratorTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -1622,8 +1578,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -1631,8 +1585,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -1641,8 +1593,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -1650,8 +1600,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -1660,8 +1608,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -1669,8 +1615,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -1679,8 +1623,6 @@ abstract class RcyclGenerator implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -1700,7 +1642,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -1712,7 +1654,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -1720,7 +1662,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

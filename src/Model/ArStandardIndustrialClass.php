@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArStandardIndustrialClass as BaseArStandardIndustrialClass;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class ArStandardIndustrialClass extends BaseArStandardIndustrialClass {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'artbsiccode',
 		'code'         => 'artbsiccode',
 		'description'  => 'artbsicdesc',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

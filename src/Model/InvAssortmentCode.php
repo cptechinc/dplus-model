@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvAssortmentCode as BaseInvAssortmentCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class InvAssortmentCode extends BaseInvAssortmentCode {
      * Column Aliases to lookup / get properties
      * @var array
      */
-    const COLUMN_ALIASES = array(
+    const COLUMN_ALIASES = [
         'id'           => 'intbasstcode',
         'code'         => 'intbasstcode',
         'description'  => 'intbasstdesc',
         'date'         => 'dateupdtd',
         'time'         => 'timeupdtd'
-    );
+    ];
 
     /**
 	 * Return the Max Number of characters allowed for Code

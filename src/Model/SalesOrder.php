@@ -45,7 +45,7 @@ class SalesOrder extends BaseSalesOrder {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ordernumber'  => 'oehdnbr',
 		'custid'       => 'arcucustid',
 		'shiptoid'     => 'arstshipid',
@@ -99,7 +99,7 @@ class SalesOrder extends BaseSalesOrder {
 		'items'           => 'SalesOrderDetails', // NOTE: Used for getting Detaisl via __call()
 		'pickqueue'       => 'oehdpickqueue',
 		'hold'            => 'oehdhold',
-	);
+	];
 
 	const LENGTH = 10;
 	const STATUS_NEW = 'N';
@@ -110,25 +110,25 @@ class SalesOrder extends BaseSalesOrder {
 	 * Order Statuses indexed by description
 	 * @var array
 	 */
-	const STATUS_CODES = array(
+	const STATUS_CODES = [
 		'new'       => 'N',
 		'picked'    => 'P',
 		'verified'  => 'V',
 		'invoiced'  => 'I',
 		'sales'     => 'S',
-	);
+	];
 
 	/**
 	 * Order Statuses and the values for their description
 	 *
 	 * @var array
 	 */
-	const STATUS_DESCRIPTIONS = array(
+	const STATUS_DESCRIPTIONS = [
 		'N' => 'new',
 		'P' => 'picked',
 		'V' => 'verified',
 		'I' => 'invoiced'
-	);
+	];
 
 	/**
 	 * Return if Order is to Ship Complete
@@ -208,11 +208,11 @@ class SalesOrder extends BaseSalesOrder {
 	 * @return bool
 	 */
 	public function is_editable() {
-		return strlen($this->heldby) == 0;
+		return (string) $this->heldby === '';
 	}
 
 	public function is_locked() {
-		return strlen($this->heldby) > 0;
+		return (string) $this->heldby !== '';
 	}
 
 	/**

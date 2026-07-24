@@ -278,7 +278,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemPricingDiscountQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemPricingDiscountQuery object.
@@ -336,7 +336,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
         }
 
@@ -389,7 +389,6 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemPricingDiscount $obj */
             $obj = new ChildItemPricingDiscount();
             $obj->hydrate($row);
             ItemPricingDiscountTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4]), (null === $key[5] || is_scalar($key[5]) || is_callable([$key[5], '__toString']) ? (string) $key[5] : $key[5]), (null === $key[6] || is_scalar($key[6]) || is_callable([$key[6], '__toString']) ? (string) $key[6] : $key[6]), (null === $key[7] || is_scalar($key[7]) || is_callable([$key[7], '__toString']) ? (string) $key[7] : $key[7])]));
@@ -430,7 +429,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -516,10 +515,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepctype($oepctype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepctype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepctype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCTYPE, $oepctype, $comparison);
@@ -630,10 +627,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepccustid($oepccustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepccustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepccustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCUSTID, $oepccustid, $comparison);
@@ -658,10 +653,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepccustcode($oepccustcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepccustcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepccustcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCUSTCODE, $oepccustcode, $comparison);
@@ -686,10 +679,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcitemnbr($oepcitemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcitemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcitemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCITEMNBR, $oepcitemnbr, $comparison);
@@ -714,10 +705,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcitemgrup($oepcitemgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcitemgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcitemgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCITEMGRUP, $oepcitemgrup, $comparison);
@@ -742,10 +731,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcsp($oepcsp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcsp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcsp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCSP, $oepcsp, $comparison);
@@ -770,10 +757,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcmeth($oepcmeth = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcmeth)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcmeth)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCMETH, $oepcmeth, $comparison);
@@ -798,10 +783,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepccode($oepccode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepccode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepccode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCODE, $oepccode, $comparison);
@@ -998,10 +981,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcpricuom1($oepcpricuom1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcpricuom1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcpricuom1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM1, $oepcpricuom1, $comparison);
@@ -1112,10 +1093,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcpricuom2($oepcpricuom2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcpricuom2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcpricuom2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM2, $oepcpricuom2, $comparison);
@@ -1226,10 +1205,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcpricuom3($oepcpricuom3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcpricuom3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcpricuom3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM3, $oepcpricuom3, $comparison);
@@ -1340,10 +1317,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcpricuom4($oepcpricuom4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcpricuom4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcpricuom4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM4, $oepcpricuom4, $comparison);
@@ -1454,10 +1429,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcpricuom5($oepcpricuom5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcpricuom5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcpricuom5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM5, $oepcpricuom5, $comparison);
@@ -1525,10 +1498,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcenddate($oepcenddate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcenddate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcenddate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCENDDATE, $oepcenddate, $comparison);
@@ -1553,10 +1524,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepcqtybrk($oepcqtybrk = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepcqtybrk)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepcqtybrk)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCQTYBRK, $oepcqtybrk, $comparison);
@@ -1624,10 +1593,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByOepclastchgdate($oepclastchgdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oepclastchgdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oepclastchgdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCLASTCHGDATE, $oepclastchgdate, $comparison);
@@ -1652,10 +1619,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1680,10 +1645,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1708,10 +1671,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemPricingDiscountTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1765,7 +1726,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1795,7 +1756,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1940,7 +1901,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1970,7 +1931,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -2087,7 +2048,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             $this->addCond('pruneCond5', $this->getAliasedColName(ItemPricingDiscountTableMap::COL_OEPCITEMNBR), $itemPricingDiscount->getOepcitemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond6', $this->getAliasedColName(ItemPricingDiscountTableMap::COL_OEPCITEMGRUP), $itemPricingDiscount->getOepcitemgrup(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond7', $this->getAliasedColName(ItemPricingDiscountTableMap::COL_OEPCSP), $itemPricingDiscount->getOepcsp(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5', 'pruneCond6', 'pruneCond7'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5', 'pruneCond6', 'pruneCond7'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2101,7 +2062,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
         }
 
@@ -2131,7 +2092,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
         }
 

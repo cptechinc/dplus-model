@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigCcQuery as BaseConfigCcQuery;
 
 use Dplus\Model\QueryTraits;

@@ -32,7 +32,7 @@ abstract class OptionsIi implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\OptionsIiTableMap';
+    public const TABLE_MAP = \Map\OptionsIiTableMap::class;
 
 
     /**
@@ -364,20 +364,13 @@ abstract class OptionsIi implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Initializes internal state of Base\OptionsIi object.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * Returns whether the object has been modified.
      *
      * @return bool True if the object has been modified.
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -435,7 +428,6 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -445,7 +437,6 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -483,8 +474,6 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -495,7 +484,6 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -537,9 +525,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -565,7 +551,7 @@ abstract class OptionsIi implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, []));
     }
 
     /**
@@ -1885,130 +1871,130 @@ abstract class OptionsIi implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptncode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : OptionsIiTableMap::translateFieldName('Iitboptncode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptncode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnactavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnactwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactdet', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactdet', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnactdet = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactdaysback', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactdaysback', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnactdaysback = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactstrtdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnactstrtdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnactstrtdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptncostavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptncostavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptncostavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptncostwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptncostwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptncostwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptncostdet', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptncostdet', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptncostdet = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptngenavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptngenavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptngenavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnktavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnktavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnktavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnpricavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnpricavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnpricavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnphavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnphwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphdet', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphdet', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnphdet = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphdaysback', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphdaysback', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnphdaysback = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphstrtdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnphstrtdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnphstrtdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnpoavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnpoavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnpoavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnpowhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnpowhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnpowhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnreqravail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnreqravail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnreqravail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnreqrwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnreqrwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnreqrwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnreqrview', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnreqrview', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnreqrview = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnshavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnshwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshdet', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshdet', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnshdet = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshdaysback', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshdaysback', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnshdaysback = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshstrtdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnshstrtdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnshstrtdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnsoavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnsoavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnsoavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnsowhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnsowhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnsowhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnserlotavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnserlotavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnserlotavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnstckavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnstckavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnstckavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnstckwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnstckwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnstckwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnstckdet', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnstckdet', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnstckdet = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnsubsupavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnsubsupavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnsubsupavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnsubsupwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnsubsupwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnsubsupwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnlsavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnlsavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnlsavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnlswhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptnlswhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptnlswhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptndesc1or2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptndesc1or2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptndesc1or2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptndelcerts', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : OptionsIiTableMap::translateFieldName('Iitboptndelcerts', TableMap::TYPE_PHPNAME, $indexType)];
             $this->iitboptndelcerts = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : OptionsIiTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : OptionsIiTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : OptionsIiTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : OptionsIiTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : OptionsIiTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : OptionsIiTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -2037,7 +2023,6 @@ abstract class OptionsIi implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -2050,7 +2035,6 @@ abstract class OptionsIi implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -2063,7 +2047,7 @@ abstract class OptionsIi implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(OptionsIiTableMap::DATABASE_NAME);
         }
 
@@ -2087,7 +2071,6 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see OptionsIi::setDeleted()
      * @see OptionsIi::isDeleted()
@@ -2098,7 +2081,7 @@ abstract class OptionsIi implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsIiTableMap::DATABASE_NAME);
         }
 
@@ -2137,18 +2120,14 @@ abstract class OptionsIi implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsIiTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2172,7 +2151,6 @@ abstract class OptionsIi implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2204,7 +2182,6 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2535,7 +2512,6 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2561,9 +2537,8 @@ abstract class OptionsIi implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = OptionsIiTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2784,7 +2759,6 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3296,7 +3270,7 @@ abstract class OptionsIi implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -3316,7 +3290,6 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Generic method to set the primary key (iitboptncode column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -3325,8 +3298,6 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3343,7 +3314,6 @@ abstract class OptionsIi implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3487,8 +3457,7 @@ abstract class OptionsIi implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         return $this;
     }
@@ -3500,13 +3469,11 @@ abstract class OptionsIi implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(OptionsIiTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(OptionsIiTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3515,8 +3482,6 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3524,8 +3489,6 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3534,8 +3497,6 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3543,8 +3504,6 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3553,8 +3512,6 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3562,8 +3519,6 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3572,8 +3527,6 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3593,7 +3546,7 @@ abstract class OptionsIi implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3605,7 +3558,7 @@ abstract class OptionsIi implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3613,7 +3566,7 @@ abstract class OptionsIi implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

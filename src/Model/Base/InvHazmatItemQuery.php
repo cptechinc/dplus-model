@@ -124,7 +124,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvHazmatItemQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvHazmatItemQuery object.
@@ -182,7 +182,7 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvHazmatItemTableMap::DATABASE_NAME);
         }
 
@@ -228,7 +228,6 @@ abstract class InvHazmatItemQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvHazmatItem $obj */
             $obj = new ChildInvHazmatItem();
             $obj->hydrate($row);
             InvHazmatItemTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -269,7 +268,7 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -328,10 +327,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -356,10 +353,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByInhzdot1($inhzdot1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inhzdot1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inhzdot1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZDOT1, $inhzdot1, $comparison);
@@ -384,10 +379,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByInhzdot2($inhzdot2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inhzdot2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inhzdot2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZDOT2, $inhzdot2, $comparison);
@@ -412,10 +405,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByInhzclass($inhzclass = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inhzclass)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inhzclass)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZCLASS, $inhzclass, $comparison);
@@ -440,10 +431,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByInhzunnbr($inhzunnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inhzunnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inhzunnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZUNNBR, $inhzunnbr, $comparison);
@@ -468,10 +457,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByInhzpackgrup($inhzpackgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inhzpackgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inhzpackgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZPACKGRUP, $inhzpackgrup, $comparison);
@@ -496,10 +483,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByInhzlabel($inhzlabel = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inhzlabel)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inhzlabel)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZLABEL, $inhzlabel, $comparison);
@@ -524,10 +509,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByInhzairyn($inhzairyn = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inhzairyn)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inhzairyn)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZAIRYN, $inhzairyn, $comparison);
@@ -552,10 +535,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -580,10 +561,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -608,10 +587,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvHazmatItemTableMap::COL_DUMMY, $dummy, $comparison);
@@ -665,7 +642,7 @@ abstract class InvHazmatItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -695,7 +672,7 @@ abstract class InvHazmatItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -818,7 +795,7 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvHazmatItemTableMap::DATABASE_NAME);
         }
 
@@ -848,7 +825,7 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvHazmatItemTableMap::DATABASE_NAME);
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\VendorOrderNoteQuery as BaseVendorOrderNoteQuery;
 
 use Dplus\Model\QueryTraits;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ItemSubstitute as BaseItemSubstitute;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -23,14 +25,14 @@ class ItemSubstitute extends BaseItemSubstitute {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'	   => 'inititemnbr',
 		'subitemid'    => 'insisubitemnbr',
 		'subsituteitemid'	 => 'insisubitemnbr',
 		'sameOrLike'   => 'insisamelike',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd',
-	);
+	];
 
 
 	/**

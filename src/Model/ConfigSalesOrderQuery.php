@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigSalesOrderQuery as BaseConfigSalesOrderQuery;
 
 use Dplus\Model\QueryTraits;

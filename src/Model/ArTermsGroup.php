@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArTermsGroup as BaseArTermsGroup;
 
 use Dplus\Model\ThrowErrorTrait;

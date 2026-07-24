@@ -18,7 +18,7 @@ class ArCreditCardCode extends BaseArCreditCardCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'                      => 'artbcrcdcode',
 		'code'                    => 'artbcrcdcode',
 		'description'             => 'artbcrcdname',
@@ -38,7 +38,7 @@ class ArCreditCardCode extends BaseArCreditCardCode {
 		'lmcc_surcharge_percent'  => 'artbcrcdlmccsurchgpct',
 		'date'		              => 'dateupdtd',
 		'time'		              => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return Customer for Cash Customer

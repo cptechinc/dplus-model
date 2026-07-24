@@ -46,7 +46,7 @@ abstract class Shipvia implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ShipviaTableMap';
+    public const TABLE_MAP = \Map\ShipviaTableMap::class;
 
 
     /**
@@ -257,28 +257,28 @@ abstract class Shipvia implements ActiveRecordInterface
      * @var ObjectCollection|ChildVendorShipfrom[]
      * @phpstan-var ObjectCollection&\Traversable<ChildVendorShipfrom>
      */
-    protected $vendorShipfromsScheduledForDeletion = null;
+    protected $vendorShipfromsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildVendor[]
      * @phpstan-var ObjectCollection&\Traversable<ChildVendor>
      */
-    protected $vendorsScheduledForDeletion = null;
+    protected $vendorsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildCustomer[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCustomer>
      */
-    protected $customersScheduledForDeletion = null;
+    protected $customersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrder>
      */
-    protected $purchaseOrdersScheduledForDeletion = null;
+    protected $purchaseOrdersScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -307,7 +307,7 @@ abstract class Shipvia implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -365,7 +365,6 @@ abstract class Shipvia implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -375,7 +374,6 @@ abstract class Shipvia implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -413,8 +411,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -425,7 +421,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -467,9 +462,7 @@ abstract class Shipvia implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -495,7 +488,7 @@ abstract class Shipvia implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1129,12 +1122,8 @@ abstract class Shipvia implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->artbshipvia !== '') {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->artbshipvia === '';
     }
 
     /**
@@ -1159,64 +1148,64 @@ abstract class Shipvia implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ShipviaTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ShipviaTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbshipvia = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ShipviaTableMap::translateFieldName('Artbsviadesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ShipviaTableMap::translateFieldName('Artbsviadesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviadesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaprio', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaprio', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviaprio = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaweb', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaweb', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviaweb = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaair', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaair', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviaair = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaupsserv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaupsserv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviaupsserv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaupsbilling', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaupsbilling', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviaupsbilling = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ShipviaTableMap::translateFieldName('Artbsviascaccd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ShipviaTableMap::translateFieldName('Artbsviascaccd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviascaccd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaedimethcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaedimethcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviaedimethcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaupsresidential', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ShipviaTableMap::translateFieldName('Artbsviaupsresidential', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviaupsresidential = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ShipviaTableMap::translateFieldName('Artbsviachrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ShipviaTableMap::translateFieldName('Artbsviachrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviachrgfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ShipviaTableMap::translateFieldName('Artbsviauseroute', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ShipviaTableMap::translateFieldName('Artbsviauseroute', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviauseroute = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ShipviaTableMap::translateFieldName('Artbsviacommfrght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ShipviaTableMap::translateFieldName('Artbsviacommfrght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviacommfrght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ShipviaTableMap::translateFieldName('Artbsviashiparea', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ShipviaTableMap::translateFieldName('Artbsviashiparea', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviashiparea = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ShipviaTableMap::translateFieldName('Artbsviausesurchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ShipviaTableMap::translateFieldName('Artbsviausesurchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviausesurchg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ShipviaTableMap::translateFieldName('Artbsviasurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ShipviaTableMap::translateFieldName('Artbsviasurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviasurchgpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ShipviaTableMap::translateFieldName('Artbsviataxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ShipviaTableMap::translateFieldName('Artbsviataxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsviataxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ShipviaTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ShipviaTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ShipviaTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ShipviaTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ShipviaTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ShipviaTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1245,7 +1234,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1258,7 +1246,6 @@ abstract class Shipvia implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1271,7 +1258,7 @@ abstract class Shipvia implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
@@ -1303,7 +1290,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see Shipvia::setDeleted()
      * @see Shipvia::isDeleted()
@@ -1314,7 +1300,7 @@ abstract class Shipvia implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
@@ -1353,18 +1339,14 @@ abstract class Shipvia implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1388,7 +1370,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1410,14 +1391,12 @@ abstract class Shipvia implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->vendorShipfromsScheduledForDeletion !== null) {
-                if (!$this->vendorShipfromsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->vendorShipfromsScheduledForDeletion as $vendorShipfrom) {
-                        // need to save related object because we set the relation to null
-                        $vendorShipfrom->save($con);
-                    }
-                    $this->vendorShipfromsScheduledForDeletion = null;
+            if ($this->vendorShipfromsScheduledForDeletion !== null && !$this->vendorShipfromsScheduledForDeletion->isEmpty()) {
+                foreach ($this->vendorShipfromsScheduledForDeletion as $vendorShipfrom) {
+                    // need to save related object because we set the relation to null
+                    $vendorShipfrom->save($con);
                 }
+                $this->vendorShipfromsScheduledForDeletion = null;
             }
 
             if ($this->collVendorShipfroms !== null) {
@@ -1428,13 +1407,11 @@ abstract class Shipvia implements ActiveRecordInterface
                 }
             }
 
-            if ($this->vendorsScheduledForDeletion !== null) {
-                if (!$this->vendorsScheduledForDeletion->isEmpty()) {
-                    \VendorQuery::create()
-                        ->filterByPrimaryKeys($this->vendorsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->vendorsScheduledForDeletion = null;
-                }
+            if ($this->vendorsScheduledForDeletion !== null && !$this->vendorsScheduledForDeletion->isEmpty()) {
+                \VendorQuery::create()
+                    ->filterByPrimaryKeys($this->vendorsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->vendorsScheduledForDeletion = null;
             }
 
             if ($this->collVendors !== null) {
@@ -1445,14 +1422,12 @@ abstract class Shipvia implements ActiveRecordInterface
                 }
             }
 
-            if ($this->customersScheduledForDeletion !== null) {
-                if (!$this->customersScheduledForDeletion->isEmpty()) {
-                    foreach ($this->customersScheduledForDeletion as $customer) {
-                        // need to save related object because we set the relation to null
-                        $customer->save($con);
-                    }
-                    $this->customersScheduledForDeletion = null;
+            if ($this->customersScheduledForDeletion !== null && !$this->customersScheduledForDeletion->isEmpty()) {
+                foreach ($this->customersScheduledForDeletion as $customer) {
+                    // need to save related object because we set the relation to null
+                    $customer->save($con);
                 }
+                $this->customersScheduledForDeletion = null;
             }
 
             if ($this->collCustomers !== null) {
@@ -1463,14 +1438,12 @@ abstract class Shipvia implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrdersScheduledForDeletion !== null) {
-                if (!$this->purchaseOrdersScheduledForDeletion->isEmpty()) {
-                    foreach ($this->purchaseOrdersScheduledForDeletion as $purchaseOrder) {
-                        // need to save related object because we set the relation to null
-                        $purchaseOrder->save($con);
-                    }
-                    $this->purchaseOrdersScheduledForDeletion = null;
+            if ($this->purchaseOrdersScheduledForDeletion !== null && !$this->purchaseOrdersScheduledForDeletion->isEmpty()) {
+                foreach ($this->purchaseOrdersScheduledForDeletion as $purchaseOrder) {
+                    // need to save related object because we set the relation to null
+                    $purchaseOrder->save($con);
                 }
+                $this->purchaseOrdersScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrders !== null) {
@@ -1491,7 +1464,6 @@ abstract class Shipvia implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -1668,7 +1640,6 @@ abstract class Shipvia implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -1694,9 +1665,8 @@ abstract class Shipvia implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ShipviaTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -1892,7 +1862,6 @@ abstract class Shipvia implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -2206,7 +2175,7 @@ abstract class Shipvia implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -2226,7 +2195,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * Generic method to set the primary key (artbshipvia column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -2235,8 +2203,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -2253,7 +2219,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2343,7 +2308,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -2383,8 +2347,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Reset is the collVendorShipfroms collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialVendorShipfroms($v = true): void
     {
@@ -2400,8 +2362,6 @@ abstract class Shipvia implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initVendorShipfroms(bool $overrideExisting = true): void
     {
@@ -2433,7 +2393,7 @@ abstract class Shipvia implements ActiveRecordInterface
     public function getVendorShipfroms(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collVendorShipfromsPartial && !$this->isNew();
-        if (null === $this->collVendorShipfroms || null !== $criteria || $partial) {
+        if (null === $this->collVendorShipfroms || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collVendorShipfroms) {
@@ -2451,7 +2411,7 @@ abstract class Shipvia implements ActiveRecordInterface
                     ->filterByShipvia($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collVendorShipfromsPartial && count($collVendorShipfroms)) {
                         $this->initVendorShipfroms(false);
 
@@ -2502,7 +2462,7 @@ abstract class Shipvia implements ActiveRecordInterface
         $this->vendorShipfromsScheduledForDeletion = $vendorShipfromsToDelete;
 
         foreach ($vendorShipfromsToDelete as $vendorShipfromRemoved) {
-            $vendorShipfromRemoved->setShipvia(null);
+            $vendorShipfromRemoved->setShipvia();
         }
 
         $this->collVendorShipfroms = null;
@@ -2520,7 +2480,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * Returns the number of related VendorShipfrom objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related VendorShipfrom objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2528,7 +2487,7 @@ abstract class Shipvia implements ActiveRecordInterface
     public function countVendorShipfroms(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collVendorShipfromsPartial && !$this->isNew();
-        if (null === $this->collVendorShipfroms || null !== $criteria || $partial) {
+        if (null === $this->collVendorShipfroms || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collVendorShipfroms) {
                 return 0;
             }
@@ -2567,7 +2526,7 @@ abstract class Shipvia implements ActiveRecordInterface
         if (!$this->collVendorShipfroms->contains($l)) {
             $this->doAddVendorShipfrom($l);
 
-            if ($this->vendorShipfromsScheduledForDeletion and $this->vendorShipfromsScheduledForDeletion->contains($l)) {
+            if ($this->vendorShipfromsScheduledForDeletion && $this->vendorShipfromsScheduledForDeletion->contains($l)) {
                 $this->vendorShipfromsScheduledForDeletion->remove($this->vendorShipfromsScheduledForDeletion->search($l));
             }
         }
@@ -2598,7 +2557,7 @@ abstract class Shipvia implements ActiveRecordInterface
                 $this->vendorShipfromsScheduledForDeletion->clear();
             }
             $this->vendorShipfromsScheduledForDeletion[]= $vendorShipfrom;
-            $vendorShipfrom->setShipvia(null);
+            $vendorShipfrom->setShipvia();
         }
 
         return $this;
@@ -2648,8 +2607,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Reset is the collVendors collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialVendors($v = true): void
     {
@@ -2665,8 +2622,6 @@ abstract class Shipvia implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initVendors(bool $overrideExisting = true): void
     {
@@ -2698,7 +2653,7 @@ abstract class Shipvia implements ActiveRecordInterface
     public function getVendors(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collVendorsPartial && !$this->isNew();
-        if (null === $this->collVendors || null !== $criteria || $partial) {
+        if (null === $this->collVendors || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collVendors) {
@@ -2716,7 +2671,7 @@ abstract class Shipvia implements ActiveRecordInterface
                     ->filterByShipvia($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collVendorsPartial && count($collVendors)) {
                         $this->initVendors(false);
 
@@ -2767,7 +2722,7 @@ abstract class Shipvia implements ActiveRecordInterface
         $this->vendorsScheduledForDeletion = $vendorsToDelete;
 
         foreach ($vendorsToDelete as $vendorRemoved) {
-            $vendorRemoved->setShipvia(null);
+            $vendorRemoved->setShipvia();
         }
 
         $this->collVendors = null;
@@ -2785,7 +2740,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * Returns the number of related Vendor objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related Vendor objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2793,7 +2747,7 @@ abstract class Shipvia implements ActiveRecordInterface
     public function countVendors(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collVendorsPartial && !$this->isNew();
-        if (null === $this->collVendors || null !== $criteria || $partial) {
+        if (null === $this->collVendors || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collVendors) {
                 return 0;
             }
@@ -2832,7 +2786,7 @@ abstract class Shipvia implements ActiveRecordInterface
         if (!$this->collVendors->contains($l)) {
             $this->doAddVendor($l);
 
-            if ($this->vendorsScheduledForDeletion and $this->vendorsScheduledForDeletion->contains($l)) {
+            if ($this->vendorsScheduledForDeletion && $this->vendorsScheduledForDeletion->contains($l)) {
                 $this->vendorsScheduledForDeletion->remove($this->vendorsScheduledForDeletion->search($l));
             }
         }
@@ -2863,7 +2817,7 @@ abstract class Shipvia implements ActiveRecordInterface
                 $this->vendorsScheduledForDeletion->clear();
             }
             $this->vendorsScheduledForDeletion[]= clone $vendor;
-            $vendor->setShipvia(null);
+            $vendor->setShipvia();
         }
 
         return $this;
@@ -2965,8 +2919,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Reset is the collCustomers collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCustomers($v = true): void
     {
@@ -2982,8 +2934,6 @@ abstract class Shipvia implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCustomers(bool $overrideExisting = true): void
     {
@@ -3015,7 +2965,7 @@ abstract class Shipvia implements ActiveRecordInterface
     public function getCustomers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCustomersPartial && !$this->isNew();
-        if (null === $this->collCustomers || null !== $criteria || $partial) {
+        if (null === $this->collCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCustomers) {
@@ -3033,7 +2983,7 @@ abstract class Shipvia implements ActiveRecordInterface
                     ->filterByShipvia($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCustomersPartial && count($collCustomers)) {
                         $this->initCustomers(false);
 
@@ -3084,7 +3034,7 @@ abstract class Shipvia implements ActiveRecordInterface
         $this->customersScheduledForDeletion = $customersToDelete;
 
         foreach ($customersToDelete as $customerRemoved) {
-            $customerRemoved->setShipvia(null);
+            $customerRemoved->setShipvia();
         }
 
         $this->collCustomers = null;
@@ -3102,7 +3052,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * Returns the number of related Customer objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related Customer objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3110,7 +3059,7 @@ abstract class Shipvia implements ActiveRecordInterface
     public function countCustomers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCustomersPartial && !$this->isNew();
-        if (null === $this->collCustomers || null !== $criteria || $partial) {
+        if (null === $this->collCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCustomers) {
                 return 0;
             }
@@ -3149,7 +3098,7 @@ abstract class Shipvia implements ActiveRecordInterface
         if (!$this->collCustomers->contains($l)) {
             $this->doAddCustomer($l);
 
-            if ($this->customersScheduledForDeletion and $this->customersScheduledForDeletion->contains($l)) {
+            if ($this->customersScheduledForDeletion && $this->customersScheduledForDeletion->contains($l)) {
                 $this->customersScheduledForDeletion->remove($this->customersScheduledForDeletion->search($l));
             }
         }
@@ -3180,7 +3129,7 @@ abstract class Shipvia implements ActiveRecordInterface
                 $this->customersScheduledForDeletion->clear();
             }
             $this->customersScheduledForDeletion[]= $customer;
-            $customer->setShipvia(null);
+            $customer->setShipvia();
         }
 
         return $this;
@@ -3256,8 +3205,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrders($v = true): void
     {
@@ -3273,8 +3220,6 @@ abstract class Shipvia implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrders(bool $overrideExisting = true): void
     {
@@ -3306,7 +3251,7 @@ abstract class Shipvia implements ActiveRecordInterface
     public function getPurchaseOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrdersPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrders || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrders) {
@@ -3324,7 +3269,7 @@ abstract class Shipvia implements ActiveRecordInterface
                     ->filterByShipvia($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrdersPartial && count($collPurchaseOrders)) {
                         $this->initPurchaseOrders(false);
 
@@ -3375,7 +3320,7 @@ abstract class Shipvia implements ActiveRecordInterface
         $this->purchaseOrdersScheduledForDeletion = $purchaseOrdersToDelete;
 
         foreach ($purchaseOrdersToDelete as $purchaseOrderRemoved) {
-            $purchaseOrderRemoved->setShipvia(null);
+            $purchaseOrderRemoved->setShipvia();
         }
 
         $this->collPurchaseOrders = null;
@@ -3393,7 +3338,6 @@ abstract class Shipvia implements ActiveRecordInterface
      * Returns the number of related PurchaseOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3401,7 +3345,7 @@ abstract class Shipvia implements ActiveRecordInterface
     public function countPurchaseOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrdersPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrders || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrders) {
                 return 0;
             }
@@ -3440,7 +3384,7 @@ abstract class Shipvia implements ActiveRecordInterface
         if (!$this->collPurchaseOrders->contains($l)) {
             $this->doAddPurchaseOrder($l);
 
-            if ($this->purchaseOrdersScheduledForDeletion and $this->purchaseOrdersScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrdersScheduledForDeletion && $this->purchaseOrdersScheduledForDeletion->contains($l)) {
                 $this->purchaseOrdersScheduledForDeletion->remove($this->purchaseOrdersScheduledForDeletion->search($l));
             }
         }
@@ -3471,7 +3415,7 @@ abstract class Shipvia implements ActiveRecordInterface
                 $this->purchaseOrdersScheduledForDeletion->clear();
             }
             $this->purchaseOrdersScheduledForDeletion[]= $purchaseOrder;
-            $purchaseOrder->setShipvia(null);
+            $purchaseOrder->setShipvia();
         }
 
         return $this;
@@ -3616,13 +3560,11 @@ abstract class Shipvia implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ShipviaTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ShipviaTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3631,8 +3573,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3640,8 +3580,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3650,8 +3588,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3659,8 +3595,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3669,8 +3603,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3678,8 +3610,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3688,8 +3618,6 @@ abstract class Shipvia implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3709,7 +3637,7 @@ abstract class Shipvia implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3721,7 +3649,7 @@ abstract class Shipvia implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3729,7 +3657,7 @@ abstract class Shipvia implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

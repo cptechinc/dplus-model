@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 // Dplus Models
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -20,7 +22,7 @@ class NoteIntr extends BaseNoteIntr {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'        => 'ponttype',
 		'description' => 'ponttypedesc',
 		'ordn'        => 'inhdnbr',
@@ -32,5 +34,5 @@ class NoteIntr extends BaseNoteIntr {
 		'form'        => 'qnform',
 		'date'        => 'dateupdtd',
 		'time'        => 'timeupdtd'
-	);
+	];
 }

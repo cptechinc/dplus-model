@@ -19,15 +19,15 @@ class OptionsIi extends BaseOptionsIi {
 	const VIEW_REQUIREMENTS_AVAILABLE = 'A';
 	const VIEW_REQUIREMENTS_REQUIREMENTS = 'R';
 
-	const VIEW_REQUIREMENTS_OPTIONS = array(
+	const VIEW_REQUIREMENTS_OPTIONS = [
 		'R' => 'Requirement',
 		'A' => 'Available to Promise'
-	);
+	];
 
-	const VIEW_REQUIREMENTS_OPTIONS_JSON = array(
+	const VIEW_REQUIREMENTS_OPTIONS_JSON = [
 		'R' =>  "REQ",
 		'A' => "AVL"
-	);
+	];
 
 	const YN_TRUE = 'Y';
 
@@ -35,7 +35,7 @@ class OptionsIi extends BaseOptionsIi {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'userid'            => 'iitboptncode',
 		'view_requirements' => 'iitboptnreqrview',
 		'whichdesc'         => 'IitbOptnDesc1Or2',
@@ -89,7 +89,7 @@ class OptionsIi extends BaseOptionsIi {
 
 		'date'            => 'dateupdtd',
 		'time'            => 'timeupdtd'
-	);
+	];
 
 	const PERMISSIONS = [
 		'activity',
@@ -134,7 +134,7 @@ class OptionsIi extends BaseOptionsIi {
 	 * @return array
 	 */
 	public function permitted() {
-		return array_filter(self::PERMISSIONS, array($this, 'is_true'));
+		return array_filter(self::PERMISSIONS, [$this, 'is_true']);
 	}
 
 	/**

@@ -22,7 +22,7 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'         => 'ponttype',
 		'description'  => 'ponttypedesc',
 		'vendorid'     => 'apvevendid',
@@ -38,7 +38,7 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 		'time'         => 'timeupdtd',
 
 		'item'         => 'itemMasterItem',
-	);
+	];
 
 	/**
 	 * Sets Form

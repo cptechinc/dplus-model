@@ -20,7 +20,7 @@ class UnitofMeasureSale extends BaseUnitofMeasureSale {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'            => 'intbuomsale',
 		'code'          => 'intbuomsale',
 		'description'   => 'intbuomdesc',
@@ -29,7 +29,7 @@ class UnitofMeasureSale extends BaseUnitofMeasureSale {
 		'stockbycase'   => 'intbuomstockbycase',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code
@@ -52,6 +52,6 @@ class UnitofMeasureSale extends BaseUnitofMeasureSale {
 	 * @return bool
 	 */
 	public function isWeightQty() {
-		return in_array($this->pricebyweight, [self::STOCKBYWEIGHT_CATCH]);
+		return $this->pricebyweight == self::STOCKBYWEIGHT_CATCH;
 	}
 }

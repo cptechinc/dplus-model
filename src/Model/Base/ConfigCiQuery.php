@@ -140,7 +140,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigCiQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigCiQuery object.
@@ -198,7 +198,7 @@ abstract class ConfigCiQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigCiTableMap::DATABASE_NAME);
         }
 
@@ -244,7 +244,6 @@ abstract class ConfigCiQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigCi $obj */
             $obj = new ChildConfigCi();
             $obj->hydrate($row);
             ConfigCiTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -285,7 +284,7 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -430,10 +429,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByCitbconfpaysort($citbconfpaysort = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citbconfpaysort)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citbconfpaysort)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFPAYSORT, $citbconfpaysort, $comparison);
@@ -458,10 +455,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByCitbconfshistby($citbconfshistby = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citbconfshistby)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citbconfshistby)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTBY, $citbconfshistby, $comparison);
@@ -486,10 +481,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByCitbconfshistdate($citbconfshistdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citbconfshistdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citbconfshistdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTDATE, $citbconfshistdate, $comparison);
@@ -557,10 +550,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByCitbconfshowzerohist($citbconfshowzerohist = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citbconfshowzerohist)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citbconfshowzerohist)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHOWZEROHIST, $citbconfshowzerohist, $comparison);
@@ -585,10 +576,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByCitbconfshistnotes($citbconfshistnotes = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citbconfshistnotes)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citbconfshistnotes)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTNOTES, $citbconfshistnotes, $comparison);
@@ -613,10 +602,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByCitbconfordernotes($citbconfordernotes = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citbconfordernotes)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citbconfordernotes)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFORDERNOTES, $citbconfordernotes, $comparison);
@@ -641,10 +628,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByCitbconfquotenotes($citbconfquotenotes = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citbconfquotenotes)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citbconfquotenotes)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFQUOTENOTES, $citbconfquotenotes, $comparison);
@@ -669,10 +654,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByCitbconfconsolget($citbconfconsolget = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citbconfconsolget)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citbconfconsolget)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFCONSOLGET, $citbconfconsolget, $comparison);
@@ -740,10 +723,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterBycitbconfshowinactive($citbconfshowinactive = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citbconfshowinactive)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citbconfshowinactive)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE, $citbconfshowinactive, $comparison);
@@ -768,10 +749,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -796,10 +775,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -824,10 +801,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigCiTableMap::COL_DUMMY, $dummy, $comparison);
@@ -859,7 +834,7 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigCiTableMap::DATABASE_NAME);
         }
 
@@ -889,7 +864,7 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigCiTableMap::DATABASE_NAME);
         }
 

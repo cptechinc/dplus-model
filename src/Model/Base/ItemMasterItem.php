@@ -182,7 +182,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ItemMasterItemTableMap';
+    public const TABLE_MAP = \Map\ItemMasterItemTableMap::class;
 
 
     /**
@@ -1050,315 +1050,315 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemXrefCustomer[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefCustomer>
      */
-    protected $itemXrefCustomersScheduledForDeletion = null;
+    protected $itemXrefCustomersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildCstkItem[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCstkItem>
      */
-    protected $cstkItemsScheduledForDeletion = null;
+    protected $cstkItemsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvWhseItemBin[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseItemBin>
      */
-    protected $invWhseItemBinsScheduledForDeletion = null;
+    protected $invWhseItemBinsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemAddonItem[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemAddonItem>
      */
-    protected $itemAddonItemsRelatedByInititemnbrScheduledForDeletion = null;
+    protected $itemAddonItemsRelatedByInititemnbrScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemAddonItem[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemAddonItem>
      */
-    protected $itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion = null;
+    protected $itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvWhseLot[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseLot>
      */
-    protected $invWhseLotsScheduledForDeletion = null;
+    protected $invWhseLotsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemSubstitute[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemSubstitute>
      */
-    protected $itemSubstitutesRelatedByInititemnbrScheduledForDeletion = null;
+    protected $itemSubstitutesRelatedByInititemnbrScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemSubstitute[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemSubstitute>
      */
-    protected $itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = null;
+    protected $itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvLotTag[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag>
      */
-    protected $invLotTagsScheduledForDeletion = null;
+    protected $invLotTagsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvItem2Item[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvItem2Item>
      */
-    protected $invItem2ItemsRelatedByI2imstritemidScheduledForDeletion = null;
+    protected $invItem2ItemsRelatedByI2imstritemidScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvItem2Item[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvItem2Item>
      */
-    protected $invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion = null;
+    protected $invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvKitComponent[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvKitComponent>
      */
-    protected $invKitComponentsScheduledForDeletion = null;
+    protected $invKitComponentsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvLotMaster[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvLotMaster>
      */
-    protected $invLotMastersScheduledForDeletion = null;
+    protected $invLotMastersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvSerialMaster[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvSerialMaster>
      */
-    protected $invSerialMastersScheduledForDeletion = null;
+    protected $invSerialMastersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferDetail>
      */
-    protected $invTransferDetailsScheduledForDeletion = null;
+    protected $invTransferDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferLotserial>
      */
-    protected $invTransferLotserialsScheduledForDeletion = null;
+    protected $invTransferLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferPreAllocatedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial>
      */
-    protected $invTransferPreAllocatedLotserialsScheduledForDeletion = null;
+    protected $invTransferPreAllocatedLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferPickedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPickedLotserial>
      */
-    protected $invTransferPickedLotserialsScheduledForDeletion = null;
+    protected $invTransferPickedLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvSerialWarranty[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvSerialWarranty>
      */
-    protected $invSerialWarrantiesScheduledForDeletion = null;
+    protected $invSerialWarrantiesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildWarehouseInventory[]
      * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseInventory>
      */
-    protected $warehouseInventoriesScheduledForDeletion = null;
+    protected $warehouseInventoriesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefKey[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefKey>
      */
-    protected $itemXrefKeysScheduledForDeletion = null;
+    protected $itemXrefKeysScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefManufacturer[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefManufacturer>
      */
-    protected $itemXrefManufacturersScheduledForDeletion = null;
+    protected $itemXrefManufacturersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefCustomerNote[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefCustomerNote>
      */
-    protected $itemXrefCustomerNotesScheduledForDeletion = null;
+    protected $itemXrefCustomerNotesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvOptCodeNote[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvOptCodeNote>
      */
-    protected $invOptCodeNotesScheduledForDeletion = null;
+    protected $invOptCodeNotesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendorNoteDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail>
      */
-    protected $itemXrefVendorNoteDetailsScheduledForDeletion = null;
+    protected $itemXrefVendorNoteDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendorNoteInternal[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal>
      */
-    protected $itemXrefVendorNoteInternalsScheduledForDeletion = null;
+    protected $itemXrefVendorNoteInternalsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvPallet[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvPallet>
      */
-    protected $invPalletsScheduledForDeletion = null;
+    protected $invPalletsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetail>
      */
-    protected $purchaseOrderDetailsScheduledForDeletion = null;
+    protected $purchaseOrderDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailReceipt[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt>
      */
-    protected $purchaseOrderDetailReceiptsScheduledForDeletion = null;
+    protected $purchaseOrderDetailReceiptsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailReceiving[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving>
      */
-    protected $purchaseOrderDetailReceivingsScheduledForDeletion = null;
+    protected $purchaseOrderDetailReceivingsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailLotReceiving[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving>
      */
-    protected $purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
+    protected $purchaseOrderDetailLotReceivingsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBomComponent[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBomComponent>
      */
-    protected $bomComponentsScheduledForDeletion = null;
+    protected $bomComponentsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildRcyclReceiptDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildRcyclReceiptDetail>
      */
-    protected $rcyclReceiptDetailsScheduledForDeletion = null;
+    protected $rcyclReceiptDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildRcyclReceiptLot[]
      * @phpstan-var ObjectCollection&\Traversable<ChildRcyclReceiptLot>
      */
-    protected $rcyclReceiptLotsScheduledForDeletion = null;
+    protected $rcyclReceiptLotsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBookingDetail>
      */
-    protected $bookingDetailsScheduledForDeletion = null;
+    protected $bookingDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesHistoryDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryDetail>
      */
-    protected $salesHistoryDetailsScheduledForDeletion = null;
+    protected $salesHistoryDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderDetail>
      */
-    protected $salesOrderDetailsScheduledForDeletion = null;
+    protected $salesOrderDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderLotserial>
      */
-    protected $salesOrderLotserialsScheduledForDeletion = null;
+    protected $salesOrderLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesHistoryLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryLotserial>
      */
-    protected $salesHistoryLotserialsScheduledForDeletion = null;
+    protected $salesHistoryLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoAllocatedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSoAllocatedLotserial>
      */
-    protected $soAllocatedLotserialsScheduledForDeletion = null;
+    protected $soAllocatedLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemPricingDiscount[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemPricingDiscount>
      */
-    protected $itemPricingDiscountsScheduledForDeletion = null;
+    protected $itemPricingDiscountsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoPickedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSoPickedLotserial>
      */
-    protected $soPickedLotserialsScheduledForDeletion = null;
+    protected $soPickedLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoStandingOrderDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSoStandingOrderDetail>
      */
-    protected $soStandingOrderDetailsScheduledForDeletion = null;
+    protected $soStandingOrderDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefUpc[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefUpc>
      */
-    protected $itemXrefUpcsScheduledForDeletion = null;
+    protected $itemXrefUpcsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendor[]
      * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendor>
      */
-    protected $itemXrefVendorsScheduledForDeletion = null;
+    protected $itemXrefVendorsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -1387,7 +1387,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -1445,7 +1445,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -1455,7 +1454,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -1493,8 +1491,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -1505,7 +1501,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -1547,9 +1542,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -1575,7 +1568,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -3587,12 +3580,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->inititemnbr !== '') {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->inititemnbr === '';
     }
 
     /**
@@ -3617,199 +3606,199 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ItemMasterItemTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ItemMasterItemTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ItemMasterItemTableMap::translateFieldName('Initdesc1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ItemMasterItemTableMap::translateFieldName('Initdesc1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initdesc1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemMasterItemTableMap::translateFieldName('Initdesc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ItemMasterItemTableMap::translateFieldName('Initdesc2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initdesc2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemMasterItemTableMap::translateFieldName('Initformatcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ItemMasterItemTableMap::translateFieldName('Initformatcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initformatcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsplit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsplit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initsplit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsherdatecd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsherdatecd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initsherdatecd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemMasterItemTableMap::translateFieldName('Initcoreyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ItemMasterItemTableMap::translateFieldName('Initcoreyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initcoreyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbusercode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbusercode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbusercode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbusercode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbusercode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbusercode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ItemMasterItemTableMap::translateFieldName('Inittype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ItemMasterItemTableMap::translateFieldName('Inittype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inittype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ItemMasterItemTableMap::translateFieldName('Inittax', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ItemMasterItemTableMap::translateFieldName('Inittax', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inittax = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ItemMasterItemTableMap::translateFieldName('Initrtlpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ItemMasterItemTableMap::translateFieldName('Initrtlpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initrtlpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstatchgd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstatchgd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initstatchgd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ItemMasterItemTableMap::translateFieldName('Initspecitemcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ItemMasterItemTableMap::translateFieldName('Initspecitemcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initspecitemcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ItemMasterItemTableMap::translateFieldName('Initwarrdays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ItemMasterItemTableMap::translateFieldName('Initwarrdays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initwarrdays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbuomsale', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbuomsale', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuomsale = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ItemMasterItemTableMap::translateFieldName('Initwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ItemMasterItemTableMap::translateFieldName('Initwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ItemMasterItemTableMap::translateFieldName('Initbord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ItemMasterItemTableMap::translateFieldName('Initbord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initbord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ItemMasterItemTableMap::translateFieldName('Initbaseitemid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ItemMasterItemTableMap::translateFieldName('Initbaseitemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initbaseitemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ItemMasterItemTableMap::translateFieldName('Initspecificcust', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ItemMasterItemTableMap::translateFieldName('Initspecificcust', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initspecificcust = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ItemMasterItemTableMap::translateFieldName('Initgivedisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ItemMasterItemTableMap::translateFieldName('Initgivedisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initgivedisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ItemMasterItemTableMap::translateFieldName('Initasstcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ItemMasterItemTableMap::translateFieldName('Initasstcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initasstcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ItemMasterItemTableMap::translateFieldName('Initpriclastdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ItemMasterItemTableMap::translateFieldName('Initpriclastdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initpriclastdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbuompur', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbuompur', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuompur = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstancost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstancost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initstancost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstancostbase', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstancostbase', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initstancostbase = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstancostlastdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstancostlastdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initstancostlastdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ItemMasterItemTableMap::translateFieldName('Initminmarg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ItemMasterItemTableMap::translateFieldName('Initminmarg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initminmarg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ItemMasterItemTableMap::translateFieldName('Initvendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ItemMasterItemTableMap::translateFieldName('Initvendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initvendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ItemMasterItemTableMap::translateFieldName('Initinspect', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ItemMasterItemTableMap::translateFieldName('Initinspect', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initinspect = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstockcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ItemMasterItemTableMap::translateFieldName('Initstockcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initstockcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsupritemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsupritemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initsupritemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ItemMasterItemTableMap::translateFieldName('Initvendshipfrom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ItemMasterItemTableMap::translateFieldName('Initvendshipfrom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initvendshipfrom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ItemMasterItemTableMap::translateFieldName('Initcntryoforigin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ItemMasterItemTableMap::translateFieldName('Initcntryoforigin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initcntryoforigin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ItemMasterItemTableMap::translateFieldName('Initasstqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ItemMasterItemTableMap::translateFieldName('Initasstqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initasstqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbtariffcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbtariffcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbtariffcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ItemMasterItemTableMap::translateFieldName('Initpreference', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ItemMasterItemTableMap::translateFieldName('Initpreference', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initpreference = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ItemMasterItemTableMap::translateFieldName('Initproducer', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : ItemMasterItemTableMap::translateFieldName('Initproducer', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initproducer = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ItemMasterItemTableMap::translateFieldName('Initdocumentation', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : ItemMasterItemTableMap::translateFieldName('Initdocumentation', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initdocumentation = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ItemMasterItemTableMap::translateFieldName('Initpurchcrtnqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : ItemMasterItemTableMap::translateFieldName('Initpurchcrtnqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initpurchcrtnqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ItemMasterItemTableMap::translateFieldName('Aptbbuyrcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : ItemMasterItemTableMap::translateFieldName('Aptbbuyrcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbbuyrcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ItemMasterItemTableMap::translateFieldName('Initlastcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : ItemMasterItemTableMap::translateFieldName('Initlastcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initlastcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ItemMasterItemTableMap::translateFieldName('Initliters', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : ItemMasterItemTableMap::translateFieldName('Initliters', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initliters = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbmsdscode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbmsdscode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbmsdscode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ItemMasterItemTableMap::translateFieldName('Initrequirefrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : ItemMasterItemTableMap::translateFieldName('Initrequirefrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initrequirefrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ItemMasterItemTableMap::translateFieldName('Initmfrtcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : ItemMasterItemTableMap::translateFieldName('Initmfrtcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initmfrtcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ItemMasterItemTableMap::translateFieldName('Initinnerpackqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : ItemMasterItemTableMap::translateFieldName('Initinnerpackqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initinnerpackqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ItemMasterItemTableMap::translateFieldName('Initouterpackqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : ItemMasterItemTableMap::translateFieldName('Initouterpackqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initouterpackqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ItemMasterItemTableMap::translateFieldName('Initbasestancost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : ItemMasterItemTableMap::translateFieldName('Initbasestancost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initbasestancost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ItemMasterItemTableMap::translateFieldName('Initshiptareqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : ItemMasterItemTableMap::translateFieldName('Initshiptareqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initshiptareqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ItemMasterItemTableMap::translateFieldName('Initwgitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : ItemMasterItemTableMap::translateFieldName('Initwgitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initwgitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbpricgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbpricgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbpricgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbcommgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : ItemMasterItemTableMap::translateFieldName('Intbcommgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcommgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ItemMasterItemTableMap::translateFieldName('Initlastcostdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : ItemMasterItemTableMap::translateFieldName('Initlastcostdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initlastcostdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ItemMasterItemTableMap::translateFieldName('Initqtypercase', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : ItemMasterItemTableMap::translateFieldName('Initqtypercase', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initqtypercase = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ItemMasterItemTableMap::translateFieldName('Initrevision', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : ItemMasterItemTableMap::translateFieldName('Initrevision', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initrevision = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ItemMasterItemTableMap::translateFieldName('Initcommsaleqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : ItemMasterItemTableMap::translateFieldName('Initcommsaleqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initcommsaleqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ItemMasterItemTableMap::translateFieldName('Initcubes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : ItemMasterItemTableMap::translateFieldName('Initcubes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initcubes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ItemMasterItemTableMap::translateFieldName('Inittimefence', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : ItemMasterItemTableMap::translateFieldName('Inittimefence', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inittimefence = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsrvcminchrg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsrvcminchrg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initsrvcminchrg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ItemMasterItemTableMap::translateFieldName('InitMinMargBase', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : ItemMasterItemTableMap::translateFieldName('InitMinMargBase', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initminmargbase = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ItemMasterItemTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : ItemMasterItemTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ItemMasterItemTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : ItemMasterItemTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ItemMasterItemTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : ItemMasterItemTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -3838,7 +3827,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -3872,7 +3860,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -3885,7 +3872,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemMasterItemTableMap::DATABASE_NAME);
         }
 
@@ -4014,7 +4001,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ItemMasterItem::setDeleted()
      * @see ItemMasterItem::isDeleted()
@@ -4025,7 +4011,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
         }
 
@@ -4064,18 +4050,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -4099,7 +4081,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -4175,13 +4156,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->itemXrefCustomersScheduledForDeletion !== null) {
-                if (!$this->itemXrefCustomersScheduledForDeletion->isEmpty()) {
-                    \ItemXrefCustomerQuery::create()
-                        ->filterByPrimaryKeys($this->itemXrefCustomersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemXrefCustomersScheduledForDeletion = null;
-                }
+            if ($this->itemXrefCustomersScheduledForDeletion !== null && !$this->itemXrefCustomersScheduledForDeletion->isEmpty()) {
+                \ItemXrefCustomerQuery::create()
+                    ->filterByPrimaryKeys($this->itemXrefCustomersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemXrefCustomersScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefCustomers !== null) {
@@ -4192,13 +4171,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->cstkItemsScheduledForDeletion !== null) {
-                if (!$this->cstkItemsScheduledForDeletion->isEmpty()) {
-                    \CstkItemQuery::create()
-                        ->filterByPrimaryKeys($this->cstkItemsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->cstkItemsScheduledForDeletion = null;
-                }
+            if ($this->cstkItemsScheduledForDeletion !== null && !$this->cstkItemsScheduledForDeletion->isEmpty()) {
+                \CstkItemQuery::create()
+                    ->filterByPrimaryKeys($this->cstkItemsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->cstkItemsScheduledForDeletion = null;
             }
 
             if ($this->collCstkItems !== null) {
@@ -4209,13 +4186,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invWhseItemBinsScheduledForDeletion !== null) {
-                if (!$this->invWhseItemBinsScheduledForDeletion->isEmpty()) {
-                    \InvWhseItemBinQuery::create()
-                        ->filterByPrimaryKeys($this->invWhseItemBinsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invWhseItemBinsScheduledForDeletion = null;
-                }
+            if ($this->invWhseItemBinsScheduledForDeletion !== null && !$this->invWhseItemBinsScheduledForDeletion->isEmpty()) {
+                \InvWhseItemBinQuery::create()
+                    ->filterByPrimaryKeys($this->invWhseItemBinsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invWhseItemBinsScheduledForDeletion = null;
             }
 
             if ($this->collInvWhseItemBins !== null) {
@@ -4226,13 +4201,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion !== null) {
-                if (!$this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->isEmpty()) {
-                    \ItemAddonItemQuery::create()
-                        ->filterByPrimaryKeys($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion = null;
-                }
+            if ($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion !== null && !$this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->isEmpty()) {
+                \ItemAddonItemQuery::create()
+                    ->filterByPrimaryKeys($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion = null;
             }
 
             if ($this->collItemAddonItemsRelatedByInititemnbr !== null) {
@@ -4243,13 +4216,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion !== null) {
-                if (!$this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->isEmpty()) {
-                    \ItemAddonItemQuery::create()
-                        ->filterByPrimaryKeys($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion = null;
-                }
+            if ($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion !== null && !$this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->isEmpty()) {
+                \ItemAddonItemQuery::create()
+                    ->filterByPrimaryKeys($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion = null;
             }
 
             if ($this->collItemAddonItemsRelatedByAdonadditemnbr !== null) {
@@ -4260,25 +4231,19 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->singleItmDimension !== null) {
-                if (!$this->singleItmDimension->isDeleted() && ($this->singleItmDimension->isNew() || $this->singleItmDimension->isModified())) {
-                    $affectedRows += $this->singleItmDimension->save($con);
-                }
+            if ($this->singleItmDimension !== null && (!$this->singleItmDimension->isDeleted() && ($this->singleItmDimension->isNew() || $this->singleItmDimension->isModified()))) {
+                $affectedRows += $this->singleItmDimension->save($con);
             }
 
-            if ($this->singleInvHazmatItem !== null) {
-                if (!$this->singleInvHazmatItem->isDeleted() && ($this->singleInvHazmatItem->isNew() || $this->singleInvHazmatItem->isModified())) {
-                    $affectedRows += $this->singleInvHazmatItem->save($con);
-                }
+            if ($this->singleInvHazmatItem !== null && (!$this->singleInvHazmatItem->isDeleted() && ($this->singleInvHazmatItem->isNew() || $this->singleInvHazmatItem->isModified()))) {
+                $affectedRows += $this->singleInvHazmatItem->save($con);
             }
 
-            if ($this->invWhseLotsScheduledForDeletion !== null) {
-                if (!$this->invWhseLotsScheduledForDeletion->isEmpty()) {
-                    \InvWhseLotQuery::create()
-                        ->filterByPrimaryKeys($this->invWhseLotsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invWhseLotsScheduledForDeletion = null;
-                }
+            if ($this->invWhseLotsScheduledForDeletion !== null && !$this->invWhseLotsScheduledForDeletion->isEmpty()) {
+                \InvWhseLotQuery::create()
+                    ->filterByPrimaryKeys($this->invWhseLotsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invWhseLotsScheduledForDeletion = null;
             }
 
             if ($this->collInvWhseLots !== null) {
@@ -4289,13 +4254,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion !== null) {
-                if (!$this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->isEmpty()) {
-                    \ItemSubstituteQuery::create()
-                        ->filterByPrimaryKeys($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion = null;
-                }
+            if ($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion !== null && !$this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->isEmpty()) {
+                \ItemSubstituteQuery::create()
+                    ->filterByPrimaryKeys($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion = null;
             }
 
             if ($this->collItemSubstitutesRelatedByInititemnbr !== null) {
@@ -4306,13 +4269,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion !== null) {
-                if (!$this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->isEmpty()) {
-                    \ItemSubstituteQuery::create()
-                        ->filterByPrimaryKeys($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = null;
-                }
+            if ($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion !== null && !$this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->isEmpty()) {
+                \ItemSubstituteQuery::create()
+                    ->filterByPrimaryKeys($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = null;
             }
 
             if ($this->collItemSubstitutesRelatedByInsisubitemnbr !== null) {
@@ -4323,13 +4284,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invLotTagsScheduledForDeletion !== null) {
-                if (!$this->invLotTagsScheduledForDeletion->isEmpty()) {
-                    \InvLotTagQuery::create()
-                        ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invLotTagsScheduledForDeletion = null;
-                }
+            if ($this->invLotTagsScheduledForDeletion !== null && !$this->invLotTagsScheduledForDeletion->isEmpty()) {
+                \InvLotTagQuery::create()
+                    ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invLotTagsScheduledForDeletion = null;
             }
 
             if ($this->collInvLotTags !== null) {
@@ -4340,13 +4299,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion !== null) {
-                if (!$this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->isEmpty()) {
-                    \InvItem2ItemQuery::create()
-                        ->filterByPrimaryKeys($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion = null;
-                }
+            if ($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion !== null && !$this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->isEmpty()) {
+                \InvItem2ItemQuery::create()
+                    ->filterByPrimaryKeys($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion = null;
             }
 
             if ($this->collInvItem2ItemsRelatedByI2imstritemid !== null) {
@@ -4357,13 +4314,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion !== null) {
-                if (!$this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->isEmpty()) {
-                    \InvItem2ItemQuery::create()
-                        ->filterByPrimaryKeys($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion = null;
-                }
+            if ($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion !== null && !$this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->isEmpty()) {
+                \InvItem2ItemQuery::create()
+                    ->filterByPrimaryKeys($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion = null;
             }
 
             if ($this->collInvItem2ItemsRelatedByI2ichilditemid !== null) {
@@ -4374,13 +4329,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invKitComponentsScheduledForDeletion !== null) {
-                if (!$this->invKitComponentsScheduledForDeletion->isEmpty()) {
-                    \InvKitComponentQuery::create()
-                        ->filterByPrimaryKeys($this->invKitComponentsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invKitComponentsScheduledForDeletion = null;
-                }
+            if ($this->invKitComponentsScheduledForDeletion !== null && !$this->invKitComponentsScheduledForDeletion->isEmpty()) {
+                \InvKitComponentQuery::create()
+                    ->filterByPrimaryKeys($this->invKitComponentsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invKitComponentsScheduledForDeletion = null;
             }
 
             if ($this->collInvKitComponents !== null) {
@@ -4391,19 +4344,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->singleInvKit !== null) {
-                if (!$this->singleInvKit->isDeleted() && ($this->singleInvKit->isNew() || $this->singleInvKit->isModified())) {
-                    $affectedRows += $this->singleInvKit->save($con);
-                }
+            if ($this->singleInvKit !== null && (!$this->singleInvKit->isDeleted() && ($this->singleInvKit->isNew() || $this->singleInvKit->isModified()))) {
+                $affectedRows += $this->singleInvKit->save($con);
             }
 
-            if ($this->invLotMastersScheduledForDeletion !== null) {
-                if (!$this->invLotMastersScheduledForDeletion->isEmpty()) {
-                    \InvLotMasterQuery::create()
-                        ->filterByPrimaryKeys($this->invLotMastersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invLotMastersScheduledForDeletion = null;
-                }
+            if ($this->invLotMastersScheduledForDeletion !== null && !$this->invLotMastersScheduledForDeletion->isEmpty()) {
+                \InvLotMasterQuery::create()
+                    ->filterByPrimaryKeys($this->invLotMastersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invLotMastersScheduledForDeletion = null;
             }
 
             if ($this->collInvLotMasters !== null) {
@@ -4414,13 +4363,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invSerialMastersScheduledForDeletion !== null) {
-                if (!$this->invSerialMastersScheduledForDeletion->isEmpty()) {
-                    \InvSerialMasterQuery::create()
-                        ->filterByPrimaryKeys($this->invSerialMastersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invSerialMastersScheduledForDeletion = null;
-                }
+            if ($this->invSerialMastersScheduledForDeletion !== null && !$this->invSerialMastersScheduledForDeletion->isEmpty()) {
+                \InvSerialMasterQuery::create()
+                    ->filterByPrimaryKeys($this->invSerialMastersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invSerialMastersScheduledForDeletion = null;
             }
 
             if ($this->collInvSerialMasters !== null) {
@@ -4431,13 +4378,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferDetailsScheduledForDeletion !== null) {
-                if (!$this->invTransferDetailsScheduledForDeletion->isEmpty()) {
-                    \InvTransferDetailQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferDetailsScheduledForDeletion = null;
-                }
+            if ($this->invTransferDetailsScheduledForDeletion !== null && !$this->invTransferDetailsScheduledForDeletion->isEmpty()) {
+                \InvTransferDetailQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferDetailsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferDetails !== null) {
@@ -4448,13 +4393,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferLotserialsScheduledForDeletion !== null) {
-                if (!$this->invTransferLotserialsScheduledForDeletion->isEmpty()) {
-                    \InvTransferLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferLotserialsScheduledForDeletion = null;
-                }
+            if ($this->invTransferLotserialsScheduledForDeletion !== null && !$this->invTransferLotserialsScheduledForDeletion->isEmpty()) {
+                \InvTransferLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferLotserials !== null) {
@@ -4465,13 +4408,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion !== null) {
-                if (!$this->invTransferPreAllocatedLotserialsScheduledForDeletion->isEmpty()) {
-                    \InvTransferPreAllocatedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferPreAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferPreAllocatedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion !== null && !$this->invTransferPreAllocatedLotserialsScheduledForDeletion->isEmpty()) {
+                \InvTransferPreAllocatedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferPreAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferPreAllocatedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferPreAllocatedLotserials !== null) {
@@ -4482,13 +4423,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferPickedLotserialsScheduledForDeletion !== null) {
-                if (!$this->invTransferPickedLotserialsScheduledForDeletion->isEmpty()) {
-                    \InvTransferPickedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferPickedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->invTransferPickedLotserialsScheduledForDeletion !== null && !$this->invTransferPickedLotserialsScheduledForDeletion->isEmpty()) {
+                \InvTransferPickedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferPickedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferPickedLotserials !== null) {
@@ -4499,13 +4438,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invSerialWarrantiesScheduledForDeletion !== null) {
-                if (!$this->invSerialWarrantiesScheduledForDeletion->isEmpty()) {
-                    \InvSerialWarrantyQuery::create()
-                        ->filterByPrimaryKeys($this->invSerialWarrantiesScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invSerialWarrantiesScheduledForDeletion = null;
-                }
+            if ($this->invSerialWarrantiesScheduledForDeletion !== null && !$this->invSerialWarrantiesScheduledForDeletion->isEmpty()) {
+                \InvSerialWarrantyQuery::create()
+                    ->filterByPrimaryKeys($this->invSerialWarrantiesScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invSerialWarrantiesScheduledForDeletion = null;
             }
 
             if ($this->collInvSerialWarranties !== null) {
@@ -4516,13 +4453,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->warehouseInventoriesScheduledForDeletion !== null) {
-                if (!$this->warehouseInventoriesScheduledForDeletion->isEmpty()) {
-                    \WarehouseInventoryQuery::create()
-                        ->filterByPrimaryKeys($this->warehouseInventoriesScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->warehouseInventoriesScheduledForDeletion = null;
-                }
+            if ($this->warehouseInventoriesScheduledForDeletion !== null && !$this->warehouseInventoriesScheduledForDeletion->isEmpty()) {
+                \WarehouseInventoryQuery::create()
+                    ->filterByPrimaryKeys($this->warehouseInventoriesScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->warehouseInventoriesScheduledForDeletion = null;
             }
 
             if ($this->collWarehouseInventories !== null) {
@@ -4533,13 +4468,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefKeysScheduledForDeletion !== null) {
-                if (!$this->itemXrefKeysScheduledForDeletion->isEmpty()) {
-                    \ItemXrefKeyQuery::create()
-                        ->filterByPrimaryKeys($this->itemXrefKeysScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemXrefKeysScheduledForDeletion = null;
-                }
+            if ($this->itemXrefKeysScheduledForDeletion !== null && !$this->itemXrefKeysScheduledForDeletion->isEmpty()) {
+                \ItemXrefKeyQuery::create()
+                    ->filterByPrimaryKeys($this->itemXrefKeysScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemXrefKeysScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefKeys !== null) {
@@ -4550,13 +4483,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefManufacturersScheduledForDeletion !== null) {
-                if (!$this->itemXrefManufacturersScheduledForDeletion->isEmpty()) {
-                    \ItemXrefManufacturerQuery::create()
-                        ->filterByPrimaryKeys($this->itemXrefManufacturersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemXrefManufacturersScheduledForDeletion = null;
-                }
+            if ($this->itemXrefManufacturersScheduledForDeletion !== null && !$this->itemXrefManufacturersScheduledForDeletion->isEmpty()) {
+                \ItemXrefManufacturerQuery::create()
+                    ->filterByPrimaryKeys($this->itemXrefManufacturersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemXrefManufacturersScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefManufacturers !== null) {
@@ -4567,14 +4498,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefCustomerNotesScheduledForDeletion !== null) {
-                if (!$this->itemXrefCustomerNotesScheduledForDeletion->isEmpty()) {
-                    foreach ($this->itemXrefCustomerNotesScheduledForDeletion as $itemXrefCustomerNote) {
-                        // need to save related object because we set the relation to null
-                        $itemXrefCustomerNote->save($con);
-                    }
-                    $this->itemXrefCustomerNotesScheduledForDeletion = null;
+            if ($this->itemXrefCustomerNotesScheduledForDeletion !== null && !$this->itemXrefCustomerNotesScheduledForDeletion->isEmpty()) {
+                foreach ($this->itemXrefCustomerNotesScheduledForDeletion as $itemXrefCustomerNote) {
+                    // need to save related object because we set the relation to null
+                    $itemXrefCustomerNote->save($con);
                 }
+                $this->itemXrefCustomerNotesScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefCustomerNotes !== null) {
@@ -4585,14 +4514,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invOptCodeNotesScheduledForDeletion !== null) {
-                if (!$this->invOptCodeNotesScheduledForDeletion->isEmpty()) {
-                    foreach ($this->invOptCodeNotesScheduledForDeletion as $invOptCodeNote) {
-                        // need to save related object because we set the relation to null
-                        $invOptCodeNote->save($con);
-                    }
-                    $this->invOptCodeNotesScheduledForDeletion = null;
+            if ($this->invOptCodeNotesScheduledForDeletion !== null && !$this->invOptCodeNotesScheduledForDeletion->isEmpty()) {
+                foreach ($this->invOptCodeNotesScheduledForDeletion as $invOptCodeNote) {
+                    // need to save related object because we set the relation to null
+                    $invOptCodeNote->save($con);
                 }
+                $this->invOptCodeNotesScheduledForDeletion = null;
             }
 
             if ($this->collInvOptCodeNotes !== null) {
@@ -4603,14 +4530,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion !== null) {
-                if (!$this->itemXrefVendorNoteDetailsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->itemXrefVendorNoteDetailsScheduledForDeletion as $itemXrefVendorNoteDetail) {
-                        // need to save related object because we set the relation to null
-                        $itemXrefVendorNoteDetail->save($con);
-                    }
-                    $this->itemXrefVendorNoteDetailsScheduledForDeletion = null;
+            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion !== null && !$this->itemXrefVendorNoteDetailsScheduledForDeletion->isEmpty()) {
+                foreach ($this->itemXrefVendorNoteDetailsScheduledForDeletion as $itemXrefVendorNoteDetail) {
+                    // need to save related object because we set the relation to null
+                    $itemXrefVendorNoteDetail->save($con);
                 }
+                $this->itemXrefVendorNoteDetailsScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefVendorNoteDetails !== null) {
@@ -4621,14 +4546,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion !== null) {
-                if (!$this->itemXrefVendorNoteInternalsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->itemXrefVendorNoteInternalsScheduledForDeletion as $itemXrefVendorNoteInternal) {
-                        // need to save related object because we set the relation to null
-                        $itemXrefVendorNoteInternal->save($con);
-                    }
-                    $this->itemXrefVendorNoteInternalsScheduledForDeletion = null;
+            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion !== null && !$this->itemXrefVendorNoteInternalsScheduledForDeletion->isEmpty()) {
+                foreach ($this->itemXrefVendorNoteInternalsScheduledForDeletion as $itemXrefVendorNoteInternal) {
+                    // need to save related object because we set the relation to null
+                    $itemXrefVendorNoteInternal->save($con);
                 }
+                $this->itemXrefVendorNoteInternalsScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefVendorNoteInternals !== null) {
@@ -4639,13 +4562,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invPalletsScheduledForDeletion !== null) {
-                if (!$this->invPalletsScheduledForDeletion->isEmpty()) {
-                    \InvPalletQuery::create()
-                        ->filterByPrimaryKeys($this->invPalletsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invPalletsScheduledForDeletion = null;
-                }
+            if ($this->invPalletsScheduledForDeletion !== null && !$this->invPalletsScheduledForDeletion->isEmpty()) {
+                \InvPalletQuery::create()
+                    ->filterByPrimaryKeys($this->invPalletsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invPalletsScheduledForDeletion = null;
             }
 
             if ($this->collInvPallets !== null) {
@@ -4656,13 +4577,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrderDetailsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailsScheduledForDeletion !== null && !$this->purchaseOrderDetailsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetails !== null) {
@@ -4673,13 +4592,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailReceiptsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailReceiptQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailReceiptsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailReceiptsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion !== null && !$this->purchaseOrderDetailReceiptsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailReceiptQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailReceiptsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailReceiptsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetailReceipts !== null) {
@@ -4690,13 +4607,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailReceivingQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null && !$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailReceivingQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetailReceivings !== null) {
@@ -4707,13 +4622,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailLotReceivingsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailLotReceivingQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion !== null && !$this->purchaseOrderDetailLotReceivingsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailLotReceivingQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetailLotReceivings !== null) {
@@ -4724,13 +4637,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bomComponentsScheduledForDeletion !== null) {
-                if (!$this->bomComponentsScheduledForDeletion->isEmpty()) {
-                    \BomComponentQuery::create()
-                        ->filterByPrimaryKeys($this->bomComponentsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->bomComponentsScheduledForDeletion = null;
-                }
+            if ($this->bomComponentsScheduledForDeletion !== null && !$this->bomComponentsScheduledForDeletion->isEmpty()) {
+                \BomComponentQuery::create()
+                    ->filterByPrimaryKeys($this->bomComponentsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->bomComponentsScheduledForDeletion = null;
             }
 
             if ($this->collBomComponents !== null) {
@@ -4741,19 +4652,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->singleBomItem !== null) {
-                if (!$this->singleBomItem->isDeleted() && ($this->singleBomItem->isNew() || $this->singleBomItem->isModified())) {
-                    $affectedRows += $this->singleBomItem->save($con);
-                }
+            if ($this->singleBomItem !== null && (!$this->singleBomItem->isDeleted() && ($this->singleBomItem->isNew() || $this->singleBomItem->isModified()))) {
+                $affectedRows += $this->singleBomItem->save($con);
             }
 
-            if ($this->rcyclReceiptDetailsScheduledForDeletion !== null) {
-                if (!$this->rcyclReceiptDetailsScheduledForDeletion->isEmpty()) {
-                    \RcyclReceiptDetailQuery::create()
-                        ->filterByPrimaryKeys($this->rcyclReceiptDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->rcyclReceiptDetailsScheduledForDeletion = null;
-                }
+            if ($this->rcyclReceiptDetailsScheduledForDeletion !== null && !$this->rcyclReceiptDetailsScheduledForDeletion->isEmpty()) {
+                \RcyclReceiptDetailQuery::create()
+                    ->filterByPrimaryKeys($this->rcyclReceiptDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->rcyclReceiptDetailsScheduledForDeletion = null;
             }
 
             if ($this->collRcyclReceiptDetails !== null) {
@@ -4764,13 +4671,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->rcyclReceiptLotsScheduledForDeletion !== null) {
-                if (!$this->rcyclReceiptLotsScheduledForDeletion->isEmpty()) {
-                    \RcyclReceiptLotQuery::create()
-                        ->filterByPrimaryKeys($this->rcyclReceiptLotsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->rcyclReceiptLotsScheduledForDeletion = null;
-                }
+            if ($this->rcyclReceiptLotsScheduledForDeletion !== null && !$this->rcyclReceiptLotsScheduledForDeletion->isEmpty()) {
+                \RcyclReceiptLotQuery::create()
+                    ->filterByPrimaryKeys($this->rcyclReceiptLotsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->rcyclReceiptLotsScheduledForDeletion = null;
             }
 
             if ($this->collRcyclReceiptLots !== null) {
@@ -4781,14 +4686,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingDetailsScheduledForDeletion !== null) {
-                if (!$this->bookingDetailsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->bookingDetailsScheduledForDeletion as $bookingDetail) {
-                        // need to save related object because we set the relation to null
-                        $bookingDetail->save($con);
-                    }
-                    $this->bookingDetailsScheduledForDeletion = null;
+            if ($this->bookingDetailsScheduledForDeletion !== null && !$this->bookingDetailsScheduledForDeletion->isEmpty()) {
+                foreach ($this->bookingDetailsScheduledForDeletion as $bookingDetail) {
+                    // need to save related object because we set the relation to null
+                    $bookingDetail->save($con);
                 }
+                $this->bookingDetailsScheduledForDeletion = null;
             }
 
             if ($this->collBookingDetails !== null) {
@@ -4799,13 +4702,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesHistoryDetailsScheduledForDeletion !== null) {
-                if (!$this->salesHistoryDetailsScheduledForDeletion->isEmpty()) {
-                    \SalesHistoryDetailQuery::create()
-                        ->filterByPrimaryKeys($this->salesHistoryDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesHistoryDetailsScheduledForDeletion = null;
-                }
+            if ($this->salesHistoryDetailsScheduledForDeletion !== null && !$this->salesHistoryDetailsScheduledForDeletion->isEmpty()) {
+                \SalesHistoryDetailQuery::create()
+                    ->filterByPrimaryKeys($this->salesHistoryDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesHistoryDetailsScheduledForDeletion = null;
             }
 
             if ($this->collSalesHistoryDetails !== null) {
@@ -4816,13 +4717,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesOrderDetailsScheduledForDeletion !== null) {
-                if (!$this->salesOrderDetailsScheduledForDeletion->isEmpty()) {
-                    \SalesOrderDetailQuery::create()
-                        ->filterByPrimaryKeys($this->salesOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesOrderDetailsScheduledForDeletion = null;
-                }
+            if ($this->salesOrderDetailsScheduledForDeletion !== null && !$this->salesOrderDetailsScheduledForDeletion->isEmpty()) {
+                \SalesOrderDetailQuery::create()
+                    ->filterByPrimaryKeys($this->salesOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesOrderDetailsScheduledForDeletion = null;
             }
 
             if ($this->collSalesOrderDetails !== null) {
@@ -4833,13 +4732,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesOrderLotserialsScheduledForDeletion !== null) {
-                if (!$this->salesOrderLotserialsScheduledForDeletion->isEmpty()) {
-                    \SalesOrderLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->salesOrderLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesOrderLotserialsScheduledForDeletion = null;
-                }
+            if ($this->salesOrderLotserialsScheduledForDeletion !== null && !$this->salesOrderLotserialsScheduledForDeletion->isEmpty()) {
+                \SalesOrderLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->salesOrderLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesOrderLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collSalesOrderLotserials !== null) {
@@ -4850,13 +4747,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesHistoryLotserialsScheduledForDeletion !== null) {
-                if (!$this->salesHistoryLotserialsScheduledForDeletion->isEmpty()) {
-                    \SalesHistoryLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->salesHistoryLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesHistoryLotserialsScheduledForDeletion = null;
-                }
+            if ($this->salesHistoryLotserialsScheduledForDeletion !== null && !$this->salesHistoryLotserialsScheduledForDeletion->isEmpty()) {
+                \SalesHistoryLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->salesHistoryLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesHistoryLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collSalesHistoryLotserials !== null) {
@@ -4867,13 +4762,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->soAllocatedLotserialsScheduledForDeletion !== null) {
-                if (!$this->soAllocatedLotserialsScheduledForDeletion->isEmpty()) {
-                    \SoAllocatedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->soAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->soAllocatedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->soAllocatedLotserialsScheduledForDeletion !== null && !$this->soAllocatedLotserialsScheduledForDeletion->isEmpty()) {
+                \SoAllocatedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->soAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->soAllocatedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collSoAllocatedLotserials !== null) {
@@ -4884,13 +4777,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemPricingDiscountsScheduledForDeletion !== null) {
-                if (!$this->itemPricingDiscountsScheduledForDeletion->isEmpty()) {
-                    \ItemPricingDiscountQuery::create()
-                        ->filterByPrimaryKeys($this->itemPricingDiscountsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemPricingDiscountsScheduledForDeletion = null;
-                }
+            if ($this->itemPricingDiscountsScheduledForDeletion !== null && !$this->itemPricingDiscountsScheduledForDeletion->isEmpty()) {
+                \ItemPricingDiscountQuery::create()
+                    ->filterByPrimaryKeys($this->itemPricingDiscountsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemPricingDiscountsScheduledForDeletion = null;
             }
 
             if ($this->collItemPricingDiscounts !== null) {
@@ -4901,13 +4792,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->soPickedLotserialsScheduledForDeletion !== null) {
-                if (!$this->soPickedLotserialsScheduledForDeletion->isEmpty()) {
-                    \SoPickedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->soPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->soPickedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->soPickedLotserialsScheduledForDeletion !== null && !$this->soPickedLotserialsScheduledForDeletion->isEmpty()) {
+                \SoPickedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->soPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->soPickedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collSoPickedLotserials !== null) {
@@ -4918,13 +4807,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->soStandingOrderDetailsScheduledForDeletion !== null) {
-                if (!$this->soStandingOrderDetailsScheduledForDeletion->isEmpty()) {
-                    \SoStandingOrderDetailQuery::create()
-                        ->filterByPrimaryKeys($this->soStandingOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->soStandingOrderDetailsScheduledForDeletion = null;
-                }
+            if ($this->soStandingOrderDetailsScheduledForDeletion !== null && !$this->soStandingOrderDetailsScheduledForDeletion->isEmpty()) {
+                \SoStandingOrderDetailQuery::create()
+                    ->filterByPrimaryKeys($this->soStandingOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->soStandingOrderDetailsScheduledForDeletion = null;
             }
 
             if ($this->collSoStandingOrderDetails !== null) {
@@ -4935,13 +4822,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefUpcsScheduledForDeletion !== null) {
-                if (!$this->itemXrefUpcsScheduledForDeletion->isEmpty()) {
-                    \ItemXrefUpcQuery::create()
-                        ->filterByPrimaryKeys($this->itemXrefUpcsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemXrefUpcsScheduledForDeletion = null;
-                }
+            if ($this->itemXrefUpcsScheduledForDeletion !== null && !$this->itemXrefUpcsScheduledForDeletion->isEmpty()) {
+                \ItemXrefUpcQuery::create()
+                    ->filterByPrimaryKeys($this->itemXrefUpcsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemXrefUpcsScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefUpcs !== null) {
@@ -4952,13 +4837,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemXrefVendorsScheduledForDeletion !== null) {
-                if (!$this->itemXrefVendorsScheduledForDeletion->isEmpty()) {
-                    \ItemXrefVendorQuery::create()
-                        ->filterByPrimaryKeys($this->itemXrefVendorsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->itemXrefVendorsScheduledForDeletion = null;
-                }
+            if ($this->itemXrefVendorsScheduledForDeletion !== null && !$this->itemXrefVendorsScheduledForDeletion->isEmpty()) {
+                \ItemXrefVendorQuery::create()
+                    ->filterByPrimaryKeys($this->itemXrefVendorsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->itemXrefVendorsScheduledForDeletion = null;
             }
 
             if ($this->collItemXrefVendors !== null) {
@@ -4979,7 +4862,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -5471,7 +5353,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -5497,9 +5378,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ItemMasterItemTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -6655,7 +6535,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -7401,7 +7280,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Generic method to set the primary key (inititemnbr column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -7410,8 +7288,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -7428,7 +7304,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -7831,7 +7706,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function setUnitofMeasureSale(ChildUnitofMeasureSale $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \UnitofMeasureSale) {
             $this->setIntbuomsale(NULL);
         } else {
             $this->setIntbuomsale($v->getIntbuomsale());
@@ -7841,7 +7716,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildUnitofMeasureSale object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \UnitofMeasureSale) {
             $v->addItemMasterItem($this);
         }
 
@@ -7882,7 +7757,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function setUnitofMeasurePurchase(ChildUnitofMeasurePurchase $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \UnitofMeasurePurchase) {
             $this->setIntbuompur(NULL);
         } else {
             $this->setIntbuompur($v->getIntbuompur());
@@ -7892,7 +7767,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildUnitofMeasurePurchase object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \UnitofMeasurePurchase) {
             $v->addItemMasterItem($this);
         }
 
@@ -7933,7 +7808,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function setInvGroupCode(ChildInvGroupCode $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvGroupCode) {
             $this->setIntbgrup(NULL);
         } else {
             $this->setIntbgrup($v->getIntbgrup());
@@ -7943,7 +7818,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildInvGroupCode object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \InvGroupCode) {
             $v->addItemMasterItem($this);
         }
 
@@ -7984,7 +7859,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function setInvStockCode(ChildInvStockCode $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvStockCode) {
             $this->setInitstockcode(NULL);
         } else {
             $this->setInitstockcode($v->getIntbstckcode());
@@ -7994,7 +7869,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildInvStockCode object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \InvStockCode) {
             $v->addItemMasterItem($this);
         }
 
@@ -8035,7 +7910,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function setInvPriceCode(ChildInvPriceCode $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvPriceCode) {
             $this->setIntbpricgrup(NULL);
         } else {
             $this->setIntbpricgrup($v->getIntbpricgrup());
@@ -8045,7 +7920,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildInvPriceCode object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \InvPriceCode) {
             $v->addItemMasterItem($this);
         }
 
@@ -8086,7 +7961,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function setInvCommissionCode(ChildInvCommissionCode $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvCommissionCode) {
             $this->setIntbcommgrup(NULL);
         } else {
             $this->setIntbcommgrup($v->getIntbcommgrup());
@@ -8096,7 +7971,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildInvCommissionCode object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \InvCommissionCode) {
             $v->addItemMasterItem($this);
         }
 
@@ -8131,13 +8006,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemPricing object.
      *
-     * @param ChildItemPricing $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemPricing(ChildItemPricing $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ItemPricing) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
@@ -8146,7 +8020,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->aItemPricing = $v;
 
         // Add binding for other direction of this 1:1 relationship.
-        if ($v !== null) {
+        if ($v instanceof \ItemPricing) {
             $v->setItemMasterItem($this);
         }
 
@@ -8180,7 +8054,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -8384,8 +8257,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefCustomers collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefCustomers($v = true): void
     {
@@ -8401,8 +8272,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefCustomers(bool $overrideExisting = true): void
     {
@@ -8434,7 +8303,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemXrefCustomers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefCustomersPartial && !$this->isNew();
-        if (null === $this->collItemXrefCustomers || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefCustomers) {
@@ -8452,7 +8321,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefCustomersPartial && count($collItemXrefCustomers)) {
                         $this->initItemXrefCustomers(false);
 
@@ -8503,7 +8372,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemXrefCustomersScheduledForDeletion = $itemXrefCustomersToDelete;
 
         foreach ($itemXrefCustomersToDelete as $itemXrefCustomerRemoved) {
-            $itemXrefCustomerRemoved->setItemMasterItem(null);
+            $itemXrefCustomerRemoved->setItemMasterItem();
         }
 
         $this->collItemXrefCustomers = null;
@@ -8521,7 +8390,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemXrefCustomer objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefCustomer objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -8529,7 +8397,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemXrefCustomers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefCustomersPartial && !$this->isNew();
-        if (null === $this->collItemXrefCustomers || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefCustomers) {
                 return 0;
             }
@@ -8568,7 +8436,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemXrefCustomers->contains($l)) {
             $this->doAddItemXrefCustomer($l);
 
-            if ($this->itemXrefCustomersScheduledForDeletion and $this->itemXrefCustomersScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefCustomersScheduledForDeletion && $this->itemXrefCustomersScheduledForDeletion->contains($l)) {
                 $this->itemXrefCustomersScheduledForDeletion->remove($this->itemXrefCustomersScheduledForDeletion->search($l));
             }
         }
@@ -8599,7 +8467,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemXrefCustomersScheduledForDeletion->clear();
             }
             $this->itemXrefCustomersScheduledForDeletion[]= clone $itemXrefCustomer;
-            $itemXrefCustomer->setItemMasterItem(null);
+            $itemXrefCustomer->setItemMasterItem();
         }
 
         return $this;
@@ -8623,8 +8491,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collCstkItems collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCstkItems($v = true): void
     {
@@ -8640,8 +8506,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCstkItems(bool $overrideExisting = true): void
     {
@@ -8673,7 +8537,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getCstkItems(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCstkItemsPartial && !$this->isNew();
-        if (null === $this->collCstkItems || null !== $criteria || $partial) {
+        if (null === $this->collCstkItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCstkItems) {
@@ -8691,7 +8555,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCstkItemsPartial && count($collCstkItems)) {
                         $this->initCstkItems(false);
 
@@ -8742,7 +8606,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->cstkItemsScheduledForDeletion = $cstkItemsToDelete;
 
         foreach ($cstkItemsToDelete as $cstkItemRemoved) {
-            $cstkItemRemoved->setItemMasterItem(null);
+            $cstkItemRemoved->setItemMasterItem();
         }
 
         $this->collCstkItems = null;
@@ -8760,7 +8624,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related CstkItem objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related CstkItem objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -8768,7 +8631,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countCstkItems(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCstkItemsPartial && !$this->isNew();
-        if (null === $this->collCstkItems || null !== $criteria || $partial) {
+        if (null === $this->collCstkItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCstkItems) {
                 return 0;
             }
@@ -8807,7 +8670,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collCstkItems->contains($l)) {
             $this->doAddCstkItem($l);
 
-            if ($this->cstkItemsScheduledForDeletion and $this->cstkItemsScheduledForDeletion->contains($l)) {
+            if ($this->cstkItemsScheduledForDeletion && $this->cstkItemsScheduledForDeletion->contains($l)) {
                 $this->cstkItemsScheduledForDeletion->remove($this->cstkItemsScheduledForDeletion->search($l));
             }
         }
@@ -8838,7 +8701,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->cstkItemsScheduledForDeletion->clear();
             }
             $this->cstkItemsScheduledForDeletion[]= clone $cstkItem;
-            $cstkItem->setItemMasterItem(null);
+            $cstkItem->setItemMasterItem();
         }
 
         return $this;
@@ -8914,8 +8777,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvWhseItemBins collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvWhseItemBins($v = true): void
     {
@@ -8931,8 +8792,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvWhseItemBins(bool $overrideExisting = true): void
     {
@@ -8964,7 +8823,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvWhseItemBins(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
-        if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
+        if (null === $this->collInvWhseItemBins || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvWhseItemBins) {
@@ -8982,7 +8841,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvWhseItemBinsPartial && count($collInvWhseItemBins)) {
                         $this->initInvWhseItemBins(false);
 
@@ -9036,7 +8895,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invWhseItemBinsScheduledForDeletion = clone $invWhseItemBinsToDelete;
 
         foreach ($invWhseItemBinsToDelete as $invWhseItemBinRemoved) {
-            $invWhseItemBinRemoved->setItemMasterItem(null);
+            $invWhseItemBinRemoved->setItemMasterItem();
         }
 
         $this->collInvWhseItemBins = null;
@@ -9054,7 +8913,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvWhseItemBin objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvWhseItemBin objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -9062,7 +8920,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvWhseItemBins(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
-        if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
+        if (null === $this->collInvWhseItemBins || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvWhseItemBins) {
                 return 0;
             }
@@ -9101,7 +8959,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvWhseItemBins->contains($l)) {
             $this->doAddInvWhseItemBin($l);
 
-            if ($this->invWhseItemBinsScheduledForDeletion and $this->invWhseItemBinsScheduledForDeletion->contains($l)) {
+            if ($this->invWhseItemBinsScheduledForDeletion && $this->invWhseItemBinsScheduledForDeletion->contains($l)) {
                 $this->invWhseItemBinsScheduledForDeletion->remove($this->invWhseItemBinsScheduledForDeletion->search($l));
             }
         }
@@ -9132,7 +8990,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invWhseItemBinsScheduledForDeletion->clear();
             }
             $this->invWhseItemBinsScheduledForDeletion[]= clone $invWhseItemBin;
-            $invWhseItemBin->setItemMasterItem(null);
+            $invWhseItemBin->setItemMasterItem();
         }
 
         return $this;
@@ -9208,8 +9066,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemAddonItemsRelatedByInititemnbr collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemAddonItemsRelatedByInititemnbr($v = true): void
     {
@@ -9225,8 +9081,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemAddonItemsRelatedByInititemnbr(bool $overrideExisting = true): void
     {
@@ -9258,7 +9112,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemAddonItemsRelatedByInititemnbr(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemAddonItemsRelatedByInititemnbrPartial && !$this->isNew();
-        if (null === $this->collItemAddonItemsRelatedByInititemnbr || null !== $criteria || $partial) {
+        if (null === $this->collItemAddonItemsRelatedByInititemnbr || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemAddonItemsRelatedByInititemnbr) {
@@ -9276,7 +9130,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItemRelatedByInititemnbr($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemAddonItemsRelatedByInititemnbrPartial && count($collItemAddonItemsRelatedByInititemnbr)) {
                         $this->initItemAddonItemsRelatedByInititemnbr(false);
 
@@ -9330,7 +9184,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion = clone $itemAddonItemsRelatedByInititemnbrToDelete;
 
         foreach ($itemAddonItemsRelatedByInititemnbrToDelete as $itemAddonItemRelatedByInititemnbrRemoved) {
-            $itemAddonItemRelatedByInititemnbrRemoved->setItemMasterItemRelatedByInititemnbr(null);
+            $itemAddonItemRelatedByInititemnbrRemoved->setItemMasterItemRelatedByInititemnbr();
         }
 
         $this->collItemAddonItemsRelatedByInititemnbr = null;
@@ -9348,7 +9202,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemAddonItem objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemAddonItem objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -9356,7 +9209,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemAddonItemsRelatedByInititemnbr(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemAddonItemsRelatedByInititemnbrPartial && !$this->isNew();
-        if (null === $this->collItemAddonItemsRelatedByInititemnbr || null !== $criteria || $partial) {
+        if (null === $this->collItemAddonItemsRelatedByInititemnbr || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemAddonItemsRelatedByInititemnbr) {
                 return 0;
             }
@@ -9395,7 +9248,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemAddonItemsRelatedByInititemnbr->contains($l)) {
             $this->doAddItemAddonItemRelatedByInititemnbr($l);
 
-            if ($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion and $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->contains($l)) {
+            if ($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion && $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->contains($l)) {
                 $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->remove($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->search($l));
             }
         }
@@ -9426,7 +9279,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->clear();
             }
             $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion[]= clone $itemAddonItemRelatedByInititemnbr;
-            $itemAddonItemRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr(null);
+            $itemAddonItemRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr();
         }
 
         return $this;
@@ -9450,8 +9303,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemAddonItemsRelatedByAdonadditemnbr collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemAddonItemsRelatedByAdonadditemnbr($v = true): void
     {
@@ -9467,8 +9318,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemAddonItemsRelatedByAdonadditemnbr(bool $overrideExisting = true): void
     {
@@ -9500,7 +9349,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemAddonItemsRelatedByAdonadditemnbr(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemAddonItemsRelatedByAdonadditemnbrPartial && !$this->isNew();
-        if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr || null !== $criteria || $partial) {
+        if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr) {
@@ -9518,7 +9367,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItemRelatedByAdonadditemnbr($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemAddonItemsRelatedByAdonadditemnbrPartial && count($collItemAddonItemsRelatedByAdonadditemnbr)) {
                         $this->initItemAddonItemsRelatedByAdonadditemnbr(false);
 
@@ -9572,7 +9421,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion = clone $itemAddonItemsRelatedByAdonadditemnbrToDelete;
 
         foreach ($itemAddonItemsRelatedByAdonadditemnbrToDelete as $itemAddonItemRelatedByAdonadditemnbrRemoved) {
-            $itemAddonItemRelatedByAdonadditemnbrRemoved->setItemMasterItemRelatedByAdonadditemnbr(null);
+            $itemAddonItemRelatedByAdonadditemnbrRemoved->setItemMasterItemRelatedByAdonadditemnbr();
         }
 
         $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
@@ -9590,7 +9439,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemAddonItem objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemAddonItem objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -9598,7 +9446,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemAddonItemsRelatedByAdonadditemnbr(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemAddonItemsRelatedByAdonadditemnbrPartial && !$this->isNew();
-        if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr || null !== $criteria || $partial) {
+        if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemAddonItemsRelatedByAdonadditemnbr) {
                 return 0;
             }
@@ -9637,7 +9485,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemAddonItemsRelatedByAdonadditemnbr->contains($l)) {
             $this->doAddItemAddonItemRelatedByAdonadditemnbr($l);
 
-            if ($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion and $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->contains($l)) {
+            if ($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion && $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->contains($l)) {
                 $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->remove($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->search($l));
             }
         }
@@ -9668,7 +9516,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->clear();
             }
             $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion[]= clone $itemAddonItemRelatedByAdonadditemnbr;
-            $itemAddonItemRelatedByAdonadditemnbr->setItemMasterItemRelatedByAdonadditemnbr(null);
+            $itemAddonItemRelatedByAdonadditemnbr->setItemMasterItemRelatedByAdonadditemnbr();
         }
 
         return $this;
@@ -9703,7 +9551,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->singleItmDimension = $v;
 
         // Make sure that that the passed-in ChildItmDimension isn't already associated with this object
-        if ($v !== null && $v->getItemMasterItem(null, false) === null) {
+        if ($v instanceof \ItmDimension && $v->getItemMasterItem() === null) {
             $v->setItemMasterItem($this);
         }
 
@@ -9739,7 +9587,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->singleInvHazmatItem = $v;
 
         // Make sure that that the passed-in ChildInvHazmatItem isn't already associated with this object
-        if ($v !== null && $v->getItemMasterItem(null, false) === null) {
+        if ($v instanceof \InvHazmatItem && $v->getItemMasterItem() === null) {
             $v->setItemMasterItem($this);
         }
 
@@ -9764,8 +9612,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvWhseLots collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvWhseLots($v = true): void
     {
@@ -9781,8 +9627,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvWhseLots(bool $overrideExisting = true): void
     {
@@ -9814,7 +9658,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvWhseLots(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvWhseLotsPartial && !$this->isNew();
-        if (null === $this->collInvWhseLots || null !== $criteria || $partial) {
+        if (null === $this->collInvWhseLots || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvWhseLots) {
@@ -9832,7 +9676,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvWhseLotsPartial && count($collInvWhseLots)) {
                         $this->initInvWhseLots(false);
 
@@ -9886,7 +9730,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invWhseLotsScheduledForDeletion = clone $invWhseLotsToDelete;
 
         foreach ($invWhseLotsToDelete as $invWhseLotRemoved) {
-            $invWhseLotRemoved->setItemMasterItem(null);
+            $invWhseLotRemoved->setItemMasterItem();
         }
 
         $this->collInvWhseLots = null;
@@ -9904,7 +9748,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvWhseLot objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvWhseLot objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -9912,7 +9755,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvWhseLots(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvWhseLotsPartial && !$this->isNew();
-        if (null === $this->collInvWhseLots || null !== $criteria || $partial) {
+        if (null === $this->collInvWhseLots || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvWhseLots) {
                 return 0;
             }
@@ -9951,7 +9794,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvWhseLots->contains($l)) {
             $this->doAddInvWhseLot($l);
 
-            if ($this->invWhseLotsScheduledForDeletion and $this->invWhseLotsScheduledForDeletion->contains($l)) {
+            if ($this->invWhseLotsScheduledForDeletion && $this->invWhseLotsScheduledForDeletion->contains($l)) {
                 $this->invWhseLotsScheduledForDeletion->remove($this->invWhseLotsScheduledForDeletion->search($l));
             }
         }
@@ -9982,7 +9825,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invWhseLotsScheduledForDeletion->clear();
             }
             $this->invWhseLotsScheduledForDeletion[]= clone $invWhseLot;
-            $invWhseLot->setItemMasterItem(null);
+            $invWhseLot->setItemMasterItem();
         }
 
         return $this;
@@ -10058,8 +9901,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemSubstitutesRelatedByInititemnbr collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemSubstitutesRelatedByInititemnbr($v = true): void
     {
@@ -10075,8 +9916,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemSubstitutesRelatedByInititemnbr(bool $overrideExisting = true): void
     {
@@ -10108,7 +9947,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemSubstitutesRelatedByInititemnbr(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemSubstitutesRelatedByInititemnbrPartial && !$this->isNew();
-        if (null === $this->collItemSubstitutesRelatedByInititemnbr || null !== $criteria || $partial) {
+        if (null === $this->collItemSubstitutesRelatedByInititemnbr || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemSubstitutesRelatedByInititemnbr) {
@@ -10126,7 +9965,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItemRelatedByInititemnbr($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemSubstitutesRelatedByInititemnbrPartial && count($collItemSubstitutesRelatedByInititemnbr)) {
                         $this->initItemSubstitutesRelatedByInititemnbr(false);
 
@@ -10180,7 +10019,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion = clone $itemSubstitutesRelatedByInititemnbrToDelete;
 
         foreach ($itemSubstitutesRelatedByInititemnbrToDelete as $itemSubstituteRelatedByInititemnbrRemoved) {
-            $itemSubstituteRelatedByInititemnbrRemoved->setItemMasterItemRelatedByInititemnbr(null);
+            $itemSubstituteRelatedByInititemnbrRemoved->setItemMasterItemRelatedByInititemnbr();
         }
 
         $this->collItemSubstitutesRelatedByInititemnbr = null;
@@ -10198,7 +10037,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemSubstitute objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemSubstitute objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -10206,7 +10044,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemSubstitutesRelatedByInititemnbr(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemSubstitutesRelatedByInititemnbrPartial && !$this->isNew();
-        if (null === $this->collItemSubstitutesRelatedByInititemnbr || null !== $criteria || $partial) {
+        if (null === $this->collItemSubstitutesRelatedByInititemnbr || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemSubstitutesRelatedByInititemnbr) {
                 return 0;
             }
@@ -10245,7 +10083,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemSubstitutesRelatedByInititemnbr->contains($l)) {
             $this->doAddItemSubstituteRelatedByInititemnbr($l);
 
-            if ($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion and $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->contains($l)) {
+            if ($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion && $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->contains($l)) {
                 $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->remove($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->search($l));
             }
         }
@@ -10276,7 +10114,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->clear();
             }
             $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion[]= clone $itemSubstituteRelatedByInititemnbr;
-            $itemSubstituteRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr(null);
+            $itemSubstituteRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr();
         }
 
         return $this;
@@ -10300,8 +10138,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemSubstitutesRelatedByInsisubitemnbr collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemSubstitutesRelatedByInsisubitemnbr($v = true): void
     {
@@ -10317,8 +10153,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemSubstitutesRelatedByInsisubitemnbr(bool $overrideExisting = true): void
     {
@@ -10350,7 +10184,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemSubstitutesRelatedByInsisubitemnbr(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemSubstitutesRelatedByInsisubitemnbrPartial && !$this->isNew();
-        if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr || null !== $criteria || $partial) {
+        if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr) {
@@ -10368,7 +10202,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItemRelatedByInsisubitemnbr($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemSubstitutesRelatedByInsisubitemnbrPartial && count($collItemSubstitutesRelatedByInsisubitemnbr)) {
                         $this->initItemSubstitutesRelatedByInsisubitemnbr(false);
 
@@ -10422,7 +10256,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = clone $itemSubstitutesRelatedByInsisubitemnbrToDelete;
 
         foreach ($itemSubstitutesRelatedByInsisubitemnbrToDelete as $itemSubstituteRelatedByInsisubitemnbrRemoved) {
-            $itemSubstituteRelatedByInsisubitemnbrRemoved->setItemMasterItemRelatedByInsisubitemnbr(null);
+            $itemSubstituteRelatedByInsisubitemnbrRemoved->setItemMasterItemRelatedByInsisubitemnbr();
         }
 
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
@@ -10440,7 +10274,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemSubstitute objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemSubstitute objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -10448,7 +10281,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemSubstitutesRelatedByInsisubitemnbr(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemSubstitutesRelatedByInsisubitemnbrPartial && !$this->isNew();
-        if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr || null !== $criteria || $partial) {
+        if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemSubstitutesRelatedByInsisubitemnbr) {
                 return 0;
             }
@@ -10487,7 +10320,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemSubstitutesRelatedByInsisubitemnbr->contains($l)) {
             $this->doAddItemSubstituteRelatedByInsisubitemnbr($l);
 
-            if ($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion and $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->contains($l)) {
+            if ($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion && $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->contains($l)) {
                 $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->remove($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->search($l));
             }
         }
@@ -10518,7 +10351,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->clear();
             }
             $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion[]= clone $itemSubstituteRelatedByInsisubitemnbr;
-            $itemSubstituteRelatedByInsisubitemnbr->setItemMasterItemRelatedByInsisubitemnbr(null);
+            $itemSubstituteRelatedByInsisubitemnbr->setItemMasterItemRelatedByInsisubitemnbr();
         }
 
         return $this;
@@ -10542,8 +10375,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvLotTags collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvLotTags($v = true): void
     {
@@ -10559,8 +10390,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvLotTags(bool $overrideExisting = true): void
     {
@@ -10592,7 +10421,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvLotTags(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+        if (null === $this->collInvLotTags || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvLotTags) {
@@ -10610,7 +10439,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvLotTagsPartial && count($collInvLotTags)) {
                         $this->initInvLotTags(false);
 
@@ -10661,7 +10490,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invLotTagsScheduledForDeletion = $invLotTagsToDelete;
 
         foreach ($invLotTagsToDelete as $invLotTagRemoved) {
-            $invLotTagRemoved->setItemMasterItem(null);
+            $invLotTagRemoved->setItemMasterItem();
         }
 
         $this->collInvLotTags = null;
@@ -10679,7 +10508,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvLotTag objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvLotTag objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -10687,7 +10515,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvLotTags(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+        if (null === $this->collInvLotTags || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvLotTags) {
                 return 0;
             }
@@ -10726,7 +10554,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvLotTags->contains($l)) {
             $this->doAddInvLotTag($l);
 
-            if ($this->invLotTagsScheduledForDeletion and $this->invLotTagsScheduledForDeletion->contains($l)) {
+            if ($this->invLotTagsScheduledForDeletion && $this->invLotTagsScheduledForDeletion->contains($l)) {
                 $this->invLotTagsScheduledForDeletion->remove($this->invLotTagsScheduledForDeletion->search($l));
             }
         }
@@ -10757,7 +10585,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invLotTagsScheduledForDeletion->clear();
             }
             $this->invLotTagsScheduledForDeletion[]= clone $invLotTag;
-            $invLotTag->setItemMasterItem(null);
+            $invLotTag->setItemMasterItem();
         }
 
         return $this;
@@ -10885,8 +10713,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvItem2ItemsRelatedByI2imstritemid collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvItem2ItemsRelatedByI2imstritemid($v = true): void
     {
@@ -10902,8 +10728,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvItem2ItemsRelatedByI2imstritemid(bool $overrideExisting = true): void
     {
@@ -10935,7 +10759,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvItem2ItemsRelatedByI2imstritemid(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvItem2ItemsRelatedByI2imstritemidPartial && !$this->isNew();
-        if (null === $this->collInvItem2ItemsRelatedByI2imstritemid || null !== $criteria || $partial) {
+        if (null === $this->collInvItem2ItemsRelatedByI2imstritemid || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvItem2ItemsRelatedByI2imstritemid) {
@@ -10953,7 +10777,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItemRelatedByI2imstritemid($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvItem2ItemsRelatedByI2imstritemidPartial && count($collInvItem2ItemsRelatedByI2imstritemid)) {
                         $this->initInvItem2ItemsRelatedByI2imstritemid(false);
 
@@ -11007,7 +10831,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion = clone $invItem2ItemsRelatedByI2imstritemidToDelete;
 
         foreach ($invItem2ItemsRelatedByI2imstritemidToDelete as $invItem2ItemRelatedByI2imstritemidRemoved) {
-            $invItem2ItemRelatedByI2imstritemidRemoved->setItemMasterItemRelatedByI2imstritemid(null);
+            $invItem2ItemRelatedByI2imstritemidRemoved->setItemMasterItemRelatedByI2imstritemid();
         }
 
         $this->collInvItem2ItemsRelatedByI2imstritemid = null;
@@ -11025,7 +10849,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvItem2Item objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvItem2Item objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -11033,7 +10856,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvItem2ItemsRelatedByI2imstritemid(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvItem2ItemsRelatedByI2imstritemidPartial && !$this->isNew();
-        if (null === $this->collInvItem2ItemsRelatedByI2imstritemid || null !== $criteria || $partial) {
+        if (null === $this->collInvItem2ItemsRelatedByI2imstritemid || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvItem2ItemsRelatedByI2imstritemid) {
                 return 0;
             }
@@ -11072,7 +10895,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvItem2ItemsRelatedByI2imstritemid->contains($l)) {
             $this->doAddInvItem2ItemRelatedByI2imstritemid($l);
 
-            if ($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion and $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->contains($l)) {
+            if ($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion && $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->contains($l)) {
                 $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->remove($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->search($l));
             }
         }
@@ -11103,7 +10926,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->clear();
             }
             $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion[]= clone $invItem2ItemRelatedByI2imstritemid;
-            $invItem2ItemRelatedByI2imstritemid->setItemMasterItemRelatedByI2imstritemid(null);
+            $invItem2ItemRelatedByI2imstritemid->setItemMasterItemRelatedByI2imstritemid();
         }
 
         return $this;
@@ -11127,8 +10950,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvItem2ItemsRelatedByI2ichilditemid collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvItem2ItemsRelatedByI2ichilditemid($v = true): void
     {
@@ -11144,8 +10965,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvItem2ItemsRelatedByI2ichilditemid(bool $overrideExisting = true): void
     {
@@ -11177,7 +10996,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvItem2ItemsRelatedByI2ichilditemid(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvItem2ItemsRelatedByI2ichilditemidPartial && !$this->isNew();
-        if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid || null !== $criteria || $partial) {
+        if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid) {
@@ -11195,7 +11014,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItemRelatedByI2ichilditemid($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvItem2ItemsRelatedByI2ichilditemidPartial && count($collInvItem2ItemsRelatedByI2ichilditemid)) {
                         $this->initInvItem2ItemsRelatedByI2ichilditemid(false);
 
@@ -11249,7 +11068,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion = clone $invItem2ItemsRelatedByI2ichilditemidToDelete;
 
         foreach ($invItem2ItemsRelatedByI2ichilditemidToDelete as $invItem2ItemRelatedByI2ichilditemidRemoved) {
-            $invItem2ItemRelatedByI2ichilditemidRemoved->setItemMasterItemRelatedByI2ichilditemid(null);
+            $invItem2ItemRelatedByI2ichilditemidRemoved->setItemMasterItemRelatedByI2ichilditemid();
         }
 
         $this->collInvItem2ItemsRelatedByI2ichilditemid = null;
@@ -11267,7 +11086,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvItem2Item objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvItem2Item objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -11275,7 +11093,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvItem2ItemsRelatedByI2ichilditemid(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvItem2ItemsRelatedByI2ichilditemidPartial && !$this->isNew();
-        if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid || null !== $criteria || $partial) {
+        if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvItem2ItemsRelatedByI2ichilditemid) {
                 return 0;
             }
@@ -11314,7 +11132,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvItem2ItemsRelatedByI2ichilditemid->contains($l)) {
             $this->doAddInvItem2ItemRelatedByI2ichilditemid($l);
 
-            if ($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion and $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->contains($l)) {
+            if ($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion && $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->contains($l)) {
                 $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->remove($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->search($l));
             }
         }
@@ -11345,7 +11163,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->clear();
             }
             $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion[]= clone $invItem2ItemRelatedByI2ichilditemid;
-            $invItem2ItemRelatedByI2ichilditemid->setItemMasterItemRelatedByI2ichilditemid(null);
+            $invItem2ItemRelatedByI2ichilditemid->setItemMasterItemRelatedByI2ichilditemid();
         }
 
         return $this;
@@ -11369,8 +11187,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvKitComponents collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvKitComponents($v = true): void
     {
@@ -11386,8 +11202,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvKitComponents(bool $overrideExisting = true): void
     {
@@ -11419,7 +11233,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvKitComponents(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvKitComponentsPartial && !$this->isNew();
-        if (null === $this->collInvKitComponents || null !== $criteria || $partial) {
+        if (null === $this->collInvKitComponents || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvKitComponents) {
@@ -11437,7 +11251,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvKitComponentsPartial && count($collInvKitComponents)) {
                         $this->initInvKitComponents(false);
 
@@ -11491,7 +11305,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invKitComponentsScheduledForDeletion = clone $invKitComponentsToDelete;
 
         foreach ($invKitComponentsToDelete as $invKitComponentRemoved) {
-            $invKitComponentRemoved->setItemMasterItem(null);
+            $invKitComponentRemoved->setItemMasterItem();
         }
 
         $this->collInvKitComponents = null;
@@ -11509,7 +11323,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvKitComponent objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvKitComponent objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -11517,7 +11330,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvKitComponents(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvKitComponentsPartial && !$this->isNew();
-        if (null === $this->collInvKitComponents || null !== $criteria || $partial) {
+        if (null === $this->collInvKitComponents || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvKitComponents) {
                 return 0;
             }
@@ -11556,7 +11369,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvKitComponents->contains($l)) {
             $this->doAddInvKitComponent($l);
 
-            if ($this->invKitComponentsScheduledForDeletion and $this->invKitComponentsScheduledForDeletion->contains($l)) {
+            if ($this->invKitComponentsScheduledForDeletion && $this->invKitComponentsScheduledForDeletion->contains($l)) {
                 $this->invKitComponentsScheduledForDeletion->remove($this->invKitComponentsScheduledForDeletion->search($l));
             }
         }
@@ -11587,7 +11400,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invKitComponentsScheduledForDeletion->clear();
             }
             $this->invKitComponentsScheduledForDeletion[]= clone $invKitComponent;
-            $invKitComponent->setItemMasterItem(null);
+            $invKitComponent->setItemMasterItem();
         }
 
         return $this;
@@ -11648,7 +11461,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->singleInvKit = $v;
 
         // Make sure that that the passed-in ChildInvKit isn't already associated with this object
-        if ($v !== null && $v->getItemMasterItem(null, false) === null) {
+        if ($v instanceof \InvKit && $v->getItemMasterItem() === null) {
             $v->setItemMasterItem($this);
         }
 
@@ -11673,8 +11486,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvLotMasters collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvLotMasters($v = true): void
     {
@@ -11690,8 +11501,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvLotMasters(bool $overrideExisting = true): void
     {
@@ -11723,7 +11532,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvLotMasters(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvLotMastersPartial && !$this->isNew();
-        if (null === $this->collInvLotMasters || null !== $criteria || $partial) {
+        if (null === $this->collInvLotMasters || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvLotMasters) {
@@ -11741,7 +11550,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvLotMastersPartial && count($collInvLotMasters)) {
                         $this->initInvLotMasters(false);
 
@@ -11795,7 +11604,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invLotMastersScheduledForDeletion = clone $invLotMastersToDelete;
 
         foreach ($invLotMastersToDelete as $invLotMasterRemoved) {
-            $invLotMasterRemoved->setItemMasterItem(null);
+            $invLotMasterRemoved->setItemMasterItem();
         }
 
         $this->collInvLotMasters = null;
@@ -11813,7 +11622,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvLotMaster objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvLotMaster objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -11821,7 +11629,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvLotMasters(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvLotMastersPartial && !$this->isNew();
-        if (null === $this->collInvLotMasters || null !== $criteria || $partial) {
+        if (null === $this->collInvLotMasters || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvLotMasters) {
                 return 0;
             }
@@ -11860,7 +11668,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvLotMasters->contains($l)) {
             $this->doAddInvLotMaster($l);
 
-            if ($this->invLotMastersScheduledForDeletion and $this->invLotMastersScheduledForDeletion->contains($l)) {
+            if ($this->invLotMastersScheduledForDeletion && $this->invLotMastersScheduledForDeletion->contains($l)) {
                 $this->invLotMastersScheduledForDeletion->remove($this->invLotMastersScheduledForDeletion->search($l));
             }
         }
@@ -11891,7 +11699,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invLotMastersScheduledForDeletion->clear();
             }
             $this->invLotMastersScheduledForDeletion[]= clone $invLotMaster;
-            $invLotMaster->setItemMasterItem(null);
+            $invLotMaster->setItemMasterItem();
         }
 
         return $this;
@@ -11915,8 +11723,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvSerialMasters collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvSerialMasters($v = true): void
     {
@@ -11932,8 +11738,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvSerialMasters(bool $overrideExisting = true): void
     {
@@ -11965,7 +11769,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvSerialMasters(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvSerialMastersPartial && !$this->isNew();
-        if (null === $this->collInvSerialMasters || null !== $criteria || $partial) {
+        if (null === $this->collInvSerialMasters || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvSerialMasters) {
@@ -11983,7 +11787,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvSerialMastersPartial && count($collInvSerialMasters)) {
                         $this->initInvSerialMasters(false);
 
@@ -12037,7 +11841,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invSerialMastersScheduledForDeletion = clone $invSerialMastersToDelete;
 
         foreach ($invSerialMastersToDelete as $invSerialMasterRemoved) {
-            $invSerialMasterRemoved->setItemMasterItem(null);
+            $invSerialMasterRemoved->setItemMasterItem();
         }
 
         $this->collInvSerialMasters = null;
@@ -12055,7 +11859,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvSerialMaster objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvSerialMaster objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -12063,7 +11866,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvSerialMasters(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvSerialMastersPartial && !$this->isNew();
-        if (null === $this->collInvSerialMasters || null !== $criteria || $partial) {
+        if (null === $this->collInvSerialMasters || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvSerialMasters) {
                 return 0;
             }
@@ -12102,7 +11905,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvSerialMasters->contains($l)) {
             $this->doAddInvSerialMaster($l);
 
-            if ($this->invSerialMastersScheduledForDeletion and $this->invSerialMastersScheduledForDeletion->contains($l)) {
+            if ($this->invSerialMastersScheduledForDeletion && $this->invSerialMastersScheduledForDeletion->contains($l)) {
                 $this->invSerialMastersScheduledForDeletion->remove($this->invSerialMastersScheduledForDeletion->search($l));
             }
         }
@@ -12133,7 +11936,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invSerialMastersScheduledForDeletion->clear();
             }
             $this->invSerialMastersScheduledForDeletion[]= clone $invSerialMaster;
-            $invSerialMaster->setItemMasterItem(null);
+            $invSerialMaster->setItemMasterItem();
         }
 
         return $this;
@@ -12157,8 +11960,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferDetails($v = true): void
     {
@@ -12174,8 +11975,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferDetails(bool $overrideExisting = true): void
     {
@@ -12207,7 +12006,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvTransferDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferDetailsPartial && !$this->isNew();
-        if (null === $this->collInvTransferDetails || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferDetails) {
@@ -12225,7 +12024,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferDetailsPartial && count($collInvTransferDetails)) {
                         $this->initInvTransferDetails(false);
 
@@ -12276,7 +12075,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invTransferDetailsScheduledForDeletion = $invTransferDetailsToDelete;
 
         foreach ($invTransferDetailsToDelete as $invTransferDetailRemoved) {
-            $invTransferDetailRemoved->setItemMasterItem(null);
+            $invTransferDetailRemoved->setItemMasterItem();
         }
 
         $this->collInvTransferDetails = null;
@@ -12294,7 +12093,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvTransferDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -12302,7 +12100,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvTransferDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferDetailsPartial && !$this->isNew();
-        if (null === $this->collInvTransferDetails || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferDetails) {
                 return 0;
             }
@@ -12341,7 +12139,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvTransferDetails->contains($l)) {
             $this->doAddInvTransferDetail($l);
 
-            if ($this->invTransferDetailsScheduledForDeletion and $this->invTransferDetailsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferDetailsScheduledForDeletion && $this->invTransferDetailsScheduledForDeletion->contains($l)) {
                 $this->invTransferDetailsScheduledForDeletion->remove($this->invTransferDetailsScheduledForDeletion->search($l));
             }
         }
@@ -12372,7 +12170,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invTransferDetailsScheduledForDeletion->clear();
             }
             $this->invTransferDetailsScheduledForDeletion[]= clone $invTransferDetail;
-            $invTransferDetail->setItemMasterItem(null);
+            $invTransferDetail->setItemMasterItem();
         }
 
         return $this;
@@ -12422,8 +12220,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferLotserials($v = true): void
     {
@@ -12439,8 +12235,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferLotserials(bool $overrideExisting = true): void
     {
@@ -12472,7 +12266,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvTransferLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferLotserials) {
@@ -12490,7 +12284,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferLotserialsPartial && count($collInvTransferLotserials)) {
                         $this->initInvTransferLotserials(false);
 
@@ -12544,7 +12338,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invTransferLotserialsScheduledForDeletion = clone $invTransferLotserialsToDelete;
 
         foreach ($invTransferLotserialsToDelete as $invTransferLotserialRemoved) {
-            $invTransferLotserialRemoved->setItemMasterItem(null);
+            $invTransferLotserialRemoved->setItemMasterItem();
         }
 
         $this->collInvTransferLotserials = null;
@@ -12562,7 +12356,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvTransferLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -12570,7 +12363,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvTransferLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferLotserials) {
                 return 0;
             }
@@ -12609,7 +12402,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvTransferLotserials->contains($l)) {
             $this->doAddInvTransferLotserial($l);
 
-            if ($this->invTransferLotserialsScheduledForDeletion and $this->invTransferLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferLotserialsScheduledForDeletion && $this->invTransferLotserialsScheduledForDeletion->contains($l)) {
                 $this->invTransferLotserialsScheduledForDeletion->remove($this->invTransferLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -12640,7 +12433,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invTransferLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferLotserialsScheduledForDeletion[]= clone $invTransferLotserial;
-            $invTransferLotserial->setItemMasterItem(null);
+            $invTransferLotserial->setItemMasterItem();
         }
 
         return $this;
@@ -12768,8 +12561,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferPreAllocatedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferPreAllocatedLotserials($v = true): void
     {
@@ -12785,8 +12576,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferPreAllocatedLotserials(bool $overrideExisting = true): void
     {
@@ -12818,7 +12607,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvTransferPreAllocatedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferPreAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPreAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPreAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferPreAllocatedLotserials) {
@@ -12836,7 +12625,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferPreAllocatedLotserialsPartial && count($collInvTransferPreAllocatedLotserials)) {
                         $this->initInvTransferPreAllocatedLotserials(false);
 
@@ -12890,7 +12679,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invTransferPreAllocatedLotserialsScheduledForDeletion = clone $invTransferPreAllocatedLotserialsToDelete;
 
         foreach ($invTransferPreAllocatedLotserialsToDelete as $invTransferPreAllocatedLotserialRemoved) {
-            $invTransferPreAllocatedLotserialRemoved->setItemMasterItem(null);
+            $invTransferPreAllocatedLotserialRemoved->setItemMasterItem();
         }
 
         $this->collInvTransferPreAllocatedLotserials = null;
@@ -12908,7 +12697,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvTransferPreAllocatedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferPreAllocatedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -12916,7 +12704,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvTransferPreAllocatedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferPreAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPreAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPreAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferPreAllocatedLotserials) {
                 return 0;
             }
@@ -12955,7 +12743,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvTransferPreAllocatedLotserials->contains($l)) {
             $this->doAddInvTransferPreAllocatedLotserial($l);
 
-            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion and $this->invTransferPreAllocatedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion && $this->invTransferPreAllocatedLotserialsScheduledForDeletion->contains($l)) {
                 $this->invTransferPreAllocatedLotserialsScheduledForDeletion->remove($this->invTransferPreAllocatedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -12986,7 +12774,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invTransferPreAllocatedLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferPreAllocatedLotserialsScheduledForDeletion[]= clone $invTransferPreAllocatedLotserial;
-            $invTransferPreAllocatedLotserial->setItemMasterItem(null);
+            $invTransferPreAllocatedLotserial->setItemMasterItem();
         }
 
         return $this;
@@ -13114,8 +12902,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferPickedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferPickedLotserials($v = true): void
     {
@@ -13131,8 +12917,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferPickedLotserials(bool $overrideExisting = true): void
     {
@@ -13164,7 +12948,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvTransferPickedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferPickedLotserials) {
@@ -13182,7 +12966,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferPickedLotserialsPartial && count($collInvTransferPickedLotserials)) {
                         $this->initInvTransferPickedLotserials(false);
 
@@ -13236,7 +13020,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invTransferPickedLotserialsScheduledForDeletion = clone $invTransferPickedLotserialsToDelete;
 
         foreach ($invTransferPickedLotserialsToDelete as $invTransferPickedLotserialRemoved) {
-            $invTransferPickedLotserialRemoved->setItemMasterItem(null);
+            $invTransferPickedLotserialRemoved->setItemMasterItem();
         }
 
         $this->collInvTransferPickedLotserials = null;
@@ -13254,7 +13038,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvTransferPickedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferPickedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -13262,7 +13045,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvTransferPickedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferPickedLotserials) {
                 return 0;
             }
@@ -13301,7 +13084,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvTransferPickedLotserials->contains($l)) {
             $this->doAddInvTransferPickedLotserial($l);
 
-            if ($this->invTransferPickedLotserialsScheduledForDeletion and $this->invTransferPickedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferPickedLotserialsScheduledForDeletion && $this->invTransferPickedLotserialsScheduledForDeletion->contains($l)) {
                 $this->invTransferPickedLotserialsScheduledForDeletion->remove($this->invTransferPickedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -13332,7 +13115,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invTransferPickedLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferPickedLotserialsScheduledForDeletion[]= clone $invTransferPickedLotserial;
-            $invTransferPickedLotserial->setItemMasterItem(null);
+            $invTransferPickedLotserial->setItemMasterItem();
         }
 
         return $this;
@@ -13460,8 +13243,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvSerialWarranties collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvSerialWarranties($v = true): void
     {
@@ -13477,8 +13258,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvSerialWarranties(bool $overrideExisting = true): void
     {
@@ -13510,7 +13289,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvSerialWarranties(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvSerialWarrantiesPartial && !$this->isNew();
-        if (null === $this->collInvSerialWarranties || null !== $criteria || $partial) {
+        if (null === $this->collInvSerialWarranties || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvSerialWarranties) {
@@ -13528,7 +13307,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvSerialWarrantiesPartial && count($collInvSerialWarranties)) {
                         $this->initInvSerialWarranties(false);
 
@@ -13582,7 +13361,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invSerialWarrantiesScheduledForDeletion = clone $invSerialWarrantiesToDelete;
 
         foreach ($invSerialWarrantiesToDelete as $invSerialWarrantyRemoved) {
-            $invSerialWarrantyRemoved->setItemMasterItem(null);
+            $invSerialWarrantyRemoved->setItemMasterItem();
         }
 
         $this->collInvSerialWarranties = null;
@@ -13600,7 +13379,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvSerialWarranty objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvSerialWarranty objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -13608,7 +13386,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvSerialWarranties(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvSerialWarrantiesPartial && !$this->isNew();
-        if (null === $this->collInvSerialWarranties || null !== $criteria || $partial) {
+        if (null === $this->collInvSerialWarranties || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvSerialWarranties) {
                 return 0;
             }
@@ -13647,7 +13425,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvSerialWarranties->contains($l)) {
             $this->doAddInvSerialWarranty($l);
 
-            if ($this->invSerialWarrantiesScheduledForDeletion and $this->invSerialWarrantiesScheduledForDeletion->contains($l)) {
+            if ($this->invSerialWarrantiesScheduledForDeletion && $this->invSerialWarrantiesScheduledForDeletion->contains($l)) {
                 $this->invSerialWarrantiesScheduledForDeletion->remove($this->invSerialWarrantiesScheduledForDeletion->search($l));
             }
         }
@@ -13678,7 +13456,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invSerialWarrantiesScheduledForDeletion->clear();
             }
             $this->invSerialWarrantiesScheduledForDeletion[]= clone $invSerialWarranty;
-            $invSerialWarranty->setItemMasterItem(null);
+            $invSerialWarranty->setItemMasterItem();
         }
 
         return $this;
@@ -13754,8 +13532,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collWarehouseInventories collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialWarehouseInventories($v = true): void
     {
@@ -13771,8 +13547,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initWarehouseInventories(bool $overrideExisting = true): void
     {
@@ -13804,7 +13578,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getWarehouseInventories(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
-        if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
+        if (null === $this->collWarehouseInventories || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collWarehouseInventories) {
@@ -13822,7 +13596,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collWarehouseInventoriesPartial && count($collWarehouseInventories)) {
                         $this->initWarehouseInventories(false);
 
@@ -13876,7 +13650,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->warehouseInventoriesScheduledForDeletion = clone $warehouseInventoriesToDelete;
 
         foreach ($warehouseInventoriesToDelete as $warehouseInventoryRemoved) {
-            $warehouseInventoryRemoved->setItemMasterItem(null);
+            $warehouseInventoryRemoved->setItemMasterItem();
         }
 
         $this->collWarehouseInventories = null;
@@ -13894,7 +13668,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related WarehouseInventory objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related WarehouseInventory objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -13902,7 +13675,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countWarehouseInventories(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
-        if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
+        if (null === $this->collWarehouseInventories || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collWarehouseInventories) {
                 return 0;
             }
@@ -13941,7 +13714,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collWarehouseInventories->contains($l)) {
             $this->doAddWarehouseInventory($l);
 
-            if ($this->warehouseInventoriesScheduledForDeletion and $this->warehouseInventoriesScheduledForDeletion->contains($l)) {
+            if ($this->warehouseInventoriesScheduledForDeletion && $this->warehouseInventoriesScheduledForDeletion->contains($l)) {
                 $this->warehouseInventoriesScheduledForDeletion->remove($this->warehouseInventoriesScheduledForDeletion->search($l));
             }
         }
@@ -13972,7 +13745,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->warehouseInventoriesScheduledForDeletion->clear();
             }
             $this->warehouseInventoriesScheduledForDeletion[]= clone $warehouseInventory;
-            $warehouseInventory->setItemMasterItem(null);
+            $warehouseInventory->setItemMasterItem();
         }
 
         return $this;
@@ -14022,8 +13795,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefKeys collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefKeys($v = true): void
     {
@@ -14039,8 +13810,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefKeys(bool $overrideExisting = true): void
     {
@@ -14072,7 +13841,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemXrefKeys(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
-        if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefKeys || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefKeys) {
@@ -14090,7 +13859,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefKeysPartial && count($collItemXrefKeys)) {
                         $this->initItemXrefKeys(false);
 
@@ -14144,7 +13913,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemXrefKeysScheduledForDeletion = clone $itemXrefKeysToDelete;
 
         foreach ($itemXrefKeysToDelete as $itemXrefKeyRemoved) {
-            $itemXrefKeyRemoved->setItemMasterItem(null);
+            $itemXrefKeyRemoved->setItemMasterItem();
         }
 
         $this->collItemXrefKeys = null;
@@ -14162,7 +13931,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemXrefKey objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefKey objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14170,7 +13938,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemXrefKeys(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
-        if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefKeys || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefKeys) {
                 return 0;
             }
@@ -14209,7 +13977,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemXrefKeys->contains($l)) {
             $this->doAddItemXrefKey($l);
 
-            if ($this->itemXrefKeysScheduledForDeletion and $this->itemXrefKeysScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefKeysScheduledForDeletion && $this->itemXrefKeysScheduledForDeletion->contains($l)) {
                 $this->itemXrefKeysScheduledForDeletion->remove($this->itemXrefKeysScheduledForDeletion->search($l));
             }
         }
@@ -14240,7 +14008,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemXrefKeysScheduledForDeletion->clear();
             }
             $this->itemXrefKeysScheduledForDeletion[]= clone $itemXrefKey;
-            $itemXrefKey->setItemMasterItem(null);
+            $itemXrefKey->setItemMasterItem();
         }
 
         return $this;
@@ -14316,8 +14084,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefManufacturers collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefManufacturers($v = true): void
     {
@@ -14333,8 +14099,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefManufacturers(bool $overrideExisting = true): void
     {
@@ -14366,7 +14130,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemXrefManufacturers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
-        if (null === $this->collItemXrefManufacturers || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefManufacturers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefManufacturers) {
@@ -14384,7 +14148,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefManufacturersPartial && count($collItemXrefManufacturers)) {
                         $this->initItemXrefManufacturers(false);
 
@@ -14438,7 +14202,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemXrefManufacturersScheduledForDeletion = clone $itemXrefManufacturersToDelete;
 
         foreach ($itemXrefManufacturersToDelete as $itemXrefManufacturerRemoved) {
-            $itemXrefManufacturerRemoved->setItemMasterItem(null);
+            $itemXrefManufacturerRemoved->setItemMasterItem();
         }
 
         $this->collItemXrefManufacturers = null;
@@ -14456,7 +14220,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemXrefManufacturer objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefManufacturer objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14464,7 +14227,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemXrefManufacturers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
-        if (null === $this->collItemXrefManufacturers || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefManufacturers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefManufacturers) {
                 return 0;
             }
@@ -14503,7 +14266,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemXrefManufacturers->contains($l)) {
             $this->doAddItemXrefManufacturer($l);
 
-            if ($this->itemXrefManufacturersScheduledForDeletion and $this->itemXrefManufacturersScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefManufacturersScheduledForDeletion && $this->itemXrefManufacturersScheduledForDeletion->contains($l)) {
                 $this->itemXrefManufacturersScheduledForDeletion->remove($this->itemXrefManufacturersScheduledForDeletion->search($l));
             }
         }
@@ -14534,7 +14297,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemXrefManufacturersScheduledForDeletion->clear();
             }
             $this->itemXrefManufacturersScheduledForDeletion[]= clone $itemXrefManufacturer;
-            $itemXrefManufacturer->setItemMasterItem(null);
+            $itemXrefManufacturer->setItemMasterItem();
         }
 
         return $this;
@@ -14584,8 +14347,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefCustomerNotes collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefCustomerNotes($v = true): void
     {
@@ -14601,8 +14362,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefCustomerNotes(bool $overrideExisting = true): void
     {
@@ -14634,7 +14393,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemXrefCustomerNotes(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefCustomerNotesPartial && !$this->isNew();
-        if (null === $this->collItemXrefCustomerNotes || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefCustomerNotes || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefCustomerNotes) {
@@ -14652,7 +14411,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefCustomerNotesPartial && count($collItemXrefCustomerNotes)) {
                         $this->initItemXrefCustomerNotes(false);
 
@@ -14703,7 +14462,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemXrefCustomerNotesScheduledForDeletion = $itemXrefCustomerNotesToDelete;
 
         foreach ($itemXrefCustomerNotesToDelete as $itemXrefCustomerNoteRemoved) {
-            $itemXrefCustomerNoteRemoved->setItemMasterItem(null);
+            $itemXrefCustomerNoteRemoved->setItemMasterItem();
         }
 
         $this->collItemXrefCustomerNotes = null;
@@ -14721,7 +14480,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemXrefCustomerNote objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefCustomerNote objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14729,7 +14487,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemXrefCustomerNotes(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefCustomerNotesPartial && !$this->isNew();
-        if (null === $this->collItemXrefCustomerNotes || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefCustomerNotes || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefCustomerNotes) {
                 return 0;
             }
@@ -14768,7 +14526,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemXrefCustomerNotes->contains($l)) {
             $this->doAddItemXrefCustomerNote($l);
 
-            if ($this->itemXrefCustomerNotesScheduledForDeletion and $this->itemXrefCustomerNotesScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefCustomerNotesScheduledForDeletion && $this->itemXrefCustomerNotesScheduledForDeletion->contains($l)) {
                 $this->itemXrefCustomerNotesScheduledForDeletion->remove($this->itemXrefCustomerNotesScheduledForDeletion->search($l));
             }
         }
@@ -14799,7 +14557,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemXrefCustomerNotesScheduledForDeletion->clear();
             }
             $this->itemXrefCustomerNotesScheduledForDeletion[]= $itemXrefCustomerNote;
-            $itemXrefCustomerNote->setItemMasterItem(null);
+            $itemXrefCustomerNote->setItemMasterItem();
         }
 
         return $this;
@@ -14849,8 +14607,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvOptCodeNotes collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvOptCodeNotes($v = true): void
     {
@@ -14866,8 +14622,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvOptCodeNotes(bool $overrideExisting = true): void
     {
@@ -14899,7 +14653,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvOptCodeNotes(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvOptCodeNotesPartial && !$this->isNew();
-        if (null === $this->collInvOptCodeNotes || null !== $criteria || $partial) {
+        if (null === $this->collInvOptCodeNotes || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvOptCodeNotes) {
@@ -14917,7 +14671,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvOptCodeNotesPartial && count($collInvOptCodeNotes)) {
                         $this->initInvOptCodeNotes(false);
 
@@ -14968,7 +14722,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invOptCodeNotesScheduledForDeletion = $invOptCodeNotesToDelete;
 
         foreach ($invOptCodeNotesToDelete as $invOptCodeNoteRemoved) {
-            $invOptCodeNoteRemoved->setItemMasterItem(null);
+            $invOptCodeNoteRemoved->setItemMasterItem();
         }
 
         $this->collInvOptCodeNotes = null;
@@ -14986,7 +14740,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvOptCodeNote objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvOptCodeNote objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14994,7 +14747,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvOptCodeNotes(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvOptCodeNotesPartial && !$this->isNew();
-        if (null === $this->collInvOptCodeNotes || null !== $criteria || $partial) {
+        if (null === $this->collInvOptCodeNotes || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvOptCodeNotes) {
                 return 0;
             }
@@ -15033,7 +14786,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvOptCodeNotes->contains($l)) {
             $this->doAddInvOptCodeNote($l);
 
-            if ($this->invOptCodeNotesScheduledForDeletion and $this->invOptCodeNotesScheduledForDeletion->contains($l)) {
+            if ($this->invOptCodeNotesScheduledForDeletion && $this->invOptCodeNotesScheduledForDeletion->contains($l)) {
                 $this->invOptCodeNotesScheduledForDeletion->remove($this->invOptCodeNotesScheduledForDeletion->search($l));
             }
         }
@@ -15064,7 +14817,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invOptCodeNotesScheduledForDeletion->clear();
             }
             $this->invOptCodeNotesScheduledForDeletion[]= $invOptCodeNote;
-            $invOptCodeNote->setItemMasterItem(null);
+            $invOptCodeNote->setItemMasterItem();
         }
 
         return $this;
@@ -15088,8 +14841,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefVendorNoteDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefVendorNoteDetails($v = true): void
     {
@@ -15105,8 +14856,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefVendorNoteDetails(bool $overrideExisting = true): void
     {
@@ -15138,7 +14887,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemXrefVendorNoteDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendorNoteDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefVendorNoteDetails) {
@@ -15156,7 +14905,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefVendorNoteDetailsPartial && count($collItemXrefVendorNoteDetails)) {
                         $this->initItemXrefVendorNoteDetails(false);
 
@@ -15207,7 +14956,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemXrefVendorNoteDetailsScheduledForDeletion = $itemXrefVendorNoteDetailsToDelete;
 
         foreach ($itemXrefVendorNoteDetailsToDelete as $itemXrefVendorNoteDetailRemoved) {
-            $itemXrefVendorNoteDetailRemoved->setItemMasterItem(null);
+            $itemXrefVendorNoteDetailRemoved->setItemMasterItem();
         }
 
         $this->collItemXrefVendorNoteDetails = null;
@@ -15225,7 +14974,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemXrefVendorNoteDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefVendorNoteDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15233,7 +14981,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemXrefVendorNoteDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendorNoteDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefVendorNoteDetails) {
                 return 0;
             }
@@ -15272,7 +15020,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemXrefVendorNoteDetails->contains($l)) {
             $this->doAddItemXrefVendorNoteDetail($l);
 
-            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion and $this->itemXrefVendorNoteDetailsScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion && $this->itemXrefVendorNoteDetailsScheduledForDeletion->contains($l)) {
                 $this->itemXrefVendorNoteDetailsScheduledForDeletion->remove($this->itemXrefVendorNoteDetailsScheduledForDeletion->search($l));
             }
         }
@@ -15303,7 +15051,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemXrefVendorNoteDetailsScheduledForDeletion->clear();
             }
             $this->itemXrefVendorNoteDetailsScheduledForDeletion[]= $itemXrefVendorNoteDetail;
-            $itemXrefVendorNoteDetail->setItemMasterItem(null);
+            $itemXrefVendorNoteDetail->setItemMasterItem();
         }
 
         return $this;
@@ -15353,8 +15101,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefVendorNoteInternals collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefVendorNoteInternals($v = true): void
     {
@@ -15370,8 +15116,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefVendorNoteInternals(bool $overrideExisting = true): void
     {
@@ -15403,7 +15147,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemXrefVendorNoteInternals(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendorNoteInternals || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefVendorNoteInternals) {
@@ -15421,7 +15165,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefVendorNoteInternalsPartial && count($collItemXrefVendorNoteInternals)) {
                         $this->initItemXrefVendorNoteInternals(false);
 
@@ -15472,7 +15216,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemXrefVendorNoteInternalsScheduledForDeletion = $itemXrefVendorNoteInternalsToDelete;
 
         foreach ($itemXrefVendorNoteInternalsToDelete as $itemXrefVendorNoteInternalRemoved) {
-            $itemXrefVendorNoteInternalRemoved->setItemMasterItem(null);
+            $itemXrefVendorNoteInternalRemoved->setItemMasterItem();
         }
 
         $this->collItemXrefVendorNoteInternals = null;
@@ -15490,7 +15234,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemXrefVendorNoteInternal objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefVendorNoteInternal objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15498,7 +15241,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemXrefVendorNoteInternals(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendorNoteInternals || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefVendorNoteInternals) {
                 return 0;
             }
@@ -15537,7 +15280,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemXrefVendorNoteInternals->contains($l)) {
             $this->doAddItemXrefVendorNoteInternal($l);
 
-            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion and $this->itemXrefVendorNoteInternalsScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion && $this->itemXrefVendorNoteInternalsScheduledForDeletion->contains($l)) {
                 $this->itemXrefVendorNoteInternalsScheduledForDeletion->remove($this->itemXrefVendorNoteInternalsScheduledForDeletion->search($l));
             }
         }
@@ -15568,7 +15311,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemXrefVendorNoteInternalsScheduledForDeletion->clear();
             }
             $this->itemXrefVendorNoteInternalsScheduledForDeletion[]= $itemXrefVendorNoteInternal;
-            $itemXrefVendorNoteInternal->setItemMasterItem(null);
+            $itemXrefVendorNoteInternal->setItemMasterItem();
         }
 
         return $this;
@@ -15618,8 +15361,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collInvPallets collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvPallets($v = true): void
     {
@@ -15635,8 +15376,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvPallets(bool $overrideExisting = true): void
     {
@@ -15668,7 +15407,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInvPallets(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvPalletsPartial && !$this->isNew();
-        if (null === $this->collInvPallets || null !== $criteria || $partial) {
+        if (null === $this->collInvPallets || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvPallets) {
@@ -15686,7 +15425,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvPalletsPartial && count($collInvPallets)) {
                         $this->initInvPallets(false);
 
@@ -15737,7 +15476,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->invPalletsScheduledForDeletion = $invPalletsToDelete;
 
         foreach ($invPalletsToDelete as $invPalletRemoved) {
-            $invPalletRemoved->setItemMasterItem(null);
+            $invPalletRemoved->setItemMasterItem();
         }
 
         $this->collInvPallets = null;
@@ -15755,7 +15494,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related InvPallet objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvPallet objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15763,7 +15501,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countInvPallets(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvPalletsPartial && !$this->isNew();
-        if (null === $this->collInvPallets || null !== $criteria || $partial) {
+        if (null === $this->collInvPallets || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvPallets) {
                 return 0;
             }
@@ -15802,7 +15540,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvPallets->contains($l)) {
             $this->doAddInvPallet($l);
 
-            if ($this->invPalletsScheduledForDeletion and $this->invPalletsScheduledForDeletion->contains($l)) {
+            if ($this->invPalletsScheduledForDeletion && $this->invPalletsScheduledForDeletion->contains($l)) {
                 $this->invPalletsScheduledForDeletion->remove($this->invPalletsScheduledForDeletion->search($l));
             }
         }
@@ -15833,7 +15571,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->invPalletsScheduledForDeletion->clear();
             }
             $this->invPalletsScheduledForDeletion[]= clone $invPallet;
-            $invPallet->setItemMasterItem(null);
+            $invPallet->setItemMasterItem();
         }
 
         return $this;
@@ -15857,8 +15595,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetails($v = true): void
     {
@@ -15874,8 +15610,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetails(bool $overrideExisting = true): void
     {
@@ -15907,7 +15641,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getPurchaseOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetails) {
@@ -15925,7 +15659,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailsPartial && count($collPurchaseOrderDetails)) {
                         $this->initPurchaseOrderDetails(false);
 
@@ -15976,7 +15710,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->purchaseOrderDetailsScheduledForDeletion = $purchaseOrderDetailsToDelete;
 
         foreach ($purchaseOrderDetailsToDelete as $purchaseOrderDetailRemoved) {
-            $purchaseOrderDetailRemoved->setItemMasterItem(null);
+            $purchaseOrderDetailRemoved->setItemMasterItem();
         }
 
         $this->collPurchaseOrderDetails = null;
@@ -15994,7 +15728,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16002,7 +15735,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countPurchaseOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetails) {
                 return 0;
             }
@@ -16041,7 +15774,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetails->contains($l)) {
             $this->doAddPurchaseOrderDetail($l);
 
-            if ($this->purchaseOrderDetailsScheduledForDeletion and $this->purchaseOrderDetailsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailsScheduledForDeletion && $this->purchaseOrderDetailsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailsScheduledForDeletion->remove($this->purchaseOrderDetailsScheduledForDeletion->search($l));
             }
         }
@@ -16072,7 +15805,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->purchaseOrderDetailsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailsScheduledForDeletion[]= clone $purchaseOrderDetail;
-            $purchaseOrderDetail->setItemMasterItem(null);
+            $purchaseOrderDetail->setItemMasterItem();
         }
 
         return $this;
@@ -16122,8 +15855,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetailReceipts collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetailReceipts($v = true): void
     {
@@ -16139,8 +15870,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetailReceipts(bool $overrideExisting = true): void
     {
@@ -16172,7 +15901,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getPurchaseOrderDetailReceipts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceipts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetailReceipts) {
@@ -16190,7 +15919,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailReceiptsPartial && count($collPurchaseOrderDetailReceipts)) {
                         $this->initPurchaseOrderDetailReceipts(false);
 
@@ -16244,7 +15973,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->purchaseOrderDetailReceiptsScheduledForDeletion = clone $purchaseOrderDetailReceiptsToDelete;
 
         foreach ($purchaseOrderDetailReceiptsToDelete as $purchaseOrderDetailReceiptRemoved) {
-            $purchaseOrderDetailReceiptRemoved->setItemMasterItem(null);
+            $purchaseOrderDetailReceiptRemoved->setItemMasterItem();
         }
 
         $this->collPurchaseOrderDetailReceipts = null;
@@ -16262,7 +15991,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetailReceipt objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetailReceipt objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16270,7 +15998,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countPurchaseOrderDetailReceipts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceipts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetailReceipts) {
                 return 0;
             }
@@ -16309,7 +16037,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetailReceipts->contains($l)) {
             $this->doAddPurchaseOrderDetailReceipt($l);
 
-            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion and $this->purchaseOrderDetailReceiptsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion && $this->purchaseOrderDetailReceiptsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailReceiptsScheduledForDeletion->remove($this->purchaseOrderDetailReceiptsScheduledForDeletion->search($l));
             }
         }
@@ -16340,7 +16068,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->purchaseOrderDetailReceiptsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailReceiptsScheduledForDeletion[]= clone $purchaseOrderDetailReceipt;
-            $purchaseOrderDetailReceipt->setItemMasterItem(null);
+            $purchaseOrderDetailReceipt->setItemMasterItem();
         }
 
         return $this;
@@ -16416,8 +16144,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetailReceivings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetailReceivings($v = true): void
     {
@@ -16433,8 +16159,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetailReceivings(bool $overrideExisting = true): void
     {
@@ -16466,7 +16190,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getPurchaseOrderDetailReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetailReceivings) {
@@ -16484,7 +16208,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailReceivingsPartial && count($collPurchaseOrderDetailReceivings)) {
                         $this->initPurchaseOrderDetailReceivings(false);
 
@@ -16535,7 +16259,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->purchaseOrderDetailReceivingsScheduledForDeletion = $purchaseOrderDetailReceivingsToDelete;
 
         foreach ($purchaseOrderDetailReceivingsToDelete as $purchaseOrderDetailReceivingRemoved) {
-            $purchaseOrderDetailReceivingRemoved->setItemMasterItem(null);
+            $purchaseOrderDetailReceivingRemoved->setItemMasterItem();
         }
 
         $this->collPurchaseOrderDetailReceivings = null;
@@ -16553,7 +16277,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetailReceiving objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetailReceiving objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16561,7 +16284,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countPurchaseOrderDetailReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
                 return 0;
             }
@@ -16600,7 +16323,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetailReceivings->contains($l)) {
             $this->doAddPurchaseOrderDetailReceiving($l);
 
-            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion and $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion && $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailReceivingsScheduledForDeletion->search($l));
             }
         }
@@ -16631,7 +16354,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailReceiving;
-            $purchaseOrderDetailReceiving->setItemMasterItem(null);
+            $purchaseOrderDetailReceiving->setItemMasterItem();
         }
 
         return $this;
@@ -16759,8 +16482,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetailLotReceivings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetailLotReceivings($v = true): void
     {
@@ -16776,8 +16497,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetailLotReceivings(bool $overrideExisting = true): void
     {
@@ -16809,7 +16528,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailLotReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetailLotReceivings) {
@@ -16827,7 +16546,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailLotReceivingsPartial && count($collPurchaseOrderDetailLotReceivings)) {
                         $this->initPurchaseOrderDetailLotReceivings(false);
 
@@ -16881,7 +16600,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = clone $purchaseOrderDetailLotReceivingsToDelete;
 
         foreach ($purchaseOrderDetailLotReceivingsToDelete as $purchaseOrderDetailLotReceivingRemoved) {
-            $purchaseOrderDetailLotReceivingRemoved->setItemMasterItem(null);
+            $purchaseOrderDetailLotReceivingRemoved->setItemMasterItem();
         }
 
         $this->collPurchaseOrderDetailLotReceivings = null;
@@ -16899,7 +16618,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetailLotReceiving objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetailLotReceiving objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -16907,7 +16625,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailLotReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetailLotReceivings) {
                 return 0;
             }
@@ -16946,7 +16664,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetailLotReceivings->contains($l)) {
             $this->doAddPurchaseOrderDetailLotReceiving($l);
 
-            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion and $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion && $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->search($l));
             }
         }
@@ -16977,7 +16695,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailLotReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailLotReceiving;
-            $purchaseOrderDetailLotReceiving->setItemMasterItem(null);
+            $purchaseOrderDetailLotReceiving->setItemMasterItem();
         }
 
         return $this;
@@ -17079,8 +16797,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collBomComponents collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBomComponents($v = true): void
     {
@@ -17096,8 +16812,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBomComponents(bool $overrideExisting = true): void
     {
@@ -17129,7 +16843,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getBomComponents(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBomComponentsPartial && !$this->isNew();
-        if (null === $this->collBomComponents || null !== $criteria || $partial) {
+        if (null === $this->collBomComponents || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBomComponents) {
@@ -17147,7 +16861,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBomComponentsPartial && count($collBomComponents)) {
                         $this->initBomComponents(false);
 
@@ -17201,7 +16915,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->bomComponentsScheduledForDeletion = clone $bomComponentsToDelete;
 
         foreach ($bomComponentsToDelete as $bomComponentRemoved) {
-            $bomComponentRemoved->setItemMasterItem(null);
+            $bomComponentRemoved->setItemMasterItem();
         }
 
         $this->collBomComponents = null;
@@ -17219,7 +16933,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related BomComponent objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BomComponent objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -17227,7 +16940,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countBomComponents(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBomComponentsPartial && !$this->isNew();
-        if (null === $this->collBomComponents || null !== $criteria || $partial) {
+        if (null === $this->collBomComponents || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBomComponents) {
                 return 0;
             }
@@ -17266,7 +16979,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collBomComponents->contains($l)) {
             $this->doAddBomComponent($l);
 
-            if ($this->bomComponentsScheduledForDeletion and $this->bomComponentsScheduledForDeletion->contains($l)) {
+            if ($this->bomComponentsScheduledForDeletion && $this->bomComponentsScheduledForDeletion->contains($l)) {
                 $this->bomComponentsScheduledForDeletion->remove($this->bomComponentsScheduledForDeletion->search($l));
             }
         }
@@ -17297,7 +17010,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->bomComponentsScheduledForDeletion->clear();
             }
             $this->bomComponentsScheduledForDeletion[]= clone $bomComponent;
-            $bomComponent->setItemMasterItem(null);
+            $bomComponent->setItemMasterItem();
         }
 
         return $this;
@@ -17358,7 +17071,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->singleBomItem = $v;
 
         // Make sure that that the passed-in ChildBomItem isn't already associated with this object
-        if ($v !== null && $v->getItemMasterItem(null, false) === null) {
+        if ($v instanceof \BomItem && $v->getItemMasterItem() === null) {
             $v->setItemMasterItem($this);
         }
 
@@ -17383,8 +17096,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collRcyclReceiptDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialRcyclReceiptDetails($v = true): void
     {
@@ -17400,8 +17111,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initRcyclReceiptDetails(bool $overrideExisting = true): void
     {
@@ -17433,7 +17142,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getRcyclReceiptDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collRcyclReceiptDetailsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptDetails || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collRcyclReceiptDetails) {
@@ -17451,7 +17160,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collRcyclReceiptDetailsPartial && count($collRcyclReceiptDetails)) {
                         $this->initRcyclReceiptDetails(false);
 
@@ -17505,7 +17214,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->rcyclReceiptDetailsScheduledForDeletion = clone $rcyclReceiptDetailsToDelete;
 
         foreach ($rcyclReceiptDetailsToDelete as $rcyclReceiptDetailRemoved) {
-            $rcyclReceiptDetailRemoved->setItemMasterItem(null);
+            $rcyclReceiptDetailRemoved->setItemMasterItem();
         }
 
         $this->collRcyclReceiptDetails = null;
@@ -17523,7 +17232,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related RcyclReceiptDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related RcyclReceiptDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -17531,7 +17239,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countRcyclReceiptDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collRcyclReceiptDetailsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptDetails || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collRcyclReceiptDetails) {
                 return 0;
             }
@@ -17570,7 +17278,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collRcyclReceiptDetails->contains($l)) {
             $this->doAddRcyclReceiptDetail($l);
 
-            if ($this->rcyclReceiptDetailsScheduledForDeletion and $this->rcyclReceiptDetailsScheduledForDeletion->contains($l)) {
+            if ($this->rcyclReceiptDetailsScheduledForDeletion && $this->rcyclReceiptDetailsScheduledForDeletion->contains($l)) {
                 $this->rcyclReceiptDetailsScheduledForDeletion->remove($this->rcyclReceiptDetailsScheduledForDeletion->search($l));
             }
         }
@@ -17601,7 +17309,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->rcyclReceiptDetailsScheduledForDeletion->clear();
             }
             $this->rcyclReceiptDetailsScheduledForDeletion[]= clone $rcyclReceiptDetail;
-            $rcyclReceiptDetail->setItemMasterItem(null);
+            $rcyclReceiptDetail->setItemMasterItem();
         }
 
         return $this;
@@ -17677,8 +17385,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collRcyclReceiptLots collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialRcyclReceiptLots($v = true): void
     {
@@ -17694,8 +17400,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initRcyclReceiptLots(bool $overrideExisting = true): void
     {
@@ -17727,7 +17431,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getRcyclReceiptLots(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collRcyclReceiptLotsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptLots || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptLots || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collRcyclReceiptLots) {
@@ -17745,7 +17449,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collRcyclReceiptLotsPartial && count($collRcyclReceiptLots)) {
                         $this->initRcyclReceiptLots(false);
 
@@ -17799,7 +17503,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->rcyclReceiptLotsScheduledForDeletion = clone $rcyclReceiptLotsToDelete;
 
         foreach ($rcyclReceiptLotsToDelete as $rcyclReceiptLotRemoved) {
-            $rcyclReceiptLotRemoved->setItemMasterItem(null);
+            $rcyclReceiptLotRemoved->setItemMasterItem();
         }
 
         $this->collRcyclReceiptLots = null;
@@ -17817,7 +17521,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related RcyclReceiptLot objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related RcyclReceiptLot objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -17825,7 +17528,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countRcyclReceiptLots(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collRcyclReceiptLotsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptLots || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptLots || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collRcyclReceiptLots) {
                 return 0;
             }
@@ -17864,7 +17567,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collRcyclReceiptLots->contains($l)) {
             $this->doAddRcyclReceiptLot($l);
 
-            if ($this->rcyclReceiptLotsScheduledForDeletion and $this->rcyclReceiptLotsScheduledForDeletion->contains($l)) {
+            if ($this->rcyclReceiptLotsScheduledForDeletion && $this->rcyclReceiptLotsScheduledForDeletion->contains($l)) {
                 $this->rcyclReceiptLotsScheduledForDeletion->remove($this->rcyclReceiptLotsScheduledForDeletion->search($l));
             }
         }
@@ -17895,7 +17598,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->rcyclReceiptLotsScheduledForDeletion->clear();
             }
             $this->rcyclReceiptLotsScheduledForDeletion[]= clone $rcyclReceiptLot;
-            $rcyclReceiptLot->setItemMasterItem(null);
+            $rcyclReceiptLot->setItemMasterItem();
         }
 
         return $this;
@@ -17971,8 +17674,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collBookingDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookingDetails($v = true): void
     {
@@ -17988,8 +17689,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookingDetails(bool $overrideExisting = true): void
     {
@@ -18021,7 +17720,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getBookingDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDetails || null !== $criteria || $partial) {
+        if (null === $this->collBookingDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookingDetails) {
@@ -18039,7 +17738,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingDetailsPartial && count($collBookingDetails)) {
                         $this->initBookingDetails(false);
 
@@ -18090,7 +17789,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->bookingDetailsScheduledForDeletion = $bookingDetailsToDelete;
 
         foreach ($bookingDetailsToDelete as $bookingDetailRemoved) {
-            $bookingDetailRemoved->setItemMasterItem(null);
+            $bookingDetailRemoved->setItemMasterItem();
         }
 
         $this->collBookingDetails = null;
@@ -18108,7 +17807,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related BookingDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BookingDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -18116,7 +17814,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countBookingDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDetails || null !== $criteria || $partial) {
+        if (null === $this->collBookingDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookingDetails) {
                 return 0;
             }
@@ -18155,7 +17853,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collBookingDetails->contains($l)) {
             $this->doAddBookingDetail($l);
 
-            if ($this->bookingDetailsScheduledForDeletion and $this->bookingDetailsScheduledForDeletion->contains($l)) {
+            if ($this->bookingDetailsScheduledForDeletion && $this->bookingDetailsScheduledForDeletion->contains($l)) {
                 $this->bookingDetailsScheduledForDeletion->remove($this->bookingDetailsScheduledForDeletion->search($l));
             }
         }
@@ -18186,7 +17884,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->bookingDetailsScheduledForDeletion->clear();
             }
             $this->bookingDetailsScheduledForDeletion[]= $bookingDetail;
-            $bookingDetail->setItemMasterItem(null);
+            $bookingDetail->setItemMasterItem();
         }
 
         return $this;
@@ -18210,8 +17908,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesHistoryDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesHistoryDetails($v = true): void
     {
@@ -18227,8 +17923,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesHistoryDetails(bool $overrideExisting = true): void
     {
@@ -18260,7 +17954,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getSalesHistoryDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesHistoryDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesHistoryDetails || null !== $criteria || $partial) {
+        if (null === $this->collSalesHistoryDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesHistoryDetails) {
@@ -18278,7 +17972,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesHistoryDetailsPartial && count($collSalesHistoryDetails)) {
                         $this->initSalesHistoryDetails(false);
 
@@ -18329,7 +18023,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->salesHistoryDetailsScheduledForDeletion = $salesHistoryDetailsToDelete;
 
         foreach ($salesHistoryDetailsToDelete as $salesHistoryDetailRemoved) {
-            $salesHistoryDetailRemoved->setItemMasterItem(null);
+            $salesHistoryDetailRemoved->setItemMasterItem();
         }
 
         $this->collSalesHistoryDetails = null;
@@ -18347,7 +18041,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related SalesHistoryDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesHistoryDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -18355,7 +18048,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countSalesHistoryDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesHistoryDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesHistoryDetails || null !== $criteria || $partial) {
+        if (null === $this->collSalesHistoryDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesHistoryDetails) {
                 return 0;
             }
@@ -18394,7 +18087,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collSalesHistoryDetails->contains($l)) {
             $this->doAddSalesHistoryDetail($l);
 
-            if ($this->salesHistoryDetailsScheduledForDeletion and $this->salesHistoryDetailsScheduledForDeletion->contains($l)) {
+            if ($this->salesHistoryDetailsScheduledForDeletion && $this->salesHistoryDetailsScheduledForDeletion->contains($l)) {
                 $this->salesHistoryDetailsScheduledForDeletion->remove($this->salesHistoryDetailsScheduledForDeletion->search($l));
             }
         }
@@ -18425,7 +18118,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->salesHistoryDetailsScheduledForDeletion->clear();
             }
             $this->salesHistoryDetailsScheduledForDeletion[]= clone $salesHistoryDetail;
-            $salesHistoryDetail->setItemMasterItem(null);
+            $salesHistoryDetail->setItemMasterItem();
         }
 
         return $this;
@@ -18475,8 +18168,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesOrderDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesOrderDetails($v = true): void
     {
@@ -18492,8 +18183,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesOrderDetails(bool $overrideExisting = true): void
     {
@@ -18525,7 +18214,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getSalesOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesOrderDetails) {
@@ -18543,7 +18232,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesOrderDetailsPartial && count($collSalesOrderDetails)) {
                         $this->initSalesOrderDetails(false);
 
@@ -18594,7 +18283,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->salesOrderDetailsScheduledForDeletion = $salesOrderDetailsToDelete;
 
         foreach ($salesOrderDetailsToDelete as $salesOrderDetailRemoved) {
-            $salesOrderDetailRemoved->setItemMasterItem(null);
+            $salesOrderDetailRemoved->setItemMasterItem();
         }
 
         $this->collSalesOrderDetails = null;
@@ -18612,7 +18301,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related SalesOrderDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesOrderDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -18620,7 +18308,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countSalesOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesOrderDetails) {
                 return 0;
             }
@@ -18659,7 +18347,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collSalesOrderDetails->contains($l)) {
             $this->doAddSalesOrderDetail($l);
 
-            if ($this->salesOrderDetailsScheduledForDeletion and $this->salesOrderDetailsScheduledForDeletion->contains($l)) {
+            if ($this->salesOrderDetailsScheduledForDeletion && $this->salesOrderDetailsScheduledForDeletion->contains($l)) {
                 $this->salesOrderDetailsScheduledForDeletion->remove($this->salesOrderDetailsScheduledForDeletion->search($l));
             }
         }
@@ -18690,7 +18378,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->salesOrderDetailsScheduledForDeletion->clear();
             }
             $this->salesOrderDetailsScheduledForDeletion[]= clone $salesOrderDetail;
-            $salesOrderDetail->setItemMasterItem(null);
+            $salesOrderDetail->setItemMasterItem();
         }
 
         return $this;
@@ -18740,8 +18428,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesOrderLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesOrderLotserials($v = true): void
     {
@@ -18757,8 +18443,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesOrderLotserials(bool $overrideExisting = true): void
     {
@@ -18790,7 +18474,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getSalesOrderLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesOrderLotserials) {
@@ -18808,7 +18492,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesOrderLotserialsPartial && count($collSalesOrderLotserials)) {
                         $this->initSalesOrderLotserials(false);
 
@@ -18862,7 +18546,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->salesOrderLotserialsScheduledForDeletion = clone $salesOrderLotserialsToDelete;
 
         foreach ($salesOrderLotserialsToDelete as $salesOrderLotserialRemoved) {
-            $salesOrderLotserialRemoved->setItemMasterItem(null);
+            $salesOrderLotserialRemoved->setItemMasterItem();
         }
 
         $this->collSalesOrderLotserials = null;
@@ -18880,7 +18564,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related SalesOrderLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesOrderLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -18888,7 +18571,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countSalesOrderLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesOrderLotserials) {
                 return 0;
             }
@@ -18927,7 +18610,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collSalesOrderLotserials->contains($l)) {
             $this->doAddSalesOrderLotserial($l);
 
-            if ($this->salesOrderLotserialsScheduledForDeletion and $this->salesOrderLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->salesOrderLotserialsScheduledForDeletion && $this->salesOrderLotserialsScheduledForDeletion->contains($l)) {
                 $this->salesOrderLotserialsScheduledForDeletion->remove($this->salesOrderLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -18958,7 +18641,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->salesOrderLotserialsScheduledForDeletion->clear();
             }
             $this->salesOrderLotserialsScheduledForDeletion[]= clone $salesOrderLotserial;
-            $salesOrderLotserial->setItemMasterItem(null);
+            $salesOrderLotserial->setItemMasterItem();
         }
 
         return $this;
@@ -19034,8 +18717,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesHistoryLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesHistoryLotserials($v = true): void
     {
@@ -19051,8 +18732,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesHistoryLotserials(bool $overrideExisting = true): void
     {
@@ -19084,7 +18763,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getSalesHistoryLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesHistoryLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesHistoryLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSalesHistoryLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesHistoryLotserials) {
@@ -19102,7 +18781,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesHistoryLotserialsPartial && count($collSalesHistoryLotserials)) {
                         $this->initSalesHistoryLotserials(false);
 
@@ -19156,7 +18835,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->salesHistoryLotserialsScheduledForDeletion = clone $salesHistoryLotserialsToDelete;
 
         foreach ($salesHistoryLotserialsToDelete as $salesHistoryLotserialRemoved) {
-            $salesHistoryLotserialRemoved->setItemMasterItem(null);
+            $salesHistoryLotserialRemoved->setItemMasterItem();
         }
 
         $this->collSalesHistoryLotserials = null;
@@ -19174,7 +18853,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related SalesHistoryLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesHistoryLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -19182,7 +18860,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countSalesHistoryLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesHistoryLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesHistoryLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSalesHistoryLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesHistoryLotserials) {
                 return 0;
             }
@@ -19221,7 +18899,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collSalesHistoryLotserials->contains($l)) {
             $this->doAddSalesHistoryLotserial($l);
 
-            if ($this->salesHistoryLotserialsScheduledForDeletion and $this->salesHistoryLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->salesHistoryLotserialsScheduledForDeletion && $this->salesHistoryLotserialsScheduledForDeletion->contains($l)) {
                 $this->salesHistoryLotserialsScheduledForDeletion->remove($this->salesHistoryLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -19252,7 +18930,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->salesHistoryLotserialsScheduledForDeletion->clear();
             }
             $this->salesHistoryLotserialsScheduledForDeletion[]= clone $salesHistoryLotserial;
-            $salesHistoryLotserial->setItemMasterItem(null);
+            $salesHistoryLotserial->setItemMasterItem();
         }
 
         return $this;
@@ -19328,8 +19006,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collSoAllocatedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSoAllocatedLotserials($v = true): void
     {
@@ -19345,8 +19021,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSoAllocatedLotserials(bool $overrideExisting = true): void
     {
@@ -19378,7 +19052,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getSoAllocatedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSoAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSoAllocatedLotserials) {
@@ -19396,7 +19070,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSoAllocatedLotserialsPartial && count($collSoAllocatedLotserials)) {
                         $this->initSoAllocatedLotserials(false);
 
@@ -19450,7 +19124,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->soAllocatedLotserialsScheduledForDeletion = clone $soAllocatedLotserialsToDelete;
 
         foreach ($soAllocatedLotserialsToDelete as $soAllocatedLotserialRemoved) {
-            $soAllocatedLotserialRemoved->setItemMasterItem(null);
+            $soAllocatedLotserialRemoved->setItemMasterItem();
         }
 
         $this->collSoAllocatedLotserials = null;
@@ -19468,7 +19142,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related SoAllocatedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SoAllocatedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -19476,7 +19149,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countSoAllocatedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSoAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSoAllocatedLotserials) {
                 return 0;
             }
@@ -19515,7 +19188,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collSoAllocatedLotserials->contains($l)) {
             $this->doAddSoAllocatedLotserial($l);
 
-            if ($this->soAllocatedLotserialsScheduledForDeletion and $this->soAllocatedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->soAllocatedLotserialsScheduledForDeletion && $this->soAllocatedLotserialsScheduledForDeletion->contains($l)) {
                 $this->soAllocatedLotserialsScheduledForDeletion->remove($this->soAllocatedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -19546,7 +19219,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->soAllocatedLotserialsScheduledForDeletion->clear();
             }
             $this->soAllocatedLotserialsScheduledForDeletion[]= clone $soAllocatedLotserial;
-            $soAllocatedLotserial->setItemMasterItem(null);
+            $soAllocatedLotserial->setItemMasterItem();
         }
 
         return $this;
@@ -19648,8 +19321,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemPricingDiscounts collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemPricingDiscounts($v = true): void
     {
@@ -19665,8 +19336,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemPricingDiscounts(bool $overrideExisting = true): void
     {
@@ -19698,7 +19367,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemPricingDiscounts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemPricingDiscountsPartial && !$this->isNew();
-        if (null === $this->collItemPricingDiscounts || null !== $criteria || $partial) {
+        if (null === $this->collItemPricingDiscounts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemPricingDiscounts) {
@@ -19716,7 +19385,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemPricingDiscountsPartial && count($collItemPricingDiscounts)) {
                         $this->initItemPricingDiscounts(false);
 
@@ -19770,7 +19439,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemPricingDiscountsScheduledForDeletion = clone $itemPricingDiscountsToDelete;
 
         foreach ($itemPricingDiscountsToDelete as $itemPricingDiscountRemoved) {
-            $itemPricingDiscountRemoved->setItemMasterItem(null);
+            $itemPricingDiscountRemoved->setItemMasterItem();
         }
 
         $this->collItemPricingDiscounts = null;
@@ -19788,7 +19457,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemPricingDiscount objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemPricingDiscount objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -19796,7 +19464,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemPricingDiscounts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemPricingDiscountsPartial && !$this->isNew();
-        if (null === $this->collItemPricingDiscounts || null !== $criteria || $partial) {
+        if (null === $this->collItemPricingDiscounts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemPricingDiscounts) {
                 return 0;
             }
@@ -19835,7 +19503,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemPricingDiscounts->contains($l)) {
             $this->doAddItemPricingDiscount($l);
 
-            if ($this->itemPricingDiscountsScheduledForDeletion and $this->itemPricingDiscountsScheduledForDeletion->contains($l)) {
+            if ($this->itemPricingDiscountsScheduledForDeletion && $this->itemPricingDiscountsScheduledForDeletion->contains($l)) {
                 $this->itemPricingDiscountsScheduledForDeletion->remove($this->itemPricingDiscountsScheduledForDeletion->search($l));
             }
         }
@@ -19866,7 +19534,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemPricingDiscountsScheduledForDeletion->clear();
             }
             $this->itemPricingDiscountsScheduledForDeletion[]= clone $itemPricingDiscount;
-            $itemPricingDiscount->setItemMasterItem(null);
+            $itemPricingDiscount->setItemMasterItem();
         }
 
         return $this;
@@ -19916,8 +19584,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collSoPickedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSoPickedLotserials($v = true): void
     {
@@ -19933,8 +19599,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSoPickedLotserials(bool $overrideExisting = true): void
     {
@@ -19966,7 +19630,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getSoPickedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSoPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSoPickedLotserials) {
@@ -19984,7 +19648,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSoPickedLotserialsPartial && count($collSoPickedLotserials)) {
                         $this->initSoPickedLotserials(false);
 
@@ -20038,7 +19702,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->soPickedLotserialsScheduledForDeletion = clone $soPickedLotserialsToDelete;
 
         foreach ($soPickedLotserialsToDelete as $soPickedLotserialRemoved) {
-            $soPickedLotserialRemoved->setItemMasterItem(null);
+            $soPickedLotserialRemoved->setItemMasterItem();
         }
 
         $this->collSoPickedLotserials = null;
@@ -20056,7 +19720,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related SoPickedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SoPickedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -20064,7 +19727,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countSoPickedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSoPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSoPickedLotserials) {
                 return 0;
             }
@@ -20103,7 +19766,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collSoPickedLotserials->contains($l)) {
             $this->doAddSoPickedLotserial($l);
 
-            if ($this->soPickedLotserialsScheduledForDeletion and $this->soPickedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->soPickedLotserialsScheduledForDeletion && $this->soPickedLotserialsScheduledForDeletion->contains($l)) {
                 $this->soPickedLotserialsScheduledForDeletion->remove($this->soPickedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -20134,7 +19797,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->soPickedLotserialsScheduledForDeletion->clear();
             }
             $this->soPickedLotserialsScheduledForDeletion[]= clone $soPickedLotserial;
-            $soPickedLotserial->setItemMasterItem(null);
+            $soPickedLotserial->setItemMasterItem();
         }
 
         return $this;
@@ -20236,8 +19899,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collSoStandingOrderDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSoStandingOrderDetails($v = true): void
     {
@@ -20253,8 +19914,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSoStandingOrderDetails(bool $overrideExisting = true): void
     {
@@ -20286,7 +19945,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getSoStandingOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSoStandingOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSoStandingOrderDetails) {
@@ -20304,7 +19963,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSoStandingOrderDetailsPartial && count($collSoStandingOrderDetails)) {
                         $this->initSoStandingOrderDetails(false);
 
@@ -20358,7 +20017,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->soStandingOrderDetailsScheduledForDeletion = clone $soStandingOrderDetailsToDelete;
 
         foreach ($soStandingOrderDetailsToDelete as $soStandingOrderDetailRemoved) {
-            $soStandingOrderDetailRemoved->setItemMasterItem(null);
+            $soStandingOrderDetailRemoved->setItemMasterItem();
         }
 
         $this->collSoStandingOrderDetails = null;
@@ -20376,7 +20035,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related SoStandingOrderDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SoStandingOrderDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -20384,7 +20042,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countSoStandingOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSoStandingOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSoStandingOrderDetails) {
                 return 0;
             }
@@ -20423,7 +20081,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collSoStandingOrderDetails->contains($l)) {
             $this->doAddSoStandingOrderDetail($l);
 
-            if ($this->soStandingOrderDetailsScheduledForDeletion and $this->soStandingOrderDetailsScheduledForDeletion->contains($l)) {
+            if ($this->soStandingOrderDetailsScheduledForDeletion && $this->soStandingOrderDetailsScheduledForDeletion->contains($l)) {
                 $this->soStandingOrderDetailsScheduledForDeletion->remove($this->soStandingOrderDetailsScheduledForDeletion->search($l));
             }
         }
@@ -20454,7 +20112,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->soStandingOrderDetailsScheduledForDeletion->clear();
             }
             $this->soStandingOrderDetailsScheduledForDeletion[]= clone $soStandingOrderDetail;
-            $soStandingOrderDetail->setItemMasterItem(null);
+            $soStandingOrderDetail->setItemMasterItem();
         }
 
         return $this;
@@ -20530,8 +20188,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefUpcs collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefUpcs($v = true): void
     {
@@ -20547,8 +20203,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefUpcs(bool $overrideExisting = true): void
     {
@@ -20580,7 +20234,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemXrefUpcs(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefUpcsPartial && !$this->isNew();
-        if (null === $this->collItemXrefUpcs || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefUpcs || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefUpcs) {
@@ -20598,7 +20252,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefUpcsPartial && count($collItemXrefUpcs)) {
                         $this->initItemXrefUpcs(false);
 
@@ -20652,7 +20306,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemXrefUpcsScheduledForDeletion = clone $itemXrefUpcsToDelete;
 
         foreach ($itemXrefUpcsToDelete as $itemXrefUpcRemoved) {
-            $itemXrefUpcRemoved->setItemMasterItem(null);
+            $itemXrefUpcRemoved->setItemMasterItem();
         }
 
         $this->collItemXrefUpcs = null;
@@ -20670,7 +20324,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemXrefUpc objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefUpc objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -20678,7 +20331,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemXrefUpcs(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefUpcsPartial && !$this->isNew();
-        if (null === $this->collItemXrefUpcs || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefUpcs || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefUpcs) {
                 return 0;
             }
@@ -20717,7 +20370,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemXrefUpcs->contains($l)) {
             $this->doAddItemXrefUpc($l);
 
-            if ($this->itemXrefUpcsScheduledForDeletion and $this->itemXrefUpcsScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefUpcsScheduledForDeletion && $this->itemXrefUpcsScheduledForDeletion->contains($l)) {
                 $this->itemXrefUpcsScheduledForDeletion->remove($this->itemXrefUpcsScheduledForDeletion->search($l));
             }
         }
@@ -20748,7 +20401,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemXrefUpcsScheduledForDeletion->clear();
             }
             $this->itemXrefUpcsScheduledForDeletion[]= clone $itemXrefUpc;
-            $itemXrefUpc->setItemMasterItem(null);
+            $itemXrefUpc->setItemMasterItem();
         }
 
         return $this;
@@ -20772,8 +20425,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Reset is the collItemXrefVendors collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialItemXrefVendors($v = true): void
     {
@@ -20789,8 +20440,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initItemXrefVendors(bool $overrideExisting = true): void
     {
@@ -20822,7 +20471,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getItemXrefVendors(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendors || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendors || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collItemXrefVendors) {
@@ -20840,7 +20489,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collItemXrefVendorsPartial && count($collItemXrefVendors)) {
                         $this->initItemXrefVendors(false);
 
@@ -20894,7 +20543,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->itemXrefVendorsScheduledForDeletion = clone $itemXrefVendorsToDelete;
 
         foreach ($itemXrefVendorsToDelete as $itemXrefVendorRemoved) {
-            $itemXrefVendorRemoved->setItemMasterItem(null);
+            $itemXrefVendorRemoved->setItemMasterItem();
         }
 
         $this->collItemXrefVendors = null;
@@ -20912,7 +20561,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Returns the number of related ItemXrefVendor objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ItemXrefVendor objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -20920,7 +20568,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function countItemXrefVendors(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendors || null !== $criteria || $partial) {
+        if (null === $this->collItemXrefVendors || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collItemXrefVendors) {
                 return 0;
             }
@@ -20959,7 +20607,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collItemXrefVendors->contains($l)) {
             $this->doAddItemXrefVendor($l);
 
-            if ($this->itemXrefVendorsScheduledForDeletion and $this->itemXrefVendorsScheduledForDeletion->contains($l)) {
+            if ($this->itemXrefVendorsScheduledForDeletion && $this->itemXrefVendorsScheduledForDeletion->contains($l)) {
                 $this->itemXrefVendorsScheduledForDeletion->remove($this->itemXrefVendorsScheduledForDeletion->search($l));
             }
         }
@@ -20990,7 +20638,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemXrefVendorsScheduledForDeletion->clear();
             }
             $this->itemXrefVendorsScheduledForDeletion[]= clone $itemXrefVendor;
-            $itemXrefVendor->setItemMasterItem(null);
+            $itemXrefVendor->setItemMasterItem();
         }
 
         return $this;
@@ -21470,13 +21118,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ItemMasterItemTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ItemMasterItemTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -21485,8 +21131,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -21494,8 +21138,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -21504,8 +21146,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -21513,8 +21153,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -21523,8 +21161,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -21532,8 +21168,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -21542,8 +21176,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -21563,7 +21195,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -21575,7 +21207,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -21583,7 +21215,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

@@ -18,7 +18,7 @@ class QuoteNotes extends BaseQuoteNotes {
 
 	const KEY2_LINENBR_SIZE = 4;
 
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'qnbr'            => 'qthdid',
 		'quotenbr'        => 'qthdid',
 		'quoteid'         => 'qthdid',
@@ -40,7 +40,7 @@ class QuoteNotes extends BaseQuoteNotes {
 		'description'     => 'qntypedesc',
 		'date'            => 'dateupdtd',
 		'time'            => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Returns a generated Key2

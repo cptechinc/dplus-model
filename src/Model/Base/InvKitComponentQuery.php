@@ -128,7 +128,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvKitComponentQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvKitComponentQuery object.
@@ -186,7 +186,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvKitComponentTableMap::DATABASE_NAME);
         }
 
@@ -233,7 +233,6 @@ abstract class InvKitComponentQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvKitComponent $obj */
             $obj = new ChildInvKitComponent();
             $obj->hydrate($row);
             InvKitComponentTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -274,7 +273,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -342,10 +341,8 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function filterByKtdtkey1($ktdtkey1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ktdtkey1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ktdtkey1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvKitComponentTableMap::COL_KTDTKEY1, $ktdtkey1, $comparison);
@@ -370,10 +367,8 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvKitComponentTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -398,10 +393,8 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function filterByKtdtuom($ktdtuom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ktdtuom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ktdtuom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvKitComponentTableMap::COL_KTDTUOM, $ktdtuom, $comparison);
@@ -469,10 +462,8 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function filterByKtdtvendsupply($ktdtvendsupply = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ktdtvendsupply)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ktdtvendsupply)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvKitComponentTableMap::COL_KTDTVENDSUPPLY, $ktdtvendsupply, $comparison);
@@ -497,10 +488,8 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function filterByKtdtfreegoods($ktdtfreegoods = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ktdtfreegoods)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ktdtfreegoods)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvKitComponentTableMap::COL_KTDTFREEGOODS, $ktdtfreegoods, $comparison);
@@ -525,10 +514,8 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function filterByKtdtUsagTag($ktdtUsagTag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ktdtUsagTag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ktdtUsagTag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvKitComponentTableMap::COL_KTDTUSAGTAG, $ktdtUsagTag, $comparison);
@@ -553,10 +540,8 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvKitComponentTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -581,10 +566,8 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvKitComponentTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -609,10 +592,8 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvKitComponentTableMap::COL_DUMMY, $dummy, $comparison);
@@ -666,7 +647,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -696,7 +677,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -841,7 +822,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -871,7 +852,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
     {
         return $this
             ->joinInvKit($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvKit', '\InvKitQuery');
+            ->useQuery($relationAlias ?: 'InvKit', '\InvKitQuery');
     }
 
     /**
@@ -982,7 +963,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
         if ($invKitComponent) {
             $this->addCond('pruneCond0', $this->getAliasedColName(InvKitComponentTableMap::COL_KTDTKEY1), $invKitComponent->getKtdtkey1(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvKitComponentTableMap::COL_INITITEMNBR), $invKitComponent->getInititemnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -996,7 +977,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvKitComponentTableMap::DATABASE_NAME);
         }
 
@@ -1026,7 +1007,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvKitComponentTableMap::DATABASE_NAME);
         }
 

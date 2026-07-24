@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\PurchaseOrderDetailReceipt as BasePurchaseOrderDetailReceipt;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class PurchaseOrderDetailReceipt extends BasePurchaseOrderDetailReceipt {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ponbr'           => 'pohdnbr',
 		'linenbr'         => 'podtline',
 		'itemid'          => 'inititemnbr',
@@ -26,5 +28,5 @@ class PurchaseOrderDetailReceipt extends BasePurchaseOrderDetailReceipt {
 		'qty_received'    => 'pordqtyrec',
 		'qtyReceived'     => 'pordqtyrec',
 		'date_transfered' => 'pordtrandate'
-	);
+	];
 }

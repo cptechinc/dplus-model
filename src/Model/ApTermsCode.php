@@ -38,7 +38,7 @@ class ApTermsCode extends BaseApTermsCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'            => 'aptmtermcode',
 		'code'          => 'aptmtermcode',
 		'description'   => 'aptmtermdesc',
@@ -46,7 +46,7 @@ class ApTermsCode extends BaseApTermsCode {
 		'expiredate'    => 'aptmexpiredate',
 		'date'		    => 'dateupdtd',
 		'time'		    => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return if Index Exists for STD Split
@@ -266,6 +266,7 @@ class ApTermsCode extends BaseApTermsCode {
 		$this->setStd_plus_months($index, '');
 		$this->setStd_due_date($index, '');
 		$this->setStd_plus_years($index, '');
+        return null;
 	}
 
 	public function emptyStdDiscFields($index) {
@@ -361,5 +362,6 @@ class ApTermsCode extends BaseApTermsCode {
 		$this->setEom_disc_months($index, '');
 		$this->setEom_due_day($index, '');
 		$this->setEom_plus_months($index, '');
+        return null;
 	}
 }

@@ -300,7 +300,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemXrefVendorQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemXrefVendorQuery object.
@@ -358,7 +358,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemXrefVendorTableMap::DATABASE_NAME);
         }
 
@@ -406,7 +406,6 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemXrefVendor $obj */
             $obj = new ChildItemXrefVendor();
             $obj->hydrate($row);
             ItemXrefVendorTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
@@ -447,7 +446,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -518,10 +517,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apvevendid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apvevendid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_APVEVENDID, $apvevendid, $comparison);
@@ -546,10 +543,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByVexrvenditemnbr($vexrvenditemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vexrvenditemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vexrvenditemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR, $vexrvenditemnbr, $comparison);
@@ -574,10 +569,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -602,10 +595,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByVexrpoordercode($vexrpoordercode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vexrpoordercode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vexrpoordercode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRPOORDERCODE, $vexrpoordercode, $comparison);
@@ -630,10 +621,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByVexroption1($vexroption1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vexroption1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vexroption1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXROPTION1, $vexroption1, $comparison);
@@ -658,10 +647,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByIntbuompur($intbuompur = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuompur)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuompur)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
@@ -729,10 +716,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByVexrprtkitdet($vexrprtkitdet = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vexrprtkitdet)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vexrprtkitdet)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRPRTKITDET, $vexrprtkitdet, $comparison);
@@ -886,10 +871,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByVexrcostlastdate($vexrcostlastdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vexrcostlastdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vexrcostlastdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRCOSTLASTDATE, $vexrcostlastdate, $comparison);
@@ -1774,10 +1757,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByVexraprvcode($vexraprvcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($vexraprvcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($vexraprvcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRAPRVCODE, $vexraprvcode, $comparison);
@@ -1845,10 +1826,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1873,10 +1852,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1901,10 +1878,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefVendorTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1958,7 +1933,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1988,7 +1963,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     {
         return $this
             ->joinVendor($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+            ->useQuery($relationAlias ?: 'Vendor', '\VendorQuery');
     }
 
     /**
@@ -2133,7 +2108,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2163,7 +2138,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -2308,7 +2283,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2338,7 +2313,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     {
         return $this
             ->joinUnitofMeasurePurchase($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'UnitofMeasurePurchase', '\UnitofMeasurePurchaseQuery');
+            ->useQuery($relationAlias ?: 'UnitofMeasurePurchase', '\UnitofMeasurePurchaseQuery');
     }
 
     /**
@@ -2450,7 +2425,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             $this->addCond('pruneCond0', $this->getAliasedColName(ItemXrefVendorTableMap::COL_APVEVENDID), $itemXrefVendor->getApvevendid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR), $itemXrefVendor->getVexrvenditemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(ItemXrefVendorTableMap::COL_INITITEMNBR), $itemXrefVendor->getInititemnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2464,7 +2439,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorTableMap::DATABASE_NAME);
         }
 
@@ -2494,7 +2469,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorTableMap::DATABASE_NAME);
         }
 

@@ -27,7 +27,7 @@ class ArTermsCode extends BaseArTermsCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'			   => 'artmtermcd',
 		'code'			   => 'artmtermcd',
 		'description'	   => 'artmtermdesc',
@@ -45,7 +45,7 @@ class ArTermsCode extends BaseArTermsCode {
 		'termsgroup'	   => 'artmtermgrup',
 		'date'			   => 'dateupdtd',
 		'time'			   => 'timeupdtd'
-	);
+	];
 
 	const BASECOL_STD_ORDER_PERCENT 	= 'artmorderpct';
 	const BASECOL_STD_DISCOUNT_PERCENT	= 'artmdiscpct';
@@ -302,6 +302,7 @@ class ArTermsCode extends BaseArTermsCode {
 		$this->set_eom_disc_months($index, '');
 		$this->set_eom_due_day($index, '');
 		$this->set_eom_plus_months($index, '');
+        return null;
 	}
 
 	public function empty_std_split($index) {
@@ -318,6 +319,7 @@ class ArTermsCode extends BaseArTermsCode {
 		$this->set_std_plus_months($index, '');
 		$this->set_std_due_date($index, '');
 		$this->set_std_plus_years($index, '');
+        return null;
 	}
 
 	public function empty_std_discount_fields($index) {

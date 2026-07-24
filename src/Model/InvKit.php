@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvKit as BaseInvKit;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -21,7 +23,7 @@ class InvKit extends BaseInvKit {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'kitid'   => 'inititemnbr',
 		'itemid'  => 'inititemnbr',
 		'date'    => 'dateupdtd',
@@ -29,5 +31,5 @@ class InvKit extends BaseInvKit {
 		// FOREIGN KEY Relationship
 		'item'        => 'itemMasterItem',
 		'components'  => 'invKitComponents'
-	);
+	];
 }

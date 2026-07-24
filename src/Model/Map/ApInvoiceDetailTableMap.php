@@ -422,7 +422,6 @@ class ApInvoiceDetailTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -438,75 +437,73 @@ class ApInvoiceDetailTableMap extends TableMap
         $this->addForeignPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR' , 'ap_invoice_head', 'ApveVendId', true, 6, '');
         $this->addForeignPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR' , 'ap_vend_mast', 'ApveVendId', true, 6, '');
         $this->addForeignPrimaryKey('ApidPayToKey', 'Apidpaytokey', 'VARCHAR' , 'ap_invoice_head', 'ApihPayToKey', true, 180, '');
-        $this->addColumn('ApidPtName', 'Apidptname', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApidPtAdr1', 'Apidptadr1', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApidPtAdr2', 'Apidptadr2', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApidPtAdr3', 'Apidptadr3', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApidPtCtry', 'Apidptctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('ApidPtCity', 'Apidptcity', 'VARCHAR', false, 16, null);
-        $this->addColumn('ApidPtStat', 'Apidptstat', 'VARCHAR', false, 2, null);
-        $this->addColumn('ApidPtZipCode', 'Apidptzipcode', 'VARCHAR', false, 10, null);
+        $this->addColumn('ApidPtName', 'Apidptname', 'VARCHAR', false, 30);
+        $this->addColumn('ApidPtAdr1', 'Apidptadr1', 'VARCHAR', false, 30);
+        $this->addColumn('ApidPtAdr2', 'Apidptadr2', 'VARCHAR', false, 30);
+        $this->addColumn('ApidPtAdr3', 'Apidptadr3', 'VARCHAR', false, 30);
+        $this->addColumn('ApidPtCtry', 'Apidptctry', 'VARCHAR', false, 4);
+        $this->addColumn('ApidPtCity', 'Apidptcity', 'VARCHAR', false, 16);
+        $this->addColumn('ApidPtStat', 'Apidptstat', 'VARCHAR', false, 2);
+        $this->addColumn('ApidPtZipCode', 'Apidptzipcode', 'VARCHAR', false, 10);
         $this->addForeignPrimaryKey('ApidPoNbr', 'Apidponbr', 'VARCHAR' , 'ap_invoice_head', 'ApihPoNbr', true, 8, '');
         $this->addForeignPrimaryKey('ApidCtrlNbr', 'Apidctrlnbr', 'VARCHAR' , 'ap_invoice_head', 'ApihCtrlNbr', true, 8, '');
         $this->addForeignPrimaryKey('ApidInvNbr', 'Apidinvnbr', 'VARCHAR' , 'ap_invoice_head', 'ApihInvNbr', true, 15, '');
         $this->addForeignPrimaryKey('ApidSeq', 'Apidseq', 'INTEGER' , 'ap_invoice_head', 'ApihSeq', true, 4, 0);
         $this->addPrimaryKey('ApidLine', 'Apidline', 'INTEGER', true, 4, 0);
-        $this->addColumn('ApidAmt', 'Apidamt', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApidGlAcct', 'Apidglacct', 'VARCHAR', false, 12, null);
-        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApidQtyRec', 'Apidqtyrec', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApidDesc', 'Apiddesc', 'VARCHAR', false, 35, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('ApidAmt', 'Apidamt', 'DECIMAL', false, 20);
+        $this->addColumn('ApidGlAcct', 'Apidglacct', 'VARCHAR', false, 12);
+        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30);
+        $this->addColumn('ApidQtyRec', 'Apidqtyrec', 'DECIMAL', false, 20);
+        $this->addColumn('ApidDesc', 'Apiddesc', 'VARCHAR', false, 35);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ApidInvNbr',
     1 => ':ApihInvNbr',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
+  ],
   2 =>
-  array (
+   [
     0 => ':ApidPayToKey',
     1 => ':ApihPayToKey',
-  ),
+  ],
   3 =>
-  array (
+   [
     0 => ':ApidPoNbr',
     1 => ':ApihPoNbr',
-  ),
+  ],
   4 =>
-  array (
+   [
     0 => ':ApidCtrlNbr',
     1 => ':ApihCtrlNbr',
-  ),
+  ],
   5 =>
-  array (
+   [
     0 => ':ApidSeq',
     1 => ':ApihSeq',
-  ),
-), null, null, null, false);
-        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, null, false);
+  ],
+], null, null, null, false);
     }
 
     /**
@@ -519,8 +516,6 @@ class ApInvoiceDetailTableMap extends TableMap
      *
      * @param \ApInvoiceDetail $obj A \ApInvoiceDetail object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(ApInvoiceDetail $obj, ?string $key = null): void
     {
@@ -541,13 +536,11 @@ class ApInvoiceDetailTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ApInvoiceDetail object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \ApInvoiceDetail) {
+            if ($value instanceof \ApInvoiceDetail) {
                 $key = serialize([(null === $value->getApvevendid() || is_scalar($value->getApvevendid()) || is_callable([$value->getApvevendid(), '__toString']) ? (string) $value->getApvevendid() : $value->getApvevendid()), (null === $value->getApidpaytokey() || is_scalar($value->getApidpaytokey()) || is_callable([$value->getApidpaytokey(), '__toString']) ? (string) $value->getApidpaytokey() : $value->getApidpaytokey()), (null === $value->getApidponbr() || is_scalar($value->getApidponbr()) || is_callable([$value->getApidponbr(), '__toString']) ? (string) $value->getApidponbr() : $value->getApidponbr()), (null === $value->getApidctrlnbr() || is_scalar($value->getApidctrlnbr()) || is_callable([$value->getApidctrlnbr(), '__toString']) ? (string) $value->getApidctrlnbr() : $value->getApidctrlnbr()), (null === $value->getApidinvnbr() || is_scalar($value->getApidinvnbr()) || is_callable([$value->getApidinvnbr(), '__toString']) ? (string) $value->getApidinvnbr() : $value->getApidinvnbr()), (null === $value->getApidseq() || is_scalar($value->getApidseq()) || is_callable([$value->getApidseq(), '__toString']) ? (string) $value->getApidseq() : $value->getApidseq()), (null === $value->getApidline() || is_scalar($value->getApidline()) || is_callable([$value->getApidline(), '__toString']) ? (string) $value->getApidline() : $value->getApidline())]);
 
             } elseif (is_array($value) && count($value) === 7) {
@@ -582,11 +575,11 @@ class ApInvoiceDetailTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -603,45 +596,35 @@ class ApInvoiceDetailTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(string) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 1 + $offset
                 : self::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 10 + $offset
                 : self::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 11 + $offset
                 : self::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 12 + $offset
                 : self::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (int) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 13 + $offset
                 : self::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (int) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 14 + $offset
                 : self::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -696,7 +679,6 @@ class ApInvoiceDetailTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -737,7 +719,6 @@ class ApInvoiceDetailTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -802,7 +783,6 @@ class ApInvoiceDetailTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -860,7 +840,6 @@ class ApInvoiceDetailTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -882,7 +861,7 @@ class ApInvoiceDetailTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApInvoiceDetailTableMap::DATABASE_NAME);
         }
 
@@ -896,7 +875,7 @@ class ApInvoiceDetailTableMap extends TableMap
             $criteria = new Criteria(ApInvoiceDetailTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -947,7 +926,7 @@ class ApInvoiceDetailTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApInvoiceDetailTableMap::DATABASE_NAME);
         }
 
@@ -963,9 +942,7 @@ class ApInvoiceDetailTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

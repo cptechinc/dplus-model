@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\UserLastPrintJob as BaseUserLastPrintJob;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,7 +18,7 @@ class UserLastPrintJob extends BaseUserLastPrintJob {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'userid'       => 'usrcid',
 		'functionid'   => 'usprfunction',
 		'printerid'    => 'usprprinter',
@@ -27,5 +29,5 @@ class UserLastPrintJob extends BaseUserLastPrintJob {
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
 		'user'         => 'dplusUser',
-	);
+	];
 }

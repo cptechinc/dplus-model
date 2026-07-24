@@ -128,7 +128,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class PrinterQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\PrinterQuery object.
@@ -186,7 +186,7 @@ abstract class PrinterQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(PrinterTableMap::DATABASE_NAME);
         }
 
@@ -232,7 +232,6 @@ abstract class PrinterQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildPrinter $obj */
             $obj = new ChildPrinter();
             $obj->hydrate($row);
             PrinterTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -273,7 +272,7 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -332,10 +331,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctprinterid($prctprinterid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctprinterid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctprinterid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTPRINTERID, $prctprinterid, $comparison);
@@ -360,10 +357,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctdesc($prctdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTDESC, $prctdesc, $comparison);
@@ -388,10 +383,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctprtrtype($prctprtrtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctprtrtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctprtrtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTPRTRTYPE, $prctprtrtype, $comparison);
@@ -416,10 +409,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrcttypedesc($prcttypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prcttypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prcttypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTTYPEDESC, $prcttypedesc, $comparison);
@@ -444,10 +435,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctform($prctform = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctform)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctform)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTFORM, $prctform, $comparison);
@@ -472,10 +461,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctpitch10($prctpitch10 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctpitch10)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctpitch10)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTPITCH10, $prctpitch10, $comparison);
@@ -500,10 +487,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctpitch12($prctpitch12 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctpitch12)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctpitch12)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTPITCH12, $prctpitch12, $comparison);
@@ -528,10 +513,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctpitch17($prctpitch17 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctpitch17)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctpitch17)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTPITCH17, $prctpitch17, $comparison);
@@ -556,10 +539,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctwhse($prctwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTWHSE, $prctwhse, $comparison);
@@ -584,10 +565,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctselectlist($prctselectlist = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctselectlist)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctselectlist)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTSELECTLIST, $prctselectlist, $comparison);
@@ -612,10 +591,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByPrctassgndcart($prctassgndcart = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($prctassgndcart)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($prctassgndcart)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_PRCTASSGNDCART, $prctassgndcart, $comparison);
@@ -640,10 +617,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -668,10 +643,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -696,10 +669,8 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PrinterTableMap::COL_DUMMY, $dummy, $comparison);
@@ -731,7 +702,7 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PrinterTableMap::DATABASE_NAME);
         }
 
@@ -761,7 +732,7 @@ abstract class PrinterQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PrinterTableMap::DATABASE_NAME);
         }
 

@@ -226,7 +226,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvGroupCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvGroupCodeQuery object.
@@ -284,7 +284,7 @@ abstract class InvGroupCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvGroupCodeTableMap::DATABASE_NAME);
         }
 
@@ -330,7 +330,6 @@ abstract class InvGroupCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvGroupCode $obj */
             $obj = new ChildInvGroupCode();
             $obj->hydrate($row);
             InvGroupCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -371,7 +370,7 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -430,10 +429,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrup($intbgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUP, $intbgrup, $comparison);
@@ -458,10 +455,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupdesc($intbgrupdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPDESC, $intbgrupdesc, $comparison);
@@ -486,10 +481,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupsaleacct($intbgrupsaleacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupsaleacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupsaleacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSALEACCT, $intbgrupsaleacct, $comparison);
@@ -514,10 +507,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupivtyacct($intbgrupivtyacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupivtyacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupivtyacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPIVTYACCT, $intbgrupivtyacct, $comparison);
@@ -542,10 +533,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupcogsacct($intbgrupcogsacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupcogsacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupcogsacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPCOGSACCT, $intbgrupcogsacct, $comparison);
@@ -570,10 +559,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupcredacct($intbgrupcredacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupcredacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupcredacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPCREDACCT, $intbgrupcredacct, $comparison);
@@ -598,10 +585,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupwebgrup($intbgrupwebgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupwebgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupwebgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPWEBGRUP, $intbgrupwebgrup, $comparison);
@@ -626,10 +611,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupdropacct($intbgrupdropacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupdropacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupdropacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPDROPACCT, $intbgrupdropacct, $comparison);
@@ -654,10 +637,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupsaleprog($intbgrupsaleprog = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupsaleprog)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupsaleprog)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSALEPROG, $intbgrupsaleprog, $comparison);
@@ -725,10 +706,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupcoop($intbgrupcoop = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupcoop)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupcoop)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPCOOP, $intbgrupcoop, $comparison);
@@ -753,10 +732,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupusesurchg($intbgrupusesurchg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupusesurchg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupusesurchg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPUSESURCHG, $intbgrupusesurchg, $comparison);
@@ -781,10 +758,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupsurchgdollorpct($intbgrupsurchgdollorpct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupsurchgdollorpct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupsurchgdollorpct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT, $intbgrupsurchgdollorpct, $comparison);
@@ -895,10 +870,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupfrtgrup($intbgrupfrtgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupfrtgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupfrtgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPFRTGRUP, $intbgrupfrtgrup, $comparison);
@@ -923,10 +896,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupprodline($intbgrupprodline = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupprodline)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupprodline)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPPRODLINE, $intbgrupprodline, $comparison);
@@ -951,10 +922,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgruplmecommdesc($intbgruplmecommdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgruplmecommdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgruplmecommdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC, $intbgruplmecommdesc, $comparison);
@@ -1108,10 +1077,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupacdisc1($intbgrupacdisc1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupacdisc1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupacdisc1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPACDISC1, $intbgrupacdisc1, $comparison);
@@ -1136,10 +1103,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupacdisc2($intbgrupacdisc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupacdisc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupacdisc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPACDISC2, $intbgrupacdisc2, $comparison);
@@ -1164,10 +1129,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupacdisc3($intbgrupacdisc3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupacdisc3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupacdisc3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPACDISC3, $intbgrupacdisc3, $comparison);
@@ -1192,10 +1155,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByIntbgrupacdisc4($intbgrupacdisc4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbgrupacdisc4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbgrupacdisc4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPACDISC4, $intbgrupacdisc4, $comparison);
@@ -1220,10 +1181,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1248,10 +1207,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1276,10 +1233,8 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvGroupCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1331,7 +1286,7 @@ abstract class InvGroupCodeQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1361,7 +1316,7 @@ abstract class InvGroupCodeQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1484,7 +1439,7 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvGroupCodeTableMap::DATABASE_NAME);
         }
 
@@ -1514,7 +1469,7 @@ abstract class InvGroupCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvGroupCodeTableMap::DATABASE_NAME);
         }
 

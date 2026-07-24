@@ -22,7 +22,7 @@ class ItemRevisionNote extends BaseItemRevisionNote {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'         => 'ItemNoteType',
 		'description'  => 'ItemNoteTypeDesc',
 		'itemid'       => 'inititemnbr',
@@ -36,7 +36,7 @@ class ItemRevisionNote extends BaseItemRevisionNote {
 		'key2'         => 'itemnotekey2',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Sets generated Key2

@@ -110,7 +110,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class CustomerShipBolNotesQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\CustomerShipBolNotesQuery object.
@@ -168,7 +168,7 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CustomerShipBolNotesTableMap::DATABASE_NAME);
         }
 
@@ -217,7 +217,6 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCustomerShipBolNotes $obj */
             $obj = new ChildCustomerShipBolNotes();
             $obj->hydrate($row);
             CustomerShipBolNotesTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -258,7 +257,7 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -332,10 +331,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByQntype($qntype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qntype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qntype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNTYPE, $qntype, $comparison);
@@ -360,10 +357,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qntypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qntypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
@@ -388,10 +383,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -416,10 +409,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
@@ -487,10 +478,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnnote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnnote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNNOTE, $qnnote, $comparison);
@@ -515,10 +504,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnkey2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnkey2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNKEY2, $qnkey2, $comparison);
@@ -543,10 +530,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByQnform($qnform = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnform)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnform)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNFORM, $qnform, $comparison);
@@ -571,10 +556,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -599,10 +582,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -627,10 +608,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_DUMMY, $dummy, $comparison);
@@ -652,7 +631,7 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(CustomerShipBolNotesTableMap::COL_QNSEQ), $customerShipBolNotes->getQnseq(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(CustomerShipBolNotesTableMap::COL_QNKEY2), $customerShipBolNotes->getQnkey2(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(CustomerShipBolNotesTableMap::COL_QNFORM), $customerShipBolNotes->getQnform(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -666,7 +645,7 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShipBolNotesTableMap::DATABASE_NAME);
         }
 
@@ -696,7 +675,7 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShipBolNotesTableMap::DATABASE_NAME);
         }
 

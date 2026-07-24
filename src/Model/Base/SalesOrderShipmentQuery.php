@@ -200,7 +200,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class SalesOrderShipmentQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\SalesOrderShipmentQuery object.
@@ -258,7 +258,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SalesOrderShipmentTableMap::DATABASE_NAME);
         }
 
@@ -305,7 +305,6 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildSalesOrderShipment $obj */
             $obj = new ChildSalesOrderShipment();
             $obj->hydrate($row);
             SalesOrderShipmentTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -346,7 +345,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -590,10 +589,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshservtype($oehshservtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshservtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshservtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHSERVTYPE, $oehshservtype, $comparison);
@@ -618,10 +615,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshshipdate($oehshshipdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshshipdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshshipdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHSHIPDATE, $oehshshipdate, $comparison);
@@ -646,10 +641,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshtracknbr($oehshtracknbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshtracknbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshtracknbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHTRACKNBR, $oehshtracknbr, $comparison);
@@ -674,10 +667,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshbilloflading($oehshbilloflading = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshbilloflading)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshbilloflading)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHBILLOFLADING, $oehshbilloflading, $comparison);
@@ -702,10 +693,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshvesselname($oehshvesselname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshvesselname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshvesselname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHVESSELNAME, $oehshvesselname, $comparison);
@@ -730,10 +719,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshasgdcntrnbr($oehshasgdcntrnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshasgdcntrnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshasgdcntrnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHASGDCNTRNBR, $oehshasgdcntrnbr, $comparison);
@@ -758,10 +745,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshoceancontainer($oehshoceancontainer = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshoceancontainer)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshoceancontainer)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHOCEANCONTAINER, $oehshoceancontainer, $comparison);
@@ -786,10 +771,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshamazonref($oehshamazonref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshamazonref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshamazonref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHAMAZONREF, $oehshamazonref, $comparison);
@@ -814,10 +797,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshsealnumber($oehshsealnumber = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshsealnumber)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshsealnumber)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHSEALNUMBER, $oehshsealnumber, $comparison);
@@ -885,10 +866,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByOehshreported($oehshreported = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshreported)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oehshreported)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHREPORTED, $oehshreported, $comparison);
@@ -1085,10 +1064,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1113,10 +1090,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1141,10 +1116,8 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SalesOrderShipmentTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1198,7 +1171,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1228,7 +1201,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
     {
         return $this
             ->joinSalesOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesOrder', '\SalesOrderQuery');
+            ->useQuery($relationAlias ?: 'SalesOrder', '\SalesOrderQuery');
     }
 
     /**
@@ -1373,7 +1346,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1403,7 +1376,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
     {
         return $this
             ->joinSalesHistory($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesHistory', '\SalesHistoryQuery');
+            ->useQuery($relationAlias ?: 'SalesHistory', '\SalesHistoryQuery');
     }
 
     /**
@@ -1514,7 +1487,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
         if ($salesOrderShipment) {
             $this->addCond('pruneCond0', $this->getAliasedColName(SalesOrderShipmentTableMap::COL_OEHSHNBR), $salesOrderShipment->getOehshnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(SalesOrderShipmentTableMap::COL_OEHSHSEQ), $salesOrderShipment->getOehshseq(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1528,7 +1501,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderShipmentTableMap::DATABASE_NAME);
         }
 
@@ -1558,7 +1531,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderShipmentTableMap::DATABASE_NAME);
         }
 

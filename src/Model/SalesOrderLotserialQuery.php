@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SalesOrderLotserialQuery as BaseSalesOrderLotserialQuery;
 
 use Dplus\Model\QueryTraits;

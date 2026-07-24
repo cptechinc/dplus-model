@@ -357,7 +357,6 @@ class MsaSysopCodeTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -372,28 +371,26 @@ class MsaSysopCodeTableMap extends TableMap
         // columns
         $this->addPrimaryKey('OptnSystem', 'Optnsystem', 'VARCHAR', true, 2, '');
         $this->addPrimaryKey('OptnCode', 'Optncode', 'VARCHAR', true, 8, '');
-        $this->addColumn('OptnDesc', 'Optndesc', 'VARCHAR', false, 20, null);
-        $this->addColumn('OptnValidate', 'Optnvalidate', 'VARCHAR', false, 1, null);
-        $this->addColumn('OptnForce', 'Optnforce', 'VARCHAR', false, 1, null);
-        $this->addColumn('OptnNoteCode', 'Optnnotecode', 'VARCHAR', false, 4, null);
-        $this->addColumn('OptnListSeq', 'Optnlistseq', 'INTEGER', false, 3, null);
-        $this->addColumn('OptnFileName', 'Optnfilename', 'VARCHAR', false, 1, null);
-        $this->addColumn('OptnAdvSrch', 'Optnadvsrch', 'VARCHAR', false, 1, null);
-        $this->addColumn('OptnFieldType', 'Optnfieldtype', 'VARCHAR', false, 1, null);
-        $this->addColumn('OptnDef1B4Dec', 'Optndef1b4dec', 'INTEGER', false, 1, null);
-        $this->addColumn('OptnDef2AftDec', 'Optndef2aftdec', 'INTEGER', false, 1, null);
-        $this->addColumn('OptnDocStorFolder', 'Optndocstorfolder', 'VARCHAR', false, 8, null);
-        $this->addColumn('OptnWebValidate', 'Optnwebvalidate', 'VARCHAR', false, 1, null);
-        $this->addColumn('OptnWebForce', 'Optnwebforce', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('OptnDesc', 'Optndesc', 'VARCHAR', false, 20);
+        $this->addColumn('OptnValidate', 'Optnvalidate', 'VARCHAR', false, 1);
+        $this->addColumn('OptnForce', 'Optnforce', 'VARCHAR', false, 1);
+        $this->addColumn('OptnNoteCode', 'Optnnotecode', 'VARCHAR', false, 4);
+        $this->addColumn('OptnListSeq', 'Optnlistseq', 'INTEGER', false, 3);
+        $this->addColumn('OptnFileName', 'Optnfilename', 'VARCHAR', false, 1);
+        $this->addColumn('OptnAdvSrch', 'Optnadvsrch', 'VARCHAR', false, 1);
+        $this->addColumn('OptnFieldType', 'Optnfieldtype', 'VARCHAR', false, 1);
+        $this->addColumn('OptnDef1B4Dec', 'Optndef1b4dec', 'INTEGER', false, 1);
+        $this->addColumn('OptnDef2AftDec', 'Optndef2aftdec', 'INTEGER', false, 1);
+        $this->addColumn('OptnDocStorFolder', 'Optndocstorfolder', 'VARCHAR', false, 8);
+        $this->addColumn('OptnWebValidate', 'Optnwebvalidate', 'VARCHAR', false, 1);
+        $this->addColumn('OptnWebForce', 'Optnwebforce', 'VARCHAR', false, 1);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
@@ -409,8 +406,6 @@ class MsaSysopCodeTableMap extends TableMap
      *
      * @param \MsaSysopCode $obj A \MsaSysopCode object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(MsaSysopCode $obj, ?string $key = null): void
     {
@@ -431,13 +426,11 @@ class MsaSysopCodeTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \MsaSysopCode object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \MsaSysopCode) {
+            if ($value instanceof \MsaSysopCode) {
                 $key = serialize([(null === $value->getOptnsystem() || is_scalar($value->getOptnsystem()) || is_callable([$value->getOptnsystem(), '__toString']) ? (string) $value->getOptnsystem() : $value->getOptnsystem()), (null === $value->getOptncode() || is_scalar($value->getOptncode()) || is_callable([$value->getOptncode(), '__toString']) ? (string) $value->getOptncode() : $value->getOptncode())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -472,11 +465,11 @@ class MsaSysopCodeTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -493,20 +486,15 @@ class MsaSysopCodeTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(string) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 1 + $offset
                 : self::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -561,7 +549,6 @@ class MsaSysopCodeTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -602,7 +589,6 @@ class MsaSysopCodeTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -657,7 +643,6 @@ class MsaSysopCodeTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -705,7 +690,6 @@ class MsaSysopCodeTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -727,7 +711,7 @@ class MsaSysopCodeTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsaSysopCodeTableMap::DATABASE_NAME);
         }
 
@@ -741,7 +725,7 @@ class MsaSysopCodeTableMap extends TableMap
             $criteria = new Criteria(MsaSysopCodeTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -787,7 +771,7 @@ class MsaSysopCodeTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsaSysopCodeTableMap::DATABASE_NAME);
         }
 
@@ -803,9 +787,7 @@ class MsaSysopCodeTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

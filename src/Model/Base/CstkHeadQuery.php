@@ -152,7 +152,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class CstkHeadQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\CstkHeadQuery object.
@@ -210,7 +210,7 @@ abstract class CstkHeadQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CstkHeadTableMap::DATABASE_NAME);
         }
 
@@ -258,7 +258,6 @@ abstract class CstkHeadQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCstkHead $obj */
             $obj = new ChildCstkHead();
             $obj->hydrate($row);
             CstkHeadTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
@@ -299,7 +298,7 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -370,10 +369,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -398,10 +395,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arstshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
@@ -426,10 +421,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByCskhcell($cskhcell = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhcell)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhcell)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCELL, $cskhcell, $comparison);
@@ -454,10 +447,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByCskhenterdate($cskhenterdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhenterdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhenterdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_CSKHENTERDATE, $cskhenterdate, $comparison);
@@ -482,10 +473,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByCskhconsign($cskhconsign = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhconsign)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhconsign)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGN, $cskhconsign, $comparison);
@@ -510,10 +499,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByCskhreplcnt($cskhreplcnt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhreplcnt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhreplcnt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_CSKHREPLCNT, $cskhreplcnt, $comparison);
@@ -538,10 +525,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByCskhlabelformat($cskhlabelformat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhlabelformat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhlabelformat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_CSKHLABELFORMAT, $cskhlabelformat, $comparison);
@@ -566,10 +551,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByCskhwhse($cskhwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_CSKHWHSE, $cskhwhse, $comparison);
@@ -594,10 +577,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByCskhapproved($cskhapproved = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhapproved)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhapproved)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_CSKHAPPROVED, $cskhapproved, $comparison);
@@ -622,10 +603,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByCskhconsignbinwhse($cskhconsignbinwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhconsignbinwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhconsignbinwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE, $cskhconsignbinwhse, $comparison);
@@ -650,10 +629,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByCskhconsignbincust($cskhconsignbincust = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cskhconsignbincust)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cskhconsignbincust)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGNBINCUST, $cskhconsignbincust, $comparison);
@@ -678,10 +655,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -706,10 +681,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -734,10 +707,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CstkHeadTableMap::COL_DUMMY, $dummy, $comparison);
@@ -791,7 +762,7 @@ abstract class CstkHeadQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -821,7 +792,7 @@ abstract class CstkHeadQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -958,7 +929,7 @@ abstract class CstkHeadQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -988,7 +959,7 @@ abstract class CstkHeadQuery extends ModelCriteria
     {
         return $this
             ->joinCustomerShipto($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CustomerShipto', '\CustomerShiptoQuery');
+            ->useQuery($relationAlias ?: 'CustomerShipto', '\CustomerShiptoQuery');
     }
 
     /**
@@ -1100,7 +1071,7 @@ abstract class CstkHeadQuery extends ModelCriteria
             $this->addCond('pruneCond0', $this->getAliasedColName(CstkHeadTableMap::COL_ARCUCUSTID), $cstkHead->getArcucustid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(CstkHeadTableMap::COL_ARSTSHIPID), $cstkHead->getArstshipid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(CstkHeadTableMap::COL_CSKHCELL), $cstkHead->getCskhcell(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1114,7 +1085,7 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CstkHeadTableMap::DATABASE_NAME);
         }
 
@@ -1144,7 +1115,7 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CstkHeadTableMap::DATABASE_NAME);
         }
 

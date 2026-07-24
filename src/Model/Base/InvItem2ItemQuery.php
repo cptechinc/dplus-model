@@ -104,7 +104,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvItem2ItemQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvItem2ItemQuery object.
@@ -162,7 +162,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvItem2ItemTableMap::DATABASE_NAME);
         }
 
@@ -209,7 +209,6 @@ abstract class InvItem2ItemQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvItem2Item $obj */
             $obj = new ChildInvItem2Item();
             $obj->hydrate($row);
             InvItem2ItemTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -250,7 +249,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -318,10 +317,8 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      */
     public function filterByI2imstritemid($i2imstritemid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($i2imstritemid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($i2imstritemid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvItem2ItemTableMap::COL_I2IMSTRITEMID, $i2imstritemid, $comparison);
@@ -346,10 +343,8 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      */
     public function filterByI2ichilditemid($i2ichilditemid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($i2ichilditemid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($i2ichilditemid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvItem2ItemTableMap::COL_I2ICHILDITEMID, $i2ichilditemid, $comparison);
@@ -374,10 +369,8 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      */
     public function filterByI2isupplywhse($i2isupplywhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($i2isupplywhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($i2isupplywhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvItem2ItemTableMap::COL_I2ISUPPLYWHSE, $i2isupplywhse, $comparison);
@@ -402,10 +395,8 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvItem2ItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -430,10 +421,8 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvItem2ItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -458,10 +447,8 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvItem2ItemTableMap::COL_DUMMY, $dummy, $comparison);
@@ -515,7 +502,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -545,7 +532,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItemRelatedByI2imstritemid($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItemRelatedByI2imstritemid', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItemRelatedByI2imstritemid', '\ItemMasterItemQuery');
     }
 
     /**
@@ -690,7 +677,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -720,7 +707,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItemRelatedByI2ichilditemid($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItemRelatedByI2ichilditemid', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItemRelatedByI2ichilditemid', '\ItemMasterItemQuery');
     }
 
     /**
@@ -831,7 +818,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
         if ($invItem2Item) {
             $this->addCond('pruneCond0', $this->getAliasedColName(InvItem2ItemTableMap::COL_I2IMSTRITEMID), $invItem2Item->getI2imstritemid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvItem2ItemTableMap::COL_I2ICHILDITEMID), $invItem2Item->getI2ichilditemid(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -845,7 +832,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvItem2ItemTableMap::DATABASE_NAME);
         }
 
@@ -875,7 +862,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvItem2ItemTableMap::DATABASE_NAME);
         }
 

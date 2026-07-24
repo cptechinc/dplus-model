@@ -36,7 +36,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\SalesOrderShipmentTableMap';
+    public const TABLE_MAP = \Map\SalesOrderShipmentTableMap::class;
 
 
     /**
@@ -307,7 +307,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -365,7 +365,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -375,7 +374,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -413,8 +411,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -425,7 +421,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -467,9 +462,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -495,7 +488,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1280,13 +1273,8 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -1311,70 +1299,70 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshshiprefnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshshiprefnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshshiprefnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshservtype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshservtype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshservtype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshshipdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshshipdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshshipdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshtracknbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshtracknbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshtracknbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshbilloflading', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshbilloflading', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshbilloflading = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshvesselname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshvesselname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshvesselname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshasgdcntrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshasgdcntrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshasgdcntrnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshoceancontainer', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshoceancontainer', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshoceancontainer = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshamazonref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshamazonref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshamazonref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshsealnumber', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshsealnumber', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshsealnumber = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshnbrcntrs', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshnbrcntrs', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshnbrcntrs = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshreported', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshreported', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshreported = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshcrtnnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshfrtcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshdiscfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshdiscfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshdiscfrtcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshfrtchrged', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshfrtchrged', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshfrtchrged = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1403,7 +1391,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1422,7 +1409,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1435,7 +1421,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SalesOrderShipmentTableMap::DATABASE_NAME);
         }
 
@@ -1461,7 +1447,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see SalesOrderShipment::setDeleted()
      * @see SalesOrderShipment::isDeleted()
@@ -1472,7 +1457,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderShipmentTableMap::DATABASE_NAME);
         }
 
@@ -1511,18 +1496,14 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderShipmentTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1546,7 +1527,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1597,7 +1577,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -1788,7 +1767,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -1814,9 +1792,8 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = SalesOrderShipmentTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -1990,7 +1967,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -2352,18 +2328,13 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getOehshnbr();
-        $pks[1] = $this->getOehshseq();
-
-        return $pks;
+        return [$this->getOehshnbr(), $this->getOehshseq()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -2373,8 +2344,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -2391,7 +2360,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2447,13 +2415,12 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildSalesOrder object.
      *
-     * @param ChildSalesOrder $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setSalesOrder(ChildSalesOrder $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \SalesOrder) {
             $this->setOehshnbr(0);
         } else {
             $this->setOehshnbr($v->getOehdnbr());
@@ -2463,7 +2430,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildSalesOrder object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \SalesOrder) {
             $v->addSalesOrderShipment($this);
         }
 
@@ -2498,13 +2465,12 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildSalesHistory object.
      *
-     * @param ChildSalesHistory $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setSalesHistory(ChildSalesHistory $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \SalesHistory) {
             $this->setOehshnbr(0);
         } else {
             $this->setOehshnbr($v->getOehhnbr());
@@ -2514,7 +2480,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildSalesHistory object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \SalesHistory) {
             $v->addSalesOrderShipment($this);
         }
 
@@ -2604,8 +2570,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aSalesOrder = null;
         $this->aSalesHistory = null;
@@ -2619,13 +2584,11 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(SalesOrderShipmentTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(SalesOrderShipmentTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -2634,8 +2597,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -2643,8 +2604,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -2653,8 +2612,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -2662,8 +2619,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -2672,8 +2627,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -2681,8 +2634,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -2691,8 +2642,6 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -2712,7 +2661,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -2724,7 +2673,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -2732,7 +2681,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

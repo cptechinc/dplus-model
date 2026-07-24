@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ItmDimension as BaseItmDimension;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class ItmDimension extends BaseItmDimension {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'     => 'inititemnbr',
 		'thickness'  => 'indmthick',
 		'length'     => 'indmlength',
@@ -29,5 +31,5 @@ class ItmDimension extends BaseItmDimension {
 
 		// FOREIGN KEY
 		'itm'        => 'itemMasterItem',
-	);
+	];
 }

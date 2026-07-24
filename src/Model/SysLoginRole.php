@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SysLoginRole as BaseSysLoginRole;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,11 +18,11 @@ class SysLoginRole extends BaseSysLoginRole {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'qtblrolecode',
 		'code'         => 'qtblrolecode',
 		'description'  => 'qtblroledesc',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 }

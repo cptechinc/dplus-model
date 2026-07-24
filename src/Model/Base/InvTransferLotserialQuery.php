@@ -260,7 +260,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvTransferLotserialQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvTransferLotserialQuery object.
@@ -318,7 +318,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvTransferLotserialTableMap::DATABASE_NAME);
         }
 
@@ -370,7 +370,6 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvTransferLotserial $obj */
             $obj = new ChildInvTransferLotserial();
             $obj->hydrate($row);
             InvTransferLotserialTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4]), (null === $key[5] || is_scalar($key[5]) || is_callable([$key[5], '__toString']) ? (string) $key[5] : $key[5]), (null === $key[6] || is_scalar($key[6]) || is_callable([$key[6], '__toString']) ? (string) $key[6] : $key[6])]));
@@ -411,7 +410,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -586,10 +585,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -614,10 +611,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdlotser($insdlotser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdlotser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdlotser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDLOTSER, $insdlotser, $comparison);
@@ -642,10 +637,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdbin($insdbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDBIN, $insdbin, $comparison);
@@ -928,10 +921,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdlotserfrom($insdlotserfrom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdlotserfrom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdlotserfrom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDLOTSERFROM, $insdlotserfrom, $comparison);
@@ -956,10 +947,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdbinfrom($insdbinfrom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdbinfrom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdbinfrom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDBINFROM, $insdbinfrom, $comparison);
@@ -1070,10 +1059,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdinspctlvl($insdinspctlvl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdinspctlvl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdinspctlvl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDINSPCTLVL, $insdinspctlvl, $comparison);
@@ -1098,10 +1085,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdlotref($insdlotref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdlotref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdlotref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDLOTREF, $insdlotref, $comparison);
@@ -1169,10 +1154,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsddateshipped($insddateshipped = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insddateshipped)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insddateshipped)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDDATESHIPPED, $insddateshipped, $comparison);
@@ -1197,10 +1180,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdtowhsebin($insdtowhsebin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdtowhsebin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdtowhsebin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDTOWHSEBIN, $insdtowhsebin, $comparison);
@@ -1225,10 +1206,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdlblprtd($insdlblprtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdlblprtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdlblprtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDLBLPRTD, $insdlblprtd, $comparison);
@@ -1253,10 +1232,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdbatch($insdbatch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdbatch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdbatch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDBATCH, $insdbatch, $comparison);
@@ -1281,10 +1258,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdcuredate($insdcuredate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdcuredate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdcuredate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDCUREDATE, $insdcuredate, $comparison);
@@ -1309,10 +1284,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByInsdbinto($insdbinto = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($insdbinto)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($insdbinto)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_INSDBINTO, $insdbinto, $comparison);
@@ -1337,10 +1310,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1365,10 +1336,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1393,10 +1362,8 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvTransferLotserialTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1450,7 +1417,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1480,7 +1447,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1625,7 +1592,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1655,7 +1622,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferOrder($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferOrder', '\InvTransferOrderQuery');
+            ->useQuery($relationAlias ?: 'InvTransferOrder', '\InvTransferOrderQuery');
     }
 
     /**
@@ -1792,7 +1759,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1822,7 +1789,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinInvTransferDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvTransferDetail', '\InvTransferDetailQuery');
+            ->useQuery($relationAlias ?: 'InvTransferDetail', '\InvTransferDetailQuery');
     }
 
     /**
@@ -1959,7 +1926,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1989,7 +1956,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinInvLotMaster($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLotMaster', '\InvLotMasterQuery');
+            ->useQuery($relationAlias ?: 'InvLotMaster', '\InvLotMasterQuery');
     }
 
     /**
@@ -2126,7 +2093,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2156,7 +2123,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
     {
         return $this
             ->joinInvSerialMaster($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvSerialMaster', '\InvSerialMasterQuery');
+            ->useQuery($relationAlias ?: 'InvSerialMaster', '\InvSerialMasterQuery');
     }
 
     /**
@@ -2272,7 +2239,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
             $this->addCond('pruneCond4', $this->getAliasedColName(InvTransferLotserialTableMap::COL_INSDBIN), $invTransferLotserial->getInsdbin(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond5', $this->getAliasedColName(InvTransferLotserialTableMap::COL_INSDPLLTNBR), $invTransferLotserial->getInsdplltnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond6', $this->getAliasedColName(InvTransferLotserialTableMap::COL_INSDCRTNNBR), $invTransferLotserial->getInsdcrtnnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5', 'pruneCond6'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5', 'pruneCond6'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2286,7 +2253,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferLotserialTableMap::DATABASE_NAME);
         }
 
@@ -2316,7 +2283,7 @@ abstract class InvTransferLotserialQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferLotserialTableMap::DATABASE_NAME);
         }
 

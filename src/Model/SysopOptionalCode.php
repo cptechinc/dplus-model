@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SysopOptionalCode as BaseSysopOptionalCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class SysopOptionalCode extends BaseSysopOptionalCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
         'system'       => 'optnsystem',
         'opt_code'     => 'optncode',
         'sysop'        => 'optncode',
@@ -28,7 +30,7 @@ class SysopOptionalCode extends BaseSysopOptionalCode {
 		'description2' => 'optcdesc2',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
     /**
      * Return the Max Number of characters allowed for Code

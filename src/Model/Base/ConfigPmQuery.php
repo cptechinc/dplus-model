@@ -272,7 +272,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigPmQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigPmQuery object.
@@ -330,7 +330,7 @@ abstract class ConfigPmQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigPmTableMap::DATABASE_NAME);
         }
 
@@ -376,7 +376,6 @@ abstract class ConfigPmQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigPm $obj */
             $obj = new ChildConfigPm();
             $obj->hydrate($row);
             ConfigPmTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -417,7 +416,7 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -519,10 +518,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfbasesystem($pmtbconfbasesystem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfbasesystem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfbasesystem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFBASESYSTEM, $pmtbconfbasesystem, $comparison);
@@ -547,10 +544,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfadvancedsystem($pmtbconfadvancedsystem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfadvancedsystem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfadvancedsystem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFADVANCEDSYSTEM, $pmtbconfadvancedsystem, $comparison);
@@ -575,10 +570,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfallowneguse($pmtbconfallowneguse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfallowneguse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfallowneguse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFALLOWNEGUSE, $pmtbconfallowneguse, $comparison);
@@ -603,10 +596,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfscrapunused($pmtbconfscrapunused = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfscrapunused)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfscrapunused)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFSCRAPUNUSED, $pmtbconfscrapunused, $comparison);
@@ -631,10 +622,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfscrapgl($pmtbconfscrapgl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfscrapgl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfscrapgl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFSCRAPGL, $pmtbconfscrapgl, $comparison);
@@ -659,10 +648,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfwarnqtytozero($pmtbconfwarnqtytozero = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfwarnqtytozero)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfwarnqtytozero)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFWARNQTYTOZERO, $pmtbconfwarnqtytozero, $comparison);
@@ -687,10 +674,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfvargl($pmtbconfvargl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfvargl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfvargl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFVARGL, $pmtbconfvargl, $comparison);
@@ -715,10 +700,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfputbincode($pmtbconfputbincode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfputbincode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfputbincode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFPUTBINCODE, $pmtbconfputbincode, $comparison);
@@ -743,10 +726,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfputbindflt($pmtbconfputbindflt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfputbindflt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfputbindflt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFPUTBINDFLT, $pmtbconfputbindflt, $comparison);
@@ -771,10 +752,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfserialbase($pmtbconfserialbase = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfserialbase)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfserialbase)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFSERIALBASE, $pmtbconfserialbase, $comparison);
@@ -799,10 +778,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconffgatstan($pmtbconffgatstan = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconffgatstan)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconffgatstan)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFFGATSTAN, $pmtbconffgatstan, $comparison);
@@ -827,10 +804,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfglfgtomat($pmtbconfglfgtomat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfglfgtomat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfglfgtomat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFGLFGTOMAT, $pmtbconfglfgtomat, $comparison);
@@ -855,10 +830,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfpostdetsum($pmtbconfpostdetsum = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfpostdetsum)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfpostdetsum)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFPOSTDETSUM, $pmtbconfpostdetsum, $comparison);
@@ -883,10 +856,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfsort($pmtbconfsort = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfsort)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfsort)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFSORT, $pmtbconfsort, $comparison);
@@ -911,10 +882,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconflastcost($pmtbconflastcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconflastcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconflastcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFLASTCOST, $pmtbconflastcost, $comparison);
@@ -939,10 +908,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfaskbom($pmtbconfaskbom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfaskbom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfaskbom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFASKBOM, $pmtbconfaskbom, $comparison);
@@ -967,10 +934,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfdefbom($pmtbconfdefbom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfdefbom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfdefbom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFDEFBOM, $pmtbconfdefbom, $comparison);
@@ -995,10 +960,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfautoselectlots($pmtbconfautoselectlots = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfautoselectlots)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfautoselectlots)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFAUTOSELECTLOTS, $pmtbconfautoselectlots, $comparison);
@@ -1023,10 +986,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfallocwhenic($pmtbconfallocwhenic = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfallocwhenic)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfallocwhenic)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFALLOCWHENIC, $pmtbconfallocwhenic, $comparison);
@@ -1051,10 +1012,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfusewpc($pmtbconfusewpc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfusewpc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfusewpc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFUSEWPC, $pmtbconfusewpc, $comparison);
@@ -1079,10 +1038,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfpowgwipinproc($pmtbconfpowgwipinproc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfpowgwipinproc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfpowgwipinproc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFPOWGWIPINPROC, $pmtbconfpowgwipinproc, $comparison);
@@ -1107,10 +1064,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconflrscost($pmtbconflrscost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconflrscost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconflrscost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFLRSCOST, $pmtbconflrscost, $comparison);
@@ -1135,10 +1090,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfvariacctg($pmtbconfvariacctg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfvariacctg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfvariacctg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFVARIACCTG, $pmtbconfvariacctg, $comparison);
@@ -1163,10 +1116,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconftakebincode($pmtbconftakebincode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconftakebincode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconftakebincode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFTAKEBINCODE, $pmtbconftakebincode, $comparison);
@@ -1191,10 +1142,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfusefguom($pmtbconfusefguom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfusefguom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfusefguom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFUSEFGUOM, $pmtbconfusefguom, $comparison);
@@ -1219,10 +1168,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfusenc($pmtbconfusenc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfusenc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfusenc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFUSENC, $pmtbconfusenc, $comparison);
@@ -1247,10 +1194,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbconfusenegwip($pmtbconfusenegwip = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbconfusenegwip)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbconfusenegwip)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCONFUSENEGWIP, $pmtbconfusenegwip, $comparison);
@@ -1275,10 +1220,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbcon2advwipactentry($pmtbcon2advwipactentry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbcon2advwipactentry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbcon2advwipactentry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCON2ADVWIPACTENTRY, $pmtbcon2advwipactentry, $comparison);
@@ -1303,10 +1246,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbcon2machlaborgl($pmtbcon2machlaborgl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbcon2machlaborgl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbcon2machlaborgl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCON2MACHLABORGL, $pmtbcon2machlaborgl, $comparison);
@@ -1331,10 +1272,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbcon2machsetupgl($pmtbcon2machsetupgl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbcon2machsetupgl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbcon2machsetupgl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCON2MACHSETUPGL, $pmtbcon2machsetupgl, $comparison);
@@ -1359,10 +1298,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbcon2burdenlaborgl($pmtbcon2burdenlaborgl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbcon2burdenlaborgl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbcon2burdenlaborgl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCON2BURDENLABORGL, $pmtbcon2burdenlaborgl, $comparison);
@@ -1387,10 +1324,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbcon2burdenmachgl($pmtbcon2burdenmachgl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbcon2burdenmachgl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbcon2burdenmachgl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCON2BURDENMACHGL, $pmtbcon2burdenmachgl, $comparison);
@@ -1415,10 +1350,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbcon2burdenadmingl($pmtbcon2burdenadmingl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbcon2burdenadmingl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbcon2burdenadmingl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCON2BURDENADMINGL, $pmtbcon2burdenadmingl, $comparison);
@@ -1443,10 +1376,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByPmtbcon2setupasoper($pmtbcon2setupasoper = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pmtbcon2setupasoper)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($pmtbcon2setupasoper)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_PMTBCON2SETUPASOPER, $pmtbcon2setupasoper, $comparison);
@@ -1471,10 +1402,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1499,10 +1428,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1527,10 +1454,8 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPmTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1562,7 +1487,7 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPmTableMap::DATABASE_NAME);
         }
 
@@ -1592,7 +1517,7 @@ abstract class ConfigPmQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPmTableMap::DATABASE_NAME);
         }
 

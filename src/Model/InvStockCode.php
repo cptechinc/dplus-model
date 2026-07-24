@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvStockCode as BaseInvStockCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class InvStockCode extends BaseInvStockCode {
      * Column Aliases to lookup / get properties
      * @var array
      */
-    const COLUMN_ALIASES = array(
+    const COLUMN_ALIASES = [
         'id'           => 'intbstckcode',
         'code'         => 'intbstckcode',
         'description'  => 'intbstckdesc',
         'date'         => 'dateupdtd',
         'time'         => 'timeupdtd'
-    );
+    ];
 
     /**
 	 * Return the Max Number of characters allowed for Code

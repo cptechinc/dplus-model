@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ItemRevisionNoteQuery as BaseItemRevisionNoteQuery;
 
 use Dplus\Model\QueryTraits;

@@ -1175,7 +1175,6 @@ class ConfigApTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -1189,92 +1188,90 @@ class ConfigApTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('AptbConfKey', 'Aptbconfkey', 'INTEGER', true, 1, 0);
-        $this->addColumn('AptbConfGlIfac', 'Aptbconfglifac', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfInIfac', 'Aptbconfinifac', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfSoIfac', 'Aptbconfsoifac', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfPoIfac', 'Aptbconfpoifac', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfFrtAcct', 'Aptbconffrtacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfMiscAcct', 'Aptbconfmiscacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfApAcct', 'Aptbconfapacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfCashAcct', 'Aptbconfcashacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfDiscAcct', 'Aptbconfdiscacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfTaxAcct', 'Aptbconftaxacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfPurAcct', 'Aptbconfpuracct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfVarAcct', 'Aptbconfvaracct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfVendDisc', 'Aptbconfvenddisc', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfApInvVarAcct', 'Aptbconfapinvvaracct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfUseRoyal', 'Aptbconfuseroyal', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfDefBuyrCode', 'Aptbconfdefbuyrcode', 'VARCHAR', false, 6, null);
-        $this->addColumn('AptbConfDefTermCode', 'Aptbconfdeftermcode', 'VARCHAR', false, 4, null);
-        $this->addColumn('AptbConfDefSviaCode', 'Aptbconfdefsviacode', 'VARCHAR', false, 4, null);
-        $this->addColumn('AptbConfDefTypeCode', 'Aptbconfdeftypecode', 'VARCHAR', false, 4, null);
-        $this->addColumn('AptbConfVendLine', 'Aptbconfvendline', 'INTEGER', false, 2, null);
-        $this->addColumn('AptbConfVendCols', 'Aptbconfvendcols', 'INTEGER', false, 2, null);
-        $this->addColumn('AptbConfPoLine', 'Aptbconfpoline', 'INTEGER', false, 2, null);
-        $this->addColumn('AptbConfPoCols', 'Aptbconfpocols', 'INTEGER', false, 2, null);
-        $this->addColumn('AptbConfVendGetOpt', 'Aptbconfvendgetopt', 'INTEGER', false, 1, null);
-        $this->addColumn('AptbConfPaytoShipfr', 'Aptbconfpaytoshipfr', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfHoldStat', 'Aptbconfholdstat', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfDiscRet', 'Aptbconfdiscret', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfStopVendChg', 'Aptbconfstopvendchg', 'INTEGER', false, 4, null);
-        $this->addColumn('AptbConfReqDate2', 'Aptbconfreqdate2', 'INTEGER', false, 3, null);
-        $this->addColumn('AptbConfReqDate3', 'Aptbconfreqdate3', 'INTEGER', false, 3, null);
-        $this->addColumn('AptbConfReqDate4', 'Aptbconfreqdate4', 'INTEGER', false, 3, null);
-        $this->addColumn('AptbConf1099Name', 'Aptbconf1099name', 'VARCHAR', false, 30, null);
-        $this->addColumn('AptbConf1099Adr1', 'Aptbconf1099adr1', 'VARCHAR', false, 30, null);
-        $this->addColumn('AptbConf1099Adr2', 'Aptbconf1099adr2', 'VARCHAR', false, 30, null);
-        $this->addColumn('AptbConf1099Adr3', 'Aptbconf1099adr3', 'VARCHAR', false, 30, null);
-        $this->addColumn('AptbConf1099City', 'Aptbconf1099city', 'VARCHAR', false, 16, null);
-        $this->addColumn('AptbConf1099Stat', 'Aptbconf1099stat', 'VARCHAR', false, 2, null);
-        $this->addColumn('AptbConf1099ZipCode', 'Aptbconf1099zipcode', 'VARCHAR', false, 10, null);
-        $this->addColumn('AptbConf1099Id', 'Aptbconf1099id', 'VARCHAR', false, 15, null);
-        $this->addColumn('AptbConfStubSort', 'Aptbconfstubsort', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfUseAch', 'AptbConfUseAch', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfOver1', 'Aptbconfover1', 'INTEGER', false, 3, null);
-        $this->addColumn('AptbConfOver2', 'Aptbconfover2', 'INTEGER', false, 3, null);
-        $this->addColumn('AptbConfPrtChk', 'Aptbconfprtchk', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfEiUnrecQty', 'Aptbconfeiunrecqty', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfEiRecQtyAsk', 'Aptbconfeirecqtyask', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfEiRecQtyDef', 'Aptbconfeirecqtydef', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfAllowMultPos', 'Aptbconfallowmultpos', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfEiByClerk', 'Aptbconfeibyclerk', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfEiBatchProc', 'Aptbconfeibatchproc', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfEiDispStanCost', 'Aptbconfeidispstancost', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfEiAssetAcctChg', 'Aptbconfeiassetacctchg', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfAllowDupInvc', 'Aptbconfallowdupinvc', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfPrtSoRept', 'Aptbconfprtsorept', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfEiCheckHist', 'Aptbconfeicheckhist', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfSummGl', 'Aptbconfsummgl', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfVxmUserLabel', 'Aptbconfvxmuserlabel', 'VARCHAR', false, 8, null);
-        $this->addColumn('AptbConfVendCostBreaks', 'Aptbconfvendcostbreaks', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfMyeClrClosPo', 'Aptbconfmyeclrclospo', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfMyeClrClosDate', 'Aptbconfmyeclrclosdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('AptbConfMyeClrPoHist', 'Aptbconfmyeclrpohist', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfMyeClrPoDate', 'Aptbconfmyeclrpodate', 'VARCHAR', false, 8, null);
-        $this->addColumn('AptbConfMyeClrCkHist', 'Aptbconfmyeclrckhist', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfMyeClrCkDate', 'Aptbconfmyeclrckdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('AptbConfMyeClrOpenCk', 'Aptbconfmyeclropenck', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfLead', 'Aptbconflead', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfVrReworkItem', 'Aptbconfvrreworkitem', 'VARCHAR', false, 30, null);
-        $this->addColumn('AptbConfVrqcWhse', 'Aptbconfvrqcwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('AptbConfVrGlAcct', 'Aptbconfvrglacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('AptbConfVxmListPc', 'Aptbconfvxmlistpc', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfVxmListItemUpd', 'Aptbconfvxmlistitemupd', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfVxmGrossLc', 'Aptbconfvxmgrosslc', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfVxmCostLp', 'Aptbconfvxmcostlp', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfVxmCostItemUpd', 'Aptbconfvxmcostitemupd', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfVxmCostRMesg', 'Aptbconfvxmcostrmesg', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfVxmCostItemUpdM', 'Aptbconfvxmcostitemupdm', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbConfVxmCostMMesg', 'Aptbconfvxmcostmmesg', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('AptbConfGlIfac', 'Aptbconfglifac', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfInIfac', 'Aptbconfinifac', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfSoIfac', 'Aptbconfsoifac', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfPoIfac', 'Aptbconfpoifac', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfFrtAcct', 'Aptbconffrtacct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfMiscAcct', 'Aptbconfmiscacct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfApAcct', 'Aptbconfapacct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfCashAcct', 'Aptbconfcashacct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfDiscAcct', 'Aptbconfdiscacct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfTaxAcct', 'Aptbconftaxacct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfPurAcct', 'Aptbconfpuracct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfVarAcct', 'Aptbconfvaracct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfVendDisc', 'Aptbconfvenddisc', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfApInvVarAcct', 'Aptbconfapinvvaracct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfUseRoyal', 'Aptbconfuseroyal', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfDefBuyrCode', 'Aptbconfdefbuyrcode', 'VARCHAR', false, 6);
+        $this->addColumn('AptbConfDefTermCode', 'Aptbconfdeftermcode', 'VARCHAR', false, 4);
+        $this->addColumn('AptbConfDefSviaCode', 'Aptbconfdefsviacode', 'VARCHAR', false, 4);
+        $this->addColumn('AptbConfDefTypeCode', 'Aptbconfdeftypecode', 'VARCHAR', false, 4);
+        $this->addColumn('AptbConfVendLine', 'Aptbconfvendline', 'INTEGER', false, 2);
+        $this->addColumn('AptbConfVendCols', 'Aptbconfvendcols', 'INTEGER', false, 2);
+        $this->addColumn('AptbConfPoLine', 'Aptbconfpoline', 'INTEGER', false, 2);
+        $this->addColumn('AptbConfPoCols', 'Aptbconfpocols', 'INTEGER', false, 2);
+        $this->addColumn('AptbConfVendGetOpt', 'Aptbconfvendgetopt', 'INTEGER', false, 1);
+        $this->addColumn('AptbConfPaytoShipfr', 'Aptbconfpaytoshipfr', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfHoldStat', 'Aptbconfholdstat', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfDiscRet', 'Aptbconfdiscret', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfStopVendChg', 'Aptbconfstopvendchg', 'INTEGER', false, 4);
+        $this->addColumn('AptbConfReqDate2', 'Aptbconfreqdate2', 'INTEGER', false, 3);
+        $this->addColumn('AptbConfReqDate3', 'Aptbconfreqdate3', 'INTEGER', false, 3);
+        $this->addColumn('AptbConfReqDate4', 'Aptbconfreqdate4', 'INTEGER', false, 3);
+        $this->addColumn('AptbConf1099Name', 'Aptbconf1099name', 'VARCHAR', false, 30);
+        $this->addColumn('AptbConf1099Adr1', 'Aptbconf1099adr1', 'VARCHAR', false, 30);
+        $this->addColumn('AptbConf1099Adr2', 'Aptbconf1099adr2', 'VARCHAR', false, 30);
+        $this->addColumn('AptbConf1099Adr3', 'Aptbconf1099adr3', 'VARCHAR', false, 30);
+        $this->addColumn('AptbConf1099City', 'Aptbconf1099city', 'VARCHAR', false, 16);
+        $this->addColumn('AptbConf1099Stat', 'Aptbconf1099stat', 'VARCHAR', false, 2);
+        $this->addColumn('AptbConf1099ZipCode', 'Aptbconf1099zipcode', 'VARCHAR', false, 10);
+        $this->addColumn('AptbConf1099Id', 'Aptbconf1099id', 'VARCHAR', false, 15);
+        $this->addColumn('AptbConfStubSort', 'Aptbconfstubsort', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfUseAch', 'AptbConfUseAch', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfOver1', 'Aptbconfover1', 'INTEGER', false, 3);
+        $this->addColumn('AptbConfOver2', 'Aptbconfover2', 'INTEGER', false, 3);
+        $this->addColumn('AptbConfPrtChk', 'Aptbconfprtchk', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfEiUnrecQty', 'Aptbconfeiunrecqty', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfEiRecQtyAsk', 'Aptbconfeirecqtyask', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfEiRecQtyDef', 'Aptbconfeirecqtydef', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfAllowMultPos', 'Aptbconfallowmultpos', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfEiByClerk', 'Aptbconfeibyclerk', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfEiBatchProc', 'Aptbconfeibatchproc', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfEiDispStanCost', 'Aptbconfeidispstancost', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfEiAssetAcctChg', 'Aptbconfeiassetacctchg', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfAllowDupInvc', 'Aptbconfallowdupinvc', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfPrtSoRept', 'Aptbconfprtsorept', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfEiCheckHist', 'Aptbconfeicheckhist', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfSummGl', 'Aptbconfsummgl', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfVxmUserLabel', 'Aptbconfvxmuserlabel', 'VARCHAR', false, 8);
+        $this->addColumn('AptbConfVendCostBreaks', 'Aptbconfvendcostbreaks', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfMyeClrClosPo', 'Aptbconfmyeclrclospo', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfMyeClrClosDate', 'Aptbconfmyeclrclosdate', 'VARCHAR', false, 8);
+        $this->addColumn('AptbConfMyeClrPoHist', 'Aptbconfmyeclrpohist', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfMyeClrPoDate', 'Aptbconfmyeclrpodate', 'VARCHAR', false, 8);
+        $this->addColumn('AptbConfMyeClrCkHist', 'Aptbconfmyeclrckhist', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfMyeClrCkDate', 'Aptbconfmyeclrckdate', 'VARCHAR', false, 8);
+        $this->addColumn('AptbConfMyeClrOpenCk', 'Aptbconfmyeclropenck', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfLead', 'Aptbconflead', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfVrReworkItem', 'Aptbconfvrreworkitem', 'VARCHAR', false, 30);
+        $this->addColumn('AptbConfVrqcWhse', 'Aptbconfvrqcwhse', 'VARCHAR', false, 2);
+        $this->addColumn('AptbConfVrGlAcct', 'Aptbconfvrglacct', 'VARCHAR', false, 9);
+        $this->addColumn('AptbConfVxmListPc', 'Aptbconfvxmlistpc', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfVxmListItemUpd', 'Aptbconfvxmlistitemupd', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfVxmGrossLc', 'Aptbconfvxmgrosslc', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfVxmCostLp', 'Aptbconfvxmcostlp', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfVxmCostItemUpd', 'Aptbconfvxmcostitemupd', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfVxmCostRMesg', 'Aptbconfvxmcostrmesg', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfVxmCostItemUpdM', 'Aptbconfvxmcostitemupdm', 'VARCHAR', false, 1);
+        $this->addColumn('AptbConfVxmCostMMesg', 'Aptbconfvxmcostmmesg', 'VARCHAR', false, 1);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
@@ -1296,11 +1293,11 @@ class ConfigApTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -1318,8 +1315,8 @@ class ConfigApTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -1376,7 +1373,6 @@ class ConfigApTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -1417,7 +1413,6 @@ class ConfigApTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1598,7 +1593,6 @@ class ConfigApTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1772,7 +1766,6 @@ class ConfigApTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -1794,7 +1787,7 @@ class ConfigApTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
         }
 
@@ -1844,7 +1837,7 @@ class ConfigApTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
         }
 
@@ -1860,9 +1853,7 @@ class ConfigApTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

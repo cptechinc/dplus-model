@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\PrResource as BasePrResource;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,7 +21,7 @@ class PrResource extends BasePrResource {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'pmtbrsrcid',
 		'code'         => 'pmtbrsrcid',
 		'description'  => 'pmtbrsrcname',
@@ -29,5 +31,5 @@ class PrResource extends BasePrResource {
 		'time'         => 'timeupdtd',
 		// Foreign Key Relationships
 		'workcenter'   => 'prWorkCenter'
-	);
+	];
 }

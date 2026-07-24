@@ -20,16 +20,16 @@ class Warehouse extends BaseWarehouse {
 	/**
 	 * Options for Bin Arragement
 	 */
-	const OPTIONS_ARRANGED = array(
+	const OPTIONS_ARRANGED = [
 		'L' => 'List', // LIST
 		'R' => 'Range' // RANGE
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'       => 'intbwhse',
 		'code'     => 'intbwhse',
 		'whseid'   => 'intbwhse',
@@ -72,7 +72,7 @@ class Warehouse extends BaseWarehouse {
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
 		'cashCustomer'  => 'cashCustomer',
-	);
+	];
 
 	/**
 	 * Return the Maximum of characters allowed for code

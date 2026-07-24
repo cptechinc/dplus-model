@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\UserLastPrintJobQuery as BaseUserLastPrintJobQuery;
 
 use Dplus\Model\QueryTraits;

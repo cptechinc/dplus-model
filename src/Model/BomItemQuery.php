@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\BomItemQuery as BaseBomItemQuery;
 
 use Dplus\Model\QueryTraits;

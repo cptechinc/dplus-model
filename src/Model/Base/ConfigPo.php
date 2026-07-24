@@ -32,7 +32,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ConfigPoTableMap';
+    public const TABLE_MAP = \Map\ConfigPoTableMap::class;
 
 
     /**
@@ -941,7 +941,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -999,7 +999,6 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -1009,7 +1008,6 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -1047,8 +1045,6 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -1059,7 +1055,6 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -1101,9 +1096,7 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -1129,7 +1122,7 @@ abstract class ConfigPo implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, []));
     }
 
     /**
@@ -4354,13 +4347,8 @@ abstract class ConfigPo implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -4385,286 +4373,286 @@ abstract class ConfigPo implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ConfigPoTableMap::translateFieldName('Potbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfkey = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsortpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsortpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfsortpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfcancorrshpdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfcancorrshpdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfcancorrshpdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfackoretadate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfackoretadate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfackoretadate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditshipdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditshipdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfeditshipdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditexptdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditexptdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfeditexptdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditcancdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditcancdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfeditcancdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditackdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditackdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfeditackdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfexptdatedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfexptdatedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfexptdatedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfheadgetdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfheadgetdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfheadgetdef = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfreseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfreseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfreseq = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfforcevxref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfforcevxref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfforcevxref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfqtydue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfqtydue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfqtydue = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarndup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarndup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfwarndup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfforceporef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfforceporef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfforceporef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdestwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdestwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfdestwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditpoitemnotes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfeditpoitemnotes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfeditpoitemnotes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfloadpovxmnotes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfloadpovxmnotes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfloadpovxmnotes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfepoupdlastcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfepoupdlastcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfepoupdlastcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrevisionentry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrevisionentry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfrevisionentry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrecall', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrecall', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfrecall = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrecallask', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrecallask', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfrecallask = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfreceivecost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfreceivecost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfreceivecost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprocvari', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprocvari', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfprocvari = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfcostrcvryacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfcostrcvryacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfcostrcvryacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfinvtyvariacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfinvtyvariacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfinvtyvariacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallowchgcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallowchgcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfallowchgcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarnrcptqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarnrcptqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfwarnrcptqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigPoTableMap::translateFieldName('Potbconferdispdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ConfigPoTableMap::translateFieldName('Potbconferdispdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconferdispdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprovidelpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprovidelpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfprovidelpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarndiffwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarndiffwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfwarndiffwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallocrcvd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallocrcvd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfallocrcvd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaskclose', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaskclose', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfaskclose = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigPoTableMap::translateFieldName('Potbconferadd2po', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ConfigPoTableMap::translateFieldName('Potbconferadd2po', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconferadd2po = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigPoTableMap::translateFieldName('Potbconftariffglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ConfigPoTableMap::translateFieldName('Potbconftariffglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconftariffglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshopglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshopglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfshopglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshoprate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshoprate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfshoprate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseprime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseprime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuseprime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfusewatch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfusewatch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfusewatch = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprtpowsugg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprtpowsugg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfprtpowsugg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowslctyes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowslctyes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowslctyes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgvendrpt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgvendrpt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowgvendrpt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgwipstatus', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgwipstatus', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowgwipstatus = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgwipautogen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgwipautogen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowgwipautogen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbuyercontrol', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbuyercontrol', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfbuyercontrol = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgoqmethod', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgoqmethod', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowgoqmethod = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffxpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffxpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconffxpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffxinv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffxinv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconffxinv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfupdatevendcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfupdatevendcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfupdatevendcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaskupdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaskupdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfaskupdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfvxmroundpos', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfvxmroundpos', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfvxmroundpos = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfxrefmaint', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfxrefmaint', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfxrefmaint = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseidopts', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseidopts', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuseidopts = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsrchvxmfirst', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsrchvxmfirst', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfsrchvxmfirst = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfopenlineonly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfopenlineonly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfopenlineonly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfitemdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfitemdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfitemdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfopenbalonly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfopenbalonly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfopenbalonly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprtwhsedtl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprtwhsedtl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfprtwhsedtl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfautorcpt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfautorcpt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfautorcpt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdispitemcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdispitemcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfdispitemcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdispcaseqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdispcaseqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfdispcaseqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfonetwoline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfonetwoline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfonetwoline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseordras', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseordras', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuseordras = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaprvvendonly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaprvvendonly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfaprvvendonly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfusefab', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfusefab', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfusefab = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshowitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshowitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfshowitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfscrapacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfscrapacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfscrapacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfscrapvaripct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfscrapvaripct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfscrapvaripct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflifofifo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflifofifo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconflifofifo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffabbomorkit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffabbomorkit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconffabbomorkit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallocepoer', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallocepoer', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfallocepoer = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffabprealloc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffabprealloc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconffabprealloc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfforcefabepo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfforcefabepo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfforcefabepo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpreviewcomplist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpreviewcomplist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpreviewcomplist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfnegcompusage', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfnegcompusage', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfnegcompusage = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfautoselectcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfautoselectcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfautoselectcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbinfromvendor', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbinfromvendor', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfbinfromvendor = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdfltstckcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdfltstckcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfdfltstckcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseremain', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseremain', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuseremain = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsamecompcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsamecompcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfsamecompcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpasscode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpasscode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpasscode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuselandcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuselandcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuselandcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbaselandamtqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbaselandamtqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfbaselandamtqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarnlandiner', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarnlandiner', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfwarnlandiner = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflandamtmultwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflandamtmultwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconflandamtmultwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflanderedit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflanderedit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconflanderedit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfhistcmplfab', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfhistcmplfab', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfhistcmplfab = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflandglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflandglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconflandglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : ConfigPoTableMap::translateFieldName('Potblandmpfglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : ConfigPoTableMap::translateFieldName('Potblandmpfglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potblandmpfglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : ConfigPoTableMap::translateFieldName('Potblandhmfglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : ConfigPoTableMap::translateFieldName('Potblandhmfglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potblandhmfglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : ConfigPoTableMap::translateFieldName('Potblanddsetglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : ConfigPoTableMap::translateFieldName('Potblanddsetglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potblanddsetglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : ConfigPoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : ConfigPoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ConfigPoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : ConfigPoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : ConfigPoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : ConfigPoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -4693,7 +4681,6 @@ abstract class ConfigPo implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -4706,7 +4693,6 @@ abstract class ConfigPo implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -4719,7 +4705,7 @@ abstract class ConfigPo implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigPoTableMap::DATABASE_NAME);
         }
 
@@ -4743,7 +4729,6 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigPo::setDeleted()
      * @see ConfigPo::isDeleted()
@@ -4754,7 +4739,7 @@ abstract class ConfigPo implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPoTableMap::DATABASE_NAME);
         }
 
@@ -4793,18 +4778,14 @@ abstract class ConfigPo implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPoTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -4828,7 +4809,6 @@ abstract class ConfigPo implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -4860,7 +4840,6 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -5555,7 +5534,6 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -5581,9 +5559,8 @@ abstract class ConfigPo implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigPoTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -6012,7 +5989,6 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -6992,7 +6968,7 @@ abstract class ConfigPo implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -7012,7 +6988,6 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Generic method to set the primary key (potbconfkey column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -7021,8 +6996,6 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -7039,7 +7012,6 @@ abstract class ConfigPo implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -7288,8 +7260,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         return $this;
     }
@@ -7301,13 +7272,11 @@ abstract class ConfigPo implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ConfigPoTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ConfigPoTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -7316,8 +7285,6 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -7325,8 +7292,6 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -7335,8 +7300,6 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -7344,8 +7307,6 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -7354,8 +7315,6 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -7363,8 +7322,6 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -7373,8 +7330,6 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -7394,7 +7349,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -7406,7 +7361,7 @@ abstract class ConfigPo implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -7414,7 +7369,7 @@ abstract class ConfigPo implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

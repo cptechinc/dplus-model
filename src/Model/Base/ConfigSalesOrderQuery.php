@@ -1406,7 +1406,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigSalesOrderQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigSalesOrderQuery object.
@@ -1464,7 +1464,7 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigSalesOrderTableMap::DATABASE_NAME);
         }
 
@@ -1510,7 +1510,6 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigSalesOrder $obj */
             $obj = new ChildConfigSalesOrder();
             $obj->hydrate($row);
             ConfigSalesOrderTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -1551,7 +1550,7 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -1653,10 +1652,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfglifac($oetbconfglifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfglifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfglifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFGLIFAC, $oetbconfglifac, $comparison);
@@ -1681,10 +1678,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfinifac($oetbconfinifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfinifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfinifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFINIFAC, $oetbconfinifac, $comparison);
@@ -1709,10 +1704,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfrelivty($oetbconfrelivty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfrelivty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfrelivty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFRELIVTY, $oetbconfrelivty, $comparison);
@@ -1737,10 +1730,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfuseordrnbr($oetbconfuseordrnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfuseordrnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfuseordrnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFUSEORDRNBR, $oetbconfuseordrnbr, $comparison);
@@ -1765,10 +1756,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdefrqstdate($oetbconfdefrqstdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdefrqstdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdefrqstdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDEFRQSTDATE, $oetbconfdefrqstdate, $comparison);
@@ -1793,10 +1782,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfusecancdate($oetbconfusecancdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfusecancdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfusecancdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFUSECANCDATE, $oetbconfusecancdate, $comparison);
@@ -1821,10 +1808,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfshowsp($oetbconfshowsp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfshowsp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfshowsp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSHOWSP, $oetbconfshowsp, $comparison);
@@ -1892,10 +1877,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfuseprepsoopt($oetbconfuseprepsoopt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfuseprepsoopt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfuseprepsoopt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFUSEPREPSOOPT, $oetbconfuseprepsoopt, $comparison);
@@ -1920,10 +1903,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdispbillto($oetbconfdispbillto = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdispbillto)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdispbillto)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDISPBILLTO, $oetbconfdispbillto, $comparison);
@@ -1948,10 +1929,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfslctflm($oetbconfslctflm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfslctflm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfslctflm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSLCTFLM, $oetbconfslctflm, $comparison);
@@ -1976,10 +1955,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3usestockpull($oetbcon3usestockpull = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3usestockpull)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3usestockpull)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3USESTOCKPULL, $oetbcon3usestockpull, $comparison);
@@ -2004,10 +1981,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfqtytoship($oetbconfqtytoship = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfqtytoship)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfqtytoship)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFQTYTOSHIP, $oetbconfqtytoship, $comparison);
@@ -2032,10 +2007,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfqtytoshipdef($oetbconfqtytoshipdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfqtytoshipdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfqtytoshipdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFQTYTOSHIPDEF, $oetbconfqtytoshipdef, $comparison);
@@ -2060,10 +2033,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdfltordrqty($oetbconfdfltordrqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdfltordrqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdfltordrqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDFLTORDRQTY, $oetbconfdfltordrqty, $comparison);
@@ -2088,10 +2059,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfallocqtytoship($oetbconfallocqtytoship = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfallocqtytoship)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfallocqtytoship)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFALLOCQTYTOSHIP, $oetbconfallocqtytoship, $comparison);
@@ -2116,10 +2085,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfoverallocqts($oetbconfoverallocqts = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfoverallocqts)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfoverallocqts)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFOVERALLOCQTS, $oetbconfoverallocqts, $comparison);
@@ -2144,10 +2111,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3completelotbin($oetbcon3completelotbin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3completelotbin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3completelotbin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3COMPLETELOTBIN, $oetbcon3completelotbin, $comparison);
@@ -2172,10 +2137,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3rqtsopt($oetbcon3rqtsopt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3rqtsopt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3rqtsopt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3RQTSOPT, $oetbcon3rqtsopt, $comparison);
@@ -2243,10 +2206,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3usesaleforecast($oetbcon3usesaleforecast = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3usesaleforecast)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3usesaleforecast)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3USESALEFORECAST, $oetbcon3usesaleforecast, $comparison);
@@ -2271,10 +2232,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfverfstopneg($oetbconfverfstopneg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfverfstopneg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfverfstopneg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFVERFSTOPNEG, $oetbconfverfstopneg, $comparison);
@@ -2299,10 +2258,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfverfaudtrept($oetbconfverfaudtrept = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfverfaudtrept)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfverfaudtrept)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFVERFAUDTREPT, $oetbconfverfaudtrept, $comparison);
@@ -2327,10 +2284,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfagelevldisp($oetbconfagelevldisp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfagelevldisp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfagelevldisp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFAGELEVLDISP, $oetbconfagelevldisp, $comparison);
@@ -2355,10 +2310,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfagealltime($oetbconfagealltime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfagealltime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfagealltime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFAGEALLTIME, $oetbconfagealltime, $comparison);
@@ -2383,10 +2336,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfageathold($oetbconfageathold = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfageathold)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfageathold)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFAGEATHOLD, $oetbconfageathold, $comparison);
@@ -2411,10 +2362,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfshowatlevl($oetbconfshowatlevl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfshowatlevl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfshowatlevl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSHOWATLEVL, $oetbconfshowatlevl, $comparison);
@@ -2439,10 +2388,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfshowitem($oetbconfshowitem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfshowitem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfshowitem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSHOWITEM, $oetbconfshowitem, $comparison);
@@ -2467,10 +2414,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfstoppnt($oetbconfstoppnt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfstoppnt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfstoppnt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSTOPPNT, $oetbconfstoppnt, $comparison);
@@ -2495,10 +2440,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfpricwind($oetbconfpricwind = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfpricwind)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfpricwind)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPRICWIND, $oetbconfpricwind, $comparison);
@@ -2523,10 +2466,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfshowcost($oetbconfshowcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfshowcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfshowcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSHOWCOST, $oetbconfshowcost, $comparison);
@@ -2551,10 +2492,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfcosttouse($oetbconfcosttouse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfcosttouse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfcosttouse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFCOSTTOUSE, $oetbconfcosttouse, $comparison);
@@ -2579,10 +2518,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfshowmarg($oetbconfshowmarg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfshowmarg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfshowmarg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSHOWMARG, $oetbconfshowmarg, $comparison);
@@ -2607,10 +2544,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconffxoe($oetbconffxoe = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconffxoe)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconffxoe)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFFXOE, $oetbconffxoe, $comparison);
@@ -2635,10 +2570,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconffxinv($oetbconffxinv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconffxinv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconffxinv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFFXINV, $oetbconffxinv, $comparison);
@@ -2663,10 +2596,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdispvia($oetbconfdispvia = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdispvia)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdispvia)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDISPVIA, $oetbconfdispvia, $comparison);
@@ -2691,10 +2622,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdispcaseqty($oetbconfdispcaseqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdispcaseqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdispcaseqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDISPCASEQTY, $oetbconfdispcaseqty, $comparison);
@@ -2719,10 +2648,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconffrtin($oetbconffrtin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconffrtin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconffrtin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFFRTIN, $oetbconffrtin, $comparison);
@@ -2747,10 +2674,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconffrtinglacct($oetbconffrtinglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconffrtinglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconffrtinglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFFRTINGLACCT, $oetbconffrtinglacct, $comparison);
@@ -2818,10 +2743,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfminchrgglacct($oetbconfminchrgglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfminchrgglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfminchrgglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFMINCHRGGLACCT, $oetbconfminchrgglacct, $comparison);
@@ -2889,10 +2812,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdropshpglacct($oetbconfdropshpglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdropshpglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdropshpglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDROPSHPGLACCT, $oetbconfdropshpglacct, $comparison);
@@ -2917,10 +2838,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfnontaxcustcode($oetbconfnontaxcustcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfnontaxcustcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfnontaxcustcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFNONTAXCUSTCODE, $oetbconfnontaxcustcode, $comparison);
@@ -2945,10 +2864,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfhstaxid($oetbconfhstaxid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfhstaxid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfhstaxid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFHSTAXID, $oetbconfhstaxid, $comparison);
@@ -2973,10 +2890,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfhsfrtid($oetbconfhsfrtid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfhsfrtid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfhsfrtid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFHSFRTID, $oetbconfhsfrtid, $comparison);
@@ -3001,10 +2916,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfhsmiscid($oetbconfhsmiscid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfhsmiscid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfhsmiscid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFHSMISCID, $oetbconfhsmiscid, $comparison);
@@ -3029,10 +2942,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2hscusdid($oetbcon2hscusdid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2hscusdid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2hscusdid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2HSCUSDID, $oetbcon2hscusdid, $comparison);
@@ -3057,10 +2968,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3hsfrtinid($oetbcon3hsfrtinid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3hsfrtinid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3hsfrtinid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3HSFRTINID, $oetbcon3hsfrtinid, $comparison);
@@ -3085,10 +2994,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3hsdropid($oetbcon3hsdropid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3hsdropid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3hsdropid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3HSDROPID, $oetbcon3hsdropid, $comparison);
@@ -3113,10 +3020,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3hsminordid($oetbcon3hsminordid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3hsminordid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3hsminordid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3HSMINORDID, $oetbcon3hsminordid, $comparison);
@@ -3141,10 +3046,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfheadgetdef($oetbconfheadgetdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfheadgetdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfheadgetdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFHEADGETDEF, $oetbconfheadgetdef, $comparison);
@@ -3169,10 +3072,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfitemgetdef($oetbconfitemgetdef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfitemgetdef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfitemgetdef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFITEMGETDEF, $oetbconfitemgetdef, $comparison);
@@ -3197,10 +3098,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfautogetcust($oetbconfautogetcust = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfautogetcust)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfautogetcust)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFAUTOGETCUST, $oetbconfautogetcust, $comparison);
@@ -3225,10 +3124,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3autogetitem($oetbcon3autogetitem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3autogetitem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3autogetitem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3AUTOGETITEM, $oetbcon3autogetitem, $comparison);
@@ -3253,10 +3150,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfrqstheaddtl($oetbconfrqstheaddtl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfrqstheaddtl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfrqstheaddtl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFRQSTHEADDTL, $oetbconfrqstheaddtl, $comparison);
@@ -3281,10 +3176,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfcancheaddtl($oetbconfcancheaddtl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfcancheaddtl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfcancheaddtl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFCANCHEADDTL, $oetbconfcancheaddtl, $comparison);
@@ -3309,10 +3202,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfuseinvcasship($oetbconfuseinvcasship = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfuseinvcasship)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfuseinvcasship)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFUSEINVCASSHIP, $oetbconfuseinvcasship, $comparison);
@@ -3337,10 +3228,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3usearrvdate($oetbcon3usearrvdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3usearrvdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3usearrvdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3USEARRVDATE, $oetbcon3usearrvdate, $comparison);
@@ -3365,10 +3254,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfseparatecred($oetbconfseparatecred = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfseparatecred)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfseparatecred)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSEPARATECRED, $oetbconfseparatecred, $comparison);
@@ -3393,10 +3280,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3applycredits($oetbcon3applycredits = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3applycredits)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3applycredits)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3APPLYCREDITS, $oetbcon3applycredits, $comparison);
@@ -3421,10 +3306,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfwarnnotnew($oetbconfwarnnotnew = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfwarnnotnew)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfwarnnotnew)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFWARNNOTNEW, $oetbconfwarnnotnew, $comparison);
@@ -3449,10 +3332,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfwarnbotozero($oetbconfwarnbotozero = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfwarnbotozero)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfwarnbotozero)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFWARNBOTOZERO, $oetbconfwarnbotozero, $comparison);
@@ -3477,10 +3358,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2providerouting($oetbcon2providerouting = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2providerouting)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2providerouting)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PROVIDEROUTING, $oetbcon2providerouting, $comparison);
@@ -3505,10 +3384,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2srtrtbyrqstdte($oetbcon2srtrtbyrqstdte = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2srtrtbyrqstdte)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2srtrtbyrqstdte)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2SRTRTBYRQSTDTE, $oetbcon2srtrtbyrqstdte, $comparison);
@@ -3533,10 +3410,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfusesoreview($oetbconfusesoreview = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfusesoreview)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfusesoreview)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFUSESOREVIEW, $oetbconfusesoreview, $comparison);
@@ -3561,10 +3436,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfpicknotedef($oetbconfpicknotedef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfpicknotedef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfpicknotedef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPICKNOTEDEF, $oetbconfpicknotedef, $comparison);
@@ -3589,10 +3462,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfpacknotedef($oetbconfpacknotedef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfpacknotedef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfpacknotedef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPACKNOTEDEF, $oetbconfpacknotedef, $comparison);
@@ -3617,10 +3488,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfpicksort($oetbconfpicksort = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfpicksort)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfpicksort)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPICKSORT, $oetbconfpicksort, $comparison);
@@ -3645,10 +3514,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfpacksort($oetbconfpacksort = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfpacksort)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfpacksort)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPACKSORT, $oetbconfpacksort, $comparison);
@@ -3673,10 +3540,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfprtpriconly($oetbconfprtpriconly = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfprtpriconly)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfprtpriconly)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPRTPRICONLY, $oetbconfprtpriconly, $comparison);
@@ -3701,10 +3566,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfprtneg($oetbconfprtneg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfprtneg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfprtneg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPRTNEG, $oetbconfprtneg, $comparison);
@@ -3729,10 +3592,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2prtpackageinfo($oetbcon2prtpackageinfo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2prtpackageinfo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2prtpackageinfo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PRTPACKAGEINFO, $oetbcon2prtpackageinfo, $comparison);
@@ -3757,10 +3618,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2innerpacklabel($oetbcon2innerpacklabel = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2innerpacklabel)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2innerpacklabel)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2INNERPACKLABEL, $oetbcon2innerpacklabel, $comparison);
@@ -3785,10 +3644,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2outerpacklabel($oetbcon2outerpacklabel = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2outerpacklabel)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2outerpacklabel)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2OUTERPACKLABEL, $oetbcon2outerpacklabel, $comparison);
@@ -3813,10 +3670,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2shiptarelabel($oetbcon2shiptarelabel = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2shiptarelabel)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2shiptarelabel)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2SHIPTARELABEL, $oetbcon2shiptarelabel, $comparison);
@@ -3841,10 +3696,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfprtpick($oetbconfprtpick = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfprtpick)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfprtpick)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPRTPICK, $oetbconfprtpick, $comparison);
@@ -3869,10 +3722,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfpicprioseq($oetbconfpicprioseq = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfpicprioseq)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfpicprioseq)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPICPRIOSEQ, $oetbconfpicprioseq, $comparison);
@@ -3897,10 +3748,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfprtpack($oetbconfprtpack = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfprtpack)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfprtpack)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPRTPACK, $oetbconfprtpack, $comparison);
@@ -3925,10 +3774,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfprtinv($oetbconfprtinv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfprtinv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfprtinv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPRTINV, $oetbconfprtinv, $comparison);
@@ -3953,10 +3800,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2prtcredmemo($oetbcon2prtcredmemo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2prtcredmemo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2prtcredmemo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PRTCREDMEMO, $oetbcon2prtcredmemo, $comparison);
@@ -3981,10 +3826,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfcrntdate($oetbconfcrntdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfcrntdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfcrntdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFCRNTDATE, $oetbconfcrntdate, $comparison);
@@ -4009,10 +3852,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfmarkpicked($oetbconfmarkpicked = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfmarkpicked)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfmarkpicked)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFMARKPICKED, $oetbconfmarkpicked, $comparison);
@@ -4037,10 +3878,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfshowunavail($oetbconfshowunavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfshowunavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfshowunavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSHOWUNAVAIL, $oetbconfshowunavail, $comparison);
@@ -4108,10 +3947,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfwarndup($oetbconfwarndup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfwarndup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfwarndup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFWARNDUP, $oetbconfwarndup, $comparison);
@@ -4136,10 +3973,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdefpick($oetbconfdefpick = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdefpick)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdefpick)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDEFPICK, $oetbconfdefpick, $comparison);
@@ -4164,10 +3999,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdefpack($oetbconfdefpack = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdefpack)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdefpack)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDEFPACK, $oetbconfdefpack, $comparison);
@@ -4192,10 +4025,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdefinvc($oetbconfdefinvc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdefinvc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdefinvc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDEFINVC, $oetbconfdefinvc, $comparison);
@@ -4220,10 +4051,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdefack($oetbconfdefack = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdefack)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdefack)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDEFACK, $oetbconfdefack, $comparison);
@@ -4248,10 +4077,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfacksortopt($oetbconfacksortopt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfacksortopt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfacksortopt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFACKSORTOPT, $oetbconfacksortopt, $comparison);
@@ -4276,10 +4103,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfreleasenbr($oetbconfreleasenbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfreleasenbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfreleasenbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFRELEASENBR, $oetbconfreleasenbr, $comparison);
@@ -4304,10 +4129,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfpodetlinenbr($oetbconfpodetlinenbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfpodetlinenbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfpodetlinenbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPODETLINENBR, $oetbconfpodetlinenbr, $comparison);
@@ -4332,10 +4155,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdetlinebinnbr($oetbconfdetlinebinnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdetlinebinnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdetlinebinnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDETLINEBINNBR, $oetbconfdetlinebinnbr, $comparison);
@@ -4360,10 +4181,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfsplitbywhse($oetbconfsplitbywhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfsplitbywhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfsplitbywhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSPLITBYWHSE, $oetbconfsplitbywhse, $comparison);
@@ -4388,10 +4207,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3allowmultwhse($oetbcon3allowmultwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3allowmultwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3allowmultwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3ALLOWMULTWHSE, $oetbcon3allowmultwhse, $comparison);
@@ -4416,10 +4233,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfuseorigwhse($oetbconfuseorigwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfuseorigwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfuseorigwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFUSEORIGWHSE, $oetbconfuseorigwhse, $comparison);
@@ -4444,10 +4259,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfuseesosingle($oetbconfuseesosingle = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfuseesosingle)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfuseesosingle)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFUSEESOSINGLE, $oetbconfuseesosingle, $comparison);
@@ -4472,10 +4285,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfcreatepo($oetbconfcreatepo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfcreatepo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfcreatepo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFCREATEPO, $oetbconfcreatepo, $comparison);
@@ -4500,10 +4311,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfbestprice($oetbconfbestprice = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfbestprice)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfbestprice)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFBESTPRICE, $oetbconfbestprice, $comparison);
@@ -4528,10 +4337,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfesobacktonew($oetbconfesobacktonew = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfesobacktonew)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfesobacktonew)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFESOBACKTONEW, $oetbconfesobacktonew, $comparison);
@@ -4556,10 +4363,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfpickprintdrop($oetbconfpickprintdrop = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfpickprintdrop)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfpickprintdrop)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFPICKPRINTDROP, $oetbconfpickprintdrop, $comparison);
@@ -4584,10 +4389,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfwarnmultpo($oetbconfwarnmultpo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfwarnmultpo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfwarnmultpo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFWARNMULTPO, $oetbconfwarnmultpo, $comparison);
@@ -4612,10 +4415,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfalertitemquote($oetbconfalertitemquote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfalertitemquote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfalertitemquote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFALERTITEMQUOTE, $oetbconfalertitemquote, $comparison);
@@ -4640,10 +4441,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3askchgprcwqty($oetbcon3askchgprcwqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3askchgprcwqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3askchgprcwqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3ASKCHGPRCWQTY, $oetbcon3askchgprcwqty, $comparison);
@@ -4668,10 +4467,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3tenqtybrks($oetbcon3tenqtybrks = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3tenqtybrks)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3tenqtybrks)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3TENQTYBRKS, $oetbcon3tenqtybrks, $comparison);
@@ -4739,10 +4536,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2provlostsales($oetbcon2provlostsales = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2provlostsales)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2provlostsales)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PROVLOSTSALES, $oetbcon2provlostsales, $comparison);
@@ -4767,10 +4562,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2askreasoncode($oetbcon2askreasoncode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2askreasoncode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2askreasoncode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ASKREASONCODE, $oetbcon2askreasoncode, $comparison);
@@ -4795,10 +4588,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2defreasoncode($oetbcon2defreasoncode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2defreasoncode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2defreasoncode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2DEFREASONCODE, $oetbcon2defreasoncode, $comparison);
@@ -4823,10 +4614,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2bordcntl($oetbcon2bordcntl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2bordcntl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2bordcntl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2BORDCNTL, $oetbcon2bordcntl, $comparison);
@@ -4851,10 +4640,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2defreabocode($oetbcon2defreabocode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2defreabocode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2defreabocode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2DEFREABOCODE, $oetbcon2defreabocode, $comparison);
@@ -4922,10 +4709,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2callbacknotif($oetbcon2callbacknotif = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2callbacknotif)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2callbacknotif)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2CALLBACKNOTIF, $oetbcon2callbacknotif, $comparison);
@@ -4993,10 +4778,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2addsubsls($oetbcon2addsubsls = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2addsubsls)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2addsubsls)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ADDSUBSLS, $oetbcon2addsubsls, $comparison);
@@ -5021,10 +4804,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2defreasubscode($oetbcon2defreasubscode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2defreasubscode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2defreasubscode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2DEFREASUBSCODE, $oetbcon2defreasubscode, $comparison);
@@ -5049,10 +4830,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2ordtypnorm($oetbcon2ordtypnorm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2ordtypnorm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2ordtypnorm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ORDTYPNORM, $oetbcon2ordtypnorm, $comparison);
@@ -5077,10 +4856,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2ordtyprep($oetbcon2ordtyprep = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2ordtyprep)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2ordtyprep)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ORDTYPREP, $oetbcon2ordtyprep, $comparison);
@@ -5105,10 +4882,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2ordtypserv($oetbcon2ordtypserv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2ordtypserv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2ordtypserv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ORDTYPSERV, $oetbcon2ordtypserv, $comparison);
@@ -5133,10 +4908,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2defordtyp($oetbcon2defordtyp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2defordtyp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2defordtyp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2DEFORDTYP, $oetbcon2defordtyp, $comparison);
@@ -5161,10 +4934,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfchgpric($oetbconfchgpric = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfchgpric)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfchgpric)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFCHGPRIC, $oetbconfchgpric, $comparison);
@@ -5189,10 +4960,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2spordpricezero($oetbcon2spordpricezero = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2spordpricezero)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2spordpricezero)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2SPORDPRICEZERO, $oetbcon2spordpricezero, $comparison);
@@ -5217,10 +4986,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfinactpricezero($oetbconfinactpricezero = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfinactpricezero)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfinactpricezero)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFINACTPRICEZERO, $oetbconfinactpricezero, $comparison);
@@ -5245,10 +5012,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2reseq($oetbcon2reseq = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2reseq)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2reseq)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2RESEQ, $oetbcon2reseq, $comparison);
@@ -5273,10 +5038,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2reseqby($oetbcon2reseqby = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2reseqby)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2reseqby)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2RESEQBY, $oetbcon2reseqby, $comparison);
@@ -5301,10 +5064,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2minqtysales($oetbcon2minqtysales = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2minqtysales)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2minqtysales)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2MINQTYSALES, $oetbcon2minqtysales, $comparison);
@@ -5329,10 +5090,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2chgorder($oetbcon2chgorder = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2chgorder)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2chgorder)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2CHGORDER, $oetbcon2chgorder, $comparison);
@@ -5357,10 +5116,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2vercomp($oetbcon2vercomp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2vercomp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2vercomp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2VERCOMP, $oetbcon2vercomp, $comparison);
@@ -5385,10 +5142,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2prtinv($oetbcon2prtinv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2prtinv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2prtinv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PRTINV, $oetbcon2prtinv, $comparison);
@@ -5413,10 +5168,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2dynamicpicktick($oetbcon2dynamicpicktick = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2dynamicpicktick)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2dynamicpicktick)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2DYNAMICPICKTICK, $oetbcon2dynamicpicktick, $comparison);
@@ -5441,10 +5194,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2dynamicinvoice($oetbcon2dynamicinvoice = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2dynamicinvoice)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2dynamicinvoice)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2DYNAMICINVOICE, $oetbcon2dynamicinvoice, $comparison);
@@ -5469,10 +5220,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2edidefinvoice($oetbcon2edidefinvoice = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2edidefinvoice)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2edidefinvoice)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2EDIDEFINVOICE, $oetbcon2edidefinvoice, $comparison);
@@ -5497,10 +5246,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2allowccpick($oetbcon2allowccpick = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2allowccpick)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2allowccpick)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ALLOWCCPICK, $oetbcon2allowccpick, $comparison);
@@ -5525,10 +5272,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2autoccwind($oetbcon2autoccwind = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2autoccwind)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2autoccwind)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2AUTOCCWIND, $oetbcon2autoccwind, $comparison);
@@ -5553,10 +5298,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2autoccupdate($oetbcon2autoccupdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2autoccupdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2autoccupdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2AUTOCCUPDATE, $oetbcon2autoccupdate, $comparison);
@@ -5581,10 +5324,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2allowapvdccchg($oetbcon2allowapvdccchg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2allowapvdccchg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2allowapvdccchg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ALLOWAPVDCCCHG, $oetbcon2allowapvdccchg, $comparison);
@@ -5609,10 +5350,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3apvdbckordclear($oetbcon3apvdbckordclear = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3apvdbckordclear)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3apvdbckordclear)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3APVDBCKORDCLEAR, $oetbcon3apvdbckordclear, $comparison);
@@ -5637,10 +5376,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2polwhichcost($oetbcon2polwhichcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2polwhichcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2polwhichcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2POLWHICHCOST, $oetbcon2polwhichcost, $comparison);
@@ -5665,10 +5402,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2revhazard($oetbcon2revhazard = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2revhazard)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2revhazard)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2REVHAZARD, $oetbcon2revhazard, $comparison);
@@ -5693,10 +5428,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2showdisclist($oetbcon2showdisclist = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2showdisclist)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2showdisclist)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2SHOWDISCLIST, $oetbcon2showdisclist, $comparison);
@@ -5721,10 +5454,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2chglist($oetbcon2chglist = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2chglist)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2chglist)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2CHGLIST, $oetbcon2chglist, $comparison);
@@ -5749,10 +5480,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2maillist($oetbcon2maillist = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2maillist)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2maillist)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2MAILLIST, $oetbcon2maillist, $comparison);
@@ -5777,10 +5506,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2nameformat($oetbcon2nameformat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2nameformat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2nameformat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2NAMEFORMAT, $oetbcon2nameformat, $comparison);
@@ -5805,10 +5532,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2mailidtype($oetbcon2mailidtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2mailidtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2mailidtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2MAILIDTYPE, $oetbcon2mailidtype, $comparison);
@@ -5833,10 +5558,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2cashdrawerpswd($oetbcon2cashdrawerpswd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2cashdrawerpswd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2cashdrawerpswd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2CASHDRAWERPSWD, $oetbcon2cashdrawerpswd, $comparison);
@@ -5861,10 +5584,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2upsonline($oetbcon2upsonline = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2upsonline)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2upsonline)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2UPSONLINE, $oetbcon2upsonline, $comparison);
@@ -5889,10 +5610,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2picorver($oetbcon2picorver = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2picorver)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2picorver)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PICORVER, $oetbcon2picorver, $comparison);
@@ -5917,10 +5636,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2combback($oetbcon2combback = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2combback)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2combback)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2COMBBACK, $oetbcon2combback, $comparison);
@@ -5988,10 +5705,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3shipmoreordered($oetbcon3shipmoreordered = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3shipmoreordered)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3shipmoreordered)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3SHIPMOREORDERED, $oetbcon3shipmoreordered, $comparison);
@@ -6016,10 +5731,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3warnshipmore($oetbcon3warnshipmore = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3warnshipmore)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3warnshipmore)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3WARNSHIPMORE, $oetbcon3warnshipmore, $comparison);
@@ -6044,10 +5757,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3proformafromeso($oetbcon3proformafromeso = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3proformafromeso)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3proformafromeso)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3PROFORMAFROMESO, $oetbcon3proformafromeso, $comparison);
@@ -6072,10 +5783,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3pickpackcode($oetbcon3pickpackcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3pickpackcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3pickpackcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3PICKPACKCODE, $oetbcon3pickpackcode, $comparison);
@@ -6100,10 +5809,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2usedept($oetbcon2usedept = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2usedept)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2usedept)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2USEDEPT, $oetbcon2usedept, $comparison);
@@ -6128,10 +5835,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2usedivision($oetbcon2usedivision = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2usedivision)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2usedivision)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2USEDIVISION, $oetbcon2usedivision, $comparison);
@@ -6156,10 +5861,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2defmfecode($oetbcon2defmfecode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2defmfecode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2defmfecode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2DEFMFECODE, $oetbcon2defmfecode, $comparison);
@@ -6184,10 +5887,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2showavgcost($oetbcon2showavgcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2showavgcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2showavgcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2SHOWAVGCOST, $oetbcon2showavgcost, $comparison);
@@ -6212,10 +5913,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2fedex($oetbcon2fedex = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2fedex)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2fedex)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2FEDEX, $oetbcon2fedex, $comparison);
@@ -6240,10 +5939,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3deffrghtgrup($oetbcon3deffrghtgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3deffrghtgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3deffrghtgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3DEFFRGHTGRUP, $oetbcon3deffrghtgrup, $comparison);
@@ -6268,10 +5965,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3upsmysqldbname($oetbcon3upsmysqldbname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3upsmysqldbname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3upsmysqldbname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3UPSMYSQLDBNAME, $oetbcon3upsmysqldbname, $comparison);
@@ -6296,10 +5991,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfuseoptcode($oetbconfuseoptcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfuseoptcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfuseoptcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFUSEOPTCODE, $oetbconfuseoptcode, $comparison);
@@ -6324,10 +6017,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfscn4opt($oetbconfscn4opt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfscn4opt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfscn4opt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFSCN4OPT, $oetbconfscn4opt, $comparison);
@@ -6352,10 +6043,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2takenbyuse($oetbcon2takenbyuse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2takenbyuse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2takenbyuse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2TAKENBYUSE, $oetbcon2takenbyuse, $comparison);
@@ -6380,10 +6069,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2takenbylogin($oetbcon2takenbylogin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2takenbylogin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2takenbylogin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2TAKENBYLOGIN, $oetbcon2takenbylogin, $comparison);
@@ -6408,10 +6095,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2takenbyforce($oetbcon2takenbyforce = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2takenbyforce)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2takenbyforce)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2TAKENBYFORCE, $oetbcon2takenbyforce, $comparison);
@@ -6436,10 +6121,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2pickedbyuse($oetbcon2pickedbyuse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2pickedbyuse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2pickedbyuse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PICKEDBYUSE, $oetbcon2pickedbyuse, $comparison);
@@ -6464,10 +6147,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2pickedbyforce($oetbcon2pickedbyforce = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2pickedbyforce)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2pickedbyforce)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PICKEDBYFORCE, $oetbcon2pickedbyforce, $comparison);
@@ -6492,10 +6173,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2pickedbyproc($oetbcon2pickedbyproc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2pickedbyproc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2pickedbyproc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PICKEDBYPROC, $oetbcon2pickedbyproc, $comparison);
@@ -6520,10 +6199,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2packedbyuse($oetbcon2packedbyuse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2packedbyuse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2packedbyuse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PACKEDBYUSE, $oetbcon2packedbyuse, $comparison);
@@ -6548,10 +6225,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2packedbyforce($oetbcon2packedbyforce = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2packedbyforce)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2packedbyforce)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PACKEDBYFORCE, $oetbcon2packedbyforce, $comparison);
@@ -6576,10 +6251,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2verifiedbyuse($oetbcon2verifiedbyuse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2verifiedbyuse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2verifiedbyuse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2VERIFIEDBYUSE, $oetbcon2verifiedbyuse, $comparison);
@@ -6604,10 +6277,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2verifiedbylogin($oetbcon2verifiedbylogin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2verifiedbylogin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2verifiedbylogin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2VERIFIEDBYLOGIN, $oetbcon2verifiedbylogin, $comparison);
@@ -6632,10 +6303,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2verifiedbyforce($oetbcon2verifiedbyforce = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2verifiedbyforce)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2verifiedbyforce)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2VERIFIEDBYFORCE, $oetbcon2verifiedbyforce, $comparison);
@@ -6660,10 +6329,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfoptlabl1($oetbconfoptlabl1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfoptlabl1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfoptlabl1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFOPTLABL1, $oetbconfoptlabl1, $comparison);
@@ -6688,10 +6355,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2ucode1force($oetbcon2ucode1force = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2ucode1force)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2ucode1force)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2UCODE1FORCE, $oetbcon2ucode1force, $comparison);
@@ -6716,10 +6381,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfoptlabl2($oetbconfoptlabl2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfoptlabl2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfoptlabl2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFOPTLABL2, $oetbconfoptlabl2, $comparison);
@@ -6744,10 +6407,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2ucode2force($oetbcon2ucode2force = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2ucode2force)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2ucode2force)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2UCODE2FORCE, $oetbcon2ucode2force, $comparison);
@@ -6772,10 +6433,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfoptlabl3($oetbconfoptlabl3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfoptlabl3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfoptlabl3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFOPTLABL3, $oetbconfoptlabl3, $comparison);
@@ -6800,10 +6459,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2ucode3force($oetbcon2ucode3force = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2ucode3force)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2ucode3force)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2UCODE3FORCE, $oetbcon2ucode3force, $comparison);
@@ -6828,10 +6485,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfoptlabl4($oetbconfoptlabl4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfoptlabl4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfoptlabl4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFOPTLABL4, $oetbconfoptlabl4, $comparison);
@@ -6856,10 +6511,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2ucode4force($oetbcon2ucode4force = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2ucode4force)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2ucode4force)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2UCODE4FORCE, $oetbcon2ucode4force, $comparison);
@@ -6884,10 +6537,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfverifyafterpack($oetbconfverifyafterpack = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfverifyafterpack)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfverifyafterpack)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFVERIFYAFTERPACK, $oetbconfverifyafterpack, $comparison);
@@ -6955,10 +6606,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfrqstcatlg($oetbconfrqstcatlg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfrqstcatlg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfrqstcatlg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFRQSTCATLG, $oetbconfrqstcatlg, $comparison);
@@ -6983,10 +6632,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2conpick($oetbcon2conpick = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2conpick)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2conpick)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2CONPICK, $oetbcon2conpick, $comparison);
@@ -7011,10 +6658,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2allowpick($oetbcon2allowpick = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2allowpick)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2allowpick)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ALLOWPICK, $oetbcon2allowpick, $comparison);
@@ -7039,10 +6684,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2combinesame($oetbcon2combinesame = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2combinesame)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2combinesame)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2COMBINESAME, $oetbcon2combinesame, $comparison);
@@ -7067,10 +6710,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3autovernitems($oetbcon3autovernitems = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3autovernitems)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3autovernitems)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3AUTOVERNITEMS, $oetbcon3autovernitems, $comparison);
@@ -7095,10 +6736,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2allowzeroqty($oetbcon2allowzeroqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2allowzeroqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2allowzeroqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ALLOWZEROQTY, $oetbcon2allowzeroqty, $comparison);
@@ -7123,10 +6762,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2allowinvalidwhse($oetbcon2allowinvalidwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2allowinvalidwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2allowinvalidwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ALLOWINVALIDWHSE, $oetbcon2allowinvalidwhse, $comparison);
@@ -7151,10 +6788,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2showediinfo($oetbcon2showediinfo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2showediinfo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2showediinfo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2SHOWEDIINFO, $oetbcon2showediinfo, $comparison);
@@ -7179,10 +6814,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3esoshowquotlink($oetbcon3esoshowquotlink = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3esoshowquotlink)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3esoshowquotlink)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWQUOTLINK, $oetbcon3esoshowquotlink, $comparison);
@@ -7207,10 +6840,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3esoshowwiplink($oetbcon3esoshowwiplink = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3esoshowwiplink)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3esoshowwiplink)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWWIPLINK, $oetbcon3esoshowwiplink, $comparison);
@@ -7235,10 +6866,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2addonsales($oetbcon2addonsales = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2addonsales)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2addonsales)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2ADDONSALES, $oetbcon2addonsales, $comparison);
@@ -7263,10 +6892,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2forcedbkord($oetbcon2forcedbkord = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2forcedbkord)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2forcedbkord)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2FORCEDBKORD, $oetbcon2forcedbkord, $comparison);
@@ -7291,10 +6918,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2updtprcdisc($oetbcon2updtprcdisc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2updtprcdisc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2updtprcdisc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2UPDTPRCDISC, $oetbcon2updtprcdisc, $comparison);
@@ -7319,10 +6944,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2autopack($oetbcon2autopack = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2autopack)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2autopack)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2AUTOPACK, $oetbcon2autopack, $comparison);
@@ -7347,10 +6970,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2pickboprtzqts($oetbcon2pickboprtzqts = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2pickboprtzqts)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2pickboprtzqts)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2PICKBOPRTZQTS, $oetbcon2pickboprtzqts, $comparison);
@@ -7375,10 +6996,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3pick00noship($oetbcon3pick00noship = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3pick00noship)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3pick00noship)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3PICK00NOSHIP, $oetbcon3pick00noship, $comparison);
@@ -7403,10 +7022,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2standordlead($oetbcon2standordlead = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2standordlead)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2standordlead)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2STANDORDLEAD, $oetbcon2standordlead, $comparison);
@@ -7474,10 +7091,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2inactitemcntrl($oetbcon2inactitemcntrl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2inactitemcntrl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2inactitemcntrl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2INACTITEMCNTRL, $oetbcon2inactitemcntrl, $comparison);
@@ -7502,10 +7117,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon2useitemref($oetbcon2useitemref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon2useitemref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon2useitemref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON2USEITEMREF, $oetbcon2useitemref, $comparison);
@@ -7530,10 +7143,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3upsnaftarecords($oetbcon3upsnaftarecords = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3upsnaftarecords)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3upsnaftarecords)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3UPSNAFTARECORDS, $oetbcon3upsnaftarecords, $comparison);
@@ -7558,10 +7169,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3soplotlikenorm($oetbcon3soplotlikenorm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3soplotlikenorm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3soplotlikenorm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3SOPLOTLIKENORM, $oetbcon3soplotlikenorm, $comparison);
@@ -7586,10 +7195,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdfltshipwhse($oetbconfdfltshipwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdfltshipwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdfltshipwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDFLTSHIPWHSE, $oetbconfdfltshipwhse, $comparison);
@@ -7614,10 +7221,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfdfltorigwhse($oetbconfdfltorigwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfdfltorigwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfdfltorigwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFDFLTORIGWHSE, $oetbconfdfltorigwhse, $comparison);
@@ -7642,10 +7247,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfinvcwithpack($oetbconfinvcwithpack = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfinvcwithpack)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfinvcwithpack)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFINVCWITHPACK, $oetbconfinvcwithpack, $comparison);
@@ -7670,10 +7273,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfcarrycntrqty($oetbconfcarrycntrqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfcarrycntrqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfcarrycntrqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFCARRYCNTRQTY, $oetbconfcarrycntrqty, $comparison);
@@ -7698,10 +7299,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3useordras($oetbcon3useordras = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3useordras)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3useordras)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3USEORDRAS, $oetbcon3useordras, $comparison);
@@ -7726,10 +7325,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbconfuseordrsource($oetbconfuseordrsource = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbconfuseordrsource)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbconfuseordrsource)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCONFUSEORDRSOURCE, $oetbconfuseordrsource, $comparison);
@@ -7754,10 +7351,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3ccprocessor($oetbcon3ccprocessor = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3ccprocessor)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3ccprocessor)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3CCPROCESSOR, $oetbcon3ccprocessor, $comparison);
@@ -7782,10 +7377,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3creditcardcap($oetbcon3creditcardcap = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3creditcardcap)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3creditcardcap)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3CREDITCARDCAP, $oetbcon3creditcardcap, $comparison);
@@ -7810,10 +7403,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3keyorcccap($oetbcon3keyorcccap = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3keyorcccap)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3keyorcccap)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3KEYORCCCAP, $oetbcon3keyorcccap, $comparison);
@@ -7838,10 +7429,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3ccxoverlay($oetbcon3ccxoverlay = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3ccxoverlay)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3ccxoverlay)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3CCXOVERLAY, $oetbcon3ccxoverlay, $comparison);
@@ -7909,10 +7498,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3signaturecapture($oetbcon3signaturecapture = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3signaturecapture)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3signaturecapture)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3SIGNATURECAPTURE, $oetbcon3signaturecapture, $comparison);
@@ -7937,10 +7524,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3ccpreapproval($oetbcon3ccpreapproval = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3ccpreapproval)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3ccpreapproval)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3CCPREAPPROVAL, $oetbcon3ccpreapproval, $comparison);
@@ -7965,10 +7550,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3forceccnbrentry($oetbcon3forceccnbrentry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3forceccnbrentry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3forceccnbrentry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3FORCECCNBRENTRY, $oetbcon3forceccnbrentry, $comparison);
@@ -7993,10 +7576,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3intritemnotes($oetbcon3intritemnotes = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3intritemnotes)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3intritemnotes)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3INTRITEMNOTES, $oetbcon3intritemnotes, $comparison);
@@ -8021,10 +7602,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3mtrcert($oetbcon3mtrcert = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3mtrcert)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3mtrcert)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3MTRCERT, $oetbcon3mtrcert, $comparison);
@@ -8049,10 +7628,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByOetbcon3cofccert($oetbcon3cofccert = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcon3cofccert)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcon3cofccert)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3COFCCERT, $oetbcon3cofccert, $comparison);
@@ -8077,10 +7654,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -8105,10 +7680,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -8133,10 +7706,8 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSalesOrderTableMap::COL_DUMMY, $dummy, $comparison);
@@ -8168,7 +7739,7 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSalesOrderTableMap::DATABASE_NAME);
         }
 
@@ -8198,7 +7769,7 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSalesOrderTableMap::DATABASE_NAME);
         }
 

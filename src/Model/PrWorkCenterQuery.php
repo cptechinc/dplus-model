@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\PrWorkCenterQuery as BasePrWorkCenterQuery;
 
 use Dplus\Model\QueryTraits;

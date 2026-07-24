@@ -682,7 +682,6 @@ class DplusUserTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -695,93 +694,91 @@ class DplusUserTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('UsrcId', 'Usrcid', 'VARCHAR', true, 8, null);
-        $this->addColumn('UsrcLoginName', 'Usrcloginname', 'VARCHAR', false, 20, null);
-        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('UsrcDefCmpy', 'Usrcdefcmpy', 'VARCHAR', false, 3, null);
-        $this->addColumn('UsrcAdmin', 'Usrcadmin', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcFront', 'Usrcfront', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcCityDesk', 'Usrccitydesk', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcReptAdmin', 'Usrcreptadmin', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcPrinter', 'Usrcprinter', 'VARCHAR', false, 12, null);
-        $this->addColumn('UsrcPitch', 'Usrcpitch', 'VARCHAR', false, 2, null);
-        $this->addColumn('UsrcBrowsePrinter', 'Usrcbrowseprinter', 'VARCHAR', false, 12, null);
-        $this->addColumn('UsrcWhseDisplaySeq', 'Usrcwhsedisplayseq', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcActiveItemsOnly', 'Usrcactiveitemsonly', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcRestrictAccess', 'Usrcrestrictaccess', 'VARCHAR', false, 1, null);
-        $this->addForeignKey('UsrcLoginGroup', 'Usrclogingroup', 'VARCHAR', 'sys_login_group', 'QtblLgrpCode', false, 8, null);
-        $this->addForeignKey('UsrcLoginRole', 'Usrcloginrole', 'VARCHAR', 'sys_login_role', 'QtblRoleCode', false, 6, null);
-        $this->addColumn('UsrcAllowProcRemoval', 'Usrcallowprocremoval', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcAcAllowWarrEdit', 'Usrcacallowwarredit', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcIsProdMgr', 'Usrcisprodmgr', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcLmAllowCrossWhse', 'Usrclmallowcrosswhse', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcPswd', 'Usrcpswd', 'VARCHAR', false, 50, null);
-        $this->addColumn('UsrcFaxName', 'Usrcfaxname', 'VARCHAR', false, 30, null);
-        $this->addColumn('UsrcFaxCompany', 'Usrcfaxcompany', 'VARCHAR', false, 30, null);
-        $this->addColumn('UsrcFaxArea', 'Usrcfaxarea', 'VARCHAR', false, 3, null);
-        $this->addColumn('UsrcFaxFrst3', 'Usrcfaxfrst3', 'VARCHAR', false, 3, null);
-        $this->addColumn('UsrcFaxLast4', 'Usrcfaxlast4', 'VARCHAR', false, 4, null);
-        $this->addColumn('UsrcPhoneArea', 'Usrcphonearea', 'VARCHAR', false, 3, null);
-        $this->addColumn('UsrcPhoneFrst3', 'Usrcphonefrst3', 'VARCHAR', false, 3, null);
-        $this->addColumn('UsrcPhoneLast4', 'Usrcphonelast4', 'VARCHAR', false, 4, null);
-        $this->addColumn('UsrcPhoneExt', 'Usrcphoneext', 'VARCHAR', false, 7, null);
-        $this->addColumn('UsrcSendTime', 'Usrcsendtime', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcCoverSheet', 'Usrccoversheet', 'VARCHAR', false, 8, null);
-        $this->addColumn('UsrcSubject', 'Usrcsubject', 'VARCHAR', false, 40, null);
-        $this->addColumn('UsrcNotifyS', 'Usrcnotifys', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcNotifyF', 'Usrcnotifyf', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcEmailAddr', 'Usrcemailaddr', 'VARCHAR', false, 50, null);
-        $this->addColumn('UsrcScaleWhseId', 'Usrcscalewhseid', 'VARCHAR', false, 2, null);
-        $this->addColumn('UsrcScaleDevNbr', 'Usrcscaledevnbr', 'VARCHAR', false, 2, null);
-        $this->addColumn('UsrcCcscanWhseId', 'Usrcccscanwhseid', 'VARCHAR', false, 2, null);
-        $this->addColumn('UsrcCcscanDevNbr', 'Usrcccscandevnbr', 'VARCHAR', false, 2, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addPrimaryKey('UsrcId', 'Usrcid', 'VARCHAR', true, 8);
+        $this->addColumn('UsrcLoginName', 'Usrcloginname', 'VARCHAR', false, 20);
+        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2);
+        $this->addColumn('UsrcDefCmpy', 'Usrcdefcmpy', 'VARCHAR', false, 3);
+        $this->addColumn('UsrcAdmin', 'Usrcadmin', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcFront', 'Usrcfront', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcCityDesk', 'Usrccitydesk', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcReptAdmin', 'Usrcreptadmin', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcPrinter', 'Usrcprinter', 'VARCHAR', false, 12);
+        $this->addColumn('UsrcPitch', 'Usrcpitch', 'VARCHAR', false, 2);
+        $this->addColumn('UsrcBrowsePrinter', 'Usrcbrowseprinter', 'VARCHAR', false, 12);
+        $this->addColumn('UsrcWhseDisplaySeq', 'Usrcwhsedisplayseq', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcActiveItemsOnly', 'Usrcactiveitemsonly', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcRestrictAccess', 'Usrcrestrictaccess', 'VARCHAR', false, 1);
+        $this->addForeignKey('UsrcLoginGroup', 'Usrclogingroup', 'VARCHAR', 'sys_login_group', 'QtblLgrpCode', false, 8);
+        $this->addForeignKey('UsrcLoginRole', 'Usrcloginrole', 'VARCHAR', 'sys_login_role', 'QtblRoleCode', false, 6);
+        $this->addColumn('UsrcAllowProcRemoval', 'Usrcallowprocremoval', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcAcAllowWarrEdit', 'Usrcacallowwarredit', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcIsProdMgr', 'Usrcisprodmgr', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcLmAllowCrossWhse', 'Usrclmallowcrosswhse', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcPswd', 'Usrcpswd', 'VARCHAR', false, 50);
+        $this->addColumn('UsrcFaxName', 'Usrcfaxname', 'VARCHAR', false, 30);
+        $this->addColumn('UsrcFaxCompany', 'Usrcfaxcompany', 'VARCHAR', false, 30);
+        $this->addColumn('UsrcFaxArea', 'Usrcfaxarea', 'VARCHAR', false, 3);
+        $this->addColumn('UsrcFaxFrst3', 'Usrcfaxfrst3', 'VARCHAR', false, 3);
+        $this->addColumn('UsrcFaxLast4', 'Usrcfaxlast4', 'VARCHAR', false, 4);
+        $this->addColumn('UsrcPhoneArea', 'Usrcphonearea', 'VARCHAR', false, 3);
+        $this->addColumn('UsrcPhoneFrst3', 'Usrcphonefrst3', 'VARCHAR', false, 3);
+        $this->addColumn('UsrcPhoneLast4', 'Usrcphonelast4', 'VARCHAR', false, 4);
+        $this->addColumn('UsrcPhoneExt', 'Usrcphoneext', 'VARCHAR', false, 7);
+        $this->addColumn('UsrcSendTime', 'Usrcsendtime', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcCoverSheet', 'Usrccoversheet', 'VARCHAR', false, 8);
+        $this->addColumn('UsrcSubject', 'Usrcsubject', 'VARCHAR', false, 40);
+        $this->addColumn('UsrcNotifyS', 'Usrcnotifys', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcNotifyF', 'Usrcnotifyf', 'VARCHAR', false, 1);
+        $this->addColumn('UsrcEmailAddr', 'Usrcemailaddr', 'VARCHAR', false, 50);
+        $this->addColumn('UsrcScaleWhseId', 'Usrcscalewhseid', 'VARCHAR', false, 2);
+        $this->addColumn('UsrcScaleDevNbr', 'Usrcscaledevnbr', 'VARCHAR', false, 2);
+        $this->addColumn('UsrcCcscanWhseId', 'Usrcccscanwhseid', 'VARCHAR', false, 2);
+        $this->addColumn('UsrcCcscanDevNbr', 'Usrcccscandevnbr', 'VARCHAR', false, 2);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('SysLoginGroup', '\\SysLoginGroup', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('SysLoginGroup', '\\SysLoginGroup', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':UsrcLoginGroup',
     1 => ':QtblLgrpCode',
-  ),
-), null, null, null, false);
-        $this->addRelation('SysLoginRole', '\\SysLoginRole', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('SysLoginRole', '\\SysLoginRole', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':UsrcLoginRole',
     1 => ':QtblRoleCode',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntgUserId',
     1 => ':UsrcId',
-  ),
-), null, null, 'InvLotTags', false);
-        $this->addRelation('UserPermissionsItm', '\\UserPermissionsItm', RelationMap::ONE_TO_ONE, array (
+  ],
+], null, null, 'InvLotTags', false);
+        $this->addRelation('UserPermissionsItm', '\\UserPermissionsItm', RelationMap::ONE_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ItmpUserId',
     1 => ':UsrcId',
-  ),
-), null, null, null, false);
-        $this->addRelation('UserLastPrintJob', '\\UserLastPrintJob', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('UserLastPrintJob', '\\UserLastPrintJob', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':UsrcId',
     1 => ':UsrcId',
-  ),
-), null, null, 'UserLastPrintJobs', false);
+  ],
+], null, null, 'UserLastPrintJobs', false);
     }
 
     /**
@@ -800,11 +797,11 @@ class DplusUserTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -822,8 +819,8 @@ class DplusUserTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -880,7 +877,6 @@ class DplusUserTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -921,7 +917,6 @@ class DplusUserTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1026,7 +1021,6 @@ class DplusUserTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1124,7 +1118,6 @@ class DplusUserTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -1146,7 +1139,7 @@ class DplusUserTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
         }
 
@@ -1196,7 +1189,7 @@ class DplusUserTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
         }
 
@@ -1212,9 +1205,7 @@ class DplusUserTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

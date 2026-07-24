@@ -16,7 +16,7 @@
 		 */
 		public function error($class, $error, $trace, $level = E_USER_ERROR) {
 			$caller = next($trace);
-			$error = (strpos($error, "DPLUS-MODEL [$class]: ") !== 0 ? "DPLUS-MODEL [$class]: " . $error : $error);
+			$error = (str_starts_with($error, "DPLUS-MODEL [$class]: ") ? $error : "DPLUS-MODEL [$class]: " . $error);
 			$error .= PHP_EOL;
 			$error .= PHP_EOL;
 
@@ -26,7 +26,6 @@
 				$error .= "Property may be trying to be loaded from database";
 			}
 			trigger_error($error, $level);
-			return;
 		}
 	}
 
@@ -45,7 +44,7 @@
 			$trace = debug_backtrace();
 			$caller = next($trace);
 			$class = get_class($this);
-			$error = (strpos($error, "DPLUS-MODEL [$class]: ") !== 0 ? "DPLUS-MODEL [$class]: " . $error : $error);
+			$error = (str_starts_with($error, "DPLUS-MODEL [$class]: ") ? $error : "DPLUS-MODEL [$class]: " . $error);
 			$error .= PHP_EOL;
 			$error .= PHP_EOL;
 
@@ -55,6 +54,5 @@
 				$error .= "Property may be trying to be loaded from database";
 			}
 			trigger_error($error, $level);
-			return;
 		}
 	}

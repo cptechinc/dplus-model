@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\RcyclGeneratorQuery as BaseRcyclGeneratorQuery;
 use Dplus\Model\QueryTraits;
 

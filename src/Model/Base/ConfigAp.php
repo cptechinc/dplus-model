@@ -32,7 +32,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ConfigApTableMap';
+    public const TABLE_MAP = \Map\ConfigApTableMap::class;
 
 
     /**
@@ -664,7 +664,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -722,7 +722,6 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -732,7 +731,6 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -770,8 +768,6 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -782,7 +778,6 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -824,9 +819,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -852,7 +845,7 @@ abstract class ConfigAp implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, []));
     }
 
     /**
@@ -3316,12 +3309,8 @@ abstract class ConfigAp implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->aptbconfkey !== 0) {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->aptbconfkey === 0;
     }
 
     /**
@@ -3346,247 +3335,247 @@ abstract class ConfigAp implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ConfigApTableMap::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfkey = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfglifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfglifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfglifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfinifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfinifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfinifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfsoifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfsoifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfsoifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpoifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpoifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfpoifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ConfigApTableMap::translateFieldName('Aptbconffrtacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ConfigApTableMap::translateFieldName('Aptbconffrtacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconffrtacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmiscacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmiscacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmiscacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfapacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfapacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfapacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfcashacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfcashacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfcashacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdiscacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdiscacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfdiscacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ConfigApTableMap::translateFieldName('Aptbconftaxacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ConfigApTableMap::translateFieldName('Aptbconftaxacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconftaxacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpuracct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpuracct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfpuracct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvaracct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvaracct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvaracct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvenddisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvenddisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvenddisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfapinvvaracct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfapinvvaracct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfapinvvaracct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfuseroyal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfuseroyal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfuseroyal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdefbuyrcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdefbuyrcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfdefbuyrcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdeftermcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdeftermcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfdeftermcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdefsviacode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdefsviacode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfdefsviacode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdeftypecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdeftypecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfdeftypecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvendline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvendcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpoline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpoline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfpoline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpocols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpocols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfpocols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendgetopt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendgetopt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvendgetopt = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpaytoshipfr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfpaytoshipfr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfpaytoshipfr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfholdstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfholdstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfholdstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdiscret', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfdiscret', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfdiscret = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfstopvendchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfstopvendchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfstopvendchg = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfreqdate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfreqdate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfreqdate2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfreqdate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfreqdate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfreqdate3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfreqdate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfreqdate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfreqdate4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099name', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099name', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconf1099name = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099adr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099adr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconf1099adr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099adr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099adr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconf1099adr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099adr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099adr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconf1099adr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099city', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099city', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconf1099city = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099stat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099stat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconf1099stat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099zipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099zipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconf1099zipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099id', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : ConfigApTableMap::translateFieldName('Aptbconf1099id', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconf1099id = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfstubsort', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfstubsort', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfstubsort = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigApTableMap::translateFieldName('AptbConfUseAch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : ConfigApTableMap::translateFieldName('AptbConfUseAch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfuseach = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfover1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfover1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfover1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfover2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfover2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfover2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfprtchk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfprtchk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfprtchk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeiunrecqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeiunrecqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeiunrecqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeirecqtyask', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeirecqtyask', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeirecqtyask = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeirecqtydef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeirecqtydef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeirecqtydef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfallowmultpos', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfallowmultpos', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfallowmultpos = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeibyclerk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeibyclerk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeibyclerk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeibatchproc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeibatchproc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeibatchproc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeidispstancost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeidispstancost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeidispstancost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeiassetacctchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeiassetacctchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeiassetacctchg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfallowdupinvc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfallowdupinvc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfallowdupinvc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfprtsorept', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfprtsorept', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfprtsorept = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeicheckhist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeicheckhist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeicheckhist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfsummgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfsummgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfsummgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmuserlabel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmuserlabel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmuserlabel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendcostbreaks', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendcostbreaks', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvendcostbreaks = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrclospo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrclospo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrclospo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrclosdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrclosdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrclosdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrpohist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrpohist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrpohist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrpodate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrpodate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrpodate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrckhist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrckhist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrckhist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrckdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrckdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrckdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclropenck', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclropenck', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclropenck = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigApTableMap::translateFieldName('Aptbconflead', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : ConfigApTableMap::translateFieldName('Aptbconflead', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconflead = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrreworkitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrreworkitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvrreworkitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrqcwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrqcwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvrqcwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvrglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmlistpc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmlistpc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmlistpc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmlistitemupd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmlistitemupd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmlistitemupd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmgrosslc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmgrosslc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmgrosslc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostlp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostlp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostlp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostitemupd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostitemupd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostitemupd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostrmesg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostrmesg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostrmesg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostitemupdm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostitemupdm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostitemupdm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostmmesg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostmmesg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostmmesg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigApTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : ConfigApTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigApTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : ConfigApTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigApTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : ConfigApTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -3615,7 +3604,6 @@ abstract class ConfigAp implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -3628,7 +3616,6 @@ abstract class ConfigAp implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -3641,7 +3628,7 @@ abstract class ConfigAp implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigApTableMap::DATABASE_NAME);
         }
 
@@ -3665,7 +3652,6 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigAp::setDeleted()
      * @see ConfigAp::isDeleted()
@@ -3676,7 +3662,7 @@ abstract class ConfigAp implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
         }
 
@@ -3715,18 +3701,14 @@ abstract class ConfigAp implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -3750,7 +3732,6 @@ abstract class ConfigAp implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -3782,7 +3763,6 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -4386,7 +4366,6 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -4412,9 +4391,8 @@ abstract class ConfigAp implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigApTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -4791,7 +4769,6 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -5654,7 +5631,7 @@ abstract class ConfigAp implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -5674,7 +5651,6 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Generic method to set the primary key (aptbconfkey column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -5683,8 +5659,6 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -5701,7 +5675,6 @@ abstract class ConfigAp implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -5924,8 +5897,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         return $this;
     }
@@ -5937,13 +5909,11 @@ abstract class ConfigAp implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ConfigApTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ConfigApTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -5952,8 +5922,6 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -5961,8 +5929,6 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -5971,8 +5937,6 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -5980,8 +5944,6 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -5990,8 +5952,6 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -5999,8 +5959,6 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -6009,8 +5967,6 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -6030,7 +5986,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -6042,7 +5998,7 @@ abstract class ConfigAp implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -6050,7 +6006,7 @@ abstract class ConfigAp implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

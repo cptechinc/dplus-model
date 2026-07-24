@@ -116,7 +116,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArCreditCardCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArCreditCardCodeQuery object.
@@ -174,7 +174,7 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
@@ -220,7 +220,6 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArCreditCardCode $obj */
             $obj = new ChildArCreditCardCode();
             $obj->hydrate($row);
             ArCreditCardCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -261,7 +260,7 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -320,10 +319,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function filterByArtbcrcdcode($artbcrcdcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcrcdcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcrcdcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $artbcrcdcode, $comparison);
@@ -348,10 +345,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function filterByArtbcrcdname($artbcrcdname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcrcdname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcrcdname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDNAME, $artbcrcdname, $comparison);
@@ -376,10 +371,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function filterByArtbcrcdglacct($artbcrcdglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcrcdglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcrcdglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT, $artbcrcdglacct, $comparison);
@@ -404,10 +397,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function filterByArtbcrcdcustid($artbcrcdcustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcrcdcustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcrcdcustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID, $artbcrcdcustid, $comparison);
@@ -432,10 +423,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function filterByArtbcrcdchrgglacct($artbcrcdchrgglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbcrcdchrgglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbcrcdchrgglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT, $artbcrcdchrgglacct, $comparison);
@@ -632,10 +621,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCreditCardCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -660,10 +647,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCreditCardCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -688,10 +673,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCreditCardCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -723,7 +706,7 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
@@ -753,7 +736,7 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 

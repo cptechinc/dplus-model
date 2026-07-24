@@ -170,7 +170,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class OptionsCiQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\OptionsCiQuery object.
@@ -228,7 +228,7 @@ abstract class OptionsCiQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(OptionsCiTableMap::DATABASE_NAME);
         }
 
@@ -274,7 +274,6 @@ abstract class OptionsCiQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildOptionsCi $obj */
             $obj = new ChildOptionsCi();
             $obj->hydrate($row);
             OptionsCiTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -315,7 +314,7 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -374,10 +373,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptncode($citboptncode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptncode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptncode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCODE, $citboptncode, $comparison);
@@ -402,10 +399,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnnoteavail($citboptnnoteavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnnoteavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnnoteavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNNOTEAVAIL, $citboptnnoteavail, $comparison);
@@ -430,10 +425,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptngenavail($citboptngenavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptngenavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptngenavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNGENAVAIL, $citboptngenavail, $comparison);
@@ -458,10 +451,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnpayavail($citboptnpayavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnpayavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnpayavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPAYAVAIL, $citboptnpayavail, $comparison);
@@ -486,10 +477,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptncoreavail($citboptncoreavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptncoreavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptncoreavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCOREAVAIL, $citboptncoreavail, $comparison);
@@ -514,10 +503,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptncredavail($citboptncredavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptncredavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptncredavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCREDAVAIL, $citboptncredavail, $comparison);
@@ -542,10 +529,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptncstkavail($citboptncstkavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptncstkavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptncstkavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCSTKAVAIL, $citboptncstkavail, $comparison);
@@ -570,10 +555,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnpricavail($citboptnpricavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnpricavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnpricavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPRICAVAIL, $citboptnpricavail, $comparison);
@@ -598,10 +581,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnstndavail($citboptnstndavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnstndavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnstndavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSTNDAVAIL, $citboptnstndavail, $comparison);
@@ -626,10 +607,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnsoavail($citboptnsoavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnsoavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnsoavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSOAVAIL, $citboptnsoavail, $comparison);
@@ -654,10 +633,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnquotavail($citboptnquotavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnquotavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnquotavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNQUOTAVAIL, $citboptnquotavail, $comparison);
@@ -682,10 +659,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnopenavail($citboptnopenavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnopenavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnopenavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNOPENAVAIL, $citboptnopenavail, $comparison);
@@ -710,10 +685,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnpoavail($citboptnpoavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnpoavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnpoavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPOAVAIL, $citboptnpoavail, $comparison);
@@ -781,10 +754,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnpostrtdate($citboptnpostrtdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnpostrtdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnpostrtdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPOSTRTDATE, $citboptnpostrtdate, $comparison);
@@ -809,10 +780,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnshavail($citboptnshavail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnshavail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnshavail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSHAVAIL, $citboptnshavail, $comparison);
@@ -880,10 +849,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByCitboptnshstrtdate($citboptnshstrtdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($citboptnshstrtdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($citboptnshstrtdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSHSTRTDATE, $citboptnshstrtdate, $comparison);
@@ -908,10 +875,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -936,10 +901,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -964,10 +927,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(OptionsCiTableMap::COL_DUMMY, $dummy, $comparison);
@@ -999,7 +960,7 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsCiTableMap::DATABASE_NAME);
         }
 
@@ -1029,7 +990,7 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsCiTableMap::DATABASE_NAME);
         }
 

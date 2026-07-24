@@ -70,14 +70,14 @@ class CustomerShiptoQuery extends BaseCustomerShiptoQuery {
 	 */
 	public function get_lastxmonthsamount($custID, $shiptoID, int $months = 1) {
 		$basecolumn = 'ArstSale24mo';
-		$array = array();
+		$array = [];
 
 		for ($i = 1; $i < $months + 1; $i++) {
 			$array[] = "$basecolumn$i";
 		}
 		$columns = implode(" + ", $array);
 		$sql = "SELECT ($columns) as amount FROM ar_ship_to WHERE ArcuCustId = :custid AND ArstShipid = :shipid";
-		$params = array(':custid' => $custID, ':shipid' => $shiptoID);
+		$params = [':custid' => $custID, ':shipid' => $shiptoID];
 		$result = $this->execute_query($sql, $params);
 		return $result->fetchColumn();
 	}
@@ -92,14 +92,14 @@ class CustomerShiptoQuery extends BaseCustomerShiptoQuery {
 	 */
 	public function get_lastxmonthscount($custID, $shiptoID, int $months = 1) {
 		$basecolumn = 'ArstInv24mo';
-		$array = array();
+		$array = [];
 
 		for ($i = 1; $i < $months + 1; $i++) {
 			$array[] = "$basecolumn$i";
 		}
 		$columns = implode(" + ", $array);
 		$sql = "SELECT ($columns) as amount FROM ar_ship_to WHERE ArcuCustId = :custid AND ArstShipid = :shipid";
-		$params = array(':custid' => $custID, ':shipid' => $shiptoID);
+		$params = [':custid' => $custID, ':shipid' => $shiptoID];
 		$result = $this->execute_query($sql, $params);
 		return $result->fetchColumn();
 	}

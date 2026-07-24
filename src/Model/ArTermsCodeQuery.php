@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArTermsCodeQuery as BaseArTermsCodeQuery;
 
 use Dplus\Model\QueryTraits;

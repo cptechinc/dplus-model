@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\CstkItem as BaseCstkItem;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class CstkItem extends BaseCstkItem {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'custID'                  => 'arcucustid',
 		'custid'                  => 'arcucustid',
 		'shiptoid'                => 'arstshipid',
@@ -48,5 +50,5 @@ class CstkItem extends BaseCstkItem {
 		'proval_lastsale_qty_lbs'    => 'cskdestusag',
 		'proval_totalsale_qty_cases' => 'cskdordpnt',
 		'proval_totalsale_qty_lbs'   => 'cskdordqty',
-	);
+	];
 }

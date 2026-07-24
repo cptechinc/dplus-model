@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\StateCode as BaseStateCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,7 +18,7 @@ class StateCode extends BaseStateCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'            => 'statid',
 		'code'          => 'statid',
 		'abbreviation'  => 'statid',
@@ -24,5 +26,5 @@ class StateCode extends BaseStateCode {
 		'name'          => 'statname',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 }

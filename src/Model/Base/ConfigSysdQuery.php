@@ -236,7 +236,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigSysdQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigSysdQuery object.
@@ -294,7 +294,7 @@ abstract class ConfigSysdQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigSysdTableMap::DATABASE_NAME);
         }
 
@@ -340,7 +340,6 @@ abstract class ConfigSysdQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigSysd $obj */
             $obj = new ChildConfigSysd();
             $obj->hydrate($row);
             ConfigSysdTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -381,7 +380,7 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -483,10 +482,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpcompid($cscpcompid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpcompid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpcompid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPID, $cscpcompid, $comparison);
@@ -511,10 +508,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpcompname($cscpcompname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpcompname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpcompname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPNAME, $cscpcompname, $comparison);
@@ -539,10 +534,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpdspermission($cscpdspermission = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpdspermission)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpdspermission)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDSPERMISSION, $cscpdspermission, $comparison);
@@ -567,10 +560,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscprapermission($cscprapermission = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscprapermission)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscprapermission)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPRAPERMISSION, $cscprapermission, $comparison);
@@ -595,10 +586,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpsrppermission($cscpsrppermission = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpsrppermission)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpsrppermission)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPSRPPERMISSION, $cscpsrppermission, $comparison);
@@ -623,10 +612,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpemailtype($cscpemailtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpemailtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpemailtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPEMAILTYPE, $cscpemailtype, $comparison);
@@ -651,10 +638,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpfaxdir($cscpfaxdir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpfaxdir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpfaxdir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFAXDIR, $cscpfaxdir, $comparison);
@@ -679,10 +664,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpprgdir($cscpprgdir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpprgdir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpprgdir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPPRGDIR, $cscpprgdir, $comparison);
@@ -707,10 +690,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpfile1dir($cscpfile1dir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpfile1dir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpfile1dir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFILE1DIR, $cscpfile1dir, $comparison);
@@ -735,10 +716,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpfile2dir($cscpfile2dir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpfile2dir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpfile2dir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFILE2DIR, $cscpfile2dir, $comparison);
@@ -763,10 +742,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpfile3dir($cscpfile3dir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpfile3dir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpfile3dir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFILE3DIR, $cscpfile3dir, $comparison);
@@ -791,10 +768,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscptempdir($cscptempdir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscptempdir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscptempdir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPTEMPDIR, $cscptempdir, $comparison);
@@ -819,10 +794,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpworkdir($cscpworkdir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpworkdir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpworkdir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPWORKDIR, $cscpworkdir, $comparison);
@@ -847,10 +820,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpreptarchdir($cscpreptarchdir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpreptarchdir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpreptarchdir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPREPTARCHDIR, $cscpreptarchdir, $comparison);
@@ -875,10 +846,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpdocinboxdir($cscpdocinboxdir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpdocinboxdir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpdocinboxdir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDOCINBOXDIR, $cscpdocinboxdir, $comparison);
@@ -903,10 +872,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpdocautodir($cscpdocautodir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpdocautodir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpdocautodir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDOCAUTODIR, $cscpdocautodir, $comparison);
@@ -931,10 +898,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpcertsdir($cscpcertsdir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpcertsdir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpcertsdir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCERTSDIR, $cscpcertsdir, $comparison);
@@ -959,10 +924,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpimgproduct($cscpimgproduct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpimgproduct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpimgproduct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGPRODUCT, $cscpimgproduct, $comparison);
@@ -987,10 +950,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpimgdrawings($cscpimgdrawings = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpimgdrawings)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpimgdrawings)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGDRAWINGS, $cscpimgdrawings, $comparison);
@@ -1015,10 +976,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpimgschematic($cscpimgschematic = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpimgschematic)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpimgschematic)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGSCHEMATIC, $cscpimgschematic, $comparison);
@@ -1043,10 +1002,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpimgconfirm($cscpimgconfirm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpimgconfirm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpimgconfirm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGCONFIRM, $cscpimgconfirm, $comparison);
@@ -1071,10 +1028,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscppcchargedir($cscppcchargedir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscppcchargedir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscppcchargedir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPPCCHARGEDIR, $cscppcchargedir, $comparison);
@@ -1099,10 +1054,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpdevicedir($cscpdevicedir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpdevicedir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpdevicedir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDEVICEDIR, $cscpdevicedir, $comparison);
@@ -1127,10 +1080,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpecommdir($cscpecommdir = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpecommdir)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpecommdir)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPECOMMDIR, $cscpecommdir, $comparison);
@@ -1155,10 +1106,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpbrwzbaseip($cscpbrwzbaseip = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpbrwzbaseip)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpbrwzbaseip)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPBRWZBASEIP, $cscpbrwzbaseip, $comparison);
@@ -1183,10 +1132,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpdatabasename($cscpdatabasename = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpdatabasename)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpdatabasename)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDATABASENAME, $cscpdatabasename, $comparison);
@@ -1211,10 +1158,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByCscpcompdatabasename($cscpcompdatabasename = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($cscpcompdatabasename)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($cscpcompdatabasename)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPDATABASENAME, $cscpcompdatabasename, $comparison);
@@ -1282,10 +1227,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1310,10 +1253,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1338,10 +1279,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigSysdTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1373,7 +1312,7 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysdTableMap::DATABASE_NAME);
         }
 
@@ -1403,7 +1342,7 @@ abstract class ConfigSysdQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysdTableMap::DATABASE_NAME);
         }
 

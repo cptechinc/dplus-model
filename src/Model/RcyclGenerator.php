@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\RcyclGenerator as BaseRcyclGenerator;
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvKitComponent as BaseInvKitComponent;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -17,17 +19,17 @@ class InvKitComponent extends BaseInvKitComponent{
 	const FORMAT_DATE = 'Ymd';
 	const FORMAT_TIME = 'His';
 
-	const OPTIONS_SUPPLIEDBY = array(
+	const OPTIONS_SUPPLIEDBY = [
 		'S' => 'Stocking Bin',
 		'B' => 'Fab Bin',
 		'V' => 'Vendor Supply'
-	);
+	];
 
-	const OPTIONS_USAGETAG = array(
+	const OPTIONS_USAGETAG = [
 		'B' => 'Base Item',
 		'A' => 'Add-on',
 		'S' => 'Subtract'
-	);
+	];
 
 	const USAGETAG_SUBTRACT = 'S';
 
@@ -35,7 +37,7 @@ class InvKitComponent extends BaseInvKitComponent{
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'kitid'       => 'ktdtkey1',
 		'kititemid'   => 'ktdtkey1',
 		'kititem'     => 'ktdtkey1',
@@ -53,7 +55,7 @@ class InvKitComponent extends BaseInvKitComponent{
 		// FOREIGNKEY RELATIONSHIP
 		'item'        => 'itemMasterItem',
 		'kit'         => 'invKit'
-	);
+	];
 
 	/**
 	 * Returns if Kit Item has usage

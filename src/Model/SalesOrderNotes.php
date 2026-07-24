@@ -22,7 +22,7 @@ class SalesOrderNotes extends BaseSalesOrderNotes {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ordernumber'      => 'oehdnbr',
 		'line'             => 'oedtline',
 		'pickticket'       => 'qnordrpickticket',
@@ -37,7 +37,7 @@ class SalesOrderNotes extends BaseSalesOrderNotes {
 		'description'      => 'qntypedesc',
 		'date'             => 'dateupdtd',
 		'time'             => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Returns a generated Key2

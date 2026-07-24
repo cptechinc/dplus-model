@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 use Propel\Runtime\Collection\ObjectCollection as ObjList;
 use Base\RcyclReceiptDetail as BaseRcyclReceiptDetail;
 use Dplus\Model\ThrowErrorTrait;

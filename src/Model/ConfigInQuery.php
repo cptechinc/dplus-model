@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigInQuery as BaseConfigInQuery;
 
 use Dplus\Model\QueryTraits;

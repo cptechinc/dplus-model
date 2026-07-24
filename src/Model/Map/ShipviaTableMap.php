@@ -383,7 +383,6 @@ class ShipviaTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -397,62 +396,60 @@ class ShipviaTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('ArtbShipVia', 'Artbshipvia', 'VARCHAR', true, 8, '');
-        $this->addColumn('ArtbSviaDesc', 'Artbsviadesc', 'VARCHAR', false, 20, null);
-        $this->addColumn('ArtbSviaPrio', 'Artbsviaprio', 'VARCHAR', false, 3, null);
-        $this->addColumn('ArtbSviaWeb', 'Artbsviaweb', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbSviaAir', 'Artbsviaair', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbSviaUpsServ', 'Artbsviaupsserv', 'VARCHAR', false, 25, null);
-        $this->addColumn('ArtbSviaUpsBilling', 'Artbsviaupsbilling', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbSviaScacCd', 'Artbsviascaccd', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtbSviaEdiMethCd', 'Artbsviaedimethcd', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtbSviaUpsResidential', 'Artbsviaupsresidential', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbSviaChrgFrt', 'Artbsviachrgfrt', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbSviaUseRoute', 'Artbsviauseroute', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbSviaCommFrght', 'Artbsviacommfrght', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbSviaShipArea', 'Artbsviashiparea', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbSviaUseSurchg', 'Artbsviausesurchg', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbSviaSurchgPct', 'Artbsviasurchgpct', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtbSviaTaxCode', 'Artbsviataxcode', 'VARCHAR', false, 6, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('ArtbSviaDesc', 'Artbsviadesc', 'VARCHAR', false, 20);
+        $this->addColumn('ArtbSviaPrio', 'Artbsviaprio', 'VARCHAR', false, 3);
+        $this->addColumn('ArtbSviaWeb', 'Artbsviaweb', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbSviaAir', 'Artbsviaair', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbSviaUpsServ', 'Artbsviaupsserv', 'VARCHAR', false, 25);
+        $this->addColumn('ArtbSviaUpsBilling', 'Artbsviaupsbilling', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbSviaScacCd', 'Artbsviascaccd', 'VARCHAR', false, 4);
+        $this->addColumn('ArtbSviaEdiMethCd', 'Artbsviaedimethcd', 'VARCHAR', false, 2);
+        $this->addColumn('ArtbSviaUpsResidential', 'Artbsviaupsresidential', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbSviaChrgFrt', 'Artbsviachrgfrt', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbSviaUseRoute', 'Artbsviauseroute', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbSviaCommFrght', 'Artbsviacommfrght', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbSviaShipArea', 'Artbsviashiparea', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbSviaUseSurchg', 'Artbsviausesurchg', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbSviaSurchgPct', 'Artbsviasurchgpct', 'DECIMAL', false, 20);
+        $this->addColumn('ArtbSviaTaxCode', 'Artbsviataxcode', 'VARCHAR', false, 6);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArtbSviaCode',
     1 => ':ArtbShipVia',
-  ),
-), null, null, 'VendorShipfroms', false);
-        $this->addRelation('Vendor', '\\Vendor', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'VendorShipfroms', false);
+        $this->addRelation('Vendor', '\\Vendor', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveSviaCode',
     1 => ':ArtbShipVia',
-  ),
-), null, null, 'Vendors', false);
-        $this->addRelation('Customer', '\\Customer', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'Vendors', false);
+        $this->addRelation('Customer', '\\Customer', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArtbShipVia',
     1 => ':ArtbShipVia',
-  ),
-), null, null, 'Customers', false);
-        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'Customers', false);
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ArtbSviaCode',
     1 => ':ArtbShipVia',
-  ),
-), null, null, 'PurchaseOrders', false);
+  ],
+], null, null, 'PurchaseOrders', false);
     }
 
     /**
@@ -471,11 +468,11 @@ class ShipviaTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -493,8 +490,8 @@ class ShipviaTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -551,7 +548,6 @@ class ShipviaTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -592,7 +588,6 @@ class ShipviaTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -651,7 +646,6 @@ class ShipviaTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -703,7 +697,6 @@ class ShipviaTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -725,7 +718,7 @@ class ShipviaTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
@@ -775,7 +768,7 @@ class ShipviaTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
@@ -791,9 +784,7 @@ class ShipviaTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

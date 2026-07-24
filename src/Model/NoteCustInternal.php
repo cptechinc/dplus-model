@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\NoteCustInternal as BaseNoteCustInternal;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,7 +18,7 @@ class NoteCustInternal extends BaseNoteCustInternal {
      * Column Aliases to lookup / get properties
      * @var array
      */
-     const COLUMN_ALIASES = array(
+     const COLUMN_ALIASES = [
          'type'          => 'qntype',
          'desc'          => 'qntypedesc',
          'description'   => 'qntypedesc',
@@ -30,5 +32,5 @@ class NoteCustInternal extends BaseNoteCustInternal {
          'form'          => 'qnform',
          'date'          => 'dateupdtd',
          'time'          => 'timeupdtd',
-     );
+     ];
 }

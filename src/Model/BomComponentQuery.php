@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\BomComponentQuery as BaseBomComponentQuery;
 
 use Dplus\Model\QueryTraits;

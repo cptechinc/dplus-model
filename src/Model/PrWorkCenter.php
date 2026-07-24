@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\PrWorkCenter as BasePrWorkCenter;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,12 +20,12 @@ class PrWorkCenter extends BasePrWorkCenter {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'pmtbdeptid',
 		'code'         => 'pmtbdeptid',
 		'description'  => 'pmtbdeptdesc',
 		'name'         => 'pmtbdeptdesc',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 }

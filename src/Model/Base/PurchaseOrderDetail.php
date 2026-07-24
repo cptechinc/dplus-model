@@ -47,7 +47,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\PurchaseOrderDetailTableMap';
+    public const TABLE_MAP = \Map\PurchaseOrderDetailTableMap::class;
 
 
     /**
@@ -480,21 +480,21 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * @var ObjectCollection|ChildPurchaseOrderDetailReceipt[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt>
      */
-    protected $purchaseOrderDetailReceiptsScheduledForDeletion = null;
+    protected $purchaseOrderDetailReceiptsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailReceiving[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving>
      */
-    protected $purchaseOrderDetailReceivingsScheduledForDeletion = null;
+    protected $purchaseOrderDetailReceivingsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailLotReceiving[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving>
      */
-    protected $purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
+    protected $purchaseOrderDetailLotReceivingsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -567,7 +567,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -625,7 +625,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -635,7 +634,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -673,8 +671,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -685,7 +681,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -727,9 +722,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -755,7 +748,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -2322,13 +2315,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -2353,139 +2341,139 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : PurchaseOrderDetailTableMap::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pohdnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtdesc1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtdesc1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtdesc1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtdesc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtdesc2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtdesc2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtvenditemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtvenditemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtvenditemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtshipdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtshipdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtshipdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtexptdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtexptdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtexptdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcancdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcancdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtcancdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Intbuompur', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Intbuompur', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuompur = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtqtyord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtqtyord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtqtyord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcosttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcosttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtcosttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtrel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtrel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtrel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtspecordr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtspecordr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtspecordr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtsonbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtsonbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtsonbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtorigsoline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtorigsoline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtorigsoline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtqtyduein', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtqtyduein', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtqtyduein = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podttype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podttype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podttype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtwghttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtwghttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtwghttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtforeigncost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtforeigncost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtforeigncost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtforeigncosttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtforeigncosttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtforeigncosttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtstanunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtstanunitcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtstanunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtackdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtackdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtackdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtinvcclearflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtinvcclearflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtinvcclearflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtprtkitdet', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtprtkitdet', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtprtkitdet = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtdestwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtdestwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtdestwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtrevision', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtrevision', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtrevision = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtprtpoeoru', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtprtpoeoru', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtprtpoeoru = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Potbcnfmcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Potbcnfmcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbcnfmcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtrcptnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtrcptnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtrcptnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtwipnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtwipnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtwipnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtordras', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtordras', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtordras = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtboldate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtboldate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtboldate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtlistpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtlistpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtlistpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtdelivereddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtdelivereddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtdelivereddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtlandcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtlandcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtlandcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcasesord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcasesord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtcasesord = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcat3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcat3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtcat3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -2514,7 +2502,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -2533,7 +2520,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -2546,7 +2532,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(PurchaseOrderDetailTableMap::DATABASE_NAME);
         }
 
@@ -2578,7 +2564,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see PurchaseOrderDetail::setDeleted()
      * @see PurchaseOrderDetail::isDeleted()
@@ -2589,7 +2574,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailTableMap::DATABASE_NAME);
         }
 
@@ -2628,18 +2613,14 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2663,7 +2644,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2704,13 +2684,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailReceiptsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailReceiptQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailReceiptsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailReceiptsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion !== null && !$this->purchaseOrderDetailReceiptsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailReceiptQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailReceiptsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailReceiptsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetailReceipts !== null) {
@@ -2721,13 +2699,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailReceivingQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null && !$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailReceivingQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetailReceivings !== null) {
@@ -2738,13 +2714,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailLotReceivingsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailLotReceivingQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion !== null && !$this->purchaseOrderDetailLotReceivingsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailLotReceivingQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetailLotReceivings !== null) {
@@ -2765,7 +2739,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -3117,7 +3090,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -3143,9 +3115,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = PurchaseOrderDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -3456,7 +3427,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -4018,18 +3988,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getPohdnbr();
-        $pks[1] = $this->getPodtline();
-
-        return $pks;
+        return [$this->getPohdnbr(), $this->getPodtline()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -4039,8 +4004,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -4057,7 +4020,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -4162,13 +4124,12 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildPurchaseOrder object.
      *
-     * @param ChildPurchaseOrder $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setPurchaseOrder(ChildPurchaseOrder $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \PurchaseOrder) {
             $this->setPohdnbr(0);
         } else {
             $this->setPohdnbr($v->getPohdnbr());
@@ -4178,7 +4139,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildPurchaseOrder object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \PurchaseOrder) {
             $v->addPurchaseOrderDetail($this);
         }
 
@@ -4213,13 +4174,12 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param ChildItemMasterItem $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ItemMasterItem) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
@@ -4229,7 +4189,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ItemMasterItem) {
             $v->addPurchaseOrderDetail($this);
         }
 
@@ -4268,7 +4228,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -4304,8 +4263,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetailReceipts collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetailReceipts($v = true): void
     {
@@ -4321,8 +4278,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetailReceipts(bool $overrideExisting = true): void
     {
@@ -4354,7 +4309,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function getPurchaseOrderDetailReceipts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceipts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetailReceipts) {
@@ -4372,7 +4327,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                     ->filterByPurchaseOrderDetail($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailReceiptsPartial && count($collPurchaseOrderDetailReceipts)) {
                         $this->initPurchaseOrderDetailReceipts(false);
 
@@ -4426,7 +4381,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $this->purchaseOrderDetailReceiptsScheduledForDeletion = clone $purchaseOrderDetailReceiptsToDelete;
 
         foreach ($purchaseOrderDetailReceiptsToDelete as $purchaseOrderDetailReceiptRemoved) {
-            $purchaseOrderDetailReceiptRemoved->setPurchaseOrderDetail(null);
+            $purchaseOrderDetailReceiptRemoved->setPurchaseOrderDetail();
         }
 
         $this->collPurchaseOrderDetailReceipts = null;
@@ -4444,7 +4399,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetailReceipt objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetailReceipt objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4452,7 +4406,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function countPurchaseOrderDetailReceipts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceipts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetailReceipts) {
                 return 0;
             }
@@ -4491,7 +4445,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetailReceipts->contains($l)) {
             $this->doAddPurchaseOrderDetailReceipt($l);
 
-            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion and $this->purchaseOrderDetailReceiptsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion && $this->purchaseOrderDetailReceiptsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailReceiptsScheduledForDeletion->remove($this->purchaseOrderDetailReceiptsScheduledForDeletion->search($l));
             }
         }
@@ -4522,7 +4476,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->purchaseOrderDetailReceiptsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailReceiptsScheduledForDeletion[]= clone $purchaseOrderDetailReceipt;
-            $purchaseOrderDetailReceipt->setPurchaseOrderDetail(null);
+            $purchaseOrderDetailReceipt->setPurchaseOrderDetail();
         }
 
         return $this;
@@ -4598,8 +4552,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetailReceivings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetailReceivings($v = true): void
     {
@@ -4615,8 +4567,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetailReceivings(bool $overrideExisting = true): void
     {
@@ -4648,7 +4598,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function getPurchaseOrderDetailReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetailReceivings) {
@@ -4666,7 +4616,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                     ->filterByPurchaseOrderDetail($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailReceivingsPartial && count($collPurchaseOrderDetailReceivings)) {
                         $this->initPurchaseOrderDetailReceivings(false);
 
@@ -4720,7 +4670,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $this->purchaseOrderDetailReceivingsScheduledForDeletion = clone $purchaseOrderDetailReceivingsToDelete;
 
         foreach ($purchaseOrderDetailReceivingsToDelete as $purchaseOrderDetailReceivingRemoved) {
-            $purchaseOrderDetailReceivingRemoved->setPurchaseOrderDetail(null);
+            $purchaseOrderDetailReceivingRemoved->setPurchaseOrderDetail();
         }
 
         $this->collPurchaseOrderDetailReceivings = null;
@@ -4738,7 +4688,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetailReceiving objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetailReceiving objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4746,7 +4695,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function countPurchaseOrderDetailReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
                 return 0;
             }
@@ -4785,7 +4734,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetailReceivings->contains($l)) {
             $this->doAddPurchaseOrderDetailReceiving($l);
 
-            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion and $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion && $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailReceivingsScheduledForDeletion->search($l));
             }
         }
@@ -4816,7 +4765,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailReceiving;
-            $purchaseOrderDetailReceiving->setPurchaseOrderDetail(null);
+            $purchaseOrderDetailReceiving->setPurchaseOrderDetail();
         }
 
         return $this;
@@ -4944,8 +4893,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetailLotReceivings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetailLotReceivings($v = true): void
     {
@@ -4961,8 +4908,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetailLotReceivings(bool $overrideExisting = true): void
     {
@@ -4994,7 +4939,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function getPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailLotReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetailLotReceivings) {
@@ -5012,7 +4957,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                     ->filterByPurchaseOrderDetail($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailLotReceivingsPartial && count($collPurchaseOrderDetailLotReceivings)) {
                         $this->initPurchaseOrderDetailLotReceivings(false);
 
@@ -5066,7 +5011,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = clone $purchaseOrderDetailLotReceivingsToDelete;
 
         foreach ($purchaseOrderDetailLotReceivingsToDelete as $purchaseOrderDetailLotReceivingRemoved) {
-            $purchaseOrderDetailLotReceivingRemoved->setPurchaseOrderDetail(null);
+            $purchaseOrderDetailLotReceivingRemoved->setPurchaseOrderDetail();
         }
 
         $this->collPurchaseOrderDetailLotReceivings = null;
@@ -5084,7 +5029,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetailLotReceiving objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetailLotReceiving objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -5092,7 +5036,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function countPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailLotReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetailLotReceivings) {
                 return 0;
             }
@@ -5131,7 +5075,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetailLotReceivings->contains($l)) {
             $this->doAddPurchaseOrderDetailLotReceiving($l);
 
-            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion and $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion && $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->search($l));
             }
         }
@@ -5162,7 +5106,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailLotReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailLotReceiving;
-            $purchaseOrderDetailLotReceiving->setPurchaseOrderDetail(null);
+            $purchaseOrderDetailLotReceiving->setPurchaseOrderDetail();
         }
 
         return $this;
@@ -5360,13 +5304,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(PurchaseOrderDetailTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(PurchaseOrderDetailTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -5375,8 +5317,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -5384,8 +5324,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -5394,8 +5332,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -5403,8 +5339,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -5413,8 +5347,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -5422,8 +5354,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -5432,8 +5362,6 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -5453,7 +5381,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -5465,7 +5393,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -5473,7 +5401,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

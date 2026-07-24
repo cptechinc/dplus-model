@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvSerialWarranty as BaseInvSerialWarranty;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,7 +21,7 @@ class InvSerialWarranty extends BaseInvSerialWarranty {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'       => 'inititemnbr',
 		'serialnbr'    => 'sermsernbr',
 		'ordn'         => 'warmsordnbr',
@@ -28,5 +30,5 @@ class InvSerialWarranty extends BaseInvSerialWarranty {
 		'originalwarrantydate' => 'warmacorigwarrdate',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 }

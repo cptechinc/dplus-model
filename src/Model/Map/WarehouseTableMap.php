@@ -604,7 +604,6 @@ class WarehouseTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -658,74 +657,72 @@ class WarehouseTableMap extends TableMap
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('InvWhseItemBin', '\\InvWhseItemBin', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('InvWhseItemBin', '\\InvWhseItemBin', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntbWhse',
     1 => ':IntbWhse',
-  ),
-), null, null, 'InvWhseItemBins', false);
-        $this->addRelation('WarehouseBin', '\\WarehouseBin', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvWhseItemBins', false);
+        $this->addRelation('WarehouseBin', '\\WarehouseBin', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntbWhse',
     1 => ':IntbWhse',
-  ),
-), null, null, 'WarehouseBins', false);
-        $this->addRelation('InvWhseLot', '\\InvWhseLot', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'WarehouseBins', false);
+        $this->addRelation('InvWhseLot', '\\InvWhseLot', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntbWhse',
     1 => ':IntbWhse',
-  ),
-), null, null, 'InvWhseLots', false);
-        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvWhseLots', false);
+        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntbWhse',
     1 => ':IntbWhse',
-  ),
-), null, null, 'InvLotTags', false);
-        $this->addRelation('InvTransferOrderRelatedByIntbwhsefrom', '\\InvTransferOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvLotTags', false);
+        $this->addRelation('InvTransferOrderRelatedByIntbwhsefrom', '\\InvTransferOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntbWhseFrom',
     1 => ':IntbWhse',
-  ),
-), null, null, 'InvTransferOrdersRelatedByIntbwhsefrom', false);
-        $this->addRelation('InvTransferOrderRelatedByIntbwhseto', '\\InvTransferOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvTransferOrdersRelatedByIntbwhsefrom', false);
+        $this->addRelation('InvTransferOrderRelatedByIntbwhseto', '\\InvTransferOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntbWhseTo',
     1 => ':IntbWhse',
-  ),
-), null, null, 'InvTransferOrdersRelatedByIntbwhseto', false);
-        $this->addRelation('WarehouseInventory', '\\WarehouseInventory', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvTransferOrdersRelatedByIntbwhseto', false);
+        $this->addRelation('WarehouseInventory', '\\WarehouseInventory', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntbWhse',
     1 => ':IntbWhse',
-  ),
-), null, null, 'WarehouseInventories', false);
-        $this->addRelation('WarehouseNote', '\\WarehouseNote', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'WarehouseInventories', false);
+        $this->addRelation('WarehouseNote', '\\WarehouseNote', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntbWhse',
     1 => ':IntbWhse',
-  ),
-), null, null, 'WarehouseNotes', false);
-        $this->addRelation('PoReceivingHead', '\\PoReceivingHead', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'WarehouseNotes', false);
+        $this->addRelation('PoReceivingHead', '\\PoReceivingHead', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':IntbWhse',
     1 => ':IntbWhse',
-  ),
-), null, null, 'PoReceivingHeads', false);
+  ],
+], null, null, 'PoReceivingHeads', false);
     }
 
     /**
@@ -744,11 +741,11 @@ class WarehouseTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -766,8 +763,8 @@ class WarehouseTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -824,7 +821,6 @@ class WarehouseTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -865,7 +861,6 @@ class WarehouseTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -958,7 +953,6 @@ class WarehouseTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1044,7 +1038,6 @@ class WarehouseTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -1066,7 +1059,7 @@ class WarehouseTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseTableMap::DATABASE_NAME);
         }
 
@@ -1116,7 +1109,7 @@ class WarehouseTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseTableMap::DATABASE_NAME);
         }
 
@@ -1132,9 +1125,7 @@ class WarehouseTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

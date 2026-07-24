@@ -25,7 +25,7 @@ class ItemPricingDiscount extends BaseItemPricingDiscount {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'      => 'oepctype',
 		'table'     => 'oepctbltype',
 		'startdate' => 'oepcstrtdate',
@@ -44,7 +44,7 @@ class ItemPricingDiscount extends BaseItemPricingDiscount {
 		'time'                  => 'timeupdtd',
 		'method'                => 'oepcmeth',
 		'qtybreak'              => 'oepcqtybrk'
-	);
+	];
 
 	public function price($x = 0) {
 		if ($x > 0 && $x < self::UNITS_AVAILABLE + 1) {
@@ -66,7 +66,7 @@ class ItemPricingDiscount extends BaseItemPricingDiscount {
 		}
 	}
 
-	public function setPrice($x = 0, $val) {
+	public function setPrice($x = 0, $val = null) {
 		if ($x > 0 && $x < self::UNITS_AVAILABLE + 1) {
 			$base = 'oepcpricpric';
 			$col = $base.$x;
@@ -75,7 +75,7 @@ class ItemPricingDiscount extends BaseItemPricingDiscount {
 		}
 	}
 
-	public function setPriceunit($x = 0, $val) {
+	public function setPriceunit($x = 0, $val = null) {
 		if ($x > 0 && $x < self::UNITS_AVAILABLE + 1) {
 			$base = 'oepcpricunit';
 			$col = $base.$x;

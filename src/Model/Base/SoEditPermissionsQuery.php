@@ -116,7 +116,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class SoEditPermissionsQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\SoEditPermissionsQuery object.
@@ -174,7 +174,7 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SoEditPermissionsTableMap::DATABASE_NAME);
         }
 
@@ -220,7 +220,6 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildSoEditPermissions $obj */
             $obj = new ChildSoEditPermissions();
             $obj->hydrate($row);
             SoEditPermissionsTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -261,7 +260,7 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -320,10 +319,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByOetbcpercode($oetbcpercode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcpercode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcpercode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCODE, $oetbcpercode, $comparison);
@@ -348,10 +345,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByOetbcpername($oetbcpername = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcpername)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcpername)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERNAME, $oetbcpername, $comparison);
@@ -376,10 +371,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByOetbcpercanc($oetbcpercanc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcpercanc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcpercanc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCANC, $oetbcpercanc, $comparison);
@@ -404,10 +397,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByOetbcpernew($oetbcpernew = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcpernew)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcpernew)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERNEW, $oetbcpernew, $comparison);
@@ -432,10 +423,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByOetbcperpick($oetbcperpick = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcperpick)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcperpick)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERPICK, $oetbcperpick, $comparison);
@@ -460,10 +449,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByOetbcperver($oetbcperver = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcperver)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcperver)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERVER, $oetbcperver, $comparison);
@@ -488,10 +475,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByOetbcperinv($oetbcperinv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcperinv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcperinv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERINV, $oetbcperinv, $comparison);
@@ -516,10 +501,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByOetbcperadvcdata($oetbcperadvcdata = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcperadvcdata)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcperadvcdata)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERADVCDATA, $oetbcperadvcdata, $comparison);
@@ -544,10 +527,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByOetbcperposadmin($oetbcperposadmin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetbcperposadmin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetbcperposadmin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERPOSADMIN, $oetbcperposadmin, $comparison);
@@ -572,10 +553,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -600,10 +579,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -628,10 +605,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SoEditPermissionsTableMap::COL_DUMMY, $dummy, $comparison);
@@ -663,7 +638,7 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoEditPermissionsTableMap::DATABASE_NAME);
         }
 
@@ -693,7 +668,7 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoEditPermissionsTableMap::DATABASE_NAME);
         }
 

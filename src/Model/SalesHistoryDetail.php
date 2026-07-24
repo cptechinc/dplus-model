@@ -25,7 +25,7 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 	 * @var array
 	 * NOTE: @ Provalley use qty_ordered for weight, qty_cases for boxes
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ordernumber'   => 'oehhnbr',
 		'qty_ordered'   => 'oedhqtyord',
 		'qty_shipped'   => 'oedhqtyship',
@@ -51,10 +51,10 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		'kit'            => 'oedhkitflag',
 		'ponbr'          => 'oedhponbr',
 		'poref'          => 'oedhporef',
-	);
+	];
 
-	/** @var ItemmasterItem */
-	protected $aItem;
+	/** @var ItemMasterItem */
+    protected $aItem;
 
 	/** @var UnitofMeasureSale */
 	protected $aUom;

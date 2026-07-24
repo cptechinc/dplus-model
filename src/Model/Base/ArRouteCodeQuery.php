@@ -74,7 +74,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArRouteCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArRouteCodeQuery object.
@@ -132,7 +132,7 @@ abstract class ArRouteCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArRouteCodeTableMap::DATABASE_NAME);
         }
 
@@ -178,7 +178,6 @@ abstract class ArRouteCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArRouteCode $obj */
             $obj = new ChildArRouteCode();
             $obj->hydrate($row);
             ArRouteCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -219,7 +218,7 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -278,10 +277,8 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      */
     public function filterByArtbroute($artbroute = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbroute)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbroute)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTE, $artbroute, $comparison);
@@ -306,10 +303,8 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      */
     public function filterByArtbroutedesc($artbroutedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbroutedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbroutedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTEDESC, $artbroutedesc, $comparison);
@@ -334,10 +329,8 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArRouteCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -362,10 +355,8 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArRouteCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -390,10 +381,8 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArRouteCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -425,7 +414,7 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArRouteCodeTableMap::DATABASE_NAME);
         }
 
@@ -455,7 +444,7 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArRouteCodeTableMap::DATABASE_NAME);
         }
 

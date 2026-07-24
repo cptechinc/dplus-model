@@ -1371,7 +1371,6 @@ class QuoteDetailTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -1386,116 +1385,114 @@ class QuoteDetailTableMap extends TableMap
         // columns
         $this->addForeignPrimaryKey('QthdId', 'Qthdid', 'VARCHAR' , 'quote_header', 'QthdId', true, 8, '');
         $this->addPrimaryKey('QtdtLine', 'Qtdtline', 'INTEGER', true, 4, 0);
-        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30, null);
-        $this->addColumn('QtdtDesc', 'Qtdtdesc', 'VARCHAR', false, 35, null);
-        $this->addColumn('QtdtDesc2', 'Qtdtdesc2', 'VARCHAR', false, 35, null);
-        $this->addColumn('QtdtCustCrssRef', 'Qtdtcustcrssref', 'VARCHAR', false, 30, null);
-        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('QtdtRqstDate', 'Qtdtrqstdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('QtdtSpecOrdr', 'Qtdtspecordr', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbCtaxCode', 'Artbctaxcode', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtQtyOrd', 'Qtdtqtyord', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtPric', 'Qtdtpric', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtCost', 'Qtdtcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtTaxPctTot', 'Qtdttaxpcttot', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtPricTot', 'Qtdtprictot', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtCostTot', 'Qtdtcosttot', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtWghtTot', 'Qtdtwghttot', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMstrTaxCode1', 'Qtdtmstrtaxcode1', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMstrTaxPct1', 'Qtdtmstrtaxpct1', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMstrTaxCode2', 'Qtdtmstrtaxcode2', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMstrTaxPct2', 'Qtdtmstrtaxpct2', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMstrTaxCode3', 'Qtdtmstrtaxcode3', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMstrTaxPct3', 'Qtdtmstrtaxpct3', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMstrTaxCode4', 'Qtdtmstrtaxcode4', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMstrTaxPct4', 'Qtdtmstrtaxpct4', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMstrTaxCode5', 'Qtdtmstrtaxcode5', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMstrTaxPct5', 'Qtdtmstrtaxpct5', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMstrTaxCode6', 'Qtdtmstrtaxcode6', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMstrTaxPct6', 'Qtdtmstrtaxpct6', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMstrTaxCode7', 'Qtdtmstrtaxcode7', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMstrTaxPct7', 'Qtdtmstrtaxpct7', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMstrTaxCode8', 'Qtdtmstrtaxcode8', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMstrTaxPct8', 'Qtdtmstrtaxpct8', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMstrTaxCode9', 'Qtdtmstrtaxcode9', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMstrTaxPct9', 'Qtdtmstrtaxpct9', 'DECIMAL', false, 20, null);
-        $this->addColumn('IntbUomSale', 'Intbuomsale', 'VARCHAR', false, 4, null);
-        $this->addColumn('IntbUomPur', 'Intbuompur', 'VARCHAR', false, 4, null);
-        $this->addColumn('QtdtQuotInd1', 'Qtdtquotind1', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtQuotUnit1', 'Qtdtquotunit1', 'INTEGER', false, 9, null);
-        $this->addColumn('QtdtQuotPric1', 'Qtdtquotpric1', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotCost1', 'Qtdtquotcost1', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotMkupMarg1', 'Qtdtquotmkupmarg1', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotInd2', 'Qtdtquotind2', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtQuotUnit2', 'Qtdtquotunit2', 'INTEGER', false, 9, null);
-        $this->addColumn('QtdtQuotPric2', 'Qtdtquotpric2', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotCost2', 'Qtdtquotcost2', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotMkupMarg2', 'Qtdtquotmkupmarg2', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotInd3', 'Qtdtquotind3', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtQuotUnit3', 'Qtdtquotunit3', 'INTEGER', false, 9, null);
-        $this->addColumn('QtdtQuotPric3', 'Qtdtquotpric3', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotCost3', 'Qtdtquotcost3', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotMkupMarg3', 'Qtdtquotmkupmarg3', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotInd4', 'Qtdtquotind4', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtQuotUnit4', 'Qtdtquotunit4', 'INTEGER', false, 9, null);
-        $this->addColumn('QtdtQuotPric4', 'Qtdtquotpric4', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotCost4', 'Qtdtquotcost4', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotMkupMarg4', 'Qtdtquotmkupmarg4', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotInd5', 'Qtdtquotind5', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtQuotUnit5', 'Qtdtquotunit5', 'INTEGER', false, 9, null);
-        $this->addColumn('QtdtQuotPric5', 'Qtdtquotpric5', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotCost5', 'Qtdtquotcost5', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotMkupMarg5', 'Qtdtquotmkupmarg5', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotInd6', 'Qtdtquotind6', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtQuotUnit6', 'Qtdtquotunit6', 'INTEGER', false, 9, null);
-        $this->addColumn('QtdtQuotPric6', 'Qtdtquotpric6', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotCost6', 'Qtdtquotcost6', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotMkupMarg6', 'Qtdtquotmkupmarg6', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtAsstCode', 'Qtdtasstcode', 'VARCHAR', false, 3, null);
-        $this->addColumn('QtdtAsstQty', 'Qtdtasstqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtListPric', 'Qtdtlistpric', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtStanCost', 'Qtdtstancost', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtVendItemJob', 'Qtdtvenditemjob', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApveVendId', 'Apvevendid', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtNsItemGrup', 'Qtdtnsitemgrup', 'VARCHAR', false, 4, null);
-        $this->addColumn('QtdtUseCode', 'Qtdtusecode', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtPickFlag', 'Qtdtpickflag', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtStatus', 'Qtdtstatus', 'VARCHAR', false, 1, null);
-        $this->addColumn('OetbLsslCode', 'Oetblsslcode', 'VARCHAR', false, 4, null);
-        $this->addColumn('QtdtLostDate', 'Qtdtlostdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('QtdtLostPosted', 'Qtdtlostposted', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtLeadDays', 'Qtdtleaddays', 'INTEGER', false, 4, null);
-        $this->addColumn('QtdtOrdrDiscPct', 'Qtdtordrdiscpct', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtQuotDiscPct1', 'Qtdtquotdiscpct1', 'DECIMAL', false, 20, null);
-        $this->addColumn('QtdtMtrcReqd', 'Qtdtmtrcreqd', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtCofcReqd', 'Qtdtcofcreqd', 'VARCHAR', false, 1, null);
-        $this->addColumn('QtdtMnfrId', 'Qtdtmnfrid', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtMnfrItemId', 'Qtdtmnfritemid', 'VARCHAR', false, 30, null);
-        $this->addColumn('QtdtLmOrdrNbr', 'Qtdtlmordrnbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('QtdtLmOrdrDate', 'Qtdtlmordrdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('QtdtSpecItemCode', 'Qtdtspecitemcode', 'VARCHAR', false, 8, null);
-        $this->addColumn('QtdtAcSalePgm', 'Qtdtacsalepgm', 'VARCHAR', false, 8, null);
-        $this->addColumn('QtdtNsVendShipfr', 'Qtdtnsvendshipfr', 'VARCHAR', false, 6, null);
-        $this->addColumn('QtdtPrntMnfrNote', 'Qtdtprntmnfrnote', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30);
+        $this->addColumn('QtdtDesc', 'Qtdtdesc', 'VARCHAR', false, 35);
+        $this->addColumn('QtdtDesc2', 'Qtdtdesc2', 'VARCHAR', false, 35);
+        $this->addColumn('QtdtCustCrssRef', 'Qtdtcustcrssref', 'VARCHAR', false, 30);
+        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2);
+        $this->addColumn('QtdtRqstDate', 'Qtdtrqstdate', 'VARCHAR', false, 8);
+        $this->addColumn('QtdtSpecOrdr', 'Qtdtspecordr', 'VARCHAR', false, 1);
+        $this->addColumn('ArtbCtaxCode', 'Artbctaxcode', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtQtyOrd', 'Qtdtqtyord', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtPric', 'Qtdtpric', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtCost', 'Qtdtcost', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtTaxPctTot', 'Qtdttaxpcttot', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtPricTot', 'Qtdtprictot', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtCostTot', 'Qtdtcosttot', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtWghtTot', 'Qtdtwghttot', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMstrTaxCode1', 'Qtdtmstrtaxcode1', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMstrTaxPct1', 'Qtdtmstrtaxpct1', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMstrTaxCode2', 'Qtdtmstrtaxcode2', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMstrTaxPct2', 'Qtdtmstrtaxpct2', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMstrTaxCode3', 'Qtdtmstrtaxcode3', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMstrTaxPct3', 'Qtdtmstrtaxpct3', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMstrTaxCode4', 'Qtdtmstrtaxcode4', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMstrTaxPct4', 'Qtdtmstrtaxpct4', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMstrTaxCode5', 'Qtdtmstrtaxcode5', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMstrTaxPct5', 'Qtdtmstrtaxpct5', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMstrTaxCode6', 'Qtdtmstrtaxcode6', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMstrTaxPct6', 'Qtdtmstrtaxpct6', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMstrTaxCode7', 'Qtdtmstrtaxcode7', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMstrTaxPct7', 'Qtdtmstrtaxpct7', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMstrTaxCode8', 'Qtdtmstrtaxcode8', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMstrTaxPct8', 'Qtdtmstrtaxpct8', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMstrTaxCode9', 'Qtdtmstrtaxcode9', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMstrTaxPct9', 'Qtdtmstrtaxpct9', 'DECIMAL', false, 20);
+        $this->addColumn('IntbUomSale', 'Intbuomsale', 'VARCHAR', false, 4);
+        $this->addColumn('IntbUomPur', 'Intbuompur', 'VARCHAR', false, 4);
+        $this->addColumn('QtdtQuotInd1', 'Qtdtquotind1', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtQuotUnit1', 'Qtdtquotunit1', 'INTEGER', false, 9);
+        $this->addColumn('QtdtQuotPric1', 'Qtdtquotpric1', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotCost1', 'Qtdtquotcost1', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotMkupMarg1', 'Qtdtquotmkupmarg1', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotInd2', 'Qtdtquotind2', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtQuotUnit2', 'Qtdtquotunit2', 'INTEGER', false, 9);
+        $this->addColumn('QtdtQuotPric2', 'Qtdtquotpric2', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotCost2', 'Qtdtquotcost2', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotMkupMarg2', 'Qtdtquotmkupmarg2', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotInd3', 'Qtdtquotind3', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtQuotUnit3', 'Qtdtquotunit3', 'INTEGER', false, 9);
+        $this->addColumn('QtdtQuotPric3', 'Qtdtquotpric3', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotCost3', 'Qtdtquotcost3', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotMkupMarg3', 'Qtdtquotmkupmarg3', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotInd4', 'Qtdtquotind4', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtQuotUnit4', 'Qtdtquotunit4', 'INTEGER', false, 9);
+        $this->addColumn('QtdtQuotPric4', 'Qtdtquotpric4', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotCost4', 'Qtdtquotcost4', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotMkupMarg4', 'Qtdtquotmkupmarg4', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotInd5', 'Qtdtquotind5', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtQuotUnit5', 'Qtdtquotunit5', 'INTEGER', false, 9);
+        $this->addColumn('QtdtQuotPric5', 'Qtdtquotpric5', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotCost5', 'Qtdtquotcost5', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotMkupMarg5', 'Qtdtquotmkupmarg5', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotInd6', 'Qtdtquotind6', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtQuotUnit6', 'Qtdtquotunit6', 'INTEGER', false, 9);
+        $this->addColumn('QtdtQuotPric6', 'Qtdtquotpric6', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotCost6', 'Qtdtquotcost6', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotMkupMarg6', 'Qtdtquotmkupmarg6', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtAsstCode', 'Qtdtasstcode', 'VARCHAR', false, 3);
+        $this->addColumn('QtdtAsstQty', 'Qtdtasstqty', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtListPric', 'Qtdtlistpric', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtStanCost', 'Qtdtstancost', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtVendItemJob', 'Qtdtvenditemjob', 'VARCHAR', false, 30);
+        $this->addColumn('ApveVendId', 'Apvevendid', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtNsItemGrup', 'Qtdtnsitemgrup', 'VARCHAR', false, 4);
+        $this->addColumn('QtdtUseCode', 'Qtdtusecode', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtPickFlag', 'Qtdtpickflag', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtStatus', 'Qtdtstatus', 'VARCHAR', false, 1);
+        $this->addColumn('OetbLsslCode', 'Oetblsslcode', 'VARCHAR', false, 4);
+        $this->addColumn('QtdtLostDate', 'Qtdtlostdate', 'VARCHAR', false, 8);
+        $this->addColumn('QtdtLostPosted', 'Qtdtlostposted', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtLeadDays', 'Qtdtleaddays', 'INTEGER', false, 4);
+        $this->addColumn('QtdtOrdrDiscPct', 'Qtdtordrdiscpct', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtQuotDiscPct1', 'Qtdtquotdiscpct1', 'DECIMAL', false, 20);
+        $this->addColumn('QtdtMtrcReqd', 'Qtdtmtrcreqd', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtCofcReqd', 'Qtdtcofcreqd', 'VARCHAR', false, 1);
+        $this->addColumn('QtdtMnfrId', 'Qtdtmnfrid', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtMnfrItemId', 'Qtdtmnfritemid', 'VARCHAR', false, 30);
+        $this->addColumn('QtdtLmOrdrNbr', 'Qtdtlmordrnbr', 'VARCHAR', false, 10);
+        $this->addColumn('QtdtLmOrdrDate', 'Qtdtlmordrdate', 'VARCHAR', false, 8);
+        $this->addColumn('QtdtSpecItemCode', 'Qtdtspecitemcode', 'VARCHAR', false, 8);
+        $this->addColumn('QtdtAcSalePgm', 'Qtdtacsalepgm', 'VARCHAR', false, 8);
+        $this->addColumn('QtdtNsVendShipfr', 'Qtdtnsvendshipfr', 'VARCHAR', false, 6);
+        $this->addColumn('QtdtPrntMnfrNote', 'Qtdtprntmnfrnote', 'VARCHAR', false, 1);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('Quote', '\\Quote', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('Quote', '\\Quote', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':QthdId',
     1 => ':QthdId',
-  ),
-), null, null, null, false);
+  ],
+], null, null, null, false);
     }
 
     /**
@@ -1508,8 +1505,6 @@ class QuoteDetailTableMap extends TableMap
      *
      * @param \QuoteDetail $obj A \QuoteDetail object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(QuoteDetail $obj, ?string $key = null): void
     {
@@ -1530,13 +1525,11 @@ class QuoteDetailTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \QuoteDetail object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \QuoteDetail) {
+            if ($value instanceof \QuoteDetail) {
                 $key = serialize([(null === $value->getQthdid() || is_scalar($value->getQthdid()) || is_callable([$value->getQthdid(), '__toString']) ? (string) $value->getQthdid() : $value->getQthdid()), (null === $value->getQtdtline() || is_scalar($value->getQtdtline()) || is_callable([$value->getQtdtline(), '__toString']) ? (string) $value->getQtdtline() : $value->getQtdtline())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -1571,11 +1564,11 @@ class QuoteDetailTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -1592,20 +1585,15 @@ class QuoteDetailTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(string) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (int) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 1 + $offset
                 : self::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -1660,7 +1648,6 @@ class QuoteDetailTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -1701,7 +1688,6 @@ class QuoteDetailTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1912,7 +1898,6 @@ class QuoteDetailTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -2116,7 +2101,6 @@ class QuoteDetailTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -2138,7 +2122,7 @@ class QuoteDetailTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuoteDetailTableMap::DATABASE_NAME);
         }
 
@@ -2152,7 +2136,7 @@ class QuoteDetailTableMap extends TableMap
             $criteria = new Criteria(QuoteDetailTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -2198,7 +2182,7 @@ class QuoteDetailTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuoteDetailTableMap::DATABASE_NAME);
         }
 
@@ -2214,9 +2198,7 @@ class QuoteDetailTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

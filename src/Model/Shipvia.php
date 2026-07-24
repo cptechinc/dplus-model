@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\Shipvia as BaseShipvia;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class Shipvia extends BaseShipvia {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'code'           => 'artbshipvia',
 		'id'             => 'artbshipvia',
 		'shipvia'        => 'artbshipvia',
@@ -41,5 +43,5 @@ class Shipvia extends BaseShipvia {
 		'artaxcode'         => 'artbsviataxcode',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
-	);
+	];
 }

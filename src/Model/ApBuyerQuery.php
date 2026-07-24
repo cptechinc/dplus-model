@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ApBuyerQuery as BaseApBuyerQuery;
 
 use Dplus\Model\QueryTraits;

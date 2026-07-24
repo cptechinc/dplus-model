@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\StateCodeQuery as BaseStateCodeQuery;
 
 use Dplus\Model\QueryTraits;

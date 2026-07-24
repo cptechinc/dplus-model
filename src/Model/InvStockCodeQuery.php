@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvStockCodeQuery as BaseInvStockCodeQuery;
 
 use Dplus\Model\QueryTraits;

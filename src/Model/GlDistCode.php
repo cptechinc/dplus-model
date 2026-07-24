@@ -20,14 +20,14 @@ class GlDistCode extends BaseGlDistCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'gltbdistcode',
 		'code'         => 'gltbdistcode',
 		'description'  => 'gltbdistdesc',
 		'name'         => 'gltbdistdesc',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return if Index is valid for GL account
@@ -98,6 +98,7 @@ class GlDistCode extends BaseGlDistCode {
 		$col = ucfirst(self::getAccountNbrCol($nbr));
 		$setFunc = "set$col";
 		$this->$setFunc($val);
+        return null;
 	}
 
 	/**
@@ -126,6 +127,7 @@ class GlDistCode extends BaseGlDistCode {
 		$col = ucfirst(self::getAccountPctCol($nbr));
 		$setFunc = "set$col";
 		$this->$setFunc($val);
+        return null;
 	}
 
 	/**

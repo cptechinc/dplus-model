@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigSys as BaseConfigSys;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -17,8 +19,8 @@ class ConfigSys extends BaseConfigSys {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'scfgkey',
 		'custid'       => 'scfgcustid',
-	);
+	];
 }

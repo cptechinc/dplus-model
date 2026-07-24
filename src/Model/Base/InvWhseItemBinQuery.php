@@ -270,7 +270,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvWhseItemBinQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvWhseItemBinQuery object.
@@ -328,7 +328,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvWhseItemBinTableMap::DATABASE_NAME);
         }
 
@@ -375,7 +375,6 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvWhseItemBin $obj */
             $obj = new ChildInvWhseItemBin();
             $obj->hydrate($row);
             InvWhseItemBinTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -416,7 +415,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -484,10 +483,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -512,10 +509,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -540,10 +535,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByBinabin1($binabin1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($binabin1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($binabin1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN1, $binabin1, $comparison);
@@ -654,10 +647,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByBinabin2($binabin2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($binabin2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($binabin2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN2, $binabin2, $comparison);
@@ -768,10 +759,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByBinabin3($binabin3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($binabin3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($binabin3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN3, $binabin3, $comparison);
@@ -882,10 +871,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByBinabin4($binabin4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($binabin4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($binabin4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN4, $binabin4, $comparison);
@@ -996,10 +983,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByBinabin5($binabin5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($binabin5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($binabin5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN5, $binabin5, $comparison);
@@ -1110,10 +1095,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByBinabin6($binabin6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($binabin6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($binabin6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN6, $binabin6, $comparison);
@@ -1224,10 +1207,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByBinabin7($binabin7 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($binabin7)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($binabin7)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN7, $binabin7, $comparison);
@@ -1338,10 +1319,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByBinabin8($binabin8 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($binabin8)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($binabin8)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN8, $binabin8, $comparison);
@@ -1452,10 +1431,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByBinabin9($binabin9 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($binabin9)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($binabin9)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN9, $binabin9, $comparison);
@@ -1566,10 +1543,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1594,10 +1569,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1622,10 +1595,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvWhseItemBinTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1679,7 +1650,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1709,7 +1680,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1854,7 +1825,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1884,7 +1855,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     {
         return $this
             ->joinWarehouse($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Warehouse', '\WarehouseQuery');
+            ->useQuery($relationAlias ?: 'Warehouse', '\WarehouseQuery');
     }
 
     /**
@@ -2021,7 +1992,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2051,7 +2022,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     {
         return $this
             ->joinWarehouseInventory($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'WarehouseInventory', '\WarehouseInventoryQuery');
+            ->useQuery($relationAlias ?: 'WarehouseInventory', '\WarehouseInventoryQuery');
     }
 
     /**
@@ -2162,7 +2133,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
         if ($invWhseItemBin) {
             $this->addCond('pruneCond0', $this->getAliasedColName(InvWhseItemBinTableMap::COL_INITITEMNBR), $invWhseItemBin->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvWhseItemBinTableMap::COL_INTBWHSE), $invWhseItemBin->getIntbwhse(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -2176,7 +2147,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseItemBinTableMap::DATABASE_NAME);
         }
 
@@ -2206,7 +2177,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseItemBinTableMap::DATABASE_NAME);
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigGlQuery as BaseConfigGlQuery;
 
 use Dplus\Model\QueryTraits;

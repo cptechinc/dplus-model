@@ -154,7 +154,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class CpnLoadItemQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\CpnLoadItemQuery object.
@@ -212,7 +212,7 @@ abstract class CpnLoadItemQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CpnLoadItemTableMap::DATABASE_NAME);
         }
 
@@ -263,7 +263,6 @@ abstract class CpnLoadItemQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCpnLoadItem $obj */
             $obj = new ChildCpnLoadItem();
             $obj->hydrate($row);
             CpnLoadItemTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4]), (null === $key[5] || is_scalar($key[5]) || is_callable([$key[5], '__toString']) ? (string) $key[5] : $key[5])]));
@@ -304,7 +303,7 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -515,10 +514,8 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadItemTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -543,10 +540,8 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function filterByLcitlotser($lcitlotser = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lcitlotser)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lcitlotser)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadItemTableMap::COL_LCITLOTSER, $lcitlotser, $comparison);
@@ -657,10 +652,8 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function filterByLcitrqstdate($lcitrqstdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lcitrqstdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lcitrqstdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadItemTableMap::COL_LCITRQSTDATE, $lcitrqstdate, $comparison);
@@ -814,10 +807,8 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function filterByLcituom($lcituom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lcituom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lcituom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadItemTableMap::COL_LCITUOM, $lcituom, $comparison);
@@ -885,10 +876,8 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -913,10 +902,8 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -941,10 +928,8 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadItemTableMap::COL_DUMMY, $dummy, $comparison);
@@ -998,7 +983,7 @@ abstract class CpnLoadItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1028,7 +1013,7 @@ abstract class CpnLoadItemQuery extends ModelCriteria
     {
         return $this
             ->joinCpnLoad($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CpnLoad', '\CpnLoadQuery');
+            ->useQuery($relationAlias ?: 'CpnLoad', '\CpnLoadQuery');
     }
 
     /**
@@ -1143,7 +1128,7 @@ abstract class CpnLoadItemQuery extends ModelCriteria
             $this->addCond('pruneCond3', $this->getAliasedColName(CpnLoadItemTableMap::COL_INITITEMNBR), $cpnLoadItem->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond4', $this->getAliasedColName(CpnLoadItemTableMap::COL_LCITLOTSER), $cpnLoadItem->getLcitlotser(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond5', $this->getAliasedColName(CpnLoadItemTableMap::COL_LCITSKIDNBR), $cpnLoadItem->getLcitskidnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4', 'pruneCond5'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1157,7 +1142,7 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadItemTableMap::DATABASE_NAME);
         }
 
@@ -1187,7 +1172,7 @@ abstract class CpnLoadItemQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadItemTableMap::DATABASE_NAME);
         }
 

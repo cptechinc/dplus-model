@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigKt as BaseConfigKt;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -25,13 +27,13 @@ class ConfigKt extends BaseConfigKt {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'key'            => 'ktbconfkey',
 		'usageorfree'    => 'kttbconffreeortag',
 		'displayinorders' => 'kttbconfeditso',
 		'date'            => 'dateupdtd',
 		'time'            => 'timeupdtd',
-	);
+	];
 
 	public function usageorfreefree() {
 		return $this->usageorfree == 'F';

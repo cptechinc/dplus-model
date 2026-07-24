@@ -48,7 +48,7 @@ class ApInvoiceQuery extends BaseApInvoiceQuery {
 	/**
 	* Filter the query on the Apihinvdate column
 	*
-	* @param  mixed invoicedate	    string|array
+	* @param  mixed $invoicedate	    string|array
 	* @return $this|ApInvoiceQuery  The current query, for fluid interface
 	*/
 	public function filterByDate_invoiced($invoicedate, $comparison = null) {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArWriteOffCodeQuery as BaseArWriteOffCodeQuery;
 
 use Dplus\Model\QueryTraits;

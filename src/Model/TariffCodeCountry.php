@@ -16,13 +16,13 @@ class TariffCodeCountry extends BaseTariffCodeCountry {
      * Column Aliases to lookup / get properties
      * @var array
      */
-    const COLUMN_ALIASES = array(
+    const COLUMN_ALIASES = [
         'id'           => 'intbtaricode',
         'code'         => 'intbtaricode',
         'country'      => 'intbtrcoctry',
         'date'         => 'dateupdtd',
         'time'         => 'timeupdtd'
-    );
+    ];
 
     /**
 	 * Return the country codes used by Tariff code

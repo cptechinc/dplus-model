@@ -152,7 +152,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class MsaSysopCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\MsaSysopCodeQuery object.
@@ -210,7 +210,7 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(MsaSysopCodeTableMap::DATABASE_NAME);
         }
 
@@ -257,7 +257,6 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildMsaSysopCode $obj */
             $obj = new ChildMsaSysopCode();
             $obj->hydrate($row);
             MsaSysopCodeTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -298,7 +297,7 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -366,10 +365,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptnsystem($optnsystem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnsystem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnsystem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNSYSTEM, $optnsystem, $comparison);
@@ -394,10 +391,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptncode($optncode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optncode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optncode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNCODE, $optncode, $comparison);
@@ -422,10 +417,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptndesc($optndesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optndesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optndesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDESC, $optndesc, $comparison);
@@ -450,10 +443,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptnvalidate($optnvalidate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnvalidate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnvalidate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNVALIDATE, $optnvalidate, $comparison);
@@ -478,10 +469,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptnforce($optnforce = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnforce)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnforce)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNFORCE, $optnforce, $comparison);
@@ -506,10 +495,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptnnotecode($optnnotecode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnnotecode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnnotecode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNNOTECODE, $optnnotecode, $comparison);
@@ -577,10 +564,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptnfilename($optnfilename = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnfilename)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnfilename)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNFILENAME, $optnfilename, $comparison);
@@ -605,10 +590,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptnadvsrch($optnadvsrch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnadvsrch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnadvsrch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNADVSRCH, $optnadvsrch, $comparison);
@@ -633,10 +616,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptnfieldtype($optnfieldtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnfieldtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnfieldtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNFIELDTYPE, $optnfieldtype, $comparison);
@@ -747,10 +728,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptndocstorfolder($optndocstorfolder = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optndocstorfolder)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optndocstorfolder)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDOCSTORFOLDER, $optndocstorfolder, $comparison);
@@ -775,10 +754,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptnwebvalidate($optnwebvalidate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnwebvalidate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnwebvalidate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNWEBVALIDATE, $optnwebvalidate, $comparison);
@@ -803,10 +780,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByOptnwebforce($optnwebforce = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnwebforce)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnwebforce)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNWEBFORCE, $optnwebforce, $comparison);
@@ -831,10 +806,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -859,10 +832,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -887,10 +858,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(MsaSysopCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -910,7 +879,7 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
         if ($msaSysopCode) {
             $this->addCond('pruneCond0', $this->getAliasedColName(MsaSysopCodeTableMap::COL_OPTNSYSTEM), $msaSysopCode->getOptnsystem(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(MsaSysopCodeTableMap::COL_OPTNCODE), $msaSysopCode->getOptncode(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -924,7 +893,7 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsaSysopCodeTableMap::DATABASE_NAME);
         }
 
@@ -954,7 +923,7 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsaSysopCodeTableMap::DATABASE_NAME);
         }
 

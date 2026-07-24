@@ -19,7 +19,7 @@ class BomComponent extends BaseBomComponent {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'      => 'bomdusagitem',
 		'line'        => 'bomdline',
 		'produces'    => 'bomhproditem',
@@ -30,7 +30,7 @@ class BomComponent extends BaseBomComponent {
 		'item'        => 'itm',
 		'date'        => 'dateupdtd',
 		'time'        => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return ItemMasterItem

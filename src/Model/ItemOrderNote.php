@@ -18,7 +18,7 @@ class ItemOrderNote extends BaseItemOrderNote {
 	const FORM_FALSE = 'N';
 	const KEY2_APPEND = 'O';
 
-	const FORMS_LABELS = array(
+	const FORMS_LABELS = [
 		'pickticket'       => 'pick ticket',
 		'packticket'       => 'pack ticket',
 		'invoice'          => 'invoice',
@@ -27,9 +27,9 @@ class ItemOrderNote extends BaseItemOrderNote {
 		'purchaseorder'    => 'purchase order',
 		'ordertransfer'    => 'order transfer',
 		'fabpo'            => 'fab PO',
-	);
+	];
 
-	const FORMS_LABELS_SHORT = array(
+	const FORMS_LABELS_SHORT = [
 		'pickticket'       => 'pick',
 		'packticket'       => 'pack',
 		'invoice'          => 'invc',
@@ -38,13 +38,13 @@ class ItemOrderNote extends BaseItemOrderNote {
 		'purchaseorder'    => 'PO',
 		'ordertransfer'    => 'tran',
 		'fabpo'            => 'fab',
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'             => 'qntype',
 		'description'      => 'qntypedesc',
 		'itemid'           => 'inititemnbr',
@@ -62,7 +62,7 @@ class ItemOrderNote extends BaseItemOrderNote {
 		'key2'          => 'qnkey2',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Sets Form

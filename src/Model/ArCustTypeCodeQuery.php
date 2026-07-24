@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArCustTypeCodeQuery as BaseArCustTypeCodeQuery;
 
 use Dplus\Model\QueryTraits;

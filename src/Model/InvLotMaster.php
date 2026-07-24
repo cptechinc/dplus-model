@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvLotMaster as BaseInvLotMaster;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class InvLotMaster extends BaseInvLotMaster {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'         => 'inititemnbr',
 		'lotnbr'         => 'lotmlotnbr',
 		'lotserial'      => 'lotmlotnbr',
@@ -26,7 +28,6 @@ class InvLotMaster extends BaseInvLotMaster {
 		'revision'       => 'lotmrevision',
 		'country'        => 'lotmctry',
 		'coc'            => 'lotmcofc',
-		'createdate'     => 'lotmcreatedate',
 		'createtime'     => 'lotmcreatetime',
 		'createdate'     => 'LotmCreateDate',
 		'date'           => 'dateupdtd',
@@ -37,7 +38,7 @@ class InvLotMaster extends BaseInvLotMaster {
 
 		// FOREIGN KEY GETS
 		'item'          => 'itemMasterItem'
-	);
+	];
 
 	/**
 	 * Return if Lot has Image 

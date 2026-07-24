@@ -130,7 +130,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvNonstockItemQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvNonstockItemQuery object.
@@ -188,7 +188,7 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvNonstockItemTableMap::DATABASE_NAME);
         }
 
@@ -235,7 +235,6 @@ abstract class InvNonstockItemQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvNonstockItem $obj */
             $obj = new ChildInvNonstockItem();
             $obj->hydrate($row);
             InvNonstockItemTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -276,7 +275,7 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -344,10 +343,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function filterByNsititemnbr($nsititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($nsititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($nsititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITITEMNBR, $nsititemnbr, $comparison);
@@ -372,10 +369,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function filterByNsitmnfrid($nsitmnfrid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($nsitmnfrid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($nsitmnfrid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITMNFRID, $nsitmnfrid, $comparison);
@@ -400,10 +395,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function filterByNsitdesc1($nsitdesc1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($nsitdesc1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($nsitdesc1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITDESC1, $nsitdesc1, $comparison);
@@ -428,10 +421,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function filterByNsitdesc2($nsitdesc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($nsitdesc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($nsitdesc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITDESC2, $nsitdesc2, $comparison);
@@ -542,10 +533,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function filterByNsituom($nsituom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($nsituom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($nsituom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITUOM, $nsituom, $comparison);
@@ -613,10 +602,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function filterByNsitchgdate($nsitchgdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($nsitchgdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($nsitchgdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITCHGDATE, $nsitchgdate, $comparison);
@@ -641,10 +628,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvNonstockItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -669,10 +654,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvNonstockItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -697,10 +680,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvNonstockItemTableMap::COL_DUMMY, $dummy, $comparison);
@@ -754,7 +735,7 @@ abstract class InvNonstockItemQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -784,7 +765,7 @@ abstract class InvNonstockItemQuery extends ModelCriteria
     {
         return $this
             ->joinVendor($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+            ->useQuery($relationAlias ?: 'Vendor', '\VendorQuery');
     }
 
     /**
@@ -895,7 +876,7 @@ abstract class InvNonstockItemQuery extends ModelCriteria
         if ($invNonstockItem) {
             $this->addCond('pruneCond0', $this->getAliasedColName(InvNonstockItemTableMap::COL_NSITITEMNBR), $invNonstockItem->getNsititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvNonstockItemTableMap::COL_NSITMNFRID), $invNonstockItem->getNsitmnfrid(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -909,7 +890,7 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvNonstockItemTableMap::DATABASE_NAME);
         }
 
@@ -939,7 +920,7 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvNonstockItemTableMap::DATABASE_NAME);
         }
 

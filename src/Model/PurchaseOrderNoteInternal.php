@@ -22,7 +22,7 @@ class PurchaseOrderNoteInternal extends BasePurchaseOrderNoteInternal {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ponbr'       => 'pohdnbr',
 		'linenbr'     => 'podtline',
 		'line'        => 'podtline',
@@ -37,7 +37,7 @@ class PurchaseOrderNoteInternal extends BasePurchaseOrderNoteInternal {
 		'notetime'    => 'pontintltime',
 		'date'        => 'dateupdtd',
 		'time'        => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return Note Time in His Format

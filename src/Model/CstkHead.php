@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\CstkHead as BaseCstkHead;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -22,17 +24,17 @@ class CstkHead extends BaseCstkHead {
 	/**
 	 * CSTK Type
 	 */
-	const TYPES = array(
+	const TYPES = [
 		'O' => 'order',
 		'R' => 'replenish',
 		'C' => 'count'
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'custID'                  => 'arcucustid',
 		'custid'                  => 'arcucustid',
 		'shiptoid'                => 'arstshipid',
@@ -41,5 +43,5 @@ class CstkHead extends BaseCstkHead {
 		'cell'                    => 'cskhcell',
 		'whse'                    => 'cskhwhse',
 		'type'                    => 'cskhreplcnt',
-	);
+	];
 }

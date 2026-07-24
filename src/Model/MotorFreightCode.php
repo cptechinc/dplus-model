@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\MotorFreightCode as BaseMotorFreightCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,7 +20,7 @@ class MotorFreightCode extends BaseMotorFreightCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'            => 'oe2tbmfrtcode',
 		'code'          => 'oe2tbmfrtcode',
 		'class'         => 'oe2tbmfrtclass',
@@ -28,7 +30,7 @@ class MotorFreightCode extends BaseMotorFreightCode {
 		'description4'  => 'oe2tbmfrtdesc4',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

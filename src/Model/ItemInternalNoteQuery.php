@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ItemInternalNoteQuery as BaseItemInternalNoteQuery;
 
 use Dplus\Model\QueryTraits;

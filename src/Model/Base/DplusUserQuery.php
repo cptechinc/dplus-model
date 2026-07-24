@@ -356,7 +356,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class DplusUserQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\DplusUserQuery object.
@@ -414,7 +414,7 @@ abstract class DplusUserQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(DplusUserTableMap::DATABASE_NAME);
         }
 
@@ -460,7 +460,6 @@ abstract class DplusUserQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildDplusUser $obj */
             $obj = new ChildDplusUser();
             $obj->hydrate($row);
             DplusUserTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -501,7 +500,7 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -560,10 +559,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcid($usrcid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCID, $usrcid, $comparison);
@@ -588,10 +585,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcloginname($usrcloginname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcloginname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcloginname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCLOGINNAME, $usrcloginname, $comparison);
@@ -616,10 +611,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -644,10 +637,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcdefcmpy($usrcdefcmpy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcdefcmpy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcdefcmpy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCDEFCMPY, $usrcdefcmpy, $comparison);
@@ -672,10 +663,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcadmin($usrcadmin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcadmin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcadmin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCADMIN, $usrcadmin, $comparison);
@@ -700,10 +689,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcfront($usrcfront = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcfront)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcfront)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCFRONT, $usrcfront, $comparison);
@@ -728,10 +715,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrccitydesk($usrccitydesk = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrccitydesk)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrccitydesk)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCCITYDESK, $usrccitydesk, $comparison);
@@ -756,10 +741,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcreptadmin($usrcreptadmin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcreptadmin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcreptadmin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCREPTADMIN, $usrcreptadmin, $comparison);
@@ -784,10 +767,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcprinter($usrcprinter = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcprinter)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcprinter)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCPRINTER, $usrcprinter, $comparison);
@@ -812,10 +793,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcpitch($usrcpitch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcpitch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcpitch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCPITCH, $usrcpitch, $comparison);
@@ -840,10 +819,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcbrowseprinter($usrcbrowseprinter = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcbrowseprinter)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcbrowseprinter)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCBROWSEPRINTER, $usrcbrowseprinter, $comparison);
@@ -868,10 +845,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcwhsedisplayseq($usrcwhsedisplayseq = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcwhsedisplayseq)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcwhsedisplayseq)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCWHSEDISPLAYSEQ, $usrcwhsedisplayseq, $comparison);
@@ -896,10 +871,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcactiveitemsonly($usrcactiveitemsonly = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcactiveitemsonly)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcactiveitemsonly)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCACTIVEITEMSONLY, $usrcactiveitemsonly, $comparison);
@@ -924,10 +897,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcrestrictaccess($usrcrestrictaccess = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcrestrictaccess)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcrestrictaccess)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCRESTRICTACCESS, $usrcrestrictaccess, $comparison);
@@ -952,10 +923,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrclogingroup($usrclogingroup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrclogingroup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrclogingroup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCLOGINGROUP, $usrclogingroup, $comparison);
@@ -980,10 +949,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcloginrole($usrcloginrole = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcloginrole)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcloginrole)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCLOGINROLE, $usrcloginrole, $comparison);
@@ -1008,10 +975,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcallowprocremoval($usrcallowprocremoval = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcallowprocremoval)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcallowprocremoval)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCALLOWPROCREMOVAL, $usrcallowprocremoval, $comparison);
@@ -1036,10 +1001,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcacallowwarredit($usrcacallowwarredit = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcacallowwarredit)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcacallowwarredit)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCACALLOWWARREDIT, $usrcacallowwarredit, $comparison);
@@ -1064,10 +1027,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcisprodmgr($usrcisprodmgr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcisprodmgr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcisprodmgr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCISPRODMGR, $usrcisprodmgr, $comparison);
@@ -1092,10 +1053,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrclmallowcrosswhse($usrclmallowcrosswhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrclmallowcrosswhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrclmallowcrosswhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCLMALLOWCROSSWHSE, $usrclmallowcrosswhse, $comparison);
@@ -1120,10 +1079,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcpswd($usrcpswd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcpswd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcpswd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCPSWD, $usrcpswd, $comparison);
@@ -1148,10 +1105,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcfaxname($usrcfaxname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcfaxname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcfaxname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXNAME, $usrcfaxname, $comparison);
@@ -1176,10 +1131,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcfaxcompany($usrcfaxcompany = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcfaxcompany)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcfaxcompany)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXCOMPANY, $usrcfaxcompany, $comparison);
@@ -1204,10 +1157,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcfaxarea($usrcfaxarea = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcfaxarea)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcfaxarea)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXAREA, $usrcfaxarea, $comparison);
@@ -1232,10 +1183,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcfaxfrst3($usrcfaxfrst3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcfaxfrst3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcfaxfrst3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXFRST3, $usrcfaxfrst3, $comparison);
@@ -1260,10 +1209,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcfaxlast4($usrcfaxlast4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcfaxlast4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcfaxlast4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXLAST4, $usrcfaxlast4, $comparison);
@@ -1288,10 +1235,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcphonearea($usrcphonearea = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcphonearea)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcphonearea)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONEAREA, $usrcphonearea, $comparison);
@@ -1316,10 +1261,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcphonefrst3($usrcphonefrst3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcphonefrst3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcphonefrst3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONEFRST3, $usrcphonefrst3, $comparison);
@@ -1344,10 +1287,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcphonelast4($usrcphonelast4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcphonelast4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcphonelast4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONELAST4, $usrcphonelast4, $comparison);
@@ -1372,10 +1313,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcphoneext($usrcphoneext = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcphoneext)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcphoneext)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONEEXT, $usrcphoneext, $comparison);
@@ -1400,10 +1339,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcsendtime($usrcsendtime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcsendtime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcsendtime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCSENDTIME, $usrcsendtime, $comparison);
@@ -1428,10 +1365,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrccoversheet($usrccoversheet = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrccoversheet)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrccoversheet)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCCOVERSHEET, $usrccoversheet, $comparison);
@@ -1456,10 +1391,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcsubject($usrcsubject = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcsubject)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcsubject)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCSUBJECT, $usrcsubject, $comparison);
@@ -1484,10 +1417,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcnotifys($usrcnotifys = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcnotifys)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcnotifys)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCNOTIFYS, $usrcnotifys, $comparison);
@@ -1512,10 +1443,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcnotifyf($usrcnotifyf = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcnotifyf)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcnotifyf)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCNOTIFYF, $usrcnotifyf, $comparison);
@@ -1540,10 +1469,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcemailaddr($usrcemailaddr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcemailaddr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcemailaddr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCEMAILADDR, $usrcemailaddr, $comparison);
@@ -1568,10 +1495,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcscalewhseid($usrcscalewhseid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcscalewhseid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcscalewhseid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCSCALEWHSEID, $usrcscalewhseid, $comparison);
@@ -1596,10 +1521,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcscaledevnbr($usrcscaledevnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcscaledevnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcscaledevnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCSCALEDEVNBR, $usrcscaledevnbr, $comparison);
@@ -1624,10 +1547,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcccscanwhseid($usrcccscanwhseid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcccscanwhseid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcccscanwhseid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCCCSCANWHSEID, $usrcccscanwhseid, $comparison);
@@ -1652,10 +1573,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByUsrcccscandevnbr($usrcccscandevnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($usrcccscandevnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($usrcccscandevnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_USRCCCSCANDEVNBR, $usrcccscandevnbr, $comparison);
@@ -1680,10 +1599,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1708,10 +1625,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1736,10 +1651,8 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(DplusUserTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1793,7 +1706,7 @@ abstract class DplusUserQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1823,7 +1736,7 @@ abstract class DplusUserQuery extends ModelCriteria
     {
         return $this
             ->joinSysLoginGroup($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SysLoginGroup', '\SysLoginGroupQuery');
+            ->useQuery($relationAlias ?: 'SysLoginGroup', '\SysLoginGroupQuery');
     }
 
     /**
@@ -1968,7 +1881,7 @@ abstract class DplusUserQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1998,7 +1911,7 @@ abstract class DplusUserQuery extends ModelCriteria
     {
         return $this
             ->joinSysLoginRole($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SysLoginRole', '\SysLoginRoleQuery');
+            ->useQuery($relationAlias ?: 'SysLoginRole', '\SysLoginRoleQuery');
     }
 
     /**
@@ -2141,7 +2054,7 @@ abstract class DplusUserQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2171,7 +2084,7 @@ abstract class DplusUserQuery extends ModelCriteria
     {
         return $this
             ->joinInvLotTag($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLotTag', '\InvLotTagQuery');
+            ->useQuery($relationAlias ?: 'InvLotTag', '\InvLotTagQuery');
     }
 
     /**
@@ -2314,7 +2227,7 @@ abstract class DplusUserQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2344,7 +2257,7 @@ abstract class DplusUserQuery extends ModelCriteria
     {
         return $this
             ->joinUserPermissionsItm($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'UserPermissionsItm', '\UserPermissionsItmQuery');
+            ->useQuery($relationAlias ?: 'UserPermissionsItm', '\UserPermissionsItmQuery');
     }
 
     /**
@@ -2487,7 +2400,7 @@ abstract class DplusUserQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -2517,7 +2430,7 @@ abstract class DplusUserQuery extends ModelCriteria
     {
         return $this
             ->joinUserLastPrintJob($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'UserLastPrintJob', '\UserLastPrintJobQuery');
+            ->useQuery($relationAlias ?: 'UserLastPrintJob', '\UserLastPrintJobQuery');
     }
 
     /**
@@ -2640,7 +2553,7 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
         }
 
@@ -2670,7 +2583,7 @@ abstract class DplusUserQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
         }
 

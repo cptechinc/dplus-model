@@ -88,7 +88,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvBinAreaCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvBinAreaCodeQuery object.
@@ -146,7 +146,7 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvBinAreaCodeTableMap::DATABASE_NAME);
         }
 
@@ -192,7 +192,6 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvBinAreaCode $obj */
             $obj = new ChildInvBinAreaCode();
             $obj->hydrate($row);
             InvBinAreaCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -233,7 +232,7 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -292,10 +291,8 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
      */
     public function filterByIntbbinacode($intbbinacode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbbinacode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbbinacode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvBinAreaCodeTableMap::COL_INTBBINACODE, $intbbinacode, $comparison);
@@ -320,10 +317,8 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
      */
     public function filterByIntbbinadesc($intbbinadesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbbinadesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbbinadesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvBinAreaCodeTableMap::COL_INTBBINADESC, $intbbinadesc, $comparison);
@@ -348,10 +343,8 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvBinAreaCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -376,10 +369,8 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvBinAreaCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -404,10 +395,8 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvBinAreaCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -459,7 +448,7 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -489,7 +478,7 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
     {
         return $this
             ->joinWarehouseBin($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'WarehouseBin', '\WarehouseBinQuery');
+            ->useQuery($relationAlias ?: 'WarehouseBin', '\WarehouseBinQuery');
     }
 
     /**
@@ -612,7 +601,7 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvBinAreaCodeTableMap::DATABASE_NAME);
         }
 
@@ -642,7 +631,7 @@ abstract class InvBinAreaCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvBinAreaCodeTableMap::DATABASE_NAME);
         }
 

@@ -164,7 +164,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemXrefCustomerNoteQuery object.
@@ -222,7 +222,7 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemXrefCustomerNoteTableMap::DATABASE_NAME);
         }
 
@@ -271,7 +271,6 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemXrefCustomerNote $obj */
             $obj = new ChildItemXrefCustomerNote();
             $obj->hydrate($row);
             ItemXrefCustomerNoteTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -312,7 +311,7 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -386,10 +385,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQntype($qntype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qntype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qntype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNTYPE, $qntype, $comparison);
@@ -414,10 +411,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qntypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qntypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
@@ -442,10 +437,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -470,10 +463,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -498,10 +489,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQnicxmquote($qnicxmquote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnicxmquote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnicxmquote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNICXMQUOTE, $qnicxmquote, $comparison);
@@ -526,10 +515,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQnicxmpickticket($qnicxmpickticket = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnicxmpickticket)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnicxmpickticket)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNICXMPICKTICKET, $qnicxmpickticket, $comparison);
@@ -554,10 +541,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQnicxmpackticket($qnicxmpackticket = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnicxmpackticket)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnicxmpackticket)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNICXMPACKTICKET, $qnicxmpackticket, $comparison);
@@ -582,10 +567,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQnicxminvoice($qnicxminvoice = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnicxminvoice)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnicxminvoice)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNICXMINVOICE, $qnicxminvoice, $comparison);
@@ -610,10 +593,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQnicxmacknow($qnicxmacknow = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnicxmacknow)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnicxmacknow)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNICXMACKNOW, $qnicxmacknow, $comparison);
@@ -681,10 +662,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnnote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnnote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
@@ -709,10 +688,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnkey2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnkey2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
@@ -737,10 +714,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByQnform($qnform = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnform)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnform)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_QNFORM, $qnform, $comparison);
@@ -765,10 +740,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -793,10 +766,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -821,10 +792,8 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemXrefCustomerNoteTableMap::COL_DUMMY, $dummy, $comparison);
@@ -878,7 +847,7 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -908,7 +877,7 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1053,7 +1022,7 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1083,7 +1052,7 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -1196,7 +1165,7 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(ItemXrefCustomerNoteTableMap::COL_QNSEQ), $itemXrefCustomerNote->getQnseq(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(ItemXrefCustomerNoteTableMap::COL_QNKEY2), $itemXrefCustomerNote->getQnkey2(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(ItemXrefCustomerNoteTableMap::COL_QNFORM), $itemXrefCustomerNote->getQnform(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1210,7 +1179,7 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefCustomerNoteTableMap::DATABASE_NAME);
         }
 
@@ -1240,7 +1209,7 @@ abstract class ItemXrefCustomerNoteQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefCustomerNoteTableMap::DATABASE_NAME);
         }
 

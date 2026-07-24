@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SoAllocatedLotserialQuery as BaseSoAllocatedLotserialQuery;
 
 use Dplus\Model\QueryTraits;

@@ -42,7 +42,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\InvTransferPickedLotserialTableMap';
+    public const TABLE_MAP = \Map\InvTransferPickedLotserialTableMap::class;
 
 
     /**
@@ -355,7 +355,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -413,7 +413,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -423,7 +422,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -461,8 +459,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -473,7 +469,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -515,9 +510,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -543,7 +536,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1454,13 +1447,8 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -1485,79 +1473,79 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->indtline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdlotser', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdlotser = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdplltnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdplltnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdcrtnnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdqtyresv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdqtyresv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdqtyresv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdqtyship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdqtyship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdqtyship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdqtynotpost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdqtynotpost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdqtynotpost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdunitcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdlotserfrom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdlotserfrom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdlotserfrom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdbinfrom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdbinfrom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdbinfrom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdcases', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdcases', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdcases = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdtag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdtag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdtag = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdinspctlvl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdinspctlvl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdinspctlvl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdlotref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdlotref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdlotref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdcrtnqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdcrtnqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdcrtnqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdlblprtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdlblprtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdlblprtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdbatch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdbatch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdbatch = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdcuredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdcuredate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdcuredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdbinto', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Inpdbinto', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inpdbinto = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : InvTransferPickedLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1586,7 +1574,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1623,7 +1610,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1636,7 +1622,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvTransferPickedLotserialTableMap::DATABASE_NAME);
         }
 
@@ -1665,7 +1651,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see InvTransferPickedLotserial::setDeleted()
      * @see InvTransferPickedLotserial::isDeleted()
@@ -1676,7 +1661,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferPickedLotserialTableMap::DATABASE_NAME);
         }
 
@@ -1715,18 +1700,14 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferPickedLotserialTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1750,7 +1731,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1822,7 +1802,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2034,7 +2013,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2060,9 +2038,8 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = InvTransferPickedLotserialTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2293,7 +2270,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -2651,13 +2627,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getInhdnbr() &&
-            null !== $this->getIndtline() &&
-            null !== $this->getInititemnbr() &&
-            null !== $this->getInpdlotser() &&
-            null !== $this->getInpdbin() &&
-            null !== $this->getInpdplltnbr() &&
-            null !== $this->getInpdcrtnnbr();
+        $validPk = !in_array(null, [$this->getInhdnbr(), $this->getIndtline(), $this->getInititemnbr(), $this->getInpdlotser(), $this->getInpdbin(), $this->getInpdplltnbr(), $this->getInpdcrtnnbr()], true);
 
         $validPrimaryKeyFKs = 8;
         $primaryKeyFKs = [];
@@ -2713,23 +2683,13 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getInhdnbr();
-        $pks[1] = $this->getIndtline();
-        $pks[2] = $this->getInititemnbr();
-        $pks[3] = $this->getInpdlotser();
-        $pks[4] = $this->getInpdbin();
-        $pks[5] = $this->getInpdplltnbr();
-        $pks[6] = $this->getInpdcrtnnbr();
-
-        return $pks;
+        return [$this->getInhdnbr(), $this->getIndtline(), $this->getInititemnbr(), $this->getInpdlotser(), $this->getInpdbin(), $this->getInpdplltnbr(), $this->getInpdcrtnnbr()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -2744,8 +2704,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -2762,7 +2720,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2821,13 +2778,12 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param ChildItemMasterItem $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ItemMasterItem) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
@@ -2837,7 +2793,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ItemMasterItem) {
             $v->addInvTransferPickedLotserial($this);
         }
 
@@ -2872,13 +2828,12 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildInvTransferOrder object.
      *
-     * @param ChildInvTransferOrder $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvTransferOrder(ChildInvTransferOrder $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvTransferOrder) {
             $this->setInhdnbr(0);
         } else {
             $this->setInhdnbr($v->getInhdnbr());
@@ -2888,7 +2843,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildInvTransferOrder object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \InvTransferOrder) {
             $v->addInvTransferPickedLotserial($this);
         }
 
@@ -2923,19 +2878,18 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildInvTransferDetail object.
      *
-     * @param ChildInvTransferDetail $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvTransferDetail(ChildInvTransferDetail $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvTransferDetail) {
             $this->setInhdnbr(0);
         } else {
             $this->setInhdnbr($v->getInhdnbr());
         }
 
-        if ($v === null) {
+        if (!$v instanceof \InvTransferDetail) {
             $this->setIndtline(0);
         } else {
             $this->setIndtline($v->getIndtline());
@@ -2945,7 +2899,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildInvTransferDetail object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \InvTransferDetail) {
             $v->addInvTransferPickedLotserial($this);
         }
 
@@ -2964,7 +2918,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     public function getInvTransferDetail(?ConnectionInterface $con = null)
     {
         if ($this->aInvTransferDetail === null && ($this->inhdnbr != 0 && $this->indtline != 0)) {
-            $this->aInvTransferDetail = ChildInvTransferDetailQuery::create()->findPk(array($this->inhdnbr, $this->indtline), $con);
+            $this->aInvTransferDetail = ChildInvTransferDetailQuery::create()->findPk([$this->inhdnbr, $this->indtline], $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -2980,19 +2934,18 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildInvLotMaster object.
      *
-     * @param ChildInvLotMaster $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvLotMaster(ChildInvLotMaster $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvLotMaster) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
         }
 
-        if ($v === null) {
+        if (!$v instanceof \InvLotMaster) {
             $this->setInpdlotser('');
         } else {
             $this->setInpdlotser($v->getLotmlotnbr());
@@ -3002,7 +2955,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildInvLotMaster object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \InvLotMaster) {
             $v->addInvTransferPickedLotserial($this);
         }
 
@@ -3021,7 +2974,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     public function getInvLotMaster(?ConnectionInterface $con = null)
     {
         if ($this->aInvLotMaster === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->inpdlotser !== "" && $this->inpdlotser !== null))) {
-            $this->aInvLotMaster = ChildInvLotMasterQuery::create()->findPk(array($this->inititemnbr, $this->inpdlotser), $con);
+            $this->aInvLotMaster = ChildInvLotMasterQuery::create()->findPk([$this->inititemnbr, $this->inpdlotser], $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -3037,19 +2990,18 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildInvSerialMaster object.
      *
-     * @param ChildInvSerialMaster $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvSerialMaster(ChildInvSerialMaster $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvSerialMaster) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
         }
 
-        if ($v === null) {
+        if (!$v instanceof \InvSerialMaster) {
             $this->setInpdlotser('');
         } else {
             $this->setInpdlotser($v->getSermsernbr());
@@ -3059,7 +3011,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildInvSerialMaster object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \InvSerialMaster) {
             $v->addInvTransferPickedLotserial($this);
         }
 
@@ -3078,7 +3030,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
     public function getInvSerialMaster(?ConnectionInterface $con = null)
     {
         if ($this->aInvSerialMaster === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->inpdlotser !== "" && $this->inpdlotser !== null))) {
-            $this->aInvSerialMaster = ChildInvSerialMasterQuery::create()->findPk(array($this->inititemnbr, $this->inpdlotser), $con);
+            $this->aInvSerialMaster = ChildInvSerialMasterQuery::create()->findPk([$this->inititemnbr, $this->inpdlotser], $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -3161,8 +3113,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aItemMasterItem = null;
         $this->aInvTransferOrder = null;
@@ -3179,13 +3130,11 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(InvTransferPickedLotserialTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(InvTransferPickedLotserialTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3194,8 +3143,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3203,8 +3150,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3213,8 +3158,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3222,8 +3165,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3232,8 +3173,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3241,8 +3180,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3251,8 +3188,6 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3272,7 +3207,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3284,7 +3219,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3292,7 +3227,7 @@ abstract class InvTransferPickedLotserial implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

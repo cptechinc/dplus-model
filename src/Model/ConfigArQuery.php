@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigArQuery as BaseConfigArQuery;
 
 use Dplus\Model\QueryTraits;

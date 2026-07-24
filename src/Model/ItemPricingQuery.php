@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ItemPricingQuery as BaseItemPricingQuery;
 
 use Dplus\Model\QueryTraits;

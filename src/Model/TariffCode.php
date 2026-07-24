@@ -18,7 +18,7 @@ class TariffCode extends BaseTariffCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'intbtaricode',
 		'code'         => 'intbtaricode',
 		'number'       => 'intbtarinbr',
@@ -27,7 +27,7 @@ class TariffCode extends BaseTariffCode {
 		'percent'      => 'intbtaridutyratepct',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Maximum of characters allowed for code

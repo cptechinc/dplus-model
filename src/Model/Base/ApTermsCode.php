@@ -37,7 +37,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ApTermsCodeTableMap';
+    public const TABLE_MAP = \Map\ApTermsCodeTableMap::class;
 
 
     /**
@@ -668,7 +668,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * @var ObjectCollection|ChildVendor[]
      * @phpstan-var ObjectCollection&\Traversable<ChildVendor>
      */
-    protected $vendorsScheduledForDeletion = null;
+    protected $vendorsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -697,7 +697,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -755,7 +755,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -765,7 +764,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -803,8 +801,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -815,7 +811,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -857,9 +852,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -885,7 +878,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -3409,12 +3402,8 @@ abstract class ApTermsCode implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->aptmtermcode !== '') {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->aptmtermcode === '';
     }
 
     /**
@@ -3439,253 +3428,253 @@ abstract class ApTermsCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmtermcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ApTermsCodeTableMap::translateFieldName('Aptmtermcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmtermcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmtermdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmtermdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmtermdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmmethod', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmmethod', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmmethod = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmexpiredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmsplit1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmorderpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdays1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscday1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedays1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdueday1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusmonths1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusyear1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmsplit2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmorderpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdays2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscday2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedays2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdueday2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusmonths2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusyear2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmsplit3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmorderpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdays3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscday3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedays3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdueday3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusmonths3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusyear3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmsplit4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmorderpct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscpct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdays4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscday4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedays4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdueday4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusmonths4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusyear4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmsplit5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmsplit5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmorderpct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmorderpct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscpct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdays5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdays5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscday5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscday5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdiscdate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedays5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedays5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdueday5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdueday5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusmonths5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusmonths5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmduedate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmduedate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmplusyear5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmplusyear5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdayfrom1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdayfrom1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdayfrom1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdaythru1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdaythru1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdaythru1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdiscpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscday1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscday1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdiscday1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscmonths1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscmonths1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdiscmonths1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdueday1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdueday1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdueday1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomplusmonths1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomplusmonths1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomplusmonths1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdayfrom2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdayfrom2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdayfrom2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdaythru2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdaythru2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdaythru2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdiscpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscday2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscday2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdiscday2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscmonths2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscmonths2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdiscmonths2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdueday2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdueday2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdueday2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomplusmonths2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomplusmonths2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomplusmonths2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdayfrom3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdayfrom3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdayfrom3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdaythru3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmdaythru3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmdaythru3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdiscpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscday3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscday3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdiscday3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscmonths3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdiscmonths3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdiscmonths3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdueday3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomdueday3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomdueday3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomplusmonths3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : ApTermsCodeTableMap::translateFieldName('Aptmeomplusmonths3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmeomplusmonths3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ApTermsCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : ApTermsCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ApTermsCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : ApTermsCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ApTermsCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : ApTermsCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -3714,7 +3703,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -3727,7 +3715,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -3740,7 +3727,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ApTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -3766,7 +3753,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ApTermsCode::setDeleted()
      * @see ApTermsCode::isDeleted()
@@ -3777,7 +3763,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -3816,18 +3802,14 @@ abstract class ApTermsCode implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApTermsCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -3851,7 +3833,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -3873,13 +3854,11 @@ abstract class ApTermsCode implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->vendorsScheduledForDeletion !== null) {
-                if (!$this->vendorsScheduledForDeletion->isEmpty()) {
-                    \VendorQuery::create()
-                        ->filterByPrimaryKeys($this->vendorsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->vendorsScheduledForDeletion = null;
-                }
+            if ($this->vendorsScheduledForDeletion !== null && !$this->vendorsScheduledForDeletion->isEmpty()) {
+                \VendorQuery::create()
+                    ->filterByPrimaryKeys($this->vendorsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->vendorsScheduledForDeletion = null;
             }
 
             if ($this->collVendors !== null) {
@@ -3900,7 +3879,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -4518,7 +4496,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -4544,9 +4521,8 @@ abstract class ApTermsCode implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ApTermsCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -4925,22 +4901,18 @@ abstract class ApTermsCode implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
-        if ($includeForeignObjects) {
-            if (null !== $this->collVendors) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'vendors';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'ap_vend_masts';
-                        break;
-                    default:
-                        $key = 'Vendors';
-                }
-
-                $result[$key] = $this->collVendors->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+        if ($includeForeignObjects && null !== $this->collVendors) {
+            switch ($keyType) {
+                case TableMap::TYPE_CAMELNAME:
+                    $key = 'vendors';
+                    break;
+                case TableMap::TYPE_FIELDNAME:
+                    $key = 'ap_vend_masts';
+                    break;
+                default:
+                    $key = 'Vendors';
             }
+            $result[$key] = $this->collVendors->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
         }
 
         return $result;
@@ -4949,7 +4921,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -5830,7 +5801,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -5850,7 +5821,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Generic method to set the primary key (aptmtermcode column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -5859,8 +5829,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -5877,7 +5845,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -6012,7 +5979,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -6040,8 +6006,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Reset is the collVendors collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialVendors($v = true): void
     {
@@ -6057,8 +6021,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initVendors(bool $overrideExisting = true): void
     {
@@ -6090,7 +6052,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     public function getVendors(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collVendorsPartial && !$this->isNew();
-        if (null === $this->collVendors || null !== $criteria || $partial) {
+        if (null === $this->collVendors || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collVendors) {
@@ -6108,7 +6070,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
                     ->filterByApTermsCode($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collVendorsPartial && count($collVendors)) {
                         $this->initVendors(false);
 
@@ -6159,7 +6121,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
         $this->vendorsScheduledForDeletion = $vendorsToDelete;
 
         foreach ($vendorsToDelete as $vendorRemoved) {
-            $vendorRemoved->setApTermsCode(null);
+            $vendorRemoved->setApTermsCode();
         }
 
         $this->collVendors = null;
@@ -6177,7 +6139,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Returns the number of related Vendor objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related Vendor objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -6185,7 +6146,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     public function countVendors(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collVendorsPartial && !$this->isNew();
-        if (null === $this->collVendors || null !== $criteria || $partial) {
+        if (null === $this->collVendors || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collVendors) {
                 return 0;
             }
@@ -6224,7 +6185,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
         if (!$this->collVendors->contains($l)) {
             $this->doAddVendor($l);
 
-            if ($this->vendorsScheduledForDeletion and $this->vendorsScheduledForDeletion->contains($l)) {
+            if ($this->vendorsScheduledForDeletion && $this->vendorsScheduledForDeletion->contains($l)) {
                 $this->vendorsScheduledForDeletion->remove($this->vendorsScheduledForDeletion->search($l));
             }
         }
@@ -6255,7 +6216,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
                 $this->vendorsScheduledForDeletion->clear();
             }
             $this->vendorsScheduledForDeletion[]= clone $vendor;
-            $vendor->setApTermsCode(null);
+            $vendor->setApTermsCode();
         }
 
         return $this;
@@ -6452,11 +6413,9 @@ abstract class ApTermsCode implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-            if ($this->collVendors) {
-                foreach ($this->collVendors as $o) {
-                    $o->clearAllReferences($deep);
-                }
+        if ($deep && $this->collVendors) {
+            foreach ($this->collVendors as $o) {
+                $o->clearAllReferences($deep);
             }
         } // if ($deep)
 
@@ -6471,13 +6430,11 @@ abstract class ApTermsCode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ApTermsCodeTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ApTermsCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -6486,8 +6443,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -6495,8 +6450,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -6505,8 +6458,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -6514,8 +6465,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -6524,8 +6473,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -6533,8 +6480,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -6543,8 +6488,6 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -6564,7 +6507,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -6576,7 +6519,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -6584,7 +6527,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

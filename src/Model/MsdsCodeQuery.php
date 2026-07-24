@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\MsdsCodeQuery as BaseMsdsCodeQuery;
 
 use Dplus\Model\QueryTraits;

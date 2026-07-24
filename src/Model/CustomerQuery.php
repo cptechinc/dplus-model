@@ -51,7 +51,7 @@ class CustomerQuery extends BaseCustomerQuery {
 	 */
 	public function get_lastxmonthsamount($custID, int $months = 1) {
 		$basecolumn = 'ArcuSale24mo';
-		$array = array();
+		$array = [];
 
 		for ($i = 1; $i < $months + 1; $i++) {
 			$array[] = "$basecolumn$i";
@@ -72,7 +72,7 @@ class CustomerQuery extends BaseCustomerQuery {
 	 */
 	public function get_lastxmonthscount($custID, int $months = 1) {
 		$basecolumn = 'ArcuInv24mo';
-		$array = array();
+		$array = [];
 
 		for ($i = 1; $i < $months + 1; $i++) {
 			$array[] = "$basecolumn$i";

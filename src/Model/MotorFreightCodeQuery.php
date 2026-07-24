@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\MotorFreightCodeQuery as BaseMotorFreightCodeQuery;
 
 use Dplus\Model\QueryTraits;

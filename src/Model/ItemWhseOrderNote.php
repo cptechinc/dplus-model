@@ -18,7 +18,7 @@ class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 	const FORM_FALSE = 'N';
 	const KEY2_APPEND = 'O';
 
-	const FORMS_LABELS = array(
+	const FORMS_LABELS = [
 		'pickticket'       => 'pick ticket',
 		'packticket'       => 'pack ticket',
 		'invoice'          => 'invoice',
@@ -26,9 +26,9 @@ class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 		'quote'            => 'quote',
 		'purchaseorder'    => 'purchase order',
 		'ordertransfer'    => 'order transfer'
-	);
+	];
 
-	const FORMS_LABELS_SHORT = array(
+	const FORMS_LABELS_SHORT = [
 		'pickticket'       => 'pick',
 		'packticket'       => 'pack',
 		'invoice'          => 'invc',
@@ -36,13 +36,13 @@ class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 		'quote'            => 'qte',
 		'purchaseorder'    => 'PO',
 		'ordertransfer'    => 'tran'
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'             => 'qntype',
 		'description'      => 'qntypedesc',
 		'itemid'           => 'inititemnbr',
@@ -60,7 +60,7 @@ class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 		'key2'          => 'qnkey2',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Sets Form

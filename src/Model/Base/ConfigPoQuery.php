@@ -608,7 +608,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigPoQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigPoQuery object.
@@ -666,7 +666,7 @@ abstract class ConfigPoQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigPoTableMap::DATABASE_NAME);
         }
 
@@ -712,7 +712,6 @@ abstract class ConfigPoQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigPo $obj */
             $obj = new ChildConfigPo();
             $obj->hydrate($row);
             ConfigPoTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -753,7 +752,7 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -855,10 +854,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfsortpo($potbconfsortpo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfsortpo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfsortpo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSORTPO, $potbconfsortpo, $comparison);
@@ -883,10 +880,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfcancorrshpdate($potbconfcancorrshpdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfcancorrshpdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfcancorrshpdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFCANCORRSHPDATE, $potbconfcancorrshpdate, $comparison);
@@ -911,10 +906,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfackoretadate($potbconfackoretadate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfackoretadate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfackoretadate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFACKORETADATE, $potbconfackoretadate, $comparison);
@@ -939,10 +932,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfeditshipdate($potbconfeditshipdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfeditshipdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfeditshipdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITSHIPDATE, $potbconfeditshipdate, $comparison);
@@ -967,10 +958,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfeditexptdate($potbconfeditexptdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfeditexptdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfeditexptdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITEXPTDATE, $potbconfeditexptdate, $comparison);
@@ -995,10 +984,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfeditcancdate($potbconfeditcancdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfeditcancdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfeditcancdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITCANCDATE, $potbconfeditcancdate, $comparison);
@@ -1023,10 +1010,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfeditackdate($potbconfeditackdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfeditackdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfeditackdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITACKDATE, $potbconfeditackdate, $comparison);
@@ -1051,10 +1036,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfexptdatedef($potbconfexptdatedef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfexptdatedef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfexptdatedef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEXPTDATEDEF, $potbconfexptdatedef, $comparison);
@@ -1122,10 +1105,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfreseq($potbconfreseq = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfreseq)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfreseq)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRESEQ, $potbconfreseq, $comparison);
@@ -1150,10 +1131,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfforcevxref($potbconfforcevxref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfforcevxref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfforcevxref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFORCEVXREF, $potbconfforcevxref, $comparison);
@@ -1178,10 +1157,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfqtydue($potbconfqtydue = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfqtydue)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfqtydue)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFQTYDUE, $potbconfqtydue, $comparison);
@@ -1206,10 +1183,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfwarndup($potbconfwarndup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfwarndup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfwarndup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNDUP, $potbconfwarndup, $comparison);
@@ -1234,10 +1209,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfforceporef($potbconfforceporef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfforceporef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfforceporef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFORCEPOREF, $potbconfforceporef, $comparison);
@@ -1262,10 +1235,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfdestwhse($potbconfdestwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfdestwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfdestwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDESTWHSE, $potbconfdestwhse, $comparison);
@@ -1290,10 +1261,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfeditpoitemnotes($potbconfeditpoitemnotes = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfeditpoitemnotes)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfeditpoitemnotes)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITPOITEMNOTES, $potbconfeditpoitemnotes, $comparison);
@@ -1318,10 +1287,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfloadpovxmnotes($potbconfloadpovxmnotes = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfloadpovxmnotes)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfloadpovxmnotes)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLOADPOVXMNOTES, $potbconfloadpovxmnotes, $comparison);
@@ -1346,10 +1313,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfepoupdlastcost($potbconfepoupdlastcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfepoupdlastcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfepoupdlastcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST, $potbconfepoupdlastcost, $comparison);
@@ -1374,10 +1339,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfrevisionentry($potbconfrevisionentry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfrevisionentry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfrevisionentry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFREVISIONENTRY, $potbconfrevisionentry, $comparison);
@@ -1402,10 +1365,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfrecall($potbconfrecall = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfrecall)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfrecall)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRECALL, $potbconfrecall, $comparison);
@@ -1430,10 +1391,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfrecallask($potbconfrecallask = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfrecallask)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfrecallask)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRECALLASK, $potbconfrecallask, $comparison);
@@ -1458,10 +1417,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfreceivecost($potbconfreceivecost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfreceivecost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfreceivecost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRECEIVECOST, $potbconfreceivecost, $comparison);
@@ -1486,10 +1443,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfprocvari($potbconfprocvari = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfprocvari)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfprocvari)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPROCVARI, $potbconfprocvari, $comparison);
@@ -1514,10 +1469,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfcostrcvryacct($potbconfcostrcvryacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfcostrcvryacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfcostrcvryacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFCOSTRCVRYACCT, $potbconfcostrcvryacct, $comparison);
@@ -1542,10 +1495,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfinvtyvariacct($potbconfinvtyvariacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfinvtyvariacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfinvtyvariacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFINVTYVARIACCT, $potbconfinvtyvariacct, $comparison);
@@ -1570,10 +1521,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfallowchgcost($potbconfallowchgcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfallowchgcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfallowchgcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFALLOWCHGCOST, $potbconfallowchgcost, $comparison);
@@ -1598,10 +1547,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfwarnrcptqty($potbconfwarnrcptqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfwarnrcptqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfwarnrcptqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNRCPTQTY, $potbconfwarnrcptqty, $comparison);
@@ -1626,10 +1573,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconferdispdate($potbconferdispdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconferdispdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconferdispdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFERDISPDATE, $potbconferdispdate, $comparison);
@@ -1654,10 +1599,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfprovidelpo($potbconfprovidelpo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfprovidelpo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfprovidelpo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPROVIDELPO, $potbconfprovidelpo, $comparison);
@@ -1682,10 +1625,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfwarndiffwhse($potbconfwarndiffwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfwarndiffwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfwarndiffwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNDIFFWHSE, $potbconfwarndiffwhse, $comparison);
@@ -1710,10 +1651,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfallocrcvd($potbconfallocrcvd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfallocrcvd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfallocrcvd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFALLOCRCVD, $potbconfallocrcvd, $comparison);
@@ -1738,10 +1677,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfaskclose($potbconfaskclose = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfaskclose)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfaskclose)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFASKCLOSE, $potbconfaskclose, $comparison);
@@ -1766,10 +1703,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconferadd2po($potbconferadd2po = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconferadd2po)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconferadd2po)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFERADD2PO, $potbconferadd2po, $comparison);
@@ -1794,10 +1729,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconftariffglacct($potbconftariffglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconftariffglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconftariffglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFTARIFFGLACCT, $potbconftariffglacct, $comparison);
@@ -1822,10 +1755,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfshopglacct($potbconfshopglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfshopglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfshopglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSHOPGLACCT, $potbconfshopglacct, $comparison);
@@ -1893,10 +1824,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfuseprime($potbconfuseprime = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfuseprime)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfuseprime)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEPRIME, $potbconfuseprime, $comparison);
@@ -1921,10 +1850,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfusewatch($potbconfusewatch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfusewatch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfusewatch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEWATCH, $potbconfusewatch, $comparison);
@@ -1949,10 +1876,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfprtpowsugg($potbconfprtpowsugg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfprtpowsugg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfprtpowsugg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPRTPOWSUGG, $potbconfprtpowsugg, $comparison);
@@ -1977,10 +1902,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfpowslctyes($potbconfpowslctyes = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfpowslctyes)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfpowslctyes)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWSLCTYES, $potbconfpowslctyes, $comparison);
@@ -2005,10 +1928,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfpowgvendrpt($potbconfpowgvendrpt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfpowgvendrpt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfpowgvendrpt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGVENDRPT, $potbconfpowgvendrpt, $comparison);
@@ -2033,10 +1954,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfpowgwipstatus($potbconfpowgwipstatus = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfpowgwipstatus)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfpowgwipstatus)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGWIPSTATUS, $potbconfpowgwipstatus, $comparison);
@@ -2061,10 +1980,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfpowgwipautogen($potbconfpowgwipautogen = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfpowgwipautogen)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfpowgwipautogen)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGWIPAUTOGEN, $potbconfpowgwipautogen, $comparison);
@@ -2089,10 +2006,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfbuyercontrol($potbconfbuyercontrol = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfbuyercontrol)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfbuyercontrol)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBUYERCONTROL, $potbconfbuyercontrol, $comparison);
@@ -2160,10 +2075,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconffxpo($potbconffxpo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconffxpo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconffxpo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFXPO, $potbconffxpo, $comparison);
@@ -2188,10 +2101,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconffxinv($potbconffxinv = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconffxinv)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconffxinv)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFXINV, $potbconffxinv, $comparison);
@@ -2216,10 +2127,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfupdatevendcost($potbconfupdatevendcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfupdatevendcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfupdatevendcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUPDATEVENDCOST, $potbconfupdatevendcost, $comparison);
@@ -2244,10 +2153,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfaskupdate($potbconfaskupdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfaskupdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfaskupdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFASKUPDATE, $potbconfaskupdate, $comparison);
@@ -2315,10 +2222,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfxrefmaint($potbconfxrefmaint = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfxrefmaint)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfxrefmaint)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFXREFMAINT, $potbconfxrefmaint, $comparison);
@@ -2343,10 +2248,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfuseidopts($potbconfuseidopts = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfuseidopts)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfuseidopts)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEIDOPTS, $potbconfuseidopts, $comparison);
@@ -2371,10 +2274,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfsrchvxmfirst($potbconfsrchvxmfirst = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfsrchvxmfirst)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfsrchvxmfirst)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSRCHVXMFIRST, $potbconfsrchvxmfirst, $comparison);
@@ -2399,10 +2300,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfopenlineonly($potbconfopenlineonly = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfopenlineonly)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfopenlineonly)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFOPENLINEONLY, $potbconfopenlineonly, $comparison);
@@ -2427,10 +2326,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfitemdesc($potbconfitemdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfitemdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfitemdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFITEMDESC, $potbconfitemdesc, $comparison);
@@ -2455,10 +2352,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfopenbalonly($potbconfopenbalonly = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfopenbalonly)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfopenbalonly)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFOPENBALONLY, $potbconfopenbalonly, $comparison);
@@ -2483,10 +2378,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfprtwhsedtl($potbconfprtwhsedtl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfprtwhsedtl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfprtwhsedtl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPRTWHSEDTL, $potbconfprtwhsedtl, $comparison);
@@ -2511,10 +2404,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfautorcpt($potbconfautorcpt = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfautorcpt)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfautorcpt)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFAUTORCPT, $potbconfautorcpt, $comparison);
@@ -2539,10 +2430,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfdispitemcost($potbconfdispitemcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfdispitemcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfdispitemcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDISPITEMCOST, $potbconfdispitemcost, $comparison);
@@ -2567,10 +2456,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfdispcaseqty($potbconfdispcaseqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfdispcaseqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfdispcaseqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDISPCASEQTY, $potbconfdispcaseqty, $comparison);
@@ -2638,10 +2525,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfuseordras($potbconfuseordras = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfuseordras)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfuseordras)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEORDRAS, $potbconfuseordras, $comparison);
@@ -2666,10 +2551,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfaprvvendonly($potbconfaprvvendonly = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfaprvvendonly)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfaprvvendonly)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFAPRVVENDONLY, $potbconfaprvvendonly, $comparison);
@@ -2694,10 +2577,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfusefab($potbconfusefab = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfusefab)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfusefab)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEFAB, $potbconfusefab, $comparison);
@@ -2722,10 +2603,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfshowitem($potbconfshowitem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfshowitem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfshowitem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSHOWITEM, $potbconfshowitem, $comparison);
@@ -2750,10 +2629,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfscrapacct($potbconfscrapacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfscrapacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfscrapacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSCRAPACCT, $potbconfscrapacct, $comparison);
@@ -2821,10 +2698,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconflifofifo($potbconflifofifo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconflifofifo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconflifofifo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLIFOFIFO, $potbconflifofifo, $comparison);
@@ -2849,10 +2724,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconffabbomorkit($potbconffabbomorkit = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconffabbomorkit)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconffabbomorkit)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFABBOMORKIT, $potbconffabbomorkit, $comparison);
@@ -2877,10 +2750,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfallocepoer($potbconfallocepoer = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfallocepoer)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfallocepoer)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFALLOCEPOER, $potbconfallocepoer, $comparison);
@@ -2905,10 +2776,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconffabprealloc($potbconffabprealloc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconffabprealloc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconffabprealloc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFABPREALLOC, $potbconffabprealloc, $comparison);
@@ -2933,10 +2802,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfforcefabepo($potbconfforcefabepo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfforcefabepo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfforcefabepo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFORCEFABEPO, $potbconfforcefabepo, $comparison);
@@ -2961,10 +2828,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfpreviewcomplist($potbconfpreviewcomplist = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfpreviewcomplist)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfpreviewcomplist)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPREVIEWCOMPLIST, $potbconfpreviewcomplist, $comparison);
@@ -2989,10 +2854,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfnegcompusage($potbconfnegcompusage = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfnegcompusage)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfnegcompusage)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFNEGCOMPUSAGE, $potbconfnegcompusage, $comparison);
@@ -3017,10 +2880,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfautoselectcomp($potbconfautoselectcomp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfautoselectcomp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfautoselectcomp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFAUTOSELECTCOMP, $potbconfautoselectcomp, $comparison);
@@ -3045,10 +2906,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfbinfromvendor($potbconfbinfromvendor = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfbinfromvendor)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfbinfromvendor)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBINFROMVENDOR, $potbconfbinfromvendor, $comparison);
@@ -3073,10 +2932,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfdfltstckcd($potbconfdfltstckcd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfdfltstckcd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfdfltstckcd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDFLTSTCKCD, $potbconfdfltstckcd, $comparison);
@@ -3101,10 +2958,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfuseremain($potbconfuseremain = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfuseremain)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfuseremain)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEREMAIN, $potbconfuseremain, $comparison);
@@ -3129,10 +2984,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfsamecompcost($potbconfsamecompcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfsamecompcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfsamecompcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSAMECOMPCOST, $potbconfsamecompcost, $comparison);
@@ -3157,10 +3010,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfpasscode($potbconfpasscode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfpasscode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfpasscode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPASSCODE, $potbconfpasscode, $comparison);
@@ -3185,10 +3036,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfuselandcost($potbconfuselandcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfuselandcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfuselandcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSELANDCOST, $potbconfuselandcost, $comparison);
@@ -3213,10 +3062,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfbaselandamtqty($potbconfbaselandamtqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfbaselandamtqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfbaselandamtqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBASELANDAMTQTY, $potbconfbaselandamtqty, $comparison);
@@ -3241,10 +3088,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfwarnlandiner($potbconfwarnlandiner = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfwarnlandiner)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfwarnlandiner)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNLANDINER, $potbconfwarnlandiner, $comparison);
@@ -3269,10 +3114,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconflandamtmultwght($potbconflandamtmultwght = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconflandamtmultwght)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconflandamtmultwght)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDAMTMULTWGHT, $potbconflandamtmultwght, $comparison);
@@ -3297,10 +3140,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconflanderedit($potbconflanderedit = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconflanderedit)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconflanderedit)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDEREDIT, $potbconflanderedit, $comparison);
@@ -3325,10 +3166,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconfhistcmplfab($potbconfhistcmplfab = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconfhistcmplfab)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconfhistcmplfab)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFHISTCMPLFAB, $potbconfhistcmplfab, $comparison);
@@ -3353,10 +3192,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotbconflandglacct($potbconflandglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potbconflandglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potbconflandglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDGLACCT, $potbconflandglacct, $comparison);
@@ -3381,10 +3218,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotblandmpfglacct($potblandmpfglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potblandmpfglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potblandmpfglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDMPFGLACCT, $potblandmpfglacct, $comparison);
@@ -3409,10 +3244,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotblandhmfglacct($potblandhmfglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potblandhmfglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potblandhmfglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDHMFGLACCT, $potblandhmfglacct, $comparison);
@@ -3437,10 +3270,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByPotblanddsetglacct($potblanddsetglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($potblanddsetglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($potblanddsetglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDDSETGLACCT, $potblanddsetglacct, $comparison);
@@ -3465,10 +3296,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -3493,10 +3322,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -3521,10 +3348,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigPoTableMap::COL_DUMMY, $dummy, $comparison);
@@ -3556,7 +3381,7 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPoTableMap::DATABASE_NAME);
         }
 
@@ -3586,7 +3411,7 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPoTableMap::DATABASE_NAME);
         }
 

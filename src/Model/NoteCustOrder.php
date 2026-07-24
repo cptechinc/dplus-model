@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\NoteCustOrder as BaseNoteCustOrder;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,7 +18,7 @@ class NoteCustOrder extends BaseNoteCustOrder {
      * Column Aliases to lookup / get properties
      * @var array
      */
-     const COLUMN_ALIASES = array(
+     const COLUMN_ALIASES = [
          'type'          => 'qntype',
          'desc'          => 'qntypedesc',
          'description'   => 'qntypedesc',
@@ -33,5 +35,5 @@ class NoteCustOrder extends BaseNoteCustOrder {
          'form'          => 'qnform',
          'date'          => 'dateupdtd',
          'time'          => 'timeupdtd',
-     );
+     ];
 }

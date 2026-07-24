@@ -224,7 +224,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigQtQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigQtQuery object.
@@ -282,7 +282,7 @@ abstract class ConfigQtQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigQtTableMap::DATABASE_NAME);
         }
 
@@ -328,7 +328,6 @@ abstract class ConfigQtQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigQt $obj */
             $obj = new ChildConfigQt();
             $obj->hydrate($row);
             ConfigQtTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -369,7 +368,7 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -471,10 +470,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfautogen($qttbconfautogen = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfautogen)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfautogen)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFAUTOGEN, $qttbconfautogen, $comparison);
@@ -628,10 +625,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfpricwind($qttbconfpricwind = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfpricwind)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfpricwind)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFPRICWIND, $qttbconfpricwind, $comparison);
@@ -656,10 +651,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfdispnotes($qttbconfdispnotes = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfdispnotes)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfdispnotes)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFDISPNOTES, $qttbconfdispnotes, $comparison);
@@ -727,10 +720,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfshowmarg($qttbconfshowmarg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfshowmarg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfshowmarg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFSHOWMARG, $qttbconfshowmarg, $comparison);
@@ -755,10 +746,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfshowsp($qttbconfshowsp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfshowsp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfshowsp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFSHOWSP, $qttbconfshowsp, $comparison);
@@ -783,10 +772,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfloadpric($qttbconfloadpric = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfloadpric)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfloadpric)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFLOADPRIC, $qttbconfloadpric, $comparison);
@@ -811,10 +798,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfpricfromqty($qttbconfpricfromqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfpricfromqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfpricfromqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFPRICFROMQTY, $qttbconfpricfromqty, $comparison);
@@ -839,10 +824,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfloadcost($qttbconfloadcost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfloadcost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfloadcost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFLOADCOST, $qttbconfloadcost, $comparison);
@@ -867,10 +850,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfdfltcontactinfo($qttbconfdfltcontactinfo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfdfltcontactinfo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfdfltcontactinfo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFDFLTCONTACTINFO, $qttbconfdfltcontactinfo, $comparison);
@@ -895,10 +876,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfenteruom($qttbconfenteruom = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfenteruom)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfenteruom)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFENTERUOM, $qttbconfenteruom, $comparison);
@@ -966,10 +945,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfcrteslsordr($qttbconfcrteslsordr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfcrteslsordr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfcrteslsordr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFCRTESLSORDR, $qttbconfcrteslsordr, $comparison);
@@ -994,10 +971,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfcrteqtyzero($qttbconfcrteqtyzero = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfcrteqtyzero)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfcrteqtyzero)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFCRTEQTYZERO, $qttbconfcrteqtyzero, $comparison);
@@ -1022,10 +997,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfautononstock($qttbconfautononstock = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfautononstock)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfautononstock)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFAUTONONSTOCK, $qttbconfautononstock, $comparison);
@@ -1050,10 +1023,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfmarkupmargin($qttbconfmarkupmargin = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfmarkupmargin)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfmarkupmargin)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFMARKUPMARGIN, $qttbconfmarkupmargin, $comparison);
@@ -1078,10 +1049,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfuseqtybrks($qttbconfuseqtybrks = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfuseqtybrks)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfuseqtybrks)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFUSEQTYBRKS, $qttbconfuseqtybrks, $comparison);
@@ -1106,10 +1075,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfwghtentercalc($qttbconfwghtentercalc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfwghtentercalc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfwghtentercalc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFWGHTENTERCALC, $qttbconfwghtentercalc, $comparison);
@@ -1134,10 +1101,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfdefquot($qttbconfdefquot = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfdefquot)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfdefquot)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFDEFQUOT, $qttbconfdefquot, $comparison);
@@ -1162,10 +1127,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfdefpick($qttbconfdefpick = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfdefpick)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfdefpick)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFDEFPICK, $qttbconfdefpick, $comparison);
@@ -1190,10 +1153,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfdefpack($qttbconfdefpack = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfdefpack)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfdefpack)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFDEFPACK, $qttbconfdefpack, $comparison);
@@ -1218,10 +1179,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfdefinvc($qttbconfdefinvc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfdefinvc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfdefinvc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFDEFINVC, $qttbconfdefinvc, $comparison);
@@ -1246,10 +1205,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByQttbconfdefack($qttbconfdefack = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qttbconfdefack)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qttbconfdefack)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_QTTBCONFDEFACK, $qttbconfdefack, $comparison);
@@ -1274,10 +1231,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1302,10 +1257,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1330,10 +1283,8 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigQtTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1365,7 +1316,7 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigQtTableMap::DATABASE_NAME);
         }
 
@@ -1395,7 +1346,7 @@ abstract class ConfigQtQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigQtTableMap::DATABASE_NAME);
         }
 

@@ -242,13 +242,13 @@ class SystemDefinitionTableMap extends TableMap
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Cscpcompnbr', 'Cscpcompid', 'Cscpcompname', 'Cscpdspermission', 'Cscprapermission', 'Cscpsrppermission', 'Cscpemailtype', 'Cscpfaxdir', 'Cscpprgdir', 'Cscpfile1dir', 'Cscpfile2dir', 'Cscpfile3dir', 'Cscptempdir', 'Cscpworkdir', 'Cscpreptarchdir', 'Cscpdocinboxdir', 'Cscpdocautodir', 'Cscpcertsdir', 'Cscpimgproduct', 'Cscpimgdrawings', 'Cscpimgschematic', 'Cscpimgconfirm', 'Cscppcchargedir', 'Cscpdevicedir', 'Cscpecommdir', 'Cscpbrwzbaseip', 'Cscpdatabasename', 'Cscpcompdatabasename', 'Cscpfgrndcolor', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('cscpcompnbr', 'cscpcompid', 'cscpcompname', 'cscpdspermission', 'cscprapermission', 'cscpsrppermission', 'cscpemailtype', 'cscpfaxdir', 'cscpprgdir', 'cscpfile1dir', 'cscpfile2dir', 'cscpfile3dir', 'cscptempdir', 'cscpworkdir', 'cscpreptarchdir', 'cscpdocinboxdir', 'cscpdocautodir', 'cscpcertsdir', 'cscpimgproduct', 'cscpimgdrawings', 'cscpimgschematic', 'cscpimgconfirm', 'cscppcchargedir', 'cscpdevicedir', 'cscpecommdir', 'cscpbrwzbaseip', 'cscpdatabasename', 'cscpcompdatabasename', 'cscpfgrndcolor', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SystemDefinitionTableMap::COL_CSCPCOMPNBR, SystemDefinitionTableMap::COL_CSCPCOMPID, SystemDefinitionTableMap::COL_CSCPCOMPNAME, SystemDefinitionTableMap::COL_CSCPDSPERMISSION, SystemDefinitionTableMap::COL_CSCPRAPERMISSION, SystemDefinitionTableMap::COL_CSCPSRPPERMISSION, SystemDefinitionTableMap::COL_CSCPEMAILTYPE, SystemDefinitionTableMap::COL_CSCPFAXDIR, SystemDefinitionTableMap::COL_CSCPPRGDIR, SystemDefinitionTableMap::COL_CSCPFILE1DIR, SystemDefinitionTableMap::COL_CSCPFILE2DIR, SystemDefinitionTableMap::COL_CSCPFILE3DIR, SystemDefinitionTableMap::COL_CSCPTEMPDIR, SystemDefinitionTableMap::COL_CSCPWORKDIR, SystemDefinitionTableMap::COL_CSCPREPTARCHDIR, SystemDefinitionTableMap::COL_CSCPDOCINBOXDIR, SystemDefinitionTableMap::COL_CSCPDOCAUTODIR, SystemDefinitionTableMap::COL_CSCPCERTSDIR, SystemDefinitionTableMap::COL_CSCPIMGPRODUCT, SystemDefinitionTableMap::COL_CSCPIMGDRAWINGS, SystemDefinitionTableMap::COL_CSCPIMGSCHEMATIC, SystemDefinitionTableMap::COL_CSCPIMGCONFIRM, SystemDefinitionTableMap::COL_CSCPPCCHARGEDIR, SystemDefinitionTableMap::COL_CSCPDEVICEDIR, SystemDefinitionTableMap::COL_CSCPECOMMDIR, SystemDefinitionTableMap::COL_CSCPBRWZBASEIP, SystemDefinitionTableMap::COL_CSCPDATABASENAME, SystemDefinitionTableMap::COL_CSCPCOMPDATABASENAME, SystemDefinitionTableMap::COL_CSCPFGRNDCOLOR, SystemDefinitionTableMap::COL_DATEUPDTD, SystemDefinitionTableMap::COL_TIMEUPDTD, SystemDefinitionTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('CscpCompNbr', 'CscpCompId', 'CscpCompName', 'CscpDsPermission', 'CscpRaPermission', 'CscpSrpPermission', 'CscpEmailType', 'CscpFaxDir', 'CscpPrgDir', 'CscpFile1Dir', 'CscpFile2Dir', 'CscpFile3Dir', 'CscpTempDir', 'CscpWorkDir', 'CscpReptArchDir', 'CscpDocInboxDir', 'CscpDocAutoDir', 'CscpCertsDir', 'CscpImgProduct', 'CscpImgDrawings', 'CscpImgSchematic', 'CscpImgConfirm', 'CscpPcchargeDir', 'CscpDeviceDir', 'CscpEcommDir', 'CscpBrwzBaseIp', 'CscpDataBaseName', 'CscpCompDataBaseName', 'CscpFgrndColor', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, )
-    );
+    protected static $fieldNames =  [
+        self::TYPE_PHPNAME       => ['Cscpcompnbr', 'Cscpcompid', 'Cscpcompname', 'Cscpdspermission', 'Cscprapermission', 'Cscpsrppermission', 'Cscpemailtype', 'Cscpfaxdir', 'Cscpprgdir', 'Cscpfile1dir', 'Cscpfile2dir', 'Cscpfile3dir', 'Cscptempdir', 'Cscpworkdir', 'Cscpreptarchdir', 'Cscpdocinboxdir', 'Cscpdocautodir', 'Cscpcertsdir', 'Cscpimgproduct', 'Cscpimgdrawings', 'Cscpimgschematic', 'Cscpimgconfirm', 'Cscppcchargedir', 'Cscpdevicedir', 'Cscpecommdir', 'Cscpbrwzbaseip', 'Cscpdatabasename', 'Cscpcompdatabasename', 'Cscpfgrndcolor', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['cscpcompnbr', 'cscpcompid', 'cscpcompname', 'cscpdspermission', 'cscprapermission', 'cscpsrppermission', 'cscpemailtype', 'cscpfaxdir', 'cscpprgdir', 'cscpfile1dir', 'cscpfile2dir', 'cscpfile3dir', 'cscptempdir', 'cscpworkdir', 'cscpreptarchdir', 'cscpdocinboxdir', 'cscpdocautodir', 'cscpcertsdir', 'cscpimgproduct', 'cscpimgdrawings', 'cscpimgschematic', 'cscpimgconfirm', 'cscppcchargedir', 'cscpdevicedir', 'cscpecommdir', 'cscpbrwzbaseip', 'cscpdatabasename', 'cscpcompdatabasename', 'cscpfgrndcolor', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [SystemDefinitionTableMap::COL_CSCPCOMPNBR, SystemDefinitionTableMap::COL_CSCPCOMPID, SystemDefinitionTableMap::COL_CSCPCOMPNAME, SystemDefinitionTableMap::COL_CSCPDSPERMISSION, SystemDefinitionTableMap::COL_CSCPRAPERMISSION, SystemDefinitionTableMap::COL_CSCPSRPPERMISSION, SystemDefinitionTableMap::COL_CSCPEMAILTYPE, SystemDefinitionTableMap::COL_CSCPFAXDIR, SystemDefinitionTableMap::COL_CSCPPRGDIR, SystemDefinitionTableMap::COL_CSCPFILE1DIR, SystemDefinitionTableMap::COL_CSCPFILE2DIR, SystemDefinitionTableMap::COL_CSCPFILE3DIR, SystemDefinitionTableMap::COL_CSCPTEMPDIR, SystemDefinitionTableMap::COL_CSCPWORKDIR, SystemDefinitionTableMap::COL_CSCPREPTARCHDIR, SystemDefinitionTableMap::COL_CSCPDOCINBOXDIR, SystemDefinitionTableMap::COL_CSCPDOCAUTODIR, SystemDefinitionTableMap::COL_CSCPCERTSDIR, SystemDefinitionTableMap::COL_CSCPIMGPRODUCT, SystemDefinitionTableMap::COL_CSCPIMGDRAWINGS, SystemDefinitionTableMap::COL_CSCPIMGSCHEMATIC, SystemDefinitionTableMap::COL_CSCPIMGCONFIRM, SystemDefinitionTableMap::COL_CSCPPCCHARGEDIR, SystemDefinitionTableMap::COL_CSCPDEVICEDIR, SystemDefinitionTableMap::COL_CSCPECOMMDIR, SystemDefinitionTableMap::COL_CSCPBRWZBASEIP, SystemDefinitionTableMap::COL_CSCPDATABASENAME, SystemDefinitionTableMap::COL_CSCPCOMPDATABASENAME, SystemDefinitionTableMap::COL_CSCPFGRNDCOLOR, SystemDefinitionTableMap::COL_DATEUPDTD, SystemDefinitionTableMap::COL_TIMEUPDTD, SystemDefinitionTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['CscpCompNbr', 'CscpCompId', 'CscpCompName', 'CscpDsPermission', 'CscpRaPermission', 'CscpSrpPermission', 'CscpEmailType', 'CscpFaxDir', 'CscpPrgDir', 'CscpFile1Dir', 'CscpFile2Dir', 'CscpFile3Dir', 'CscpTempDir', 'CscpWorkDir', 'CscpReptArchDir', 'CscpDocInboxDir', 'CscpDocAutoDir', 'CscpCertsDir', 'CscpImgProduct', 'CscpImgDrawings', 'CscpImgSchematic', 'CscpImgConfirm', 'CscpPcchargeDir', 'CscpDeviceDir', 'CscpEcommDir', 'CscpBrwzBaseIp', 'CscpDataBaseName', 'CscpCompDataBaseName', 'CscpFgrndColor', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
@@ -256,13 +256,13 @@ class SystemDefinitionTableMap extends TableMap
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Cscpcompnbr' => 0, 'Cscpcompid' => 1, 'Cscpcompname' => 2, 'Cscpdspermission' => 3, 'Cscprapermission' => 4, 'Cscpsrppermission' => 5, 'Cscpemailtype' => 6, 'Cscpfaxdir' => 7, 'Cscpprgdir' => 8, 'Cscpfile1dir' => 9, 'Cscpfile2dir' => 10, 'Cscpfile3dir' => 11, 'Cscptempdir' => 12, 'Cscpworkdir' => 13, 'Cscpreptarchdir' => 14, 'Cscpdocinboxdir' => 15, 'Cscpdocautodir' => 16, 'Cscpcertsdir' => 17, 'Cscpimgproduct' => 18, 'Cscpimgdrawings' => 19, 'Cscpimgschematic' => 20, 'Cscpimgconfirm' => 21, 'Cscppcchargedir' => 22, 'Cscpdevicedir' => 23, 'Cscpecommdir' => 24, 'Cscpbrwzbaseip' => 25, 'Cscpdatabasename' => 26, 'Cscpcompdatabasename' => 27, 'Cscpfgrndcolor' => 28, 'Dateupdtd' => 29, 'Timeupdtd' => 30, 'Dummy' => 31, ),
-        self::TYPE_CAMELNAME     => array('cscpcompnbr' => 0, 'cscpcompid' => 1, 'cscpcompname' => 2, 'cscpdspermission' => 3, 'cscprapermission' => 4, 'cscpsrppermission' => 5, 'cscpemailtype' => 6, 'cscpfaxdir' => 7, 'cscpprgdir' => 8, 'cscpfile1dir' => 9, 'cscpfile2dir' => 10, 'cscpfile3dir' => 11, 'cscptempdir' => 12, 'cscpworkdir' => 13, 'cscpreptarchdir' => 14, 'cscpdocinboxdir' => 15, 'cscpdocautodir' => 16, 'cscpcertsdir' => 17, 'cscpimgproduct' => 18, 'cscpimgdrawings' => 19, 'cscpimgschematic' => 20, 'cscpimgconfirm' => 21, 'cscppcchargedir' => 22, 'cscpdevicedir' => 23, 'cscpecommdir' => 24, 'cscpbrwzbaseip' => 25, 'cscpdatabasename' => 26, 'cscpcompdatabasename' => 27, 'cscpfgrndcolor' => 28, 'dateupdtd' => 29, 'timeupdtd' => 30, 'dummy' => 31, ),
-        self::TYPE_COLNAME       => array(SystemDefinitionTableMap::COL_CSCPCOMPNBR => 0, SystemDefinitionTableMap::COL_CSCPCOMPID => 1, SystemDefinitionTableMap::COL_CSCPCOMPNAME => 2, SystemDefinitionTableMap::COL_CSCPDSPERMISSION => 3, SystemDefinitionTableMap::COL_CSCPRAPERMISSION => 4, SystemDefinitionTableMap::COL_CSCPSRPPERMISSION => 5, SystemDefinitionTableMap::COL_CSCPEMAILTYPE => 6, SystemDefinitionTableMap::COL_CSCPFAXDIR => 7, SystemDefinitionTableMap::COL_CSCPPRGDIR => 8, SystemDefinitionTableMap::COL_CSCPFILE1DIR => 9, SystemDefinitionTableMap::COL_CSCPFILE2DIR => 10, SystemDefinitionTableMap::COL_CSCPFILE3DIR => 11, SystemDefinitionTableMap::COL_CSCPTEMPDIR => 12, SystemDefinitionTableMap::COL_CSCPWORKDIR => 13, SystemDefinitionTableMap::COL_CSCPREPTARCHDIR => 14, SystemDefinitionTableMap::COL_CSCPDOCINBOXDIR => 15, SystemDefinitionTableMap::COL_CSCPDOCAUTODIR => 16, SystemDefinitionTableMap::COL_CSCPCERTSDIR => 17, SystemDefinitionTableMap::COL_CSCPIMGPRODUCT => 18, SystemDefinitionTableMap::COL_CSCPIMGDRAWINGS => 19, SystemDefinitionTableMap::COL_CSCPIMGSCHEMATIC => 20, SystemDefinitionTableMap::COL_CSCPIMGCONFIRM => 21, SystemDefinitionTableMap::COL_CSCPPCCHARGEDIR => 22, SystemDefinitionTableMap::COL_CSCPDEVICEDIR => 23, SystemDefinitionTableMap::COL_CSCPECOMMDIR => 24, SystemDefinitionTableMap::COL_CSCPBRWZBASEIP => 25, SystemDefinitionTableMap::COL_CSCPDATABASENAME => 26, SystemDefinitionTableMap::COL_CSCPCOMPDATABASENAME => 27, SystemDefinitionTableMap::COL_CSCPFGRNDCOLOR => 28, SystemDefinitionTableMap::COL_DATEUPDTD => 29, SystemDefinitionTableMap::COL_TIMEUPDTD => 30, SystemDefinitionTableMap::COL_DUMMY => 31, ),
-        self::TYPE_FIELDNAME     => array('CscpCompNbr' => 0, 'CscpCompId' => 1, 'CscpCompName' => 2, 'CscpDsPermission' => 3, 'CscpRaPermission' => 4, 'CscpSrpPermission' => 5, 'CscpEmailType' => 6, 'CscpFaxDir' => 7, 'CscpPrgDir' => 8, 'CscpFile1Dir' => 9, 'CscpFile2Dir' => 10, 'CscpFile3Dir' => 11, 'CscpTempDir' => 12, 'CscpWorkDir' => 13, 'CscpReptArchDir' => 14, 'CscpDocInboxDir' => 15, 'CscpDocAutoDir' => 16, 'CscpCertsDir' => 17, 'CscpImgProduct' => 18, 'CscpImgDrawings' => 19, 'CscpImgSchematic' => 20, 'CscpImgConfirm' => 21, 'CscpPcchargeDir' => 22, 'CscpDeviceDir' => 23, 'CscpEcommDir' => 24, 'CscpBrwzBaseIp' => 25, 'CscpDataBaseName' => 26, 'CscpCompDataBaseName' => 27, 'CscpFgrndColor' => 28, 'DateUpdtd' => 29, 'TimeUpdtd' => 30, 'dummy' => 31, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, )
-    );
+    protected static $fieldKeys =  [
+        self::TYPE_PHPNAME       => ['Cscpcompnbr' => 0, 'Cscpcompid' => 1, 'Cscpcompname' => 2, 'Cscpdspermission' => 3, 'Cscprapermission' => 4, 'Cscpsrppermission' => 5, 'Cscpemailtype' => 6, 'Cscpfaxdir' => 7, 'Cscpprgdir' => 8, 'Cscpfile1dir' => 9, 'Cscpfile2dir' => 10, 'Cscpfile3dir' => 11, 'Cscptempdir' => 12, 'Cscpworkdir' => 13, 'Cscpreptarchdir' => 14, 'Cscpdocinboxdir' => 15, 'Cscpdocautodir' => 16, 'Cscpcertsdir' => 17, 'Cscpimgproduct' => 18, 'Cscpimgdrawings' => 19, 'Cscpimgschematic' => 20, 'Cscpimgconfirm' => 21, 'Cscppcchargedir' => 22, 'Cscpdevicedir' => 23, 'Cscpecommdir' => 24, 'Cscpbrwzbaseip' => 25, 'Cscpdatabasename' => 26, 'Cscpcompdatabasename' => 27, 'Cscpfgrndcolor' => 28, 'Dateupdtd' => 29, 'Timeupdtd' => 30, 'Dummy' => 31, ],
+        self::TYPE_CAMELNAME     => ['cscpcompnbr' => 0, 'cscpcompid' => 1, 'cscpcompname' => 2, 'cscpdspermission' => 3, 'cscprapermission' => 4, 'cscpsrppermission' => 5, 'cscpemailtype' => 6, 'cscpfaxdir' => 7, 'cscpprgdir' => 8, 'cscpfile1dir' => 9, 'cscpfile2dir' => 10, 'cscpfile3dir' => 11, 'cscptempdir' => 12, 'cscpworkdir' => 13, 'cscpreptarchdir' => 14, 'cscpdocinboxdir' => 15, 'cscpdocautodir' => 16, 'cscpcertsdir' => 17, 'cscpimgproduct' => 18, 'cscpimgdrawings' => 19, 'cscpimgschematic' => 20, 'cscpimgconfirm' => 21, 'cscppcchargedir' => 22, 'cscpdevicedir' => 23, 'cscpecommdir' => 24, 'cscpbrwzbaseip' => 25, 'cscpdatabasename' => 26, 'cscpcompdatabasename' => 27, 'cscpfgrndcolor' => 28, 'dateupdtd' => 29, 'timeupdtd' => 30, 'dummy' => 31, ],
+        self::TYPE_COLNAME       => [SystemDefinitionTableMap::COL_CSCPCOMPNBR => 0, SystemDefinitionTableMap::COL_CSCPCOMPID => 1, SystemDefinitionTableMap::COL_CSCPCOMPNAME => 2, SystemDefinitionTableMap::COL_CSCPDSPERMISSION => 3, SystemDefinitionTableMap::COL_CSCPRAPERMISSION => 4, SystemDefinitionTableMap::COL_CSCPSRPPERMISSION => 5, SystemDefinitionTableMap::COL_CSCPEMAILTYPE => 6, SystemDefinitionTableMap::COL_CSCPFAXDIR => 7, SystemDefinitionTableMap::COL_CSCPPRGDIR => 8, SystemDefinitionTableMap::COL_CSCPFILE1DIR => 9, SystemDefinitionTableMap::COL_CSCPFILE2DIR => 10, SystemDefinitionTableMap::COL_CSCPFILE3DIR => 11, SystemDefinitionTableMap::COL_CSCPTEMPDIR => 12, SystemDefinitionTableMap::COL_CSCPWORKDIR => 13, SystemDefinitionTableMap::COL_CSCPREPTARCHDIR => 14, SystemDefinitionTableMap::COL_CSCPDOCINBOXDIR => 15, SystemDefinitionTableMap::COL_CSCPDOCAUTODIR => 16, SystemDefinitionTableMap::COL_CSCPCERTSDIR => 17, SystemDefinitionTableMap::COL_CSCPIMGPRODUCT => 18, SystemDefinitionTableMap::COL_CSCPIMGDRAWINGS => 19, SystemDefinitionTableMap::COL_CSCPIMGSCHEMATIC => 20, SystemDefinitionTableMap::COL_CSCPIMGCONFIRM => 21, SystemDefinitionTableMap::COL_CSCPPCCHARGEDIR => 22, SystemDefinitionTableMap::COL_CSCPDEVICEDIR => 23, SystemDefinitionTableMap::COL_CSCPECOMMDIR => 24, SystemDefinitionTableMap::COL_CSCPBRWZBASEIP => 25, SystemDefinitionTableMap::COL_CSCPDATABASENAME => 26, SystemDefinitionTableMap::COL_CSCPCOMPDATABASENAME => 27, SystemDefinitionTableMap::COL_CSCPFGRNDCOLOR => 28, SystemDefinitionTableMap::COL_DATEUPDTD => 29, SystemDefinitionTableMap::COL_TIMEUPDTD => 30, SystemDefinitionTableMap::COL_DUMMY => 31, ],
+        self::TYPE_FIELDNAME     => ['CscpCompNbr' => 0, 'CscpCompId' => 1, 'CscpCompName' => 2, 'CscpDsPermission' => 3, 'CscpRaPermission' => 4, 'CscpSrpPermission' => 5, 'CscpEmailType' => 6, 'CscpFaxDir' => 7, 'CscpPrgDir' => 8, 'CscpFile1Dir' => 9, 'CscpFile2Dir' => 10, 'CscpFile3Dir' => 11, 'CscpTempDir' => 12, 'CscpWorkDir' => 13, 'CscpReptArchDir' => 14, 'CscpDocInboxDir' => 15, 'CscpDocAutoDir' => 16, 'CscpCertsDir' => 17, 'CscpImgProduct' => 18, 'CscpImgDrawings' => 19, 'CscpImgSchematic' => 20, 'CscpImgConfirm' => 21, 'CscpPcchargeDir' => 22, 'CscpDeviceDir' => 23, 'CscpEcommDir' => 24, 'CscpBrwzBaseIp' => 25, 'CscpDataBaseName' => 26, 'CscpCompDataBaseName' => 27, 'CscpFgrndColor' => 28, 'DateUpdtd' => 29, 'TimeUpdtd' => 30, 'dummy' => 31, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, ]
+    ];
 
     /**
      * Initialize the table attributes and columns
@@ -281,38 +281,38 @@ class SystemDefinitionTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('CscpCompNbr', 'Cscpcompnbr', 'INTEGER', true, 2, null);
-        $this->addColumn('CscpCompId', 'Cscpcompid', 'VARCHAR', false, 4, null);
-        $this->addColumn('CscpCompName', 'Cscpcompname', 'VARCHAR', false, 30, null);
-        $this->addColumn('CscpDsPermission', 'Cscpdspermission', 'VARCHAR', false, 1, null);
-        $this->addColumn('CscpRaPermission', 'Cscprapermission', 'VARCHAR', false, 1, null);
-        $this->addColumn('CscpSrpPermission', 'Cscpsrppermission', 'VARCHAR', false, 1, null);
-        $this->addColumn('CscpEmailType', 'Cscpemailtype', 'VARCHAR', false, 1, null);
-        $this->addColumn('CscpFaxDir', 'Cscpfaxdir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpPrgDir', 'Cscpprgdir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpFile1Dir', 'Cscpfile1dir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpFile2Dir', 'Cscpfile2dir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpFile3Dir', 'Cscpfile3dir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpTempDir', 'Cscptempdir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpWorkDir', 'Cscpworkdir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpReptArchDir', 'Cscpreptarchdir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpDocInboxDir', 'Cscpdocinboxdir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpDocAutoDir', 'Cscpdocautodir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpCertsDir', 'Cscpcertsdir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpImgProduct', 'Cscpimgproduct', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpImgDrawings', 'Cscpimgdrawings', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpImgSchematic', 'Cscpimgschematic', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpImgConfirm', 'Cscpimgconfirm', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpPcchargeDir', 'Cscppcchargedir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpDeviceDir', 'Cscpdevicedir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpEcommDir', 'Cscpecommdir', 'VARCHAR', false, 40, null);
-        $this->addColumn('CscpBrwzBaseIp', 'Cscpbrwzbaseip', 'VARCHAR', false, 20, null);
-        $this->addColumn('CscpDataBaseName', 'Cscpdatabasename', 'VARCHAR', false, 16, null);
-        $this->addColumn('CscpCompDataBaseName', 'Cscpcompdatabasename', 'VARCHAR', false, 16, null);
-        $this->addColumn('CscpFgrndColor', 'Cscpfgrndcolor', 'INTEGER', false, 3, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addPrimaryKey('CscpCompNbr', 'Cscpcompnbr', 'INTEGER', true, 2);
+        $this->addColumn('CscpCompId', 'Cscpcompid', 'VARCHAR', false, 4);
+        $this->addColumn('CscpCompName', 'Cscpcompname', 'VARCHAR', false, 30);
+        $this->addColumn('CscpDsPermission', 'Cscpdspermission', 'VARCHAR', false, 1);
+        $this->addColumn('CscpRaPermission', 'Cscprapermission', 'VARCHAR', false, 1);
+        $this->addColumn('CscpSrpPermission', 'Cscpsrppermission', 'VARCHAR', false, 1);
+        $this->addColumn('CscpEmailType', 'Cscpemailtype', 'VARCHAR', false, 1);
+        $this->addColumn('CscpFaxDir', 'Cscpfaxdir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpPrgDir', 'Cscpprgdir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpFile1Dir', 'Cscpfile1dir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpFile2Dir', 'Cscpfile2dir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpFile3Dir', 'Cscpfile3dir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpTempDir', 'Cscptempdir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpWorkDir', 'Cscpworkdir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpReptArchDir', 'Cscpreptarchdir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpDocInboxDir', 'Cscpdocinboxdir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpDocAutoDir', 'Cscpdocautodir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpCertsDir', 'Cscpcertsdir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpImgProduct', 'Cscpimgproduct', 'VARCHAR', false, 40);
+        $this->addColumn('CscpImgDrawings', 'Cscpimgdrawings', 'VARCHAR', false, 40);
+        $this->addColumn('CscpImgSchematic', 'Cscpimgschematic', 'VARCHAR', false, 40);
+        $this->addColumn('CscpImgConfirm', 'Cscpimgconfirm', 'VARCHAR', false, 40);
+        $this->addColumn('CscpPcchargeDir', 'Cscppcchargedir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpDeviceDir', 'Cscpdevicedir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpEcommDir', 'Cscpecommdir', 'VARCHAR', false, 40);
+        $this->addColumn('CscpBrwzBaseIp', 'Cscpbrwzbaseip', 'VARCHAR', false, 20);
+        $this->addColumn('CscpDataBaseName', 'Cscpdatabasename', 'VARCHAR', false, 16);
+        $this->addColumn('CscpCompDataBaseName', 'Cscpcompdatabasename', 'VARCHAR', false, 16);
+        $this->addColumn('CscpFgrndColor', 'Cscpfgrndcolor', 'INTEGER', false, 3);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     } // initialize()
 
     /**
@@ -411,21 +411,20 @@ class SystemDefinitionTableMap extends TableMap
             SystemDefinitionTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
     public static function populateObjects(DataFetcherInterface $dataFetcher)
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -567,7 +566,7 @@ class SystemDefinitionTableMap extends TableMap
      */
      public static function doDelete($values, ConnectionInterface $con = null)
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SystemDefinitionTableMap::DATABASE_NAME);
         }
 
@@ -617,7 +616,7 @@ class SystemDefinitionTableMap extends TableMap
      */
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SystemDefinitionTableMap::DATABASE_NAME);
         }
 
@@ -633,9 +632,7 @@ class SystemDefinitionTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 } // SystemDefinitionTableMap

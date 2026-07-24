@@ -74,7 +74,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class TaxCodeZipQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\TaxCodeZipQuery object.
@@ -132,7 +132,7 @@ abstract class TaxCodeZipQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(TaxCodeZipTableMap::DATABASE_NAME);
         }
 
@@ -178,7 +178,6 @@ abstract class TaxCodeZipQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildTaxCodeZip $obj */
             $obj = new ChildTaxCodeZip();
             $obj->hydrate($row);
             TaxCodeZipTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -219,7 +218,7 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -278,10 +277,8 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      */
     public function filterByArtbzipcode($artbzipcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbzipcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbzipcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBZIPCODE, $artbzipcode, $comparison);
@@ -306,10 +303,8 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      */
     public function filterByArtbtxzptaxcode($artbtxzptaxcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbtxzptaxcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbtxzptaxcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBTXZPTAXCODE, $artbtxzptaxcode, $comparison);
@@ -334,10 +329,8 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TaxCodeZipTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -362,10 +355,8 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TaxCodeZipTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -390,10 +381,8 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(TaxCodeZipTableMap::COL_DUMMY, $dummy, $comparison);
@@ -425,7 +414,7 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeZipTableMap::DATABASE_NAME);
         }
 
@@ -455,7 +444,7 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeZipTableMap::DATABASE_NAME);
         }
 

@@ -44,7 +44,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\PoReceivingHeadTableMap';
+    public const TABLE_MAP = \Map\PoReceivingHeadTableMap::class;
 
 
     /**
@@ -270,14 +270,14 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * @var ObjectCollection|ChildPurchaseOrderDetailReceiving[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving>
      */
-    protected $purchaseOrderDetailReceivingsScheduledForDeletion = null;
+    protected $purchaseOrderDetailReceivingsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailLotReceiving[]
      * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving>
      */
-    protected $purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
+    protected $purchaseOrderDetailLotReceivingsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -325,7 +325,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -383,7 +383,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -393,7 +392,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -431,8 +429,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -443,7 +439,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -485,9 +480,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -513,7 +506,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1230,13 +1223,8 @@ abstract class PoReceivingHead implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -1261,64 +1249,64 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : PoReceivingHeadTableMap::translateFieldName('Pothnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothrcptdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothrcptdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothrcptdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : PoReceivingHeadTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : PoReceivingHeadTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothglpd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothglpd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothglpd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothairship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothairship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothairship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : PoReceivingHeadTableMap::translateFieldName('Potherinreview', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : PoReceivingHeadTableMap::translateFieldName('Potherinreview', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potherinreview = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothexchctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothexchctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothexchctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothexchrate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothexchrate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothexchrate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : PoReceivingHeadTableMap::translateFieldName('Intbwhseorig', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : PoReceivingHeadTableMap::translateFieldName('Intbwhseorig', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseorig = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothlandcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothlandcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothlandcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothrcptnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothrcptnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothrcptnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothlandbasedon', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothlandbasedon', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothlandbasedon = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothinvcnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothinvcnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothinvcnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothinvcdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothinvcdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothinvcdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothfrtamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothfrtamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothfrtamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothmiscamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : PoReceivingHeadTableMap::translateFieldName('Pothmiscamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pothmiscamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : PoReceivingHeadTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : PoReceivingHeadTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : PoReceivingHeadTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : PoReceivingHeadTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : PoReceivingHeadTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : PoReceivingHeadTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1347,7 +1335,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1366,7 +1353,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1379,7 +1365,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(PoReceivingHeadTableMap::DATABASE_NAME);
         }
 
@@ -1409,7 +1395,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see PoReceivingHead::setDeleted()
      * @see PoReceivingHead::isDeleted()
@@ -1420,7 +1405,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PoReceivingHeadTableMap::DATABASE_NAME);
         }
 
@@ -1459,18 +1444,14 @@ abstract class PoReceivingHead implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PoReceivingHeadTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1494,7 +1475,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1535,13 +1515,11 @@ abstract class PoReceivingHead implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailReceivingQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null && !$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailReceivingQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetailReceivings !== null) {
@@ -1552,13 +1530,11 @@ abstract class PoReceivingHead implements ActiveRecordInterface
                 }
             }
 
-            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion !== null) {
-                if (!$this->purchaseOrderDetailLotReceivingsScheduledForDeletion->isEmpty()) {
-                    \PurchaseOrderDetailLotReceivingQuery::create()
-                        ->filterByPrimaryKeys($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
-                }
+            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion !== null && !$this->purchaseOrderDetailLotReceivingsScheduledForDeletion->isEmpty()) {
+                \PurchaseOrderDetailLotReceivingQuery::create()
+                    ->filterByPrimaryKeys($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
             }
 
             if ($this->collPurchaseOrderDetailLotReceivings !== null) {
@@ -1579,7 +1555,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -1756,7 +1731,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -1782,9 +1756,8 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = PoReceivingHeadTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -1980,7 +1953,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -2321,7 +2293,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * Generic method to set the primary key (pothnbr column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -2330,8 +2301,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -2348,7 +2317,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2422,13 +2390,12 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildPurchaseOrder object.
      *
-     * @param ChildPurchaseOrder $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setPurchaseOrder(ChildPurchaseOrder $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \PurchaseOrder) {
             $this->setPothnbr('');
         } else {
             $this->setPothnbr($v->getPohdnbr());
@@ -2437,7 +2404,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
         $this->aPurchaseOrder = $v;
 
         // Add binding for other direction of this 1:1 relationship.
-        if ($v !== null) {
+        if ($v instanceof \PurchaseOrder) {
             $v->setPoReceivingHead($this);
         }
 
@@ -2467,13 +2434,12 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildWarehouse object.
      *
-     * @param ChildWarehouse $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setWarehouse(ChildWarehouse $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Warehouse) {
             $this->setIntbwhse('');
         } else {
             $this->setIntbwhse($v->getIntbwhse());
@@ -2483,7 +2449,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildWarehouse object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Warehouse) {
             $v->addPoReceivingHead($this);
         }
 
@@ -2522,7 +2488,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -2554,8 +2519,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetailReceivings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetailReceivings($v = true): void
     {
@@ -2571,8 +2534,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetailReceivings(bool $overrideExisting = true): void
     {
@@ -2604,7 +2565,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     public function getPurchaseOrderDetailReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetailReceivings) {
@@ -2622,7 +2583,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
                     ->filterByPoReceivingHead($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailReceivingsPartial && count($collPurchaseOrderDetailReceivings)) {
                         $this->initPurchaseOrderDetailReceivings(false);
 
@@ -2676,7 +2637,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
         $this->purchaseOrderDetailReceivingsScheduledForDeletion = clone $purchaseOrderDetailReceivingsToDelete;
 
         foreach ($purchaseOrderDetailReceivingsToDelete as $purchaseOrderDetailReceivingRemoved) {
-            $purchaseOrderDetailReceivingRemoved->setPoReceivingHead(null);
+            $purchaseOrderDetailReceivingRemoved->setPoReceivingHead();
         }
 
         $this->collPurchaseOrderDetailReceivings = null;
@@ -2694,7 +2655,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetailReceiving objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetailReceiving objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2702,7 +2662,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     public function countPurchaseOrderDetailReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
                 return 0;
             }
@@ -2741,7 +2701,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetailReceivings->contains($l)) {
             $this->doAddPurchaseOrderDetailReceiving($l);
 
-            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion and $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion && $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailReceivingsScheduledForDeletion->search($l));
             }
         }
@@ -2772,7 +2732,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailReceiving;
-            $purchaseOrderDetailReceiving->setPoReceivingHead(null);
+            $purchaseOrderDetailReceiving->setPoReceivingHead();
         }
 
         return $this;
@@ -2900,8 +2860,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Reset is the collPurchaseOrderDetailLotReceivings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialPurchaseOrderDetailLotReceivings($v = true): void
     {
@@ -2917,8 +2875,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initPurchaseOrderDetailLotReceivings(bool $overrideExisting = true): void
     {
@@ -2950,7 +2906,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     public function getPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailLotReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collPurchaseOrderDetailLotReceivings) {
@@ -2968,7 +2924,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
                     ->filterByPoReceivingHead($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collPurchaseOrderDetailLotReceivingsPartial && count($collPurchaseOrderDetailLotReceivings)) {
                         $this->initPurchaseOrderDetailLotReceivings(false);
 
@@ -3022,7 +2978,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
         $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = clone $purchaseOrderDetailLotReceivingsToDelete;
 
         foreach ($purchaseOrderDetailLotReceivingsToDelete as $purchaseOrderDetailLotReceivingRemoved) {
-            $purchaseOrderDetailLotReceivingRemoved->setPoReceivingHead(null);
+            $purchaseOrderDetailLotReceivingRemoved->setPoReceivingHead();
         }
 
         $this->collPurchaseOrderDetailLotReceivings = null;
@@ -3040,7 +2996,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      * Returns the number of related PurchaseOrderDetailLotReceiving objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related PurchaseOrderDetailLotReceiving objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3048,7 +3003,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
     public function countPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
+        if (null === $this->collPurchaseOrderDetailLotReceivings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collPurchaseOrderDetailLotReceivings) {
                 return 0;
             }
@@ -3087,7 +3042,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
         if (!$this->collPurchaseOrderDetailLotReceivings->contains($l)) {
             $this->doAddPurchaseOrderDetailLotReceiving($l);
 
-            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion and $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->contains($l)) {
+            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion && $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->contains($l)) {
                 $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->search($l));
             }
         }
@@ -3118,7 +3073,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
                 $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->clear();
             }
             $this->purchaseOrderDetailLotReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailLotReceiving;
-            $purchaseOrderDetailLotReceiving->setPoReceivingHead(null);
+            $purchaseOrderDetailLotReceiving->setPoReceivingHead();
         }
 
         return $this;
@@ -3285,13 +3240,11 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(PoReceivingHeadTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(PoReceivingHeadTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3300,8 +3253,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3309,8 +3260,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3319,8 +3268,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3328,8 +3275,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3338,8 +3283,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3347,8 +3290,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3357,8 +3298,6 @@ abstract class PoReceivingHead implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3378,7 +3317,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3390,7 +3329,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3398,7 +3337,7 @@ abstract class PoReceivingHead implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

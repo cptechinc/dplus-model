@@ -20,7 +20,7 @@ class Vendor extends BaseVendor {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'               => 'apvevendid',
 		'vendorid'         => 'apvevendid',
 		'vendorID'         => 'apvevendid',
@@ -60,15 +60,14 @@ class Vendor extends BaseVendor {
 		'ytd_purchases_count'  => 'apvepoytd',
 		'ytd_invoices_amt'     => 'apveinvcytd',
 		'ytd_invoices_count'   => 'apveicntytd'
-	);
+	];
 
 
 	/**
-	 * Return Buyer Name for Buyer number
-	 * @param  int $nbr
-	 * @return void
-	 */
-	public function getBuyerNameX(int $nbr) {
+     * Return Buyer Name for Buyer number
+     * @return void
+     */
+    public function getBuyerNameX(int $nbr) {
 		$prop = "apvebuyrcode$nbr";
 		$q = ApBuyerQuery::create();
 		$q->select(ApBuyer::get_aliasproperty('name'));

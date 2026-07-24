@@ -124,7 +124,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class UserPermissionsItmQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\UserPermissionsItmQuery object.
@@ -182,7 +182,7 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(UserPermissionsItmTableMap::DATABASE_NAME);
         }
 
@@ -228,7 +228,6 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildUserPermissionsItm $obj */
             $obj = new ChildUserPermissionsItm();
             $obj->hydrate($row);
             UserPermissionsItmTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -269,7 +268,7 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -328,10 +327,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByItmpuserid($itmpuserid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itmpuserid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itmpuserid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPUSERID, $itmpuserid, $comparison);
@@ -356,10 +353,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByItmpwhse($itmpwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itmpwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itmpwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPWHSE, $itmpwhse, $comparison);
@@ -384,10 +379,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByItmpprices($itmpprices = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itmpprices)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itmpprices)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPPRICES, $itmpprices, $comparison);
@@ -412,10 +405,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByItmpcosts($itmpcosts = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itmpcosts)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itmpcosts)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPCOSTS, $itmpcosts, $comparison);
@@ -440,10 +431,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByItmpxrefs($itmpxrefs = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itmpxrefs)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itmpxrefs)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPXREFS, $itmpxrefs, $comparison);
@@ -468,10 +457,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByItmpmisc($itmpmisc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itmpmisc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itmpmisc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPMISC, $itmpmisc, $comparison);
@@ -496,10 +483,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByItmppkg($itmppkg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itmppkg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itmppkg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPPKG, $itmppkg, $comparison);
@@ -524,10 +509,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByItmpoptions($itmpoptions = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($itmpoptions)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($itmpoptions)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPOPTIONS, $itmpoptions, $comparison);
@@ -552,10 +535,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -580,10 +561,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -608,10 +587,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UserPermissionsItmTableMap::COL_DUMMY, $dummy, $comparison);
@@ -665,7 +642,7 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -695,7 +672,7 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
     {
         return $this
             ->joinDplusUser($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'DplusUser', '\DplusUserQuery');
+            ->useQuery($relationAlias ?: 'DplusUser', '\DplusUserQuery');
     }
 
     /**
@@ -818,7 +795,7 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(UserPermissionsItmTableMap::DATABASE_NAME);
         }
 
@@ -848,7 +825,7 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(UserPermissionsItmTableMap::DATABASE_NAME);
         }
 

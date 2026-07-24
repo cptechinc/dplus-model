@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArCustTaxCodeQuery as BaseArCustTaxCodeQuery;
 
 use Dplus\Model\QueryTraits;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SysopOptionalCodeQuery as BaseSysopOptionalCodeQuery;
 
 use Dplus\Model\QueryTraits;

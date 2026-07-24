@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\VendorShipfromQuery as BaseVendorShipfromQuery;
 
 use Dplus\Model\QueryTraits;

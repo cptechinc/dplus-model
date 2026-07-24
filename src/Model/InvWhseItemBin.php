@@ -55,5 +55,6 @@ class InvWhseItemBin extends BaseInvWhseItemBin {
 		$col = self::PREFIX_BINID_FROM . $index;
 		$setCol = 'set' . ucfirst($col);
 		$this->$setCol($val);
+        return null;
 	}
 }

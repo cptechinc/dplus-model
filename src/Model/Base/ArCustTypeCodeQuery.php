@@ -140,7 +140,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArCustTypeCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArCustTypeCodeQuery object.
@@ -198,7 +198,7 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
         }
 
@@ -244,7 +244,6 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArCustTypeCode $obj */
             $obj = new ChildArCustTypeCode();
             $obj->hydrate($row);
             ArCustTypeCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -285,7 +284,7 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -344,10 +343,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbtypecode($artbtypecode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbtypecode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbtypecode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $artbtypecode, $comparison);
@@ -372,10 +369,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypdesc($artbctypdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPDESC, $artbctypdesc, $comparison);
@@ -400,10 +395,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctyparacct($artbctyparacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctyparacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctyparacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT, $artbctyparacct, $comparison);
@@ -428,10 +421,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypfrtacct($artbctypfrtacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypfrtacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypfrtacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT, $artbctypfrtacct, $comparison);
@@ -456,10 +447,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypmiscacct($artbctypmiscacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypmiscacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypmiscacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT, $artbctypmiscacct, $comparison);
@@ -484,10 +473,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypcashacct($artbctypcashacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypcashacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypcashacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT, $artbctypcashacct, $comparison);
@@ -512,10 +499,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypfincacct($artbctypfincacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypfincacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypfincacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT, $artbctypfincacct, $comparison);
@@ -540,10 +525,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypdiscacct($artbctypdiscacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypdiscacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypdiscacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT, $artbctypdiscacct, $comparison);
@@ -568,10 +551,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypsaleacct($artbctypsaleacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypsaleacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypsaleacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT, $artbctypsaleacct, $comparison);
@@ -596,10 +577,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypcogsacct($artbctypcogsacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypcogsacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypcogsacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT, $artbctypcogsacct, $comparison);
@@ -624,10 +603,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypcredacct($artbctypcredacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypcredacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypcredacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT, $artbctypcredacct, $comparison);
@@ -652,10 +629,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypmail($artbctypmail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypmail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypmail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL, $artbctypmail, $comparison);
@@ -680,10 +655,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByArtbctypaprvneedemail($artbctypaprvneedemail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctypaprvneedemail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctypaprvneedemail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL, $artbctypaprvneedemail, $comparison);
@@ -708,10 +681,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -736,10 +707,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -764,10 +733,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCustTypeCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -799,7 +766,7 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
         }
 
@@ -829,7 +796,7 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
         }
 

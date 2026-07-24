@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\WarehouseInventory as BaseWarehouseInventory;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -25,24 +27,24 @@ class WarehouseInventory extends BaseWarehouseInventory {
 
 	const MAX_LENGTH_CYCLECODE = 2;
 	const REGEX_CODEABC = '/^[A-J]+$/i';
-	
-	const STATUS_DESCRIPTIONS = array(
+
+	const STATUS_DESCRIPTIONS = [
 		'A' => 'active',
 		'I' => 'inactive',
 		'D' => 'delete'
-	);
+	];
 
-	const SPECIALORDER_DESCRIPTIONS = array(
+	const SPECIALORDER_DESCRIPTIONS = [
 		'S' => 'Special',
 		'N' => 'Normal',
 		'D' => 'Dropship'
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'       => 'inititemnbr',
 		'whseid'       => 'intbwhse',
 		'whseID'       => 'intbwhse',
@@ -67,7 +69,7 @@ class WarehouseInventory extends BaseWarehouseInventory {
 		'time'      => 'timeupdtd',
 
 		// NOTE: Used for getting  via __call()
-	);
+	];
 
 	/**
 	 * Display in II list

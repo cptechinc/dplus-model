@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ThermalLabelFormat as BaseThermalLabelFormat;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -16,7 +18,7 @@ class ThermalLabelFormat extends BaseThermalLabelFormat {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'tllhformat',
 		'format'       => 'tllhformat',
 		'description'  => 'tllhdesc',
@@ -24,5 +26,5 @@ class ThermalLabelFormat extends BaseThermalLabelFormat {
 		'length'       => 'tllhlength',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 }

@@ -21,7 +21,7 @@ class NoteMmsc extends BaseNoteMmsc {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'        => 'ponttype',
 		'description' => 'ponttypedesc',
 		'mnfrid'      => 'mnfrid',
@@ -32,7 +32,7 @@ class NoteMmsc extends BaseNoteMmsc {
 		'form'        => 'pontform',
 		'date'        => 'dateupdtd',
 		'time'        => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Sets generated Key2

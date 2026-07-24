@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\QuoteNotesQuery as BaseQuoteNotesQuery;
 
 use Dplus\Model\QueryTraits;

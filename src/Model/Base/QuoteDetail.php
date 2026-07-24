@@ -34,7 +34,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\QuoteDetailTableMap';
+    public const TABLE_MAP = \Map\QuoteDetailTableMap::class;
 
 
     /**
@@ -778,7 +778,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -836,7 +836,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -846,7 +845,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -884,8 +882,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -896,7 +892,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -938,9 +933,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -966,7 +959,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -3887,13 +3880,8 @@ abstract class QuoteDetail implements ActiveRecordInterface
             if ($this->qthdid !== '') {
                 return false;
             }
-
-            if ($this->qtdtline !== 0) {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->qtdtline === 0;
     }
 
     /**
@@ -3918,292 +3906,292 @@ abstract class QuoteDetail implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : QuoteDetailTableMap::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : QuoteDetailTableMap::translateFieldName('Qthdid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qthdid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : QuoteDetailTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : QuoteDetailTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtdesc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtdesc2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtdesc2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtcustcrssref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtcustcrssref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtcustcrssref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : QuoteDetailTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : QuoteDetailTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtrqstdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtspecordr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtspecordr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtspecordr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : QuoteDetailTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : QuoteDetailTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtqtyord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtqtyord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtqtyord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdttaxpcttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdttaxpcttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdttaxpcttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtprictot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtprictot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtprictot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtcosttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtcosttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtcosttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtwghttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtwghttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtwghttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxcode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxcode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxcode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxcode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxpct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxcode5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxpct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxcode6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxpct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxcode7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxpct7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxcode8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxpct8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxcode9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmstrtaxpct9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmstrtaxpct9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : QuoteDetailTableMap::translateFieldName('Intbuomsale', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : QuoteDetailTableMap::translateFieldName('Intbuomsale', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuomsale = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : QuoteDetailTableMap::translateFieldName('Intbuompur', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : QuoteDetailTableMap::translateFieldName('Intbuompur', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuompur = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotind1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotunit1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotpric1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotcost1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotmkupmarg1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotind2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotunit2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotpric2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotcost2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotmkupmarg2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotind3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotunit3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotpric3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotcost3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotmkupmarg3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotind4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotunit4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotpric4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotcost4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotmkupmarg4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotind5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotunit5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotpric5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotcost5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotmkupmarg5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotind6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotind6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotunit6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotunit6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotpric6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotpric6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotcost6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotcost6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotmkupmarg6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotmkupmarg6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtasstcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtasstcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtasstcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtasstqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtasstqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtasstqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlistpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlistpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtlistpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtstancost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtstancost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtstancost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtvenditemjob', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtvenditemjob', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtvenditemjob = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : QuoteDetailTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : QuoteDetailTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtnsitemgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtnsitemgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtnsitemgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtusecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtusecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtusecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtpickflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtpickflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtpickflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtstatus', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtstatus', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtstatus = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : QuoteDetailTableMap::translateFieldName('Oetblsslcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : QuoteDetailTableMap::translateFieldName('Oetblsslcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetblsslcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlostdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlostdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtlostdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlostposted', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlostposted', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtlostposted = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtleaddays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtleaddays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtleaddays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtordrdiscpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtordrdiscpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtordrdiscpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtquotdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtquotdiscpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmtrcreqd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmtrcreqd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmtrcreqd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtcofcreqd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtcofcreqd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtcofcreqd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmnfrid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmnfrid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmnfrid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmnfritemid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtmnfritemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtmnfritemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlmordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlmordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtlmordrnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlmordrdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtlmordrdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtlmordrdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtspecitemcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtspecitemcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtspecitemcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtacsalepgm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtacsalepgm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtacsalepgm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtnsvendshipfr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtnsvendshipfr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtnsvendshipfr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtprntmnfrnote', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtprntmnfrnote', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtprntmnfrnote = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : QuoteDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : QuoteDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : QuoteDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 94 + $startcol : QuoteDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : QuoteDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 95 + $startcol : QuoteDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -4232,7 +4220,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -4248,7 +4235,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -4261,7 +4247,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(QuoteDetailTableMap::DATABASE_NAME);
         }
 
@@ -4286,7 +4272,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see QuoteDetail::setDeleted()
      * @see QuoteDetail::isDeleted()
@@ -4297,7 +4282,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuoteDetailTableMap::DATABASE_NAME);
         }
 
@@ -4336,18 +4321,14 @@ abstract class QuoteDetail implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuoteDetailTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -4371,7 +4352,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -4415,7 +4395,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -5124,7 +5103,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -5150,9 +5128,8 @@ abstract class QuoteDetail implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = QuoteDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -5583,22 +5560,18 @@ abstract class QuoteDetail implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
-        if ($includeForeignObjects) {
-            if (null !== $this->aQuote) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'quote';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'quote_header';
-                        break;
-                    default:
-                        $key = 'Quote';
-                }
-
-                $result[$key] = $this->aQuote->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+        if ($includeForeignObjects && null !== $this->aQuote) {
+            switch ($keyType) {
+                case TableMap::TYPE_CAMELNAME:
+                    $key = 'quote';
+                    break;
+                case TableMap::TYPE_FIELDNAME:
+                    $key = 'quote_header';
+                    break;
+                default:
+                    $key = 'Quote';
             }
+            $result[$key] = $this->aQuote->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
         }
 
         return $result;
@@ -5607,7 +5580,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -6628,18 +6600,13 @@ abstract class QuoteDetail implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getQthdid();
-        $pks[1] = $this->getQtdtline();
-
-        return $pks;
+        return [$this->getQthdid(), $this->getQtdtline()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -6649,8 +6616,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -6667,7 +6632,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -6797,13 +6761,12 @@ abstract class QuoteDetail implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildQuote object.
      *
-     * @param ChildQuote $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setQuote(ChildQuote $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Quote) {
             $this->setQthdid('');
         } else {
             $this->setQthdid($v->getQthdid());
@@ -6813,7 +6776,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildQuote object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Quote) {
             $v->addQuoteDetail($this);
         }
 
@@ -6974,8 +6937,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aQuote = null;
         return $this;
@@ -6988,13 +6950,11 @@ abstract class QuoteDetail implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(QuoteDetailTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(QuoteDetailTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -7003,8 +6963,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -7012,8 +6970,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -7022,8 +6978,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -7031,8 +6985,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -7041,8 +6993,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -7050,8 +7000,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -7060,8 +7008,6 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -7081,7 +7027,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -7093,7 +7039,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -7101,7 +7047,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

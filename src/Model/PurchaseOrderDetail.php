@@ -16,12 +16,12 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 
 	const PONBR_BLANK = '00000000';
 
-	const STATUS_DESCRIPTIONS = array(
+	const STATUS_DESCRIPTIONS = [
 		'N' => 'not printed',
 		'C' => 'closed',
 		'O' => 'open',
 		'P' => 'printed'
-	);
+	];
 
 	const STATUS_OPEN   = 'O';
 	const STATUS_CLOSED = 'C';
@@ -30,7 +30,7 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	 const COLUMN_ALIASES = array(
+	 const COLUMN_ALIASES = [
 		'ponbr'      => 'pohdnbr',
 		'linenbr'    => 'podtline',
 		'itemid'     => 'inititemnbr',
@@ -59,7 +59,7 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		'item'              => 'Itmitem',
 		'itm'              => 'Itmitem',
 		'glcode'           => 'GlCode',
-	);
+	];
 
 	/**
 	 * Return Qty Received from the Database

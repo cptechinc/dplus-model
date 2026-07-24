@@ -1057,7 +1057,6 @@ class VendorShipfromTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -1072,111 +1071,109 @@ class VendorShipfromTableMap extends TableMap
         // columns
         $this->addForeignPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR' , 'ap_vend_mast', 'ApveVendId', true, 6, '');
         $this->addPrimaryKey('ApfmShipId', 'Apfmshipid', 'VARCHAR', true, 6, '');
-        $this->addColumn('ApfmName', 'Apfmname', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApfmAdr1', 'Apfmadr1', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApfmAdr2', 'Apfmadr2', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApfmAdr3', 'Apfmadr3', 'VARCHAR', false, 30, null);
-        $this->addColumn('ApfmCtry', 'Apfmctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('ApfmCity', 'Apfmcity', 'VARCHAR', false, 16, null);
-        $this->addColumn('ApfmStat', 'Apfmstat', 'VARCHAR', false, 2, null);
-        $this->addColumn('ApfmZipCode', 'Apfmzipcode', 'VARCHAR', false, 10, null);
-        $this->addColumn('ApfmCont1', 'Apfmcont1', 'VARCHAR', false, 20, null);
-        $this->addColumn('ApfmCont2', 'Apfmcont2', 'VARCHAR', false, 20, null);
-        $this->addForeignKey('ArtbSviaCode', 'Artbsviacode', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4, null);
-        $this->addColumn('ApfmGlAcct', 'Apfmglacct', 'VARCHAR', false, 16, null);
-        $this->addColumn('ApfmPurMtd', 'Apfmpurmtd', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPoMtd', 'Apfmpomtd', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmDateOpen', 'Apfmdateopen', 'VARCHAR', false, 8, null);
-        $this->addColumn('ApfmLastPurDate', 'Apfmlastpurdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('ApfmPur24mo01', 'Apfmpur24mo01', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo01', 'Apfmpo24mo01', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo02', 'Apfmpur24mo02', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo02', 'Apfmpo24mo02', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo03', 'Apfmpur24mo03', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo03', 'Apfmpo24mo03', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo04', 'Apfmpur24mo04', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo04', 'Apfmpo24mo04', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo05', 'Apfmpur24mo05', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo05', 'Apfmpo24mo05', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo06', 'Apfmpur24mo06', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo06', 'Apfmpo24mo06', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo07', 'Apfmpur24mo07', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo07', 'Apfmpo24mo07', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo08', 'Apfmpur24mo08', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo08', 'Apfmpo24mo08', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo09', 'Apfmpur24mo09', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo09', 'Apfmpo24mo09', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo10', 'Apfmpur24mo10', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo10', 'Apfmpo24mo10', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo11', 'Apfmpur24mo11', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo11', 'Apfmpo24mo11', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo12', 'Apfmpur24mo12', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo12', 'Apfmpo24mo12', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo13', 'Apfmpur24mo13', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo13', 'Apfmpo24mo13', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo14', 'Apfmpur24mo14', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo14', 'Apfmpo24mo14', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo15', 'Apfmpur24mo15', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo15', 'Apfmpo24mo15', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo16', 'Apfmpur24mo16', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo16', 'Apfmpo24mo16', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo17', 'Apfmpur24mo17', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo17', 'Apfmpo24mo17', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo18', 'Apfmpur24mo18', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo18', 'Apfmpo24mo18', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo19', 'Apfmpur24mo19', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo19', 'Apfmpo24mo19', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo20', 'Apfmpur24mo20', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo20', 'Apfmpo24mo20', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo21', 'Apfmpur24mo21', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo21', 'Apfmpo24mo21', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo22', 'Apfmpur24mo22', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo22', 'Apfmpo24mo22', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo23', 'Apfmpur24mo23', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo23', 'Apfmpo24mo23', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmPur24mo24', 'Apfmpur24mo24', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPo24mo24', 'Apfmpo24mo24', 'INTEGER', false, 7, null);
-        $this->addColumn('ApfmOurAcctNbr', 'Apfmouracctnbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('ApfmPurYtd', 'ApfmPurYtd', 'DECIMAL', false, 20, null);
-        $this->addColumn('ApfmPoYtd', 'ApfmPoYtd', 'INTEGER', false, 7, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('ApfmName', 'Apfmname', 'VARCHAR', false, 30);
+        $this->addColumn('ApfmAdr1', 'Apfmadr1', 'VARCHAR', false, 30);
+        $this->addColumn('ApfmAdr2', 'Apfmadr2', 'VARCHAR', false, 30);
+        $this->addColumn('ApfmAdr3', 'Apfmadr3', 'VARCHAR', false, 30);
+        $this->addColumn('ApfmCtry', 'Apfmctry', 'VARCHAR', false, 4);
+        $this->addColumn('ApfmCity', 'Apfmcity', 'VARCHAR', false, 16);
+        $this->addColumn('ApfmStat', 'Apfmstat', 'VARCHAR', false, 2);
+        $this->addColumn('ApfmZipCode', 'Apfmzipcode', 'VARCHAR', false, 10);
+        $this->addColumn('ApfmCont1', 'Apfmcont1', 'VARCHAR', false, 20);
+        $this->addColumn('ApfmCont2', 'Apfmcont2', 'VARCHAR', false, 20);
+        $this->addForeignKey('ArtbSviaCode', 'Artbsviacode', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4);
+        $this->addColumn('ApfmGlAcct', 'Apfmglacct', 'VARCHAR', false, 16);
+        $this->addColumn('ApfmPurMtd', 'Apfmpurmtd', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPoMtd', 'Apfmpomtd', 'INTEGER', false, 7);
+        $this->addColumn('ApfmDateOpen', 'Apfmdateopen', 'VARCHAR', false, 8);
+        $this->addColumn('ApfmLastPurDate', 'Apfmlastpurdate', 'VARCHAR', false, 8);
+        $this->addColumn('ApfmPur24mo01', 'Apfmpur24mo01', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo01', 'Apfmpo24mo01', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo02', 'Apfmpur24mo02', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo02', 'Apfmpo24mo02', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo03', 'Apfmpur24mo03', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo03', 'Apfmpo24mo03', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo04', 'Apfmpur24mo04', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo04', 'Apfmpo24mo04', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo05', 'Apfmpur24mo05', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo05', 'Apfmpo24mo05', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo06', 'Apfmpur24mo06', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo06', 'Apfmpo24mo06', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo07', 'Apfmpur24mo07', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo07', 'Apfmpo24mo07', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo08', 'Apfmpur24mo08', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo08', 'Apfmpo24mo08', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo09', 'Apfmpur24mo09', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo09', 'Apfmpo24mo09', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo10', 'Apfmpur24mo10', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo10', 'Apfmpo24mo10', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo11', 'Apfmpur24mo11', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo11', 'Apfmpo24mo11', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo12', 'Apfmpur24mo12', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo12', 'Apfmpo24mo12', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo13', 'Apfmpur24mo13', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo13', 'Apfmpo24mo13', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo14', 'Apfmpur24mo14', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo14', 'Apfmpo24mo14', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo15', 'Apfmpur24mo15', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo15', 'Apfmpo24mo15', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo16', 'Apfmpur24mo16', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo16', 'Apfmpo24mo16', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo17', 'Apfmpur24mo17', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo17', 'Apfmpo24mo17', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo18', 'Apfmpur24mo18', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo18', 'Apfmpo24mo18', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo19', 'Apfmpur24mo19', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo19', 'Apfmpo24mo19', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo20', 'Apfmpur24mo20', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo20', 'Apfmpo24mo20', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo21', 'Apfmpur24mo21', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo21', 'Apfmpo24mo21', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo22', 'Apfmpur24mo22', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo22', 'Apfmpo24mo22', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo23', 'Apfmpur24mo23', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo23', 'Apfmpo24mo23', 'INTEGER', false, 7);
+        $this->addColumn('ApfmPur24mo24', 'Apfmpur24mo24', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPo24mo24', 'Apfmpo24mo24', 'INTEGER', false, 7);
+        $this->addColumn('ApfmOurAcctNbr', 'Apfmouracctnbr', 'VARCHAR', false, 10);
+        $this->addColumn('ApfmPurYtd', 'ApfmPurYtd', 'DECIMAL', false, 20);
+        $this->addColumn('ApfmPoYtd', 'ApfmPoYtd', 'INTEGER', false, 7);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
-), null, null, null, false);
-        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':ArtbSviaCode',
     1 => ':ArtbShipVia',
-  ),
-), null, null, null, false);
-        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':ApveVendId',
     1 => ':ApveVendId',
-  ),
+  ],
   1 =>
-  array (
+   [
     0 => ':ApfmShipId',
     1 => ':ApfmShipId',
-  ),
-), null, null, 'PurchaseOrders', false);
+  ],
+], null, null, 'PurchaseOrders', false);
     }
 
     /**
@@ -1189,8 +1186,6 @@ class VendorShipfromTableMap extends TableMap
      *
      * @param \VendorShipfrom $obj A \VendorShipfrom object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(VendorShipfrom $obj, ?string $key = null): void
     {
@@ -1211,13 +1206,11 @@ class VendorShipfromTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \VendorShipfrom object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \VendorShipfrom) {
+            if ($value instanceof \VendorShipfrom) {
                 $key = serialize([(null === $value->getApvevendid() || is_scalar($value->getApvevendid()) || is_callable([$value->getApvevendid(), '__toString']) ? (string) $value->getApvevendid() : $value->getApvevendid()), (null === $value->getApfmshipid() || is_scalar($value->getApfmshipid()) || is_callable([$value->getApfmshipid(), '__toString']) ? (string) $value->getApfmshipid() : $value->getApfmshipid())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -1252,11 +1245,11 @@ class VendorShipfromTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -1273,20 +1266,15 @@ class VendorShipfromTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(string) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 1 + $offset
                 : self::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -1341,7 +1329,6 @@ class VendorShipfromTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -1382,7 +1369,6 @@ class VendorShipfromTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1545,7 +1531,6 @@ class VendorShipfromTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1701,7 +1686,6 @@ class VendorShipfromTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -1723,7 +1707,7 @@ class VendorShipfromTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorShipfromTableMap::DATABASE_NAME);
         }
 
@@ -1737,7 +1721,7 @@ class VendorShipfromTableMap extends TableMap
             $criteria = new Criteria(VendorShipfromTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -1783,7 +1767,7 @@ class VendorShipfromTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorShipfromTableMap::DATABASE_NAME);
         }
 
@@ -1799,9 +1783,7 @@ class VendorShipfromTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

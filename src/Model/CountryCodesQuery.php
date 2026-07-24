@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\CountryCodeQuery as BaseCountryCodeQuery;
 
 use Dplus\Model\QueryTraits;

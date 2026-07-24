@@ -18,7 +18,7 @@ class Document extends BaseDocument {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'folder'	  => 'doccfolder',
 		'tag'		  => 'docitag',
 		'filename'	  => 'docifilename',
@@ -30,7 +30,7 @@ class Document extends BaseDocument {
 		'reference2'  => 'docifld2',
 		// Foreign Key
 		'directory'   => 'documentFolder'
-	);
+	];
 
 	/**
 	 * Returns Folder Description

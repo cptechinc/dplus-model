@@ -14,7 +14,7 @@ class QuoteDetail extends BaseQuoteDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'quotenbr'        => 'qthdid',
 		'quoteid'         => 'qthdid',
 		'quoteID'         => 'qthdid',
@@ -55,7 +55,7 @@ class QuoteDetail extends BaseQuoteDetail {
 		'vendoritemid'    => 'qtdtvenditemjob',
 		'leaddays'        => 'qtdtleaddays',
 		'taxcodecd'       => 'artbmtaxcode'
-	);
+	];
 
 	/**
 	 * Returns Notes for the QuoteDetail

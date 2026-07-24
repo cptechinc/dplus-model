@@ -20,21 +20,21 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	const UNITS_AVAILABLE = 10;
 
-	const OPTIONS_APPROVALCODE = array(
+	const OPTIONS_APPROVALCODE = [
 		'A' => 'Approved',
 		'R' => 'Restricted'
-	);
+	];
 
 	const APPROVALCODE_APPROVED = 'A';
 	const APPROVALCODE_RESTRICTED = 'R';
 	const APPROVALCODE_NONE = '';
 
-	const OPTIONS_POORDERCODE = array(
+	const OPTIONS_POORDERCODE = [
 		''	=> '',
 		'C' => 'Costing',
 		'P' => 'Primary',
 		'Y' => 'Secondary'
-	);
+	];
 
 	const POORDERCODE_PRIMARY   = 'P';
 	const POORDERCODE_SECONDARY = 'Y';
@@ -44,7 +44,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'vendorid'		=> 'apvevendid',
 		'vendorID'		=> 'apvevendid',
 		'vendoritemid'	=> 'vexrvenditemnbr',
@@ -72,7 +72,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		'foreigncost'	=> 'vexrforeigncost',
 		'iskit' 		=> 'vexrprtkitdet',
 		'optioncode'	=> 'vexroption1'
-	);
+	];
 
 	/**
 	 * Return the number of Units Available to save
@@ -161,13 +161,12 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	}
 
 	/**
-	 * Return Unit Cost at Qty Position
-	 * @param  int	 $unit
-	 * @return float
-	 */
-	public function get_unitcost(int $unit) {
+     * Return Unit Cost at Qty Position
+     * @return float
+     */
+    public function get_unitcost(int $unit) {
 		if ($unit <= self::UNITS_AVAILABLE) {
-			if ($unit == 0) {
+			if ($unit === 0) {
 				return $this->unitcost_base;
 			}
 			$col = self::get_unitcost_column($unit);
@@ -178,11 +177,10 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	}
 
 	/**
-	 * Return Unit Cost per UoM
-	 * @param  int    $unit
-	 * @return float
-	 */
-	public function getUnitCostUom(int $unit) {
+     * Return Unit Cost per UoM
+     * @return float
+     */
+    public function getUnitCostUom(int $unit) {
 		if ($unit <= self::UNITS_AVAILABLE) {
 			$costEach = $this->unitcost_base;
 
@@ -200,11 +198,10 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	}
 
 	/**
-	 * Return Unit Cost at Qty Position
-	 * @param  int	 $unit
-	 * @return float
-	 */
-	public static function get_unitcost_column(int $unit) {
+     * Return Unit Cost at Qty Position
+     * @return float
+     */
+    public static function get_unitcost_column(int $unit) {
 		$col_base = 'vexrunitcost';
 
 		if ($unit <= self::UNITS_AVAILABLE) {
@@ -215,11 +212,10 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	}
 
 	/**
-	 * Returns Margin at Qty Position
-	 * @param  int	  $unit
-	 * @return float
-	 */
-	public function get_unitmargin(int $unit) {
+     * Returns Margin at Qty Position
+     * @return float
+     */
+    public function get_unitmargin(int $unit) {
 		if ($this->getEachlistprice() == 0 || $this->get_unitcost($unit) == 0) {
 			return '';
 		} else {
@@ -246,11 +242,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	public function init() {
 		if ($this->listprice == 0) {
 			$itemprice = ItemPricingQuery::create()->filterByItemid($this->ouritemid)->findOne();
-			if ($itemprice) {
-				$this->listprice = $itemprice->baseprice;
-			} else {
-				$this->listprice = 0;
-			}
+			$this->listprice = $itemprice ? $itemprice->baseprice : 0;
 		}
 
 		if (empty($this->uom_purchase)) {

@@ -124,7 +124,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class CpnLoadOrderQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\CpnLoadOrderQuery object.
@@ -182,7 +182,7 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CpnLoadOrderTableMap::DATABASE_NAME);
         }
 
@@ -229,7 +229,6 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCpnLoadOrder $obj */
             $obj = new ChildCpnLoadOrder();
             $obj->hydrate($row);
             CpnLoadOrderTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -270,7 +269,7 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -426,10 +425,8 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function filterByLcorshipid($lcorshipid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lcorshipid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lcorshipid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadOrderTableMap::COL_LCORSHIPID, $lcorshipid, $comparison);
@@ -454,10 +451,8 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function filterByLcorcustpo($lcorcustpo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lcorcustpo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lcorcustpo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadOrderTableMap::COL_LCORCUSTPO, $lcorcustpo, $comparison);
@@ -482,10 +477,8 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function filterByLcorrqstdate($lcorrqstdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lcorrqstdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lcorrqstdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadOrderTableMap::COL_LCORRQSTDATE, $lcorrqstdate, $comparison);
@@ -596,10 +589,8 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function filterByLcorordrtype($lcorordrtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($lcorordrtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($lcorordrtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadOrderTableMap::COL_LCORORDRTYPE, $lcorordrtype, $comparison);
@@ -624,10 +615,8 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadOrderTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -652,10 +641,8 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadOrderTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -680,10 +667,8 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(CpnLoadOrderTableMap::COL_DUMMY, $dummy, $comparison);
@@ -737,7 +722,7 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -767,7 +752,7 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
     {
         return $this
             ->joinCpnLoad($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CpnLoad', '\CpnLoadQuery');
+            ->useQuery($relationAlias ?: 'CpnLoad', '\CpnLoadQuery');
     }
 
     /**
@@ -878,7 +863,7 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
         if ($cpnLoadOrder) {
             $this->addCond('pruneCond0', $this->getAliasedColName(CpnLoadOrderTableMap::COL_LCHDLOADNBR), $cpnLoadOrder->getLchdloadnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(CpnLoadOrderTableMap::COL_LCORORDRNBR), $cpnLoadOrder->getLcorordrnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -892,7 +877,7 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadOrderTableMap::DATABASE_NAME);
         }
 
@@ -922,7 +907,7 @@ abstract class CpnLoadOrderQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadOrderTableMap::DATABASE_NAME);
         }
 

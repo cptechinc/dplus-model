@@ -634,7 +634,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class QuoteDetailQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\QuoteDetailQuery object.
@@ -692,7 +692,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(QuoteDetailTableMap::DATABASE_NAME);
         }
 
@@ -739,7 +739,6 @@ abstract class QuoteDetailQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildQuoteDetail $obj */
             $obj = new ChildQuoteDetail();
             $obj->hydrate($row);
             QuoteDetailTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -780,7 +779,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -848,10 +847,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQthdid($qthdid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qthdid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qthdid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTHDID, $qthdid, $comparison);
@@ -919,10 +916,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -947,10 +942,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtdesc($qtdtdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTDESC, $qtdtdesc, $comparison);
@@ -975,10 +968,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtdesc2($qtdtdesc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtdesc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtdesc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTDESC2, $qtdtdesc2, $comparison);
@@ -1003,10 +994,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtcustcrssref($qtdtcustcrssref = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtcustcrssref)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtcustcrssref)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCUSTCRSSREF, $qtdtcustcrssref, $comparison);
@@ -1031,10 +1020,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -1059,10 +1046,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtrqstdate($qtdtrqstdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtrqstdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtrqstdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTRQSTDATE, $qtdtrqstdate, $comparison);
@@ -1087,10 +1072,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtspecordr($qtdtspecordr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtspecordr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtspecordr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSPECORDR, $qtdtspecordr, $comparison);
@@ -1115,10 +1098,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByArtbctaxcode($artbctaxcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbctaxcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbctaxcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
@@ -1444,10 +1425,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmstrtaxcode1($qtdtmstrtaxcode1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmstrtaxcode1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmstrtaxcode1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE1, $qtdtmstrtaxcode1, $comparison);
@@ -1515,10 +1494,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmstrtaxcode2($qtdtmstrtaxcode2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmstrtaxcode2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmstrtaxcode2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE2, $qtdtmstrtaxcode2, $comparison);
@@ -1586,10 +1563,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmstrtaxcode3($qtdtmstrtaxcode3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmstrtaxcode3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmstrtaxcode3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE3, $qtdtmstrtaxcode3, $comparison);
@@ -1657,10 +1632,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmstrtaxcode4($qtdtmstrtaxcode4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmstrtaxcode4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmstrtaxcode4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE4, $qtdtmstrtaxcode4, $comparison);
@@ -1728,10 +1701,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmstrtaxcode5($qtdtmstrtaxcode5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmstrtaxcode5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmstrtaxcode5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE5, $qtdtmstrtaxcode5, $comparison);
@@ -1799,10 +1770,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmstrtaxcode6($qtdtmstrtaxcode6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmstrtaxcode6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmstrtaxcode6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE6, $qtdtmstrtaxcode6, $comparison);
@@ -1870,10 +1839,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmstrtaxcode7($qtdtmstrtaxcode7 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmstrtaxcode7)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmstrtaxcode7)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE7, $qtdtmstrtaxcode7, $comparison);
@@ -1941,10 +1908,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmstrtaxcode8($qtdtmstrtaxcode8 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmstrtaxcode8)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmstrtaxcode8)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE8, $qtdtmstrtaxcode8, $comparison);
@@ -2012,10 +1977,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmstrtaxcode9($qtdtmstrtaxcode9 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmstrtaxcode9)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmstrtaxcode9)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE9, $qtdtmstrtaxcode9, $comparison);
@@ -2083,10 +2046,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByIntbuomsale($intbuomsale = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuomsale)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuomsale)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
@@ -2111,10 +2072,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByIntbuompur($intbuompur = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuompur)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuompur)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
@@ -2139,10 +2098,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtquotind1($qtdtquotind1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtquotind1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtquotind1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND1, $qtdtquotind1, $comparison);
@@ -2339,10 +2296,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtquotind2($qtdtquotind2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtquotind2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtquotind2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND2, $qtdtquotind2, $comparison);
@@ -2539,10 +2494,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtquotind3($qtdtquotind3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtquotind3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtquotind3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND3, $qtdtquotind3, $comparison);
@@ -2739,10 +2692,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtquotind4($qtdtquotind4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtquotind4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtquotind4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND4, $qtdtquotind4, $comparison);
@@ -2939,10 +2890,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtquotind5($qtdtquotind5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtquotind5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtquotind5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND5, $qtdtquotind5, $comparison);
@@ -3139,10 +3088,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtquotind6($qtdtquotind6 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtquotind6)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtquotind6)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND6, $qtdtquotind6, $comparison);
@@ -3339,10 +3286,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtasstcode($qtdtasstcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtasstcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtasstcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTASSTCODE, $qtdtasstcode, $comparison);
@@ -3496,10 +3441,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtvenditemjob($qtdtvenditemjob = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtvenditemjob)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtvenditemjob)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTVENDITEMJOB, $qtdtvenditemjob, $comparison);
@@ -3524,10 +3467,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($apvevendid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($apvevendid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_APVEVENDID, $apvevendid, $comparison);
@@ -3552,10 +3493,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtnsitemgrup($qtdtnsitemgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtnsitemgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtnsitemgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTNSITEMGRUP, $qtdtnsitemgrup, $comparison);
@@ -3580,10 +3519,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtusecode($qtdtusecode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtusecode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtusecode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTUSECODE, $qtdtusecode, $comparison);
@@ -3608,10 +3545,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtpickflag($qtdtpickflag = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtpickflag)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtpickflag)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPICKFLAG, $qtdtpickflag, $comparison);
@@ -3636,10 +3571,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtstatus($qtdtstatus = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtstatus)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtstatus)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSTATUS, $qtdtstatus, $comparison);
@@ -3664,10 +3597,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByOetblsslcode($oetblsslcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oetblsslcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($oetblsslcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_OETBLSSLCODE, $oetblsslcode, $comparison);
@@ -3692,10 +3623,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtlostdate($qtdtlostdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtlostdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtlostdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLOSTDATE, $qtdtlostdate, $comparison);
@@ -3720,10 +3649,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtlostposted($qtdtlostposted = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtlostposted)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtlostposted)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLOSTPOSTED, $qtdtlostposted, $comparison);
@@ -3877,10 +3804,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmtrcreqd($qtdtmtrcreqd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmtrcreqd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmtrcreqd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMTRCREQD, $qtdtmtrcreqd, $comparison);
@@ -3905,10 +3830,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtcofcreqd($qtdtcofcreqd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtcofcreqd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtcofcreqd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCOFCREQD, $qtdtcofcreqd, $comparison);
@@ -3933,10 +3856,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmnfrid($qtdtmnfrid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmnfrid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmnfrid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMNFRID, $qtdtmnfrid, $comparison);
@@ -3961,10 +3882,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtmnfritemid($qtdtmnfritemid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtmnfritemid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtmnfritemid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMNFRITEMID, $qtdtmnfritemid, $comparison);
@@ -3989,10 +3908,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtlmordrnbr($qtdtlmordrnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtlmordrnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtlmordrnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLMORDRNBR, $qtdtlmordrnbr, $comparison);
@@ -4017,10 +3934,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtlmordrdate($qtdtlmordrdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtlmordrdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtlmordrdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLMORDRDATE, $qtdtlmordrdate, $comparison);
@@ -4045,10 +3960,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtspecitemcode($qtdtspecitemcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtspecitemcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtspecitemcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSPECITEMCODE, $qtdtspecitemcode, $comparison);
@@ -4073,10 +3986,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtacsalepgm($qtdtacsalepgm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtacsalepgm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtacsalepgm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTACSALEPGM, $qtdtacsalepgm, $comparison);
@@ -4101,10 +4012,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtnsvendshipfr($qtdtnsvendshipfr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtnsvendshipfr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtnsvendshipfr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTNSVENDSHIPFR, $qtdtnsvendshipfr, $comparison);
@@ -4129,10 +4038,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByQtdtprntmnfrnote($qtdtprntmnfrnote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qtdtprntmnfrnote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qtdtprntmnfrnote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPRNTMNFRNOTE, $qtdtprntmnfrnote, $comparison);
@@ -4157,10 +4064,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -4185,10 +4090,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -4213,10 +4116,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(QuoteDetailTableMap::COL_DUMMY, $dummy, $comparison);
@@ -4270,7 +4171,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -4300,7 +4201,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
     {
         return $this
             ->joinQuote($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Quote', '\QuoteQuery');
+            ->useQuery($relationAlias ?: 'Quote', '\QuoteQuery');
     }
 
     /**
@@ -4411,7 +4312,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
         if ($quoteDetail) {
             $this->addCond('pruneCond0', $this->getAliasedColName(QuoteDetailTableMap::COL_QTHDID), $quoteDetail->getQthdid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(QuoteDetailTableMap::COL_QTDTLINE), $quoteDetail->getQtdtline(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -4425,7 +4326,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuoteDetailTableMap::DATABASE_NAME);
         }
 
@@ -4455,7 +4356,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuoteDetailTableMap::DATABASE_NAME);
         }
 

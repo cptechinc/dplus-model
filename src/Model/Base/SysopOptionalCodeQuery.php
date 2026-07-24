@@ -92,7 +92,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class SysopOptionalCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\SysopOptionalCodeQuery object.
@@ -150,7 +150,7 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SysopOptionalCodeTableMap::DATABASE_NAME);
         }
 
@@ -198,7 +198,6 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildSysopOptionalCode $obj */
             $obj = new ChildSysopOptionalCode();
             $obj->hydrate($row);
             SysopOptionalCodeTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
@@ -239,7 +238,7 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -310,10 +309,8 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function filterByOptnsystem($optnsystem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optnsystem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optnsystem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SysopOptionalCodeTableMap::COL_OPTNSYSTEM, $optnsystem, $comparison);
@@ -338,10 +335,8 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function filterByOptncode($optncode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optncode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optncode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SysopOptionalCodeTableMap::COL_OPTNCODE, $optncode, $comparison);
@@ -366,10 +361,8 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function filterByOptcid($optcid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optcid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optcid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SysopOptionalCodeTableMap::COL_OPTCID, $optcid, $comparison);
@@ -394,10 +387,8 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function filterByOptcdesc($optcdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optcdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optcdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SysopOptionalCodeTableMap::COL_OPTCDESC, $optcdesc, $comparison);
@@ -422,10 +413,8 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function filterByOptcdesc2($optcdesc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($optcdesc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($optcdesc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SysopOptionalCodeTableMap::COL_OPTCDESC2, $optcdesc2, $comparison);
@@ -450,10 +439,8 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SysopOptionalCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -478,10 +465,8 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SysopOptionalCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -506,10 +491,8 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(SysopOptionalCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -530,7 +513,7 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
             $this->addCond('pruneCond0', $this->getAliasedColName(SysopOptionalCodeTableMap::COL_OPTNSYSTEM), $sysopOptionalCode->getOptnsystem(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(SysopOptionalCodeTableMap::COL_OPTNCODE), $sysopOptionalCode->getOptncode(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(SysopOptionalCodeTableMap::COL_OPTCID), $sysopOptionalCode->getOptcid(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -544,7 +527,7 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SysopOptionalCodeTableMap::DATABASE_NAME);
         }
 
@@ -574,7 +557,7 @@ abstract class SysopOptionalCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SysopOptionalCodeTableMap::DATABASE_NAME);
         }
 

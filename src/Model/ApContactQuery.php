@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ApContactQuery as BaseApContactQuery;
 
 use Dplus\Model\QueryTraits;

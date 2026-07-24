@@ -126,7 +126,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class UnitofMeasureSaleQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\UnitofMeasureSaleQuery object.
@@ -184,7 +184,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
         }
 
@@ -230,7 +230,6 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildUnitofMeasureSale $obj */
             $obj = new ChildUnitofMeasureSale();
             $obj->hydrate($row);
             UnitofMeasureSaleTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -271,7 +270,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -330,10 +329,8 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function filterByIntbuomsale($intbuomsale = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuomsale)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuomsale)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
@@ -358,10 +355,8 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function filterByIntbuomdesc($intbuomdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuomdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuomdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMDESC, $intbuomdesc, $comparison);
@@ -429,10 +424,8 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function filterByIntbuompricbywght($intbuompricbywght = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbuompricbywght)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbuompricbywght)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT, $intbuompricbywght, $comparison);
@@ -457,10 +450,8 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function filterByIntbUomStockByCase($intbUomStockByCase = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbUomStockByCase)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbUomStockByCase)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE, $intbUomStockByCase, $comparison);
@@ -485,10 +476,8 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -513,10 +502,8 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -541,10 +528,8 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_DUMMY, $dummy, $comparison);
@@ -596,7 +581,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -626,7 +611,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -769,7 +754,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -799,7 +784,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     {
         return $this
             ->joinPurchaseOrderDetailReceiving($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetailReceiving', '\PurchaseOrderDetailReceivingQuery');
+            ->useQuery($relationAlias ?: 'PurchaseOrderDetailReceiving', '\PurchaseOrderDetailReceivingQuery');
     }
 
     /**
@@ -942,7 +927,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -972,7 +957,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     {
         return $this
             ->joinRcyclReceiptDetail($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'RcyclReceiptDetail', '\RcyclReceiptDetailQuery');
+            ->useQuery($relationAlias ?: 'RcyclReceiptDetail', '\RcyclReceiptDetailQuery');
     }
 
     /**
@@ -1095,7 +1080,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
         }
 
@@ -1125,7 +1110,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
         }
 

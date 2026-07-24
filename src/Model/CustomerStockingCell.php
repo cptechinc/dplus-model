@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\CustomerStockingCell as BaseCustomerStockingCell;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -18,13 +20,13 @@ class CustomerStockingCell extends BaseCustomerStockingCell {
      * Column Aliases to lookup / get properties
      * @var array
      */
-    const COLUMN_ALIASES = array(
+    const COLUMN_ALIASES = [
         'id'           => 'intbcellcode',
         'code'         => 'intbcellcode',
         'description'  => 'intbcelldesc',
         'date'         => 'dateupdtd',
         'time'         => 'timeupdtd'
-    );
+    ];
 
     /**
      * Return the Max Number of characters allowed for Code

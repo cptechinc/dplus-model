@@ -1423,7 +1423,6 @@ class ArTermsCodeTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -1437,111 +1436,109 @@ class ArTermsCodeTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('ArtmTermCd', 'Artmtermcd', 'VARCHAR', true, 4, '');
-        $this->addColumn('ArtmTermDesc', 'Artmtermdesc', 'VARCHAR', false, 20, null);
-        $this->addColumn('ArtmMethod', 'Artmmethod', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmType', 'Artmtype', 'VARCHAR', false, 3, null);
-        $this->addColumn('ArtmHold', 'Artmhold', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmExpireDate', 'Artmexpiredate', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArtmFrtAllow', 'Artmfrtallow', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmCcPrefix', 'Artmccprefix', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmSplit1', 'Artmsplit1', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmOrderPct1', 'Artmorderpct1', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscPct1', 'Artmdiscpct1', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscDays1', 'Artmdiscdays1', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDiscDay1', 'Artmdiscday1', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmDiscDate1', 'Artmdiscdate1', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmDueDays1', 'Artmduedays1', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDueDay1', 'Artmdueday1', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmPlusMonths1', 'Artmplusmonths1', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDueDate1', 'Artmduedate1', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmPlusYear1', 'Artmplusyear1', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmSplit2', 'Artmsplit2', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmOrderPct2', 'Artmorderpct2', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscPct2', 'Artmdiscpct2', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscDays2', 'Artmdiscdays2', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDiscDay2', 'Artmdiscday2', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmDiscDate2', 'Artmdiscdate2', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmDueDays2', 'Artmduedays2', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDueDay2', 'Artmdueday2', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmPlusMonths2', 'Artmplusmonths2', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDueDate2', 'Artmduedate2', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmPlusYear2', 'Artmplusyear2', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmSplit3', 'Artmsplit3', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmOrderPct3', 'Artmorderpct3', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscPct3', 'Artmdiscpct3', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscDays3', 'Artmdiscdays3', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDiscDay3', 'Artmdiscday3', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmDiscDate3', 'Artmdiscdate3', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmDueDays3', 'Artmduedays3', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDueDay3', 'Artmdueday3', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmPlusMonths3', 'Artmplusmonths3', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDueDate3', 'Artmduedate3', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmPlusYear3', 'Artmplusyear3', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmSplit4', 'Artmsplit4', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmOrderPct4', 'Artmorderpct4', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscPct4', 'Artmdiscpct4', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscDays4', 'Artmdiscdays4', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDiscDay4', 'Artmdiscday4', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmDiscDate4', 'Artmdiscdate4', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmDueDays4', 'Artmduedays4', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDueDay4', 'Artmdueday4', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmPlusMonths4', 'Artmplusmonths4', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDueDate4', 'Artmduedate4', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmPlusYear4', 'Artmplusyear4', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmSplit5', 'Artmsplit5', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmOrderPct5', 'Artmorderpct5', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscPct5', 'Artmdiscpct5', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscDays5', 'Artmdiscdays5', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDiscDay5', 'Artmdiscday5', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmDiscDate5', 'Artmdiscdate5', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmDueDays5', 'Artmduedays5', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDueDay5', 'Artmdueday5', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmPlusMonths5', 'Artmplusmonths5', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDueDate5', 'Artmduedate5', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmPlusYear5', 'Artmplusyear5', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmSplit6', 'Artmsplit6', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmOrderPct6', 'Artmorderpct6', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscPct6', 'Artmdiscpct6', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmDiscDays6', 'Artmdiscdays6', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDiscDay6', 'Artmdiscday6', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmDiscDate6', 'Artmdiscdate6', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmDueDays6', 'Artmduedays6', 'INTEGER', false, 3, null);
-        $this->addColumn('ArtmDueDay6', 'Artmdueday6', 'VARCHAR', false, 2, null);
-        $this->addColumn('ArtmPlusMonths6', 'Artmplusmonths6', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDueDate6', 'Artmduedate6', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmPlusYear6', 'Artmplusyear6', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtmDayFrom1', 'Artmdayfrom1', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDayThru1', 'Artmdaythru1', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomDiscPct1', 'Artmeomdiscpct1', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmEomDiscDay1', 'Artmeomdiscday1', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomDiscMonths1', 'Artmeomdiscmonths1', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomDueDay1', 'Artmeomdueday1', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomPlusMonths1', 'Artmeomplusmonths1', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDayFrom2', 'Artmdayfrom2', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDayThru2', 'Artmdaythru2', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomDiscPct2', 'Artmeomdiscpct2', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmEomDiscDay2', 'Artmeomdiscday2', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomDiscMonths2', 'Artmeomdiscmonths2', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomDueDay2', 'Artmeomdueday2', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomPlusMonths2', 'Artmeomplusmonths2', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDayFrom3', 'Artmdayfrom3', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmDayThru3', 'Artmdaythru3', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomDiscPct3', 'Artmeomdiscpct3', 'DECIMAL', false, 20, null);
-        $this->addColumn('ArtmEomDiscDay3', 'Artmeomdiscday3', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomDiscMonths3', 'Artmeomdiscmonths3', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomDueDay3', 'Artmeomdueday3', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmEomPlusMonths3', 'Artmeomplusmonths3', 'INTEGER', false, 2, null);
-        $this->addColumn('ArtmCtry', 'Artmctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtmTermGrup', 'Artmtermgrup', 'VARCHAR', false, 4, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('ArtmTermDesc', 'Artmtermdesc', 'VARCHAR', false, 20);
+        $this->addColumn('ArtmMethod', 'Artmmethod', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmType', 'Artmtype', 'VARCHAR', false, 3);
+        $this->addColumn('ArtmHold', 'Artmhold', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmExpireDate', 'Artmexpiredate', 'VARCHAR', false, 8);
+        $this->addColumn('ArtmFrtAllow', 'Artmfrtallow', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmCcPrefix', 'Artmccprefix', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmSplit1', 'Artmsplit1', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmOrderPct1', 'Artmorderpct1', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscPct1', 'Artmdiscpct1', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscDays1', 'Artmdiscdays1', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDiscDay1', 'Artmdiscday1', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmDiscDate1', 'Artmdiscdate1', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmDueDays1', 'Artmduedays1', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDueDay1', 'Artmdueday1', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmPlusMonths1', 'Artmplusmonths1', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDueDate1', 'Artmduedate1', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmPlusYear1', 'Artmplusyear1', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmSplit2', 'Artmsplit2', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmOrderPct2', 'Artmorderpct2', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscPct2', 'Artmdiscpct2', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscDays2', 'Artmdiscdays2', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDiscDay2', 'Artmdiscday2', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmDiscDate2', 'Artmdiscdate2', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmDueDays2', 'Artmduedays2', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDueDay2', 'Artmdueday2', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmPlusMonths2', 'Artmplusmonths2', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDueDate2', 'Artmduedate2', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmPlusYear2', 'Artmplusyear2', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmSplit3', 'Artmsplit3', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmOrderPct3', 'Artmorderpct3', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscPct3', 'Artmdiscpct3', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscDays3', 'Artmdiscdays3', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDiscDay3', 'Artmdiscday3', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmDiscDate3', 'Artmdiscdate3', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmDueDays3', 'Artmduedays3', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDueDay3', 'Artmdueday3', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmPlusMonths3', 'Artmplusmonths3', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDueDate3', 'Artmduedate3', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmPlusYear3', 'Artmplusyear3', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmSplit4', 'Artmsplit4', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmOrderPct4', 'Artmorderpct4', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscPct4', 'Artmdiscpct4', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscDays4', 'Artmdiscdays4', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDiscDay4', 'Artmdiscday4', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmDiscDate4', 'Artmdiscdate4', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmDueDays4', 'Artmduedays4', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDueDay4', 'Artmdueday4', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmPlusMonths4', 'Artmplusmonths4', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDueDate4', 'Artmduedate4', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmPlusYear4', 'Artmplusyear4', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmSplit5', 'Artmsplit5', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmOrderPct5', 'Artmorderpct5', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscPct5', 'Artmdiscpct5', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscDays5', 'Artmdiscdays5', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDiscDay5', 'Artmdiscday5', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmDiscDate5', 'Artmdiscdate5', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmDueDays5', 'Artmduedays5', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDueDay5', 'Artmdueday5', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmPlusMonths5', 'Artmplusmonths5', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDueDate5', 'Artmduedate5', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmPlusYear5', 'Artmplusyear5', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmSplit6', 'Artmsplit6', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmOrderPct6', 'Artmorderpct6', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscPct6', 'Artmdiscpct6', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmDiscDays6', 'Artmdiscdays6', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDiscDay6', 'Artmdiscday6', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmDiscDate6', 'Artmdiscdate6', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmDueDays6', 'Artmduedays6', 'INTEGER', false, 3);
+        $this->addColumn('ArtmDueDay6', 'Artmdueday6', 'VARCHAR', false, 2);
+        $this->addColumn('ArtmPlusMonths6', 'Artmplusmonths6', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDueDate6', 'Artmduedate6', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmPlusYear6', 'Artmplusyear6', 'VARCHAR', false, 1);
+        $this->addColumn('ArtmDayFrom1', 'Artmdayfrom1', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDayThru1', 'Artmdaythru1', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomDiscPct1', 'Artmeomdiscpct1', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmEomDiscDay1', 'Artmeomdiscday1', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomDiscMonths1', 'Artmeomdiscmonths1', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomDueDay1', 'Artmeomdueday1', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomPlusMonths1', 'Artmeomplusmonths1', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDayFrom2', 'Artmdayfrom2', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDayThru2', 'Artmdaythru2', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomDiscPct2', 'Artmeomdiscpct2', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmEomDiscDay2', 'Artmeomdiscday2', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomDiscMonths2', 'Artmeomdiscmonths2', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomDueDay2', 'Artmeomdueday2', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomPlusMonths2', 'Artmeomplusmonths2', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDayFrom3', 'Artmdayfrom3', 'INTEGER', false, 2);
+        $this->addColumn('ArtmDayThru3', 'Artmdaythru3', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomDiscPct3', 'Artmeomdiscpct3', 'DECIMAL', false, 20);
+        $this->addColumn('ArtmEomDiscDay3', 'Artmeomdiscday3', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomDiscMonths3', 'Artmeomdiscmonths3', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomDueDay3', 'Artmeomdueday3', 'INTEGER', false, 2);
+        $this->addColumn('ArtmEomPlusMonths3', 'Artmeomplusmonths3', 'INTEGER', false, 2);
+        $this->addColumn('ArtmCtry', 'Artmctry', 'VARCHAR', false, 4);
+        $this->addColumn('ArtmTermGrup', 'Artmtermgrup', 'VARCHAR', false, 4);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
@@ -1563,11 +1560,11 @@ class ArTermsCodeTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -1585,8 +1582,8 @@ class ArTermsCodeTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -1643,7 +1640,6 @@ class ArTermsCodeTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -1684,7 +1680,6 @@ class ArTermsCodeTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1903,7 +1898,6 @@ class ArTermsCodeTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -2115,7 +2109,6 @@ class ArTermsCodeTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -2137,7 +2130,7 @@ class ArTermsCodeTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -2187,7 +2180,7 @@ class ArTermsCodeTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -2203,9 +2196,7 @@ class ArTermsCodeTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

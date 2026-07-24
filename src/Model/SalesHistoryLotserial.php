@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SalesHistoryLotserial as BaseSalesHistoryLotserial;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -17,7 +19,7 @@ class SalesHistoryLotserial extends BaseSalesHistoryLotserial {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ordernumber'  => 'oehhnbr',
 		'line'         => 'oedhline',
 		'linenbr'      => 'oedhline',
@@ -32,5 +34,5 @@ class SalesHistoryLotserial extends BaseSalesHistoryLotserial {
 		'item'         => 'itemMasterItem',
 		'order'        => 'salesHistory',
 		'orderline'    => 'salesHistoryDetail',
-	);
+	];
 }

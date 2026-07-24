@@ -100,7 +100,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvPriceCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvPriceCodeQuery object.
@@ -158,7 +158,7 @@ abstract class InvPriceCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvPriceCodeTableMap::DATABASE_NAME);
         }
 
@@ -204,7 +204,6 @@ abstract class InvPriceCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvPriceCode $obj */
             $obj = new ChildInvPriceCode();
             $obj->hydrate($row);
             InvPriceCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -245,7 +244,7 @@ abstract class InvPriceCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -304,10 +303,8 @@ abstract class InvPriceCodeQuery extends ModelCriteria
      */
     public function filterByIntbpricgrup($intbpricgrup = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbpricgrup)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbpricgrup)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvPriceCodeTableMap::COL_INTBPRICGRUP, $intbpricgrup, $comparison);
@@ -332,10 +329,8 @@ abstract class InvPriceCodeQuery extends ModelCriteria
      */
     public function filterByIntbpricdesc($intbpricdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbpricdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbpricdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvPriceCodeTableMap::COL_INTBPRICDESC, $intbpricdesc, $comparison);
@@ -360,10 +355,8 @@ abstract class InvPriceCodeQuery extends ModelCriteria
      */
     public function filterByIntbpricsaleprog($intbpricsaleprog = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbpricsaleprog)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbpricsaleprog)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvPriceCodeTableMap::COL_INTBPRICSALEPROG, $intbpricsaleprog, $comparison);
@@ -431,10 +424,8 @@ abstract class InvPriceCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvPriceCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -459,10 +450,8 @@ abstract class InvPriceCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvPriceCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -487,10 +476,8 @@ abstract class InvPriceCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvPriceCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -542,7 +529,7 @@ abstract class InvPriceCodeQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -572,7 +559,7 @@ abstract class InvPriceCodeQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -695,7 +682,7 @@ abstract class InvPriceCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvPriceCodeTableMap::DATABASE_NAME);
         }
 
@@ -725,7 +712,7 @@ abstract class InvPriceCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvPriceCodeTableMap::DATABASE_NAME);
         }
 

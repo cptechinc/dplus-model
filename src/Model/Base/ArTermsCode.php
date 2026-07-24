@@ -32,7 +32,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ArTermsCodeTableMap';
+    public const TABLE_MAP = \Map\ArTermsCodeTableMap::class;
 
 
     /**
@@ -797,7 +797,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -855,7 +855,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -865,7 +864,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -903,8 +901,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -915,7 +911,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -957,9 +952,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -985,7 +978,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, []));
     }
 
     /**
@@ -4019,12 +4012,8 @@ abstract class ArTermsCode implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->artmtermcd !== '') {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->artmtermcd === '';
     }
 
     /**
@@ -4049,304 +4038,304 @@ abstract class ArTermsCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ArTermsCodeTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmtermdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmtermdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmmethod', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmmethod', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmmethod = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmtype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmtype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmexpiredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmfrtallow', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmfrtallow', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmfrtallow = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmccprefix', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmccprefix', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmccprefix = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmsplit1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmorderpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdays1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscday1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedays1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdueday1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusmonths1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusyear1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmsplit2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmorderpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdays2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscday2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedays2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdueday2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusmonths2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusyear2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmsplit3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmorderpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdays3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscday3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedays3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdueday3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusmonths3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusyear3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmsplit4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmorderpct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscpct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdays4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscday4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedays4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdueday4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusmonths4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusyear4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmsplit5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmorderpct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscpct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdays5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscday5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedays5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdueday5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusmonths5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusyear5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmsplit6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmsplit6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmorderpct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmorderpct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscpct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscpct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdays6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdays6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscday6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscday6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdiscdate6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdiscdate6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedays6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedays6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdueday6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdueday6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusmonths6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusmonths6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmduedate6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmduedate6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmplusyear6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmplusyear6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdayfrom1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdayfrom1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdayfrom1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdaythru1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdaythru1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdaythru1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdiscpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscday1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscday1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdiscday1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscmonths1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscmonths1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdiscmonths1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdueday1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdueday1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdueday1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomplusmonths1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomplusmonths1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomplusmonths1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdayfrom2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdayfrom2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdayfrom2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdaythru2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdaythru2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdaythru2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdiscpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscday2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscday2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdiscday2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscmonths2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscmonths2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdiscmonths2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdueday2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdueday2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdueday2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomplusmonths2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomplusmonths2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomplusmonths2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdayfrom3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdayfrom3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdayfrom3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdaythru3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmdaythru3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmdaythru3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdiscpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscday3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscday3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdiscday3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscmonths3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdiscmonths3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdiscmonths3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdueday3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomdueday3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomdueday3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomplusmonths3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 94 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmeomplusmonths3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmeomplusmonths3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 95 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmtermgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 96 + $startcol : ArTermsCodeTableMap::translateFieldName('Artmtermgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : ArTermsCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 97 + $startcol : ArTermsCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : ArTermsCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 98 + $startcol : ArTermsCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : ArTermsCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 99 + $startcol : ArTermsCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -4375,7 +4364,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -4388,7 +4376,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -4401,7 +4388,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -4425,7 +4412,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ArTermsCode::setDeleted()
      * @see ArTermsCode::isDeleted()
@@ -4436,7 +4422,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -4475,18 +4461,14 @@ abstract class ArTermsCode implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTermsCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -4510,7 +4492,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -4542,7 +4523,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -5279,7 +5259,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -5305,9 +5284,8 @@ abstract class ArTermsCode implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ArTermsCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -5760,7 +5738,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -6794,7 +6771,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -6814,7 +6791,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Generic method to set the primary key (artmtermcd column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -6823,8 +6799,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -6841,7 +6815,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -7102,8 +7075,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         return $this;
     }
@@ -7115,13 +7087,11 @@ abstract class ArTermsCode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ArTermsCodeTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ArTermsCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -7130,8 +7100,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -7139,8 +7107,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -7149,8 +7115,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -7158,8 +7122,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -7168,8 +7130,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -7177,8 +7137,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -7187,8 +7145,6 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -7208,7 +7164,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -7220,7 +7176,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -7228,7 +7184,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

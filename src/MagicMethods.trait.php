@@ -51,17 +51,15 @@ trait MagicMethodTraits {
 	 */
 	public function __isset($column) {
 		if (isset($this->$column)) {
-			return isset($this->$column);
-		} else {
-			if (defined(get_class($this)."::COLUMN_ALIASES")) {
-				if (array_key_exists($column, self::COLUMN_ALIASES)) {
+            return isset($this->$column);
+        } elseif (defined(get_class($this)."::COLUMN_ALIASES")) {
+            if (array_key_exists($column, self::COLUMN_ALIASES)) {
 					return true;
 				}
-				return $this->aliasproperty_exists($column);
-			} else {
+            return $this->aliasproperty_exists($column);
+        } else {
 				return false;
 			}
-		}
 	}
 
 	/**
@@ -88,6 +86,7 @@ trait MagicMethodTraits {
 			$this->error("This column or alias ($column) does not exist");
 			return false;
 		}
+        return null;
 	}
 
 	/**
@@ -96,16 +95,16 @@ trait MagicMethodTraits {
 	 * @return string        The Real Property
 	 */
 	public static function get_aliasproperty($alias) {
-		if (property_exists(__CLASS__, $alias)) {
+		if (property_exists(self::class, $alias)) {
 			return $alias;
-		} elseif (defined(__CLASS__."::COLUMN_ALIASES")) {
+		} elseif (defined(self::class."::COLUMN_ALIASES")) {
 			if (array_key_exists($alias, self::COLUMN_ALIASES)) {
 				return self::COLUMN_ALIASES[$alias];
 			}
 
 			// Loop through aliases check if match found with lcfirst
 			$aliases = array_keys(self::COLUMN_ALIASES);
-			foreach ($aliases as $key => $aka) {
+			foreach ($aliases as $aka) {
 				if ($aka === lcfirst($alias)) {
 					return self::COLUMN_ALIASES[$aka];
 				}
@@ -113,7 +112,7 @@ trait MagicMethodTraits {
 		}
 
 		$throwerror = new ThrowError();
-		$throwerror->error(__CLASS__, "This column or alias ($alias) does not exist", debug_backtrace());
+		$throwerror->error(self::class, "This column or alias ($alias) does not exist", debug_backtrace());
 		return false;
 	}
 
@@ -134,16 +133,16 @@ trait MagicMethodTraits {
 	 * @return bool
 	 */
 	public static function aliasproperty_exists($alias) {
-		if (property_exists(__CLASS__, $alias)) {
+		if (property_exists(self::class, $alias)) {
 			return true;
-		} elseif (defined(__CLASS__."::COLUMN_ALIASES")) {
+		} elseif (defined(self::class."::COLUMN_ALIASES")) {
 			if (array_key_exists($alias, self::COLUMN_ALIASES)) {
 				return true;
 			}
 
 			// Loop through aliases check if match found with lcfirst
 			$aliases = array_keys(self::COLUMN_ALIASES);
-			foreach ($aliases as $key => $aka) {
+			foreach ($aliases as $aka) {
 				if ($aka === lcfirst($alias)) {
 					return true;
 				}
@@ -163,8 +162,6 @@ trait MagicMethodTraits {
 	 * @return mixed
 	 */
 	public function __call($name, $arguments) {
-		$method = 'set';
-
 		if ($this->isCallingSet($name)) {
 			return $this->handleSetCall($name, $arguments);
 		}
@@ -173,7 +170,7 @@ trait MagicMethodTraits {
 
 	protected function isCallingSet($name) {
 		$method = 'set';
-		return $method == substr($name, 0, 3);
+		return $method === substr($name, 0, 3);
 	}
 
 	protected function handleSetCall($name, $arguments) {

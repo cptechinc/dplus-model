@@ -422,7 +422,6 @@ class PhoneBookTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -440,30 +439,28 @@ class PhoneBookTableMap extends TableMap
         $this->addPrimaryKey('PhadSubId', 'Phadsubid', 'VARCHAR', true, 6, '');
         $this->addPrimaryKey('PhadSubIdSeq', 'Phadsubidseq', 'INTEGER', true, 1, 0);
         $this->addPrimaryKey('PhadCont', 'Phadcont', 'VARCHAR', true, 20, '');
-        $this->addColumn('PhadIntl', 'Phadintl', 'VARCHAR', false, 1, null);
-        $this->addColumn('PhadTeleNbr', 'Phadtelenbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('PhadTeleExt', 'Phadteleext', 'VARCHAR', false, 7, null);
-        $this->addColumn('PhadIntlNbr', 'Phadintlnbr', 'VARCHAR', false, 22, null);
-        $this->addColumn('PhadIntlExt', 'Phadintlext', 'VARCHAR', false, 7, null);
-        $this->addColumn('PhadFaxNbr', 'Phadfaxnbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('PhadIfaxNbr', 'Phadifaxnbr', 'VARCHAR', false, 22, null);
-        $this->addColumn('PhadCellNbr', 'Phadcellnbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('PhadIcellNbr', 'Phadicellnbr', 'VARCHAR', false, 22, null);
-        $this->addColumn('PhadHomeNbr', 'Phadhomenbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('PhadIhomeNbr', 'Phadihomenbr', 'VARCHAR', false, 22, null);
-        $this->addColumn('PhadWebAddr', 'Phadwebaddr', 'VARCHAR', false, 50, null);
-        $this->addColumn('PhadEmailAddr', 'Phademailaddr', 'VARCHAR', false, 50, null);
-        $this->addColumn('PhadName', 'Phadname', 'VARCHAR', false, 30, null);
-        $this->addColumn('PhadContName', 'Phadcontname', 'VARCHAR', false, 20, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('PhadIntl', 'Phadintl', 'VARCHAR', false, 1);
+        $this->addColumn('PhadTeleNbr', 'Phadtelenbr', 'VARCHAR', false, 10);
+        $this->addColumn('PhadTeleExt', 'Phadteleext', 'VARCHAR', false, 7);
+        $this->addColumn('PhadIntlNbr', 'Phadintlnbr', 'VARCHAR', false, 22);
+        $this->addColumn('PhadIntlExt', 'Phadintlext', 'VARCHAR', false, 7);
+        $this->addColumn('PhadFaxNbr', 'Phadfaxnbr', 'VARCHAR', false, 10);
+        $this->addColumn('PhadIfaxNbr', 'Phadifaxnbr', 'VARCHAR', false, 22);
+        $this->addColumn('PhadCellNbr', 'Phadcellnbr', 'VARCHAR', false, 10);
+        $this->addColumn('PhadIcellNbr', 'Phadicellnbr', 'VARCHAR', false, 22);
+        $this->addColumn('PhadHomeNbr', 'Phadhomenbr', 'VARCHAR', false, 10);
+        $this->addColumn('PhadIhomeNbr', 'Phadihomenbr', 'VARCHAR', false, 22);
+        $this->addColumn('PhadWebAddr', 'Phadwebaddr', 'VARCHAR', false, 50);
+        $this->addColumn('PhadEmailAddr', 'Phademailaddr', 'VARCHAR', false, 50);
+        $this->addColumn('PhadName', 'Phadname', 'VARCHAR', false, 30);
+        $this->addColumn('PhadContName', 'Phadcontname', 'VARCHAR', false, 20);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
@@ -479,8 +476,6 @@ class PhoneBookTableMap extends TableMap
      *
      * @param \PhoneBook $obj A \PhoneBook object.
      * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
-     *
-     * @return void
      */
     public static function addInstanceToPool(PhoneBook $obj, ?string $key = null): void
     {
@@ -501,13 +496,11 @@ class PhoneBookTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \PhoneBook object or a primary key value.
-     *
-     * @return void
      */
     public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \PhoneBook) {
+            if ($value instanceof \PhoneBook) {
                 $key = serialize([(null === $value->getPhadtype() || is_scalar($value->getPhadtype()) || is_callable([$value->getPhadtype(), '__toString']) ? (string) $value->getPhadtype() : $value->getPhadtype()), (null === $value->getPhadid() || is_scalar($value->getPhadid()) || is_callable([$value->getPhadid(), '__toString']) ? (string) $value->getPhadid() : $value->getPhadid()), (null === $value->getPhadsubid() || is_scalar($value->getPhadsubid()) || is_callable([$value->getPhadsubid(), '__toString']) ? (string) $value->getPhadsubid() : $value->getPhadsubid()), (null === $value->getPhadsubidseq() || is_scalar($value->getPhadsubidseq()) || is_callable([$value->getPhadsubidseq(), '__toString']) ? (string) $value->getPhadsubidseq() : $value->getPhadsubidseq()), (null === $value->getPhadcont() || is_scalar($value->getPhadcont()) || is_callable([$value->getPhadcont(), '__toString']) ? (string) $value->getPhadcont() : $value->getPhadcont())]);
 
             } elseif (is_array($value) && count($value) === 5) {
@@ -542,11 +535,11 @@ class PhoneBookTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -563,35 +556,27 @@ class PhoneBookTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
-            $pks = [];
-
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+        return [(string) $row[
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 1 + $offset
                 : self::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 2 + $offset
                 : self::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (int) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (int) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 3 + $offset
                 : self::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
+        ], (string) $row[
+            $indexType === TableMap::TYPE_NUM
                 ? 4 + $offset
                 : self::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-
-        return $pks;
+        ]];
     }
 
     /**
@@ -646,7 +631,6 @@ class PhoneBookTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -687,7 +671,6 @@ class PhoneBookTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -752,7 +735,6 @@ class PhoneBookTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -810,7 +792,6 @@ class PhoneBookTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -832,7 +813,7 @@ class PhoneBookTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PhoneBookTableMap::DATABASE_NAME);
         }
 
@@ -846,7 +827,7 @@ class PhoneBookTableMap extends TableMap
             $criteria = new Criteria(PhoneBookTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
-            if (count($values) == count($values, COUNT_RECURSIVE)) {
+            if (count($values) === count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
                 $values = [$values];
             }
@@ -895,7 +876,7 @@ class PhoneBookTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PhoneBookTableMap::DATABASE_NAME);
         }
 
@@ -911,9 +892,7 @@ class PhoneBookTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

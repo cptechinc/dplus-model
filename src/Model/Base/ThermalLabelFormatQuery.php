@@ -122,7 +122,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ThermalLabelFormatQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ThermalLabelFormatQuery object.
@@ -180,7 +180,7 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ThermalLabelFormatTableMap::DATABASE_NAME);
         }
 
@@ -226,7 +226,6 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildThermalLabelFormat $obj */
             $obj = new ChildThermalLabelFormat();
             $obj->hydrate($row);
             ThermalLabelFormatTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -267,7 +266,7 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -326,10 +325,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByTllhformat($tllhformat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($tllhformat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($tllhformat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHFORMAT, $tllhformat, $comparison);
@@ -354,10 +351,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByTllhdesc($tllhdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($tllhdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($tllhdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHDESC, $tllhdesc, $comparison);
@@ -382,10 +377,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByTllhsrc($tllhsrc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($tllhsrc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($tllhsrc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHSRC, $tllhsrc, $comparison);
@@ -410,10 +403,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByTllhprtrmodl($tllhprtrmodl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($tllhprtrmodl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($tllhprtrmodl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHPRTRMODL, $tllhprtrmodl, $comparison);
@@ -438,10 +429,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByTllhprtrsplr($tllhprtrsplr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($tllhprtrsplr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($tllhprtrsplr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHPRTRSPLR, $tllhprtrsplr, $comparison);
@@ -552,10 +541,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByTllhlock($tllhlock = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($tllhlock)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($tllhlock)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHLOCK, $tllhlock, $comparison);
@@ -623,10 +610,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByTllhtype($tllhtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($tllhtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($tllhtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHTYPE, $tllhtype, $comparison);
@@ -651,10 +636,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -679,10 +662,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -707,10 +688,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ThermalLabelFormatTableMap::COL_DUMMY, $dummy, $comparison);
@@ -742,7 +721,7 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ThermalLabelFormatTableMap::DATABASE_NAME);
         }
 
@@ -772,7 +751,7 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ThermalLabelFormatTableMap::DATABASE_NAME);
         }
 

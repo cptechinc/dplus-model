@@ -182,7 +182,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class PhoneBookQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\PhoneBookQuery object.
@@ -240,7 +240,7 @@ abstract class PhoneBookQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(PhoneBookTableMap::DATABASE_NAME);
         }
 
@@ -290,7 +290,6 @@ abstract class PhoneBookQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildPhoneBook $obj */
             $obj = new ChildPhoneBook();
             $obj->hydrate($row);
             PhoneBookTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4])]));
@@ -331,7 +330,7 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -408,10 +407,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadtype($phadtype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadtype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadtype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADTYPE, $phadtype, $comparison);
@@ -436,10 +433,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadid($phadid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADID, $phadid, $comparison);
@@ -464,10 +459,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadsubid($phadsubid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadsubid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadsubid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADSUBID, $phadsubid, $comparison);
@@ -535,10 +528,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadcont($phadcont = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadcont)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadcont)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADCONT, $phadcont, $comparison);
@@ -563,10 +554,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadintl($phadintl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadintl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadintl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADINTL, $phadintl, $comparison);
@@ -591,10 +580,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadtelenbr($phadtelenbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadtelenbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadtelenbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADTELENBR, $phadtelenbr, $comparison);
@@ -619,10 +606,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadteleext($phadteleext = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadteleext)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadteleext)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADTELEEXT, $phadteleext, $comparison);
@@ -647,10 +632,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadintlnbr($phadintlnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadintlnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadintlnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADINTLNBR, $phadintlnbr, $comparison);
@@ -675,10 +658,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadintlext($phadintlext = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadintlext)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadintlext)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADINTLEXT, $phadintlext, $comparison);
@@ -703,10 +684,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadfaxnbr($phadfaxnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadfaxnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadfaxnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADFAXNBR, $phadfaxnbr, $comparison);
@@ -731,10 +710,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadifaxnbr($phadifaxnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadifaxnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadifaxnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADIFAXNBR, $phadifaxnbr, $comparison);
@@ -759,10 +736,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadcellnbr($phadcellnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadcellnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadcellnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADCELLNBR, $phadcellnbr, $comparison);
@@ -787,10 +762,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadicellnbr($phadicellnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadicellnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadicellnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADICELLNBR, $phadicellnbr, $comparison);
@@ -815,10 +788,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadhomenbr($phadhomenbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadhomenbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadhomenbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADHOMENBR, $phadhomenbr, $comparison);
@@ -843,10 +814,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadihomenbr($phadihomenbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadihomenbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadihomenbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADIHOMENBR, $phadihomenbr, $comparison);
@@ -871,10 +840,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadwebaddr($phadwebaddr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadwebaddr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadwebaddr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADWEBADDR, $phadwebaddr, $comparison);
@@ -899,10 +866,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhademailaddr($phademailaddr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phademailaddr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phademailaddr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADEMAILADDR, $phademailaddr, $comparison);
@@ -927,10 +892,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadname($phadname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADNAME, $phadname, $comparison);
@@ -955,10 +918,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByPhadcontname($phadcontname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($phadcontname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($phadcontname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_PHADCONTNAME, $phadcontname, $comparison);
@@ -983,10 +944,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1011,10 +970,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1039,10 +996,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(PhoneBookTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1065,7 +1020,7 @@ abstract class PhoneBookQuery extends ModelCriteria
             $this->addCond('pruneCond2', $this->getAliasedColName(PhoneBookTableMap::COL_PHADSUBID), $phoneBook->getPhadsubid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(PhoneBookTableMap::COL_PHADSUBIDSEQ), $phoneBook->getPhadsubidseq(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond4', $this->getAliasedColName(PhoneBookTableMap::COL_PHADCONT), $phoneBook->getPhadcont(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1079,7 +1034,7 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PhoneBookTableMap::DATABASE_NAME);
         }
 
@@ -1109,7 +1064,7 @@ abstract class PhoneBookQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(PhoneBookTableMap::DATABASE_NAME);
         }
 

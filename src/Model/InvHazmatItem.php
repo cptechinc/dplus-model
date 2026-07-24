@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvHazmatItem as BaseInvHazmatItem;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -29,7 +31,7 @@ class InvHazmatItem extends BaseInvHazmatItem {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid' => 'inititemnbr',
 		'dot1'   => 'inhzdot1',
 		'dot2'   => 'inhzdot2',
@@ -41,7 +43,7 @@ class InvHazmatItem extends BaseInvHazmatItem {
 		'allowair' => 'inhzairyn',
 		'date'   => 'dateupdtd',
 		'time'   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return if Itemid is allowed Air Travel

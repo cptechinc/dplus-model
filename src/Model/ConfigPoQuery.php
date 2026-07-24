@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigPoQuery as BaseConfigPoQuery;
 
 use Dplus\Model\QueryTraits;

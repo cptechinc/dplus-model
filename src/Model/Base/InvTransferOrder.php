@@ -54,7 +54,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\InvTransferOrderTableMap';
+    public const TABLE_MAP = \Map\InvTransferOrderTableMap::class;
 
 
     /**
@@ -421,28 +421,28 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvTransferDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferDetail>
      */
-    protected $invTransferDetailsScheduledForDeletion = null;
+    protected $invTransferDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferLotserial>
      */
-    protected $invTransferLotserialsScheduledForDeletion = null;
+    protected $invTransferLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferPreAllocatedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial>
      */
-    protected $invTransferPreAllocatedLotserialsScheduledForDeletion = null;
+    protected $invTransferPreAllocatedLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferPickedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPickedLotserial>
      */
-    protected $invTransferPickedLotserialsScheduledForDeletion = null;
+    protected $invTransferPickedLotserialsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -504,7 +504,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -562,7 +562,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -572,7 +571,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -610,8 +608,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -622,7 +618,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -664,9 +659,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -692,7 +685,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1901,13 +1894,8 @@ abstract class InvTransferOrder implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -1932,106 +1920,106 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : InvTransferOrderTableMap::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvTransferOrderTableMap::translateFieldName('Intbwhsefrom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : InvTransferOrderTableMap::translateFieldName('Intbwhsefrom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsefrom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvTransferOrderTableMap::translateFieldName('Intbwhseto', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : InvTransferOrderTableMap::translateFieldName('Intbwhseto', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseto = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvTransferOrderTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : InvTransferOrderTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbshipvia = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdentdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdentdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdentdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpickdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpickdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdpickdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpicktime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpicktime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdpicktime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdtimespick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdtimespick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdtimespick = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdcrntuser', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdcrntuser', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdcrntuser = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvTransferOrderTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : InvTransferOrderTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvTransferOrderTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : InvTransferOrderTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstshipid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhddept', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhddept', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhddept = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpllt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpllt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdpllt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdcntrqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdwghttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdwghttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdwghttot = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdtracknbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdtracknbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdtracknbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpickqueue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpickqueue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdpickqueue = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdshipqueue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdshipqueue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdshipqueue = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvTransferOrderTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : InvTransferOrderTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdftvend', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdftvend', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdftvend = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdtrantype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdtrantype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdtrantype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdfrtcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpickcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpickcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdpickcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpackcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdpackcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdpackcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdlabel1prtfmt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdlabel1prtfmt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdlabel1prtfmt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdenteredby', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdenteredby', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdenteredby = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdentereddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdentereddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdentereddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdenteredtime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : InvTransferOrderTableMap::translateFieldName('Inhdenteredtime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inhdenteredtime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : InvTransferOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : InvTransferOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : InvTransferOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : InvTransferOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : InvTransferOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : InvTransferOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -2060,7 +2048,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -2091,7 +2078,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -2104,7 +2090,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvTransferOrderTableMap::DATABASE_NAME);
         }
 
@@ -2141,7 +2127,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see InvTransferOrder::setDeleted()
      * @see InvTransferOrder::isDeleted()
@@ -2152,7 +2137,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferOrderTableMap::DATABASE_NAME);
         }
 
@@ -2191,18 +2176,14 @@ abstract class InvTransferOrder implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferOrderTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2226,7 +2207,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2288,13 +2268,11 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->invTransferDetailsScheduledForDeletion !== null) {
-                if (!$this->invTransferDetailsScheduledForDeletion->isEmpty()) {
-                    \InvTransferDetailQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferDetailsScheduledForDeletion = null;
-                }
+            if ($this->invTransferDetailsScheduledForDeletion !== null && !$this->invTransferDetailsScheduledForDeletion->isEmpty()) {
+                \InvTransferDetailQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferDetailsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferDetails !== null) {
@@ -2305,13 +2283,11 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferLotserialsScheduledForDeletion !== null) {
-                if (!$this->invTransferLotserialsScheduledForDeletion->isEmpty()) {
-                    \InvTransferLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferLotserialsScheduledForDeletion = null;
-                }
+            if ($this->invTransferLotserialsScheduledForDeletion !== null && !$this->invTransferLotserialsScheduledForDeletion->isEmpty()) {
+                \InvTransferLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferLotserials !== null) {
@@ -2322,13 +2298,11 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion !== null) {
-                if (!$this->invTransferPreAllocatedLotserialsScheduledForDeletion->isEmpty()) {
-                    \InvTransferPreAllocatedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferPreAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferPreAllocatedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion !== null && !$this->invTransferPreAllocatedLotserialsScheduledForDeletion->isEmpty()) {
+                \InvTransferPreAllocatedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferPreAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferPreAllocatedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferPreAllocatedLotserials !== null) {
@@ -2339,13 +2313,11 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferPickedLotserialsScheduledForDeletion !== null) {
-                if (!$this->invTransferPickedLotserialsScheduledForDeletion->isEmpty()) {
-                    \InvTransferPickedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferPickedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->invTransferPickedLotserialsScheduledForDeletion !== null && !$this->invTransferPickedLotserialsScheduledForDeletion->isEmpty()) {
+                \InvTransferPickedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferPickedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferPickedLotserials !== null) {
@@ -2366,7 +2338,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2641,7 +2612,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2667,9 +2637,8 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = InvTransferOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2996,7 +2965,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3436,7 +3404,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -3456,7 +3424,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * Generic method to set the primary key (inhdnbr column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -3465,8 +3432,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3483,7 +3448,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3583,13 +3547,12 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildWarehouse object.
      *
-     * @param ChildWarehouse $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setWarehouseRelatedByIntbwhsefrom(ChildWarehouse $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Warehouse) {
             $this->setIntbwhsefrom('');
         } else {
             $this->setIntbwhsefrom($v->getIntbwhse());
@@ -3599,7 +3562,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildWarehouse object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Warehouse) {
             $v->addInvTransferOrderRelatedByIntbwhsefrom($this);
         }
 
@@ -3634,13 +3597,12 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildWarehouse object.
      *
-     * @param ChildWarehouse $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setWarehouseRelatedByIntbwhseto(ChildWarehouse $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Warehouse) {
             $this->setIntbwhseto('');
         } else {
             $this->setIntbwhseto($v->getIntbwhse());
@@ -3650,7 +3612,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildWarehouse object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Warehouse) {
             $v->addInvTransferOrderRelatedByIntbwhseto($this);
         }
 
@@ -3685,13 +3647,12 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param ChildCustomer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -3701,7 +3662,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->addInvTransferOrder($this);
         }
 
@@ -3736,19 +3697,18 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomerShipto object.
      *
-     * @param ChildCustomerShipto $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomerShipto(ChildCustomerShipto $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \CustomerShipto) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
         }
 
-        if ($v === null) {
+        if (!$v instanceof \CustomerShipto) {
             $this->setArstshipid('');
         } else {
             $this->setArstshipid($v->getArstshipid());
@@ -3758,7 +3718,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomerShipto object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \CustomerShipto) {
             $v->addInvTransferOrder($this);
         }
 
@@ -3777,7 +3737,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function getCustomerShipto(?ConnectionInterface $con = null)
     {
         if ($this->aCustomerShipto === null && (($this->arcucustid !== "" && $this->arcucustid !== null) && ($this->arstshipid !== "" && $this->arstshipid !== null))) {
-            $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk(array($this->arcucustid, $this->arstshipid), $con);
+            $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk([$this->arcucustid, $this->arstshipid], $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -3793,13 +3753,12 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildVendor object.
      *
-     * @param ChildVendor $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setVendor(ChildVendor $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Vendor) {
             $this->setApvevendid('');
         } else {
             $this->setApvevendid($v->getApvevendid());
@@ -3809,7 +3768,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildVendor object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Vendor) {
             $v->addInvTransferOrder($this);
         }
 
@@ -3850,7 +3809,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -3890,8 +3848,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferDetails($v = true): void
     {
@@ -3907,8 +3863,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferDetails(bool $overrideExisting = true): void
     {
@@ -3940,7 +3894,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function getInvTransferDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferDetailsPartial && !$this->isNew();
-        if (null === $this->collInvTransferDetails || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferDetails) {
@@ -3958,7 +3912,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                     ->filterByInvTransferOrder($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferDetailsPartial && count($collInvTransferDetails)) {
                         $this->initInvTransferDetails(false);
 
@@ -4012,7 +3966,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
         $this->invTransferDetailsScheduledForDeletion = clone $invTransferDetailsToDelete;
 
         foreach ($invTransferDetailsToDelete as $invTransferDetailRemoved) {
-            $invTransferDetailRemoved->setInvTransferOrder(null);
+            $invTransferDetailRemoved->setInvTransferOrder();
         }
 
         $this->collInvTransferDetails = null;
@@ -4030,7 +3984,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * Returns the number of related InvTransferDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4038,7 +3991,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function countInvTransferDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferDetailsPartial && !$this->isNew();
-        if (null === $this->collInvTransferDetails || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferDetails) {
                 return 0;
             }
@@ -4077,7 +4030,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
         if (!$this->collInvTransferDetails->contains($l)) {
             $this->doAddInvTransferDetail($l);
 
-            if ($this->invTransferDetailsScheduledForDeletion and $this->invTransferDetailsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferDetailsScheduledForDeletion && $this->invTransferDetailsScheduledForDeletion->contains($l)) {
                 $this->invTransferDetailsScheduledForDeletion->remove($this->invTransferDetailsScheduledForDeletion->search($l));
             }
         }
@@ -4108,7 +4061,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                 $this->invTransferDetailsScheduledForDeletion->clear();
             }
             $this->invTransferDetailsScheduledForDeletion[]= clone $invTransferDetail;
-            $invTransferDetail->setInvTransferOrder(null);
+            $invTransferDetail->setInvTransferOrder();
         }
 
         return $this;
@@ -4158,8 +4111,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferLotserials($v = true): void
     {
@@ -4175,8 +4126,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferLotserials(bool $overrideExisting = true): void
     {
@@ -4208,7 +4157,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function getInvTransferLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferLotserials) {
@@ -4226,7 +4175,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                     ->filterByInvTransferOrder($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferLotserialsPartial && count($collInvTransferLotserials)) {
                         $this->initInvTransferLotserials(false);
 
@@ -4280,7 +4229,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
         $this->invTransferLotserialsScheduledForDeletion = clone $invTransferLotserialsToDelete;
 
         foreach ($invTransferLotserialsToDelete as $invTransferLotserialRemoved) {
-            $invTransferLotserialRemoved->setInvTransferOrder(null);
+            $invTransferLotserialRemoved->setInvTransferOrder();
         }
 
         $this->collInvTransferLotserials = null;
@@ -4298,7 +4247,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * Returns the number of related InvTransferLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4306,7 +4254,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function countInvTransferLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferLotserials) {
                 return 0;
             }
@@ -4345,7 +4293,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
         if (!$this->collInvTransferLotserials->contains($l)) {
             $this->doAddInvTransferLotserial($l);
 
-            if ($this->invTransferLotserialsScheduledForDeletion and $this->invTransferLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferLotserialsScheduledForDeletion && $this->invTransferLotserialsScheduledForDeletion->contains($l)) {
                 $this->invTransferLotserialsScheduledForDeletion->remove($this->invTransferLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -4376,7 +4324,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                 $this->invTransferLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferLotserialsScheduledForDeletion[]= clone $invTransferLotserial;
-            $invTransferLotserial->setInvTransferOrder(null);
+            $invTransferLotserial->setInvTransferOrder();
         }
 
         return $this;
@@ -4504,8 +4452,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferPreAllocatedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferPreAllocatedLotserials($v = true): void
     {
@@ -4521,8 +4467,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferPreAllocatedLotserials(bool $overrideExisting = true): void
     {
@@ -4554,7 +4498,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function getInvTransferPreAllocatedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferPreAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPreAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPreAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferPreAllocatedLotserials) {
@@ -4572,7 +4516,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                     ->filterByInvTransferOrder($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferPreAllocatedLotserialsPartial && count($collInvTransferPreAllocatedLotserials)) {
                         $this->initInvTransferPreAllocatedLotserials(false);
 
@@ -4626,7 +4570,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
         $this->invTransferPreAllocatedLotserialsScheduledForDeletion = clone $invTransferPreAllocatedLotserialsToDelete;
 
         foreach ($invTransferPreAllocatedLotserialsToDelete as $invTransferPreAllocatedLotserialRemoved) {
-            $invTransferPreAllocatedLotserialRemoved->setInvTransferOrder(null);
+            $invTransferPreAllocatedLotserialRemoved->setInvTransferOrder();
         }
 
         $this->collInvTransferPreAllocatedLotserials = null;
@@ -4644,7 +4588,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * Returns the number of related InvTransferPreAllocatedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferPreAllocatedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4652,7 +4595,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function countInvTransferPreAllocatedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferPreAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPreAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPreAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferPreAllocatedLotserials) {
                 return 0;
             }
@@ -4691,7 +4634,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
         if (!$this->collInvTransferPreAllocatedLotserials->contains($l)) {
             $this->doAddInvTransferPreAllocatedLotserial($l);
 
-            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion and $this->invTransferPreAllocatedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferPreAllocatedLotserialsScheduledForDeletion && $this->invTransferPreAllocatedLotserialsScheduledForDeletion->contains($l)) {
                 $this->invTransferPreAllocatedLotserialsScheduledForDeletion->remove($this->invTransferPreAllocatedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -4722,7 +4665,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                 $this->invTransferPreAllocatedLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferPreAllocatedLotserialsScheduledForDeletion[]= clone $invTransferPreAllocatedLotserial;
-            $invTransferPreAllocatedLotserial->setInvTransferOrder(null);
+            $invTransferPreAllocatedLotserial->setInvTransferOrder();
         }
 
         return $this;
@@ -4850,8 +4793,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferPickedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferPickedLotserials($v = true): void
     {
@@ -4867,8 +4808,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferPickedLotserials(bool $overrideExisting = true): void
     {
@@ -4900,7 +4839,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function getInvTransferPickedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferPickedLotserials) {
@@ -4918,7 +4857,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                     ->filterByInvTransferOrder($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferPickedLotserialsPartial && count($collInvTransferPickedLotserials)) {
                         $this->initInvTransferPickedLotserials(false);
 
@@ -4972,7 +4911,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
         $this->invTransferPickedLotserialsScheduledForDeletion = clone $invTransferPickedLotserialsToDelete;
 
         foreach ($invTransferPickedLotserialsToDelete as $invTransferPickedLotserialRemoved) {
-            $invTransferPickedLotserialRemoved->setInvTransferOrder(null);
+            $invTransferPickedLotserialRemoved->setInvTransferOrder();
         }
 
         $this->collInvTransferPickedLotserials = null;
@@ -4990,7 +4929,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      * Returns the number of related InvTransferPickedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferPickedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -4998,7 +4936,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
     public function countInvTransferPickedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferPickedLotserials) {
                 return 0;
             }
@@ -5037,7 +4975,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
         if (!$this->collInvTransferPickedLotserials->contains($l)) {
             $this->doAddInvTransferPickedLotserial($l);
 
-            if ($this->invTransferPickedLotserialsScheduledForDeletion and $this->invTransferPickedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->invTransferPickedLotserialsScheduledForDeletion && $this->invTransferPickedLotserialsScheduledForDeletion->contains($l)) {
                 $this->invTransferPickedLotserialsScheduledForDeletion->remove($this->invTransferPickedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -5068,7 +5006,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
                 $this->invTransferPickedLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferPickedLotserialsScheduledForDeletion[]= clone $invTransferPickedLotserial;
-            $invTransferPickedLotserial->setInvTransferOrder(null);
+            $invTransferPickedLotserial->setInvTransferOrder();
         }
 
         return $this;
@@ -5299,13 +5237,11 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(InvTransferOrderTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(InvTransferOrderTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -5314,8 +5250,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -5323,8 +5257,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -5333,8 +5265,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -5342,8 +5272,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -5352,8 +5280,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -5361,8 +5287,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -5371,8 +5295,6 @@ abstract class InvTransferOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -5392,7 +5314,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -5404,7 +5326,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -5412,7 +5334,7 @@ abstract class InvTransferOrder implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

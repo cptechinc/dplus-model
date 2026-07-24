@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\BookingQuery as BaseBookingQuery;
 use Dplus\Model\QueryTraits;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SalespersonGroupCode as BaseSalespersonGroupCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,13 +21,13 @@ class SalespersonGroupCode extends BaseSalespersonGroupCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'		   => 'artbspgpcode',
 		'code'		   => 'artbspgpcode',
 		'description'  => 'artbspgpdesc',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code

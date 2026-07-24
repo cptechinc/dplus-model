@@ -24,7 +24,7 @@ class NotePredefined extends BaseNotePredefined {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'         => 'qntype',
 		'description'  => 'qntypedesc',
 		'id'           => 'qnpdntcode',
@@ -36,7 +36,7 @@ class NotePredefined extends BaseNotePredefined {
 		'form'         => 'qnform',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Sets Form

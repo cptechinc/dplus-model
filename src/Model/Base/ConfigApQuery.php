@@ -530,7 +530,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ConfigApQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ConfigApQuery object.
@@ -588,7 +588,7 @@ abstract class ConfigApQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigApTableMap::DATABASE_NAME);
         }
 
@@ -634,7 +634,6 @@ abstract class ConfigApQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildConfigAp $obj */
             $obj = new ChildConfigAp();
             $obj->hydrate($row);
             ConfigApTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -675,7 +674,7 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -777,10 +776,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfglifac($aptbconfglifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfglifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfglifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFGLIFAC, $aptbconfglifac, $comparison);
@@ -805,10 +802,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfinifac($aptbconfinifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfinifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfinifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFINIFAC, $aptbconfinifac, $comparison);
@@ -833,10 +828,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfsoifac($aptbconfsoifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfsoifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfsoifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSOIFAC, $aptbconfsoifac, $comparison);
@@ -861,10 +854,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfpoifac($aptbconfpoifac = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfpoifac)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfpoifac)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPOIFAC, $aptbconfpoifac, $comparison);
@@ -889,10 +880,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconffrtacct($aptbconffrtacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconffrtacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconffrtacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFFRTACCT, $aptbconffrtacct, $comparison);
@@ -917,10 +906,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfmiscacct($aptbconfmiscacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfmiscacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfmiscacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMISCACCT, $aptbconfmiscacct, $comparison);
@@ -945,10 +932,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfapacct($aptbconfapacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfapacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfapacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFAPACCT, $aptbconfapacct, $comparison);
@@ -973,10 +958,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfcashacct($aptbconfcashacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfcashacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfcashacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFCASHACCT, $aptbconfcashacct, $comparison);
@@ -1001,10 +984,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfdiscacct($aptbconfdiscacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfdiscacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfdiscacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDISCACCT, $aptbconfdiscacct, $comparison);
@@ -1029,10 +1010,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconftaxacct($aptbconftaxacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconftaxacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconftaxacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFTAXACCT, $aptbconftaxacct, $comparison);
@@ -1057,10 +1036,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfpuracct($aptbconfpuracct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfpuracct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfpuracct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPURACCT, $aptbconfpuracct, $comparison);
@@ -1085,10 +1062,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvaracct($aptbconfvaracct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvaracct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvaracct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVARACCT, $aptbconfvaracct, $comparison);
@@ -1113,10 +1088,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvenddisc($aptbconfvenddisc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvenddisc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvenddisc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDDISC, $aptbconfvenddisc, $comparison);
@@ -1141,10 +1114,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfapinvvaracct($aptbconfapinvvaracct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfapinvvaracct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfapinvvaracct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFAPINVVARACCT, $aptbconfapinvvaracct, $comparison);
@@ -1169,10 +1140,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfuseroyal($aptbconfuseroyal = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfuseroyal)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfuseroyal)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFUSEROYAL, $aptbconfuseroyal, $comparison);
@@ -1197,10 +1166,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfdefbuyrcode($aptbconfdefbuyrcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfdefbuyrcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfdefbuyrcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFBUYRCODE, $aptbconfdefbuyrcode, $comparison);
@@ -1225,10 +1192,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfdeftermcode($aptbconfdeftermcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfdeftermcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfdeftermcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFTERMCODE, $aptbconfdeftermcode, $comparison);
@@ -1253,10 +1218,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfdefsviacode($aptbconfdefsviacode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfdefsviacode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfdefsviacode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFSVIACODE, $aptbconfdefsviacode, $comparison);
@@ -1281,10 +1244,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfdeftypecode($aptbconfdeftypecode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfdeftypecode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfdeftypecode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFTYPECODE, $aptbconfdeftypecode, $comparison);
@@ -1524,10 +1485,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfpaytoshipfr($aptbconfpaytoshipfr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfpaytoshipfr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfpaytoshipfr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPAYTOSHIPFR, $aptbconfpaytoshipfr, $comparison);
@@ -1552,10 +1511,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfholdstat($aptbconfholdstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfholdstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfholdstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFHOLDSTAT, $aptbconfholdstat, $comparison);
@@ -1580,10 +1537,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfdiscret($aptbconfdiscret = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfdiscret)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfdiscret)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDISCRET, $aptbconfdiscret, $comparison);
@@ -1780,10 +1735,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconf1099name($aptbconf1099name = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconf1099name)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconf1099name)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099NAME, $aptbconf1099name, $comparison);
@@ -1808,10 +1761,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconf1099adr1($aptbconf1099adr1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconf1099adr1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconf1099adr1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ADR1, $aptbconf1099adr1, $comparison);
@@ -1836,10 +1787,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconf1099adr2($aptbconf1099adr2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconf1099adr2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconf1099adr2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ADR2, $aptbconf1099adr2, $comparison);
@@ -1864,10 +1813,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconf1099adr3($aptbconf1099adr3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconf1099adr3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconf1099adr3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ADR3, $aptbconf1099adr3, $comparison);
@@ -1892,10 +1839,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconf1099city($aptbconf1099city = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconf1099city)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconf1099city)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099CITY, $aptbconf1099city, $comparison);
@@ -1920,10 +1865,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconf1099stat($aptbconf1099stat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconf1099stat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconf1099stat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099STAT, $aptbconf1099stat, $comparison);
@@ -1948,10 +1891,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconf1099zipcode($aptbconf1099zipcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconf1099zipcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconf1099zipcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ZIPCODE, $aptbconf1099zipcode, $comparison);
@@ -1976,10 +1917,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconf1099id($aptbconf1099id = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconf1099id)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconf1099id)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ID, $aptbconf1099id, $comparison);
@@ -2004,10 +1943,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfstubsort($aptbconfstubsort = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfstubsort)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfstubsort)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSTUBSORT, $aptbconfstubsort, $comparison);
@@ -2032,10 +1969,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbConfUseAch($aptbConfUseAch = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbConfUseAch)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbConfUseAch)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFUSEACH, $aptbConfUseAch, $comparison);
@@ -2146,10 +2081,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfprtchk($aptbconfprtchk = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfprtchk)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfprtchk)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPRTCHK, $aptbconfprtchk, $comparison);
@@ -2174,10 +2107,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfeiunrecqty($aptbconfeiunrecqty = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfeiunrecqty)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfeiunrecqty)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIUNRECQTY, $aptbconfeiunrecqty, $comparison);
@@ -2202,10 +2133,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfeirecqtyask($aptbconfeirecqtyask = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfeirecqtyask)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfeirecqtyask)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIRECQTYASK, $aptbconfeirecqtyask, $comparison);
@@ -2230,10 +2159,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfeirecqtydef($aptbconfeirecqtydef = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfeirecqtydef)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfeirecqtydef)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIRECQTYDEF, $aptbconfeirecqtydef, $comparison);
@@ -2258,10 +2185,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfallowmultpos($aptbconfallowmultpos = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfallowmultpos)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfallowmultpos)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFALLOWMULTPOS, $aptbconfallowmultpos, $comparison);
@@ -2286,10 +2211,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfeibyclerk($aptbconfeibyclerk = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfeibyclerk)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfeibyclerk)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIBYCLERK, $aptbconfeibyclerk, $comparison);
@@ -2314,10 +2237,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfeibatchproc($aptbconfeibatchproc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfeibatchproc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfeibatchproc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIBATCHPROC, $aptbconfeibatchproc, $comparison);
@@ -2342,10 +2263,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfeidispstancost($aptbconfeidispstancost = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfeidispstancost)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfeidispstancost)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIDISPSTANCOST, $aptbconfeidispstancost, $comparison);
@@ -2370,10 +2289,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfeiassetacctchg($aptbconfeiassetacctchg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfeiassetacctchg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfeiassetacctchg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIASSETACCTCHG, $aptbconfeiassetacctchg, $comparison);
@@ -2398,10 +2315,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfallowdupinvc($aptbconfallowdupinvc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfallowdupinvc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfallowdupinvc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFALLOWDUPINVC, $aptbconfallowdupinvc, $comparison);
@@ -2426,10 +2341,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfprtsorept($aptbconfprtsorept = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfprtsorept)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfprtsorept)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPRTSOREPT, $aptbconfprtsorept, $comparison);
@@ -2454,10 +2367,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfeicheckhist($aptbconfeicheckhist = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfeicheckhist)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfeicheckhist)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEICHECKHIST, $aptbconfeicheckhist, $comparison);
@@ -2482,10 +2393,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfsummgl($aptbconfsummgl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfsummgl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfsummgl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSUMMGL, $aptbconfsummgl, $comparison);
@@ -2510,10 +2419,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvxmuserlabel($aptbconfvxmuserlabel = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvxmuserlabel)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvxmuserlabel)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMUSERLABEL, $aptbconfvxmuserlabel, $comparison);
@@ -2538,10 +2445,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvendcostbreaks($aptbconfvendcostbreaks = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvendcostbreaks)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvendcostbreaks)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDCOSTBREAKS, $aptbconfvendcostbreaks, $comparison);
@@ -2566,10 +2471,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfmyeclrclospo($aptbconfmyeclrclospo = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfmyeclrclospo)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfmyeclrclospo)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCLOSPO, $aptbconfmyeclrclospo, $comparison);
@@ -2594,10 +2497,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfmyeclrclosdate($aptbconfmyeclrclosdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfmyeclrclosdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfmyeclrclosdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCLOSDATE, $aptbconfmyeclrclosdate, $comparison);
@@ -2622,10 +2523,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfmyeclrpohist($aptbconfmyeclrpohist = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfmyeclrpohist)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfmyeclrpohist)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRPOHIST, $aptbconfmyeclrpohist, $comparison);
@@ -2650,10 +2549,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfmyeclrpodate($aptbconfmyeclrpodate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfmyeclrpodate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfmyeclrpodate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRPODATE, $aptbconfmyeclrpodate, $comparison);
@@ -2678,10 +2575,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfmyeclrckhist($aptbconfmyeclrckhist = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfmyeclrckhist)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfmyeclrckhist)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCKHIST, $aptbconfmyeclrckhist, $comparison);
@@ -2706,10 +2601,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfmyeclrckdate($aptbconfmyeclrckdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfmyeclrckdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfmyeclrckdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCKDATE, $aptbconfmyeclrckdate, $comparison);
@@ -2734,10 +2627,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfmyeclropenck($aptbconfmyeclropenck = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfmyeclropenck)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfmyeclropenck)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLROPENCK, $aptbconfmyeclropenck, $comparison);
@@ -2762,10 +2653,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconflead($aptbconflead = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconflead)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconflead)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFLEAD, $aptbconflead, $comparison);
@@ -2790,10 +2679,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvrreworkitem($aptbconfvrreworkitem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvrreworkitem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvrreworkitem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVRREWORKITEM, $aptbconfvrreworkitem, $comparison);
@@ -2818,10 +2705,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvrqcwhse($aptbconfvrqcwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvrqcwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvrqcwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVRQCWHSE, $aptbconfvrqcwhse, $comparison);
@@ -2846,10 +2731,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvrglacct($aptbconfvrglacct = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvrglacct)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvrglacct)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVRGLACCT, $aptbconfvrglacct, $comparison);
@@ -2874,10 +2757,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvxmlistpc($aptbconfvxmlistpc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvxmlistpc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvxmlistpc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMLISTPC, $aptbconfvxmlistpc, $comparison);
@@ -2902,10 +2783,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvxmlistitemupd($aptbconfvxmlistitemupd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvxmlistitemupd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvxmlistitemupd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMLISTITEMUPD, $aptbconfvxmlistitemupd, $comparison);
@@ -2930,10 +2809,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvxmgrosslc($aptbconfvxmgrosslc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvxmgrosslc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvxmgrosslc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMGROSSLC, $aptbconfvxmgrosslc, $comparison);
@@ -2958,10 +2835,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvxmcostlp($aptbconfvxmcostlp = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvxmcostlp)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvxmcostlp)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTLP, $aptbconfvxmcostlp, $comparison);
@@ -2986,10 +2861,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvxmcostitemupd($aptbconfvxmcostitemupd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvxmcostitemupd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvxmcostitemupd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPD, $aptbconfvxmcostitemupd, $comparison);
@@ -3014,10 +2887,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvxmcostrmesg($aptbconfvxmcostrmesg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvxmcostrmesg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvxmcostrmesg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTRMESG, $aptbconfvxmcostrmesg, $comparison);
@@ -3042,10 +2913,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvxmcostitemupdm($aptbconfvxmcostitemupdm = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvxmcostitemupdm)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvxmcostitemupdm)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPDM, $aptbconfvxmcostitemupdm, $comparison);
@@ -3070,10 +2939,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByAptbconfvxmcostmmesg($aptbconfvxmcostmmesg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbconfvxmcostmmesg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbconfvxmcostmmesg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTMMESG, $aptbconfvxmcostmmesg, $comparison);
@@ -3098,10 +2965,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -3126,10 +2991,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -3154,10 +3017,8 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ConfigApTableMap::COL_DUMMY, $dummy, $comparison);
@@ -3189,7 +3050,7 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
         }
 
@@ -3219,7 +3080,7 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
         }
 

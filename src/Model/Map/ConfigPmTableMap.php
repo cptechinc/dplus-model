@@ -617,7 +617,6 @@ class ConfigPmTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -631,49 +630,47 @@ class ConfigPmTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('PmtbConfKey', 'Pmtbconfkey', 'INTEGER', true, 1, 0);
-        $this->addColumn('PmtbConfBaseSystem', 'Pmtbconfbasesystem', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfAdvancedSystem', 'Pmtbconfadvancedsystem', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfAllowNegUse', 'Pmtbconfallowneguse', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfScrapUnused', 'Pmtbconfscrapunused', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfScrapGl', 'Pmtbconfscrapgl', 'VARCHAR', false, 9, null);
-        $this->addColumn('PmtbConfWarnQtyToZero', 'Pmtbconfwarnqtytozero', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfVarGl', 'Pmtbconfvargl', 'VARCHAR', false, 9, null);
-        $this->addColumn('PmtbConfPutBinCode', 'Pmtbconfputbincode', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfPutBinDflt', 'Pmtbconfputbindflt', 'VARCHAR', false, 8, null);
-        $this->addColumn('PmtbConfSerialBase', 'Pmtbconfserialbase', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfFgAtStan', 'Pmtbconffgatstan', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfGlFgToMat', 'Pmtbconfglfgtomat', 'VARCHAR', false, 9, null);
-        $this->addColumn('PmtbConfPostDetSum', 'Pmtbconfpostdetsum', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfSort', 'Pmtbconfsort', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfLastCost', 'Pmtbconflastcost', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfAskBom', 'Pmtbconfaskbom', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfDefBom', 'Pmtbconfdefbom', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfAutoSelectLots', 'Pmtbconfautoselectlots', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfAllocWhenIC', 'Pmtbconfallocwhenic', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfUseWpc', 'Pmtbconfusewpc', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfPowgWipInProc', 'Pmtbconfpowgwipinproc', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfLrsCost', 'Pmtbconflrscost', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfVariAcctg', 'Pmtbconfvariacctg', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfTakeBinCode', 'Pmtbconftakebincode', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfUseFgUom', 'Pmtbconfusefguom', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfUseNc', 'Pmtbconfusenc', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbConfUseNegWip', 'Pmtbconfusenegwip', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbCon2AdvWipActEntry', 'Pmtbcon2advwipactentry', 'VARCHAR', false, 1, null);
-        $this->addColumn('PmtbCon2MachLaborGl', 'Pmtbcon2machlaborgl', 'VARCHAR', false, 9, null);
-        $this->addColumn('PmtbCon2MachSetupGl', 'Pmtbcon2machsetupgl', 'VARCHAR', false, 9, null);
-        $this->addColumn('PmtbCon2BurdenLaborGl', 'Pmtbcon2burdenlaborgl', 'VARCHAR', false, 9, null);
-        $this->addColumn('PmtbCon2BurdenMachGl', 'Pmtbcon2burdenmachgl', 'VARCHAR', false, 9, null);
-        $this->addColumn('PmtbCon2BurdenAdminGl', 'Pmtbcon2burdenadmingl', 'VARCHAR', false, 9, null);
-        $this->addColumn('PmtbCon2SetupAsOper', 'Pmtbcon2setupasoper', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('PmtbConfBaseSystem', 'Pmtbconfbasesystem', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfAdvancedSystem', 'Pmtbconfadvancedsystem', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfAllowNegUse', 'Pmtbconfallowneguse', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfScrapUnused', 'Pmtbconfscrapunused', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfScrapGl', 'Pmtbconfscrapgl', 'VARCHAR', false, 9);
+        $this->addColumn('PmtbConfWarnQtyToZero', 'Pmtbconfwarnqtytozero', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfVarGl', 'Pmtbconfvargl', 'VARCHAR', false, 9);
+        $this->addColumn('PmtbConfPutBinCode', 'Pmtbconfputbincode', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfPutBinDflt', 'Pmtbconfputbindflt', 'VARCHAR', false, 8);
+        $this->addColumn('PmtbConfSerialBase', 'Pmtbconfserialbase', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfFgAtStan', 'Pmtbconffgatstan', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfGlFgToMat', 'Pmtbconfglfgtomat', 'VARCHAR', false, 9);
+        $this->addColumn('PmtbConfPostDetSum', 'Pmtbconfpostdetsum', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfSort', 'Pmtbconfsort', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfLastCost', 'Pmtbconflastcost', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfAskBom', 'Pmtbconfaskbom', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfDefBom', 'Pmtbconfdefbom', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfAutoSelectLots', 'Pmtbconfautoselectlots', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfAllocWhenIC', 'Pmtbconfallocwhenic', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfUseWpc', 'Pmtbconfusewpc', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfPowgWipInProc', 'Pmtbconfpowgwipinproc', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfLrsCost', 'Pmtbconflrscost', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfVariAcctg', 'Pmtbconfvariacctg', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfTakeBinCode', 'Pmtbconftakebincode', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfUseFgUom', 'Pmtbconfusefguom', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfUseNc', 'Pmtbconfusenc', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbConfUseNegWip', 'Pmtbconfusenegwip', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbCon2AdvWipActEntry', 'Pmtbcon2advwipactentry', 'VARCHAR', false, 1);
+        $this->addColumn('PmtbCon2MachLaborGl', 'Pmtbcon2machlaborgl', 'VARCHAR', false, 9);
+        $this->addColumn('PmtbCon2MachSetupGl', 'Pmtbcon2machsetupgl', 'VARCHAR', false, 9);
+        $this->addColumn('PmtbCon2BurdenLaborGl', 'Pmtbcon2burdenlaborgl', 'VARCHAR', false, 9);
+        $this->addColumn('PmtbCon2BurdenMachGl', 'Pmtbcon2burdenmachgl', 'VARCHAR', false, 9);
+        $this->addColumn('PmtbCon2BurdenAdminGl', 'Pmtbcon2burdenadmingl', 'VARCHAR', false, 9);
+        $this->addColumn('PmtbCon2SetupAsOper', 'Pmtbcon2setupasoper', 'VARCHAR', false, 1);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
@@ -695,11 +692,11 @@ class ConfigPmTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -717,8 +714,8 @@ class ConfigPmTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -775,7 +772,6 @@ class ConfigPmTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -816,7 +812,6 @@ class ConfigPmTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -911,7 +906,6 @@ class ConfigPmTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -999,7 +993,6 @@ class ConfigPmTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -1021,7 +1014,7 @@ class ConfigPmTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPmTableMap::DATABASE_NAME);
         }
 
@@ -1071,7 +1064,7 @@ class ConfigPmTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPmTableMap::DATABASE_NAME);
         }
 
@@ -1087,9 +1080,7 @@ class ConfigPmTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

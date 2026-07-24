@@ -28,7 +28,7 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	 *
 	 * NOTE: @ Provalley use qty_ordered for weight, qty_cases for boxes
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'ordernumber'   => 'oehdnbr',
 		'qty_ordered'   => 'oedtqtyord',
 		'price'         => 'oedtpric',
@@ -54,7 +54,7 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		'nsvendoritemid' => 'oedtvenditemjob',
 		'nsitemgroupid'  => 'oedtnsitemgrup',
 		'kit'            => 'oedtkitflag'
-	);
+	];
 
 	/**
 	* @var        PurchaseOrder
@@ -66,8 +66,8 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	*/
 	protected $aPurchaseOrderDetail;
 
-	/** @var ItemmasterItem */
-	protected $aItem;
+	/** @var ItemMasterItem */
+    protected $aItem;
 
 	/** @var UnitofMeasureSale */
 	protected $aUom;
@@ -122,7 +122,7 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		if ($this->aPurchaseOrder instanceof PurchaseOrder) {
 			return $this->aPurchaseOrder;
 		}
-		if (intval($this->ponbr) == 0) {
+		if (intval($this->ponbr) === 0) {
 			$this->aPurchaseOrder = new PurchaseOrder();
 			return $this->aPurchaseOrder;
 		}

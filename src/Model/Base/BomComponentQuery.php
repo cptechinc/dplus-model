@@ -122,7 +122,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class BomComponentQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\BomComponentQuery object.
@@ -180,7 +180,7 @@ abstract class BomComponentQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(BomComponentTableMap::DATABASE_NAME);
         }
 
@@ -228,7 +228,6 @@ abstract class BomComponentQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildBomComponent $obj */
             $obj = new ChildBomComponent();
             $obj->hydrate($row);
             BomComponentTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
@@ -269,7 +268,7 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -340,10 +339,8 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function filterByBomhproditem($bomhproditem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bomhproditem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bomhproditem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BomComponentTableMap::COL_BOMHPRODITEM, $bomhproditem, $comparison);
@@ -411,10 +408,8 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function filterByBomdusagitem($bomdusagitem = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bomdusagitem)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bomdusagitem)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BomComponentTableMap::COL_BOMDUSAGITEM, $bomdusagitem, $comparison);
@@ -482,10 +477,8 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function filterByBomdscrap($bomdscrap = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bomdscrap)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bomdscrap)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BomComponentTableMap::COL_BOMDSCRAP, $bomdscrap, $comparison);
@@ -510,10 +503,8 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function filterByBomdserialbase($bomdserialbase = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bomdserialbase)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bomdserialbase)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BomComponentTableMap::COL_BOMDSERIALBASE, $bomdserialbase, $comparison);
@@ -538,10 +529,8 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BomComponentTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -566,10 +555,8 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BomComponentTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -594,10 +581,8 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BomComponentTableMap::COL_DUMMY, $dummy, $comparison);
@@ -651,7 +636,7 @@ abstract class BomComponentQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -681,7 +666,7 @@ abstract class BomComponentQuery extends ModelCriteria
     {
         return $this
             ->joinBomItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'BomItem', '\BomItemQuery');
+            ->useQuery($relationAlias ?: 'BomItem', '\BomItemQuery');
     }
 
     /**
@@ -826,7 +811,7 @@ abstract class BomComponentQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -856,7 +841,7 @@ abstract class BomComponentQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -968,7 +953,7 @@ abstract class BomComponentQuery extends ModelCriteria
             $this->addCond('pruneCond0', $this->getAliasedColName(BomComponentTableMap::COL_BOMHPRODITEM), $bomComponent->getBomhproditem(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(BomComponentTableMap::COL_BOMDLINE), $bomComponent->getBomdline(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(BomComponentTableMap::COL_BOMDUSAGITEM), $bomComponent->getBomdusagitem(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -982,7 +967,7 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BomComponentTableMap::DATABASE_NAME);
         }
 
@@ -1012,7 +997,7 @@ abstract class BomComponentQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BomComponentTableMap::DATABASE_NAME);
         }
 

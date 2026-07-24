@@ -86,7 +86,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArPriceCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArPriceCodeQuery object.
@@ -144,7 +144,7 @@ abstract class ArPriceCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArPriceCodeTableMap::DATABASE_NAME);
         }
 
@@ -190,7 +190,6 @@ abstract class ArPriceCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArPriceCode $obj */
             $obj = new ChildArPriceCode();
             $obj->hydrate($row);
             ArPriceCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -231,7 +230,7 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -290,10 +289,8 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      */
     public function filterByArtbpriccode($artbpriccode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbpriccode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbpriccode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICCODE, $artbpriccode, $comparison);
@@ -318,10 +315,8 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      */
     public function filterByArtbpricdesc($artbpricdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbpricdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbpricdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICDESC, $artbpricdesc, $comparison);
@@ -346,10 +341,8 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      */
     public function filterByArtbpricusesurchg($artbpricusesurchg = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($artbpricusesurchg)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($artbpricusesurchg)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG, $artbpricusesurchg, $comparison);
@@ -417,10 +410,8 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPriceCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -445,10 +436,8 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPriceCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -473,10 +462,8 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArPriceCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -508,7 +495,7 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
         }
 
@@ -538,7 +525,7 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
         }
 

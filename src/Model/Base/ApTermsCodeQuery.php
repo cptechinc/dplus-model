@@ -556,7 +556,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ApTermsCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ApTermsCodeQuery object.
@@ -614,7 +614,7 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ApTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -660,7 +660,6 @@ abstract class ApTermsCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildApTermsCode $obj */
             $obj = new ChildApTermsCode();
             $obj->hydrate($row);
             ApTermsCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -701,7 +700,7 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -760,10 +759,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmtermcode($aptmtermcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmtermcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmtermcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMCODE, $aptmtermcode, $comparison);
@@ -788,10 +785,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmtermdesc($aptmtermdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmtermdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmtermdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMDESC, $aptmtermdesc, $comparison);
@@ -816,10 +811,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmmethod($aptmmethod = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmmethod)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmmethod)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMMETHOD, $aptmmethod, $comparison);
@@ -844,10 +837,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmexpiredate($aptmexpiredate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmexpiredate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmexpiredate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEXPIREDATE, $aptmexpiredate, $comparison);
@@ -872,10 +863,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmsplit1($aptmsplit1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmsplit1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmsplit1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT1, $aptmsplit1, $comparison);
@@ -1029,10 +1018,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscday1($aptmdiscday1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscday1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscday1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY1, $aptmdiscday1, $comparison);
@@ -1057,10 +1044,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscdate1($aptmdiscdate1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscdate1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscdate1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE1, $aptmdiscdate1, $comparison);
@@ -1128,10 +1113,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdueday1($aptmdueday1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdueday1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdueday1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY1, $aptmdueday1, $comparison);
@@ -1199,10 +1182,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmduedate1($aptmduedate1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmduedate1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmduedate1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE1, $aptmduedate1, $comparison);
@@ -1227,10 +1208,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmplusyear1($aptmplusyear1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmplusyear1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmplusyear1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR1, $aptmplusyear1, $comparison);
@@ -1255,10 +1234,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmsplit2($aptmsplit2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmsplit2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmsplit2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT2, $aptmsplit2, $comparison);
@@ -1412,10 +1389,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscday2($aptmdiscday2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscday2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscday2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY2, $aptmdiscday2, $comparison);
@@ -1440,10 +1415,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscdate2($aptmdiscdate2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscdate2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscdate2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE2, $aptmdiscdate2, $comparison);
@@ -1511,10 +1484,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdueday2($aptmdueday2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdueday2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdueday2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY2, $aptmdueday2, $comparison);
@@ -1582,10 +1553,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmduedate2($aptmduedate2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmduedate2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmduedate2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE2, $aptmduedate2, $comparison);
@@ -1610,10 +1579,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmplusyear2($aptmplusyear2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmplusyear2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmplusyear2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR2, $aptmplusyear2, $comparison);
@@ -1638,10 +1605,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmsplit3($aptmsplit3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmsplit3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmsplit3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT3, $aptmsplit3, $comparison);
@@ -1795,10 +1760,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscday3($aptmdiscday3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscday3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscday3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY3, $aptmdiscday3, $comparison);
@@ -1823,10 +1786,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscdate3($aptmdiscdate3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscdate3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscdate3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE3, $aptmdiscdate3, $comparison);
@@ -1894,10 +1855,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdueday3($aptmdueday3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdueday3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdueday3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY3, $aptmdueday3, $comparison);
@@ -1965,10 +1924,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmduedate3($aptmduedate3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmduedate3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmduedate3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE3, $aptmduedate3, $comparison);
@@ -1993,10 +1950,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmplusyear3($aptmplusyear3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmplusyear3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmplusyear3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR3, $aptmplusyear3, $comparison);
@@ -2021,10 +1976,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmsplit4($aptmsplit4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmsplit4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmsplit4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT4, $aptmsplit4, $comparison);
@@ -2178,10 +2131,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscday4($aptmdiscday4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscday4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscday4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY4, $aptmdiscday4, $comparison);
@@ -2206,10 +2157,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscdate4($aptmdiscdate4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscdate4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscdate4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE4, $aptmdiscdate4, $comparison);
@@ -2277,10 +2226,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdueday4($aptmdueday4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdueday4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdueday4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY4, $aptmdueday4, $comparison);
@@ -2348,10 +2295,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmduedate4($aptmduedate4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmduedate4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmduedate4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE4, $aptmduedate4, $comparison);
@@ -2376,10 +2321,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmplusyear4($aptmplusyear4 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmplusyear4)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmplusyear4)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR4, $aptmplusyear4, $comparison);
@@ -2404,10 +2347,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmsplit5($aptmsplit5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmsplit5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmsplit5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT5, $aptmsplit5, $comparison);
@@ -2561,10 +2502,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscday5($aptmdiscday5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscday5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscday5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY5, $aptmdiscday5, $comparison);
@@ -2589,10 +2528,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdiscdate5($aptmdiscdate5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdiscdate5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdiscdate5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE5, $aptmdiscdate5, $comparison);
@@ -2660,10 +2597,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmdueday5($aptmdueday5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmdueday5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmdueday5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY5, $aptmdueday5, $comparison);
@@ -2731,10 +2666,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmduedate5($aptmduedate5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmduedate5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmduedate5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE5, $aptmduedate5, $comparison);
@@ -2759,10 +2692,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByAptmplusyear5($aptmplusyear5 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptmplusyear5)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptmplusyear5)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR5, $aptmplusyear5, $comparison);
@@ -3690,10 +3621,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -3718,10 +3647,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -3746,10 +3673,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApTermsCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -3801,7 +3726,7 @@ abstract class ApTermsCodeQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -3831,7 +3756,7 @@ abstract class ApTermsCodeQuery extends ModelCriteria
     {
         return $this
             ->joinVendor($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+            ->useQuery($relationAlias ?: 'Vendor', '\VendorQuery');
     }
 
     /**
@@ -3954,7 +3879,7 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApTermsCodeTableMap::DATABASE_NAME);
         }
 
@@ -3984,7 +3909,7 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApTermsCodeTableMap::DATABASE_NAME);
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigIi as BaseConfigIi;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -34,13 +36,13 @@ class ConfigIi extends BaseConfigIi {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'whereUsedOrQuote'     => 'iitbconfwuorvqw',
 		'breakdownInquiryCode' => 'iitbconfinqcode',
 		'quotesOrLostSales'    => 'iitbconfqorls',
 		'date'                 => 'dateupdtd',
 		'time'                 => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return Breakdown Inquiry Description

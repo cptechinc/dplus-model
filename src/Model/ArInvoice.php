@@ -24,7 +24,7 @@ class ArInvoice extends BaseArInvoice {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'invoicenumber'  => 'arininvnbr',
 		'invnbr'         => 'arininvnbr',
 		'custid'         => 'arcucustid',
@@ -38,7 +38,7 @@ class ArInvoice extends BaseArInvoice {
 		'ordn'           => 'arinordrnbr',
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return AR Payment for Invoice

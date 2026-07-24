@@ -19,7 +19,7 @@ class VendorInternalNote extends BaseVendorInternalNote {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'vendorid'    => 'apvevendid',
 		'shipfromid'  => 'apfmshipid',
 		'sequence'    => 'qnseq',
@@ -30,7 +30,7 @@ class VendorInternalNote extends BaseVendorInternalNote {
 		'key2'        => 'qnkey2',
 		'date'        => 'dateupdtd',
 		'time'        => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Retur Note with defaults

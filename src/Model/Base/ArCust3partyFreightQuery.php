@@ -178,7 +178,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ArCust3partyFreightQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ArCust3partyFreightQuery object.
@@ -236,7 +236,7 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArCust3partyFreightTableMap::DATABASE_NAME);
         }
 
@@ -283,7 +283,6 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArCust3partyFreight $obj */
             $obj = new ChildArCust3partyFreight();
             $obj->hydrate($row);
             ArCust3partyFreightTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -324,7 +323,7 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -392,10 +391,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -420,10 +417,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pacctnbr($ar3pacctnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pacctnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pacctnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PACCTNBR, $ar3pacctnbr, $comparison);
@@ -448,10 +443,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pname($ar3pname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PNAME, $ar3pname, $comparison);
@@ -476,10 +469,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3padr1($ar3padr1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3padr1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3padr1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PADR1, $ar3padr1, $comparison);
@@ -504,10 +495,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3padr2($ar3padr2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3padr2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3padr2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PADR2, $ar3padr2, $comparison);
@@ -532,10 +521,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3padr3($ar3padr3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3padr3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3padr3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PADR3, $ar3padr3, $comparison);
@@ -560,10 +547,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pctry($ar3pctry = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pctry)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pctry)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PCTRY, $ar3pctry, $comparison);
@@ -588,10 +573,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pcity($ar3pcity = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pcity)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pcity)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PCITY, $ar3pcity, $comparison);
@@ -616,10 +599,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pstat($ar3pstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PSTAT, $ar3pstat, $comparison);
@@ -644,10 +625,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pzipcode($ar3pzipcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pzipcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pzipcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PZIPCODE, $ar3pzipcode, $comparison);
@@ -672,10 +651,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pintl($ar3pintl = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pintl)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pintl)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PINTL, $ar3pintl, $comparison);
@@ -700,10 +677,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3ptelenbr($ar3ptelenbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3ptelenbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3ptelenbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PTELENBR, $ar3ptelenbr, $comparison);
@@ -728,10 +703,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pteleext($ar3pteleext = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pteleext)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pteleext)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PTELEEXT, $ar3pteleext, $comparison);
@@ -756,10 +729,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pitelnbr($ar3pitelnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pitelnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pitelnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PITELNBR, $ar3pitelnbr, $comparison);
@@ -784,10 +755,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pitelext($ar3pitelext = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pitelext)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pitelext)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PITELEXT, $ar3pitelext, $comparison);
@@ -812,10 +781,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pfaxnbr($ar3pfaxnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pfaxnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pfaxnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PFAXNBR, $ar3pfaxnbr, $comparison);
@@ -840,10 +807,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByAr3pifaxnbr($ar3pifaxnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($ar3pifaxnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($ar3pifaxnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PIFAXNBR, $ar3pifaxnbr, $comparison);
@@ -868,10 +833,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -896,10 +859,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -924,10 +885,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ArCust3partyFreightTableMap::COL_DUMMY, $dummy, $comparison);
@@ -981,7 +940,7 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1011,7 +970,7 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -1122,7 +1081,7 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
         if ($arCust3partyFreight) {
             $this->addCond('pruneCond0', $this->getAliasedColName(ArCust3partyFreightTableMap::COL_ARCUCUSTID), $arCust3partyFreight->getArcucustid(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(ArCust3partyFreightTableMap::COL_AR3PACCTNBR), $arCust3partyFreight->getAr3pacctnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1136,7 +1095,7 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCust3partyFreightTableMap::DATABASE_NAME);
         }
 
@@ -1166,7 +1125,7 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCust3partyFreightTableMap::DATABASE_NAME);
         }
 

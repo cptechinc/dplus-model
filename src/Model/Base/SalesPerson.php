@@ -49,7 +49,7 @@ abstract class SalesPerson implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\SalesPersonTableMap';
+    public const TABLE_MAP = \Map\SalesPersonTableMap::class;
 
 
     /**
@@ -281,35 +281,35 @@ abstract class SalesPerson implements ActiveRecordInterface
      * @var ObjectCollection|ChildBookingDayCustomer[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayCustomer>
      */
-    protected $bookingDayCustomersScheduledForDeletion = null;
+    protected $bookingDayCustomersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayDetail>
      */
-    protected $bookingDayDetailsScheduledForDeletion = null;
+    protected $bookingDayDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayRep[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayRep>
      */
-    protected $bookingDayRepsScheduledForDeletion = null;
+    protected $bookingDayRepsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingSummaryRep[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBookingSummaryRep>
      */
-    protected $bookingSummaryRepsScheduledForDeletion = null;
+    protected $bookingSummaryRepsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBooking[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBooking>
      */
-    protected $bookingsScheduledForDeletion = null;
+    protected $bookingsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -338,7 +338,7 @@ abstract class SalesPerson implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -396,7 +396,6 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -406,7 +405,6 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -444,8 +442,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -456,7 +452,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -498,9 +493,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -526,7 +519,7 @@ abstract class SalesPerson implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1220,12 +1213,8 @@ abstract class SalesPerson implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->arspsaleper1 !== '') {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->arspsaleper1 === '';
     }
 
     /**
@@ -1250,70 +1239,70 @@ abstract class SalesPerson implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesPersonTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : SalesPersonTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesPersonTableMap::translateFieldName('Arspname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : SalesPersonTableMap::translateFieldName('Arspname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SalesPersonTableMap::translateFieldName('Arspmtdsale', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : SalesPersonTableMap::translateFieldName('Arspmtdsale', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspmtdsale = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SalesPersonTableMap::translateFieldName('Arspytdsale', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : SalesPersonTableMap::translateFieldName('Arspytdsale', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspytdsale = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SalesPersonTableMap::translateFieldName('Arspltdsale', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : SalesPersonTableMap::translateFieldName('Arspltdsale', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspltdsale = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SalesPersonTableMap::translateFieldName('Arsplastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : SalesPersonTableMap::translateFieldName('Arsplastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arsplastsaledate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SalesPersonTableMap::translateFieldName('Arspmtdcommearn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : SalesPersonTableMap::translateFieldName('Arspmtdcommearn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspmtdcommearn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SalesPersonTableMap::translateFieldName('Arspytdcommearn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : SalesPersonTableMap::translateFieldName('Arspytdcommearn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspytdcommearn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SalesPersonTableMap::translateFieldName('Arspltdcommearn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : SalesPersonTableMap::translateFieldName('Arspltdcommearn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspltdcommearn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SalesPersonTableMap::translateFieldName('Arspmtdcommpaid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : SalesPersonTableMap::translateFieldName('Arspmtdcommpaid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspmtdcommpaid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesPersonTableMap::translateFieldName('Arspytdcommpaid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : SalesPersonTableMap::translateFieldName('Arspytdcommpaid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspytdcommpaid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesPersonTableMap::translateFieldName('Arspltdcommpaid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : SalesPersonTableMap::translateFieldName('Arspltdcommpaid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspltdcommpaid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SalesPersonTableMap::translateFieldName('Arspcommcycle', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : SalesPersonTableMap::translateFieldName('Arspcommcycle', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspcommcycle = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SalesPersonTableMap::translateFieldName('Arspgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : SalesPersonTableMap::translateFieldName('Arspgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SalesPersonTableMap::translateFieldName('Arsplogin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : SalesPersonTableMap::translateFieldName('Arsplogin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arsplogin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SalesPersonTableMap::translateFieldName('Arspmgr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : SalesPersonTableMap::translateFieldName('Arspmgr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspmgr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SalesPersonTableMap::translateFieldName('Arspvendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : SalesPersonTableMap::translateFieldName('Arspvendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspvendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SalesPersonTableMap::translateFieldName('Arsprestrictaccess', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : SalesPersonTableMap::translateFieldName('Arsprestrictaccess', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arsprestrictaccess = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SalesPersonTableMap::translateFieldName('Arspemailaddr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : SalesPersonTableMap::translateFieldName('Arspemailaddr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspemailaddr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : SalesPersonTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : SalesPersonTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SalesPersonTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : SalesPersonTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesPersonTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : SalesPersonTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1342,7 +1331,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1355,7 +1343,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1368,7 +1355,7 @@ abstract class SalesPerson implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SalesPersonTableMap::DATABASE_NAME);
         }
 
@@ -1402,7 +1389,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see SalesPerson::setDeleted()
      * @see SalesPerson::isDeleted()
@@ -1413,7 +1399,7 @@ abstract class SalesPerson implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesPersonTableMap::DATABASE_NAME);
         }
 
@@ -1452,18 +1438,14 @@ abstract class SalesPerson implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesPersonTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1487,7 +1469,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1509,13 +1490,11 @@ abstract class SalesPerson implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->bookingDayCustomersScheduledForDeletion !== null) {
-                if (!$this->bookingDayCustomersScheduledForDeletion->isEmpty()) {
-                    \BookingDayCustomerQuery::create()
-                        ->filterByPrimaryKeys($this->bookingDayCustomersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->bookingDayCustomersScheduledForDeletion = null;
-                }
+            if ($this->bookingDayCustomersScheduledForDeletion !== null && !$this->bookingDayCustomersScheduledForDeletion->isEmpty()) {
+                \BookingDayCustomerQuery::create()
+                    ->filterByPrimaryKeys($this->bookingDayCustomersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->bookingDayCustomersScheduledForDeletion = null;
             }
 
             if ($this->collBookingDayCustomers !== null) {
@@ -1526,14 +1505,12 @@ abstract class SalesPerson implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingDayDetailsScheduledForDeletion !== null) {
-                if (!$this->bookingDayDetailsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->bookingDayDetailsScheduledForDeletion as $bookingDayDetail) {
-                        // need to save related object because we set the relation to null
-                        $bookingDayDetail->save($con);
-                    }
-                    $this->bookingDayDetailsScheduledForDeletion = null;
+            if ($this->bookingDayDetailsScheduledForDeletion !== null && !$this->bookingDayDetailsScheduledForDeletion->isEmpty()) {
+                foreach ($this->bookingDayDetailsScheduledForDeletion as $bookingDayDetail) {
+                    // need to save related object because we set the relation to null
+                    $bookingDayDetail->save($con);
                 }
+                $this->bookingDayDetailsScheduledForDeletion = null;
             }
 
             if ($this->collBookingDayDetails !== null) {
@@ -1544,13 +1521,11 @@ abstract class SalesPerson implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingDayRepsScheduledForDeletion !== null) {
-                if (!$this->bookingDayRepsScheduledForDeletion->isEmpty()) {
-                    \BookingDayRepQuery::create()
-                        ->filterByPrimaryKeys($this->bookingDayRepsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->bookingDayRepsScheduledForDeletion = null;
-                }
+            if ($this->bookingDayRepsScheduledForDeletion !== null && !$this->bookingDayRepsScheduledForDeletion->isEmpty()) {
+                \BookingDayRepQuery::create()
+                    ->filterByPrimaryKeys($this->bookingDayRepsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->bookingDayRepsScheduledForDeletion = null;
             }
 
             if ($this->collBookingDayReps !== null) {
@@ -1561,13 +1536,11 @@ abstract class SalesPerson implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingSummaryRepsScheduledForDeletion !== null) {
-                if (!$this->bookingSummaryRepsScheduledForDeletion->isEmpty()) {
-                    \BookingSummaryRepQuery::create()
-                        ->filterByPrimaryKeys($this->bookingSummaryRepsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->bookingSummaryRepsScheduledForDeletion = null;
-                }
+            if ($this->bookingSummaryRepsScheduledForDeletion !== null && !$this->bookingSummaryRepsScheduledForDeletion->isEmpty()) {
+                \BookingSummaryRepQuery::create()
+                    ->filterByPrimaryKeys($this->bookingSummaryRepsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->bookingSummaryRepsScheduledForDeletion = null;
             }
 
             if ($this->collBookingSummaryReps !== null) {
@@ -1578,14 +1551,12 @@ abstract class SalesPerson implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingsScheduledForDeletion !== null) {
-                if (!$this->bookingsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->bookingsScheduledForDeletion as $booking) {
-                        // need to save related object because we set the relation to null
-                        $booking->save($con);
-                    }
-                    $this->bookingsScheduledForDeletion = null;
+            if ($this->bookingsScheduledForDeletion !== null && !$this->bookingsScheduledForDeletion->isEmpty()) {
+                foreach ($this->bookingsScheduledForDeletion as $booking) {
+                    // need to save related object because we set the relation to null
+                    $booking->save($con);
                 }
+                $this->bookingsScheduledForDeletion = null;
             }
 
             if ($this->collBookings !== null) {
@@ -1606,7 +1577,6 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -1797,7 +1767,6 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -1823,9 +1792,8 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = SalesPersonTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2044,7 +2012,6 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -2376,7 +2343,7 @@ abstract class SalesPerson implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -2396,7 +2363,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Generic method to set the primary key (arspsaleper1 column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -2405,8 +2371,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -2423,7 +2387,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2521,7 +2484,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -2565,8 +2527,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Reset is the collBookingDayCustomers collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookingDayCustomers($v = true): void
     {
@@ -2582,8 +2542,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookingDayCustomers(bool $overrideExisting = true): void
     {
@@ -2615,7 +2573,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function getBookingDayCustomers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookingDayCustomers) {
@@ -2633,7 +2591,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                     ->filterBySalesPerson($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingDayCustomersPartial && count($collBookingDayCustomers)) {
                         $this->initBookingDayCustomers(false);
 
@@ -2687,7 +2645,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         $this->bookingDayCustomersScheduledForDeletion = clone $bookingDayCustomersToDelete;
 
         foreach ($bookingDayCustomersToDelete as $bookingDayCustomerRemoved) {
-            $bookingDayCustomerRemoved->setSalesPerson(null);
+            $bookingDayCustomerRemoved->setSalesPerson();
         }
 
         $this->collBookingDayCustomers = null;
@@ -2705,7 +2663,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Returns the number of related BookingDayCustomer objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BookingDayCustomer objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2713,7 +2670,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function countBookingDayCustomers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookingDayCustomers) {
                 return 0;
             }
@@ -2752,7 +2709,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         if (!$this->collBookingDayCustomers->contains($l)) {
             $this->doAddBookingDayCustomer($l);
 
-            if ($this->bookingDayCustomersScheduledForDeletion and $this->bookingDayCustomersScheduledForDeletion->contains($l)) {
+            if ($this->bookingDayCustomersScheduledForDeletion && $this->bookingDayCustomersScheduledForDeletion->contains($l)) {
                 $this->bookingDayCustomersScheduledForDeletion->remove($this->bookingDayCustomersScheduledForDeletion->search($l));
             }
         }
@@ -2783,7 +2740,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                 $this->bookingDayCustomersScheduledForDeletion->clear();
             }
             $this->bookingDayCustomersScheduledForDeletion[]= clone $bookingDayCustomer;
-            $bookingDayCustomer->setSalesPerson(null);
+            $bookingDayCustomer->setSalesPerson();
         }
 
         return $this;
@@ -2859,8 +2816,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Reset is the collBookingDayDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookingDayDetails($v = true): void
     {
@@ -2876,8 +2831,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookingDayDetails(bool $overrideExisting = true): void
     {
@@ -2909,7 +2862,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function getBookingDayDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookingDayDetails) {
@@ -2927,7 +2880,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                     ->filterBySalesPerson($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingDayDetailsPartial && count($collBookingDayDetails)) {
                         $this->initBookingDayDetails(false);
 
@@ -2978,7 +2931,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         $this->bookingDayDetailsScheduledForDeletion = $bookingDayDetailsToDelete;
 
         foreach ($bookingDayDetailsToDelete as $bookingDayDetailRemoved) {
-            $bookingDayDetailRemoved->setSalesPerson(null);
+            $bookingDayDetailRemoved->setSalesPerson();
         }
 
         $this->collBookingDayDetails = null;
@@ -2996,7 +2949,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Returns the number of related BookingDayDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BookingDayDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3004,7 +2956,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function countBookingDayDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookingDayDetails) {
                 return 0;
             }
@@ -3043,7 +2995,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         if (!$this->collBookingDayDetails->contains($l)) {
             $this->doAddBookingDayDetail($l);
 
-            if ($this->bookingDayDetailsScheduledForDeletion and $this->bookingDayDetailsScheduledForDeletion->contains($l)) {
+            if ($this->bookingDayDetailsScheduledForDeletion && $this->bookingDayDetailsScheduledForDeletion->contains($l)) {
                 $this->bookingDayDetailsScheduledForDeletion->remove($this->bookingDayDetailsScheduledForDeletion->search($l));
             }
         }
@@ -3074,7 +3026,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                 $this->bookingDayDetailsScheduledForDeletion->clear();
             }
             $this->bookingDayDetailsScheduledForDeletion[]= $bookingDayDetail;
-            $bookingDayDetail->setSalesPerson(null);
+            $bookingDayDetail->setSalesPerson();
         }
 
         return $this;
@@ -3150,8 +3102,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Reset is the collBookingDayReps collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookingDayReps($v = true): void
     {
@@ -3167,8 +3117,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookingDayReps(bool $overrideExisting = true): void
     {
@@ -3200,7 +3148,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function getBookingDayReps(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayRepsPartial && !$this->isNew();
-        if (null === $this->collBookingDayReps || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayReps || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookingDayReps) {
@@ -3218,7 +3166,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                     ->filterBySalesPerson($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingDayRepsPartial && count($collBookingDayReps)) {
                         $this->initBookingDayReps(false);
 
@@ -3272,7 +3220,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         $this->bookingDayRepsScheduledForDeletion = clone $bookingDayRepsToDelete;
 
         foreach ($bookingDayRepsToDelete as $bookingDayRepRemoved) {
-            $bookingDayRepRemoved->setSalesPerson(null);
+            $bookingDayRepRemoved->setSalesPerson();
         }
 
         $this->collBookingDayReps = null;
@@ -3290,7 +3238,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Returns the number of related BookingDayRep objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BookingDayRep objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3298,7 +3245,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function countBookingDayReps(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayRepsPartial && !$this->isNew();
-        if (null === $this->collBookingDayReps || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayReps || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookingDayReps) {
                 return 0;
             }
@@ -3337,7 +3284,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         if (!$this->collBookingDayReps->contains($l)) {
             $this->doAddBookingDayRep($l);
 
-            if ($this->bookingDayRepsScheduledForDeletion and $this->bookingDayRepsScheduledForDeletion->contains($l)) {
+            if ($this->bookingDayRepsScheduledForDeletion && $this->bookingDayRepsScheduledForDeletion->contains($l)) {
                 $this->bookingDayRepsScheduledForDeletion->remove($this->bookingDayRepsScheduledForDeletion->search($l));
             }
         }
@@ -3368,7 +3315,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                 $this->bookingDayRepsScheduledForDeletion->clear();
             }
             $this->bookingDayRepsScheduledForDeletion[]= clone $bookingDayRep;
-            $bookingDayRep->setSalesPerson(null);
+            $bookingDayRep->setSalesPerson();
         }
 
         return $this;
@@ -3392,8 +3339,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Reset is the collBookingSummaryReps collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookingSummaryReps($v = true): void
     {
@@ -3409,8 +3354,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookingSummaryReps(bool $overrideExisting = true): void
     {
@@ -3442,7 +3385,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function getBookingSummaryReps(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingSummaryRepsPartial && !$this->isNew();
-        if (null === $this->collBookingSummaryReps || null !== $criteria || $partial) {
+        if (null === $this->collBookingSummaryReps || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookingSummaryReps) {
@@ -3460,7 +3403,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                     ->filterBySalesPerson($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingSummaryRepsPartial && count($collBookingSummaryReps)) {
                         $this->initBookingSummaryReps(false);
 
@@ -3514,7 +3457,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         $this->bookingSummaryRepsScheduledForDeletion = clone $bookingSummaryRepsToDelete;
 
         foreach ($bookingSummaryRepsToDelete as $bookingSummaryRepRemoved) {
-            $bookingSummaryRepRemoved->setSalesPerson(null);
+            $bookingSummaryRepRemoved->setSalesPerson();
         }
 
         $this->collBookingSummaryReps = null;
@@ -3532,7 +3475,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Returns the number of related BookingSummaryRep objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BookingSummaryRep objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3540,7 +3482,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function countBookingSummaryReps(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingSummaryRepsPartial && !$this->isNew();
-        if (null === $this->collBookingSummaryReps || null !== $criteria || $partial) {
+        if (null === $this->collBookingSummaryReps || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookingSummaryReps) {
                 return 0;
             }
@@ -3579,7 +3521,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         if (!$this->collBookingSummaryReps->contains($l)) {
             $this->doAddBookingSummaryRep($l);
 
-            if ($this->bookingSummaryRepsScheduledForDeletion and $this->bookingSummaryRepsScheduledForDeletion->contains($l)) {
+            if ($this->bookingSummaryRepsScheduledForDeletion && $this->bookingSummaryRepsScheduledForDeletion->contains($l)) {
                 $this->bookingSummaryRepsScheduledForDeletion->remove($this->bookingSummaryRepsScheduledForDeletion->search($l));
             }
         }
@@ -3610,7 +3552,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                 $this->bookingSummaryRepsScheduledForDeletion->clear();
             }
             $this->bookingSummaryRepsScheduledForDeletion[]= clone $bookingSummaryRep;
-            $bookingSummaryRep->setSalesPerson(null);
+            $bookingSummaryRep->setSalesPerson();
         }
 
         return $this;
@@ -3634,8 +3576,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Reset is the collBookings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookings($v = true): void
     {
@@ -3651,8 +3591,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookings(bool $overrideExisting = true): void
     {
@@ -3684,7 +3622,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function getBookings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria || $partial) {
+        if (null === $this->collBookings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookings) {
@@ -3702,7 +3640,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                     ->filterBySalesPerson($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingsPartial && count($collBookings)) {
                         $this->initBookings(false);
 
@@ -3753,7 +3691,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         $this->bookingsScheduledForDeletion = $bookingsToDelete;
 
         foreach ($bookingsToDelete as $bookingRemoved) {
-            $bookingRemoved->setSalesPerson(null);
+            $bookingRemoved->setSalesPerson();
         }
 
         $this->collBookings = null;
@@ -3771,7 +3709,6 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Returns the number of related Booking objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related Booking objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -3779,7 +3716,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     public function countBookings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria || $partial) {
+        if (null === $this->collBookings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookings) {
                 return 0;
             }
@@ -3818,7 +3755,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         if (!$this->collBookings->contains($l)) {
             $this->doAddBooking($l);
 
-            if ($this->bookingsScheduledForDeletion and $this->bookingsScheduledForDeletion->contains($l)) {
+            if ($this->bookingsScheduledForDeletion && $this->bookingsScheduledForDeletion->contains($l)) {
                 $this->bookingsScheduledForDeletion->remove($this->bookingsScheduledForDeletion->search($l));
             }
         }
@@ -3849,7 +3786,7 @@ abstract class SalesPerson implements ActiveRecordInterface
                 $this->bookingsScheduledForDeletion->clear();
             }
             $this->bookingsScheduledForDeletion[]= $booking;
-            $booking->setSalesPerson(null);
+            $booking->setSalesPerson();
         }
 
         return $this;
@@ -4002,13 +3939,11 @@ abstract class SalesPerson implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(SalesPersonTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(SalesPersonTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -4017,8 +3952,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -4026,8 +3959,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -4036,8 +3967,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -4045,8 +3974,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -4055,8 +3982,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -4064,8 +3989,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -4074,8 +3997,6 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -4095,7 +4016,7 @@ abstract class SalesPerson implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -4107,7 +4028,7 @@ abstract class SalesPerson implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -4115,7 +4036,7 @@ abstract class SalesPerson implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

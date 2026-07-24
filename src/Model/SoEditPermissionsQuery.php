@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SoEditPermissionsQuery as BaseSoEditPermissionsQuery;
 
 use Dplus\Model\QueryTraits;

@@ -967,7 +967,6 @@ class ItemMasterItemTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -981,471 +980,469 @@ class ItemMasterItemTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_price', 'InitItemNbr', true, 30, '');
-        $this->addColumn('InitDesc1', 'Initdesc1', 'VARCHAR', false, 35, null);
-        $this->addColumn('InitDesc2', 'Initdesc2', 'VARCHAR', false, 35, null);
-        $this->addForeignKey('IntbGrup', 'Intbgrup', 'VARCHAR', 'inv_grup_code', 'IntbGrup', false, 4, null);
-        $this->addColumn('InitFormatCode', 'Initformatcode', 'VARCHAR', false, 2, null);
-        $this->addColumn('InitSplit', 'Initsplit', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitSherDateCd', 'Initsherdatecd', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitCoreYN', 'Initcoreyn', 'VARCHAR', false, 1, null);
-        $this->addColumn('IntbUserCode1', 'Intbusercode1', 'VARCHAR', false, 6, null);
-        $this->addColumn('IntbUserCode2', 'Intbusercode2', 'VARCHAR', false, 6, null);
-        $this->addColumn('InitType', 'Inittype', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitTax', 'Inittax', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitRtlPric', 'Initrtlpric', 'DECIMAL', false, 20, null);
-        $this->addColumn('InitStatChgd', 'Initstatchgd', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitSpecItemCd', 'Initspecitemcd', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitWarrDays', 'Initwarrdays', 'INTEGER', false, 5, null);
-        $this->addForeignKey('IntbUomSale', 'Intbuomsale', 'VARCHAR', 'inv_uom_sale', 'IntbUomSale', false, 4, null);
-        $this->addColumn('InitWght', 'Initwght', 'DECIMAL', false, 20, null);
-        $this->addColumn('InitBord', 'Initbord', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitBaseItemId', 'Initbaseitemid', 'VARCHAR', false, 30, null);
-        $this->addColumn('InitSpecificCust', 'Initspecificcust', 'VARCHAR', false, 6, null);
-        $this->addColumn('InitGiveDisc', 'Initgivedisc', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitAsstCode', 'Initasstcode', 'VARCHAR', false, 3, null);
-        $this->addColumn('InitPricLastDate', 'Initpriclastdate', 'VARCHAR', false, 8, null);
-        $this->addForeignKey('IntbUomPur', 'Intbuompur', 'VARCHAR', 'inv_uom_pur', 'IntbUomPur', false, 4, null);
-        $this->addColumn('InitStanCost', 'Initstancost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InitStanCostBase', 'Initstancostbase', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitStanCostLastDate', 'Initstancostlastdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('InitMinMarg', 'Initminmarg', 'DECIMAL', false, 20, null);
-        $this->addColumn('InitVendId', 'Initvendid', 'VARCHAR', false, 6, null);
-        $this->addColumn('InitInspect', 'Initinspect', 'VARCHAR', false, 1, null);
-        $this->addForeignKey('InitStockCode', 'Initstockcode', 'VARCHAR', 'inv_stck_code', 'IntbStckCode', false, 4, null);
-        $this->addColumn('InitSuprItemNbr', 'Initsupritemnbr', 'VARCHAR', false, 30, null);
-        $this->addColumn('InitVendShipFrom', 'Initvendshipfrom', 'VARCHAR', false, 6, null);
-        $this->addColumn('InitCntryOfOrigin', 'Initcntryoforigin', 'VARCHAR', false, 4, null);
-        $this->addColumn('InitAsstQty', 'Initasstqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('IntbTariffCode', 'Intbtariffcode', 'VARCHAR', false, 3, null);
-        $this->addColumn('InitPreference', 'Initpreference', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitProducer', 'Initproducer', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitDocumentation', 'Initdocumentation', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitPurchCrtnQty', 'Initpurchcrtnqty', 'INTEGER', false, 6, null);
-        $this->addColumn('AptbBuyrCode', 'Aptbbuyrcode', 'VARCHAR', false, 6, null);
-        $this->addColumn('InitLastCost', 'Initlastcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InitLiters', 'Initliters', 'DECIMAL', false, 20, null);
-        $this->addColumn('IntbMsdsCode', 'Intbmsdscode', 'VARCHAR', false, 8, null);
-        $this->addColumn('InitRequireFrt', 'Initrequirefrt', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitMfrtCode', 'Initmfrtcode', 'VARCHAR', false, 20, null);
-        $this->addColumn('InitInnerPackQty', 'Initinnerpackqty', 'INTEGER', false, 4, null);
-        $this->addColumn('InitOuterPackQty', 'Initouterpackqty', 'INTEGER', false, 4, null);
-        $this->addColumn('InitBaseStanCost', 'Initbasestancost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InitShipTareQty', 'Initshiptareqty', 'INTEGER', false, 4, null);
-        $this->addColumn('InitWgItem', 'Initwgitem', 'VARCHAR', false, 20, null);
-        $this->addForeignKey('IntbPricGrup', 'Intbpricgrup', 'VARCHAR', 'inv_pric_code', 'IntbPricGrup', false, 8, null);
-        $this->addForeignKey('IntbCommGrup', 'Intbcommgrup', 'VARCHAR', 'inv_comm_code', 'IntbCommGrup', false, 8, null);
-        $this->addColumn('InitLastCostDate', 'Initlastcostdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('InitQtyPerCase', 'Initqtypercase', 'INTEGER', false, 8, null);
-        $this->addColumn('InitRevision', 'Initrevision', 'VARCHAR', false, 10, null);
-        $this->addColumn('InitCommSaleQty', 'Initcommsaleqty', 'INTEGER', false, 8, null);
-        $this->addColumn('InitCubes', 'Initcubes', 'DECIMAL', false, 20, null);
-        $this->addColumn('InitTimeFence', 'Inittimefence', 'INTEGER', false, 5, null);
-        $this->addColumn('InitSrvcMinChrg', 'Initsrvcminchrg', 'DECIMAL', false, 20, null);
-        $this->addColumn('InitMinMargBase', 'InitMinMargBase', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('InitDesc1', 'Initdesc1', 'VARCHAR', false, 35);
+        $this->addColumn('InitDesc2', 'Initdesc2', 'VARCHAR', false, 35);
+        $this->addForeignKey('IntbGrup', 'Intbgrup', 'VARCHAR', 'inv_grup_code', 'IntbGrup', false, 4);
+        $this->addColumn('InitFormatCode', 'Initformatcode', 'VARCHAR', false, 2);
+        $this->addColumn('InitSplit', 'Initsplit', 'VARCHAR', false, 1);
+        $this->addColumn('InitSherDateCd', 'Initsherdatecd', 'VARCHAR', false, 1);
+        $this->addColumn('InitCoreYN', 'Initcoreyn', 'VARCHAR', false, 1);
+        $this->addColumn('IntbUserCode1', 'Intbusercode1', 'VARCHAR', false, 6);
+        $this->addColumn('IntbUserCode2', 'Intbusercode2', 'VARCHAR', false, 6);
+        $this->addColumn('InitType', 'Inittype', 'VARCHAR', false, 1);
+        $this->addColumn('InitTax', 'Inittax', 'VARCHAR', false, 1);
+        $this->addColumn('InitRtlPric', 'Initrtlpric', 'DECIMAL', false, 20);
+        $this->addColumn('InitStatChgd', 'Initstatchgd', 'VARCHAR', false, 1);
+        $this->addColumn('InitSpecItemCd', 'Initspecitemcd', 'VARCHAR', false, 1);
+        $this->addColumn('InitWarrDays', 'Initwarrdays', 'INTEGER', false, 5);
+        $this->addForeignKey('IntbUomSale', 'Intbuomsale', 'VARCHAR', 'inv_uom_sale', 'IntbUomSale', false, 4);
+        $this->addColumn('InitWght', 'Initwght', 'DECIMAL', false, 20);
+        $this->addColumn('InitBord', 'Initbord', 'VARCHAR', false, 1);
+        $this->addColumn('InitBaseItemId', 'Initbaseitemid', 'VARCHAR', false, 30);
+        $this->addColumn('InitSpecificCust', 'Initspecificcust', 'VARCHAR', false, 6);
+        $this->addColumn('InitGiveDisc', 'Initgivedisc', 'VARCHAR', false, 1);
+        $this->addColumn('InitAsstCode', 'Initasstcode', 'VARCHAR', false, 3);
+        $this->addColumn('InitPricLastDate', 'Initpriclastdate', 'VARCHAR', false, 8);
+        $this->addForeignKey('IntbUomPur', 'Intbuompur', 'VARCHAR', 'inv_uom_pur', 'IntbUomPur', false, 4);
+        $this->addColumn('InitStanCost', 'Initstancost', 'DECIMAL', false, 20);
+        $this->addColumn('InitStanCostBase', 'Initstancostbase', 'VARCHAR', false, 1);
+        $this->addColumn('InitStanCostLastDate', 'Initstancostlastdate', 'VARCHAR', false, 8);
+        $this->addColumn('InitMinMarg', 'Initminmarg', 'DECIMAL', false, 20);
+        $this->addColumn('InitVendId', 'Initvendid', 'VARCHAR', false, 6);
+        $this->addColumn('InitInspect', 'Initinspect', 'VARCHAR', false, 1);
+        $this->addForeignKey('InitStockCode', 'Initstockcode', 'VARCHAR', 'inv_stck_code', 'IntbStckCode', false, 4);
+        $this->addColumn('InitSuprItemNbr', 'Initsupritemnbr', 'VARCHAR', false, 30);
+        $this->addColumn('InitVendShipFrom', 'Initvendshipfrom', 'VARCHAR', false, 6);
+        $this->addColumn('InitCntryOfOrigin', 'Initcntryoforigin', 'VARCHAR', false, 4);
+        $this->addColumn('InitAsstQty', 'Initasstqty', 'DECIMAL', false, 20);
+        $this->addColumn('IntbTariffCode', 'Intbtariffcode', 'VARCHAR', false, 3);
+        $this->addColumn('InitPreference', 'Initpreference', 'VARCHAR', false, 1);
+        $this->addColumn('InitProducer', 'Initproducer', 'VARCHAR', false, 1);
+        $this->addColumn('InitDocumentation', 'Initdocumentation', 'VARCHAR', false, 1);
+        $this->addColumn('InitPurchCrtnQty', 'Initpurchcrtnqty', 'INTEGER', false, 6);
+        $this->addColumn('AptbBuyrCode', 'Aptbbuyrcode', 'VARCHAR', false, 6);
+        $this->addColumn('InitLastCost', 'Initlastcost', 'DECIMAL', false, 20);
+        $this->addColumn('InitLiters', 'Initliters', 'DECIMAL', false, 20);
+        $this->addColumn('IntbMsdsCode', 'Intbmsdscode', 'VARCHAR', false, 8);
+        $this->addColumn('InitRequireFrt', 'Initrequirefrt', 'VARCHAR', false, 1);
+        $this->addColumn('InitMfrtCode', 'Initmfrtcode', 'VARCHAR', false, 20);
+        $this->addColumn('InitInnerPackQty', 'Initinnerpackqty', 'INTEGER', false, 4);
+        $this->addColumn('InitOuterPackQty', 'Initouterpackqty', 'INTEGER', false, 4);
+        $this->addColumn('InitBaseStanCost', 'Initbasestancost', 'DECIMAL', false, 20);
+        $this->addColumn('InitShipTareQty', 'Initshiptareqty', 'INTEGER', false, 4);
+        $this->addColumn('InitWgItem', 'Initwgitem', 'VARCHAR', false, 20);
+        $this->addForeignKey('IntbPricGrup', 'Intbpricgrup', 'VARCHAR', 'inv_pric_code', 'IntbPricGrup', false, 8);
+        $this->addForeignKey('IntbCommGrup', 'Intbcommgrup', 'VARCHAR', 'inv_comm_code', 'IntbCommGrup', false, 8);
+        $this->addColumn('InitLastCostDate', 'Initlastcostdate', 'VARCHAR', false, 8);
+        $this->addColumn('InitQtyPerCase', 'Initqtypercase', 'INTEGER', false, 8);
+        $this->addColumn('InitRevision', 'Initrevision', 'VARCHAR', false, 10);
+        $this->addColumn('InitCommSaleQty', 'Initcommsaleqty', 'INTEGER', false, 8);
+        $this->addColumn('InitCubes', 'Initcubes', 'DECIMAL', false, 20);
+        $this->addColumn('InitTimeFence', 'Inittimefence', 'INTEGER', false, 5);
+        $this->addColumn('InitSrvcMinChrg', 'Initsrvcminchrg', 'DECIMAL', false, 20);
+        $this->addColumn('InitMinMargBase', 'InitMinMargBase', 'VARCHAR', false, 1);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
-        $this->addRelation('UnitofMeasureSale', '\\UnitofMeasureSale', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('UnitofMeasureSale', '\\UnitofMeasureSale', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':IntbUomSale',
     1 => ':IntbUomSale',
-  ),
-), null, null, null, false);
-        $this->addRelation('UnitofMeasurePurchase', '\\UnitofMeasurePurchase', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('UnitofMeasurePurchase', '\\UnitofMeasurePurchase', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':IntbUomPur',
     1 => ':IntbUomPur',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvGroupCode', '\\InvGroupCode', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvGroupCode', '\\InvGroupCode', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':IntbGrup',
     1 => ':IntbGrup',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvStockCode', '\\InvStockCode', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvStockCode', '\\InvStockCode', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InitStockCode',
     1 => ':IntbStckCode',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvPriceCode', '\\InvPriceCode', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvPriceCode', '\\InvPriceCode', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':IntbPricGrup',
     1 => ':IntbPricGrup',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvCommissionCode', '\\InvCommissionCode', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvCommissionCode', '\\InvCommissionCode', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':IntbCommGrup',
     1 => ':IntbCommGrup',
-  ),
-), null, null, null, false);
-        $this->addRelation('ItemPricing', '\\ItemPricing', RelationMap::MANY_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('ItemPricing', '\\ItemPricing', RelationMap::MANY_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('ItemXrefCustomer', '\\ItemXrefCustomer', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('ItemXrefCustomer', '\\ItemXrefCustomer', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemXrefCustomers', false);
-        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefCustomers', false);
+        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'CstkItems', false);
-        $this->addRelation('InvWhseItemBin', '\\InvWhseItemBin', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'CstkItems', false);
+        $this->addRelation('InvWhseItemBin', '\\InvWhseItemBin', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvWhseItemBins', false);
-        $this->addRelation('ItemAddonItemRelatedByInititemnbr', '\\ItemAddonItem', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvWhseItemBins', false);
+        $this->addRelation('ItemAddonItemRelatedByInititemnbr', '\\ItemAddonItem', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemAddonItemsRelatedByInititemnbr', false);
-        $this->addRelation('ItemAddonItemRelatedByAdonadditemnbr', '\\ItemAddonItem', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemAddonItemsRelatedByInititemnbr', false);
+        $this->addRelation('ItemAddonItemRelatedByAdonadditemnbr', '\\ItemAddonItem', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':AdonAddItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemAddonItemsRelatedByAdonadditemnbr', false);
-        $this->addRelation('ItmDimension', '\\ItmDimension', RelationMap::ONE_TO_ONE, array (
+  ],
+], null, null, 'ItemAddonItemsRelatedByAdonadditemnbr', false);
+        $this->addRelation('ItmDimension', '\\ItmDimension', RelationMap::ONE_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvHazmatItem', '\\InvHazmatItem', RelationMap::ONE_TO_ONE, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvHazmatItem', '\\InvHazmatItem', RelationMap::ONE_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvWhseLot', '\\InvWhseLot', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvWhseLot', '\\InvWhseLot', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvWhseLots', false);
-        $this->addRelation('ItemSubstituteRelatedByInititemnbr', '\\ItemSubstitute', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvWhseLots', false);
+        $this->addRelation('ItemSubstituteRelatedByInititemnbr', '\\ItemSubstitute', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemSubstitutesRelatedByInititemnbr', false);
-        $this->addRelation('ItemSubstituteRelatedByInsisubitemnbr', '\\ItemSubstitute', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemSubstitutesRelatedByInititemnbr', false);
+        $this->addRelation('ItemSubstituteRelatedByInsisubitemnbr', '\\ItemSubstitute', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InsiSubItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemSubstitutesRelatedByInsisubitemnbr', false);
-        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemSubstitutesRelatedByInsisubitemnbr', false);
+        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvLotTags', false);
-        $this->addRelation('InvItem2ItemRelatedByI2imstritemid', '\\InvItem2Item', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvLotTags', false);
+        $this->addRelation('InvItem2ItemRelatedByI2imstritemid', '\\InvItem2Item', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':I2iMstrItemId',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvItem2ItemsRelatedByI2imstritemid', false);
-        $this->addRelation('InvItem2ItemRelatedByI2ichilditemid', '\\InvItem2Item', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvItem2ItemsRelatedByI2imstritemid', false);
+        $this->addRelation('InvItem2ItemRelatedByI2ichilditemid', '\\InvItem2Item', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':I2iChildItemId',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvItem2ItemsRelatedByI2ichilditemid', false);
-        $this->addRelation('InvKitComponent', '\\InvKitComponent', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvItem2ItemsRelatedByI2ichilditemid', false);
+        $this->addRelation('InvKitComponent', '\\InvKitComponent', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvKitComponents', false);
-        $this->addRelation('InvKit', '\\InvKit', RelationMap::ONE_TO_ONE, array (
+  ],
+], null, null, 'InvKitComponents', false);
+        $this->addRelation('InvKit', '\\InvKit', RelationMap::ONE_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('InvLotMaster', '\\InvLotMaster', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('InvLotMaster', '\\InvLotMaster', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvLotMasters', false);
-        $this->addRelation('InvSerialMaster', '\\InvSerialMaster', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvLotMasters', false);
+        $this->addRelation('InvSerialMaster', '\\InvSerialMaster', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvSerialMasters', false);
-        $this->addRelation('InvTransferDetail', '\\InvTransferDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvSerialMasters', false);
+        $this->addRelation('InvTransferDetail', '\\InvTransferDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvTransferDetails', false);
-        $this->addRelation('InvTransferLotserial', '\\InvTransferLotserial', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvTransferDetails', false);
+        $this->addRelation('InvTransferLotserial', '\\InvTransferLotserial', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvTransferLotserials', false);
-        $this->addRelation('InvTransferPreAllocatedLotserial', '\\InvTransferPreAllocatedLotserial', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvTransferLotserials', false);
+        $this->addRelation('InvTransferPreAllocatedLotserial', '\\InvTransferPreAllocatedLotserial', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvTransferPreAllocatedLotserials', false);
-        $this->addRelation('InvTransferPickedLotserial', '\\InvTransferPickedLotserial', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvTransferPreAllocatedLotserials', false);
+        $this->addRelation('InvTransferPickedLotserial', '\\InvTransferPickedLotserial', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvTransferPickedLotserials', false);
-        $this->addRelation('InvSerialWarranty', '\\InvSerialWarranty', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvTransferPickedLotserials', false);
+        $this->addRelation('InvSerialWarranty', '\\InvSerialWarranty', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvSerialWarranties', false);
-        $this->addRelation('WarehouseInventory', '\\WarehouseInventory', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvSerialWarranties', false);
+        $this->addRelation('WarehouseInventory', '\\WarehouseInventory', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'WarehouseInventories', false);
-        $this->addRelation('ItemXrefKey', '\\ItemXrefKey', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'WarehouseInventories', false);
+        $this->addRelation('ItemXrefKey', '\\ItemXrefKey', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemXrefKeys', false);
-        $this->addRelation('ItemXrefManufacturer', '\\ItemXrefManufacturer', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefKeys', false);
+        $this->addRelation('ItemXrefManufacturer', '\\ItemXrefManufacturer', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemXrefManufacturers', false);
-        $this->addRelation('ItemXrefCustomerNote', '\\ItemXrefCustomerNote', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefManufacturers', false);
+        $this->addRelation('ItemXrefCustomerNote', '\\ItemXrefCustomerNote', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemXrefCustomerNotes', false);
-        $this->addRelation('InvOptCodeNote', '\\InvOptCodeNote', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefCustomerNotes', false);
+        $this->addRelation('InvOptCodeNote', '\\InvOptCodeNote', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvOptCodeNotes', false);
-        $this->addRelation('ItemXrefVendorNoteDetail', '\\ItemXrefVendorNoteDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvOptCodeNotes', false);
+        $this->addRelation('ItemXrefVendorNoteDetail', '\\ItemXrefVendorNoteDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemXrefVendorNoteDetails', false);
-        $this->addRelation('ItemXrefVendorNoteInternal', '\\ItemXrefVendorNoteInternal', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefVendorNoteDetails', false);
+        $this->addRelation('ItemXrefVendorNoteInternal', '\\ItemXrefVendorNoteInternal', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemXrefVendorNoteInternals', false);
-        $this->addRelation('InvPallet', '\\InvPallet', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefVendorNoteInternals', false);
+        $this->addRelation('InvPallet', '\\InvPallet', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'InvPallets', false);
-        $this->addRelation('PurchaseOrderDetail', '\\PurchaseOrderDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'InvPallets', false);
+        $this->addRelation('PurchaseOrderDetail', '\\PurchaseOrderDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'PurchaseOrderDetails', false);
-        $this->addRelation('PurchaseOrderDetailReceipt', '\\PurchaseOrderDetailReceipt', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'PurchaseOrderDetails', false);
+        $this->addRelation('PurchaseOrderDetailReceipt', '\\PurchaseOrderDetailReceipt', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'PurchaseOrderDetailReceipts', false);
-        $this->addRelation('PurchaseOrderDetailReceiving', '\\PurchaseOrderDetailReceiving', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'PurchaseOrderDetailReceipts', false);
+        $this->addRelation('PurchaseOrderDetailReceiving', '\\PurchaseOrderDetailReceiving', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'PurchaseOrderDetailReceivings', false);
-        $this->addRelation('PurchaseOrderDetailLotReceiving', '\\PurchaseOrderDetailLotReceiving', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'PurchaseOrderDetailReceivings', false);
+        $this->addRelation('PurchaseOrderDetailLotReceiving', '\\PurchaseOrderDetailLotReceiving', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'PurchaseOrderDetailLotReceivings', false);
-        $this->addRelation('BomComponent', '\\BomComponent', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'PurchaseOrderDetailLotReceivings', false);
+        $this->addRelation('BomComponent', '\\BomComponent', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':BomdUsagItem',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'BomComponents', false);
-        $this->addRelation('BomItem', '\\BomItem', RelationMap::ONE_TO_ONE, array (
+  ],
+], null, null, 'BomComponents', false);
+        $this->addRelation('BomItem', '\\BomItem', RelationMap::ONE_TO_ONE,  [
   0 =>
-  array (
+   [
     0 => ':BomhProdItem',
     1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('RcyclReceiptDetail', '\\RcyclReceiptDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, null, false);
+        $this->addRelation('RcyclReceiptDetail', '\\RcyclReceiptDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'RcyclReceiptDetails', false);
-        $this->addRelation('RcyclReceiptLot', '\\RcyclReceiptLot', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'RcyclReceiptDetails', false);
+        $this->addRelation('RcyclReceiptLot', '\\RcyclReceiptLot', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'RcyclReceiptLots', false);
-        $this->addRelation('BookingDetail', '\\BookingDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'RcyclReceiptLots', false);
+        $this->addRelation('BookingDetail', '\\BookingDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'BookingDetails', false);
-        $this->addRelation('SalesHistoryDetail', '\\SalesHistoryDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'BookingDetails', false);
+        $this->addRelation('SalesHistoryDetail', '\\SalesHistoryDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'SalesHistoryDetails', false);
-        $this->addRelation('SalesOrderDetail', '\\SalesOrderDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SalesHistoryDetails', false);
+        $this->addRelation('SalesOrderDetail', '\\SalesOrderDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'SalesOrderDetails', false);
-        $this->addRelation('SalesOrderLotserial', '\\SalesOrderLotserial', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SalesOrderDetails', false);
+        $this->addRelation('SalesOrderLotserial', '\\SalesOrderLotserial', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'SalesOrderLotserials', false);
-        $this->addRelation('SalesHistoryLotserial', '\\SalesHistoryLotserial', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SalesOrderLotserials', false);
+        $this->addRelation('SalesHistoryLotserial', '\\SalesHistoryLotserial', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'SalesHistoryLotserials', false);
-        $this->addRelation('SoAllocatedLotserial', '\\SoAllocatedLotserial', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SalesHistoryLotserials', false);
+        $this->addRelation('SoAllocatedLotserial', '\\SoAllocatedLotserial', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'SoAllocatedLotserials', false);
-        $this->addRelation('ItemPricingDiscount', '\\ItemPricingDiscount', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SoAllocatedLotserials', false);
+        $this->addRelation('ItemPricingDiscount', '\\ItemPricingDiscount', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':OepcItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemPricingDiscounts', false);
-        $this->addRelation('SoPickedLotserial', '\\SoPickedLotserial', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemPricingDiscounts', false);
+        $this->addRelation('SoPickedLotserial', '\\SoPickedLotserial', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'SoPickedLotserials', false);
-        $this->addRelation('SoStandingOrderDetail', '\\SoStandingOrderDetail', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SoPickedLotserials', false);
+        $this->addRelation('SoStandingOrderDetail', '\\SoStandingOrderDetail', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'SoStandingOrderDetails', false);
-        $this->addRelation('ItemXrefUpc', '\\ItemXrefUpc', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'SoStandingOrderDetails', false);
+        $this->addRelation('ItemXrefUpc', '\\ItemXrefUpc', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemXrefUpcs', false);
-        $this->addRelation('ItemXrefVendor', '\\ItemXrefVendor', RelationMap::ONE_TO_MANY, array (
+  ],
+], null, null, 'ItemXrefUpcs', false);
+        $this->addRelation('ItemXrefVendor', '\\ItemXrefVendor', RelationMap::ONE_TO_MANY,  [
   0 =>
-  array (
+   [
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, 'ItemXrefVendors', false);
+  ],
+], null, null, 'ItemXrefVendors', false);
     }
 
     /**
@@ -1464,11 +1461,11 @@ class ItemMasterItemTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -1486,8 +1483,8 @@ class ItemMasterItemTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -1544,7 +1541,6 @@ class ItemMasterItemTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -1585,7 +1581,6 @@ class ItemMasterItemTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1734,7 +1729,6 @@ class ItemMasterItemTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -1876,7 +1870,6 @@ class ItemMasterItemTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -1898,7 +1891,7 @@ class ItemMasterItemTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
         }
 
@@ -1948,7 +1941,7 @@ class ItemMasterItemTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
         }
 
@@ -1964,9 +1957,7 @@ class ItemMasterItemTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\SoFreightRate as BaseSoFreightRate;
 
 use Dplus\Model\ThrowErrorTrait;

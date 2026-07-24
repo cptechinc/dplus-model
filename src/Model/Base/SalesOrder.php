@@ -53,7 +53,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\SalesOrderTableMap';
+    public const TABLE_MAP = \Map\SalesOrderTableMap::class;
 
 
     /**
@@ -1652,35 +1652,35 @@ abstract class SalesOrder implements ActiveRecordInterface
      * @var ObjectCollection|ChildSalesOrderDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderDetail>
      */
-    protected $salesOrderDetailsScheduledForDeletion = null;
+    protected $salesOrderDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderShipment[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderShipment>
      */
-    protected $salesOrderShipmentsScheduledForDeletion = null;
+    protected $salesOrderShipmentsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderLotserial>
      */
-    protected $salesOrderLotserialsScheduledForDeletion = null;
+    protected $salesOrderLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoAllocatedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSoAllocatedLotserial>
      */
-    protected $soAllocatedLotserialsScheduledForDeletion = null;
+    protected $soAllocatedLotserialsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoPickedLotserial[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSoPickedLotserial>
      */
-    protected $soPickedLotserialsScheduledForDeletion = null;
+    protected $soPickedLotserialsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -1897,7 +1897,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -1955,7 +1955,6 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -1965,7 +1964,6 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -2003,8 +2001,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -2015,7 +2011,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -2057,9 +2052,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -2085,7 +2078,7 @@ abstract class SalesOrder implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -8552,13 +8545,8 @@ abstract class SalesOrder implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -8583,571 +8571,571 @@ abstract class SalesOrder implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesOrderTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : SalesOrderTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SalesOrderTableMap::translateFieldName('Oehdhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : SalesOrderTableMap::translateFieldName('Oehdhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SalesOrderTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : SalesOrderTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SalesOrderTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : SalesOrderTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstshipid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstlastname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstlastname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstlastname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstfirstname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstfirstname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstfirstname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstcity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstcity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstcity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SalesOrderTableMap::translateFieldName('Oehdststat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : SalesOrderTableMap::translateFieldName('Oehdststat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdststat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstzipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstzipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstzipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcustpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcustpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcustpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordrdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordrdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdordrdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SalesOrderTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : SalesOrderTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SalesOrderTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : SalesOrderTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbshipvia = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : SalesOrderTableMap::translateFieldName('Arininvnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : SalesOrderTableMap::translateFieldName('Arininvnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arininvnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinvdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesOrderTableMap::translateFieldName('Oehdglpd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : SalesOrderTableMap::translateFieldName('Oehdglpd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdglpd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SalesOrderTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : SalesOrderTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsp1pct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsp1pct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsp1pct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SalesOrderTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : SalesOrderTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsp2pct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsp2pct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsp2pct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : SalesOrderTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : SalesOrderTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsp3pct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsp3pct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsp3pct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcntrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcntrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcntrnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : SalesOrderTableMap::translateFieldName('Oehdwibatch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : SalesOrderTableMap::translateFieldName('Oehdwibatch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdwibatch = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : SalesOrderTableMap::translateFieldName('Oehddroprelhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : SalesOrderTableMap::translateFieldName('Oehddroprelhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddroprelhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtaxsub', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtaxsub', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtaxsub = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : SalesOrderTableMap::translateFieldName('Oehdnontaxsub', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : SalesOrderTableMap::translateFieldName('Oehdnontaxsub', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdnontaxsub = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtaxtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtaxtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtaxtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : SalesOrderTableMap::translateFieldName('Oehdmisctot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : SalesOrderTableMap::translateFieldName('Oehdmisctot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdmisctot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordrtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordrtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdordrtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcosttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcosttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcosttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : SalesOrderTableMap::translateFieldName('Oehdspcommlock', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : SalesOrderTableMap::translateFieldName('Oehdspcommlock', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdspcommlock = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtakendate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtakendate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtakendate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtakentime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtakentime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtakentime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpicktime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpicktime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpicktime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpackdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpackdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpackdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpacktime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpacktime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpacktime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : SalesOrderTableMap::translateFieldName('Oehdverifydate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : SalesOrderTableMap::translateFieldName('Oehdverifydate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdverifydate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : SalesOrderTableMap::translateFieldName('Oehdverifytime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : SalesOrderTableMap::translateFieldName('Oehdverifytime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdverifytime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcreditmemo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcreditmemo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcreditmemo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : SalesOrderTableMap::translateFieldName('Oehdbookedyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : SalesOrderTableMap::translateFieldName('Oehdbookedyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdbookedyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : SalesOrderTableMap::translateFieldName('Intbwhseorig', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : SalesOrderTableMap::translateFieldName('Intbwhseorig', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseorig = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : SalesOrderTableMap::translateFieldName('Oehdbtstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : SalesOrderTableMap::translateFieldName('Oehdbtstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdbtstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : SalesOrderTableMap::translateFieldName('Oehdshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : SalesOrderTableMap::translateFieldName('Oehdshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdshipcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcwoflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcwoflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcwoflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : SalesOrderTableMap::translateFieldName('Oehddivision', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : SalesOrderTableMap::translateFieldName('Oehddivision', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddivision = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtakencode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtakencode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtakencode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpackcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpackcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpackcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : SalesOrderTableMap::translateFieldName('Oehdverifycode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : SalesOrderTableMap::translateFieldName('Oehdverifycode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdverifycode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtotdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtotdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtotdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : SalesOrderTableMap::translateFieldName('Oehdedirefnbrqual', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : SalesOrderTableMap::translateFieldName('Oehdedirefnbrqual', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdedirefnbrqual = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdusercode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdusercode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdusercode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdusercode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : SalesOrderTableMap::translateFieldName('Oehdexchctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : SalesOrderTableMap::translateFieldName('Oehdexchctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdexchctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : SalesOrderTableMap::translateFieldName('Oehdexchrate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : SalesOrderTableMap::translateFieldName('Oehdexchrate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdexchrate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : SalesOrderTableMap::translateFieldName('Oehdwghttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : SalesOrderTableMap::translateFieldName('Oehdwghttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdwghttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : SalesOrderTableMap::translateFieldName('Oehdwghtoride', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : SalesOrderTableMap::translateFieldName('Oehdwghtoride', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdwghtoride = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : SalesOrderTableMap::translateFieldName('Oehdccinfo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : SalesOrderTableMap::translateFieldName('Oehdccinfo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdccinfo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : SalesOrderTableMap::translateFieldName('Oehdboxcount', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : SalesOrderTableMap::translateFieldName('Oehdboxcount', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdboxcount = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : SalesOrderTableMap::translateFieldName('Oehdrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : SalesOrderTableMap::translateFieldName('Oehdrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdrqstdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcancdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcancdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcancdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcrntuser', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcrntuser', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcrntuser = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : SalesOrderTableMap::translateFieldName('Oehdreleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : SalesOrderTableMap::translateFieldName('Oehdreleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdreleasenbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : SalesOrderTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : SalesOrderTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : SalesOrderTableMap::translateFieldName('Oehdbordbuilddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : SalesOrderTableMap::translateFieldName('Oehdbordbuilddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdbordbuilddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : SalesOrderTableMap::translateFieldName('Oehddeptcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : SalesOrderTableMap::translateFieldName('Oehddeptcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddeptcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtinentered', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtinentered', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrtinentered = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : SalesOrderTableMap::translateFieldName('Oehddropshipentered', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : SalesOrderTableMap::translateFieldName('Oehddropshipentered', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddropshipentered = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : SalesOrderTableMap::translateFieldName('Oehderflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : SalesOrderTableMap::translateFieldName('Oehderflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehderflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrtin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : SalesOrderTableMap::translateFieldName('Oehddropship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : SalesOrderTableMap::translateFieldName('Oehddropship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddropship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : SalesOrderTableMap::translateFieldName('Oehdminorder', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : SalesOrderTableMap::translateFieldName('Oehdminorder', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdminorder = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontractterms', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontractterms', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontractterms = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : SalesOrderTableMap::translateFieldName('Oehddropshipbilled', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : SalesOrderTableMap::translateFieldName('Oehddropshipbilled', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddropshipbilled = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordtyp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordtyp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdordtyp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtracknbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtracknbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtracknbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsource', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsource', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsource = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : SalesOrderTableMap::translateFieldName('Oehdccaprv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : SalesOrderTableMap::translateFieldName('Oehdccaprv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdccaprv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickfmattype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickfmattype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickfmattype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvcfmattype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvcfmattype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinvcfmattype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcashamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcashamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcashamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcheckamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcheckamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcheckamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : SalesOrderTableMap::translateFieldName('Oehdchecknbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : SalesOrderTableMap::translateFieldName('Oehdchecknbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdchecknbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : SalesOrderTableMap::translateFieldName('Oehddepositamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 94 + $startcol : SalesOrderTableMap::translateFieldName('Oehddepositamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddepositamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : SalesOrderTableMap::translateFieldName('Oehddepositnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 95 + $startcol : SalesOrderTableMap::translateFieldName('Oehddepositnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddepositnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : SalesOrderTableMap::translateFieldName('Oehdccamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 96 + $startcol : SalesOrderTableMap::translateFieldName('Oehdccamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdccamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : SalesOrderTableMap::translateFieldName('Oehdotaxsub', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 97 + $startcol : SalesOrderTableMap::translateFieldName('Oehdotaxsub', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdotaxsub = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : SalesOrderTableMap::translateFieldName('Oehdonontaxsub', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 98 + $startcol : SalesOrderTableMap::translateFieldName('Oehdonontaxsub', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdonontaxsub = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : SalesOrderTableMap::translateFieldName('Oehdotaxtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 99 + $startcol : SalesOrderTableMap::translateFieldName('Oehdotaxtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdotaxtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : SalesOrderTableMap::translateFieldName('Oehdoordrtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 100 + $startcol : SalesOrderTableMap::translateFieldName('Oehdoordrtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdoordrtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickprintdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 101 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickprintdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickprintdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickprinttime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 102 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickprinttime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickprinttime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcont', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 103 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcont', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcont = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontteleintl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 104 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontteleintl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontteleintl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : SalesOrderTableMap::translateFieldName('Oehdconttelenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 105 + $startcol : SalesOrderTableMap::translateFieldName('Oehdconttelenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdconttelenbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontteleext', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 106 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontteleext', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontteleext = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontfaxintl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 107 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontfaxintl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontfaxintl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontfaxnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 108 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontfaxnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontfaxnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : SalesOrderTableMap::translateFieldName('Oehdshipacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 109 + $startcol : SalesOrderTableMap::translateFieldName('Oehdshipacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdshipacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : SalesOrderTableMap::translateFieldName('Oehdchgdue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 110 + $startcol : SalesOrderTableMap::translateFieldName('Oehdchgdue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdchgdue = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : SalesOrderTableMap::translateFieldName('Oehdaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 111 + $startcol : SalesOrderTableMap::translateFieldName('Oehdaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdaddlpricdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : SalesOrderTableMap::translateFieldName('Oehdallship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 112 + $startcol : SalesOrderTableMap::translateFieldName('Oehdallship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdallship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : SalesOrderTableMap::translateFieldName('Oehdqtyorderamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 113 + $startcol : SalesOrderTableMap::translateFieldName('Oehdqtyorderamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdqtyorderamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcreditapplied', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 114 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcreditapplied', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcreditapplied = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvcprintdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 115 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvcprintdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinvcprintdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvcprinttime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 116 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvcprinttime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinvcprinttime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 117 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : SalesOrderTableMap::translateFieldName('Oehdorideshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 118 + $startcol : SalesOrderTableMap::translateFieldName('Oehdorideshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdorideshipcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontemail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 119 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontemail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontemail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : SalesOrderTableMap::translateFieldName('Oehdmanualfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 120 + $startcol : SalesOrderTableMap::translateFieldName('Oehdmanualfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdmanualfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinternalfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 121 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinternalfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinternalfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 122 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrtcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : SalesOrderTableMap::translateFieldName('Oehdroute', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 123 + $startcol : SalesOrderTableMap::translateFieldName('Oehdroute', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdroute = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : SalesOrderTableMap::translateFieldName('Oehdrouteseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 124 + $startcol : SalesOrderTableMap::translateFieldName('Oehdrouteseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdrouteseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 125 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 126 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 127 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 128 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 129 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 130 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 131 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 132 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 133 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 134 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : SalesOrderTableMap::translateFieldName('Oehdedi855sent', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 135 + $startcol : SalesOrderTableMap::translateFieldName('Oehdedi855sent', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdedi855sent = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrt3rdparty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 136 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrt3rdparty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrt3rdparty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfob', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 137 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfob', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfob = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SalesOrderTableMap::translateFieldName('Oehdconfirmimagyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 138 + $startcol : SalesOrderTableMap::translateFieldName('Oehdconfirmimagyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdconfirmimagyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SalesOrderTableMap::translateFieldName('Oehdindustconform', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 139 + $startcol : SalesOrderTableMap::translateFieldName('Oehdindustconform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdindustconform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcstkconsign', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 140 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcstkconsign', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcstkconsign = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : SalesOrderTableMap::translateFieldName('Oehdlmdelaycapsent', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 141 + $startcol : SalesOrderTableMap::translateFieldName('Oehdlmdelaycapsent', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdlmdelaycapsent = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : SalesOrderTableMap::translateFieldName('Oehdmfgid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 142 + $startcol : SalesOrderTableMap::translateFieldName('Oehdmfgid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdmfgid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstoreid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 143 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstoreid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstoreid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickqueue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 144 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickqueue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickqueue = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : SalesOrderTableMap::translateFieldName('Oehdarrvdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 145 + $startcol : SalesOrderTableMap::translateFieldName('Oehdarrvdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdarrvdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsurchgstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 146 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsurchgstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsurchgstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 147 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrtgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcommoride', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 148 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcommoride', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcommoride = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : SalesOrderTableMap::translateFieldName('Oehdchrgsplt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 149 + $startcol : SalesOrderTableMap::translateFieldName('Oehdchrgsplt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdchrgsplt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : SalesOrderTableMap::translateFieldName('Oehdacccaprv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 150 + $startcol : SalesOrderTableMap::translateFieldName('Oehdacccaprv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdacccaprv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : SalesOrderTableMap::translateFieldName('Oehdorigordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 151 + $startcol : SalesOrderTableMap::translateFieldName('Oehdorigordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdorigordrnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpostdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 152 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpostdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpostdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 153 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 154 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 155 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 156 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 157 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 158 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 159 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 160 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 161 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 162 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 163 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 164 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 165 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 166 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 167 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 168 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 169 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 170 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 171 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 172 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 173 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 174 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 175 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 176 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 176 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 177 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 177 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 178 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 178 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 179 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 179 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 180 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 180 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 181 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 181 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 182 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 182 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : SalesOrderTableMap::translateFieldName('Oehdrefnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 183 + $startcol : SalesOrderTableMap::translateFieldName('Oehdrefnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdrefnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : SalesOrderTableMap::translateFieldName('Oehdacprognbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 184 + $startcol : SalesOrderTableMap::translateFieldName('Oehdacprognbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdacprognbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : SalesOrderTableMap::translateFieldName('Oehdacprogexpdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 185 + $startcol : SalesOrderTableMap::translateFieldName('Oehdacprogexpdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdacprogexpdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 186 + $startcol : SalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 186 + $startcol : SalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 187 + $startcol : SalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 187 + $startcol : SalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 188 + $startcol : SalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 188 + $startcol : SalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -9176,7 +9164,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -9198,7 +9185,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -9211,7 +9197,7 @@ abstract class SalesOrder implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(SalesOrderTableMap::DATABASE_NAME);
         }
 
@@ -9247,7 +9233,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see SalesOrder::setDeleted()
      * @see SalesOrder::isDeleted()
@@ -9258,7 +9243,7 @@ abstract class SalesOrder implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderTableMap::DATABASE_NAME);
         }
 
@@ -9297,18 +9282,14 @@ abstract class SalesOrder implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -9332,7 +9313,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -9373,13 +9353,11 @@ abstract class SalesOrder implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->salesOrderDetailsScheduledForDeletion !== null) {
-                if (!$this->salesOrderDetailsScheduledForDeletion->isEmpty()) {
-                    \SalesOrderDetailQuery::create()
-                        ->filterByPrimaryKeys($this->salesOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesOrderDetailsScheduledForDeletion = null;
-                }
+            if ($this->salesOrderDetailsScheduledForDeletion !== null && !$this->salesOrderDetailsScheduledForDeletion->isEmpty()) {
+                \SalesOrderDetailQuery::create()
+                    ->filterByPrimaryKeys($this->salesOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesOrderDetailsScheduledForDeletion = null;
             }
 
             if ($this->collSalesOrderDetails !== null) {
@@ -9390,13 +9368,11 @@ abstract class SalesOrder implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesOrderShipmentsScheduledForDeletion !== null) {
-                if (!$this->salesOrderShipmentsScheduledForDeletion->isEmpty()) {
-                    \SalesOrderShipmentQuery::create()
-                        ->filterByPrimaryKeys($this->salesOrderShipmentsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesOrderShipmentsScheduledForDeletion = null;
-                }
+            if ($this->salesOrderShipmentsScheduledForDeletion !== null && !$this->salesOrderShipmentsScheduledForDeletion->isEmpty()) {
+                \SalesOrderShipmentQuery::create()
+                    ->filterByPrimaryKeys($this->salesOrderShipmentsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesOrderShipmentsScheduledForDeletion = null;
             }
 
             if ($this->collSalesOrderShipments !== null) {
@@ -9407,13 +9383,11 @@ abstract class SalesOrder implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesOrderLotserialsScheduledForDeletion !== null) {
-                if (!$this->salesOrderLotserialsScheduledForDeletion->isEmpty()) {
-                    \SalesOrderLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->salesOrderLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesOrderLotserialsScheduledForDeletion = null;
-                }
+            if ($this->salesOrderLotserialsScheduledForDeletion !== null && !$this->salesOrderLotserialsScheduledForDeletion->isEmpty()) {
+                \SalesOrderLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->salesOrderLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesOrderLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collSalesOrderLotserials !== null) {
@@ -9424,13 +9398,11 @@ abstract class SalesOrder implements ActiveRecordInterface
                 }
             }
 
-            if ($this->soAllocatedLotserialsScheduledForDeletion !== null) {
-                if (!$this->soAllocatedLotserialsScheduledForDeletion->isEmpty()) {
-                    \SoAllocatedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->soAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->soAllocatedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->soAllocatedLotserialsScheduledForDeletion !== null && !$this->soAllocatedLotserialsScheduledForDeletion->isEmpty()) {
+                \SoAllocatedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->soAllocatedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->soAllocatedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collSoAllocatedLotserials !== null) {
@@ -9441,13 +9413,11 @@ abstract class SalesOrder implements ActiveRecordInterface
                 }
             }
 
-            if ($this->soPickedLotserialsScheduledForDeletion !== null) {
-                if (!$this->soPickedLotserialsScheduledForDeletion->isEmpty()) {
-                    \SoPickedLotserialQuery::create()
-                        ->filterByPrimaryKeys($this->soPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->soPickedLotserialsScheduledForDeletion = null;
-                }
+            if ($this->soPickedLotserialsScheduledForDeletion !== null && !$this->soPickedLotserialsScheduledForDeletion->isEmpty()) {
+                \SoPickedLotserialQuery::create()
+                    ->filterByPrimaryKeys($this->soPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->soPickedLotserialsScheduledForDeletion = null;
             }
 
             if ($this->collSoPickedLotserials !== null) {
@@ -9468,7 +9438,6 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -10828,7 +10797,6 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -10854,9 +10822,8 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = SalesOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -11773,7 +11740,6 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -13608,7 +13574,7 @@ abstract class SalesOrder implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -13628,7 +13594,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Generic method to set the primary key (oehdnbr column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -13637,8 +13602,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -13655,7 +13618,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -13916,13 +13878,12 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param ChildCustomer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -13932,7 +13893,7 @@ abstract class SalesOrder implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->addSalesOrder($this);
         }
 
@@ -13967,19 +13928,18 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomerShipto object.
      *
-     * @param ChildCustomerShipto $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomerShipto(ChildCustomerShipto $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \CustomerShipto) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
         }
 
-        if ($v === null) {
+        if (!$v instanceof \CustomerShipto) {
             $this->setArstshipid('');
         } else {
             $this->setArstshipid($v->getArstshipid());
@@ -13989,7 +13949,7 @@ abstract class SalesOrder implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomerShipto object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \CustomerShipto) {
             $v->addSalesOrder($this);
         }
 
@@ -14008,7 +13968,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function getCustomerShipto(?ConnectionInterface $con = null)
     {
         if ($this->aCustomerShipto === null && (($this->arcucustid !== "" && $this->arcucustid !== null) && ($this->arstshipid !== "" && $this->arstshipid !== null))) {
-            $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk(array($this->arcucustid, $this->arstshipid), $con);
+            $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk([$this->arcucustid, $this->arstshipid], $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -14028,7 +13988,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -14072,8 +14031,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesOrderDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesOrderDetails($v = true): void
     {
@@ -14089,8 +14046,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesOrderDetails(bool $overrideExisting = true): void
     {
@@ -14122,7 +14077,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function getSalesOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesOrderDetails) {
@@ -14140,7 +14095,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                     ->filterBySalesOrder($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesOrderDetailsPartial && count($collSalesOrderDetails)) {
                         $this->initSalesOrderDetails(false);
 
@@ -14194,7 +14149,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         $this->salesOrderDetailsScheduledForDeletion = clone $salesOrderDetailsToDelete;
 
         foreach ($salesOrderDetailsToDelete as $salesOrderDetailRemoved) {
-            $salesOrderDetailRemoved->setSalesOrder(null);
+            $salesOrderDetailRemoved->setSalesOrder();
         }
 
         $this->collSalesOrderDetails = null;
@@ -14212,7 +14167,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Returns the number of related SalesOrderDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesOrderDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14220,7 +14174,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function countSalesOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesOrderDetails) {
                 return 0;
             }
@@ -14259,7 +14213,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         if (!$this->collSalesOrderDetails->contains($l)) {
             $this->doAddSalesOrderDetail($l);
 
-            if ($this->salesOrderDetailsScheduledForDeletion and $this->salesOrderDetailsScheduledForDeletion->contains($l)) {
+            if ($this->salesOrderDetailsScheduledForDeletion && $this->salesOrderDetailsScheduledForDeletion->contains($l)) {
                 $this->salesOrderDetailsScheduledForDeletion->remove($this->salesOrderDetailsScheduledForDeletion->search($l));
             }
         }
@@ -14290,7 +14244,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                 $this->salesOrderDetailsScheduledForDeletion->clear();
             }
             $this->salesOrderDetailsScheduledForDeletion[]= clone $salesOrderDetail;
-            $salesOrderDetail->setSalesOrder(null);
+            $salesOrderDetail->setSalesOrder();
         }
 
         return $this;
@@ -14340,8 +14294,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesOrderShipments collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesOrderShipments($v = true): void
     {
@@ -14357,8 +14309,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesOrderShipments(bool $overrideExisting = true): void
     {
@@ -14390,7 +14340,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function getSalesOrderShipments(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderShipmentsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderShipments || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderShipments || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesOrderShipments) {
@@ -14408,7 +14358,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                     ->filterBySalesOrder($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesOrderShipmentsPartial && count($collSalesOrderShipments)) {
                         $this->initSalesOrderShipments(false);
 
@@ -14462,7 +14412,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         $this->salesOrderShipmentsScheduledForDeletion = clone $salesOrderShipmentsToDelete;
 
         foreach ($salesOrderShipmentsToDelete as $salesOrderShipmentRemoved) {
-            $salesOrderShipmentRemoved->setSalesOrder(null);
+            $salesOrderShipmentRemoved->setSalesOrder();
         }
 
         $this->collSalesOrderShipments = null;
@@ -14480,7 +14430,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Returns the number of related SalesOrderShipment objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesOrderShipment objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14488,7 +14437,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function countSalesOrderShipments(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderShipmentsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderShipments || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderShipments || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesOrderShipments) {
                 return 0;
             }
@@ -14527,7 +14476,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         if (!$this->collSalesOrderShipments->contains($l)) {
             $this->doAddSalesOrderShipment($l);
 
-            if ($this->salesOrderShipmentsScheduledForDeletion and $this->salesOrderShipmentsScheduledForDeletion->contains($l)) {
+            if ($this->salesOrderShipmentsScheduledForDeletion && $this->salesOrderShipmentsScheduledForDeletion->contains($l)) {
                 $this->salesOrderShipmentsScheduledForDeletion->remove($this->salesOrderShipmentsScheduledForDeletion->search($l));
             }
         }
@@ -14558,7 +14507,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                 $this->salesOrderShipmentsScheduledForDeletion->clear();
             }
             $this->salesOrderShipmentsScheduledForDeletion[]= clone $salesOrderShipment;
-            $salesOrderShipment->setSalesOrder(null);
+            $salesOrderShipment->setSalesOrder();
         }
 
         return $this;
@@ -14608,8 +14557,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesOrderLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesOrderLotserials($v = true): void
     {
@@ -14625,8 +14572,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesOrderLotserials(bool $overrideExisting = true): void
     {
@@ -14658,7 +14603,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function getSalesOrderLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesOrderLotserials) {
@@ -14676,7 +14621,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                     ->filterBySalesOrder($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesOrderLotserialsPartial && count($collSalesOrderLotserials)) {
                         $this->initSalesOrderLotserials(false);
 
@@ -14730,7 +14675,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         $this->salesOrderLotserialsScheduledForDeletion = clone $salesOrderLotserialsToDelete;
 
         foreach ($salesOrderLotserialsToDelete as $salesOrderLotserialRemoved) {
-            $salesOrderLotserialRemoved->setSalesOrder(null);
+            $salesOrderLotserialRemoved->setSalesOrder();
         }
 
         $this->collSalesOrderLotserials = null;
@@ -14748,7 +14693,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Returns the number of related SalesOrderLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesOrderLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -14756,7 +14700,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function countSalesOrderLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrderLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesOrderLotserials) {
                 return 0;
             }
@@ -14795,7 +14739,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         if (!$this->collSalesOrderLotserials->contains($l)) {
             $this->doAddSalesOrderLotserial($l);
 
-            if ($this->salesOrderLotserialsScheduledForDeletion and $this->salesOrderLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->salesOrderLotserialsScheduledForDeletion && $this->salesOrderLotserialsScheduledForDeletion->contains($l)) {
                 $this->salesOrderLotserialsScheduledForDeletion->remove($this->salesOrderLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -14826,7 +14770,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                 $this->salesOrderLotserialsScheduledForDeletion->clear();
             }
             $this->salesOrderLotserialsScheduledForDeletion[]= clone $salesOrderLotserial;
-            $salesOrderLotserial->setSalesOrder(null);
+            $salesOrderLotserial->setSalesOrder();
         }
 
         return $this;
@@ -14902,8 +14846,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Reset is the collSoAllocatedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSoAllocatedLotserials($v = true): void
     {
@@ -14919,8 +14861,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSoAllocatedLotserials(bool $overrideExisting = true): void
     {
@@ -14952,7 +14892,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function getSoAllocatedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSoAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSoAllocatedLotserials) {
@@ -14970,7 +14910,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                     ->filterBySalesOrder($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSoAllocatedLotserialsPartial && count($collSoAllocatedLotserials)) {
                         $this->initSoAllocatedLotserials(false);
 
@@ -15024,7 +14964,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         $this->soAllocatedLotserialsScheduledForDeletion = clone $soAllocatedLotserialsToDelete;
 
         foreach ($soAllocatedLotserialsToDelete as $soAllocatedLotserialRemoved) {
-            $soAllocatedLotserialRemoved->setSalesOrder(null);
+            $soAllocatedLotserialRemoved->setSalesOrder();
         }
 
         $this->collSoAllocatedLotserials = null;
@@ -15042,7 +14982,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Returns the number of related SoAllocatedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SoAllocatedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15050,7 +14989,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function countSoAllocatedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoAllocatedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSoAllocatedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSoAllocatedLotserials) {
                 return 0;
             }
@@ -15089,7 +15028,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         if (!$this->collSoAllocatedLotserials->contains($l)) {
             $this->doAddSoAllocatedLotserial($l);
 
-            if ($this->soAllocatedLotserialsScheduledForDeletion and $this->soAllocatedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->soAllocatedLotserialsScheduledForDeletion && $this->soAllocatedLotserialsScheduledForDeletion->contains($l)) {
                 $this->soAllocatedLotserialsScheduledForDeletion->remove($this->soAllocatedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -15120,7 +15059,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                 $this->soAllocatedLotserialsScheduledForDeletion->clear();
             }
             $this->soAllocatedLotserialsScheduledForDeletion[]= clone $soAllocatedLotserial;
-            $soAllocatedLotserial->setSalesOrder(null);
+            $soAllocatedLotserial->setSalesOrder();
         }
 
         return $this;
@@ -15222,8 +15161,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Reset is the collSoPickedLotserials collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSoPickedLotserials($v = true): void
     {
@@ -15239,8 +15176,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSoPickedLotserials(bool $overrideExisting = true): void
     {
@@ -15272,7 +15207,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function getSoPickedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSoPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSoPickedLotserials) {
@@ -15290,7 +15225,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                     ->filterBySalesOrder($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSoPickedLotserialsPartial && count($collSoPickedLotserials)) {
                         $this->initSoPickedLotserials(false);
 
@@ -15344,7 +15279,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         $this->soPickedLotserialsScheduledForDeletion = clone $soPickedLotserialsToDelete;
 
         foreach ($soPickedLotserialsToDelete as $soPickedLotserialRemoved) {
-            $soPickedLotserialRemoved->setSalesOrder(null);
+            $soPickedLotserialRemoved->setSalesOrder();
         }
 
         $this->collSoPickedLotserials = null;
@@ -15362,7 +15297,6 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Returns the number of related SoPickedLotserial objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SoPickedLotserial objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -15370,7 +15304,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function countSoPickedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoPickedLotserials || null !== $criteria || $partial) {
+        if (null === $this->collSoPickedLotserials || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSoPickedLotserials) {
                 return 0;
             }
@@ -15409,7 +15343,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         if (!$this->collSoPickedLotserials->contains($l)) {
             $this->doAddSoPickedLotserial($l);
 
-            if ($this->soPickedLotserialsScheduledForDeletion and $this->soPickedLotserialsScheduledForDeletion->contains($l)) {
+            if ($this->soPickedLotserialsScheduledForDeletion && $this->soPickedLotserialsScheduledForDeletion->contains($l)) {
                 $this->soPickedLotserialsScheduledForDeletion->remove($this->soPickedLotserialsScheduledForDeletion->search($l));
             }
         }
@@ -15440,7 +15374,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                 $this->soPickedLotserialsScheduledForDeletion->clear();
             }
             $this->soPickedLotserialsScheduledForDeletion[]= clone $soPickedLotserial;
-            $soPickedLotserial->setSalesOrder(null);
+            $soPickedLotserial->setSalesOrder();
         }
 
         return $this;
@@ -15794,13 +15728,11 @@ abstract class SalesOrder implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(SalesOrderTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(SalesOrderTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -15809,8 +15741,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -15818,8 +15748,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -15828,8 +15756,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -15837,8 +15763,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -15847,8 +15771,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -15856,8 +15778,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -15866,8 +15786,6 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -15887,7 +15805,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -15899,7 +15817,7 @@ abstract class SalesOrder implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -15907,7 +15825,7 @@ abstract class SalesOrder implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

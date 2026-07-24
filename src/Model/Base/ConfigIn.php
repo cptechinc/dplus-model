@@ -32,7 +32,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ConfigInTableMap';
+    public const TABLE_MAP = \Map\ConfigInTableMap::class;
 
 
     /**
@@ -1661,7 +1661,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -1719,7 +1719,6 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -1729,7 +1728,6 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -1767,8 +1765,6 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -1779,7 +1775,6 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -1821,9 +1816,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -1849,7 +1842,7 @@ abstract class ConfigIn implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, []));
     }
 
     /**
@@ -7794,13 +7787,8 @@ abstract class ConfigIn implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -7825,526 +7813,526 @@ abstract class ConfigIn implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ConfigInTableMap::translateFieldName('Intbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ConfigInTableMap::translateFieldName('Intbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfkey = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ConfigInTableMap::translateFieldName('Intbconfglifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ConfigInTableMap::translateFieldName('Intbconfglifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfglifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseiw', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseiw', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuseiw = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ConfigInTableMap::translateFieldName('Intbconflifofifo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ConfigInTableMap::translateFieldName('Intbconflifofifo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconflifofifo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ConfigInTableMap::translateFieldName('Intbconfgoneg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ConfigInTableMap::translateFieldName('Intbconfgoneg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfgoneg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuselots', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuselots', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuselots = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnbruppr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnbruppr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnbruppr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdescuppr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdescuppr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdescuppr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusedesc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusedesc2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusedesc2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseupccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseupccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuseupccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupceancntrl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupceancntrl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupceancntrl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupcgennbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupcgennbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupcgennbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2allowdupupc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2allowdupupc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2allowdupupc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigInTableMap::translateFieldName('Intbconfxrefnospace', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ConfigInTableMap::translateFieldName('Intbconfxrefnospace', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfxrefnospace = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusepricgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusepricgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusepricgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusecommgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusecommgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusecommgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusewarrdays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusewarrdays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusewarrdays = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstanbasedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstanbasedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfstanbasedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigInTableMap::translateFieldName('Intbconfgrupdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ConfigInTableMap::translateFieldName('Intbconfgrupdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfgrupdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigInTableMap::translateFieldName('Intbconfpricgrupdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ConfigInTableMap::translateFieldName('Intbconfpricgrupdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfpricgrupdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcommgrupdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcommgrupdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcommgrupdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigInTableMap::translateFieldName('Intbconftypedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ConfigInTableMap::translateFieldName('Intbconftypedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftypedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmultilotref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmultilotref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfmultilotref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigInTableMap::translateFieldName('Intbconfpricuseitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ConfigInTableMap::translateFieldName('Intbconfpricuseitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfpricuseitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcommuseitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcommuseitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcommuseitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuomsaledef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuomsaledef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuomsaledef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuompurdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuompurdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuompurdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigInTableMap::translateFieldName('Intbconfsviadef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ConfigInTableMap::translateFieldName('Intbconfsviadef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfsviadef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcustxreforuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcustxreforuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcustxreforuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadgetdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadgetdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfheadgetdef = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemgetdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemgetdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfitemgetdef = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigInTableMap::translateFieldName('Intbconfgetdispohaval', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ConfigInTableMap::translateFieldName('Intbconfgetdispohaval', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfgetdispohaval = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode1labl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode1labl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusercode1labl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode1ver', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode1ver', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusercode1ver = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode2labl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode2labl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusercode2labl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode2ver', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode2ver', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusercode2ver = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfitemline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfitemcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfheadline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfheadcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdetline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdetline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdetline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdetcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdetcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdetcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigInTableMap::translateFieldName('Intbconfminmaxzero', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : ConfigInTableMap::translateFieldName('Intbconfminmaxzero', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfminmaxzero = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigInTableMap::translateFieldName('Intbconfminrec', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : ConfigInTableMap::translateFieldName('Intbconfminrec', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfminrec = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigInTableMap::translateFieldName('Intbconfatbelowmin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : ConfigInTableMap::translateFieldName('Intbconfatbelowmin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfatbelowmin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigInTableMap::translateFieldName('Intbconfonewhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : ConfigInTableMap::translateFieldName('Intbconfonewhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfonewhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigInTableMap::translateFieldName('Intbconfytdmth', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : ConfigInTableMap::translateFieldName('Intbconfytdmth', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfytdmth = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusegramsltr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusegramsltr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusegramsltr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcbywhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcbywhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabcbywhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcnbrmths', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcnbrmths', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabcnbrmths = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcbasecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcbasecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabcbasecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevla', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevla', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevla = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlb', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlb', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlb = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevld', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevld', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevld = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevle', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevle', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevle = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlf', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlf', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlf = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlh', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlh', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlh = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevli', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevli', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevli = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlj', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlj', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlj = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseforeignx', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseforeignx', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuseforeignx = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusenafta', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusenafta', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusenafta = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftaprefcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftaprefcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnaftaprefcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftaproducer', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftaproducer', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnaftaproducer = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftadoccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftadoccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnaftadoccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigInTableMap::translateFieldName('Intbconfphyscurrwksh', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : ConfigInTableMap::translateFieldName('Intbconfphyscurrwksh', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfphyscurrwksh = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigInTableMap::translateFieldName('Intbconf20or30', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : ConfigInTableMap::translateFieldName('Intbconf20or30', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconf20or30 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdisporigcnt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdisporigcnt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdisporigcnt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdispgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdispref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdispcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigInTableMap::translateFieldName('Intbconfprtval', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : ConfigInTableMap::translateFieldName('Intbconfprtval', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfprtval = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigInTableMap::translateFieldName('Intbconfprtgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : ConfigInTableMap::translateFieldName('Intbconfprtgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfprtgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigInTableMap::translateFieldName('Intbconfglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : ConfigInTableMap::translateFieldName('Intbconfglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigInTableMap::translateFieldName('Intbconfref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : ConfigInTableMap::translateFieldName('Intbconfref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcosttype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcosttype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcosttype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnormalonly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnormalonly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnormalonly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusewhsedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusewhsedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusewhsedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse01 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse02 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse03 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse04 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse05 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse06 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse07 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse08 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse09 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : ConfigInTableMap::translateFieldName('Intbconfbindef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : ConfigInTableMap::translateFieldName('Intbconfbindef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfbindef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcycldef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcycldef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcycldef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstatdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstatdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfstatdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabcdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : ConfigInTableMap::translateFieldName('Intbconfspecordrdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : ConfigInTableMap::translateFieldName('Intbconfspecordrdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfspecordrdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : ConfigInTableMap::translateFieldName('Intbconfordrpntdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 94 + $startcol : ConfigInTableMap::translateFieldName('Intbconfordrpntdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfordrpntdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmaxdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 95 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmaxdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfmaxdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : ConfigInTableMap::translateFieldName('Intbconfordrqtydef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 96 + $startcol : ConfigInTableMap::translateFieldName('Intbconfordrqtydef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfordrqtydef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrcptallowcmpl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 97 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrcptallowcmpl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftrcptallowcmpl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrecmmtstock', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 98 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrecmmtstock', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftrecmmtstock = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusefrtin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 99 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusefrtin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusefrtin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : ConfigInTableMap::translateFieldName('Intbconfeachoruom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 100 + $startcol : ConfigInTableMap::translateFieldName('Intbconfeachoruom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfeachoruom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : ConfigInTableMap::translateFieldName('Intbconfneglotcorr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 101 + $startcol : ConfigInTableMap::translateFieldName('Intbconfneglotcorr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfneglotcorr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrnsglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 102 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrnsglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftrnsglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrnsprotstock', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 103 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrnsprotstock', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftrnsprotstock = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnumericitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 104 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnumericitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnumericitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemdigits', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 105 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemdigits', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfitemdigits = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : ConfigInTableMap::translateFieldName('Intbconfsinglewhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 106 + $startcol : ConfigInTableMap::translateFieldName('Intbconfsinglewhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfsinglewhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdusepct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 107 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdusepct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupdusepct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 108 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupdpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdstdcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 109 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdstdcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupdstdcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdxrefcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 110 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdxrefcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupdxrefcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : ConfigInTableMap::translateFieldName('Intbconfiqpaupddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 111 + $startcol : ConfigInTableMap::translateFieldName('Intbconfiqpaupddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfiqpaupddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupcxrefoptn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 112 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupcxrefoptn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupcxrefoptn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : ConfigInTableMap::translateFieldName('Intbconftranviewlib', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 113 + $startcol : ConfigInTableMap::translateFieldName('Intbconftranviewlib', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftranviewlib = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : ConfigInTableMap::translateFieldName('Intbconfresvcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 114 + $startcol : ConfigInTableMap::translateFieldName('Intbconfresvcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfresvcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2tranzerorqst', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 115 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2tranzerorqst', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2tranzerorqst = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmonendadjdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 116 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmonendadjdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfmonendadjdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmonendtrndate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 117 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmonendtrndate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfmonendtrndate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmonendlogdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 118 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmonendlogdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfmonendlogdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdstatproc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 119 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdstatproc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdstatproc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstancostupd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 120 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstancostupd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfstancostupd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : ConfigInTableMap::translateFieldName('Intbconflastcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 121 + $startcol : ConfigInTableMap::translateFieldName('Intbconflastcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconflastcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusesorgpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 122 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusesorgpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusesorgpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : ConfigInTableMap::translateFieldName('Intbconfaddonstan', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 123 + $startcol : ConfigInTableMap::translateFieldName('Intbconfaddonstan', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfaddonstan = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstdcosterror', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 124 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstdcosterror', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfstdcosterror = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : ConfigInTableMap::translateFieldName('Intbconfavgcurrfive', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 125 + $startcol : ConfigInTableMap::translateFieldName('Intbconfavgcurrfive', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfavgcurrfive = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusecntrlbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 126 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusecntrlbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusecntrlbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnbrbinareas', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 127 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnbrbinareas', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnbrbinareas = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusemultbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 128 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusemultbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusemultbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdfltwhsebin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 129 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdfltwhsebin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdfltwhsebin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdfltbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 130 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdfltbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdfltbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : ConfigInTableMap::translateFieldName('Intbconfctryitemlot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 131 + $startcol : ConfigInTableMap::translateFieldName('Intbconfctryitemlot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfctryitemlot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseshipbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 132 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseshipbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuseshipbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2prtbinrlabel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 133 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2prtbinrlabel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2prtbinrlabel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2itemlookup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 134 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2itemlookup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2itemlookup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : ConfigInTableMap::translateFieldName('Intbconfincldcti', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 135 + $startcol : ConfigInTableMap::translateFieldName('Intbconfincldcti', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfincldcti = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcertimage', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 136 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcertimage', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcertimage = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdrawimage', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 137 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdrawimage', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdrawimage = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : ConfigInTableMap::translateFieldName('Intbconfconfirmimage', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 138 + $startcol : ConfigInTableMap::translateFieldName('Intbconfconfirmimage', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfconfirmimage = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2productimage', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 139 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2productimage', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2productimage = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefpick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 140 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefpick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdefpick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefpack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 141 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefpack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdefpack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefinvc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 142 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefinvc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdefinvc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 143 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdefack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefquot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 144 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefquot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdefquot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 145 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdefpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdeftrans', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 146 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdeftrans', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdeftrans = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : ConfigInTableMap::translateFieldName('Intbconfadjglcogs', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 147 + $startcol : ConfigInTableMap::translateFieldName('Intbconfadjglcogs', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfadjglcogs = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltadjglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 148 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltadjglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltadjglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : ConfigInTableMap::translateFieldName('Intbconfadjcostbase', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 149 + $startcol : ConfigInTableMap::translateFieldName('Intbconfadjcostbase', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfadjcostbase = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdfltadjtbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 150 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdfltadjtbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdfltadjtbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : ConfigInTableMap::translateFieldName('Intbconfadjtbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 151 + $startcol : ConfigInTableMap::translateFieldName('Intbconfadjtbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfadjtbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstockseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 152 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstockseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcstockseq = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstockhistday', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 153 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstockhistday', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcstockhistday = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstockformat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 154 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstockformat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcstockformat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstkexportitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 155 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstkexportitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcstkexportitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstkpdmcontract', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 156 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcstkpdmcontract', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcstkpdmcontract = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2importseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 157 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2importseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2importseq = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstopitemchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 158 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstopitemchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfstopitemchg = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : ConfigInTableMap::translateFieldName('Intbconfaddtomxrfe', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 159 + $startcol : ConfigInTableMap::translateFieldName('Intbconfaddtomxrfe', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfaddtomxrfe = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmxrfevendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 160 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmxrfevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfmxrfevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2newidlabellist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 161 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2newidlabellist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2newidlabellist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseformat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 162 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseformat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuseformat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefformat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 163 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdefformat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdefformat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : ConfigInTableMap::translateFieldName('Intbconfseqshortitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 164 + $startcol : ConfigInTableMap::translateFieldName('Intbconfseqshortitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfseqshortitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : ConfigInTableMap::translateFieldName('Intbconfshortitemlen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 165 + $startcol : ConfigInTableMap::translateFieldName('Intbconfshortitemlen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfshortitemlen = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusescale', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 166 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusescale', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusescale = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstorewght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 167 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstorewght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfstorewght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : ConfigInTableMap::translateFieldName('Intbconfvalidasstcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 168 + $startcol : ConfigInTableMap::translateFieldName('Intbconfvalidasstcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfvalidasstcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : ConfigInTableMap::translateFieldName('Intbconfwhitegoods', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 169 + $startcol : ConfigInTableMap::translateFieldName('Intbconfwhitegoods', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfwhitegoods = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2transcustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 170 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2transcustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2transcustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : ConfigInTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 171 + $startcol : ConfigInTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : ConfigInTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 172 + $startcol : ConfigInTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : ConfigInTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 173 + $startcol : ConfigInTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -8373,7 +8361,6 @@ abstract class ConfigIn implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -8386,7 +8373,6 @@ abstract class ConfigIn implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -8399,7 +8385,7 @@ abstract class ConfigIn implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigInTableMap::DATABASE_NAME);
         }
 
@@ -8423,7 +8409,6 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigIn::setDeleted()
      * @see ConfigIn::isDeleted()
@@ -8434,7 +8419,7 @@ abstract class ConfigIn implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigInTableMap::DATABASE_NAME);
         }
 
@@ -8473,18 +8458,14 @@ abstract class ConfigIn implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigInTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -8508,7 +8489,6 @@ abstract class ConfigIn implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -8540,7 +8520,6 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -9795,7 +9774,6 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -9821,9 +9799,8 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigInTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -10572,7 +10549,6 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -12272,7 +12248,7 @@ abstract class ConfigIn implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -12292,7 +12268,6 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Generic method to set the primary key (intbconfkey column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -12301,8 +12276,6 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -12319,7 +12292,6 @@ abstract class ConfigIn implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -12728,8 +12700,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         return $this;
     }
@@ -12741,13 +12712,11 @@ abstract class ConfigIn implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ConfigInTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ConfigInTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -12756,8 +12725,6 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -12765,8 +12732,6 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -12775,8 +12740,6 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -12784,8 +12747,6 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -12794,8 +12755,6 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -12803,8 +12762,6 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -12813,8 +12770,6 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -12834,7 +12789,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -12846,7 +12801,7 @@ abstract class ConfigIn implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -12854,7 +12809,7 @@ abstract class ConfigIn implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

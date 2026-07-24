@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\PhoneBook as BasePhoneBook;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -25,7 +27,7 @@ class PhoneBook extends BasePhoneBook {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'                    => 'phadtype',
 		'key1'                    => 'phadid',
 		'key2'                    => 'phadsubid',
@@ -50,5 +52,5 @@ class PhoneBook extends BasePhoneBook {
 		'shiptoid'                => 'phadsubid',
 		'vendorid'                => 'phadid',
 		'shipfromid'              => 'phadsubid',
-	);
+	];
 }

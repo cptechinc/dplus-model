@@ -38,7 +38,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\InvWhseItemBinTableMap';
+    public const TABLE_MAP = \Map\InvWhseItemBinTableMap::class;
 
 
     /**
@@ -404,7 +404,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -462,7 +462,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -472,7 +471,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -510,8 +508,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -522,7 +518,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -564,9 +559,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -592,7 +585,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1725,13 +1718,8 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -1756,100 +1744,100 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvWhseItemBinTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : InvWhseItemBinTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvWhseItemBinTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : InvWhseItemBinTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binabin1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamin1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamax1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binabin2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamin2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamax2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binabin3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamin3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamax3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binabin4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamin4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamax4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binabin5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamin5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamax5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binabin6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamin6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamax6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binabin7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamin7 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamax7 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binabin8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamin8 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamax8 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binabin9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binabin9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamin9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamin9 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : InvWhseItemBinTableMap::translateFieldName('Binamax9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binamax9 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : InvWhseItemBinTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : InvWhseItemBinTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : InvWhseItemBinTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : InvWhseItemBinTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : InvWhseItemBinTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : InvWhseItemBinTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1878,7 +1866,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1903,7 +1890,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1916,7 +1902,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvWhseItemBinTableMap::DATABASE_NAME);
         }
 
@@ -1943,7 +1929,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see InvWhseItemBin::setDeleted()
      * @see InvWhseItemBin::isDeleted()
@@ -1954,7 +1939,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseItemBinTableMap::DATABASE_NAME);
         }
 
@@ -1993,18 +1978,14 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseItemBinTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2028,7 +2009,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2086,7 +2066,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2347,7 +2326,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2373,9 +2351,8 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = InvWhseItemBinTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -2604,7 +2581,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3063,18 +3039,13 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getInititemnbr();
-        $pks[1] = $this->getIntbwhse();
-
-        return $pks;
+        return [$this->getInititemnbr(), $this->getIntbwhse()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -3084,8 +3055,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3102,7 +3071,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3168,13 +3136,12 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param ChildItemMasterItem $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ItemMasterItem) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
@@ -3184,7 +3151,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ItemMasterItem) {
             $v->addInvWhseItemBin($this);
         }
 
@@ -3219,13 +3186,12 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildWarehouse object.
      *
-     * @param ChildWarehouse $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setWarehouse(ChildWarehouse $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Warehouse) {
             $this->setIntbwhse('');
         } else {
             $this->setIntbwhse($v->getIntbwhse());
@@ -3235,7 +3201,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildWarehouse object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Warehouse) {
             $v->addInvWhseItemBin($this);
         }
 
@@ -3270,19 +3236,18 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildWarehouseInventory object.
      *
-     * @param ChildWarehouseInventory $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setWarehouseInventory(ChildWarehouseInventory $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \WarehouseInventory) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
         }
 
-        if ($v === null) {
+        if (!$v instanceof \WarehouseInventory) {
             $this->setIntbwhse('');
         } else {
             $this->setIntbwhse($v->getIntbwhse());
@@ -3291,7 +3256,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
         $this->aWarehouseInventory = $v;
 
         // Add binding for other direction of this 1:1 relationship.
-        if ($v !== null) {
+        if ($v instanceof \WarehouseInventory) {
             $v->setInvWhseItemBin($this);
         }
 
@@ -3310,7 +3275,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
     public function getWarehouseInventory(?ConnectionInterface $con = null)
     {
         if ($this->aWarehouseInventory === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->intbwhse !== "" && $this->intbwhse !== null))) {
-            $this->aWarehouseInventory = ChildWarehouseInventoryQuery::create()->findPk(array($this->inititemnbr, $this->intbwhse), $con);
+            $this->aWarehouseInventory = ChildWarehouseInventoryQuery::create()->findPk([$this->inititemnbr, $this->intbwhse], $con);
             // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
             $this->aWarehouseInventory->setInvWhseItemBin($this);
         }
@@ -3389,8 +3354,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aItemMasterItem = null;
         $this->aWarehouse = null;
@@ -3405,13 +3369,11 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(InvWhseItemBinTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(InvWhseItemBinTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3420,8 +3382,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3429,8 +3389,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3439,8 +3397,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3448,8 +3404,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3458,8 +3412,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3467,8 +3419,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3477,8 +3427,6 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3498,7 +3446,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3510,7 +3458,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3518,7 +3466,7 @@ abstract class InvWhseItemBin implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

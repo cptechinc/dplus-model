@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\GlTextCode as BaseGlTextCode;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,7 +21,7 @@ class GlTextCode extends BaseGlTextCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'gltbtextcode',
 		'code'         => 'gltbtextcode',
 		'text1'        => 'gltbtext1',
@@ -28,7 +30,7 @@ class GlTextCode extends BaseGlTextCode {
 		'text4'        => 'gltbtext4',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return Text Line

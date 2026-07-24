@@ -100,7 +100,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class BookingDayRepQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\BookingDayRepQuery object.
@@ -158,7 +158,7 @@ abstract class BookingDayRepQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(BookingDayRepTableMap::DATABASE_NAME);
         }
 
@@ -205,7 +205,6 @@ abstract class BookingDayRepQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildBookingDayRep $obj */
             $obj = new ChildBookingDayRep();
             $obj->hydrate($row);
             BookingDayRepTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -246,7 +245,7 @@ abstract class BookingDayRepQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -314,10 +313,8 @@ abstract class BookingDayRepQuery extends ModelCriteria
      */
     public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingDayRepTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
@@ -342,10 +339,8 @@ abstract class BookingDayRepQuery extends ModelCriteria
      */
     public function filterByBkgrdate($bkgrdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($bkgrdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($bkgrdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingDayRepTableMap::COL_BKGRDATE, $bkgrdate, $comparison);
@@ -370,10 +365,8 @@ abstract class BookingDayRepQuery extends ModelCriteria
      */
     public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($intbwhse)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($intbwhse)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingDayRepTableMap::COL_INTBWHSE, $intbwhse, $comparison);
@@ -441,10 +434,8 @@ abstract class BookingDayRepQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingDayRepTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -469,10 +460,8 @@ abstract class BookingDayRepQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingDayRepTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -497,10 +486,8 @@ abstract class BookingDayRepQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(BookingDayRepTableMap::COL_DUMMY, $dummy, $comparison);
@@ -554,7 +541,7 @@ abstract class BookingDayRepQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -584,7 +571,7 @@ abstract class BookingDayRepQuery extends ModelCriteria
     {
         return $this
             ->joinSalesPerson($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'SalesPerson', '\SalesPersonQuery');
+            ->useQuery($relationAlias ?: 'SalesPerson', '\SalesPersonQuery');
     }
 
     /**
@@ -695,7 +682,7 @@ abstract class BookingDayRepQuery extends ModelCriteria
         if ($bookingDayRep) {
             $this->addCond('pruneCond0', $this->getAliasedColName(BookingDayRepTableMap::COL_ARSPSALEPER1), $bookingDayRep->getArspsaleper1(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(BookingDayRepTableMap::COL_BKGRDATE), $bookingDayRep->getBkgrdate(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -709,7 +696,7 @@ abstract class BookingDayRepQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingDayRepTableMap::DATABASE_NAME);
         }
 
@@ -739,7 +726,7 @@ abstract class BookingDayRepQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingDayRepTableMap::DATABASE_NAME);
         }
 

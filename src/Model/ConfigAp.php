@@ -29,7 +29,7 @@ class ConfigAp extends BaseConfigAp {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'                  => 'aptbconfkey',
 		'colsNotesVend'       => 'aptbconfvendcols',
 		'colsNotesPo'         => 'aptbconfpocols',
@@ -45,7 +45,7 @@ class ConfigAp extends BaseConfigAp {
 		'updateitmpricing'          => 'AptbConfVxmListItemUpd',
 		'computelistpriceorpercent' => 'AptbConfVxmCostLp',
 		'computelistpriceorcost'    => 'AptbConfVxmGrossLc', // L = listprice, C = Cost
-	);
+	];
 
 	/**
 	 * ITM Cost Base Types and their corresponding config property
@@ -101,7 +101,7 @@ class ConfigAp extends BaseConfigAp {
 	 * @return bool
 	 */
 	public function confirmUpdateItmCost() {
-		return strtoupper($this->confirmupdateitmcost) == self::YN_TRUE;
+		return strtoupper($this->confirmupdateitmcost) === self::YN_TRUE;
 	}
 
 	/**
@@ -109,9 +109,9 @@ class ConfigAp extends BaseConfigAp {
 	 * USED: VXM
 	 * @return bool
 	 */
-	public function computePercentageCostCost() {
-		$this->computepercentageorcost == self::COMPUTEPERCENTAGEORCOST_COST;
-	}
+	public function computePercentageCostCost()
+    {
+    }
 
 	/**
 	 * Update ITM pricing?

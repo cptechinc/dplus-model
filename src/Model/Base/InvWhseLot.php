@@ -38,7 +38,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\InvWhseLotTableMap';
+    public const TABLE_MAP = \Map\InvWhseLotTableMap::class;
 
 
     /**
@@ -503,7 +503,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -561,7 +561,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -571,7 +570,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -609,8 +607,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -621,7 +617,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -663,9 +658,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -691,7 +684,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -2198,13 +2191,8 @@ abstract class InvWhseLot implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -2229,133 +2217,133 @@ abstract class InvWhseLot implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvWhseLotTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : InvWhseLotTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvWhseLotTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : InvWhseLotTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlotser = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvWhseLotTableMap::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : InvWhseLotTableMap::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvWhseLotTableMap::translateFieldName('Inltdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : InvWhseLotTableMap::translateFieldName('Inltdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvWhseLotTableMap::translateFieldName('Inltdatewrit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : InvWhseLotTableMap::translateFieldName('Inltdatewrit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltdatewrit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvWhseLotTableMap::translateFieldName('Inltcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : InvWhseLotTableMap::translateFieldName('Inltcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvWhseLotTableMap::translateFieldName('Inltonhand', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : InvWhseLotTableMap::translateFieldName('Inltonhand', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltonhand = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvWhseLotTableMap::translateFieldName('Inltresv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : InvWhseLotTableMap::translateFieldName('Inltresv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltresv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvWhseLotTableMap::translateFieldName('Inltship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : InvWhseLotTableMap::translateFieldName('Inltship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvWhseLotTableMap::translateFieldName('Inltallo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : InvWhseLotTableMap::translateFieldName('Inltallo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltallo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvWhseLotTableMap::translateFieldName('Inltfaballo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : InvWhseLotTableMap::translateFieldName('Inltfaballo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltfaballo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvWhseLotTableMap::translateFieldName('Inltintran', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : InvWhseLotTableMap::translateFieldName('Inltintran', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltintran = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvWhseLotTableMap::translateFieldName('Inltinship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : InvWhseLotTableMap::translateFieldName('Inltinship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltinship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlotref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlotref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlotref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvWhseLotTableMap::translateFieldName('Inltbatch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : InvWhseLotTableMap::translateFieldName('Inltbatch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltbatch = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlandcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlandcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlandcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvWhseLotTableMap::translateFieldName('Inltmpfunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : InvWhseLotTableMap::translateFieldName('Inltmpfunitcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltmpfunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvWhseLotTableMap::translateFieldName('Inlthmfunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : InvWhseLotTableMap::translateFieldName('Inlthmfunitcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inlthmfunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvWhseLotTableMap::translateFieldName('Inltdsetunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : InvWhseLotTableMap::translateFieldName('Inltdsetunitcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltdsetunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvWhseLotTableMap::translateFieldName('Inltnumericfiller', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : InvWhseLotTableMap::translateFieldName('Inltnumericfiller', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltnumericfiller = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : InvWhseLotTableMap::translateFieldName('Inlttariffcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : InvWhseLotTableMap::translateFieldName('Inlttariffcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inlttariffcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : InvWhseLotTableMap::translateFieldName('Inltshopcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : InvWhseLotTableMap::translateFieldName('Inltshopcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltshopcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : InvWhseLotTableMap::translateFieldName('Inltisscodfsqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : InvWhseLotTableMap::translateFieldName('Inltisscodfsqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltisscodfsqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : InvWhseLotTableMap::translateFieldName('Inltheadmark', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : InvWhseLotTableMap::translateFieldName('Inltheadmark', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltheadmark = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : InvWhseLotTableMap::translateFieldName('Inltctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : InvWhseLotTableMap::translateFieldName('Inltctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : InvWhseLotTableMap::translateFieldName('Inltrvalorigcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : InvWhseLotTableMap::translateFieldName('Inltrvalorigcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltrvalorigcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : InvWhseLotTableMap::translateFieldName('Inltrvalpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : InvWhseLotTableMap::translateFieldName('Inltrvalpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltrvalpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : InvWhseLotTableMap::translateFieldName('Inltunitwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : InvWhseLotTableMap::translateFieldName('Inltunitwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltunitwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : InvWhseLotTableMap::translateFieldName('Inltdestwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : InvWhseLotTableMap::translateFieldName('Inltdestwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltdestwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : InvWhseLotTableMap::translateFieldName('Inltcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : InvWhseLotTableMap::translateFieldName('Inltcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltcntrqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : InvWhseLotTableMap::translateFieldName('Inltqtyperroll', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : InvWhseLotTableMap::translateFieldName('Inltqtyperroll', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltqtyperroll = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : InvWhseLotTableMap::translateFieldName('Inlttarewght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : InvWhseLotTableMap::translateFieldName('Inlttarewght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inlttarewght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : InvWhseLotTableMap::translateFieldName('Inltqcreasoncd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : InvWhseLotTableMap::translateFieldName('Inltqcreasoncd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltqcreasoncd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : InvWhseLotTableMap::translateFieldName('Inltcert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : InvWhseLotTableMap::translateFieldName('Inltcert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltcert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : InvWhseLotTableMap::translateFieldName('Inltcuredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : InvWhseLotTableMap::translateFieldName('Inltcuredate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltcuredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : InvWhseLotTableMap::translateFieldName('Inltexpiredatecd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : InvWhseLotTableMap::translateFieldName('Inltexpiredatecd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltexpiredatecd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : InvWhseLotTableMap::translateFieldName('Inltexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : InvWhseLotTableMap::translateFieldName('Inltexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltexpiredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : InvWhseLotTableMap::translateFieldName('Inltorigbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : InvWhseLotTableMap::translateFieldName('Inltorigbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltorigbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : InvWhseLotTableMap::translateFieldName('Inltshopitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : InvWhseLotTableMap::translateFieldName('Inltshopitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltshopitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : InvWhseLotTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : InvWhseLotTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : InvWhseLotTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : InvWhseLotTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : InvWhseLotTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : InvWhseLotTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -2384,7 +2372,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -2409,7 +2396,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -2422,7 +2408,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvWhseLotTableMap::DATABASE_NAME);
         }
 
@@ -2449,7 +2435,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see InvWhseLot::setDeleted()
      * @see InvWhseLot::isDeleted()
@@ -2460,7 +2445,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseLotTableMap::DATABASE_NAME);
         }
 
@@ -2499,18 +2484,14 @@ abstract class InvWhseLot implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseLotTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -2534,7 +2515,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -2592,7 +2572,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -2930,7 +2909,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -2956,9 +2934,8 @@ abstract class InvWhseLot implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = InvWhseLotTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -3231,7 +3208,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -3748,10 +3724,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getInititemnbr() &&
-            null !== $this->getIntbwhse() &&
-            null !== $this->getInltlotser() &&
-            null !== $this->getInltbin();
+        $validPk = !in_array(null, [$this->getInititemnbr(), $this->getIntbwhse(), $this->getInltlotser(), $this->getInltbin()], true);
 
         $validPrimaryKeyFKs = 4;
         $primaryKeyFKs = [];
@@ -3793,20 +3766,13 @@ abstract class InvWhseLot implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getInititemnbr();
-        $pks[1] = $this->getIntbwhse();
-        $pks[2] = $this->getInltlotser();
-        $pks[3] = $this->getInltbin();
-
-        return $pks;
+        return [$this->getInititemnbr(), $this->getIntbwhse(), $this->getInltlotser(), $this->getInltbin()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -3818,8 +3784,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -3836,7 +3800,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -3913,13 +3876,12 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param ChildItemMasterItem $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \ItemMasterItem) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
@@ -3929,7 +3891,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \ItemMasterItem) {
             $v->addInvWhseLot($this);
         }
 
@@ -3964,13 +3926,12 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildWarehouse object.
      *
-     * @param ChildWarehouse $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setWarehouse(ChildWarehouse $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Warehouse) {
             $this->setIntbwhse('');
         } else {
             $this->setIntbwhse($v->getIntbwhse());
@@ -3980,7 +3941,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildWarehouse object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Warehouse) {
             $v->addInvWhseLot($this);
         }
 
@@ -4015,19 +3976,18 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildInvLotMaster object.
      *
-     * @param ChildInvLotMaster $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvLotMaster(ChildInvLotMaster $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \InvLotMaster) {
             $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
         }
 
-        if ($v === null) {
+        if (!$v instanceof \InvLotMaster) {
             $this->setInltlotser('');
         } else {
             $this->setInltlotser($v->getLotmlotnbr());
@@ -4037,7 +3997,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildInvLotMaster object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \InvLotMaster) {
             $v->addInvWhseLot($this);
         }
 
@@ -4056,7 +4016,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     public function getInvLotMaster(?ConnectionInterface $con = null)
     {
         if ($this->aInvLotMaster === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->inltlotser !== "" && $this->inltlotser !== null))) {
-            $this->aInvLotMaster = ChildInvLotMasterQuery::create()->findPk(array($this->inititemnbr, $this->inltlotser), $con);
+            $this->aInvLotMaster = ChildInvLotMasterQuery::create()->findPk([$this->inititemnbr, $this->inltlotser], $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -4151,8 +4111,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         $this->aItemMasterItem = null;
         $this->aWarehouse = null;
@@ -4167,13 +4126,11 @@ abstract class InvWhseLot implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(InvWhseLotTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(InvWhseLotTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -4182,8 +4139,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -4191,8 +4146,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -4201,8 +4154,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -4210,8 +4161,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -4220,8 +4169,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -4229,8 +4176,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -4239,8 +4184,6 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -4260,7 +4203,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -4272,7 +4215,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -4280,7 +4223,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

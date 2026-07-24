@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\InvWhseLot as BaseInvWhseLot;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,7 +21,7 @@ class InvWhseLot extends BaseInvWhseLot {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'itemid'		=> 'inititemnbr',
 		'whse'			=> 'intbwhse',
 		'whseid'		=> 'intbwhse',
@@ -53,6 +55,6 @@ class InvWhseLot extends BaseInvWhseLot {
 
 		// FOREIGN KEY GETS
 		'item'          => 'itemMasterItem'
-	);
+	];
 
 }

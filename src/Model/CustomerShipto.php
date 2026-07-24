@@ -24,7 +24,7 @@ class CustomerShipto extends BaseCustomerShipto {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'           => 'arstshipid',
 		'shiptoID'     => 'arstshipid',
 		'shiptoid'     => 'arstshipid',
@@ -60,7 +60,7 @@ class CustomerShipto extends BaseCustomerShipto {
 		'taxcode'      => 'artbctaxcode',
 		'backorder'    => 'arstbord',
 		'usercode'     => 'arstusercode',
-	);
+	];
 
 	/**
 	 * Return if Ship-to has a credit hold

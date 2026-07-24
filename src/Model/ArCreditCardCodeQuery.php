@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ArCreditCardCodeQuery as BaseArCreditCardCodeQuery;
 
 use Dplus\Model\QueryTraits;

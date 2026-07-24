@@ -17,7 +17,7 @@ class ApInvoice extends BaseApInvoice {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'invoicenumber'       => 'apihinvnbr',
 		'invnbr'              => 'apihinvnbr',
 		'vendorid'            => 'apvevendid',
@@ -25,7 +25,6 @@ class ApInvoice extends BaseApInvoice {
 		'ponbr'               => 'apihponbr',
 		'checknumber_prepaid' => 'apihppchknbr',
 		'checknumber'         => 'apihchknbr',
-		'total'               => 'apihtotamt',
 		'whse'                => 'intbwhse',
 		'date_invoiced'       => 'apihinvdate',
 		'date_discount'       => 'apihdiscdate',
@@ -42,7 +41,7 @@ class ApInvoice extends BaseApInvoice {
 		'paytostate'          => 'apihptstat',
 		'paytozip'            => 'apihptzipcode',
 		'reference'           => 'apihinvref'
-	);
+	];
 
 	/**
 	 * Returns Items on the Invoice

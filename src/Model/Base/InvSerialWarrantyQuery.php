@@ -246,7 +246,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvSerialWarrantyQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvSerialWarrantyQuery object.
@@ -304,7 +304,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvSerialWarrantyTableMap::DATABASE_NAME);
         }
 
@@ -351,7 +351,6 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvSerialWarranty $obj */
             $obj = new ChildInvSerialWarranty();
             $obj->hydrate($row);
             InvSerialWarrantyTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -392,7 +391,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -460,10 +459,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -488,10 +485,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterBySermsernbr($sermsernbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($sermsernbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($sermsernbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_SERMSERNBR, $sermsernbr, $comparison);
@@ -516,10 +511,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmsaledate($warmsaledate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmsaledate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmsaledate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMSALEDATE, $warmsaledate, $comparison);
@@ -544,10 +537,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmownfname($warmownfname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmownfname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmownfname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMOWNFNAME, $warmownfname, $comparison);
@@ -572,10 +563,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmownmname($warmownmname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmownmname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmownmname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMOWNMNAME, $warmownmname, $comparison);
@@ -600,10 +589,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmownlname($warmownlname = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmownlname)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmownlname)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMOWNLNAME, $warmownlname, $comparison);
@@ -628,10 +615,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmownadr1($warmownadr1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmownadr1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmownadr1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMOWNADR1, $warmownadr1, $comparison);
@@ -656,10 +641,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmownadr2($warmownadr2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmownadr2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmownadr2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMOWNADR2, $warmownadr2, $comparison);
@@ -684,10 +667,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmownadr3($warmownadr3 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmownadr3)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmownadr3)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMOWNADR3, $warmownadr3, $comparison);
@@ -712,10 +693,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmowncity($warmowncity = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmowncity)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmowncity)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMOWNCITY, $warmowncity, $comparison);
@@ -740,10 +719,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmownstat($warmownstat = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmownstat)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmownstat)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMOWNSTAT, $warmownstat, $comparison);
@@ -768,10 +745,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmownzip($warmownzip = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmownzip)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmownzip)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMOWNZIP, $warmownzip, $comparison);
@@ -796,10 +771,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmsordnbr($warmsordnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmsordnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmsordnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMSORDNBR, $warmsordnbr, $comparison);
@@ -824,10 +797,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarminvcdate($warminvcdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warminvcdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warminvcdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMINVCDATE, $warminvcdate, $comparison);
@@ -852,10 +823,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arcucustid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arcucustid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
@@ -880,10 +849,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arspsaleper1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($arspsaleper1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
@@ -908,10 +875,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmentrydate($warmentrydate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmentrydate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmentrydate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMENTRYDATE, $warmentrydate, $comparison);
@@ -936,10 +901,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmengsernbr($warmengsernbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmengsernbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmengsernbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMENGSERNBR, $warmengsernbr, $comparison);
@@ -1007,10 +970,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmengmodelyear($warmengmodelyear = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmengmodelyear)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmengmodelyear)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMENGMODELYEAR, $warmengmodelyear, $comparison);
@@ -1035,10 +996,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmengdesc($warmengdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmengdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmengdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMENGDESC, $warmengdesc, $comparison);
@@ -1063,10 +1022,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmphone1($warmphone1 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmphone1)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmphone1)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMPHONE1, $warmphone1, $comparison);
@@ -1091,10 +1048,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmphone2($warmphone2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmphone2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmphone2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMPHONE2, $warmphone2, $comparison);
@@ -1119,10 +1074,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmemail($warmemail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmemail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmemail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMEMAIL, $warmemail, $comparison);
@@ -1147,10 +1100,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByWarmacorigwarrdate($warmacorigwarrdate = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($warmacorigwarrdate)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($warmacorigwarrdate)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_WARMACORIGWARRDATE, $warmacorigwarrdate, $comparison);
@@ -1175,10 +1126,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -1203,10 +1152,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -1231,10 +1178,8 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvSerialWarrantyTableMap::COL_DUMMY, $dummy, $comparison);
@@ -1288,7 +1233,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1318,7 +1263,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+            ->useQuery($relationAlias ?: 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**
@@ -1455,7 +1400,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1485,7 +1430,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
     {
         return $this
             ->joinInvSerialMaster($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvSerialMaster', '\InvSerialMasterQuery');
+            ->useQuery($relationAlias ?: 'InvSerialMaster', '\InvSerialMasterQuery');
     }
 
     /**
@@ -1630,7 +1575,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -1660,7 +1605,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+            ->useQuery($relationAlias ?: 'Customer', '\CustomerQuery');
     }
 
     /**
@@ -1771,7 +1716,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
         if ($invSerialWarranty) {
             $this->addCond('pruneCond0', $this->getAliasedColName(InvSerialWarrantyTableMap::COL_INITITEMNBR), $invSerialWarranty->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvSerialWarrantyTableMap::COL_SERMSERNBR), $invSerialWarranty->getSermsernbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -1785,7 +1730,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialWarrantyTableMap::DATABASE_NAME);
         }
 
@@ -1815,7 +1760,7 @@ abstract class InvSerialWarrantyQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialWarrantyTableMap::DATABASE_NAME);
         }
 

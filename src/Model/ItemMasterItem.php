@@ -29,13 +29,13 @@ class ItemMasterItem extends BaseItemMasterItem {
 	const LENGTH_ITEMID = 30;
 	const MAX_LENGTH_ITEMID = 30;
 
-	const STANDARDCOST_BASE_OPTIONS = array(
+	const STANDARDCOST_BASE_OPTIONS = [
 		'A' => 'Average Cost',
 		'H' => 'High',
 		'L' => 'Last Cost',
 		'M' => 'Manual',
 		'R' => 'Replacement'
-	);
+	];
 	const STANDARDCOST_BASE_REPLACEMENT = 'R';
 	const STANDARDCOST_BASE_MANUAL = 'M';
 
@@ -52,7 +52,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'id'          => 'inititemnbr',
 		'itemid'      => 'inititemnbr',
 		'desc'        => 'initdesc1',
@@ -120,14 +120,14 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'unitofmsale'     => 'unitofMeasureSale',
 		'unitofmpurchase' => 'unitofMeasurePurchase',
 		'invgroup'        => 'invgroupcode',
-	);
+	];
 
-	const ITEMTYPE_DESCRIPTIONS = array(
+	const ITEMTYPE_DESCRIPTIONS = [
 		'N' => 'normal',
 		'L' => 'lotted',
 		'S' => 'serialized',
 		'P' => 'price only'
-	);
+	];
 
 /* =============================================================
 	Instance Constants Functions
@@ -180,7 +180,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return bool
 	 */
 	public function isNormal() {
-		return strtoupper($this->itemtype) == self::ITEMTYPE_NORMAL;
+		return strtoupper($this->itemtype) === self::ITEMTYPE_NORMAL;
 	}
 
 	/**
@@ -188,7 +188,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return bool
 	 */
 	public function isLotted() {
-		return strtoupper($this->itemtype) == self::ITEMTYPE_LOTTED;
+		return strtoupper($this->itemtype) === self::ITEMTYPE_LOTTED;
 	}
 
 	/**
@@ -196,7 +196,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return bool
 	 */
 	public function isSerialized() {
-		return strtoupper($this->itemtype) == self::ITEMTYPE_SERIALIZED;
+		return strtoupper($this->itemtype) === self::ITEMTYPE_SERIALIZED;
 	}
 
 	/**
@@ -204,7 +204,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return bool
 	 */
 	public function isPriceonly() {
-		return strtoupper($this->itemtype) == self::ITEMTYPE_PRICEONLY;
+		return strtoupper($this->itemtype) === self::ITEMTYPE_PRICEONLY;
 	}
 
 	/**
@@ -617,7 +617,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return bool             Is Item Type Serialized
 	 */
 	public static function is_itemtype_serialized($itemtype) {
-		return strtoupper($itemtype) == self::ITEMTYPE_SERIALIZED;
+		return strtoupper($itemtype) === self::ITEMTYPE_SERIALIZED;
 	}
 
 	/**
@@ -626,7 +626,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return bool             Is Item Type Lotted
 	 */
 	public static function is_itemtype_lotted($itemtype) {
-		return strtoupper($itemtype) == self::ITEMTYPE_LOTTED;
+		return strtoupper($itemtype) === self::ITEMTYPE_LOTTED;
 	}
 
 	/**
@@ -635,7 +635,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return bool             Is Item Type Normal
 	 */
 	public static function is_itemtype_normal($itemtype) {
-		return strtoupper($itemtype) == self::ITEMTYPE_NORMAL;
+		return strtoupper($itemtype) === self::ITEMTYPE_NORMAL;
 	}
 
 	/**
@@ -644,6 +644,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return bool             Is Item Type Price Only
 	 */
 	public static function is_itemtype_priceonly($itemtype) {
-		return strtoupper($itemtype) == self::ITEMTYPE_PRICEONLY;
+		return strtoupper($itemtype) === self::ITEMTYPE_PRICEONLY;
 	}
 }

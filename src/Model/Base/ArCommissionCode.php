@@ -37,7 +37,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ArCommissionCodeTableMap';
+    public const TABLE_MAP = \Map\ArCommissionCodeTableMap::class;
 
 
     /**
@@ -122,7 +122,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      * @var ObjectCollection|ChildCustomer[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCustomer>
      */
-    protected $customersScheduledForDeletion = null;
+    protected $customersScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -151,7 +151,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -209,7 +209,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -219,7 +218,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -257,8 +255,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -269,7 +265,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -311,9 +306,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -339,7 +332,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -523,12 +516,8 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues(): bool
     {
-            if ($this->artbcommcode !== '') {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
-        return true;
+        return $this->artbcommcode === '';
     }
 
     /**
@@ -553,19 +542,19 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArCommissionCodeTableMap::translateFieldName('Artbcommcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ArCommissionCodeTableMap::translateFieldName('Artbcommcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcommcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArCommissionCodeTableMap::translateFieldName('Artbcommdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ArCommissionCodeTableMap::translateFieldName('Artbcommdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcommdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArCommissionCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ArCommissionCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArCommissionCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ArCommissionCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArCommissionCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ArCommissionCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -594,7 +583,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -607,7 +595,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -620,7 +607,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
@@ -646,7 +633,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ArCommissionCode::setDeleted()
      * @see ArCommissionCode::isDeleted()
@@ -657,7 +643,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
@@ -696,18 +682,14 @@ abstract class ArCommissionCode implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -731,7 +713,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -753,14 +734,12 @@ abstract class ArCommissionCode implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->customersScheduledForDeletion !== null) {
-                if (!$this->customersScheduledForDeletion->isEmpty()) {
-                    foreach ($this->customersScheduledForDeletion as $customer) {
-                        // need to save related object because we set the relation to null
-                        $customer->save($con);
-                    }
-                    $this->customersScheduledForDeletion = null;
+            if ($this->customersScheduledForDeletion !== null && !$this->customersScheduledForDeletion->isEmpty()) {
+                foreach ($this->customersScheduledForDeletion as $customer) {
+                    // need to save related object because we set the relation to null
+                    $customer->save($con);
                 }
+                $this->customersScheduledForDeletion = null;
             }
 
             if ($this->collCustomers !== null) {
@@ -781,7 +760,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -853,7 +831,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -879,9 +856,8 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ArCommissionCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -948,22 +924,18 @@ abstract class ArCommissionCode implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
-        if ($includeForeignObjects) {
-            if (null !== $this->collCustomers) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'customers';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'ar_cust_masts';
-                        break;
-                    default:
-                        $key = 'Customers';
-                }
-
-                $result[$key] = $this->collCustomers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+        if ($includeForeignObjects && null !== $this->collCustomers) {
+            switch ($keyType) {
+                case TableMap::TYPE_CAMELNAME:
+                    $key = 'customers';
+                    break;
+                case TableMap::TYPE_FIELDNAME:
+                    $key = 'ar_cust_masts';
+                    break;
+                default:
+                    $key = 'Customers';
             }
+            $result[$key] = $this->collCustomers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
         }
 
         return $result;
@@ -972,7 +944,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -1151,7 +1122,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -1171,7 +1142,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      * Generic method to set the primary key (artbcommcode column).
      *
      * @param string|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?string $key = null): void
     {
@@ -1180,8 +1150,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -1198,7 +1166,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -1255,7 +1222,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -1283,8 +1249,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Reset is the collCustomers collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCustomers($v = true): void
     {
@@ -1300,8 +1264,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCustomers(bool $overrideExisting = true): void
     {
@@ -1333,7 +1295,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     public function getCustomers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCustomersPartial && !$this->isNew();
-        if (null === $this->collCustomers || null !== $criteria || $partial) {
+        if (null === $this->collCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCustomers) {
@@ -1351,7 +1313,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
                     ->filterByArCommissionCode($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCustomersPartial && count($collCustomers)) {
                         $this->initCustomers(false);
 
@@ -1402,7 +1364,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
         $this->customersScheduledForDeletion = $customersToDelete;
 
         foreach ($customersToDelete as $customerRemoved) {
-            $customerRemoved->setArCommissionCode(null);
+            $customerRemoved->setArCommissionCode();
         }
 
         $this->collCustomers = null;
@@ -1420,7 +1382,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      * Returns the number of related Customer objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related Customer objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -1428,7 +1389,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
     public function countCustomers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCustomersPartial && !$this->isNew();
-        if (null === $this->collCustomers || null !== $criteria || $partial) {
+        if (null === $this->collCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCustomers) {
                 return 0;
             }
@@ -1467,7 +1428,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
         if (!$this->collCustomers->contains($l)) {
             $this->doAddCustomer($l);
 
-            if ($this->customersScheduledForDeletion and $this->customersScheduledForDeletion->contains($l)) {
+            if ($this->customersScheduledForDeletion && $this->customersScheduledForDeletion->contains($l)) {
                 $this->customersScheduledForDeletion->remove($this->customersScheduledForDeletion->search($l));
             }
         }
@@ -1498,7 +1459,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
                 $this->customersScheduledForDeletion->clear();
             }
             $this->customersScheduledForDeletion[]= $customer;
-            $customer->setArCommissionCode(null);
+            $customer->setArCommissionCode();
         }
 
         return $this;
@@ -1591,11 +1552,9 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-            if ($this->collCustomers) {
-                foreach ($this->collCustomers as $o) {
-                    $o->clearAllReferences($deep);
-                }
+        if ($deep && $this->collCustomers) {
+            foreach ($this->collCustomers as $o) {
+                $o->clearAllReferences($deep);
             }
         } // if ($deep)
 
@@ -1610,13 +1569,11 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ArCommissionCodeTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ArCommissionCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -1625,8 +1582,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -1634,8 +1589,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -1644,8 +1597,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -1653,8 +1604,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -1663,8 +1612,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -1672,8 +1619,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -1682,8 +1627,6 @@ abstract class ArCommissionCode implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -1703,7 +1646,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -1715,7 +1658,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -1723,7 +1666,7 @@ abstract class ArCommissionCode implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

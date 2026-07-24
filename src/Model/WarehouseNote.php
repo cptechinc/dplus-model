@@ -20,24 +20,24 @@ class WarehouseNote extends BaseWarehouseNote {
 	/**
 	 * Note Types
 	 */
-	const TYPES = array(
+	const TYPES = [
 		'IWHS',
 		'SWHS'
-	);
+	];
 
 	/**
 	 * Note Types
 	 */
-	const TYPES_DESCRIPTIONS = array(
+	const TYPES_DESCRIPTIONS = [
 		'IWHS' => 'invoice',
 		'SWHS' => 'statement'
-	);
+	];
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'type'        => 'qntype',
 		'desc'        => 'qntypedesc',
 		'description' => 'qntypedesc',
@@ -50,7 +50,7 @@ class WarehouseNote extends BaseWarehouseNote {
 		'key2'      => 'qnkey2',
 		'date'      => 'dateupdtd',
 		'time'      => 'timeupdtd',
-	);
+	];
 
 	/**
 	 * Return Description for Note Type

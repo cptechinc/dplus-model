@@ -36,14 +36,13 @@ class VendorQuery extends BaseVendorQuery {
 	}
 
 	/**
-	 * Return Sum of Column for Months Back
-	 * NOTE: used for getting the number of pos, amounts
-	 * @param  string  $vendorID
-	 * @param  string  $basecolumn
-	 * @param  int     $months
-	 * @return float
-	 */
-	protected function getMonthsBackSum($vendorID, $basecolumn, int $months = 1) {
+     * Return Sum of Column for Months Back
+     * NOTE: used for getting the number of pos, amounts
+     * @param  string  $vendorID
+     * @param  string  $basecolumn
+     * @return float
+     */
+    protected function getMonthsBackSum($vendorID, $basecolumn, int $months = 1) {
 		for ($i = 1; $i < $months + 1; $i++) {
 			$month = $i < 10 ? "0$i" : $i;
 			$array[] = "$basecolumn$month";

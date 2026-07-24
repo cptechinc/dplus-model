@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ShipviaQuery as BaseShipviaQuery;
 
 use Dplus\Model\QueryTraits;

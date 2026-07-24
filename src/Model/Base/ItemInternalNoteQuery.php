@@ -104,7 +104,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ItemInternalNoteQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ItemInternalNoteQuery object.
@@ -162,7 +162,7 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ItemInternalNoteTableMap::DATABASE_NAME);
         }
 
@@ -211,7 +211,6 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemInternalNote $obj */
             $obj = new ChildItemInternalNote();
             $obj->hydrate($row);
             ItemInternalNoteTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
@@ -252,7 +251,7 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -326,10 +325,8 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function filterByQntype($qntype = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qntype)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qntype)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInternalNoteTableMap::COL_QNTYPE, $qntype, $comparison);
@@ -354,10 +351,8 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qntypedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qntypedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInternalNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
@@ -382,10 +377,8 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInternalNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -453,10 +446,8 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnnote)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnnote)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInternalNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
@@ -481,10 +472,8 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnkey2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnkey2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInternalNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
@@ -509,10 +498,8 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function filterByQnform($qnform = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qnform)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($qnform)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInternalNoteTableMap::COL_QNFORM, $qnform, $comparison);
@@ -537,10 +524,8 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInternalNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -565,10 +550,8 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInternalNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -593,10 +576,8 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ItemInternalNoteTableMap::COL_DUMMY, $dummy, $comparison);
@@ -618,7 +599,7 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
             $this->addCond('pruneCond1', $this->getAliasedColName(ItemInternalNoteTableMap::COL_QNSEQ), $itemInternalNote->getQnseq(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond2', $this->getAliasedColName(ItemInternalNoteTableMap::COL_QNKEY2), $itemInternalNote->getQnkey2(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond3', $this->getAliasedColName(ItemInternalNoteTableMap::COL_QNFORM), $itemInternalNote->getQnform(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -632,7 +613,7 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemInternalNoteTableMap::DATABASE_NAME);
         }
 
@@ -662,7 +643,7 @@ abstract class ItemInternalNoteQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemInternalNoteTableMap::DATABASE_NAME);
         }
 

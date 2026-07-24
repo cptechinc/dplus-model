@@ -100,7 +100,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class ApBuyerQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\ApBuyerQuery object.
@@ -158,7 +158,7 @@ abstract class ApBuyerQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ApBuyerTableMap::DATABASE_NAME);
         }
 
@@ -204,7 +204,6 @@ abstract class ApBuyerQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildApBuyer $obj */
             $obj = new ChildApBuyer();
             $obj->hydrate($row);
             ApBuyerTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
@@ -245,7 +244,7 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -304,10 +303,8 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function filterByAptbbuyrcode($aptbbuyrcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbbuyrcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbbuyrcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApBuyerTableMap::COL_APTBBUYRCODE, $aptbbuyrcode, $comparison);
@@ -332,10 +329,8 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function filterByAptbbuyrdesc($aptbbuyrdesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbbuyrdesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbbuyrdesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApBuyerTableMap::COL_APTBBUYRDESC, $aptbbuyrdesc, $comparison);
@@ -360,10 +355,8 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function filterByAptbbuyremail($aptbbuyremail = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbbuyremail)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbbuyremail)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApBuyerTableMap::COL_APTBBUYREMAIL, $aptbbuyremail, $comparison);
@@ -388,10 +381,8 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function filterByAptbbuyrlginid($aptbbuyrlginid = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($aptbbuyrlginid)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($aptbbuyrlginid)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApBuyerTableMap::COL_APTBBUYRLGINID, $aptbbuyrlginid, $comparison);
@@ -416,10 +407,8 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApBuyerTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -444,10 +433,8 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApBuyerTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -472,10 +459,8 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(ApBuyerTableMap::COL_DUMMY, $dummy, $comparison);
@@ -527,7 +512,7 @@ abstract class ApBuyerQuery extends ModelCriteria
         $join = new ModelJoin();
         $join->setJoinType($joinType);
         $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
+        if (($previousJoin = $this->getPreviousJoin()) instanceof \Propel\Runtime\ActiveQuery\Join) {
             $join->setPreviousJoin($previousJoin);
         }
 
@@ -557,7 +542,7 @@ abstract class ApBuyerQuery extends ModelCriteria
     {
         return $this
             ->joinVendor($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+            ->useQuery($relationAlias ?: 'Vendor', '\VendorQuery');
     }
 
     /**
@@ -680,7 +665,7 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApBuyerTableMap::DATABASE_NAME);
         }
 
@@ -710,7 +695,7 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApBuyerTableMap::DATABASE_NAME);
         }
 

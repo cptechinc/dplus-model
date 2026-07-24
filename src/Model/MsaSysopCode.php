@@ -23,7 +23,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'system'            => 'optnsystem',
 		'id'                => 'optncode',
 		'code'              => 'optncode',
@@ -52,7 +52,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 		'webforce'          => 'optnwebforce',
 		'date'		        => 'dateupdtd',
 		'time'		        => 'timeupdtd'
-	);
+	];
 
 	/**
 	 * Return the Max Number of characters allowed for Code
@@ -67,7 +67,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	 * @return bool
 	 */
 	public function validate() {
-		return strtoupper($this->validate) == self::YN_TRUE;
+		return strtoupper($this->validate) === self::YN_TRUE;
 	}
 
 	/**
@@ -75,7 +75,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	 * @return bool
 	 */
 	public function force() {
-		return strtoupper($this->force) == self::YN_TRUE;
+		return strtoupper($this->force) === self::YN_TRUE;
 	}
 
 	/**
@@ -91,7 +91,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	 * @return bool
 	 */
 	public function isFilename() {
-		return strtoupper($this->filename) == self::YN_TRUE;
+		return strtoupper($this->filename) === self::YN_TRUE;
 	}
 
 	/**
@@ -99,7 +99,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	 * @return bool
 	 */
 	public function isNumeric() {
-		return strtoupper($this->fieldtype) == 'N';
+		return strtoupper($this->fieldtype) === 'N';
 	}
 
 	/**
@@ -107,6 +107,6 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	 * @return bool
 	 */
 	public function isCharacter() {
-		return strtoupper($this->fieldtype) == 'C';
+		return strtoupper($this->fieldtype) === 'C';
 	}
 }

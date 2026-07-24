@@ -74,7 +74,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\CustomerShiptoTableMap';
+    public const TABLE_MAP = \Map\CustomerShiptoTableMap::class;
 
 
     /**
@@ -919,84 +919,84 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * @var ObjectCollection|ChildArContact[]
      * @phpstan-var ObjectCollection&\Traversable<ChildArContact>
      */
-    protected $arContactsScheduledForDeletion = null;
+    protected $arContactsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildCstkItem[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCstkItem>
      */
-    protected $cstkItemsScheduledForDeletion = null;
+    protected $cstkItemsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildCstkHead[]
      * @phpstan-var ObjectCollection&\Traversable<ChildCstkHead>
      */
-    protected $cstkHeadsScheduledForDeletion = null;
+    protected $cstkHeadsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder>
      */
-    protected $invTransferOrdersScheduledForDeletion = null;
+    protected $invTransferOrdersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildNoteCustInternal[]
      * @phpstan-var ObjectCollection&\Traversable<ChildNoteCustInternal>
      */
-    protected $noteCustInternalsScheduledForDeletion = null;
+    protected $noteCustInternalsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildNoteCustOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildNoteCustOrder>
      */
-    protected $noteCustOrdersScheduledForDeletion = null;
+    protected $noteCustOrdersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayCustomer[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayCustomer>
      */
-    protected $bookingDayCustomersScheduledForDeletion = null;
+    protected $bookingDayCustomersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayDetail>
      */
-    protected $bookingDayDetailsScheduledForDeletion = null;
+    protected $bookingDayDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBooking[]
      * @phpstan-var ObjectCollection&\Traversable<ChildBooking>
      */
-    protected $bookingsScheduledForDeletion = null;
+    protected $bookingsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesHistory[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistory>
      */
-    protected $salesHistoriesScheduledForDeletion = null;
+    protected $salesHistoriesScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrder[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrder>
      */
-    protected $salesOrdersScheduledForDeletion = null;
+    protected $salesOrdersScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoStandingOrderDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildSoStandingOrderDetail>
      */
-    protected $soStandingOrderDetailsScheduledForDeletion = null;
+    protected $soStandingOrderDetailsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -1026,7 +1026,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -1084,7 +1084,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -1094,7 +1093,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -1132,8 +1130,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -1144,7 +1140,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -1186,9 +1181,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -1214,7 +1207,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -4285,13 +4278,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
             if ($this->arcucustid !== '') {
                 return false;
             }
-
-            if ($this->arstshipid !== '') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->arstshipid === '';
     }
 
     /**
@@ -4316,307 +4304,307 @@ abstract class CustomerShipto implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerShiptoTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : CustomerShiptoTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstshipid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CustomerShiptoTableMap::translateFieldName('Arststat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : CustomerShiptoTableMap::translateFieldName('Arststat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arststat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstzipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstzipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstzipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdeliverydays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdeliverydays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstdeliverydays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcommcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcommcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcommcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstallowsplit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstallowsplit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstallowsplit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlindstsp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlindstsp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstlindstsp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlmecommcustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlmecommcustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstlmecommcustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcatlgid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcatlgid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcatlgid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : CustomerShiptoTableMap::translateFieldName('Arsttaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : CustomerShiptoTableMap::translateFieldName('Arsttaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arsttaxexemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : CustomerShiptoTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : CustomerShiptoTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbshipvia = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstbord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstbord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstbord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcredhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcredhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcredhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstusercode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstusercode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstusercode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstpriclvl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstpriclvl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstpriclvl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstshipcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : CustomerShiptoTableMap::translateFieldName('Arsttxbl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : CustomerShiptoTableMap::translateFieldName('Arsttxbl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arsttxbl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstpostal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstpostal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstpostal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsalemtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsalemtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsalemtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinvmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinvmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinvmtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdateopen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdateopen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstdateopen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstlastsaledate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo7 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo8 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo9 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo10 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo11 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo11 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo12 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo12 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo13 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo13 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo14 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo14 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo15 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo15 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo16 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo16 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo17 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo17 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo18 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo18 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo19 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo19 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo20 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo20 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo21 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo21 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo22 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo22 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo23 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo23 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo24 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo24 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstprimshipid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstprimshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstprimshipid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstmyvendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstmyvendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstmyvendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstaddlpricdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstediinvc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstediinvc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstediinvc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstchrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstchrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstchrgfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdistcntr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdistcntr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstdistcntr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdunsnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdunsnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstdunsnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstrfmlvalu', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstrfmlvalu', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstrfmlvalu = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcustpoparam', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcustpoparam', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcustpoparam = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbroutcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbroutcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbroutcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstupsacctnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstupsacctnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstupsacctnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstfobinputyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstfobinputyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstfobinputyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstfobperlb', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 94 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstfobperlb', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstfobperlb = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsaleytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 95 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsaleytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsaleytd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinvytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 96 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinvytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinvytd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstemailfaxauthcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 97 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstemailfaxauthcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstemailfaxauthcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : CustomerShiptoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 98 + $startcol : CustomerShiptoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : CustomerShiptoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 99 + $startcol : CustomerShiptoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : CustomerShiptoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 100 + $startcol : CustomerShiptoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -4645,7 +4633,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -4661,7 +4648,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -4674,7 +4660,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(CustomerShiptoTableMap::DATABASE_NAME);
         }
 
@@ -4725,7 +4711,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see CustomerShipto::setDeleted()
      * @see CustomerShipto::isDeleted()
@@ -4736,7 +4721,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShiptoTableMap::DATABASE_NAME);
         }
 
@@ -4775,18 +4760,14 @@ abstract class CustomerShipto implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShiptoTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -4810,7 +4791,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -4844,13 +4824,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->arContactsScheduledForDeletion !== null) {
-                if (!$this->arContactsScheduledForDeletion->isEmpty()) {
-                    \ArContactQuery::create()
-                        ->filterByPrimaryKeys($this->arContactsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->arContactsScheduledForDeletion = null;
-                }
+            if ($this->arContactsScheduledForDeletion !== null && !$this->arContactsScheduledForDeletion->isEmpty()) {
+                \ArContactQuery::create()
+                    ->filterByPrimaryKeys($this->arContactsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->arContactsScheduledForDeletion = null;
             }
 
             if ($this->collArContacts !== null) {
@@ -4861,13 +4839,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->cstkItemsScheduledForDeletion !== null) {
-                if (!$this->cstkItemsScheduledForDeletion->isEmpty()) {
-                    \CstkItemQuery::create()
-                        ->filterByPrimaryKeys($this->cstkItemsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->cstkItemsScheduledForDeletion = null;
-                }
+            if ($this->cstkItemsScheduledForDeletion !== null && !$this->cstkItemsScheduledForDeletion->isEmpty()) {
+                \CstkItemQuery::create()
+                    ->filterByPrimaryKeys($this->cstkItemsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->cstkItemsScheduledForDeletion = null;
             }
 
             if ($this->collCstkItems !== null) {
@@ -4878,13 +4854,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->cstkHeadsScheduledForDeletion !== null) {
-                if (!$this->cstkHeadsScheduledForDeletion->isEmpty()) {
-                    \CstkHeadQuery::create()
-                        ->filterByPrimaryKeys($this->cstkHeadsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->cstkHeadsScheduledForDeletion = null;
-                }
+            if ($this->cstkHeadsScheduledForDeletion !== null && !$this->cstkHeadsScheduledForDeletion->isEmpty()) {
+                \CstkHeadQuery::create()
+                    ->filterByPrimaryKeys($this->cstkHeadsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->cstkHeadsScheduledForDeletion = null;
             }
 
             if ($this->collCstkHeads !== null) {
@@ -4895,13 +4869,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invTransferOrdersScheduledForDeletion !== null) {
-                if (!$this->invTransferOrdersScheduledForDeletion->isEmpty()) {
-                    \InvTransferOrderQuery::create()
-                        ->filterByPrimaryKeys($this->invTransferOrdersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invTransferOrdersScheduledForDeletion = null;
-                }
+            if ($this->invTransferOrdersScheduledForDeletion !== null && !$this->invTransferOrdersScheduledForDeletion->isEmpty()) {
+                \InvTransferOrderQuery::create()
+                    ->filterByPrimaryKeys($this->invTransferOrdersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->invTransferOrdersScheduledForDeletion = null;
             }
 
             if ($this->collInvTransferOrders !== null) {
@@ -4912,14 +4884,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->noteCustInternalsScheduledForDeletion !== null) {
-                if (!$this->noteCustInternalsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->noteCustInternalsScheduledForDeletion as $noteCustInternal) {
-                        // need to save related object because we set the relation to null
-                        $noteCustInternal->save($con);
-                    }
-                    $this->noteCustInternalsScheduledForDeletion = null;
+            if ($this->noteCustInternalsScheduledForDeletion !== null && !$this->noteCustInternalsScheduledForDeletion->isEmpty()) {
+                foreach ($this->noteCustInternalsScheduledForDeletion as $noteCustInternal) {
+                    // need to save related object because we set the relation to null
+                    $noteCustInternal->save($con);
                 }
+                $this->noteCustInternalsScheduledForDeletion = null;
             }
 
             if ($this->collNoteCustInternals !== null) {
@@ -4930,14 +4900,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->noteCustOrdersScheduledForDeletion !== null) {
-                if (!$this->noteCustOrdersScheduledForDeletion->isEmpty()) {
-                    foreach ($this->noteCustOrdersScheduledForDeletion as $noteCustOrder) {
-                        // need to save related object because we set the relation to null
-                        $noteCustOrder->save($con);
-                    }
-                    $this->noteCustOrdersScheduledForDeletion = null;
+            if ($this->noteCustOrdersScheduledForDeletion !== null && !$this->noteCustOrdersScheduledForDeletion->isEmpty()) {
+                foreach ($this->noteCustOrdersScheduledForDeletion as $noteCustOrder) {
+                    // need to save related object because we set the relation to null
+                    $noteCustOrder->save($con);
                 }
+                $this->noteCustOrdersScheduledForDeletion = null;
             }
 
             if ($this->collNoteCustOrders !== null) {
@@ -4948,13 +4916,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingDayCustomersScheduledForDeletion !== null) {
-                if (!$this->bookingDayCustomersScheduledForDeletion->isEmpty()) {
-                    \BookingDayCustomerQuery::create()
-                        ->filterByPrimaryKeys($this->bookingDayCustomersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->bookingDayCustomersScheduledForDeletion = null;
-                }
+            if ($this->bookingDayCustomersScheduledForDeletion !== null && !$this->bookingDayCustomersScheduledForDeletion->isEmpty()) {
+                \BookingDayCustomerQuery::create()
+                    ->filterByPrimaryKeys($this->bookingDayCustomersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->bookingDayCustomersScheduledForDeletion = null;
             }
 
             if ($this->collBookingDayCustomers !== null) {
@@ -4965,13 +4931,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingDayDetailsScheduledForDeletion !== null) {
-                if (!$this->bookingDayDetailsScheduledForDeletion->isEmpty()) {
-                    \BookingDayDetailQuery::create()
-                        ->filterByPrimaryKeys($this->bookingDayDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->bookingDayDetailsScheduledForDeletion = null;
-                }
+            if ($this->bookingDayDetailsScheduledForDeletion !== null && !$this->bookingDayDetailsScheduledForDeletion->isEmpty()) {
+                \BookingDayDetailQuery::create()
+                    ->filterByPrimaryKeys($this->bookingDayDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->bookingDayDetailsScheduledForDeletion = null;
             }
 
             if ($this->collBookingDayDetails !== null) {
@@ -4982,14 +4946,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->bookingsScheduledForDeletion !== null) {
-                if (!$this->bookingsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->bookingsScheduledForDeletion as $booking) {
-                        // need to save related object because we set the relation to null
-                        $booking->save($con);
-                    }
-                    $this->bookingsScheduledForDeletion = null;
+            if ($this->bookingsScheduledForDeletion !== null && !$this->bookingsScheduledForDeletion->isEmpty()) {
+                foreach ($this->bookingsScheduledForDeletion as $booking) {
+                    // need to save related object because we set the relation to null
+                    $booking->save($con);
                 }
+                $this->bookingsScheduledForDeletion = null;
             }
 
             if ($this->collBookings !== null) {
@@ -5000,13 +4962,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesHistoriesScheduledForDeletion !== null) {
-                if (!$this->salesHistoriesScheduledForDeletion->isEmpty()) {
-                    \SalesHistoryQuery::create()
-                        ->filterByPrimaryKeys($this->salesHistoriesScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesHistoriesScheduledForDeletion = null;
-                }
+            if ($this->salesHistoriesScheduledForDeletion !== null && !$this->salesHistoriesScheduledForDeletion->isEmpty()) {
+                \SalesHistoryQuery::create()
+                    ->filterByPrimaryKeys($this->salesHistoriesScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesHistoriesScheduledForDeletion = null;
             }
 
             if ($this->collSalesHistories !== null) {
@@ -5017,13 +4977,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->salesOrdersScheduledForDeletion !== null) {
-                if (!$this->salesOrdersScheduledForDeletion->isEmpty()) {
-                    \SalesOrderQuery::create()
-                        ->filterByPrimaryKeys($this->salesOrdersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->salesOrdersScheduledForDeletion = null;
-                }
+            if ($this->salesOrdersScheduledForDeletion !== null && !$this->salesOrdersScheduledForDeletion->isEmpty()) {
+                \SalesOrderQuery::create()
+                    ->filterByPrimaryKeys($this->salesOrdersScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->salesOrdersScheduledForDeletion = null;
             }
 
             if ($this->collSalesOrders !== null) {
@@ -5034,13 +4992,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->soStandingOrderDetailsScheduledForDeletion !== null) {
-                if (!$this->soStandingOrderDetailsScheduledForDeletion->isEmpty()) {
-                    \SoStandingOrderDetailQuery::create()
-                        ->filterByPrimaryKeys($this->soStandingOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->soStandingOrderDetailsScheduledForDeletion = null;
-                }
+            if ($this->soStandingOrderDetailsScheduledForDeletion !== null && !$this->soStandingOrderDetailsScheduledForDeletion->isEmpty()) {
+                \SoStandingOrderDetailQuery::create()
+                    ->filterByPrimaryKeys($this->soStandingOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->soStandingOrderDetailsScheduledForDeletion = null;
             }
 
             if ($this->collSoStandingOrderDetails !== null) {
@@ -5051,10 +5007,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
-            if ($this->singleSoStandingOrder !== null) {
-                if (!$this->singleSoStandingOrder->isDeleted() && ($this->singleSoStandingOrder->isNew() || $this->singleSoStandingOrder->isModified())) {
-                    $affectedRows += $this->singleSoStandingOrder->save($con);
-                }
+            if ($this->singleSoStandingOrder !== null && (!$this->singleSoStandingOrder->isDeleted() && ($this->singleSoStandingOrder->isNew() || $this->singleSoStandingOrder->isModified()))) {
+                $affectedRows += $this->singleSoStandingOrder->save($con);
             }
 
             $this->alreadyInSave = false;
@@ -5067,7 +5021,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -5811,7 +5764,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -5837,9 +5789,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = CustomerShiptoTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -6509,7 +6460,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -7575,18 +7525,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getArcucustid();
-        $pks[1] = $this->getArstshipid();
-
-        return $pks;
+        return [$this->getArcucustid(), $this->getArstshipid()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -7596,8 +7541,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -7614,7 +7557,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -7834,13 +7776,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param ChildCustomer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -7850,7 +7791,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->addCustomerShipto($this);
         }
 
@@ -7889,7 +7830,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -7961,8 +7901,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collArContacts collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialArContacts($v = true): void
     {
@@ -7978,8 +7916,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initArContacts(bool $overrideExisting = true): void
     {
@@ -8011,7 +7947,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getArContacts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collArContactsPartial && !$this->isNew();
-        if (null === $this->collArContacts || null !== $criteria || $partial) {
+        if (null === $this->collArContacts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collArContacts) {
@@ -8029,7 +7965,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collArContactsPartial && count($collArContacts)) {
                         $this->initArContacts(false);
 
@@ -8083,7 +8019,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->arContactsScheduledForDeletion = clone $arContactsToDelete;
 
         foreach ($arContactsToDelete as $arContactRemoved) {
-            $arContactRemoved->setCustomerShipto(null);
+            $arContactRemoved->setCustomerShipto();
         }
 
         $this->collArContacts = null;
@@ -8101,7 +8037,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related ArContact objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related ArContact objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -8109,7 +8044,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countArContacts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collArContactsPartial && !$this->isNew();
-        if (null === $this->collArContacts || null !== $criteria || $partial) {
+        if (null === $this->collArContacts || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collArContacts) {
                 return 0;
             }
@@ -8148,7 +8083,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collArContacts->contains($l)) {
             $this->doAddArContact($l);
 
-            if ($this->arContactsScheduledForDeletion and $this->arContactsScheduledForDeletion->contains($l)) {
+            if ($this->arContactsScheduledForDeletion && $this->arContactsScheduledForDeletion->contains($l)) {
                 $this->arContactsScheduledForDeletion->remove($this->arContactsScheduledForDeletion->search($l));
             }
         }
@@ -8179,7 +8114,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->arContactsScheduledForDeletion->clear();
             }
             $this->arContactsScheduledForDeletion[]= clone $arContact;
-            $arContact->setCustomerShipto(null);
+            $arContact->setCustomerShipto();
         }
 
         return $this;
@@ -8229,8 +8164,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collCstkItems collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCstkItems($v = true): void
     {
@@ -8246,8 +8179,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCstkItems(bool $overrideExisting = true): void
     {
@@ -8279,7 +8210,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getCstkItems(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCstkItemsPartial && !$this->isNew();
-        if (null === $this->collCstkItems || null !== $criteria || $partial) {
+        if (null === $this->collCstkItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCstkItems) {
@@ -8297,7 +8228,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCstkItemsPartial && count($collCstkItems)) {
                         $this->initCstkItems(false);
 
@@ -8351,7 +8282,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->cstkItemsScheduledForDeletion = clone $cstkItemsToDelete;
 
         foreach ($cstkItemsToDelete as $cstkItemRemoved) {
-            $cstkItemRemoved->setCustomerShipto(null);
+            $cstkItemRemoved->setCustomerShipto();
         }
 
         $this->collCstkItems = null;
@@ -8369,7 +8300,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related CstkItem objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related CstkItem objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -8377,7 +8307,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countCstkItems(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCstkItemsPartial && !$this->isNew();
-        if (null === $this->collCstkItems || null !== $criteria || $partial) {
+        if (null === $this->collCstkItems || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCstkItems) {
                 return 0;
             }
@@ -8416,7 +8346,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collCstkItems->contains($l)) {
             $this->doAddCstkItem($l);
 
-            if ($this->cstkItemsScheduledForDeletion and $this->cstkItemsScheduledForDeletion->contains($l)) {
+            if ($this->cstkItemsScheduledForDeletion && $this->cstkItemsScheduledForDeletion->contains($l)) {
                 $this->cstkItemsScheduledForDeletion->remove($this->cstkItemsScheduledForDeletion->search($l));
             }
         }
@@ -8447,7 +8377,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->cstkItemsScheduledForDeletion->clear();
             }
             $this->cstkItemsScheduledForDeletion[]= clone $cstkItem;
-            $cstkItem->setCustomerShipto(null);
+            $cstkItem->setCustomerShipto();
         }
 
         return $this;
@@ -8523,8 +8453,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collCstkHeads collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialCstkHeads($v = true): void
     {
@@ -8540,8 +8468,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initCstkHeads(bool $overrideExisting = true): void
     {
@@ -8573,7 +8499,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getCstkHeads(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collCstkHeadsPartial && !$this->isNew();
-        if (null === $this->collCstkHeads || null !== $criteria || $partial) {
+        if (null === $this->collCstkHeads || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collCstkHeads) {
@@ -8591,7 +8517,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collCstkHeadsPartial && count($collCstkHeads)) {
                         $this->initCstkHeads(false);
 
@@ -8645,7 +8571,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->cstkHeadsScheduledForDeletion = clone $cstkHeadsToDelete;
 
         foreach ($cstkHeadsToDelete as $cstkHeadRemoved) {
-            $cstkHeadRemoved->setCustomerShipto(null);
+            $cstkHeadRemoved->setCustomerShipto();
         }
 
         $this->collCstkHeads = null;
@@ -8663,7 +8589,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related CstkHead objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related CstkHead objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -8671,7 +8596,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countCstkHeads(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collCstkHeadsPartial && !$this->isNew();
-        if (null === $this->collCstkHeads || null !== $criteria || $partial) {
+        if (null === $this->collCstkHeads || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collCstkHeads) {
                 return 0;
             }
@@ -8710,7 +8635,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collCstkHeads->contains($l)) {
             $this->doAddCstkHead($l);
 
-            if ($this->cstkHeadsScheduledForDeletion and $this->cstkHeadsScheduledForDeletion->contains($l)) {
+            if ($this->cstkHeadsScheduledForDeletion && $this->cstkHeadsScheduledForDeletion->contains($l)) {
                 $this->cstkHeadsScheduledForDeletion->remove($this->cstkHeadsScheduledForDeletion->search($l));
             }
         }
@@ -8741,7 +8666,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->cstkHeadsScheduledForDeletion->clear();
             }
             $this->cstkHeadsScheduledForDeletion[]= clone $cstkHead;
-            $cstkHead->setCustomerShipto(null);
+            $cstkHead->setCustomerShipto();
         }
 
         return $this;
@@ -8791,8 +8716,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collInvTransferOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialInvTransferOrders($v = true): void
     {
@@ -8808,8 +8731,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initInvTransferOrders(bool $overrideExisting = true): void
     {
@@ -8841,7 +8762,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getInvTransferOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collInvTransferOrders) {
@@ -8859,7 +8780,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collInvTransferOrdersPartial && count($collInvTransferOrders)) {
                         $this->initInvTransferOrders(false);
 
@@ -8910,7 +8831,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->invTransferOrdersScheduledForDeletion = $invTransferOrdersToDelete;
 
         foreach ($invTransferOrdersToDelete as $invTransferOrderRemoved) {
-            $invTransferOrderRemoved->setCustomerShipto(null);
+            $invTransferOrderRemoved->setCustomerShipto();
         }
 
         $this->collInvTransferOrders = null;
@@ -8928,7 +8849,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related InvTransferOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related InvTransferOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -8936,7 +8856,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countInvTransferOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
+        if (null === $this->collInvTransferOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collInvTransferOrders) {
                 return 0;
             }
@@ -8975,7 +8895,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collInvTransferOrders->contains($l)) {
             $this->doAddInvTransferOrder($l);
 
-            if ($this->invTransferOrdersScheduledForDeletion and $this->invTransferOrdersScheduledForDeletion->contains($l)) {
+            if ($this->invTransferOrdersScheduledForDeletion && $this->invTransferOrdersScheduledForDeletion->contains($l)) {
                 $this->invTransferOrdersScheduledForDeletion->remove($this->invTransferOrdersScheduledForDeletion->search($l));
             }
         }
@@ -9006,7 +8926,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->invTransferOrdersScheduledForDeletion->clear();
             }
             $this->invTransferOrdersScheduledForDeletion[]= clone $invTransferOrder;
-            $invTransferOrder->setCustomerShipto(null);
+            $invTransferOrder->setCustomerShipto();
         }
 
         return $this;
@@ -9134,8 +9054,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collNoteCustInternals collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialNoteCustInternals($v = true): void
     {
@@ -9151,8 +9069,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initNoteCustInternals(bool $overrideExisting = true): void
     {
@@ -9184,7 +9100,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getNoteCustInternals(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collNoteCustInternalsPartial && !$this->isNew();
-        if (null === $this->collNoteCustInternals || null !== $criteria || $partial) {
+        if (null === $this->collNoteCustInternals || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collNoteCustInternals) {
@@ -9202,7 +9118,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collNoteCustInternalsPartial && count($collNoteCustInternals)) {
                         $this->initNoteCustInternals(false);
 
@@ -9253,7 +9169,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->noteCustInternalsScheduledForDeletion = $noteCustInternalsToDelete;
 
         foreach ($noteCustInternalsToDelete as $noteCustInternalRemoved) {
-            $noteCustInternalRemoved->setCustomerShipto(null);
+            $noteCustInternalRemoved->setCustomerShipto();
         }
 
         $this->collNoteCustInternals = null;
@@ -9271,7 +9187,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related NoteCustInternal objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related NoteCustInternal objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -9279,7 +9194,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countNoteCustInternals(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collNoteCustInternalsPartial && !$this->isNew();
-        if (null === $this->collNoteCustInternals || null !== $criteria || $partial) {
+        if (null === $this->collNoteCustInternals || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collNoteCustInternals) {
                 return 0;
             }
@@ -9318,7 +9233,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collNoteCustInternals->contains($l)) {
             $this->doAddNoteCustInternal($l);
 
-            if ($this->noteCustInternalsScheduledForDeletion and $this->noteCustInternalsScheduledForDeletion->contains($l)) {
+            if ($this->noteCustInternalsScheduledForDeletion && $this->noteCustInternalsScheduledForDeletion->contains($l)) {
                 $this->noteCustInternalsScheduledForDeletion->remove($this->noteCustInternalsScheduledForDeletion->search($l));
             }
         }
@@ -9349,7 +9264,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->noteCustInternalsScheduledForDeletion->clear();
             }
             $this->noteCustInternalsScheduledForDeletion[]= clone $noteCustInternal;
-            $noteCustInternal->setCustomerShipto(null);
+            $noteCustInternal->setCustomerShipto();
         }
 
         return $this;
@@ -9399,8 +9314,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collNoteCustOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialNoteCustOrders($v = true): void
     {
@@ -9416,8 +9329,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initNoteCustOrders(bool $overrideExisting = true): void
     {
@@ -9449,7 +9360,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getNoteCustOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collNoteCustOrdersPartial && !$this->isNew();
-        if (null === $this->collNoteCustOrders || null !== $criteria || $partial) {
+        if (null === $this->collNoteCustOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collNoteCustOrders) {
@@ -9467,7 +9378,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collNoteCustOrdersPartial && count($collNoteCustOrders)) {
                         $this->initNoteCustOrders(false);
 
@@ -9518,7 +9429,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->noteCustOrdersScheduledForDeletion = $noteCustOrdersToDelete;
 
         foreach ($noteCustOrdersToDelete as $noteCustOrderRemoved) {
-            $noteCustOrderRemoved->setCustomerShipto(null);
+            $noteCustOrderRemoved->setCustomerShipto();
         }
 
         $this->collNoteCustOrders = null;
@@ -9536,7 +9447,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related NoteCustOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related NoteCustOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -9544,7 +9454,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countNoteCustOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collNoteCustOrdersPartial && !$this->isNew();
-        if (null === $this->collNoteCustOrders || null !== $criteria || $partial) {
+        if (null === $this->collNoteCustOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collNoteCustOrders) {
                 return 0;
             }
@@ -9583,7 +9493,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collNoteCustOrders->contains($l)) {
             $this->doAddNoteCustOrder($l);
 
-            if ($this->noteCustOrdersScheduledForDeletion and $this->noteCustOrdersScheduledForDeletion->contains($l)) {
+            if ($this->noteCustOrdersScheduledForDeletion && $this->noteCustOrdersScheduledForDeletion->contains($l)) {
                 $this->noteCustOrdersScheduledForDeletion->remove($this->noteCustOrdersScheduledForDeletion->search($l));
             }
         }
@@ -9614,7 +9524,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->noteCustOrdersScheduledForDeletion->clear();
             }
             $this->noteCustOrdersScheduledForDeletion[]= clone $noteCustOrder;
-            $noteCustOrder->setCustomerShipto(null);
+            $noteCustOrder->setCustomerShipto();
         }
 
         return $this;
@@ -9664,8 +9574,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collBookingDayCustomers collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookingDayCustomers($v = true): void
     {
@@ -9681,8 +9589,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookingDayCustomers(bool $overrideExisting = true): void
     {
@@ -9714,7 +9620,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getBookingDayCustomers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookingDayCustomers) {
@@ -9732,7 +9638,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingDayCustomersPartial && count($collBookingDayCustomers)) {
                         $this->initBookingDayCustomers(false);
 
@@ -9786,7 +9692,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->bookingDayCustomersScheduledForDeletion = clone $bookingDayCustomersToDelete;
 
         foreach ($bookingDayCustomersToDelete as $bookingDayCustomerRemoved) {
-            $bookingDayCustomerRemoved->setCustomerShipto(null);
+            $bookingDayCustomerRemoved->setCustomerShipto();
         }
 
         $this->collBookingDayCustomers = null;
@@ -9804,7 +9710,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related BookingDayCustomer objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BookingDayCustomer objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -9812,7 +9717,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countBookingDayCustomers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayCustomers || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookingDayCustomers) {
                 return 0;
             }
@@ -9851,7 +9756,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collBookingDayCustomers->contains($l)) {
             $this->doAddBookingDayCustomer($l);
 
-            if ($this->bookingDayCustomersScheduledForDeletion and $this->bookingDayCustomersScheduledForDeletion->contains($l)) {
+            if ($this->bookingDayCustomersScheduledForDeletion && $this->bookingDayCustomersScheduledForDeletion->contains($l)) {
                 $this->bookingDayCustomersScheduledForDeletion->remove($this->bookingDayCustomersScheduledForDeletion->search($l));
             }
         }
@@ -9882,7 +9787,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->bookingDayCustomersScheduledForDeletion->clear();
             }
             $this->bookingDayCustomersScheduledForDeletion[]= clone $bookingDayCustomer;
-            $bookingDayCustomer->setCustomerShipto(null);
+            $bookingDayCustomer->setCustomerShipto();
         }
 
         return $this;
@@ -9958,8 +9863,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collBookingDayDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookingDayDetails($v = true): void
     {
@@ -9975,8 +9878,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookingDayDetails(bool $overrideExisting = true): void
     {
@@ -10008,7 +9909,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getBookingDayDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookingDayDetails) {
@@ -10026,7 +9927,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingDayDetailsPartial && count($collBookingDayDetails)) {
                         $this->initBookingDayDetails(false);
 
@@ -10080,7 +9981,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->bookingDayDetailsScheduledForDeletion = clone $bookingDayDetailsToDelete;
 
         foreach ($bookingDayDetailsToDelete as $bookingDayDetailRemoved) {
-            $bookingDayDetailRemoved->setCustomerShipto(null);
+            $bookingDayDetailRemoved->setCustomerShipto();
         }
 
         $this->collBookingDayDetails = null;
@@ -10098,7 +9999,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related BookingDayDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related BookingDayDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -10106,7 +10006,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countBookingDayDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
+        if (null === $this->collBookingDayDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookingDayDetails) {
                 return 0;
             }
@@ -10145,7 +10045,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collBookingDayDetails->contains($l)) {
             $this->doAddBookingDayDetail($l);
 
-            if ($this->bookingDayDetailsScheduledForDeletion and $this->bookingDayDetailsScheduledForDeletion->contains($l)) {
+            if ($this->bookingDayDetailsScheduledForDeletion && $this->bookingDayDetailsScheduledForDeletion->contains($l)) {
                 $this->bookingDayDetailsScheduledForDeletion->remove($this->bookingDayDetailsScheduledForDeletion->search($l));
             }
         }
@@ -10176,7 +10076,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->bookingDayDetailsScheduledForDeletion->clear();
             }
             $this->bookingDayDetailsScheduledForDeletion[]= clone $bookingDayDetail;
-            $bookingDayDetail->setCustomerShipto(null);
+            $bookingDayDetail->setCustomerShipto();
         }
 
         return $this;
@@ -10252,8 +10152,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collBookings collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialBookings($v = true): void
     {
@@ -10269,8 +10167,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initBookings(bool $overrideExisting = true): void
     {
@@ -10302,7 +10198,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getBookings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria || $partial) {
+        if (null === $this->collBookings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collBookings) {
@@ -10320,7 +10216,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collBookingsPartial && count($collBookings)) {
                         $this->initBookings(false);
 
@@ -10371,7 +10267,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->bookingsScheduledForDeletion = $bookingsToDelete;
 
         foreach ($bookingsToDelete as $bookingRemoved) {
-            $bookingRemoved->setCustomerShipto(null);
+            $bookingRemoved->setCustomerShipto();
         }
 
         $this->collBookings = null;
@@ -10389,7 +10285,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related Booking objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related Booking objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -10397,7 +10292,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countBookings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria || $partial) {
+        if (null === $this->collBookings || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collBookings) {
                 return 0;
             }
@@ -10436,7 +10331,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collBookings->contains($l)) {
             $this->doAddBooking($l);
 
-            if ($this->bookingsScheduledForDeletion and $this->bookingsScheduledForDeletion->contains($l)) {
+            if ($this->bookingsScheduledForDeletion && $this->bookingsScheduledForDeletion->contains($l)) {
                 $this->bookingsScheduledForDeletion->remove($this->bookingsScheduledForDeletion->search($l));
             }
         }
@@ -10467,7 +10362,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->bookingsScheduledForDeletion->clear();
             }
             $this->bookingsScheduledForDeletion[]= clone $booking;
-            $booking->setCustomerShipto(null);
+            $booking->setCustomerShipto();
         }
 
         return $this;
@@ -10543,8 +10438,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesHistories collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesHistories($v = true): void
     {
@@ -10560,8 +10453,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesHistories(bool $overrideExisting = true): void
     {
@@ -10593,7 +10484,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getSalesHistories(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesHistoriesPartial && !$this->isNew();
-        if (null === $this->collSalesHistories || null !== $criteria || $partial) {
+        if (null === $this->collSalesHistories || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesHistories) {
@@ -10611,7 +10502,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesHistoriesPartial && count($collSalesHistories)) {
                         $this->initSalesHistories(false);
 
@@ -10662,7 +10553,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->salesHistoriesScheduledForDeletion = $salesHistoriesToDelete;
 
         foreach ($salesHistoriesToDelete as $salesHistoryRemoved) {
-            $salesHistoryRemoved->setCustomerShipto(null);
+            $salesHistoryRemoved->setCustomerShipto();
         }
 
         $this->collSalesHistories = null;
@@ -10680,7 +10571,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related SalesHistory objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesHistory objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -10688,7 +10578,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countSalesHistories(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesHistoriesPartial && !$this->isNew();
-        if (null === $this->collSalesHistories || null !== $criteria || $partial) {
+        if (null === $this->collSalesHistories || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesHistories) {
                 return 0;
             }
@@ -10727,7 +10617,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collSalesHistories->contains($l)) {
             $this->doAddSalesHistory($l);
 
-            if ($this->salesHistoriesScheduledForDeletion and $this->salesHistoriesScheduledForDeletion->contains($l)) {
+            if ($this->salesHistoriesScheduledForDeletion && $this->salesHistoriesScheduledForDeletion->contains($l)) {
                 $this->salesHistoriesScheduledForDeletion->remove($this->salesHistoriesScheduledForDeletion->search($l));
             }
         }
@@ -10758,7 +10648,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->salesHistoriesScheduledForDeletion->clear();
             }
             $this->salesHistoriesScheduledForDeletion[]= clone $salesHistory;
-            $salesHistory->setCustomerShipto(null);
+            $salesHistory->setCustomerShipto();
         }
 
         return $this;
@@ -10808,8 +10698,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collSalesOrders collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSalesOrders($v = true): void
     {
@@ -10825,8 +10713,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSalesOrders(bool $overrideExisting = true): void
     {
@@ -10858,7 +10744,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getSalesOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrdersPartial && !$this->isNew();
-        if (null === $this->collSalesOrders || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSalesOrders) {
@@ -10876,7 +10762,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSalesOrdersPartial && count($collSalesOrders)) {
                         $this->initSalesOrders(false);
 
@@ -10927,7 +10813,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->salesOrdersScheduledForDeletion = $salesOrdersToDelete;
 
         foreach ($salesOrdersToDelete as $salesOrderRemoved) {
-            $salesOrderRemoved->setCustomerShipto(null);
+            $salesOrderRemoved->setCustomerShipto();
         }
 
         $this->collSalesOrders = null;
@@ -10945,7 +10831,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related SalesOrder objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SalesOrder objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -10953,7 +10838,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countSalesOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrdersPartial && !$this->isNew();
-        if (null === $this->collSalesOrders || null !== $criteria || $partial) {
+        if (null === $this->collSalesOrders || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSalesOrders) {
                 return 0;
             }
@@ -10992,7 +10877,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collSalesOrders->contains($l)) {
             $this->doAddSalesOrder($l);
 
-            if ($this->salesOrdersScheduledForDeletion and $this->salesOrdersScheduledForDeletion->contains($l)) {
+            if ($this->salesOrdersScheduledForDeletion && $this->salesOrdersScheduledForDeletion->contains($l)) {
                 $this->salesOrdersScheduledForDeletion->remove($this->salesOrdersScheduledForDeletion->search($l));
             }
         }
@@ -11023,7 +10908,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->salesOrdersScheduledForDeletion->clear();
             }
             $this->salesOrdersScheduledForDeletion[]= clone $salesOrder;
-            $salesOrder->setCustomerShipto(null);
+            $salesOrder->setCustomerShipto();
         }
 
         return $this;
@@ -11073,8 +10958,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Reset is the collSoStandingOrderDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialSoStandingOrderDetails($v = true): void
     {
@@ -11090,8 +10973,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initSoStandingOrderDetails(bool $overrideExisting = true): void
     {
@@ -11123,7 +11004,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getSoStandingOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSoStandingOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collSoStandingOrderDetails) {
@@ -11141,7 +11022,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collSoStandingOrderDetailsPartial && count($collSoStandingOrderDetails)) {
                         $this->initSoStandingOrderDetails(false);
 
@@ -11195,7 +11076,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->soStandingOrderDetailsScheduledForDeletion = clone $soStandingOrderDetailsToDelete;
 
         foreach ($soStandingOrderDetailsToDelete as $soStandingOrderDetailRemoved) {
-            $soStandingOrderDetailRemoved->setCustomerShipto(null);
+            $soStandingOrderDetailRemoved->setCustomerShipto();
         }
 
         $this->collSoStandingOrderDetails = null;
@@ -11213,7 +11094,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Returns the number of related SoStandingOrderDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related SoStandingOrderDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -11221,7 +11101,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function countSoStandingOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
+        if (null === $this->collSoStandingOrderDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collSoStandingOrderDetails) {
                 return 0;
             }
@@ -11260,7 +11140,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (!$this->collSoStandingOrderDetails->contains($l)) {
             $this->doAddSoStandingOrderDetail($l);
 
-            if ($this->soStandingOrderDetailsScheduledForDeletion and $this->soStandingOrderDetailsScheduledForDeletion->contains($l)) {
+            if ($this->soStandingOrderDetailsScheduledForDeletion && $this->soStandingOrderDetailsScheduledForDeletion->contains($l)) {
                 $this->soStandingOrderDetailsScheduledForDeletion->remove($this->soStandingOrderDetailsScheduledForDeletion->search($l));
             }
         }
@@ -11291,7 +11171,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->soStandingOrderDetailsScheduledForDeletion->clear();
             }
             $this->soStandingOrderDetailsScheduledForDeletion[]= clone $soStandingOrderDetail;
-            $soStandingOrderDetail->setCustomerShipto(null);
+            $soStandingOrderDetail->setCustomerShipto();
         }
 
         return $this;
@@ -11378,7 +11258,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->singleSoStandingOrder = $v;
 
         // Make sure that that the passed-in ChildSoStandingOrder isn't already associated with this object
-        if ($v !== null && $v->getCustomerShipto(null, false) === null) {
+        if ($v instanceof \SoStandingOrder && $v->getCustomerShipto() === null) {
             $v->setCustomerShipto($this);
         }
 
@@ -11609,13 +11489,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CustomerShiptoTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(CustomerShiptoTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -11624,8 +11502,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -11633,8 +11509,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -11643,8 +11517,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -11652,8 +11524,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -11662,8 +11532,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -11671,8 +11539,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -11681,8 +11547,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -11702,7 +11566,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -11714,7 +11578,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -11722,7 +11586,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

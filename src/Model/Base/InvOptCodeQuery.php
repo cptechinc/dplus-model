@@ -98,7 +98,7 @@ use Propel\Runtime\Exception\PropelException;
  */
 abstract class InvOptCodeQuery extends ModelCriteria
 {
-    protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
+    protected $entityNotFoundExceptionClass = \Propel\Runtime\Exception\EntityNotFoundException::class;
 
     /**
      * Initializes internal state of \Base\InvOptCodeQuery object.
@@ -156,7 +156,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
             return null;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(InvOptCodeTableMap::DATABASE_NAME);
         }
 
@@ -203,7 +203,6 @@ abstract class InvOptCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvOptCode $obj */
             $obj = new ChildInvOptCode();
             $obj->hydrate($row);
             InvOptCodeTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
@@ -244,7 +243,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function findPks($keys, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
         }
         $this->basePreSelect($con);
@@ -312,10 +311,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inititemnbr)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inititemnbr)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvOptCodeTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
@@ -340,10 +337,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByInoptcode($inoptcode = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inoptcode)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inoptcode)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTCODE, $inoptcode, $comparison);
@@ -368,10 +363,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByInoptcodedesc($inoptcodedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inoptcodedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inoptcodedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTCODEDESC, $inoptcodedesc, $comparison);
@@ -396,10 +389,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByInoptvalue($inoptvalue = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inoptvalue)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inoptvalue)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTVALUE, $inoptvalue, $comparison);
@@ -424,10 +415,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByInoptvaluedesc($inoptvaluedesc = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inoptvaluedesc)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inoptvaluedesc)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTVALUEDESC, $inoptvaluedesc, $comparison);
@@ -452,10 +441,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByInoptvaluedesc2($inoptvaluedesc2 = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inoptvaluedesc2)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($inoptvaluedesc2)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTVALUEDESC2, $inoptvaluedesc2, $comparison);
@@ -480,10 +467,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dateupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dateupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvOptCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
@@ -508,10 +493,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($timeupdtd)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($timeupdtd)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvOptCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
@@ -536,10 +519,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByDummy($dummy = null, ?string $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($dummy)) {
-                $comparison = Criteria::IN;
-            }
+        if (null === $comparison && is_array($dummy)) {
+            $comparison = Criteria::IN;
         }
 
         $this->addUsingAlias(InvOptCodeTableMap::COL_DUMMY, $dummy, $comparison);
@@ -559,7 +540,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
         if ($invOptCode) {
             $this->addCond('pruneCond0', $this->getAliasedColName(InvOptCodeTableMap::COL_INITITEMNBR), $invOptCode->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvOptCodeTableMap::COL_INOPTCODE), $invOptCode->getInoptcode(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->combine(['pruneCond0', 'pruneCond1'], Criteria::LOGICAL_OR);
         }
 
         return $this;
@@ -573,7 +554,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function doDeleteAll(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeTableMap::DATABASE_NAME);
         }
 
@@ -603,7 +584,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function delete(?ConnectionInterface $con = null): int
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeTableMap::DATABASE_NAME);
         }
 

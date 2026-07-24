@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ConfigSysQuery as BaseConfigSysQuery;
 
 use Dplus\Model\QueryTraits;

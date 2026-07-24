@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\VendorOrderNote as BaseVendorOrderNote;
 
 use Dplus\Model\ThrowErrorTrait;
@@ -19,7 +21,7 @@ class VendorOrderNote extends BaseVendorOrderNote {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
+	const COLUMN_ALIASES = [
 		'vendorid'    => 'apvevendid',
 		'shipfromid'  => 'apfmshipid',
 		'sequence'    => 'qnseq',
@@ -30,5 +32,5 @@ class VendorOrderNote extends BaseVendorOrderNote {
 		'key2'        => 'qnkey2',
 		'date'        => 'dateupdtd',
 		'time'        => 'timeupdtd'
-	);
+	];
 }

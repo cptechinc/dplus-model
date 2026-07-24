@@ -44,7 +44,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\RcyclReceiptTableMap';
+    public const TABLE_MAP = \Map\RcyclReceiptTableMap::class;
 
 
     /**
@@ -254,14 +254,14 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * @var ObjectCollection|ChildRcyclReceiptDetail[]
      * @phpstan-var ObjectCollection&\Traversable<ChildRcyclReceiptDetail>
      */
-    protected $rcyclReceiptDetailsScheduledForDeletion = null;
+    protected $rcyclReceiptDetailsScheduledForDeletion;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildRcyclReceiptLot[]
      * @phpstan-var ObjectCollection&\Traversable<ChildRcyclReceiptLot>
      */
-    protected $rcyclReceiptLotsScheduledForDeletion = null;
+    protected $rcyclReceiptLotsScheduledForDeletion;
 
     /**
      * Applies default values to this object.
@@ -307,7 +307,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -365,7 +365,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -375,7 +374,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -413,8 +411,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -425,7 +421,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -467,9 +462,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -495,7 +488,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, [], true));
     }
 
     /**
@@ -1144,13 +1137,8 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -1175,58 +1163,58 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdrcptbulk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdcntrlnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : RcyclReceiptTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : RcyclReceiptTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : RcyclReceiptTableMap::translateFieldName('Artbgenrid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : RcyclReceiptTableMap::translateFieldName('Artbgenrid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbgenrid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdbolnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdbolnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdbolnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdrcptdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdrcptdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdrcptdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdstatus', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdstatus', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdstatus = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdenteredby', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdenteredby', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdenteredby = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdentereddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdentereddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdentereddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdenteredtime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdenteredtime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdenteredtime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdclosedby', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdclosedby', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdclosedby = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdcloseddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdcloseddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdcloseddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdclosedtime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdclosedtime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdclosedtime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdpcid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdpcid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdpcid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : RcyclReceiptTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : RcyclReceiptTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : RcyclReceiptTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : RcyclReceiptTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : RcyclReceiptTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : RcyclReceiptTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -1255,7 +1243,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -1274,7 +1261,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -1287,7 +1273,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(RcyclReceiptTableMap::DATABASE_NAME);
         }
 
@@ -1317,7 +1303,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see RcyclReceipt::setDeleted()
      * @see RcyclReceipt::isDeleted()
@@ -1328,7 +1313,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclReceiptTableMap::DATABASE_NAME);
         }
 
@@ -1367,18 +1352,14 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclReceiptTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -1402,7 +1383,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -1443,13 +1423,11 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->rcyclReceiptDetailsScheduledForDeletion !== null) {
-                if (!$this->rcyclReceiptDetailsScheduledForDeletion->isEmpty()) {
-                    \RcyclReceiptDetailQuery::create()
-                        ->filterByPrimaryKeys($this->rcyclReceiptDetailsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->rcyclReceiptDetailsScheduledForDeletion = null;
-                }
+            if ($this->rcyclReceiptDetailsScheduledForDeletion !== null && !$this->rcyclReceiptDetailsScheduledForDeletion->isEmpty()) {
+                \RcyclReceiptDetailQuery::create()
+                    ->filterByPrimaryKeys($this->rcyclReceiptDetailsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->rcyclReceiptDetailsScheduledForDeletion = null;
             }
 
             if ($this->collRcyclReceiptDetails !== null) {
@@ -1460,13 +1438,11 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 }
             }
 
-            if ($this->rcyclReceiptLotsScheduledForDeletion !== null) {
-                if (!$this->rcyclReceiptLotsScheduledForDeletion->isEmpty()) {
-                    \RcyclReceiptLotQuery::create()
-                        ->filterByPrimaryKeys($this->rcyclReceiptLotsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->rcyclReceiptLotsScheduledForDeletion = null;
-                }
+            if ($this->rcyclReceiptLotsScheduledForDeletion !== null && !$this->rcyclReceiptLotsScheduledForDeletion->isEmpty()) {
+                \RcyclReceiptLotQuery::create()
+                    ->filterByPrimaryKeys($this->rcyclReceiptLotsScheduledForDeletion->getPrimaryKeys(false))
+                    ->delete($con);
+                $this->rcyclReceiptLotsScheduledForDeletion = null;
             }
 
             if ($this->collRcyclReceiptLots !== null) {
@@ -1487,7 +1463,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -1650,7 +1625,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -1676,9 +1650,8 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = RcyclReceiptTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -1866,7 +1839,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -2164,7 +2136,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -2178,18 +2150,13 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = [];
-        $pks[0] = $this->getRcyhdrcptbulk();
-        $pks[1] = $this->getRcyhdcntrlnbr();
-
-        return $pks;
+        return [$this->getRcyhdrcptbulk(), $this->getRcyhdcntrlnbr()];
     }
 
     /**
      * Set the [composite] primary key.
      *
      * @param array $keys The elements of the composite key (order must match the order in XML file).
-     * @return void
      */
     public function setPrimaryKey(array $keys): void
     {
@@ -2199,8 +2166,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -2217,7 +2182,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -2289,13 +2253,12 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param ChildCustomer $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \Customer) {
             $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
@@ -2305,7 +2268,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \Customer) {
             $v->addRcyclReceipt($this);
         }
 
@@ -2340,13 +2303,12 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildRcyclGenerator object.
      *
-     * @param ChildRcyclGenerator $v
      * @return $this The current object (for fluent API support)
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setRcyclGenerator(ChildRcyclGenerator $v = null)
     {
-        if ($v === null) {
+        if (!$v instanceof \RcyclGenerator) {
             $this->setArtbgenrid('');
         } else {
             $this->setArtbgenrid($v->getArtbgenrid());
@@ -2356,7 +2318,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildRcyclGenerator object, it will not be re-added.
-        if ($v !== null) {
+        if ($v instanceof \RcyclGenerator) {
             $v->addRcyclReceipt($this);
         }
 
@@ -2395,7 +2357,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
      * @param string $relationName The name of the relation to initialize
-     * @return void
      */
     public function initRelation($relationName): void
     {
@@ -2427,8 +2388,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Reset is the collRcyclReceiptDetails collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialRcyclReceiptDetails($v = true): void
     {
@@ -2444,8 +2403,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initRcyclReceiptDetails(bool $overrideExisting = true): void
     {
@@ -2477,7 +2434,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     public function getRcyclReceiptDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collRcyclReceiptDetailsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptDetails || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collRcyclReceiptDetails) {
@@ -2495,7 +2452,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                     ->filterByRcyclReceipt($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collRcyclReceiptDetailsPartial && count($collRcyclReceiptDetails)) {
                         $this->initRcyclReceiptDetails(false);
 
@@ -2549,7 +2506,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
         $this->rcyclReceiptDetailsScheduledForDeletion = clone $rcyclReceiptDetailsToDelete;
 
         foreach ($rcyclReceiptDetailsToDelete as $rcyclReceiptDetailRemoved) {
-            $rcyclReceiptDetailRemoved->setRcyclReceipt(null);
+            $rcyclReceiptDetailRemoved->setRcyclReceipt();
         }
 
         $this->collRcyclReceiptDetails = null;
@@ -2567,7 +2524,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * Returns the number of related RcyclReceiptDetail objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related RcyclReceiptDetail objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2575,7 +2531,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     public function countRcyclReceiptDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collRcyclReceiptDetailsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptDetails || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptDetails || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collRcyclReceiptDetails) {
                 return 0;
             }
@@ -2614,7 +2570,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
         if (!$this->collRcyclReceiptDetails->contains($l)) {
             $this->doAddRcyclReceiptDetail($l);
 
-            if ($this->rcyclReceiptDetailsScheduledForDeletion and $this->rcyclReceiptDetailsScheduledForDeletion->contains($l)) {
+            if ($this->rcyclReceiptDetailsScheduledForDeletion && $this->rcyclReceiptDetailsScheduledForDeletion->contains($l)) {
                 $this->rcyclReceiptDetailsScheduledForDeletion->remove($this->rcyclReceiptDetailsScheduledForDeletion->search($l));
             }
         }
@@ -2645,7 +2601,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 $this->rcyclReceiptDetailsScheduledForDeletion->clear();
             }
             $this->rcyclReceiptDetailsScheduledForDeletion[]= clone $rcyclReceiptDetail;
-            $rcyclReceiptDetail->setRcyclReceipt(null);
+            $rcyclReceiptDetail->setRcyclReceipt();
         }
 
         return $this;
@@ -2721,8 +2677,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Reset is the collRcyclReceiptLots collection loaded partially.
-     *
-     * @return void
      */
     public function resetPartialRcyclReceiptLots($v = true): void
     {
@@ -2738,8 +2692,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      *
      * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
-     *
-     * @return void
      */
     public function initRcyclReceiptLots(bool $overrideExisting = true): void
     {
@@ -2771,7 +2723,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     public function getRcyclReceiptLots(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collRcyclReceiptLotsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptLots || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptLots || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew()) {
                 // return empty collection
                 if (null === $this->collRcyclReceiptLots) {
@@ -2789,7 +2741,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                     ->filterByRcyclReceipt($this)
                     ->find($con);
 
-                if (null !== $criteria) {
+                if ($criteria instanceof \Propel\Runtime\ActiveQuery\Criteria) {
                     if (false !== $this->collRcyclReceiptLotsPartial && count($collRcyclReceiptLots)) {
                         $this->initRcyclReceiptLots(false);
 
@@ -2843,7 +2795,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
         $this->rcyclReceiptLotsScheduledForDeletion = clone $rcyclReceiptLotsToDelete;
 
         foreach ($rcyclReceiptLotsToDelete as $rcyclReceiptLotRemoved) {
-            $rcyclReceiptLotRemoved->setRcyclReceipt(null);
+            $rcyclReceiptLotRemoved->setRcyclReceipt();
         }
 
         $this->collRcyclReceiptLots = null;
@@ -2861,7 +2813,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * Returns the number of related RcyclReceiptLot objects.
      *
      * @param Criteria $criteria
-     * @param bool $distinct
      * @param ConnectionInterface $con
      * @return int Count of related RcyclReceiptLot objects.
      * @throws \Propel\Runtime\Exception\PropelException
@@ -2869,7 +2820,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     public function countRcyclReceiptLots(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collRcyclReceiptLotsPartial && !$this->isNew();
-        if (null === $this->collRcyclReceiptLots || null !== $criteria || $partial) {
+        if (null === $this->collRcyclReceiptLots || $criteria instanceof \Propel\Runtime\ActiveQuery\Criteria || $partial) {
             if ($this->isNew() && null === $this->collRcyclReceiptLots) {
                 return 0;
             }
@@ -2908,7 +2859,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
         if (!$this->collRcyclReceiptLots->contains($l)) {
             $this->doAddRcyclReceiptLot($l);
 
-            if ($this->rcyclReceiptLotsScheduledForDeletion and $this->rcyclReceiptLotsScheduledForDeletion->contains($l)) {
+            if ($this->rcyclReceiptLotsScheduledForDeletion && $this->rcyclReceiptLotsScheduledForDeletion->contains($l)) {
                 $this->rcyclReceiptLotsScheduledForDeletion->remove($this->rcyclReceiptLotsScheduledForDeletion->search($l));
             }
         }
@@ -2939,7 +2890,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 $this->rcyclReceiptLotsScheduledForDeletion->clear();
             }
             $this->rcyclReceiptLotsScheduledForDeletion[]= clone $rcyclReceiptLot;
-            $rcyclReceiptLot->setRcyclReceipt(null);
+            $rcyclReceiptLot->setRcyclReceipt();
         }
 
         return $this;
@@ -3078,13 +3029,11 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(RcyclReceiptTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(RcyclReceiptTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -3093,8 +3042,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -3102,8 +3049,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -3112,8 +3057,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -3121,8 +3064,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -3131,8 +3072,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -3140,8 +3079,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -3150,8 +3087,6 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -3171,7 +3106,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -3183,7 +3118,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -3191,7 +3126,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

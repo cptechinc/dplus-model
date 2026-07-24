@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\ApTypeCodeQuery as BaseApTypeCodeQuery;
 
 use Dplus\Model\QueryTraits;

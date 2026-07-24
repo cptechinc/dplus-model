@@ -32,7 +32,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      *
      * @var string
      */
-    public const TABLE_MAP = '\\Map\\ConfigArTableMap';
+    public const TABLE_MAP = \Map\ConfigArTableMap::class;
 
 
     /**
@@ -1148,7 +1148,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      */
     public function isModified(): bool
     {
-        return !!$this->modifiedColumns;
+        return (bool) $this->modifiedColumns;
     }
 
     /**
@@ -1206,7 +1206,6 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Specify whether this object has been deleted.
      * @param bool $b The deleted state of this object.
-     * @return void
      */
     public function setDeleted(bool $b): void
     {
@@ -1216,7 +1215,6 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Sets the modified state for the object to be false.
      * @param string $col If supplied, only the specified column is reset.
-     * @return void
      */
     public function resetModified(?string $col = null): void
     {
@@ -1254,8 +1252,6 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Get the associative array of the virtual columns in this object
-     *
-     * @return array
      */
     public function getVirtualColumns(): array
     {
@@ -1266,7 +1262,6 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Checks the existence of a virtual column in this object
      *
      * @param string $name The virtual column name
-     * @return bool
      */
     public function hasVirtualColumn(string $name): bool
     {
@@ -1308,9 +1303,7 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param string $msg
      * @param int $priority One of the Propel::LOG_* logging levels
-     * @return void
      */
     protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
@@ -1336,7 +1329,7 @@ abstract class ConfigAr implements ActiveRecordInterface
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, []));
     }
 
     /**
@@ -5343,13 +5336,8 @@ abstract class ConfigAr implements ActiveRecordInterface
             if ($this->timeupdtd !== '') {
                 return false;
             }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
-        // otherwise, everything was equal, so return TRUE
-        return true;
+            // otherwise, everything was equal, so return TRUE
+            return $this->dummy === 'P';
     }
 
     /**
@@ -5374,355 +5362,355 @@ abstract class ConfigAr implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ConfigArTableMap::translateFieldName('Artbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? $startcol : ConfigArTableMap::translateFieldName('Artbconfkey', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfkey = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ConfigArTableMap::translateFieldName('Artbconfglifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 1 + $startcol : ConfigArTableMap::translateFieldName('Artbconfglifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfglifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 2 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfinifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ConfigArTableMap::translateFieldName('Artbconfpcifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 3 + $startcol : ConfigArTableMap::translateFieldName('Artbconfpcifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfpcifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ConfigArTableMap::translateFieldName('Artbconfccifac', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 4 + $startcol : ConfigArTableMap::translateFieldName('Artbconfccifac', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfccifac = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvcustgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 5 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvcustgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfinvcustgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ConfigArTableMap::translateFieldName('Artbconffrtacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 6 + $startcol : ConfigArTableMap::translateFieldName('Artbconffrtacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconffrtacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ConfigArTableMap::translateFieldName('Artbconfmiscacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 7 + $startcol : ConfigArTableMap::translateFieldName('Artbconfmiscacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfmiscacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ConfigArTableMap::translateFieldName('Artbconfaracct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 8 + $startcol : ConfigArTableMap::translateFieldName('Artbconfaracct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfaracct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcashacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 9 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcashacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcashacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2cccashacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 10 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2cccashacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2cccashacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 11 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconffincacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigArTableMap::translateFieldName('Artbconfdiscacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 12 + $startcol : ConfigArTableMap::translateFieldName('Artbconfdiscacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfdiscacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigArTableMap::translateFieldName('Artbconfrgacogsacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 13 + $startcol : ConfigArTableMap::translateFieldName('Artbconfrgacogsacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfrgacogsacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcusdacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 14 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcusdacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcusdacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigArTableMap::translateFieldName('Artbconfdpstacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 15 + $startcol : ConfigArTableMap::translateFieldName('Artbconfdpstacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfdpstacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ConfigArTableMap::translateFieldName('Artbconfwriteoffacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 16 + $startcol : ConfigArTableMap::translateFieldName('Artbconfwriteoffacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfwriteoffacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2presalivtyacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 17 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2presalivtyacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2presalivtyacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 18 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconffincpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincdays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 19 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincdays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconffincdays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincminchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 20 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincminchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconffincminchg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincterm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 21 + $startcol : ConfigArTableMap::translateFieldName('Artbconffincterm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconffincterm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigArTableMap::translateFieldName('Artbconfover1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 22 + $startcol : ConfigArTableMap::translateFieldName('Artbconfover1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfover1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigArTableMap::translateFieldName('Artbconfover2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 23 + $startcol : ConfigArTableMap::translateFieldName('Artbconfover2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfover2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 24 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstmtline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 25 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstmtcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtnotedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 26 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtnotedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstmtnotedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtnote1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 27 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtnote1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstmtnote1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtnote2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 28 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtnote2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstmtnote2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtnote3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 29 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtnote3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstmtnote3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 30 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfinvline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 31 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfinvcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvnotedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 32 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvnotedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfinvnotedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 33 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcustline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 34 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcustcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvsort', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 35 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvsort', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfinvsort = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvnc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 36 + $startcol : ConfigArTableMap::translateFieldName('Artbconfinvnc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfinvnc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtsort', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 37 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtsort', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstmtsort = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmt0orless', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 38 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmt0orless', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstmt0orless = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ConfigArTableMap::translateFieldName('Artbconfspdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 39 + $startcol : ConfigArTableMap::translateFieldName('Artbconfspdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfspdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigArTableMap::translateFieldName('Artbconfwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 40 + $startcol : ConfigArTableMap::translateFieldName('Artbconfwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigArTableMap::translateFieldName('Artbconftypedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 41 + $startcol : ConfigArTableMap::translateFieldName('Artbconftypedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconftypedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigArTableMap::translateFieldName('Artbconfsviadef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 42 + $startcol : ConfigArTableMap::translateFieldName('Artbconfsviadef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfsviadef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigArTableMap::translateFieldName('Artbconftermdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 43 + $startcol : ConfigArTableMap::translateFieldName('Artbconftermdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconftermdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigArTableMap::translateFieldName('Artbconftaxdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 44 + $startcol : ConfigArTableMap::translateFieldName('Artbconftaxdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconftaxdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 45 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstmtdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstmtdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigArTableMap::translateFieldName('Artbconfallowbo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 46 + $startcol : ConfigArTableMap::translateFieldName('Artbconfallowbo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfallowbo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigArTableMap::translateFieldName('Artbconfallowfc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 47 + $startcol : ConfigArTableMap::translateFieldName('Artbconfallowfc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfallowfc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigArTableMap::translateFieldName('Artbconfusepriccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 48 + $startcol : ConfigArTableMap::translateFieldName('Artbconfusepriccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfusepriccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigArTableMap::translateFieldName('Artbconfpricdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 49 + $startcol : ConfigArTableMap::translateFieldName('Artbconfpricdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfpricdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigArTableMap::translateFieldName('Artbconfusecommcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 50 + $startcol : ConfigArTableMap::translateFieldName('Artbconfusecommcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfusecommcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcommdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 51 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcommdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcommdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustlabl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 52 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustlabl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcustlabl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustreq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 53 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustreq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcustreq = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 54 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcustdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigArTableMap::translateFieldName('Artbconfshiplabl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 55 + $startcol : ConfigArTableMap::translateFieldName('Artbconfshiplabl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfshiplabl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigArTableMap::translateFieldName('Artbconfshipreq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 56 + $startcol : ConfigArTableMap::translateFieldName('Artbconfshipreq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfshipreq = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigArTableMap::translateFieldName('Artbconfshipdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 57 + $startcol : ConfigArTableMap::translateFieldName('Artbconfshipdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfshipdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigArTableMap::translateFieldName('Artbconfuseidlink', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 58 + $startcol : ConfigArTableMap::translateFieldName('Artbconfuseidlink', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfuseidlink = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigArTableMap::translateFieldName('Artbconfreqdate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 59 + $startcol : ConfigArTableMap::translateFieldName('Artbconfreqdate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfreqdate2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigArTableMap::translateFieldName('Artbconfreqdate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 60 + $startcol : ConfigArTableMap::translateFieldName('Artbconfreqdate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfreqdate3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigArTableMap::translateFieldName('Artbconfreqdate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 61 + $startcol : ConfigArTableMap::translateFieldName('Artbconfreqdate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfreqdate4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigArTableMap::translateFieldName('Artbconfuseweb', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 62 + $startcol : ConfigArTableMap::translateFieldName('Artbconfuseweb', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfuseweb = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigArTableMap::translateFieldName('Artbconfpayhstoredays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 63 + $startcol : ConfigArTableMap::translateFieldName('Artbconfpayhstoredays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfpayhstoredays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigArTableMap::translateFieldName('Artbconfbyclerk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 64 + $startcol : ConfigArTableMap::translateFieldName('Artbconfbyclerk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfbyclerk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ecrwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 65 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ecrwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2ecrwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigArTableMap::translateFieldName('Artbconfzerotermdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 66 + $startcol : ConfigArTableMap::translateFieldName('Artbconfzerotermdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfzerotermdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigArTableMap::translateFieldName('Artbconfuseautocidgen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 67 + $startcol : ConfigArTableMap::translateFieldName('Artbconfuseautocidgen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfuseautocidgen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigArTableMap::translateFieldName('Artbconfprefixlen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 68 + $startcol : ConfigArTableMap::translateFieldName('Artbconfprefixlen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfprefixlen = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigArTableMap::translateFieldName('Artbconfparagecredlast', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 69 + $startcol : ConfigArTableMap::translateFieldName('Artbconfparagecredlast', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfparagecredlast = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigArTableMap::translateFieldName('Artbconfincludecod', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 70 + $startcol : ConfigArTableMap::translateFieldName('Artbconfincludecod', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfincludecod = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigArTableMap::translateFieldName('Artbconfaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 71 + $startcol : ConfigArTableMap::translateFieldName('Artbconfaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfaddlpricdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigArTableMap::translateFieldName('Artbconfapdonoehd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 72 + $startcol : ConfigArTableMap::translateFieldName('Artbconfapdonoehd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfapdonoehd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigArTableMap::translateFieldName('Artbconfnbrsp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 73 + $startcol : ConfigArTableMap::translateFieldName('Artbconfnbrsp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfnbrsp = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigArTableMap::translateFieldName('Artbconfforcesplvl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 74 + $startcol : ConfigArTableMap::translateFieldName('Artbconfforcesplvl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfforcesplvl = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustgetopt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 75 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcustgetopt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcustgetopt = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigArTableMap::translateFieldName('Artbconfaddicmnt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 76 + $startcol : ConfigArTableMap::translateFieldName('Artbconfaddicmnt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfaddicmnt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2appaddiscitmpdm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 77 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2appaddiscitmpdm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2appaddiscitmpdm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2rfndselectamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 78 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2rfndselectamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2rfndselectamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2rfndglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 79 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2rfndglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2rfndglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2rfndapterm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 80 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2rfndapterm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2rfndapterm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2rfndarterm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 81 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2rfndarterm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2rfndarterm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2cwoterm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 82 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2cwoterm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2cwoterm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ccterm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 83 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ccterm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2ccterm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ccsave', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 84 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ccsave', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2ccsave = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ccbatch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 85 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ccbatch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2ccbatch = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ccsavedays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 86 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ccsavedays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2ccsavedays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2aprvdccasdeposit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 87 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2aprvdccasdeposit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2aprvdccasdeposit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2cmqtysign', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 88 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2cmqtysign', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2cmqtysign = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2bolline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 89 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2bolline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2bolline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2bolcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 90 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2bolcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2bolcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2usesounitwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 91 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2usesounitwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2usesounitwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2delzbal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 92 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2delzbal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2delzbal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstopcustchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 93 + $startcol : ConfigArTableMap::translateFieldName('Artbconfstopcustchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfstopcustchg = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2prospecteditcmm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 94 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2prospecteditcmm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2prospecteditcmm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2prospectnotestocmm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 95 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2prospectnotestocmm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2prospectnotestocmm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ctrygetdflt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 96 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2ctrygetdflt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2ctrygetdflt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : ConfigArTableMap::translateFieldName('Artbconfrptbywhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 97 + $startcol : ConfigArTableMap::translateFieldName('Artbconfrptbywhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfrptbywhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : ConfigArTableMap::translateFieldName('Artbconfappendpos', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 98 + $startcol : ConfigArTableMap::translateFieldName('Artbconfappendpos', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfappendpos = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : ConfigArTableMap::translateFieldName('Artbconfincoasstacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 99 + $startcol : ConfigArTableMap::translateFieldName('Artbconfincoasstacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfincoasstacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : ConfigArTableMap::translateFieldName('Artbconfincoliabacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 100 + $startcol : ConfigArTableMap::translateFieldName('Artbconfincoliabacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfincoliabacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2incoasstacct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 101 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2incoasstacct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2incoasstacct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2incoliabacct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 102 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2incoliabacct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2incoliabacct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2usesurchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 103 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2usesurchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2usesurchg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgitemid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 104 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgitemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2surchgitemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgigrupseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 105 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgigrupseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2surchgigrupseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgsviaseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 106 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgsviaseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2surchgsviaseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgcstidseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 107 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgcstidseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2surchgcstidseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgcstpcseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 108 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2surchgcstpcseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2surchgcstpcseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : ConfigArTableMap::translateFieldName('Artbconfzeroinvcline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 109 + $startcol : ConfigArTableMap::translateFieldName('Artbconfzeroinvcline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfzeroinvcline = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2zeroordrship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 110 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2zeroordrship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2zeroordrship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2zeroordrmess', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 111 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2zeroordrmess', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2zeroordrmess = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcashacctwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 112 + $startcol : ConfigArTableMap::translateFieldName('Artbconfcashacctwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbconfcashacctwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2mtaxfrtflagorcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 113 + $startcol : ConfigArTableMap::translateFieldName('Artbcon2mtaxfrtflagorcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcon2mtaxfrtflagorcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : ConfigArTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 114 + $startcol : ConfigArTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : ConfigArTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 115 + $startcol : ConfigArTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : ConfigArTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM === $indexType ? 116 + $startcol : ConfigArTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
 
             $this->resetModified();
@@ -5751,7 +5739,6 @@ abstract class ConfigAr implements ActiveRecordInterface
      * in case your model changes.
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function ensureConsistency(): void
     {
@@ -5764,7 +5751,6 @@ abstract class ConfigAr implements ActiveRecordInterface
      *
      * @param bool $deep (optional) Whether to also de-associated any related objects.
      * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
     public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
@@ -5777,7 +5763,7 @@ abstract class ConfigAr implements ActiveRecordInterface
             throw new PropelException("Cannot reload an unsaved object.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getReadConnection(ConfigArTableMap::DATABASE_NAME);
         }
 
@@ -5801,7 +5787,6 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Removes this object from datastore and sets delete attribute.
      *
      * @param ConnectionInterface $con
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigAr::setDeleted()
      * @see ConfigAr::isDeleted()
@@ -5812,7 +5797,7 @@ abstract class ConfigAr implements ActiveRecordInterface
             throw new PropelException("This object has already been deleted.");
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigArTableMap::DATABASE_NAME);
         }
 
@@ -5851,18 +5836,14 @@ abstract class ConfigAr implements ActiveRecordInterface
             return 0;
         }
 
-        if ($con === null) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigArTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
             $ret = $this->preSave($con);
             $isInsert = $this->isNew();
-            if ($isInsert) {
-                $ret = $ret && $this->preInsert($con);
-            } else {
-                $ret = $ret && $this->preUpdate($con);
-            }
+            $ret = $isInsert ? $ret && $this->preInsert($con) : $ret && $this->preUpdate($con);
             if ($ret) {
                 $affectedRows = $this->doSave($con);
                 if ($isInsert) {
@@ -5886,7 +5867,6 @@ abstract class ConfigAr implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param ConnectionInterface $con
      * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
@@ -5918,7 +5898,6 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Insert the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
@@ -6774,7 +6753,6 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param ConnectionInterface $con
      *
      * @return int Number of updated rows
      * @see doSave()
@@ -6800,9 +6778,8 @@ abstract class ConfigAr implements ActiveRecordInterface
     public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigArTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
-        $field = $this->getByPosition($pos);
 
-        return $field;
+        return $this->getByPosition($pos);
     }
 
     /**
@@ -7323,7 +7300,6 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param string $name
      * @param mixed $value field value
      * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
@@ -8510,7 +8486,7 @@ abstract class ConfigAr implements ActiveRecordInterface
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
-        } elseif ($validPrimaryKeyFKs) {
+        } elseif ($validPrimaryKeyFKs !== 0) {
             return crc32(json_encode($primaryKeyFKs, JSON_UNESCAPED_UNICODE));
         }
 
@@ -8530,7 +8506,6 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Generic method to set the primary key (artbconfkey column).
      *
      * @param int|null $key Primary key.
-     * @return void
      */
     public function setPrimaryKey(?int $key = null): void
     {
@@ -8539,8 +8514,6 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     *
-     * @return bool
      */
     public function isPrimaryKeyNull(): bool
     {
@@ -8557,7 +8530,6 @@ abstract class ConfigAr implements ActiveRecordInterface
      * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return void
      */
     public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
@@ -8852,8 +8824,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      */
     public function clearAllReferences(bool $deep = false)
     {
-        if ($deep) {
-        } // if ($deep)
+        // if ($deep)
 
         return $this;
     }
@@ -8865,13 +8836,11 @@ abstract class ConfigAr implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ConfigArTableMap::DEFAULT_STRING_FORMAT);
+        return $this->exportTo(ConfigArTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
      * Code to be run before persisting the object
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preSave(?ConnectionInterface $con = null): bool
     {
@@ -8880,8 +8849,6 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postSave(?ConnectionInterface $con = null): void
     {
@@ -8889,8 +8856,6 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Code to be run before inserting to database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preInsert(?ConnectionInterface $con = null): bool
     {
@@ -8899,8 +8864,6 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postInsert(?ConnectionInterface $con = null): void
     {
@@ -8908,8 +8871,6 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Code to be run before updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preUpdate(?ConnectionInterface $con = null): bool
     {
@@ -8918,8 +8879,6 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postUpdate(?ConnectionInterface $con = null): void
     {
@@ -8927,8 +8886,6 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Code to be run before deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return bool
      */
     public function preDelete(?ConnectionInterface $con = null): bool
     {
@@ -8937,8 +8894,6 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface|null $con
-     * @return void
      */
     public function postDelete(?ConnectionInterface $con = null): void
     {
@@ -8958,7 +8913,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      */
     public function __call($name, $params)
     {
-        if (0 === strpos($name, 'get')) {
+        if (str_starts_with($name, 'get')) {
             $virtualColumn = substr($name, 3);
             if ($this->hasVirtualColumn($virtualColumn)) {
                 return $this->getVirtualColumn($virtualColumn);
@@ -8970,7 +8925,7 @@ abstract class ConfigAr implements ActiveRecordInterface
             }
         }
 
-        if (0 === strpos($name, 'from')) {
+        if (str_starts_with($name, 'from')) {
             $format = substr($name, 4);
             $inputData = $params[0];
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
@@ -8978,7 +8933,7 @@ abstract class ConfigAr implements ActiveRecordInterface
             return $this->importFrom($format, $inputData, $keyType);
         }
 
-        if (0 === strpos($name, 'to')) {
+        if (str_starts_with($name, 'to')) {
             $format = substr($name, 2);
             $includeLazyLoadColumns = $params[0] ?? true;
             $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;

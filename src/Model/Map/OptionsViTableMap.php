@@ -344,7 +344,6 @@ class OptionsViTableMap extends TableMap
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
-     * @return void
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function initialize(): void
@@ -357,29 +356,27 @@ class OptionsViTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('VitbOptnCode', 'Vitboptncode', 'VARCHAR', true, 10, null);
-        $this->addColumn('VitbOptnGenAvail', 'Vitboptngenavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnPayAvail', 'Vitboptnpayavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnCostAvail', 'Vitboptncostavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnPoAvail', 'Vitboptnpoavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnOpenAvail', 'Vitboptnopenavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnPhAvail', 'Vitboptnphavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnUnrlAvail', 'Vitboptnunrlavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnUnivAvail', 'Vitboptnunivavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnNoteAvail', 'Vitboptnnoteavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptn24moAvail', 'Vitboptn24moavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnMisc1', 'Vitboptnmisc1', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnMisc2', 'Vitboptnmisc2', 'VARCHAR', false, 1, null);
-        $this->addColumn('VitbOptnMisc3', 'Vitboptnmisc3', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addPrimaryKey('VitbOptnCode', 'Vitboptncode', 'VARCHAR', true, 10);
+        $this->addColumn('VitbOptnGenAvail', 'Vitboptngenavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnPayAvail', 'Vitboptnpayavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnCostAvail', 'Vitboptncostavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnPoAvail', 'Vitboptnpoavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnOpenAvail', 'Vitboptnopenavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnPhAvail', 'Vitboptnphavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnUnrlAvail', 'Vitboptnunrlavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnUnivAvail', 'Vitboptnunivavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnNoteAvail', 'Vitboptnnoteavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptn24moAvail', 'Vitboptn24moavail', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnMisc1', 'Vitboptnmisc1', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnMisc2', 'Vitboptnmisc2', 'VARCHAR', false, 1);
+        $this->addColumn('VitbOptnMisc3', 'Vitboptnmisc3', 'VARCHAR', false, 1);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8);
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1);
     }
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations(): void
     {
@@ -401,11 +398,11 @@ class OptionsViTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)];
+        return null === $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM === $indexType ? $offset : static::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)];
     }
 
     /**
@@ -423,8 +420,8 @@ class OptionsViTableMap extends TableMap
     public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 0 + $offset
+            $indexType === TableMap::TYPE_NUM
+                ? $offset
                 : self::translateFieldName('Vitboptncode', TableMap::TYPE_PHPNAME, $indexType)
         ];
     }
@@ -481,7 +478,6 @@ class OptionsViTableMap extends TableMap
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
      *
-     * @param DataFetcherInterface $dataFetcher
      * @return array<object>
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
@@ -522,7 +518,6 @@ class OptionsViTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -575,7 +570,6 @@ class OptionsViTableMap extends TableMap
      * @param string|null $alias Optional table alias
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return void
      */
     public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
@@ -621,7 +615,6 @@ class OptionsViTableMap extends TableMap
     /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
-     * @return TableMap
      * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
@@ -643,7 +636,7 @@ class OptionsViTableMap extends TableMap
      */
      public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsViTableMap::DATABASE_NAME);
         }
 
@@ -693,7 +686,7 @@ class OptionsViTableMap extends TableMap
      */
     public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
-        if (null === $con) {
+        if (!$con instanceof \Propel\Runtime\Connection\ConnectionInterface) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsViTableMap::DATABASE_NAME);
         }
 
@@ -709,9 +702,7 @@ class OptionsViTableMap extends TableMap
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
-        return $con->transaction(function () use ($con, $query) {
-            return $query->doInsert($con);
-        });
+        return $con->transaction(fn() => $query->doInsert($con));
     }
 
 }

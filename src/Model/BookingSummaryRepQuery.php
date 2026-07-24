@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\BookingSummaryRepQuery as BaseBookingSummaryRepQuery;
 
 use Dplus\Model\QueryTraits;

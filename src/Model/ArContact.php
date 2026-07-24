@@ -43,7 +43,7 @@ class ArContact extends BaseArContact {
 		if ($this->aliasproperty_exists($type) === false) {
 			return false;
 		}
-		return strtoupper($this->$type) == self::YN_TRUE;
+		return strtoupper($this->$type) === self::YN_TRUE;
 	}
 
 	/**
@@ -67,7 +67,7 @@ class ArContact extends BaseArContact {
 	 * @return bool
 	 */
 	public function isPrimaryBuyer() {
-		return strtoupper($this->buyercontact) == self::PRIMARY_BUYER_CODE;
+		return strtoupper($this->buyercontact) === self::PRIMARY_BUYER_CODE;
 	}
 
 	/**

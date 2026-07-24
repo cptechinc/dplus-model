@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Base\NoteArCustTypeQuery as BaseNoteArCustTypeQuery;
 
 use Dplus\Model\QueryTraits;
