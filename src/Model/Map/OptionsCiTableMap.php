@@ -92,9 +92,9 @@ class OptionsCiTableMap extends TableMap
     const COL_CITBOPTNPAYAVAIL = 'ci_options.CitbOptnPayAvail';
 
     /**
-     * the column name for the CitbOptnCoreAvail field
+     * the column name for the CitbOptnFreqAvail field
      */
-    const COL_CITBOPTNCOREAVAIL = 'ci_options.CitbOptnCoreAvail';
+    const COL_CITBOPTNFREQAVAIL = 'ci_options.CitbOptnFreqAvail';
 
     /**
      * the column name for the CitbOptnCredAvail field
@@ -188,10 +188,10 @@ class OptionsCiTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Citboptncode', 'Citboptnnoteavail', 'Citboptngenavail', 'Citboptnpayavail', 'Citboptncoreavail', 'Citboptncredavail', 'Citboptncstkavail', 'Citboptnpricavail', 'Citboptnstndavail', 'Citboptnsoavail', 'Citboptnquotavail', 'Citboptnopenavail', 'Citboptnpoavail', 'Citboptnpodaysback', 'Citboptnpostrtdate', 'Citboptnshavail', 'Citboptnshdaysback', 'Citboptnshstrtdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('citboptncode', 'citboptnnoteavail', 'citboptngenavail', 'citboptnpayavail', 'citboptncoreavail', 'citboptncredavail', 'citboptncstkavail', 'citboptnpricavail', 'citboptnstndavail', 'citboptnsoavail', 'citboptnquotavail', 'citboptnopenavail', 'citboptnpoavail', 'citboptnpodaysback', 'citboptnpostrtdate', 'citboptnshavail', 'citboptnshdaysback', 'citboptnshstrtdate', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(OptionsCiTableMap::COL_CITBOPTNCODE, OptionsCiTableMap::COL_CITBOPTNNOTEAVAIL, OptionsCiTableMap::COL_CITBOPTNGENAVAIL, OptionsCiTableMap::COL_CITBOPTNPAYAVAIL, OptionsCiTableMap::COL_CITBOPTNCOREAVAIL, OptionsCiTableMap::COL_CITBOPTNCREDAVAIL, OptionsCiTableMap::COL_CITBOPTNCSTKAVAIL, OptionsCiTableMap::COL_CITBOPTNPRICAVAIL, OptionsCiTableMap::COL_CITBOPTNSTNDAVAIL, OptionsCiTableMap::COL_CITBOPTNSOAVAIL, OptionsCiTableMap::COL_CITBOPTNQUOTAVAIL, OptionsCiTableMap::COL_CITBOPTNOPENAVAIL, OptionsCiTableMap::COL_CITBOPTNPOAVAIL, OptionsCiTableMap::COL_CITBOPTNPODAYSBACK, OptionsCiTableMap::COL_CITBOPTNPOSTRTDATE, OptionsCiTableMap::COL_CITBOPTNSHAVAIL, OptionsCiTableMap::COL_CITBOPTNSHDAYSBACK, OptionsCiTableMap::COL_CITBOPTNSHSTRTDATE, OptionsCiTableMap::COL_DATEUPDTD, OptionsCiTableMap::COL_TIMEUPDTD, OptionsCiTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('CitbOptnCode', 'CitbOptnNoteAvail', 'CitbOptnGenAvail', 'CitbOptnPayAvail', 'CitbOptnCoreAvail', 'CitbOptnCredAvail', 'CitbOptnCstkAvail', 'CitbOptnPricAvail', 'CitbOptnStndAvail', 'CitbOptnSoAvail', 'CitbOptnQuotAvail', 'CitbOptnOpenAvail', 'CitbOptnPoAvail', 'CitbOptnPoDaysBack', 'CitbOptnPoStrtDate', 'CitbOptnShAvail', 'CitbOptnShDaysBack', 'CitbOptnShStrtDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_PHPNAME       => array('Citboptncode', 'Citboptnnoteavail', 'Citboptngenavail', 'Citboptnpayavail', 'Citboptnfreqavail', 'Citboptncredavail', 'Citboptncstkavail', 'Citboptnpricavail', 'Citboptnstndavail', 'Citboptnsoavail', 'Citboptnquotavail', 'Citboptnopenavail', 'Citboptnpoavail', 'Citboptnpodaysback', 'Citboptnpostrtdate', 'Citboptnshavail', 'Citboptnshdaysback', 'Citboptnshstrtdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('citboptncode', 'citboptnnoteavail', 'citboptngenavail', 'citboptnpayavail', 'citboptnfreqavail', 'citboptncredavail', 'citboptncstkavail', 'citboptnpricavail', 'citboptnstndavail', 'citboptnsoavail', 'citboptnquotavail', 'citboptnopenavail', 'citboptnpoavail', 'citboptnpodaysback', 'citboptnpostrtdate', 'citboptnshavail', 'citboptnshdaysback', 'citboptnshstrtdate', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(OptionsCiTableMap::COL_CITBOPTNCODE, OptionsCiTableMap::COL_CITBOPTNNOTEAVAIL, OptionsCiTableMap::COL_CITBOPTNGENAVAIL, OptionsCiTableMap::COL_CITBOPTNPAYAVAIL, OptionsCiTableMap::COL_CITBOPTNFREQAVAIL, OptionsCiTableMap::COL_CITBOPTNCREDAVAIL, OptionsCiTableMap::COL_CITBOPTNCSTKAVAIL, OptionsCiTableMap::COL_CITBOPTNPRICAVAIL, OptionsCiTableMap::COL_CITBOPTNSTNDAVAIL, OptionsCiTableMap::COL_CITBOPTNSOAVAIL, OptionsCiTableMap::COL_CITBOPTNQUOTAVAIL, OptionsCiTableMap::COL_CITBOPTNOPENAVAIL, OptionsCiTableMap::COL_CITBOPTNPOAVAIL, OptionsCiTableMap::COL_CITBOPTNPODAYSBACK, OptionsCiTableMap::COL_CITBOPTNPOSTRTDATE, OptionsCiTableMap::COL_CITBOPTNSHAVAIL, OptionsCiTableMap::COL_CITBOPTNSHDAYSBACK, OptionsCiTableMap::COL_CITBOPTNSHSTRTDATE, OptionsCiTableMap::COL_DATEUPDTD, OptionsCiTableMap::COL_TIMEUPDTD, OptionsCiTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('CitbOptnCode', 'CitbOptnNoteAvail', 'CitbOptnGenAvail', 'CitbOptnPayAvail', 'CitbOptnFreqAvail', 'CitbOptnCredAvail', 'CitbOptnCstkAvail', 'CitbOptnPricAvail', 'CitbOptnStndAvail', 'CitbOptnSoAvail', 'CitbOptnQuotAvail', 'CitbOptnOpenAvail', 'CitbOptnPoAvail', 'CitbOptnPoDaysBack', 'CitbOptnPoStrtDate', 'CitbOptnShAvail', 'CitbOptnShDaysBack', 'CitbOptnShStrtDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, )
     );
 
@@ -202,10 +202,10 @@ class OptionsCiTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Citboptncode' => 0, 'Citboptnnoteavail' => 1, 'Citboptngenavail' => 2, 'Citboptnpayavail' => 3, 'Citboptncoreavail' => 4, 'Citboptncredavail' => 5, 'Citboptncstkavail' => 6, 'Citboptnpricavail' => 7, 'Citboptnstndavail' => 8, 'Citboptnsoavail' => 9, 'Citboptnquotavail' => 10, 'Citboptnopenavail' => 11, 'Citboptnpoavail' => 12, 'Citboptnpodaysback' => 13, 'Citboptnpostrtdate' => 14, 'Citboptnshavail' => 15, 'Citboptnshdaysback' => 16, 'Citboptnshstrtdate' => 17, 'Dateupdtd' => 18, 'Timeupdtd' => 19, 'Dummy' => 20, ),
-        self::TYPE_CAMELNAME     => array('citboptncode' => 0, 'citboptnnoteavail' => 1, 'citboptngenavail' => 2, 'citboptnpayavail' => 3, 'citboptncoreavail' => 4, 'citboptncredavail' => 5, 'citboptncstkavail' => 6, 'citboptnpricavail' => 7, 'citboptnstndavail' => 8, 'citboptnsoavail' => 9, 'citboptnquotavail' => 10, 'citboptnopenavail' => 11, 'citboptnpoavail' => 12, 'citboptnpodaysback' => 13, 'citboptnpostrtdate' => 14, 'citboptnshavail' => 15, 'citboptnshdaysback' => 16, 'citboptnshstrtdate' => 17, 'dateupdtd' => 18, 'timeupdtd' => 19, 'dummy' => 20, ),
-        self::TYPE_COLNAME       => array(OptionsCiTableMap::COL_CITBOPTNCODE => 0, OptionsCiTableMap::COL_CITBOPTNNOTEAVAIL => 1, OptionsCiTableMap::COL_CITBOPTNGENAVAIL => 2, OptionsCiTableMap::COL_CITBOPTNPAYAVAIL => 3, OptionsCiTableMap::COL_CITBOPTNCOREAVAIL => 4, OptionsCiTableMap::COL_CITBOPTNCREDAVAIL => 5, OptionsCiTableMap::COL_CITBOPTNCSTKAVAIL => 6, OptionsCiTableMap::COL_CITBOPTNPRICAVAIL => 7, OptionsCiTableMap::COL_CITBOPTNSTNDAVAIL => 8, OptionsCiTableMap::COL_CITBOPTNSOAVAIL => 9, OptionsCiTableMap::COL_CITBOPTNQUOTAVAIL => 10, OptionsCiTableMap::COL_CITBOPTNOPENAVAIL => 11, OptionsCiTableMap::COL_CITBOPTNPOAVAIL => 12, OptionsCiTableMap::COL_CITBOPTNPODAYSBACK => 13, OptionsCiTableMap::COL_CITBOPTNPOSTRTDATE => 14, OptionsCiTableMap::COL_CITBOPTNSHAVAIL => 15, OptionsCiTableMap::COL_CITBOPTNSHDAYSBACK => 16, OptionsCiTableMap::COL_CITBOPTNSHSTRTDATE => 17, OptionsCiTableMap::COL_DATEUPDTD => 18, OptionsCiTableMap::COL_TIMEUPDTD => 19, OptionsCiTableMap::COL_DUMMY => 20, ),
-        self::TYPE_FIELDNAME     => array('CitbOptnCode' => 0, 'CitbOptnNoteAvail' => 1, 'CitbOptnGenAvail' => 2, 'CitbOptnPayAvail' => 3, 'CitbOptnCoreAvail' => 4, 'CitbOptnCredAvail' => 5, 'CitbOptnCstkAvail' => 6, 'CitbOptnPricAvail' => 7, 'CitbOptnStndAvail' => 8, 'CitbOptnSoAvail' => 9, 'CitbOptnQuotAvail' => 10, 'CitbOptnOpenAvail' => 11, 'CitbOptnPoAvail' => 12, 'CitbOptnPoDaysBack' => 13, 'CitbOptnPoStrtDate' => 14, 'CitbOptnShAvail' => 15, 'CitbOptnShDaysBack' => 16, 'CitbOptnShStrtDate' => 17, 'DateUpdtd' => 18, 'TimeUpdtd' => 19, 'dummy' => 20, ),
+        self::TYPE_PHPNAME       => array('Citboptncode' => 0, 'Citboptnnoteavail' => 1, 'Citboptngenavail' => 2, 'Citboptnpayavail' => 3, 'Citboptnfreqavail' => 4, 'Citboptncredavail' => 5, 'Citboptncstkavail' => 6, 'Citboptnpricavail' => 7, 'Citboptnstndavail' => 8, 'Citboptnsoavail' => 9, 'Citboptnquotavail' => 10, 'Citboptnopenavail' => 11, 'Citboptnpoavail' => 12, 'Citboptnpodaysback' => 13, 'Citboptnpostrtdate' => 14, 'Citboptnshavail' => 15, 'Citboptnshdaysback' => 16, 'Citboptnshstrtdate' => 17, 'Dateupdtd' => 18, 'Timeupdtd' => 19, 'Dummy' => 20, ),
+        self::TYPE_CAMELNAME     => array('citboptncode' => 0, 'citboptnnoteavail' => 1, 'citboptngenavail' => 2, 'citboptnpayavail' => 3, 'citboptnfreqavail' => 4, 'citboptncredavail' => 5, 'citboptncstkavail' => 6, 'citboptnpricavail' => 7, 'citboptnstndavail' => 8, 'citboptnsoavail' => 9, 'citboptnquotavail' => 10, 'citboptnopenavail' => 11, 'citboptnpoavail' => 12, 'citboptnpodaysback' => 13, 'citboptnpostrtdate' => 14, 'citboptnshavail' => 15, 'citboptnshdaysback' => 16, 'citboptnshstrtdate' => 17, 'dateupdtd' => 18, 'timeupdtd' => 19, 'dummy' => 20, ),
+        self::TYPE_COLNAME       => array(OptionsCiTableMap::COL_CITBOPTNCODE => 0, OptionsCiTableMap::COL_CITBOPTNNOTEAVAIL => 1, OptionsCiTableMap::COL_CITBOPTNGENAVAIL => 2, OptionsCiTableMap::COL_CITBOPTNPAYAVAIL => 3, OptionsCiTableMap::COL_CITBOPTNFREQAVAIL => 4, OptionsCiTableMap::COL_CITBOPTNCREDAVAIL => 5, OptionsCiTableMap::COL_CITBOPTNCSTKAVAIL => 6, OptionsCiTableMap::COL_CITBOPTNPRICAVAIL => 7, OptionsCiTableMap::COL_CITBOPTNSTNDAVAIL => 8, OptionsCiTableMap::COL_CITBOPTNSOAVAIL => 9, OptionsCiTableMap::COL_CITBOPTNQUOTAVAIL => 10, OptionsCiTableMap::COL_CITBOPTNOPENAVAIL => 11, OptionsCiTableMap::COL_CITBOPTNPOAVAIL => 12, OptionsCiTableMap::COL_CITBOPTNPODAYSBACK => 13, OptionsCiTableMap::COL_CITBOPTNPOSTRTDATE => 14, OptionsCiTableMap::COL_CITBOPTNSHAVAIL => 15, OptionsCiTableMap::COL_CITBOPTNSHDAYSBACK => 16, OptionsCiTableMap::COL_CITBOPTNSHSTRTDATE => 17, OptionsCiTableMap::COL_DATEUPDTD => 18, OptionsCiTableMap::COL_TIMEUPDTD => 19, OptionsCiTableMap::COL_DUMMY => 20, ),
+        self::TYPE_FIELDNAME     => array('CitbOptnCode' => 0, 'CitbOptnNoteAvail' => 1, 'CitbOptnGenAvail' => 2, 'CitbOptnPayAvail' => 3, 'CitbOptnFreqAvail' => 4, 'CitbOptnCredAvail' => 5, 'CitbOptnCstkAvail' => 6, 'CitbOptnPricAvail' => 7, 'CitbOptnStndAvail' => 8, 'CitbOptnSoAvail' => 9, 'CitbOptnQuotAvail' => 10, 'CitbOptnOpenAvail' => 11, 'CitbOptnPoAvail' => 12, 'CitbOptnPoDaysBack' => 13, 'CitbOptnPoStrtDate' => 14, 'CitbOptnShAvail' => 15, 'CitbOptnShDaysBack' => 16, 'CitbOptnShStrtDate' => 17, 'DateUpdtd' => 18, 'TimeUpdtd' => 19, 'dummy' => 20, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, )
     );
 
@@ -226,27 +226,27 @@ class OptionsCiTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('CitbOptnCode', 'Citboptncode', 'VARCHAR', true, 8, null);
-        $this->addColumn('CitbOptnNoteAvail', 'Citboptnnoteavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnGenAvail', 'Citboptngenavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnPayAvail', 'Citboptnpayavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnCoreAvail', 'Citboptncoreavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnCredAvail', 'Citboptncredavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnCstkAvail', 'Citboptncstkavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnPricAvail', 'Citboptnpricavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnStndAvail', 'Citboptnstndavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnSoAvail', 'Citboptnsoavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnQuotAvail', 'Citboptnquotavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnOpenAvail', 'Citboptnopenavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnPoAvail', 'Citboptnpoavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnPoDaysBack', 'Citboptnpodaysback', 'INTEGER', false, 4, null);
-        $this->addColumn('CitbOptnPoStrtDate', 'Citboptnpostrtdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('CitbOptnShAvail', 'Citboptnshavail', 'VARCHAR', false, 1, null);
-        $this->addColumn('CitbOptnShDaysBack', 'Citboptnshdaysback', 'INTEGER', false, 4, null);
-        $this->addColumn('CitbOptnShStrtDate', 'Citboptnshstrtdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addPrimaryKey('CitbOptnCode', 'Citboptncode', 'VARCHAR', true, 8, '');
+        $this->addColumn('CitbOptnNoteAvail', 'Citboptnnoteavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnGenAvail', 'Citboptngenavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnPayAvail', 'Citboptnpayavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnFreqAvail', 'Citboptnfreqavail', 'CHAR', true, null, 'N');
+        $this->addColumn('CitbOptnCredAvail', 'Citboptncredavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnCstkAvail', 'Citboptncstkavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnPricAvail', 'Citboptnpricavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnStndAvail', 'Citboptnstndavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnSoAvail', 'Citboptnsoavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnQuotAvail', 'Citboptnquotavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnOpenAvail', 'Citboptnopenavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnPoAvail', 'Citboptnpoavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnPoDaysBack', 'Citboptnpodaysback', 'INTEGER', true, null, 0);
+        $this->addColumn('CitbOptnPoStrtDate', 'Citboptnpostrtdate', 'CHAR', true, 8, '');
+        $this->addColumn('CitbOptnShAvail', 'Citboptnshavail', 'CHAR', true, null, 'Y');
+        $this->addColumn('CitbOptnShDaysBack', 'Citboptnshdaysback', 'INTEGER', true, null, 0);
+        $this->addColumn('CitbOptnShStrtDate', 'Citboptnshstrtdate', 'CHAR', true, 8, '');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -401,7 +401,7 @@ class OptionsCiTableMap extends TableMap
             $criteria->addSelectColumn(OptionsCiTableMap::COL_CITBOPTNNOTEAVAIL);
             $criteria->addSelectColumn(OptionsCiTableMap::COL_CITBOPTNGENAVAIL);
             $criteria->addSelectColumn(OptionsCiTableMap::COL_CITBOPTNPAYAVAIL);
-            $criteria->addSelectColumn(OptionsCiTableMap::COL_CITBOPTNCOREAVAIL);
+            $criteria->addSelectColumn(OptionsCiTableMap::COL_CITBOPTNFREQAVAIL);
             $criteria->addSelectColumn(OptionsCiTableMap::COL_CITBOPTNCREDAVAIL);
             $criteria->addSelectColumn(OptionsCiTableMap::COL_CITBOPTNCSTKAVAIL);
             $criteria->addSelectColumn(OptionsCiTableMap::COL_CITBOPTNPRICAVAIL);
@@ -423,7 +423,7 @@ class OptionsCiTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.CitbOptnNoteAvail');
             $criteria->addSelectColumn($alias . '.CitbOptnGenAvail');
             $criteria->addSelectColumn($alias . '.CitbOptnPayAvail');
-            $criteria->addSelectColumn($alias . '.CitbOptnCoreAvail');
+            $criteria->addSelectColumn($alias . '.CitbOptnFreqAvail');
             $criteria->addSelectColumn($alias . '.CitbOptnCredAvail');
             $criteria->addSelectColumn($alias . '.CitbOptnCstkAvail');
             $criteria->addSelectColumn($alias . '.CitbOptnPricAvail');

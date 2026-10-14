@@ -1529,27 +1529,27 @@
     </vendor>
   </table>
   <table name="ci_options" idMethod="native" phpName="OptionsCi">
-    <column name="CitbOptnCode" phpName="Citboptncode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
-    <column name="CitbOptnNoteAvail" phpName="Citboptnnoteavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnGenAvail" phpName="Citboptngenavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnPayAvail" phpName="Citboptnpayavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnCoreAvail" phpName="Citboptncoreavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnCredAvail" phpName="Citboptncredavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnCstkAvail" phpName="Citboptncstkavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnPricAvail" phpName="Citboptnpricavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnStndAvail" phpName="Citboptnstndavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnSoAvail" phpName="Citboptnsoavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnQuotAvail" phpName="Citboptnquotavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnOpenAvail" phpName="Citboptnopenavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnPoAvail" phpName="Citboptnpoavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnPoDaysBack" phpName="Citboptnpodaysback" type="INTEGER" size="4"/>
-    <column name="CitbOptnPoStrtDate" phpName="Citboptnpostrtdate" type="VARCHAR" size="8"/>
-    <column name="CitbOptnShAvail" phpName="Citboptnshavail" type="VARCHAR" size="1"/>
-    <column name="CitbOptnShDaysBack" phpName="Citboptnshdaysback" type="INTEGER" size="4"/>
-    <column name="CitbOptnShStrtDate" phpName="Citboptnshstrtdate" type="VARCHAR" size="8"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="CitbOptnCode" phpName="Citboptncode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="CitbOptnNoteAvail" phpName="Citboptnnoteavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnGenAvail" phpName="Citboptngenavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnPayAvail" phpName="Citboptnpayavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnFreqAvail" phpName="Citboptnfreqavail" type="CHAR" required="true" defaultValue="N"/>
+    <column name="CitbOptnCredAvail" phpName="Citboptncredavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnCstkAvail" phpName="Citboptncstkavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnPricAvail" phpName="Citboptnpricavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnStndAvail" phpName="Citboptnstndavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnSoAvail" phpName="Citboptnsoavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnQuotAvail" phpName="Citboptnquotavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnOpenAvail" phpName="Citboptnopenavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnPoAvail" phpName="Citboptnpoavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnPoDaysBack" phpName="Citboptnpodaysback" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="0"/>
+    <column name="CitbOptnPoStrtDate" phpName="Citboptnpostrtdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="CitbOptnShAvail" phpName="Citboptnshavail" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="CitbOptnShDaysBack" phpName="Citboptnshdaysback" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="0"/>
+    <column name="CitbOptnShStrtDate" phpName="Citboptnshstrtdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

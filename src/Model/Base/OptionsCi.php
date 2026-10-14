@@ -62,6 +62,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptncode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $citboptncode;
@@ -69,6 +70,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnnoteavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptnnoteavail;
@@ -76,6 +78,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptngenavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptngenavail;
@@ -83,20 +86,23 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnpayavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptnpayavail;
 
     /**
-     * The value for the citboptncoreavail field.
+     * The value for the citboptnfreqavail field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
-    protected $citboptncoreavail;
+    protected $citboptnfreqavail;
 
     /**
      * The value for the citboptncredavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptncredavail;
@@ -104,6 +110,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptncstkavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptncstkavail;
@@ -111,6 +118,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnpricavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptnpricavail;
@@ -118,6 +126,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnstndavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptnstndavail;
@@ -125,6 +134,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnsoavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptnsoavail;
@@ -132,6 +142,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnquotavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptnquotavail;
@@ -139,6 +150,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnopenavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptnopenavail;
@@ -146,6 +158,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnpoavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptnpoavail;
@@ -153,6 +166,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnpodaysback field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $citboptnpodaysback;
@@ -160,6 +174,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnpostrtdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $citboptnpostrtdate;
@@ -167,6 +182,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnshavail field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $citboptnshavail;
@@ -174,6 +190,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnshdaysback field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $citboptnshdaysback;
@@ -181,6 +198,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the citboptnshstrtdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $citboptnshstrtdate;
@@ -188,6 +206,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -195,6 +214,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -202,6 +222,7 @@ abstract class OptionsCi implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -215,10 +236,43 @@ abstract class OptionsCi implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
+     * Applies default values to this object.
+     * This method should be called from the object's constructor (or
+     * equivalent initialization method).
+     * @see __construct()
+     */
+    public function applyDefaultValues()
+    {
+        $this->citboptncode = '';
+        $this->citboptnnoteavail = 'Y';
+        $this->citboptngenavail = 'Y';
+        $this->citboptnpayavail = 'Y';
+        $this->citboptnfreqavail = 'N';
+        $this->citboptncredavail = 'Y';
+        $this->citboptncstkavail = 'Y';
+        $this->citboptnpricavail = 'Y';
+        $this->citboptnstndavail = 'Y';
+        $this->citboptnsoavail = 'Y';
+        $this->citboptnquotavail = 'Y';
+        $this->citboptnopenavail = 'Y';
+        $this->citboptnpoavail = 'Y';
+        $this->citboptnpodaysback = 0;
+        $this->citboptnpostrtdate = '';
+        $this->citboptnshavail = 'Y';
+        $this->citboptnshdaysback = 0;
+        $this->citboptnshstrtdate = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
+    }
+
+    /**
      * Initializes internal state of Base\OptionsCi object.
+     * @see applyDefaults()
      */
     public function __construct()
     {
+        $this->applyDefaultValues();
     }
 
     /**
@@ -480,13 +534,13 @@ abstract class OptionsCi implements ActiveRecordInterface
     }
 
     /**
-     * Get the [citboptncoreavail] column value.
+     * Get the [citboptnfreqavail] column value.
      *
      * @return string
      */
-    public function getCitboptncoreavail()
+    public function getCitboptnfreqavail()
     {
-        return $this->citboptncoreavail;
+        return $this->citboptnfreqavail;
     }
 
     /**
@@ -730,24 +784,24 @@ abstract class OptionsCi implements ActiveRecordInterface
     } // setCitboptnpayavail()
 
     /**
-     * Set the value of [citboptncoreavail] column.
+     * Set the value of [citboptnfreqavail] column.
      *
      * @param string $v new value
      * @return $this|\OptionsCi The current object (for fluent API support)
      */
-    public function setCitboptncoreavail($v)
+    public function setCitboptnfreqavail($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->citboptncoreavail !== $v) {
-            $this->citboptncoreavail = $v;
-            $this->modifiedColumns[OptionsCiTableMap::COL_CITBOPTNCOREAVAIL] = true;
+        if ($this->citboptnfreqavail !== $v) {
+            $this->citboptnfreqavail = $v;
+            $this->modifiedColumns[OptionsCiTableMap::COL_CITBOPTNFREQAVAIL] = true;
         }
 
         return $this;
-    } // setCitboptncoreavail()
+    } // setCitboptnfreqavail()
 
     /**
      * Set the value of [citboptncredavail] column.
@@ -1079,6 +1133,90 @@ abstract class OptionsCi implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
+            if ($this->citboptncode !== '') {
+                return false;
+            }
+
+            if ($this->citboptnnoteavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptngenavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnpayavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnfreqavail !== 'N') {
+                return false;
+            }
+
+            if ($this->citboptncredavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptncstkavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnpricavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnstndavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnsoavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnquotavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnopenavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnpoavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnpodaysback !== 0) {
+                return false;
+            }
+
+            if ($this->citboptnpostrtdate !== '') {
+                return false;
+            }
+
+            if ($this->citboptnshavail !== 'Y') {
+                return false;
+            }
+
+            if ($this->citboptnshdaysback !== 0) {
+                return false;
+            }
+
+            if ($this->citboptnshstrtdate !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
+                return false;
+            }
+
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -1117,8 +1255,8 @@ abstract class OptionsCi implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : OptionsCiTableMap::translateFieldName('Citboptnpayavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->citboptnpayavail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : OptionsCiTableMap::translateFieldName('Citboptncoreavail', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->citboptncoreavail = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : OptionsCiTableMap::translateFieldName('Citboptnfreqavail', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->citboptnfreqavail = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : OptionsCiTableMap::translateFieldName('Citboptncredavail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->citboptncredavail = (null !== $col) ? (string) $col : null;
@@ -1384,8 +1522,8 @@ abstract class OptionsCi implements ActiveRecordInterface
         if ($this->isColumnModified(OptionsCiTableMap::COL_CITBOPTNPAYAVAIL)) {
             $modifiedColumns[':p' . $index++]  = 'CitbOptnPayAvail';
         }
-        if ($this->isColumnModified(OptionsCiTableMap::COL_CITBOPTNCOREAVAIL)) {
-            $modifiedColumns[':p' . $index++]  = 'CitbOptnCoreAvail';
+        if ($this->isColumnModified(OptionsCiTableMap::COL_CITBOPTNFREQAVAIL)) {
+            $modifiedColumns[':p' . $index++]  = 'CitbOptnFreqAvail';
         }
         if ($this->isColumnModified(OptionsCiTableMap::COL_CITBOPTNCREDAVAIL)) {
             $modifiedColumns[':p' . $index++]  = 'CitbOptnCredAvail';
@@ -1458,8 +1596,8 @@ abstract class OptionsCi implements ActiveRecordInterface
                     case 'CitbOptnPayAvail':
                         $stmt->bindValue($identifier, $this->citboptnpayavail, PDO::PARAM_STR);
                         break;
-                    case 'CitbOptnCoreAvail':
-                        $stmt->bindValue($identifier, $this->citboptncoreavail, PDO::PARAM_STR);
+                    case 'CitbOptnFreqAvail':
+                        $stmt->bindValue($identifier, $this->citboptnfreqavail, PDO::PARAM_STR);
                         break;
                     case 'CitbOptnCredAvail':
                         $stmt->bindValue($identifier, $this->citboptncredavail, PDO::PARAM_STR);
@@ -1577,7 +1715,7 @@ abstract class OptionsCi implements ActiveRecordInterface
                 return $this->getCitboptnpayavail();
                 break;
             case 4:
-                return $this->getCitboptncoreavail();
+                return $this->getCitboptnfreqavail();
                 break;
             case 5:
                 return $this->getCitboptncredavail();
@@ -1660,7 +1798,7 @@ abstract class OptionsCi implements ActiveRecordInterface
             $keys[1] => $this->getCitboptnnoteavail(),
             $keys[2] => $this->getCitboptngenavail(),
             $keys[3] => $this->getCitboptnpayavail(),
-            $keys[4] => $this->getCitboptncoreavail(),
+            $keys[4] => $this->getCitboptnfreqavail(),
             $keys[5] => $this->getCitboptncredavail(),
             $keys[6] => $this->getCitboptncstkavail(),
             $keys[7] => $this->getCitboptnpricavail(),
@@ -1729,7 +1867,7 @@ abstract class OptionsCi implements ActiveRecordInterface
                 $this->setCitboptnpayavail($value);
                 break;
             case 4:
-                $this->setCitboptncoreavail($value);
+                $this->setCitboptnfreqavail($value);
                 break;
             case 5:
                 $this->setCitboptncredavail($value);
@@ -1818,7 +1956,7 @@ abstract class OptionsCi implements ActiveRecordInterface
             $this->setCitboptnpayavail($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setCitboptncoreavail($arr[$keys[4]]);
+            $this->setCitboptnfreqavail($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
             $this->setCitboptncredavail($arr[$keys[5]]);
@@ -1921,8 +2059,8 @@ abstract class OptionsCi implements ActiveRecordInterface
         if ($this->isColumnModified(OptionsCiTableMap::COL_CITBOPTNPAYAVAIL)) {
             $criteria->add(OptionsCiTableMap::COL_CITBOPTNPAYAVAIL, $this->citboptnpayavail);
         }
-        if ($this->isColumnModified(OptionsCiTableMap::COL_CITBOPTNCOREAVAIL)) {
-            $criteria->add(OptionsCiTableMap::COL_CITBOPTNCOREAVAIL, $this->citboptncoreavail);
+        if ($this->isColumnModified(OptionsCiTableMap::COL_CITBOPTNFREQAVAIL)) {
+            $criteria->add(OptionsCiTableMap::COL_CITBOPTNFREQAVAIL, $this->citboptnfreqavail);
         }
         if ($this->isColumnModified(OptionsCiTableMap::COL_CITBOPTNCREDAVAIL)) {
             $criteria->add(OptionsCiTableMap::COL_CITBOPTNCREDAVAIL, $this->citboptncredavail);
@@ -2062,7 +2200,7 @@ abstract class OptionsCi implements ActiveRecordInterface
         $copyObj->setCitboptnnoteavail($this->getCitboptnnoteavail());
         $copyObj->setCitboptngenavail($this->getCitboptngenavail());
         $copyObj->setCitboptnpayavail($this->getCitboptnpayavail());
-        $copyObj->setCitboptncoreavail($this->getCitboptncoreavail());
+        $copyObj->setCitboptnfreqavail($this->getCitboptnfreqavail());
         $copyObj->setCitboptncredavail($this->getCitboptncredavail());
         $copyObj->setCitboptncstkavail($this->getCitboptncstkavail());
         $copyObj->setCitboptnpricavail($this->getCitboptnpricavail());
@@ -2117,7 +2255,7 @@ abstract class OptionsCi implements ActiveRecordInterface
         $this->citboptnnoteavail = null;
         $this->citboptngenavail = null;
         $this->citboptnpayavail = null;
-        $this->citboptncoreavail = null;
+        $this->citboptnfreqavail = null;
         $this->citboptncredavail = null;
         $this->citboptncstkavail = null;
         $this->citboptnpricavail = null;
@@ -2136,6 +2274,7 @@ abstract class OptionsCi implements ActiveRecordInterface
         $this->dummy = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
+        $this->applyDefaultValues();
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
@@ -2173,9 +2312,6 @@ abstract class OptionsCi implements ActiveRecordInterface
      */
     public function preSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
         return true;
     }
 
@@ -2185,9 +2321,6 @@ abstract class OptionsCi implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
     }
 
     /**
@@ -2197,9 +2330,6 @@ abstract class OptionsCi implements ActiveRecordInterface
      */
     public function preInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
         return true;
     }
 
@@ -2209,9 +2339,6 @@ abstract class OptionsCi implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
     }
 
     /**
@@ -2221,9 +2348,6 @@ abstract class OptionsCi implements ActiveRecordInterface
      */
     public function preUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
         return true;
     }
 
@@ -2233,9 +2357,6 @@ abstract class OptionsCi implements ActiveRecordInterface
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
     }
 
     /**
@@ -2245,9 +2366,6 @@ abstract class OptionsCi implements ActiveRecordInterface
      */
     public function preDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
         return true;
     }
 
@@ -2257,9 +2375,6 @@ abstract class OptionsCi implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
     }
 
 

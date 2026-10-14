@@ -23,7 +23,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsCiQuery orderByCitboptnnoteavail($order = Criteria::ASC) Order by the CitbOptnNoteAvail column
  * @method     ChildOptionsCiQuery orderByCitboptngenavail($order = Criteria::ASC) Order by the CitbOptnGenAvail column
  * @method     ChildOptionsCiQuery orderByCitboptnpayavail($order = Criteria::ASC) Order by the CitbOptnPayAvail column
- * @method     ChildOptionsCiQuery orderByCitboptncoreavail($order = Criteria::ASC) Order by the CitbOptnCoreAvail column
+ * @method     ChildOptionsCiQuery orderByCitboptnfreqavail($order = Criteria::ASC) Order by the CitbOptnFreqAvail column
  * @method     ChildOptionsCiQuery orderByCitboptncredavail($order = Criteria::ASC) Order by the CitbOptnCredAvail column
  * @method     ChildOptionsCiQuery orderByCitboptncstkavail($order = Criteria::ASC) Order by the CitbOptnCstkAvail column
  * @method     ChildOptionsCiQuery orderByCitboptnpricavail($order = Criteria::ASC) Order by the CitbOptnPricAvail column
@@ -45,7 +45,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsCiQuery groupByCitboptnnoteavail() Group by the CitbOptnNoteAvail column
  * @method     ChildOptionsCiQuery groupByCitboptngenavail() Group by the CitbOptnGenAvail column
  * @method     ChildOptionsCiQuery groupByCitboptnpayavail() Group by the CitbOptnPayAvail column
- * @method     ChildOptionsCiQuery groupByCitboptncoreavail() Group by the CitbOptnCoreAvail column
+ * @method     ChildOptionsCiQuery groupByCitboptnfreqavail() Group by the CitbOptnFreqAvail column
  * @method     ChildOptionsCiQuery groupByCitboptncredavail() Group by the CitbOptnCredAvail column
  * @method     ChildOptionsCiQuery groupByCitboptncstkavail() Group by the CitbOptnCstkAvail column
  * @method     ChildOptionsCiQuery groupByCitboptnpricavail() Group by the CitbOptnPricAvail column
@@ -78,7 +78,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsCi findOneByCitboptnnoteavail(string $CitbOptnNoteAvail) Return the first ChildOptionsCi filtered by the CitbOptnNoteAvail column
  * @method     ChildOptionsCi findOneByCitboptngenavail(string $CitbOptnGenAvail) Return the first ChildOptionsCi filtered by the CitbOptnGenAvail column
  * @method     ChildOptionsCi findOneByCitboptnpayavail(string $CitbOptnPayAvail) Return the first ChildOptionsCi filtered by the CitbOptnPayAvail column
- * @method     ChildOptionsCi findOneByCitboptncoreavail(string $CitbOptnCoreAvail) Return the first ChildOptionsCi filtered by the CitbOptnCoreAvail column
+ * @method     ChildOptionsCi findOneByCitboptnfreqavail(string $CitbOptnFreqAvail) Return the first ChildOptionsCi filtered by the CitbOptnFreqAvail column
  * @method     ChildOptionsCi findOneByCitboptncredavail(string $CitbOptnCredAvail) Return the first ChildOptionsCi filtered by the CitbOptnCredAvail column
  * @method     ChildOptionsCi findOneByCitboptncstkavail(string $CitbOptnCstkAvail) Return the first ChildOptionsCi filtered by the CitbOptnCstkAvail column
  * @method     ChildOptionsCi findOneByCitboptnpricavail(string $CitbOptnPricAvail) Return the first ChildOptionsCi filtered by the CitbOptnPricAvail column
@@ -103,7 +103,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsCi requireOneByCitboptnnoteavail(string $CitbOptnNoteAvail) Return the first ChildOptionsCi filtered by the CitbOptnNoteAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsCi requireOneByCitboptngenavail(string $CitbOptnGenAvail) Return the first ChildOptionsCi filtered by the CitbOptnGenAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsCi requireOneByCitboptnpayavail(string $CitbOptnPayAvail) Return the first ChildOptionsCi filtered by the CitbOptnPayAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildOptionsCi requireOneByCitboptncoreavail(string $CitbOptnCoreAvail) Return the first ChildOptionsCi filtered by the CitbOptnCoreAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOptionsCi requireOneByCitboptnfreqavail(string $CitbOptnFreqAvail) Return the first ChildOptionsCi filtered by the CitbOptnFreqAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsCi requireOneByCitboptncredavail(string $CitbOptnCredAvail) Return the first ChildOptionsCi filtered by the CitbOptnCredAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsCi requireOneByCitboptncstkavail(string $CitbOptnCstkAvail) Return the first ChildOptionsCi filtered by the CitbOptnCstkAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsCi requireOneByCitboptnpricavail(string $CitbOptnPricAvail) Return the first ChildOptionsCi filtered by the CitbOptnPricAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -126,7 +126,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnnoteavail(string $CitbOptnNoteAvail) Return ChildOptionsCi objects filtered by the CitbOptnNoteAvail column
  * @method     ChildOptionsCi[]|ObjectCollection findByCitboptngenavail(string $CitbOptnGenAvail) Return ChildOptionsCi objects filtered by the CitbOptnGenAvail column
  * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnpayavail(string $CitbOptnPayAvail) Return ChildOptionsCi objects filtered by the CitbOptnPayAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptncoreavail(string $CitbOptnCoreAvail) Return ChildOptionsCi objects filtered by the CitbOptnCoreAvail column
+ * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnfreqavail(string $CitbOptnFreqAvail) Return ChildOptionsCi objects filtered by the CitbOptnFreqAvail column
  * @method     ChildOptionsCi[]|ObjectCollection findByCitboptncredavail(string $CitbOptnCredAvail) Return ChildOptionsCi objects filtered by the CitbOptnCredAvail column
  * @method     ChildOptionsCi[]|ObjectCollection findByCitboptncstkavail(string $CitbOptnCstkAvail) Return ChildOptionsCi objects filtered by the CitbOptnCstkAvail column
  * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnpricavail(string $CitbOptnPricAvail) Return ChildOptionsCi objects filtered by the CitbOptnPricAvail column
@@ -241,7 +241,7 @@ abstract class OptionsCiQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT CitbOptnCode, CitbOptnNoteAvail, CitbOptnGenAvail, CitbOptnPayAvail, CitbOptnCoreAvail, CitbOptnCredAvail, CitbOptnCstkAvail, CitbOptnPricAvail, CitbOptnStndAvail, CitbOptnSoAvail, CitbOptnQuotAvail, CitbOptnOpenAvail, CitbOptnPoAvail, CitbOptnPoDaysBack, CitbOptnPoStrtDate, CitbOptnShAvail, CitbOptnShDaysBack, CitbOptnShStrtDate, DateUpdtd, TimeUpdtd, dummy FROM ci_options WHERE CitbOptnCode = :p0';
+        $sql = 'SELECT CitbOptnCode, CitbOptnNoteAvail, CitbOptnGenAvail, CitbOptnPayAvail, CitbOptnFreqAvail, CitbOptnCredAvail, CitbOptnCstkAvail, CitbOptnPricAvail, CitbOptnStndAvail, CitbOptnSoAvail, CitbOptnQuotAvail, CitbOptnOpenAvail, CitbOptnPoAvail, CitbOptnPoDaysBack, CitbOptnPoStrtDate, CitbOptnShAvail, CitbOptnShDaysBack, CitbOptnShStrtDate, DateUpdtd, TimeUpdtd, dummy FROM ci_options WHERE CitbOptnCode = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -432,28 +432,28 @@ abstract class OptionsCiQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the CitbOptnCoreAvail column
+     * Filter the query on the CitbOptnFreqAvail column
      *
      * Example usage:
      * <code>
-     * $query->filterByCitboptncoreavail('fooValue');   // WHERE CitbOptnCoreAvail = 'fooValue'
-     * $query->filterByCitboptncoreavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnCoreAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnfreqavail('fooValue');   // WHERE CitbOptnFreqAvail = 'fooValue'
+     * $query->filterByCitboptnfreqavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnFreqAvail LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $citboptncoreavail The value to use as filter.
+     * @param     string $citboptnfreqavail The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildOptionsCiQuery The current query, for fluid interface
      */
-    public function filterByCitboptncoreavail($citboptncoreavail = null, $comparison = null)
+    public function filterByCitboptnfreqavail($citboptnfreqavail = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($citboptncoreavail)) {
+            if (is_array($citboptnfreqavail)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCOREAVAIL, $citboptncoreavail, $comparison);
+        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNFREQAVAIL, $citboptnfreqavail, $comparison);
     }
 
     /**
