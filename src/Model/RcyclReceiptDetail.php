@@ -17,6 +17,7 @@ use UnitofMeasureSale as Uom;
  * 
  * @property string   $rtype
  * @property int      $rnbr
+ * @property int      $rkey2
  * @property int      $linenbr
  * @property string   $itemid
  * @property string   $uomcode
@@ -40,6 +41,7 @@ class RcyclReceiptDetail extends BaseRcyclReceiptDetail {
     const COLUMN_ALIASES = [
         'rtype'        => 'rcyhdrcptbulk',
         'rnbr'         => 'rcyhdcntrlnbr',
+        'rkey2'        => 'rcyhdbulkseq',
         'linenbr'      => 'rcydtrcptline',
         'itemid'       => 'inititemnbr',
         'uomcode'      => 'intbuomsale',

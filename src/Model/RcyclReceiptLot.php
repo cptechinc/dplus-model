@@ -17,6 +17,7 @@ use RcyclReceipt as Receipt;
  * 
  * @property string   $rtype
  * @property int      $rnbr
+ * @property int      $rkey2
  * @property int      $linenbr
  * @property string   $itemid
  * @property string   $lotserial

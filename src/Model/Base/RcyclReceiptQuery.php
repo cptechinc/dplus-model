@@ -22,6 +22,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildRcyclReceiptQuery orderByRcyhdrcptbulk($order = Criteria::ASC) Order by the RcyhdRcptBulk column
  * @method     ChildRcyclReceiptQuery orderByRcyhdcntrlnbr($order = Criteria::ASC) Order by the RcyhdCntrlNbr column
+ * @method     ChildRcyclReceiptQuery orderByRcyhdbulkseq($order = Criteria::ASC) Order by the RcyhdBulkSeq column
  * @method     ChildRcyclReceiptQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildRcyclReceiptQuery orderByArtbgenrid($order = Criteria::ASC) Order by the ArtbGenrId column
  * @method     ChildRcyclReceiptQuery orderByRcyhdbolnbr($order = Criteria::ASC) Order by the RcyhdBolNbr column
@@ -41,6 +42,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildRcyclReceiptQuery groupByRcyhdrcptbulk() Group by the RcyhdRcptBulk column
  * @method     ChildRcyclReceiptQuery groupByRcyhdcntrlnbr() Group by the RcyhdCntrlNbr column
+ * @method     ChildRcyclReceiptQuery groupByRcyhdbulkseq() Group by the RcyhdBulkSeq column
  * @method     ChildRcyclReceiptQuery groupByArcucustid() Group by the ArcuCustId column
  * @method     ChildRcyclReceiptQuery groupByArtbgenrid() Group by the ArtbGenrId column
  * @method     ChildRcyclReceiptQuery groupByRcyhdbolnbr() Group by the RcyhdBolNbr column
@@ -113,6 +115,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildRcyclReceipt findOneByRcyhdrcptbulk(string $RcyhdRcptBulk) Return the first ChildRcyclReceipt filtered by the RcyhdRcptBulk column
  * @method     ChildRcyclReceipt findOneByRcyhdcntrlnbr(int $RcyhdCntrlNbr) Return the first ChildRcyclReceipt filtered by the RcyhdCntrlNbr column
+ * @method     ChildRcyclReceipt findOneByRcyhdbulkseq(int $RcyhdBulkSeq) Return the first ChildRcyclReceipt filtered by the RcyhdBulkSeq column
  * @method     ChildRcyclReceipt findOneByArcucustid(string $ArcuCustId) Return the first ChildRcyclReceipt filtered by the ArcuCustId column
  * @method     ChildRcyclReceipt findOneByArtbgenrid(string $ArtbGenrId) Return the first ChildRcyclReceipt filtered by the ArtbGenrId column
  * @method     ChildRcyclReceipt findOneByRcyhdbolnbr(string $RcyhdBolNbr) Return the first ChildRcyclReceipt filtered by the RcyhdBolNbr column
@@ -135,6 +138,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildRcyclReceipt requireOneByRcyhdrcptbulk(string $RcyhdRcptBulk) Return the first ChildRcyclReceipt filtered by the RcyhdRcptBulk column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceipt requireOneByRcyhdcntrlnbr(int $RcyhdCntrlNbr) Return the first ChildRcyclReceipt filtered by the RcyhdCntrlNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildRcyclReceipt requireOneByRcyhdbulkseq(int $RcyhdBulkSeq) Return the first ChildRcyclReceipt filtered by the RcyhdBulkSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceipt requireOneByArcucustid(string $ArcuCustId) Return the first ChildRcyclReceipt filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceipt requireOneByArtbgenrid(string $ArtbGenrId) Return the first ChildRcyclReceipt filtered by the ArtbGenrId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceipt requireOneByRcyhdbolnbr(string $RcyhdBolNbr) Return the first ChildRcyclReceipt filtered by the RcyhdBolNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -155,6 +159,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceipt[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildRcyclReceipt objects based on current ModelCriteria
  * @method     ChildRcyclReceipt[]|ObjectCollection findByRcyhdrcptbulk(string $RcyhdRcptBulk) Return ChildRcyclReceipt objects filtered by the RcyhdRcptBulk column
  * @method     ChildRcyclReceipt[]|ObjectCollection findByRcyhdcntrlnbr(int $RcyhdCntrlNbr) Return ChildRcyclReceipt objects filtered by the RcyhdCntrlNbr column
+ * @method     ChildRcyclReceipt[]|ObjectCollection findByRcyhdbulkseq(int $RcyhdBulkSeq) Return ChildRcyclReceipt objects filtered by the RcyhdBulkSeq column
  * @method     ChildRcyclReceipt[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildRcyclReceipt objects filtered by the ArcuCustId column
  * @method     ChildRcyclReceipt[]|ObjectCollection findByArtbgenrid(string $ArtbGenrId) Return ChildRcyclReceipt objects filtered by the ArtbGenrId column
  * @method     ChildRcyclReceipt[]|ObjectCollection findByRcyhdbolnbr(string $RcyhdBolNbr) Return ChildRcyclReceipt objects filtered by the RcyhdBolNbr column
@@ -220,10 +225,10 @@ abstract class RcyclReceiptQuery extends ModelCriteria
      * Go fast if the query is untouched.
      *
      * <code>
-     * $obj = $c->findPk(array(12, 34), $con);
+     * $obj = $c->findPk(array(12, 34, 56), $con);
      * </code>
      *
-     * @param array[$RcyhdRcptBulk, $RcyhdCntrlNbr] $key Primary key to use for the query
+     * @param array[$RcyhdRcptBulk, $RcyhdCntrlNbr, $RcyhdBulkSeq] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
      * @return ChildRcyclReceipt|array|mixed the result, formatted by the current formatter
@@ -248,7 +253,7 @@ abstract class RcyclReceiptQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = RcyclReceiptTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]))))) {
+        if ((null !== ($obj = RcyclReceiptTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -269,11 +274,12 @@ abstract class RcyclReceiptQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT RcyhdRcptBulk, RcyhdCntrlNbr, ArcuCustId, ArtbGenrId, RcyhdBolNbr, RcyhdRcptDate, RcyhdStatus, RcyhdEnteredBy, RcyhdEnteredDate, RcyhdEnteredTime, RcyhdClosedBy, RcyhdClosedDate, RcyhdClosedTime, RcyhdWhse, RcyhdPcId, DateUpdtd, TimeUpdtd, dummy FROM rcycl_head WHERE RcyhdRcptBulk = :p0 AND RcyhdCntrlNbr = :p1';
+        $sql = 'SELECT RcyhdRcptBulk, RcyhdCntrlNbr, RcyhdBulkSeq, ArcuCustId, ArtbGenrId, RcyhdBolNbr, RcyhdRcptDate, RcyhdStatus, RcyhdEnteredBy, RcyhdEnteredDate, RcyhdEnteredTime, RcyhdClosedBy, RcyhdClosedDate, RcyhdClosedTime, RcyhdWhse, RcyhdPcId, DateUpdtd, TimeUpdtd, dummy FROM rcycl_head WHERE RcyhdRcptBulk = :p0 AND RcyhdCntrlNbr = :p1 AND RcyhdBulkSeq = :p2';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
             $stmt->bindValue(':p1', $key[1], PDO::PARAM_INT);
+            $stmt->bindValue(':p2', $key[2], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             Propel::log($e->getMessage(), Propel::LOG_ERR);
@@ -284,7 +290,7 @@ abstract class RcyclReceiptQuery extends ModelCriteria
             /** @var ChildRcyclReceipt $obj */
             $obj = new ChildRcyclReceipt();
             $obj->hydrate($row);
-            RcyclReceiptTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
+            RcyclReceiptTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
         }
         $stmt->closeCursor();
 
@@ -345,6 +351,7 @@ abstract class RcyclReceiptQuery extends ModelCriteria
     {
         $this->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDRCPTBULK, $key[0], Criteria::EQUAL);
         $this->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDCNTRLNBR, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDBULKSEQ, $key[2], Criteria::EQUAL);
 
         return $this;
     }
@@ -365,6 +372,8 @@ abstract class RcyclReceiptQuery extends ModelCriteria
             $cton0 = $this->getNewCriterion(RcyclReceiptTableMap::COL_RCYHDRCPTBULK, $key[0], Criteria::EQUAL);
             $cton1 = $this->getNewCriterion(RcyclReceiptTableMap::COL_RCYHDCNTRLNBR, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
+            $cton2 = $this->getNewCriterion(RcyclReceiptTableMap::COL_RCYHDBULKSEQ, $key[2], Criteria::EQUAL);
+            $cton0->addAnd($cton2);
             $this->addOr($cton0);
         }
 
@@ -435,6 +444,47 @@ abstract class RcyclReceiptQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDCNTRLNBR, $rcyhdcntrlnbr, $comparison);
+    }
+
+    /**
+     * Filter the query on the RcyhdBulkSeq column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByRcyhdbulkseq(1234); // WHERE RcyhdBulkSeq = 1234
+     * $query->filterByRcyhdbulkseq(array(12, 34)); // WHERE RcyhdBulkSeq IN (12, 34)
+     * $query->filterByRcyhdbulkseq(array('min' => 12)); // WHERE RcyhdBulkSeq > 12
+     * </code>
+     *
+     * @param     mixed $rcyhdbulkseq The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildRcyclReceiptQuery The current query, for fluid interface
+     */
+    public function filterByRcyhdbulkseq($rcyhdbulkseq = null, $comparison = null)
+    {
+        if (is_array($rcyhdbulkseq)) {
+            $useMinMax = false;
+            if (isset($rcyhdbulkseq['min'])) {
+                $this->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDBULKSEQ, $rcyhdbulkseq['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($rcyhdbulkseq['max'])) {
+                $this->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDBULKSEQ, $rcyhdbulkseq['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDBULKSEQ, $rcyhdbulkseq, $comparison);
     }
 
     /**
@@ -1003,8 +1053,9 @@ abstract class RcyclReceiptQuery extends ModelCriteria
     {
         if ($rcyclReceiptDetail instanceof \RcyclReceiptDetail) {
             return $this
+                ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDRCPTBULK, $rcyclReceiptDetail->getRcyhdrcptbulk(), $comparison)
                 ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDCNTRLNBR, $rcyclReceiptDetail->getRcyhdcntrlnbr(), $comparison)
-                ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDRCPTBULK, $rcyclReceiptDetail->getRcyhdrcptbulk(), $comparison);
+                ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDBULKSEQ, $rcyclReceiptDetail->getRcyhdbulkseq(), $comparison);
         } else {
             throw new PropelException('filterByRcyclReceiptDetail() only accepts arguments of type \RcyclReceiptDetail');
         }
@@ -1072,8 +1123,9 @@ abstract class RcyclReceiptQuery extends ModelCriteria
     {
         if ($rcyclReceiptLot instanceof \RcyclReceiptLot) {
             return $this
+                ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDRCPTBULK, $rcyclReceiptLot->getRcyhdrcptbulk(), $comparison)
                 ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDCNTRLNBR, $rcyclReceiptLot->getRcyhdcntrlnbr(), $comparison)
-                ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDRCPTBULK, $rcyclReceiptLot->getRcyhdrcptbulk(), $comparison);
+                ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDBULKSEQ, $rcyclReceiptLot->getRcyhdbulkseq(), $comparison);
         } else {
             throw new PropelException('filterByRcyclReceiptLot() only accepts arguments of type \RcyclReceiptLot');
         }
@@ -1141,7 +1193,8 @@ abstract class RcyclReceiptQuery extends ModelCriteria
         if ($rcyclReceipt) {
             $this->addCond('pruneCond0', $this->getAliasedColName(RcyclReceiptTableMap::COL_RCYHDRCPTBULK), $rcyclReceipt->getRcyhdrcptbulk(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(RcyclReceiptTableMap::COL_RCYHDCNTRLNBR), $rcyclReceipt->getRcyhdcntrlnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->addCond('pruneCond2', $this->getAliasedColName(RcyclReceiptTableMap::COL_RCYHDBULKSEQ), $rcyclReceipt->getRcyhdbulkseq(), Criteria::NOT_EQUAL);
+            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
         }
 
         return $this;

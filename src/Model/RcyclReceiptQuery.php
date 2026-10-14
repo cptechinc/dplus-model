@@ -34,6 +34,17 @@ class RcyclReceiptQuery extends BaseRcyclReceiptQuery {
         return $this->filterByRcyhdcntrlnbr($rnbr, $comparison);
     }
 
+    /**
+     * Filter the query on the Rcyhdbulkseq column
+     * @param  mixed   $rkey2        The value to use as filter.
+     * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @return self                 The current query, for fluid interface
+     */
+    public function filterByRkey2($rkey2 = null, $comparison = null) : RcyclReceiptQuery
+    {
+        return $this->filterByRcyhdbulkseq($rkey2, $comparison);
+    }
+
     public function filterByRtype($rtype = null, $comparison = null) : RcyclReceiptQuery
     {
         return $this->filterByRcyhdrcptbulk($rtype, $comparison);

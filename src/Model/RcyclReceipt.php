@@ -14,6 +14,7 @@ use RcyclGenerator as Generator;
  * 
  * @property string    $rtype
  * @property int       $rnbr
+ * @property int       $rkey2
  * @property string    $generatorid
  * @property string    $pcid
  * @property string    $custid
@@ -40,6 +41,7 @@ class RcyclReceipt extends BaseRcyclReceipt {
 	const COLUMN_ALIASES = [
         'rtype'        => 'rcyhdrcptbulk',
         'rnbr'         => 'rcyhdcntrlnbr',
+        'rkey2'        => 'rcyhdbulkseq',
         'generatorid'  => 'artbgenrid',
         'pcid'         => 'rcyhdpcid',
 		'custid'       => 'arcucustid',
