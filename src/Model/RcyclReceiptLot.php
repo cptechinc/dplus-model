@@ -43,6 +43,7 @@ class RcyclReceiptLot extends BaseRcyclReceiptLot {
     const COLUMN_ALIASES = [
         'rtype'        => 'rcyhdrcptbulk',
         'rnbr'         => 'rcyhdcntrlnbr',
+        'rkey2'        => 'rcyhdbulkseq',
         'whseid'       => 'rcysdwhse',
         'binid'        => 'rcysdbin',
         'linenbr'      => 'rcydtrcptline',
@@ -75,7 +76,7 @@ class RcyclReceiptLot extends BaseRcyclReceiptLot {
     public function getRcyclReceiptDetail(ConnectionInterface $con = null)
     {
         if ($this->aRcyclReceiptDetail === null && ($this->rcyhdcntrlnbr != 0 && ($this->rcyhdrcptbulk !== "" && $this->rcyhdrcptbulk !== null) && ($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
-            $this->aRcyclReceiptDetail = RcyclReceiptDetailQuery::create()->findPk(array($this->rcyhdrcptbulk, $this->rcyhdcntrlnbr, $this->rcydtrcptline, $this->inititemnbr), $con);
+            $this->aRcyclReceiptDetail = RcyclReceiptDetailQuery::create()->findPk(array($this->rcyhdrcptbulk, $this->rcyhdcntrlnbr, $this->rcyhdbulkseq, $this->rcydtrcptline, $this->inititemnbr), $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
